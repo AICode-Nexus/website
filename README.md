@@ -35,6 +35,12 @@ npm run start
 2. 在仓库 `Settings -> Pages` 选择 `GitHub Actions`
 3. 查看 Actions 中 `Deploy Docusaurus to GitHub Pages` 工作流
 
+## 版本记录
+
+- 版本与发布记录维护在 [CHANGELOG.md](./CHANGELOG.md)
+- 发版本前先更新 `Unreleased`，再切出对应版本小节
+- 发布前至少执行一次 `npm run build`
+
 ## 目录说明
 
 - `docs/`: 知识库与站点维护文档

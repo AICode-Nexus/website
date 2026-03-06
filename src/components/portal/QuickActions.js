@@ -1,23 +1,25 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import {quickActions} from '@site/src/utils/docsCatalog';
+import {portalContent} from '@site/src/data/portalContent';
+import SectionBlock from './SectionBlock';
+import LinkTile from './LinkTile';
+
+const {quickActions} = portalContent;
 
 export default function QuickActions() {
   return (
-    <section className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.sectionKicker}>Quick Start</p>
-        <h2>我现在最想解决什么</h2>
-      </div>
+    <SectionBlock kicker={quickActions.kicker} title={quickActions.title}>
       <div className={styles.quickGrid}>
-        {quickActions.map((item) => (
-          <Link key={item.title} className={styles.quickCard} to={item.href}>
-            <strong>{item.title}</strong>
-            <p>{item.description}</p>
-          </Link>
+        {quickActions.items.map((item) => (
+          <LinkTile
+            key={item.id}
+            className={styles.quickCard}
+            description={item.description}
+            href={item.href}
+            title={item.title}
+          />
         ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }

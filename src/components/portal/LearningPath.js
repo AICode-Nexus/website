@@ -1,27 +1,27 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import {learningPath} from '@site/src/utils/docsCatalog';
+import {portalContent} from '@site/src/data/portalContent';
+import ContentCard from './ContentCard';
+import SectionBlock from './SectionBlock';
+
+const {learningPath} = portalContent;
 
 export default function LearningPath() {
   return (
-    <section className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.sectionKicker}>Learning Path</p>
-        <h2>个人工程师 7 天起步路线</h2>
-      </div>
+    <SectionBlock kicker={learningPath.kicker} title={learningPath.title}>
       <div className={styles.pathGrid}>
-        {learningPath.map((item) => (
-          <article className={styles.pathCard} key={item.day}>
-            <p className={styles.cardBadge}>{item.day}</p>
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
-            <Link className={styles.cardLink} to={item.href}>
-              查看步骤
-            </Link>
-          </article>
+        {learningPath.items.map((item) => (
+          <ContentCard
+            key={item.id}
+            badge={item.badge}
+            className={styles.pathCard}
+            description={item.description}
+            href={item.href}
+            linkLabel={item.linkLabel}
+            title={item.title}
+          />
         ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }

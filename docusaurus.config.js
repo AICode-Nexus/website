@@ -8,6 +8,7 @@ const isUserSite = projectName === `${organizationName}.github.io`;
 const config = {
   title: 'AICode-Nexus',
   tagline: 'AI coding 知识地图、每日观察与团队落地手册',
+  favicon: 'img/favicon.svg',
   url: `https://${organizationName}.github.io`,
   baseUrl: process.env.NODE_ENV === 'production'
     ? (isUserSite ? '/' : `/${projectName}/`)
@@ -89,6 +90,10 @@ const config = {
   themeConfig: {
     navbar: {
       title: 'AICode-Nexus',
+      logo: {
+        alt: 'AICode-Nexus logo',
+        src: 'img/logo-mark.svg'
+      },
       items: [
         {
           to: '/',

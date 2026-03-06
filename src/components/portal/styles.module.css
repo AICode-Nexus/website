@@ -21,11 +21,14 @@
 .heroCopy,
 .section,
 .sectionHeader,
+.brandMeta,
+.contentCard,
 .trackCard,
 .toolCard,
 .pathCard,
 .briefCard,
 .quickCard,
+.linkTile,
 .featureCard,
 .featureColumn,
 .usagePanel {
@@ -45,6 +48,42 @@
   color: #92400e;
 }
 
+.brandLockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-self: start;
+  padding: 0.45rem 0.7rem 0.45rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.brandMark {
+  display: block;
+  width: 44px;
+  height: 44px;
+}
+
+.brandMeta strong,
+.brandMeta span {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.brandMeta strong {
+  color: #0f172a;
+  font-size: 0.98rem;
+}
+
+.brandMeta span {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #0f4c5c;
+}
+
 .heroTitle {
   margin: 0;
   max-width: 14ch;
@@ -55,11 +94,13 @@
 
 .heroLead,
 .sectionHeader p,
+.contentCard p,
 .toolCard p,
 .trackCard p,
 .pathCard p,
 .briefCard p,
 .quickCard p,
+.linkTile p,
 .featureCard p,
 .usagePanel p {
   margin: 0;
@@ -77,6 +118,7 @@
 .secondaryAction,
 .cardLink,
 .quickCard,
+.linkTile,
 .featureCard {
   text-decoration: none;
 }
@@ -117,6 +159,7 @@
 .secondaryAction:hover,
 .cardLink:hover,
 .quickCard:hover,
+.linkTile:hover,
 .featureCard:hover {
   transform: translateY(-1px);
   text-decoration: none;
@@ -175,11 +218,13 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.contentCard,
 .toolCard,
 .trackCard,
 .pathCard,
 .briefCard,
 .quickCard,
+.linkTile,
 .featureCard,
 .featureColumn,
 .usagePanel {
@@ -189,7 +234,9 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
 }
 
+.contentCard h3,
 .quickCard strong,
+.linkTile strong,
 .toolCard h3,
 .trackCard h3,
 .pathCard h3,

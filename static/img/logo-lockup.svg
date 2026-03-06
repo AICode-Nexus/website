@@ -1,0 +1,23 @@
+<svg width="640" height="180" viewBox="0 0 640 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lockupTitle lockupDesc">
+  <title id="lockupTitle">AICode-Nexus lockup</title>
+  <desc id="lockupDesc">AICode-Nexus wordmark with the geometric brand mark on the left.</desc>
+  <defs>
+    <linearGradient id="lockupFrame" x1="20" y1="22" x2="150" y2="152" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#0F4C5C"/>
+    </linearGradient>
+    <linearGradient id="lockupStroke" x1="54" y1="44" x2="132" y2="134" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="0.55" stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#0F4C5C"/>
+    </linearGradient>
+  </defs>
+  <path d="M52 18H120L154 52V120L120 154H52L18 120V52L52 18Z" fill="url(#lockupFrame)" fill-opacity="0.08" stroke="url(#lockupFrame)" stroke-width="8"/>
+  <path d="M56 123L86 42L116 123" stroke="url(#lockupStroke)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M69 91H103" stroke="#10212A" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="86" cy="91" r="8" fill="#0F766E" stroke="#ECFEFF" stroke-width="3"/>
+  <path d="M114 57L128 43" stroke="#F59E0B" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="132" cy="39" r="7" fill="#F59E0B"/>
+  <text x="192" y="82" fill="#10212A" font-family="Avenir Next, Segoe UI Variable, Trebuchet MS, sans-serif" font-size="42" font-weight="700" letter-spacing="0.02em">AICode-Nexus</text>
+  <text x="192" y="116" fill="#0F4C5C" font-family="IBM Plex Mono, SFMono-Regular, Consolas, monospace" font-size="18" letter-spacing="0.18em">AI CODING PORTAL</text>
+</svg>

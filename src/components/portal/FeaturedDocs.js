@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import {featuredDocs} from '@site/src/utils/docsCatalog';
+import {portalContent} from '@site/src/data/portalContent';
+import SectionBlock from './SectionBlock';
 
-function Column({title, items}) {
+const {featuredDocs} = portalContent;
+
+function FeaturedColumn({title, items}) {
   return (
     <div className={styles.featureColumn}>
       <div className={styles.featureColumnHeader}>
@@ -11,7 +14,7 @@ function Column({title, items}) {
       </div>
       <div className={styles.featureColumnBody}>
         {items.map((item) => (
-          <Link className={styles.featureCard} key={item.title} to={item.href}>
+          <Link className={styles.featureCard} key={item.id} to={item.href}>
             <strong>{item.title}</strong>
             <p>{item.description}</p>
           </Link>
@@ -23,15 +26,12 @@ function Column({title, items}) {
 
 export default function FeaturedDocs() {
   return (
-    <section className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.sectionKicker}>Featured</p>
-        <h2>热门对比与可执行 Playbooks</h2>
-      </div>
+    <SectionBlock kicker={featuredDocs.kicker} title={featuredDocs.title}>
       <div className={styles.featureGrid}>
-        <Column title="热门对比" items={featuredDocs.comparisons} />
-        <Column title="可立即执行的 Playbooks" items={featuredDocs.playbooks} />
+        {featuredDocs.columns.map((column) => (
+          <FeaturedColumn key={column.id} items={column.items} title={column.title} />
+        ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }

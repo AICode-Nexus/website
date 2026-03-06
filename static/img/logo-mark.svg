@@ -1,0 +1,21 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">AICode-Nexus logo</title>
+  <desc id="logoDesc">A geometric A-shaped mark with a nexus node, using teal and amber gradients.</desc>
+  <defs>
+    <linearGradient id="frameGradient" x1="36" y1="40" x2="220" y2="216" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#0F4C5C"/>
+    </linearGradient>
+    <linearGradient id="strokeGradient" x1="72" y1="64" x2="182" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="0.55" stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#0F4C5C"/>
+    </linearGradient>
+  </defs>
+  <path d="M80 28H176L228 80V176L176 228H80L28 176V80L80 28Z" fill="url(#frameGradient)" fill-opacity="0.08" stroke="url(#frameGradient)" stroke-width="12"/>
+  <path d="M84 186L128 66L172 186" stroke="url(#strokeGradient)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M103 139H153" stroke="#10212A" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="128" cy="139" r="11" fill="#0F766E" stroke="#ECFEFF" stroke-width="4"/>
+  <path d="M171 90L191 70" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="197" cy="64" r="10" fill="#F59E0B"/>
+</svg>

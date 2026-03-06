@@ -1,27 +1,27 @@
 import React from 'react';
-import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import {featuredBriefs} from '@site/src/data/featuredBriefs';
+import {portalContent} from '@site/src/data/portalContent';
+import ContentCard from './ContentCard';
+import SectionBlock from './SectionBlock';
+
+const {latestBriefs} = portalContent;
 
 export default function LatestBriefs() {
   return (
-    <section className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <p className={styles.sectionKicker}>Daily Brief</p>
-        <h2>最近值得看的 3 条观察</h2>
-      </div>
+    <SectionBlock kicker={latestBriefs.kicker} title={latestBriefs.title}>
       <div className={styles.briefGrid}>
-        {featuredBriefs.map((brief) => (
-          <article className={styles.briefCard} key={brief.href}>
-            <p className={styles.cardBadge}>{brief.date}</p>
-            <h3>{brief.title}</h3>
-            <p>{brief.summary}</p>
-            <Link className={styles.cardLink} to={brief.href}>
-              阅读日报
-            </Link>
-          </article>
+        {latestBriefs.items.map((brief) => (
+          <ContentCard
+            key={brief.id}
+            badge={brief.badge}
+            className={styles.briefCard}
+            description={brief.description}
+            href={brief.href}
+            linkLabel={brief.linkLabel}
+            title={brief.title}
+          />
         ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }
