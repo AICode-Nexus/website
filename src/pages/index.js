@@ -9,12 +9,13 @@ import FeaturedDocs from '@site/src/components/portal/FeaturedDocs';
 import LatestBriefs from '@site/src/components/portal/LatestBriefs';
 import HowToUseSite from '@site/src/components/portal/HowToUseSite';
 import styles from '@site/src/components/portal/styles.module.css';
+import {portalContent} from '@site/src/data/portalContent';
 
 export default function HomePage() {
   return (
     <Layout
-      title="AICode-Nexus 门户"
-      description="帮助个人工程师选工具、学 workflow、跟趋势的 AI coding 门户站。"
+      title={portalContent.meta.title}
+      description={portalContent.meta.description}
     >
       <main className="container">
         <div className={styles.page}>
