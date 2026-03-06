@@ -1,0 +1,186 @@
+{
+  "title": "AI Code 教学视频库",
+  "description": "优先收录 B 站公开视频，并把标题、UP 主、发布时间、链接、标签和摘要固化为站内稳定元数据。",
+  "generatedAt": "2026-03-06T10:05:48.545Z",
+  "generator": {
+    "script": "scripts/sync-teaching-videos.mjs",
+    "strategy": "bilibili-public-video-page"
+  },
+  "sources": [
+    {
+      "id": "bilibili-public-video",
+      "title": "Bilibili 公开视频详情页",
+      "description": "以单视频详情页公开元数据为主源，自动抓取标题、UP 主、发布时间与 canonical 链接，避免依赖搜索排序页或未公开接口。"
+    },
+    {
+      "id": "bilibili-public-series",
+      "title": "Bilibili 公开合集/系列页",
+      "description": "当视频属于系列课程时，补充识别公开页面里的合集上下文与集数信息，帮助站内后续做专题页或按工具聚合。"
+    }
+  ],
+  "items": [
+    {
+      "id": "github-copilot-intro-reactor",
+      "platform": "Bilibili",
+      "title": "Github Copilot 使用技巧系列 一｜GitHub Copilot 入门",
+      "creator": "微软Reactor",
+      "publishedAt": "2024-12-30",
+      "href": "https://www.bilibili.com/video/BV1LZ6eYYEK6/",
+      "tags": [
+        "GitHub Copilot",
+        "入门",
+        "系列课"
+      ],
+      "summary": "适合作为 Copilot 入门起点，覆盖免费版上手、VS Code 集成与基础交互方式，适合建立平台级认知。",
+      "sourceId": "bilibili-public-series",
+      "sourceNote": "公开视频详情页与系列课目录页均可公开访问。",
+      "thumbnailUrl": "https://i1.hdslb.com/bfs/archive/dffd7a24d0b9dc7037b739326147a6ba822c6abd.jpg",
+      "scrapedDescription": "Github Copilot 使用技巧系列 一｜GitHub Copilot 入门 GitHub Copilot Free 现已正式推出！微软高级云技术布道师卢建晖带来 GitHub Copilot 使用技巧系列视频，带大家轻松上手免费使用 Github Copilot 高效编码。 GitHub Copilot 已自动集成到 VS Code 中，只需使用个人 GitHub 账户登录即可享受每月 2,000 次代码补全 和 50 条聊天消息 的免费额度。 马上开始使用 GitHub Copilot Free：https://aka.ms/CopilotFree_R",
+      "keywords": [
+        "2024科技年度盘点",
+        "教程",
+        "科技猎手",
+        "人工智能",
+        "使用技巧",
+        "AI",
+        "Copilot",
+        "GitHub",
+        "GitHub Copilot"
+      ]
+    },
+    {
+      "id": "github-copilot-devops-reactor",
+      "platform": "Bilibili",
+      "title": "GitHub Copilot 使用技巧 - DevOps",
+      "creator": "微软Reactor",
+      "publishedAt": "2025-01-23",
+      "href": "https://www.bilibili.com/video/BV17Xf7YqEhL/",
+      "tags": [
+        "GitHub Copilot",
+        "DevOps",
+        "工作流"
+      ],
+      "summary": "偏进阶，展示 Copilot 如何进入真实交付链路，适合补齐从代码生成到 DevOps 场景的流程理解。",
+      "sourceId": "bilibili-public-video",
+      "thumbnailUrl": "https://i2.hdslb.com/bfs/archive/519c501b9cc6f293ee97794009bb6b9bc21c49e7.jpg",
+      "scrapedDescription": "GitHub Copilot 使用技巧 - DevOps GitHub Copilot 全新免费版本 GitHub Copilot Free 现已正式推出！只需使用个人 GitHub 账户登录，即可享受每月 2,000 次代码补全和 50 条聊天消息的免费额度，同时还支持 Claude 3.5 等最新模型，自此，开发人员/非开发人员均可以使用 GitHub Copilot 零成本进入 AI 编程时代。 在数字化转型不断推动的今天，通过 DevOps 实现更快、更稳定、更高性能的交付已成为现代应用开发实践的核心。GitHub 有着非常强大的 DevOps 功能，GitHub Copilot 使用技巧 系列分享第三期，我们将使用 GitHub Copilot 结合 DevOps 来完成一个实际生产中的应用场景。 马上开始使用 GitHub Copilot Free：https://aka.ms/CopilotFree_R 分享嘉宾： 卢建晖 Kinfey Lo - 微软高级云技术布道师",
+      "keywords": [
+        "2024科技年度盘点",
+        "编程",
+        "编程开发",
+        "科技猎手",
+        "人工智能",
+        "学习",
+        "AI",
+        "Copilot",
+        "DevOps",
+        "GitHub Copilot"
+      ]
+    },
+    {
+      "id": "cursor-full-course-siki",
+      "platform": "Bilibili",
+      "title": "Cursor-AI编程完整版入门教程",
+      "creator": "SiKi老师",
+      "publishedAt": "2025-04-22",
+      "href": "https://www.bilibili.com/video/BV18j5DzyEmD/",
+      "tags": [
+        "Cursor",
+        "入门到实战",
+        "Rules"
+      ],
+      "summary": "覆盖安装、基础设置、Chat/Composer、规则配置与项目实战，适合做 Cursor 的完整入门素材。",
+      "sourceId": "bilibili-public-series",
+      "sourceNote": "公开视频详情页可直接看到 18 集选集目录。",
+      "thumbnailUrl": "https://i1.hdslb.com/bfs/archive/8dda41f4a16fb1b3265b25f5406c4f69db628885.jpg",
+      "scrapedDescription": "更多编程教程请访问我们官网www.sikiedu.com Hi，我是SiKi老师，这个课程里面老师会带着大家学习使用全球目前最火的AI编程工具-Cursor的使用。 教学内容： 1、Cursor的下载和安装 2、Cursor的基本设置 3、使用Cursor开发贪吃蛇游戏 4、使用Cursor开发一个博客网站 5、Trae（字节旗下AI编程工具）的使用初体验",
+      "keywords": [
+        "AI",
+        "AI编程",
+        "ChatGPT",
+        "Claude3.7",
+        "Cursor",
+        "DeepSeek",
+        "Trae"
+      ],
+      "episodeCount": 18
+    },
+    {
+      "id": "openai-codex-quickstart",
+      "platform": "Bilibili",
+      "title": "OpenAI Codex 快速入门",
+      "creator": "艾伦Tech",
+      "publishedAt": "2025-05-20",
+      "href": "https://www.bilibili.com/video/BV1e4JtzTESc/",
+      "tags": [
+        "OpenAI Codex",
+        "快速入门",
+        "Agent"
+      ],
+      "summary": "用短视频形式概览 Codex 的核心定位，强调云端软件工程 Agent 的使用场景，适合首页入口级推荐。",
+      "sourceId": "bilibili-public-video",
+      "thumbnailUrl": "https://i0.hdslb.com/bfs/archive/d68983326eb87b564fb881779ebd617b15719dca.jpg",
+      "scrapedDescription": "OpenAI最近发布了一款基于云的软件工程Agent，名称为Codex。 目前已经在ChatGPT中 向Pro Enterprise以及Team用户推出，Plus和Edu用户很快也会支持。 本期视频我将用8分钟和你一起学习Codex的快速入门。",
+      "keywords": [
+        "人工智能",
+        "ai",
+        "ai编程",
+        "codex",
+        "openai",
+        "vibecoding"
+      ]
+    },
+    {
+      "id": "claude-code-beginner-guide",
+      "platform": "Bilibili",
+      "title": "最强 AI 编程工具 Claude Code 保姆级新手教程！小白友好！",
+      "creator": "AfterShip",
+      "publishedAt": "2025-07-19",
+      "href": "https://www.bilibili.com/video/BV1S8u2zDE5p/",
+      "tags": [
+        "Claude Code",
+        "新手教程",
+        "工作流"
+      ],
+      "summary": "覆盖安装、基础使用和实战感知，强调降低门槛，适合补齐 Claude Code 的普及型教学内容。",
+      "sourceId": "bilibili-public-video",
+      "thumbnailUrl": "https://i0.hdslb.com/bfs/archive/6c70c9ece79481231f2f2854003a1cbd8d96dfdf.jpg",
+      "scrapedDescription": "最近还有一款超强大的 AI 编程工具正席卷全球，很多 AI 大神都给他疯狂点赞，没错，它就是 Claude Code ！ 你可能会误以为 Claude Code 会特别难入门、只有程序员才能用，但实际上，新手小白也是可以轻松上手的，今天，我结合了很多国内外大神的视频、以及自己使用 Claude Code 长达三个月的经验，肝了三天三夜，终于连夜制作出了这期 Claude Code 的保姆级喂饭教程，视频最后我们还给大家准备了资料大礼包，一键三连我们就会发送给你哦~ 相关网址： Claude Code 网址：www.anthropic.com/claude-code Node.js：https://nodejs.org/en/download Context7：https://context7.com/",
+      "keywords": [
+        "编程工具",
+        "发现《Si Tu Vois Ma Mere》",
+        "教程",
+        "人工智能",
+        "万物研究所",
+        "AI",
+        "AI编程",
+        "AI干货",
+        "AI工具",
+        "Cursor",
+        "MCP"
+      ]
+    },
+    {
+      "id": "anthropic-claude-code-practice",
+      "platform": "Bilibili",
+      "title": "Anthropic官方教程中文（二）实操详解ClaudeCode使用",
+      "creator": "一蛙AI",
+      "publishedAt": "2025-08-22",
+      "href": "https://www.bilibili.com/video/BV1ARYZzqEjZ/",
+      "tags": [
+        "Claude Code",
+        "Anthropic",
+        "实操"
+      ],
+      "summary": "基于 Anthropic 官方课程做中文整理，重点覆盖上手实操与工具使用细节，适合作为进阶补充。",
+      "sourceId": "bilibili-public-series",
+      "thumbnailUrl": "https://i2.hdslb.com/bfs/archive/5f7f269976331d0870d0355d4975cf0bb0a117f8.jpg",
+      "scrapedDescription": "有人问能不能出入门版的cc教程，其实看Anthropic在线学院官方教程就基本可以了。 我做成中文版集合，应该是全网唯一中文讲解，方便大家快速入门，这个系列大概3节，每天出一节。 第一节《What is Claude Code》初识CC 第二节《Getting hands on》实操介绍CC（没有最新的subagents） 第三节《Hooks and the SDK》钩子和SDK",
+      "keywords": [
+        "科技数码",
+        "Claude",
+        "claudecode"
+      ]
+    }
+  ]
+}

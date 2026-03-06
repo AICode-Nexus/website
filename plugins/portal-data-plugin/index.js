@@ -4,6 +4,30 @@ const FEATURED_DOC_COLLECTIONS = [
   {id: 'insight', kind: 'insight'},
 ];
 
+const VALID_PILLARS = new Set([
+  'development-modes',
+  'workflows',
+  'tools',
+  'standards',
+  'architecture',
+]);
+
+const VALID_MARKET_STATUSES = new Set(['current', 'watch', 'legacy']);
+
+const PILLAR_LABELS = {
+  'development-modes': 'AI 开发方式',
+  workflows: 'AI 工作流',
+  tools: 'AI 编程工具',
+  standards: 'AI 规范',
+  architecture: 'AI 架构',
+};
+
+const MARKET_STATUS_LABELS = {
+  current: '当前主线',
+  watch: '持续观察',
+  legacy: '旧赛道透镜',
+};
+
 const titleCollator = new Intl.Collator('zh-CN', {
   numeric: true,
   sensitivity: 'base',
@@ -57,12 +81,70 @@ function ensureDocSummary(doc) {
   return doc.description.trim();
 }
 
+function isKnowledgeDoc(doc) {
+  return !doc.id.startsWith('site-admin/');
+}
+
+function formatDateValue(value) {
+  if (value instanceof Date && !Number.isNaN(value.valueOf())) {
+    return value.toISOString().slice(0, 10);
+  }
+
+  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return value;
+  }
+
+  return null;
+}
+
+function ensureDateField(value, fieldName, docId) {
+  const formatted = formatDateValue(value);
+
+  if (!formatted) {
+    throw new Error(
+      `Knowledge doc "${docId}" must define frontmatter.${fieldName} in YYYY-MM-DD format.`,
+    );
+  }
+
+  return formatted;
+}
+
+function validateKnowledgeDoc(doc) {
+  const frontMatter = doc.frontMatter ?? {};
+  const pillar = frontMatter.pillar;
+  const marketStatus = frontMatter.market_status;
+
+  if (!VALID_PILLARS.has(pillar)) {
+    throw new Error(
+      `Knowledge doc "${doc.id}" must define a valid frontmatter.pillar (${Array.from(
+        VALID_PILLARS,
+      ).join(', ')}).`,
+    );
+  }
+
+  ensureDateField(frontMatter.reviewed_at, 'reviewed_at', doc.id);
+  ensureDateField(frontMatter.source_window_end, 'source_window_end', doc.id);
+
+  if (!VALID_MARKET_STATUSES.has(marketStatus)) {
+    throw new Error(
+      `Knowledge doc "${doc.id}" must define a valid frontmatter.market_status (${Array.from(
+        VALID_MARKET_STATUSES,
+      ).join(', ')}).`,
+    );
+  }
+}
+
 function toFeaturedDocItem(doc) {
+  const frontMatter = doc.frontMatter ?? {};
+  const reviewedAt = ensureDateField(frontMatter.reviewed_at, 'reviewed_at', doc.id);
+
   return {
     id: doc.id.replace(/\//g, '-'),
     title: doc.title,
     description: ensureDocSummary(doc),
     href: doc.permalink,
+    meta: `${PILLAR_LABELS[frontMatter.pillar]} · 复核 ${reviewedAt}`,
+    tags: [MARKET_STATUS_LABELS[frontMatter.market_status]],
   };
 }
 
@@ -92,6 +174,10 @@ module.exports = function portalDataPlugin() {
 
       const docsVersion = getCurrentDocsVersion(docsPluginData.loadedVersions);
       const sidebarOrder = createSidebarOrderMap(docsVersion);
+      const knowledgeDocs = docsVersion.docs.filter((doc) => isKnowledgeDoc(doc) && !doc.unlisted && !doc.draft);
+
+      knowledgeDocs.forEach(validateKnowledgeDoc);
+
       const featuredDocs = FEATURED_DOC_COLLECTIONS.map((collection) => {
         const items = sortDocs(
           docsVersion.docs.filter((doc) => {

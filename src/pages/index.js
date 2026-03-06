@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import HomeHero from '@site/src/components/portal/HomeHero';
 import QuickActions from '@site/src/components/portal/QuickActions';
 import ToolMatrix from '@site/src/components/portal/ToolMatrix';
-import TrackMap from '@site/src/components/portal/TrackMap';
+import PillarMap from '@site/src/components/portal/PillarMap';
 import LearningPath from '@site/src/components/portal/LearningPath';
 import FeaturedDocs from '@site/src/components/portal/FeaturedDocs';
 import LatestBriefs from '@site/src/components/portal/LatestBriefs';
@@ -22,8 +22,8 @@ export default function HomePage() {
         <div className={styles.page}>
           <HomeHero />
           <QuickActions />
+          <PillarMap />
           <ToolMatrix />
-          <TrackMap />
           <LearningPath />
           <FeaturedDocs />
           <LatestBriefs />

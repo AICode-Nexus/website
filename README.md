@@ -29,6 +29,14 @@ npm run start
 ./skills/ai-coding-daily-writer/new-daily-brief.sh claude-code-workflow-shift
 ```
 
+## 同步教学视频数据
+
+```bash
+npm run sync:teaching-videos
+```
+
+这个命令会读取 [`src/data/teachingVideos.seed.json`](./src/data/teachingVideos.seed.json) 中的种子项，抓取 B 站公开视频详情页元数据，并生成 [`src/data/teachingVideos.generated.json`](./src/data/teachingVideos.generated.json) 供首页和文档页使用。
+
 ## 发布到 GitHub Pages
 
 1. push 到 `development`（当前默认分支）或 `main`
@@ -45,6 +53,7 @@ npm run start
 
 - `docs/`: 知识库与站点维护文档
 - `blog/`: 每日观察与热点文章
+- `scripts/sync-teaching-videos.mjs`: 教学视频元数据同步脚本
 - `src/pages/index.js`: 门户首页
 - `docusaurus.config.js`: 站点配置
 - `sidebars.js`: 文档侧边栏

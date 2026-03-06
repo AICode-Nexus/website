@@ -172,11 +172,11 @@ export function definePortalContent(content) {
   validateSection(content.toolMatrix, 'toolMatrix');
   validateItems(content.toolMatrix.items, 'toolMatrix.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
 
-  validateSection(content.trackMap, 'trackMap');
-  validateItems(content.trackMap.items, 'trackMap.items', ['id', 'title', 'description', 'href', 'linkLabel']);
-  content.trackMap.items.forEach((item, index) => {
-    ensureArray(item.bullets, `trackMap.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
-      ensureString(bullet, `trackMap.items[${index}].bullets[${bulletIndex}]`);
+  validateSection(content.pillarMap, 'pillarMap');
+  validateItems(content.pillarMap.items, 'pillarMap.items', ['id', 'title', 'description', 'href', 'linkLabel']);
+  content.pillarMap.items.forEach((item, index) => {
+    ensureArray(item.bullets, `pillarMap.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
+      ensureString(bullet, `pillarMap.items[${index}].bullets[${bulletIndex}]`);
     });
   });
 

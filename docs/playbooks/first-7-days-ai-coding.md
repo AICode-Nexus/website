@@ -9,6 +9,10 @@ kind: playbook
 audience: individual
 stage: starter
 featured: true
+pillar: workflows
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: current
 ---
 
 # 7 天上手路线

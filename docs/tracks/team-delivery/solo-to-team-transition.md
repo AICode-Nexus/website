@@ -9,6 +9,10 @@ kind: guide
 audience: mixed
 stage: intermediate
 featured: false
+pillar: standards
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: current
 ---
 
 # 从个人工作流到团队协作

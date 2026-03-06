@@ -19,7 +19,17 @@ function FeaturedColumn({kicker, title, description, href, linkLabel, items}) {
         {items.map((item) => (
           <Link className={styles.featureCard} key={item.id} to={item.href}>
             <strong>{item.title}</strong>
+            {item.meta ? <p className={styles.cardMeta}>{item.meta}</p> : null}
             <p>{item.description}</p>
+            {Array.isArray(item.tags) && item.tags.length > 0 ? (
+              <div className={styles.tagList}>
+                {item.tags.map((tag) => (
+                  <span className={styles.tagPill} key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </Link>
         ))}
       </div>

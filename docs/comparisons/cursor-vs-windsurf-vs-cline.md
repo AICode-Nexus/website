@@ -9,6 +9,10 @@ kind: comparison
 audience: individual
 stage: intermediate
 featured: true
+pillar: tools
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: current
 ---
 
 # Cursor、Windsurf 与 Cline 怎么看

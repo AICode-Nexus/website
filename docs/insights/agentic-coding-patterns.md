@@ -9,6 +9,10 @@ kind: insight
 audience: mixed
 stage: intermediate
 featured: true
+pillar: tools
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: watch
 ---
 
 # 2026 年 3 月 AI Coding 的四个主线变化

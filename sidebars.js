@@ -6,60 +6,94 @@ const sidebars = {
       label: '开始这里',
       items: [
         'overview/start-here',
+        'overview/taxonomy',
         'overview/learning-paths',
-        'overview/ai-code-teaching-videos',
-        'overview/tool-selection-map',
-        'overview/taxonomy'
       ]
     },
     {
       type: 'category',
-      label: '主赛道',
+      label: 'AI 开发方式',
       items: [
-        'tracks/models-agents/index',
-        'tracks/models-agents/coding-models-scorecard',
+        'pillars/development-modes',
+        'pillars/development-modes-landscape',
         'tracks/models-agents/agent-execution-modes',
-        'tracks/models-agents/context-memory-and-rules',
-        'tracks/ides-tooling/index',
-        'tracks/ides-tooling/ai-ide-landscape',
-        'tracks/ides-tooling/terminal-agents-and-cli',
-        'tracks/ides-tooling/review-and-pr-tooling',
-        'tracks/prompting-workflows/index',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'AI 工作流',
+      items: [
+        'pillars/workflows',
+        'pillars/spec-driven-ai-delivery',
         'tracks/prompting-workflows/prompt-contracts',
         'tracks/prompting-workflows/bugfix-refactor-test-workflows',
         'tracks/prompting-workflows/multi-agent-collaboration',
-        'tracks/team-delivery/index',
-        'tracks/team-delivery/solo-to-team-transition',
-        'tracks/team-delivery/quality-gates-and-review',
-        'tracks/team-delivery/metrics-and-risk'
+        'playbooks/index',
+        'playbooks/personal-engineer-stack-setup',
+        'playbooks/first-7-days-ai-coding',
       ]
     },
     {
       type: 'category',
-      label: '对比与选型',
+      label: 'AI 编程工具',
       items: [
+        'pillars/tools',
+        'overview/tool-selection-map',
+        'overview/ai-code-teaching-videos',
         'comparisons/index',
         'comparisons/ai-coding-platform-comparison-framework',
         'comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
-        'comparisons/cursor-vs-windsurf-vs-cline'
+        'comparisons/cursor-vs-windsurf-vs-cline',
+        'tracks/models-agents/coding-models-scorecard',
+        'tracks/ides-tooling/ai-ide-landscape',
+        'tracks/ides-tooling/terminal-agents-and-cli',
+        'tools/claude-code-workstyle',
+        'tools/gemini-cli-github-workflow',
+        'tools/terminal-agent-landscape',
+        'tools/mainstream-tool-watchlist',
       ]
     },
     {
       type: 'category',
-      label: 'Playbooks',
+      label: 'AI 规范',
       items: [
-        'playbooks/index',
-        'playbooks/first-7-days-ai-coding',
-        'playbooks/personal-engineer-stack-setup'
+        'pillars/standards',
+        'standards/repo-instruction-files',
+        'standards/ai-development-standards',
+        'standards/freshness-governance',
+        'tracks/models-agents/context-memory-and-rules',
+        'tracks/team-delivery/quality-gates-and-review',
+        'tracks/team-delivery/metrics-and-risk',
+        'tracks/team-delivery/solo-to-team-transition',
       ]
     },
     {
       type: 'category',
-      label: '趋势观察',
+      label: 'AI 架构',
+      items: [
+        'pillars/architecture',
+        'architecture/ai-native-engineering-architecture',
+        'architecture/mcp-tool-topology',
+        'tracks/ides-tooling/review-and-pr-tooling',
+      ]
+    },
+    {
+      type: 'category',
+      label: '趋势与观察',
       items: [
         'insights/index',
         'insights/agentic-coding-patterns',
-        'insights/monthly-brief-2026-03'
+        'insights/monthly-brief-2026-03',
+      ]
+    },
+    {
+      type: 'category',
+      label: '旧赛道 / 专题透镜',
+      items: [
+        'tracks/models-agents/index',
+        'tracks/ides-tooling/index',
+        'tracks/prompting-workflows/index',
+        'tracks/team-delivery/index',
       ]
     },
     {

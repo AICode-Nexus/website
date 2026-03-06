@@ -9,6 +9,10 @@ kind: guide
 audience: individual
 stage: intermediate
 featured: false
+pillar: tools
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: current
 ---
 
 # AI IDE 全景

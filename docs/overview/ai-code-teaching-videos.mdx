@@ -9,20 +9,35 @@ kind: guide
 audience: individual
 stage: starter
 featured: false
+pillar: tools
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: current
 ---
 
 import Link from '@docusaurus/Link';
 import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
 
+export const lastSyncedAt = teachingVideoCatalog.generatedAt
+  ? new Intl.DateTimeFormat('zh-CN', {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+      timeZone: 'Asia/Shanghai',
+    }).format(new Date(teachingVideoCatalog.generatedAt))
+  : '未同步';
+
 # AI Code 教学视频库
 
-这个页面不追求“自动抓到全站最新视频”，而是先把**稳定、可验证、可复用**的公开视频元数据沉淀下来，供首页模块、后续专题页和知识文档引用。
+这个页面已经接入“**手动触发同步、构建期写入本地数据**”的抓取流程：脚本读取稳定的种子视频列表，抓取 B 站公开视频详情页里的标题、UP 主、发布时间和 canonical 链接，再把结果固化为站内 JSON，供首页模块、专题页和知识文档引用。
 
-## 为什么先不用直接爬取
+最近一次同步：**{lastSyncedAt}**
 
-- B 站搜索页、推荐页和排序结果会变化，直接依赖它们做构建输入不稳定。
-- 公开视频详情页的标题、UP 主、发布时间和链接更稳定，适合做长期元数据主源。
-- 站点当前更需要“稳定展示和后续沉淀”，而不是脆弱的实时抓取。
+## 当前同步策略
+
+- 输入源是 `src/data/teachingVideos.seed.json` 里的稳定视频种子项。
+- 通过 `npm run sync:teaching-videos` 抓取公开视频详情页，不依赖搜索页、推荐页或未公开接口。
+- 输出写入 `src/data/teachingVideos.generated.json`，站点页面只消费本地生成结果。
+- 这意味着抓取发生在“人工触发同步”阶段，而不是在浏览器运行时或 Docusaurus 构建时临时请求 B 站。
 
 ## 当前数据来源设计
 
@@ -33,15 +48,24 @@ import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
   </div>
 ))}
 
-## 当前收录字段
+## 当前抓取字段
 
 - 标题
 - UP 主
 - 发布时间
-- 视频链接
-- 标签
-- 摘要
-- 来源类型与补充说明
+- canonical 视频链接
+- 页面简介
+- 页面关键词
+- 系列课集数（能从公开页面识别时）
+- 缩略图链接
+- 站内标签与编辑摘要
+
+## 如何更新数据
+
+```bash
+npm run sync:teaching-videos
+npm run build
+```
 
 ## 当前收录视频
 
@@ -55,11 +79,15 @@ import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
     </p>
     <p>{video.summary}</p>
     <p>标签：{video.tags.join(' / ')}</p>
-    <p>来源：{teachingVideoCatalog.sources.find((source) => source.id === video.sourceId)?.title}</p>
+    {video.episodeCount ? <p>识别到的集数：{video.episodeCount}</p> : null}
+    <p>
+      来源：{teachingVideoCatalog.sources.find((source) => source.id === video.sourceId)?.title}
+      {video.sourceNote ? ` · ${video.sourceNote}` : ''}
+    </p>
   </div>
 ))}
 
-## 后续扩展建议
+## 设计边界
 
-- 先继续补充 Cursor、Claude Code、Copilot、Codex 相关公开视频，再考虑按工具专题页拆分。
-- 如果后续需要半自动更新，优先做“人工确认后写入本地元数据”的脚本，而不是直接在站点构建时请求 B 站页面。
+- 站点仍然不追求“自动抓全站最新视频”，而是维护一份可验证、可复用的精选种子清单。
+- 如果后续要补更多平台，优先继续沿用“公开详情页抓取 + 本地生成文件”的方式，而不是把实时抓取塞进页面运行时。

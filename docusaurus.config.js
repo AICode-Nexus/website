@@ -1,13 +1,46 @@
 // @ts-check
 
-const repo = process.env.GITHUB_REPOSITORY || 'your-github-username/website';
+const repo = process.env.GITHUB_REPOSITORY || 'AICode-Nexus/website';
 const [organizationName, projectName] = repo.split('/');
 const isUserSite = projectName === `${organizationName}.github.io`;
+const footerContactRows = [
+  {
+    label: '微信号',
+    value: 'trsoliu'
+  },
+  {
+    label: '添加备注',
+    value: 'AICode-Nexus / AI coding'
+  },
+  {
+    label: '交流方向',
+    value: '工具选型、工作流、内容合作'
+  }
+];
+const footerContactCardHtml = `
+  <div class="footer-contact-card">
+    ${footerContactRows
+      .map(
+        ({label, value}) => `
+          <div class="footer-contact-line">
+            <span class="footer-contact-label">${label}</span>
+            <span class="footer-contact-value">${value}</span>
+          </div>`
+      )
+      .join('')}
+  </div>
+`;
+const footerTopics = ['AI 开发方式与工具栈设计', '规则文件、工作流与评估治理', 'MCP 架构与案例交流'];
+const footerTopicsHtml = `
+  <ul class="footer-topic-list">
+    ${footerTopics.map((topic) => `<li>${topic}</li>`).join('')}
+  </ul>
+`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'AICode-Nexus',
-  tagline: 'AI coding 知识地图、每日观察与团队落地手册',
+  tagline: 'AI 开发方式、工作流、规范与架构知识库',
   favicon: 'img/favicon.svg',
   url: `https://${organizationName}.github.io`,
   baseUrl: process.env.NODE_ENV === 'production'
@@ -105,18 +138,28 @@ const config = {
           label: '首页'
         },
         {
-          to: '/docs/',
-          label: '知识库',
+          to: '/docs/development-modes',
+          label: '开发方式',
           position: 'left'
         },
         {
-          to: '/docs/comparisons',
-          label: '工具对比',
+          to: '/docs/workflows',
+          label: '工作流',
           position: 'left'
         },
         {
-          to: '/docs/playbooks',
-          label: 'Playbooks',
+          to: '/docs/tools',
+          label: '编程工具',
+          position: 'left'
+        },
+        {
+          to: '/docs/standards',
+          label: '规范',
+          position: 'left'
+        },
+        {
+          to: '/docs/architecture',
+          label: '架构',
           position: 'left'
         },
         {
@@ -139,27 +182,51 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: '门户',
+          title: '知识入口',
           items: [
             {
               label: '首页',
               to: '/'
             },
             {
-              label: '开始这里',
-              to: '/docs/'
+              label: '知识体系总表',
+              to: '/docs/taxonomy'
             },
             {
-              label: '工具对比',
-              to: '/docs/comparisons'
+              label: 'AI 编程工具',
+              to: '/docs/tools'
             },
             {
-              label: 'Daily Brief',
+              label: 'AI 规范',
+              to: '/docs/standards'
+            },
+            {
+              label: 'AI 架构',
+              to: '/docs/architecture'
+            }
+          ]
+        },
+        {
+          title: '联系我',
+          items: [
+            {
+              html: footerContactCardHtml
+            },
+            {
+              label: 'GitHub 仓库',
+              href: `https://github.com/${organizationName}/${projectName}`
+            }
+          ]
+        },
+        {
+          title: '适合交流',
+          items: [
+            {
+              html: footerTopicsHtml
+            },
+            {
+              label: '最近 Daily Brief',
               to: '/blog'
-            },
-            {
-              label: '关于本站',
-              to: '/docs/site-admin/site-roadmap'
             }
           ]
         }

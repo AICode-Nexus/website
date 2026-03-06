@@ -9,6 +9,10 @@ kind: playbook
 audience: individual
 stage: intermediate
 featured: true
+pillar: workflows
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: current
 ---
 
 # 个人工程师栈搭建

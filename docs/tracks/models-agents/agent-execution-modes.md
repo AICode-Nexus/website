@@ -9,6 +9,10 @@ kind: guide
 audience: individual
 stage: intermediate
 featured: false
+pillar: development-modes
+reviewed_at: 2026-03-06
+source_window_end: 2026-03-06
+market_status: current
 ---
 
 # Agent 执行模式

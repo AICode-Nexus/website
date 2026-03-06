@@ -42,8 +42,12 @@ function buildSearchEntry(section, metadata) {
       metadata.sourceDirName,
       metadata.frontMatter?.sidebar_label,
       metadata.frontMatter?.track,
+      metadata.frontMatter?.pillar,
       metadata.frontMatter?.audience,
       metadata.frontMatter?.kind,
+      metadata.frontMatter?.reviewed_at,
+      metadata.frontMatter?.source_window_end,
+      metadata.frontMatter?.market_status,
     ]
       .filter(Boolean)
       .join(' '),
