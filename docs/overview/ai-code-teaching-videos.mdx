@@ -1,0 +1,65 @@
+---
+title: AI Code 教学视频库
+description: 优先沉淀 B 站公开视频的稳定元数据，为首页展示、专题页与后续文档整理提供统一来源。
+slug: /ai-code-teaching-videos
+sidebar_label: 教学视频库
+tags: [ai-coding, bilibili, video-library]
+track: cross-track
+kind: guide
+audience: individual
+stage: starter
+featured: false
+---
+
+import Link from '@docusaurus/Link';
+import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
+
+# AI Code 教学视频库
+
+这个页面不追求“自动抓到全站最新视频”，而是先把**稳定、可验证、可复用**的公开视频元数据沉淀下来，供首页模块、后续专题页和知识文档引用。
+
+## 为什么先不用直接爬取
+
+- B 站搜索页、推荐页和排序结果会变化，直接依赖它们做构建输入不稳定。
+- 公开视频详情页的标题、UP 主、发布时间和链接更稳定，适合做长期元数据主源。
+- 站点当前更需要“稳定展示和后续沉淀”，而不是脆弱的实时抓取。
+
+## 当前数据来源设计
+
+{teachingVideoCatalog.sources.map((source) => (
+  <div key={source.id}>
+    <h3>{source.title}</h3>
+    <p>{source.description}</p>
+  </div>
+))}
+
+## 当前收录字段
+
+- 标题
+- UP 主
+- 发布时间
+- 视频链接
+- 标签
+- 摘要
+- 来源类型与补充说明
+
+## 当前收录视频
+
+{teachingVideoCatalog.items.map((video) => (
+  <div key={video.id}>
+    <h3>
+      <Link to={video.href}>{video.title}</Link>
+    </h3>
+    <p>
+      {video.creator} · {video.publishedAt} · {video.platform}
+    </p>
+    <p>{video.summary}</p>
+    <p>标签：{video.tags.join(' / ')}</p>
+    <p>来源：{teachingVideoCatalog.sources.find((source) => source.id === video.sourceId)?.title}</p>
+  </div>
+))}
+
+## 后续扩展建议
+
+- 先继续补充 Cursor、Claude Code、Copilot、Codex 相关公开视频，再考虑按工具专题页拆分。
+- 如果后续需要半自动更新，优先做“人工确认后写入本地元数据”的脚本，而不是直接在站点构建时请求 B 站页面。

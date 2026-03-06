@@ -230,57 +230,32 @@ export const portalContent = definePortalContent({
   },
   featuredDocs: {
     kicker: 'Featured',
-    title: '热门对比与可执行 Playbooks',
-    columns: [
+    title: '自动聚合的精选知识内容',
+    description: '基于 docs frontmatter 的 featured 与 kind 构建期聚合，避免首页手工维护单条文档。',
+    collections: [
       {
-        id: 'featured-comparisons',
+        id: 'comparison',
         kicker: 'Comparisons',
         title: '热门对比',
-        items: [
-          {
-            id: 'comparison-framework',
-            title: '平台比较框架',
-            description: '先定义维度，再比较产品，避免把不同层的工具放在一起硬排位。',
-            href: '/docs/comparisons/ai-coding-platform-comparison-framework',
-          },
-          {
-            id: 'copilot-vs-vscode-vs-codex',
-            title: 'Copilot vs VS Code Agent vs Codex',
-            description: '用平台、控制台和执行栈三层视角做主平台选型。',
-            href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
-          },
-          {
-            id: 'cursor-vs-windsurf-vs-cline',
-            title: 'Cursor vs Windsurf vs Cline',
-            description: '把开放式 AI coding 入口放回正确维度里比较。',
-            href: '/docs/comparisons/cursor-vs-windsurf-vs-cline',
-          },
-        ],
+        description: '优先展示可直接支撑平台与入口选型的对比内容。',
+        href: '/docs/comparisons',
+        linkLabel: '查看全部',
       },
       {
-        id: 'featured-playbooks',
+        id: 'playbook',
         kicker: 'Playbooks',
         title: '可立即执行的 Playbooks',
-        items: [
-          {
-            id: 'first-7-days',
-            title: '7 天上手路线',
-            description: '从选平台到第一次完整实战，给个人工程师一个最短起步路径。',
-            href: '/docs/playbooks/first-7-days-ai-coding',
-          },
-          {
-            id: 'personal-stack',
-            title: '个人工程师栈搭建',
-            description: '把 IDE、CLI、rules、hook 和复盘方法固定成长期栈。',
-            href: '/docs/playbooks/personal-engineer-stack-setup',
-          },
-          {
-            id: 'learning-path',
-            title: '学习路径',
-            description: '按 7 天、30 天和进阶路线安排你的学习顺序。',
-            href: '/docs/learning-paths',
-          },
-        ],
+        description: '保留最适合直接照着走的个人工程师工作流与操作手册。',
+        href: '/docs/playbooks',
+        linkLabel: '查看全部',
+      },
+      {
+        id: 'insight',
+        kicker: 'Insights',
+        title: '长期趋势判断',
+        description: '只保留值得沉淀成长期知识的趋势观察与阶段性判断。',
+        href: '/docs/insights',
+        linkLabel: '查看全部',
       },
     ],
   },
@@ -313,6 +288,16 @@ export const portalContent = definePortalContent({
         linkLabel: '阅读日报',
       },
     ],
+  },
+  teachingVideos: {
+    kicker: 'Video Library',
+    title: 'AI Code 教学视频',
+    description:
+      '优先整理 B 站公开视频，用本地元数据沉淀标题、UP 主、发布时间、标签与摘要，不在构建时依赖不稳定的搜索页抓取。',
+    primaryAction: {
+      label: '查看视频库',
+      href: '/docs/ai-code-teaching-videos',
+    },
   },
   howToUse: {
     kicker: 'How To Use',

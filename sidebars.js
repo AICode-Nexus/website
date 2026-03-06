@@ -7,6 +7,7 @@ const sidebars = {
       items: [
         'overview/start-here',
         'overview/learning-paths',
+        'overview/ai-code-teaching-videos',
         'overview/tool-selection-map',
         'overview/taxonomy'
       ]

@@ -26,6 +26,7 @@ const config = {
     locales: ['zh-CN']
   },
   plugins: [
+    require.resolve('./plugins/portal-data-plugin'),
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -80,6 +81,9 @@ const config = {
           blogDescription: '每天跟踪最值得关注的 AI coding 变化',
           routeBasePath: 'blog'
         },
+        gtag: {
+          trackingID: 'G-7XSE8G61G2'
+        },
         pages: {},
         theme: {
           customCss: require.resolve('./src/css/custom.css')
@@ -123,6 +127,10 @@ const config = {
         {
           href: `https://github.com/${organizationName}/${projectName}`,
           label: 'GitHub',
+          position: 'right'
+        },
+        {
+          type: 'search',
           position: 'right'
         }
       ]

@@ -40,6 +40,33 @@ function validateSection(section, fieldName) {
   return section;
 }
 
+function validateCollectionMetadata(items, fieldName) {
+  const validatedItems = ensureArray(items, fieldName).map((item, index) => {
+    if (!item || typeof item !== 'object') {
+      throw new Error(`Portal content item "${fieldName}[${index}]" must be an object.`);
+    }
+
+    ensureString(item.id, `${fieldName}[${index}].id`);
+    ensureString(item.title, `${fieldName}[${index}].title`);
+    ensureString(item.description, `${fieldName}[${index}].description`);
+    ensureString(item.href, `${fieldName}[${index}].href`);
+
+    if (item.kicker !== undefined) {
+      ensureString(item.kicker, `${fieldName}[${index}].kicker`);
+    }
+
+    if (item.linkLabel !== undefined) {
+      ensureString(item.linkLabel, `${fieldName}[${index}].linkLabel`);
+    }
+
+    return item;
+  });
+
+  ensureUniqueIds(validatedItems, fieldName);
+
+  return validatedItems;
+}
+
 function validateMeta(meta) {
   if (!meta || typeof meta !== 'object') {
     throw new Error('Portal content field "meta" must be an object.');
@@ -157,14 +184,13 @@ export function definePortalContent(content) {
   validateItems(content.learningPath.items, 'learningPath.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
 
   validateSection(content.featuredDocs, 'featuredDocs');
-  ensureArray(content.featuredDocs.columns, 'featuredDocs.columns').forEach((column, index) => {
-    ensureString(column.id, `featuredDocs.columns[${index}].id`);
-    validateSection(column, `featuredDocs.columns[${index}]`);
-    validateItems(column.items, `featuredDocs.columns[${index}].items`, ['id', 'title', 'description', 'href']);
-  });
+  validateCollectionMetadata(content.featuredDocs.collections, 'featuredDocs.collections');
 
   validateSection(content.latestBriefs, 'latestBriefs');
   validateItems(content.latestBriefs.items, 'latestBriefs.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
+
+  validateSection(content.teachingVideos, 'teachingVideos');
+  validateLink(content.teachingVideos.primaryAction, 'teachingVideos.primaryAction');
 
   validateSection(content.howToUse, 'howToUse');
   validateUsageItems(content.howToUse.items, 'howToUse.items');

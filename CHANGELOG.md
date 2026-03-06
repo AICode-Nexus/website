@@ -14,11 +14,18 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Shared portal primitives for section wrappers and reusable cards in `src/components/portal/SectionBlock.js`, `src/components/portal/ContentCard.js`, and `src/components/portal/LinkTile.js`.
 - Phase D content upgrades across taxonomy, playbooks, comparisons, and monthly insights, including a deeper `Cursor vs Windsurf vs Cline` comparison and a March 2026 monthly brief.
 - A new AICode-Nexus logo system in `static/img/` with navbar and favicon integration.
+- Google Analytics 4 site tracking via Docusaurus `gtag` with measurement ID `G-7XSE8G61G2`.
+- A navbar-level global search input that indexes docs and Daily Brief metadata without adding an external search dependency.
+- A build-time portal data plugin that auto-aggregates homepage featured docs from docs frontmatter instead of requiring hand-maintained homepage doc entries.
+- A new `AI Code 教学视频` homepage section and `/docs/ai-code-teaching-videos` catalog page backed by validated local video metadata, prioritizing Bilibili public videos.
 
 ### Changed
 
 - Refactored the portal homepage to consume centralized content config instead of spreading section text and routes across individual components.
 - Unified homepage card rendering around shared presentation components to improve style consistency, component boundaries, and future extensibility.
+- Restored dark-mode styling across the navbar, docs surface, and portal homepage cards so the theme switch updates the full site instead of leaving light-only hardcoded colors behind.
+- Shifted homepage featured content to deterministic build-time grouping by docs `featured` and `kind` metadata, and documented that contract in the taxonomy doc.
+- Extended the shared portal card component to support richer metadata and tags so video entries can reuse the existing card pattern instead of introducing a separate homepage card system.
 
 ### Removed
 

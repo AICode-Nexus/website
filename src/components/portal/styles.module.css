@@ -21,6 +21,7 @@
 .heroCopy,
 .section,
 .sectionHeader,
+.featureColumnHeader,
 .brandMeta,
 .contentCard,
 .trackCard,
@@ -94,6 +95,8 @@
 
 .heroLead,
 .sectionHeader p,
+.featureColumnHeader p,
+.cardMeta,
 .contentCard p,
 .toolCard p,
 .trackCard p,
@@ -153,6 +156,12 @@
   color: #0f4c5c;
   background: rgba(240, 253, 250, 1);
   border: 1px solid rgba(15, 118, 110, 0.18);
+}
+
+.cardMeta {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0f4c5c;
 }
 
 .primaryAction:hover,
@@ -253,6 +262,31 @@
   color: #1e293b;
 }
 
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tagPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 247, 237, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  color: #9a3412;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.sectionActionRow {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .bullets li + li {
   margin-top: 0.35rem;
 }
@@ -265,6 +299,100 @@
 .usagePanel {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: start;
+}
+
+:global([data-theme='dark']) .hero {
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.16), transparent 32%),
+    radial-gradient(circle at right center, rgba(45, 212, 191, 0.16), transparent 34%),
+    linear-gradient(135deg, rgba(14, 23, 32, 0.96), rgba(7, 14, 21, 0.94));
+  border-color: rgba(148, 163, 184, 0.16);
+  box-shadow: 0 28px 80px rgba(2, 6, 23, 0.3);
+}
+
+:global([data-theme='dark']) .kicker,
+:global([data-theme='dark']) .sectionKicker,
+:global([data-theme='dark']) .cardBadge,
+:global([data-theme='dark']) .panelTitle {
+  color: #fbbf24;
+}
+
+:global([data-theme='dark']) .brandLockup {
+  background: rgba(15, 23, 42, 0.52);
+  border-color: rgba(148, 163, 184, 0.18);
+  box-shadow: 0 14px 32px rgba(2, 6, 23, 0.22);
+}
+
+:global([data-theme='dark']) .brandMeta strong,
+:global([data-theme='dark']) .heroTitle,
+:global([data-theme='dark']) .contentCard h3,
+:global([data-theme='dark']) .quickCard strong,
+:global([data-theme='dark']) .linkTile strong,
+:global([data-theme='dark']) .toolCard h3,
+:global([data-theme='dark']) .trackCard h3,
+:global([data-theme='dark']) .pathCard h3,
+:global([data-theme='dark']) .briefCard h3,
+:global([data-theme='dark']) .featureCard strong,
+:global([data-theme='dark']) .featureColumnHeader h3 {
+  color: #f8fafc;
+}
+
+:global([data-theme='dark']) .brandMeta span,
+:global([data-theme='dark']) .cardMeta,
+:global([data-theme='dark']) .cardLink {
+  color: #5eead4;
+}
+
+:global([data-theme='dark']) .heroLead,
+:global([data-theme='dark']) .sectionHeader p,
+:global([data-theme='dark']) .featureColumnHeader p,
+:global([data-theme='dark']) .contentCard p,
+:global([data-theme='dark']) .toolCard p,
+:global([data-theme='dark']) .trackCard p,
+:global([data-theme='dark']) .pathCard p,
+:global([data-theme='dark']) .briefCard p,
+:global([data-theme='dark']) .quickCard p,
+:global([data-theme='dark']) .linkTile p,
+:global([data-theme='dark']) .featureCard p,
+:global([data-theme='dark']) .usagePanel p,
+:global([data-theme='dark']) .bullets {
+  color: #cbd5e1;
+}
+
+:global([data-theme='dark']) .secondaryAction {
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.52);
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+:global([data-theme='dark']) .cardLink {
+  background: rgba(15, 118, 110, 0.12);
+  border-color: rgba(45, 212, 191, 0.2);
+}
+
+:global([data-theme='dark']) .signalPanel {
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.98), rgba(8, 15, 23, 0.94));
+}
+
+:global([data-theme='dark']) .tagPill {
+  background: rgba(120, 53, 15, 0.24);
+  border-color: rgba(251, 191, 36, 0.18);
+  color: #fde68a;
+}
+
+:global([data-theme='dark']) .contentCard,
+:global([data-theme='dark']) .toolCard,
+:global([data-theme='dark']) .trackCard,
+:global([data-theme='dark']) .pathCard,
+:global([data-theme='dark']) .briefCard,
+:global([data-theme='dark']) .quickCard,
+:global([data-theme='dark']) .linkTile,
+:global([data-theme='dark']) .featureCard,
+:global([data-theme='dark']) .featureColumn,
+:global([data-theme='dark']) .usagePanel {
+  border-color: rgba(148, 163, 184, 0.16);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(8, 15, 23, 0.88));
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.18);
 }
 
 @media (max-width: 996px) {

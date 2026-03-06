@@ -7,6 +7,7 @@ import TrackMap from '@site/src/components/portal/TrackMap';
 import LearningPath from '@site/src/components/portal/LearningPath';
 import FeaturedDocs from '@site/src/components/portal/FeaturedDocs';
 import LatestBriefs from '@site/src/components/portal/LatestBriefs';
+import TeachingVideos from '@site/src/components/portal/TeachingVideos';
 import HowToUseSite from '@site/src/components/portal/HowToUseSite';
 import styles from '@site/src/components/portal/styles.module.css';
 import {portalContent} from '@site/src/data/portalContent';
@@ -26,6 +27,7 @@ export default function HomePage() {
           <LearningPath />
           <FeaturedDocs />
           <LatestBriefs />
+          <TeachingVideos />
           <HowToUseSite />
         </div>
       </main>
