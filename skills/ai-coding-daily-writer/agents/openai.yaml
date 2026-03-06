@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Coding Daily Writer"
+  short_description: "Draft daily AI coding briefs and trend updates"
+  default_prompt: "Use $ai-coding-daily-writer to research today's AI coding trends and draft a publishable daily brief."

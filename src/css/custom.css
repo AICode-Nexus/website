@@ -1,14 +1,55 @@
 :root {
-  --ifm-color-primary: #0a6c8b;
-  --ifm-color-primary-dark: #09617d;
-  --ifm-color-primary-darker: #085a76;
-  --ifm-color-primary-darkest: #074a61;
-  --ifm-color-primary-light: #0b7899;
-  --ifm-color-primary-lighter: #0c7fa0;
-  --ifm-color-primary-lightest: #0e92b8;
+  --ifm-color-primary: #0f766e;
+  --ifm-color-primary-dark: #0d6a63;
+  --ifm-color-primary-darker: #0c645d;
+  --ifm-color-primary-darkest: #0a534d;
+  --ifm-color-primary-light: #118277;
+  --ifm-color-primary-lighter: #12887d;
+  --ifm-color-primary-lightest: #159889;
   --ifm-code-font-size: 95%;
+  --ifm-font-family-base: "Avenir Next", "Segoe UI Variable", "Trebuchet MS", sans-serif;
+  --ifm-font-family-monospace: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --ifm-background-color: #f7faf9;
 }
 
 .markdown > h1:first-child {
   letter-spacing: 0.01em;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.08), transparent 28%),
+    linear-gradient(180deg, #fffdf8 0%, #f7faf9 48%, #eef6f5 100%);
+}
+
+.navbar {
+  backdrop-filter: blur(18px);
+  background: rgba(255, 253, 248, 0.78);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.footer {
+  background: #10212a;
+}
+
+.theme-doc-markdown.markdown > h1:first-child {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.96;
+  color: #0f172a;
+}
+
+.theme-doc-markdown p,
+.theme-doc-markdown li {
+  line-height: 1.8;
+}
+
+.theme-doc-markdown table {
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.theme-doc-markdown table thead {
+  background: rgba(15, 118, 110, 0.08);
 }

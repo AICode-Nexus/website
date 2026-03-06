@@ -1,0 +1,242 @@
+.page {
+  display: grid;
+  gap: 2.5rem;
+  padding: 2rem 0 4rem;
+}
+
+.hero {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.8fr);
+  padding: 2rem;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.22), transparent 32%),
+    radial-gradient(circle at right center, rgba(15, 118, 110, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 250, 240, 0.98), rgba(238, 249, 247, 0.96));
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.08);
+}
+
+.heroCopy,
+.section,
+.sectionHeader,
+.trackCard,
+.toolCard,
+.pathCard,
+.briefCard,
+.quickCard,
+.featureCard,
+.featureColumn,
+.usagePanel {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.kicker,
+.sectionKicker,
+.cardBadge,
+.panelTitle {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.heroTitle {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.92;
+  color: #0f172a;
+}
+
+.heroLead,
+.sectionHeader p,
+.toolCard p,
+.trackCard p,
+.pathCard p,
+.briefCard p,
+.quickCard p,
+.featureCard p,
+.usagePanel p {
+  margin: 0;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.primaryAction,
+.secondaryAction,
+.cardLink,
+.quickCard,
+.featureCard {
+  text-decoration: none;
+}
+
+.primaryAction,
+.secondaryAction,
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.primaryAction {
+  color: #f8fafc;
+  background: linear-gradient(135deg, #0f766e, #0f4c5c);
+  box-shadow: 0 16px 32px rgba(15, 76, 92, 0.24);
+}
+
+.secondaryAction {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.cardLink {
+  justify-self: start;
+  color: #0f4c5c;
+  background: rgba(240, 253, 250, 1);
+  border: 1px solid rgba(15, 118, 110, 0.18);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover,
+.cardLink:hover,
+.quickCard:hover,
+.featureCard:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.signalPanel {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  padding: 1.35rem;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #e2e8f0;
+}
+
+.signalRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.signalDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f59e0b, #fb7185);
+  flex: 0 0 10px;
+}
+
+.quickGrid,
+.toolGrid,
+.trackGrid,
+.pathGrid,
+.briefGrid,
+.featureGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.quickGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.toolGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trackGrid,
+.briefGrid,
+.featureGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pathGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.toolCard,
+.trackCard,
+.pathCard,
+.briefCard,
+.quickCard,
+.featureCard,
+.featureColumn,
+.usagePanel {
+  padding: 1.35rem;
+  border-radius: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
+}
+
+.quickCard strong,
+.toolCard h3,
+.trackCard h3,
+.pathCard h3,
+.briefCard h3,
+.featureCard strong,
+.featureColumnHeader h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #1e293b;
+}
+
+.bullets li + li {
+  margin-top: 0.35rem;
+}
+
+.featureColumnBody {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.usagePanel {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+}
+
+@media (max-width: 996px) {
+  .hero,
+  .quickGrid,
+  .toolGrid,
+  .trackGrid,
+  .pathGrid,
+  .briefGrid,
+  .featureGrid,
+  .usagePanel {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 1.4rem;
+  }
+
+  .heroTitle {
+    max-width: 100%;
+  }
+}

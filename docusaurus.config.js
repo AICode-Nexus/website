@@ -6,8 +6,8 @@ const isUserSite = projectName === `${organizationName}.github.io`;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'AICode-Nexus 知识库',
-  tagline: 'AI + Markdown + GitHub Pages',
+  title: 'AICode-Nexus',
+  tagline: 'AI coding 知识地图、每日观察与团队落地手册',
   url: `https://${organizationName}.github.io`,
   baseUrl: process.env.NODE_ENV === 'production'
     ? (isUserSite ? '/' : `/${projectName}/`)
@@ -24,16 +24,62 @@ const config = {
     defaultLocale: 'zh-CN',
     locales: ['zh-CN']
   },
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/docs/taxonomy',
+            from: ['/knowledge-taxonomy']
+          },
+          {
+            to: '/docs/models-agents',
+            from: ['/tracks/models-and-agents']
+          },
+          {
+            to: '/docs/ides-tooling',
+            from: ['/tracks/ides-and-tooling']
+          },
+          {
+            to: '/docs/prompting-workflows',
+            from: ['/tracks/prompting-and-workflows']
+          },
+          {
+            to: '/docs/team-delivery',
+            from: ['/tracks/team-and-delivery']
+          },
+          {
+            to: '/docs/insights/agentic-coding-patterns',
+            from: ['/insights/agentic-coding-patterns']
+          },
+          {
+            to: '/docs/comparisons/ai-coding-platform-comparison-framework',
+            from: ['/insights/ai-coding-platform-comparison-framework']
+          },
+          {
+            to: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+            from: ['/insights/github-copilot-vs-vscode-agent-vs-openai-codex']
+          }
+        ]
+      }
+    ]
+  ],
   presets: [
     [
       'classic',
       {
         docs: {
-          routeBasePath: '/',
+          routeBasePath: 'docs',
           sidebarPath: require.resolve('./sidebars.js')
         },
-        blog: false,
-        pages: false,
+        blog: {
+          showReadingTime: true,
+          blogTitle: 'AI Coding Daily Brief',
+          blogDescription: '每天跟踪最值得关注的 AI coding 变化',
+          routeBasePath: 'blog'
+        },
+        pages: {},
         theme: {
           customCss: require.resolve('./src/css/custom.css')
         }
@@ -42,13 +88,32 @@ const config = {
   ],
   themeConfig: {
     navbar: {
-      title: 'AICode-Nexus 知识库',
+      title: 'AICode-Nexus',
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          to: '/',
           position: 'left',
-          label: '文档'
+          label: '首页'
+        },
+        {
+          to: '/docs/',
+          label: '知识库',
+          position: 'left'
+        },
+        {
+          to: '/docs/comparisons',
+          label: '工具对比',
+          position: 'left'
+        },
+        {
+          to: '/docs/playbooks',
+          label: 'Playbooks',
+          position: 'left'
+        },
+        {
+          to: '/blog',
+          label: 'Daily Brief',
+          position: 'left'
         },
         {
           href: `https://github.com/${organizationName}/${projectName}`,
@@ -61,11 +126,27 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: '文档',
+          title: '门户',
           items: [
             {
-              label: '开始阅读',
+              label: '首页',
               to: '/'
+            },
+            {
+              label: '开始这里',
+              to: '/docs/'
+            },
+            {
+              label: '工具对比',
+              to: '/docs/comparisons'
+            },
+            {
+              label: 'Daily Brief',
+              to: '/blog'
+            },
+            {
+              label: '关于本站',
+              to: '/docs/site-admin/site-roadmap'
             }
           ]
         }
