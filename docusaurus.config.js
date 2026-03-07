@@ -188,8 +188,8 @@ const config = {
         },
         {
           to: '/docs/ai-code-teaching-videos',
-          label: 'AI 视频',
-          position: 'left',
+          label: '教学视频',
+          position: 'right',
           className: 'navbar-video-link',
         },
         {
