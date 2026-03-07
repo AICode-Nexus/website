@@ -209,12 +209,80 @@ export function defineTeachingVideoCatalog(catalog) {
   return deepFreeze(catalog);
 }
 
+const TEACHING_VIDEO_CATALOG_PATH = '/docs/ai-code-teaching-videos';
+
+export const TEACHING_VIDEO_RESULTS_SECTION_ID = 'video-results';
+export const TEACHING_VIDEO_RESULTS_SECTION_PARAM = 'section';
+export const TEACHING_VIDEO_RESULTS_SECTION_VALUE = 'results';
+
+function normalizeCatalogRouteValue(value) {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function setCatalogSearchParam(params, key, value) {
+  const normalizedValue = normalizeCatalogRouteValue(value);
+
+  if (key && normalizedValue) {
+    params.set(key, normalizedValue);
+  }
+}
+
+export function getTeachingVideoCatalogPermalink({
+  filters = {},
+  query = '',
+  requestedPage = null,
+  videoId = '',
+  courseId = '',
+  focusResults = false,
+} = {}) {
+  const params = new URLSearchParams();
+
+  Object.entries(filters).forEach(([key, value]) => {
+    const normalizedValue = normalizeCatalogRouteValue(value);
+
+    if (normalizedValue && normalizedValue !== 'all') {
+      params.set(key, normalizedValue);
+    }
+  });
+
+  setCatalogSearchParam(params, 'q', query);
+
+  if (Number.isInteger(requestedPage) && requestedPage > 1) {
+    params.set('page', String(requestedPage));
+  }
+
+  if (focusResults) {
+    params.set(TEACHING_VIDEO_RESULTS_SECTION_PARAM, TEACHING_VIDEO_RESULTS_SECTION_VALUE);
+  }
+
+  setCatalogSearchParam(params, 'video', videoId);
+  setCatalogSearchParam(params, 'course', courseId);
+
+  const search = params.toString();
+
+  return `${TEACHING_VIDEO_CATALOG_PATH}${search ? `?${search}` : ''}`;
+}
+
+export function getTeachingVideoCatalogFilterPermalink(parameter, value, options = {}) {
+  return getTeachingVideoCatalogPermalink({
+    ...options,
+    filters: {[parameter]: value},
+  });
+}
+
+export function searchFocusesTeachingVideoResults(search) {
+  return (
+    new URLSearchParams(search).get(TEACHING_VIDEO_RESULTS_SECTION_PARAM) ===
+    TEACHING_VIDEO_RESULTS_SECTION_VALUE
+  );
+}
+
 export function getTeachingVideoItemPermalink(itemId) {
-  return `/docs/ai-code-teaching-videos?video=${encodeURIComponent(itemId)}`;
+  return getTeachingVideoCatalogPermalink({videoId: itemId});
 }
 
 export function getTeachingVideoCoursePermalink(courseId) {
-  return `/docs/ai-code-teaching-videos?course=${encodeURIComponent(courseId)}`;
+  return getTeachingVideoCatalogPermalink({courseId});
 }
 
 export function getTeachingVideoItemAnchorId(itemId) {

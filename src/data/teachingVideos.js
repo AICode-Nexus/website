@@ -1,5 +1,8 @@
 import teachingVideoCatalogData from './teachingVideos.generated.json';
-import {defineTeachingVideoCatalog} from '@site/src/utils/teachingVideos';
+import {
+  defineTeachingVideoCatalog,
+  getTeachingVideoCatalogFilterPermalink,
+} from '@site/src/utils/teachingVideos';
 
 function slugify(value) {
   return String(value ?? '')
@@ -118,7 +121,7 @@ function createQuickFilters(toolCounts, platformCounts) {
       parameter: 'tool',
       value: tool,
       count,
-      href: `/docs/ai-code-teaching-videos?tool=${encodeURIComponent(tool)}`,
+      href: getTeachingVideoCatalogFilterPermalink('tool', tool, {focusResults: true}),
     }));
 
   const platformFilter = Object.entries(platformCounts)
@@ -130,10 +133,17 @@ function createQuickFilters(toolCounts, platformCounts) {
       parameter: 'platform',
       value: platform,
       count,
-      href: `/docs/ai-code-teaching-videos?platform=${encodeURIComponent(platform)}`,
+      href: getTeachingVideoCatalogFilterPermalink('platform', platform, {focusResults: true}),
     }));
 
   return [...toolFilters, ...platformFilter].slice(0, 4);
+}
+
+function normalizeQuickFilters(quickFilters = []) {
+  return quickFilters.map((filter) => ({
+    ...filter,
+    href: getTeachingVideoCatalogFilterPermalink(filter.parameter, filter.value, {focusResults: true}),
+  }));
 }
 
 function normalizeLegacyCatalog(rawCatalog) {
@@ -269,7 +279,13 @@ function normalizeTeachingVideoCatalog(rawCatalog) {
     rawCatalog.featured &&
     rawCatalog.courses
   ) {
-    return rawCatalog;
+    return {
+      ...rawCatalog,
+      featured: {
+        ...rawCatalog.featured,
+        quickFilters: normalizeQuickFilters(rawCatalog.featured.quickFilters),
+      },
+    };
   }
 
   return normalizeLegacyCatalog(rawCatalog);

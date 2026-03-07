@@ -11,6 +11,7 @@ const MIN_QUALITY_SCORE = 42;
 const FEATURED_COUNT = 8;
 const QUICK_FILTER_COUNT = 4;
 const SEARCH_RESULT_LIMIT = 6;
+const TEACHING_VIDEO_RESULTS_SEARCH = '&section=results';
 const titleCollator = new Intl.Collator('zh-CN', {
   numeric: true,
   sensitivity: 'base',
@@ -380,7 +381,7 @@ function buildQuickFilters(toolFacetEntries) {
     parameter: 'tool',
     value: entry.id,
     count: entry.count,
-    href: `/docs/ai-code-teaching-videos?tool=${encodeURIComponent(entry.id)}`,
+    href: `/docs/ai-code-teaching-videos?tool=${encodeURIComponent(entry.id)}${TEACHING_VIDEO_RESULTS_SEARCH}`,
   }));
 }
 

@@ -10,6 +10,8 @@ import {
   getTeachingVideoItemPermalink,
   getTeachingVideoItemAnchorId,
   getTeachingVideoLanguageLabel,
+  searchFocusesTeachingVideoResults,
+  TEACHING_VIDEO_RESULTS_SECTION_ID,
 } from '@site/src/utils/teachingVideos';
 import {
   buildTeachingVideoPagination,
@@ -168,6 +170,18 @@ export default function TeachingVideoCatalogPage() {
 
     return () => window.cancelAnimationFrame(frameId);
   }, [location.search, targetAnchorId, visibleCourseIds, visibleVideoIds]);
+
+  useEffect(() => {
+    if (!searchFocusesTeachingVideoResults(location.search)) {
+      return undefined;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      videoSectionRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [location.search, visibleVideoIds]);
 
   return (
     <div className={styles.page}>
@@ -363,7 +377,11 @@ export default function TeachingVideoCatalogPage() {
         </div>
       </section>
 
-      <section className={clsx(styles.page, styles.resultsSection)} ref={videoSectionRef}>
+      <section
+        className={clsx(styles.page, styles.resultsSection)}
+        id={TEACHING_VIDEO_RESULTS_SECTION_ID}
+        ref={videoSectionRef}
+      >
         <div>
           <h3 className={styles.sectionTitle}>视频明细</h3>
           <p className={styles.resultsMeta}>{resultsMeta}</p>

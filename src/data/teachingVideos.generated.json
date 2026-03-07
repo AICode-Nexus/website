@@ -431,7 +431,7 @@
         "parameter": "tool",
         "value": "Claude Code",
         "count": 69,
-        "href": "/docs/ai-code-teaching-videos?tool=Claude%20Code"
+        "href": "/docs/ai-code-teaching-videos?tool=Claude%20Code&section=results"
       },
       {
         "id": "ai-coding",
@@ -439,7 +439,7 @@
         "parameter": "tool",
         "value": "AI Coding",
         "count": 59,
-        "href": "/docs/ai-code-teaching-videos?tool=AI%20Coding"
+        "href": "/docs/ai-code-teaching-videos?tool=AI%20Coding&section=results"
       },
       {
         "id": "gemini-cli",
@@ -447,7 +447,7 @@
         "parameter": "tool",
         "value": "Gemini CLI",
         "count": 42,
-        "href": "/docs/ai-code-teaching-videos?tool=Gemini%20CLI"
+        "href": "/docs/ai-code-teaching-videos?tool=Gemini%20CLI&section=results"
       },
       {
         "id": "cursor",
@@ -455,7 +455,7 @@
         "parameter": "tool",
         "value": "Cursor",
         "count": 40,
-        "href": "/docs/ai-code-teaching-videos?tool=Cursor"
+        "href": "/docs/ai-code-teaching-videos?tool=Cursor&section=results"
       }
     ],
     "searchResultLimit": 6

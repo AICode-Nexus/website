@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
 import {
+  getTeachingVideoCatalogFilterPermalink,
   formatTeachingVideoDuration,
   getTeachingVideoItemPermalink,
   getTeachingVideoCoursePermalink,
@@ -51,7 +52,7 @@ export default function LearningResources({
         </div>
         <Link
           className={styles.resourceAction}
-          to={`/docs/ai-code-teaching-videos?tool=${encodeURIComponent(tool)}`}
+          to={getTeachingVideoCatalogFilterPermalink('tool', tool, {focusResults: true})}
         >
           查看 {tool} 全部教学内容
         </Link>

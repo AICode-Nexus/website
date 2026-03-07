@@ -169,6 +169,9 @@ test('buildCatalog produces metrics, facets, courses, and featured collections',
   assert.equal(catalog.metrics.recentCounts.days90, 300);
   assert.equal(catalog.featured.items.length, 8);
   assert.equal(catalog.featured.quickFilters.length >= 1, true);
+  assert.ok(
+    catalog.featured.quickFilters.every((filter) => filter.href.includes('section=results')),
+  );
   assert.ok(catalog.facets.tools.some((entry) => entry.id === 'Claude Code'));
   assert.ok(catalog.courses[0].episodeCount >= 1);
 });
