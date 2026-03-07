@@ -1,0 +1,82 @@
+---
+title: AI 编程工具
+description: 从平台、执行栈、终端 agent、IDE-first 和控制面来组织 AI 编程工具，而不是只比热门榜单。
+slug: /tools
+sidebar_label: AI 编程工具
+tags: [ai-coding, tools, comparison]
+track: cross-track
+kind: hub
+audience: mixed
+stage: starter
+featured: true
+pillar: tools
+reviewed_at: 2026-03-07
+source_window_end: 2026-03-07
+market_status: current
+---
+
+import Link from '@docusaurus/Link';
+import {toolCatalogByGroup} from '@site/src/data/toolCatalog.mjs';
+
+# AI 编程工具
+
+这一层不再只按“哪个产品最热”来堆页面，而是先回答一个工程问题：你现在最需要的是平台、控制面、执行栈、终端入口，还是 IDE-first 主入口。
+
+## 先决定你在选什么
+
+- 平台型：重点是 issue、PR、review、Jira 和工作系统闭环。
+- 控制面：重点是本地 agent、background agents 和 editor 内的统一调度。
+- 执行栈：重点是审批、worktree、并行任务和长链路执行。
+- 终端 Agent：重点是 repo pairing、命令验证和规则文件。
+- IDE-First：重点是编辑体验、rules、记忆和日常高频交互。
+
+## 平台型工具
+
+{toolCatalogByGroup[0].items.map((item) => (
+  <div key={item.id}>
+    <h3>
+      <Link to={item.docsRoot}>{item.title}</Link>
+    </h3>
+    <p>{item.summary}</p>
+  </div>
+))}
+
+## 控制面与执行栈
+
+{[...toolCatalogByGroup[1].items, ...toolCatalogByGroup[2].items].map((item) => (
+  <div key={item.id}>
+    <h3>
+      <Link to={item.docsRoot}>{item.title}</Link>
+    </h3>
+    <p>{item.summary}</p>
+  </div>
+))}
+
+## 终端 Agent
+
+{toolCatalogByGroup[3].items.map((item) => (
+  <div key={item.id}>
+    <h3>
+      <Link to={item.docsRoot}>{item.title}</Link>
+    </h3>
+    <p>{item.summary}</p>
+  </div>
+))}
+
+## IDE-First
+
+{toolCatalogByGroup[4].items.map((item) => (
+  <div key={item.id}>
+    <h3>
+      <Link to={item.docsRoot}>{item.title}</Link>
+    </h3>
+    <p>{item.summary}</p>
+  </div>
+))}
+
+## 从这里继续往下读
+
+- 想先看选型地图：去 [工具选择地图](/docs/tool-selection)
+- 想看平台、控制面和执行栈的分层：去 [AI IDE 全景](/docs/tools/ai-ide-landscape)
+- 想先比较终端入口：去 [终端 Agent 全景](/docs/terminal-agent-landscape)
+- 想保留观察名单：去 [主流工具观察名单](/docs/mainstream-tool-watchlist)

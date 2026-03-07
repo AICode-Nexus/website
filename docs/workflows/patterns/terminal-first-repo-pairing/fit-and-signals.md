@@ -1,0 +1,44 @@
+---
+title: "Terminal-First Repo Pairing：适用信号与边界"
+description: "什么时候优先用 Terminal-First Repo Pairing，什么时候不要用。"
+slug: "/workflows/patterns/terminal-first-repo-pairing/fit-and-signals"
+sidebar_label: "适用信号"
+tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
+track: "prompting-workflows"
+kind: "guide"
+audience: "mixed"
+stage: "intermediate"
+featured: false
+pillar: "workflows"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+---
+
+# Terminal-First Repo Pairing：适用信号与边界
+
+Terminal-First Repo Pairing 不是“越先进越该上”的默认答案，而是一套适合特定任务结构和团队成熟度的做法。判断是否该上它，关键在于信号是否匹配，而不是产品名是否热门。
+
+## 什么时候触发
+
+- 仓库已有构建、测试、脚本或 codemod 回路。
+- 团队不想把全部上下文和执行都锁在 IDE 或网页产品里。
+- 你更信命令输出和 diff，而不是一句“已经完成”。
+
+## 更适合谁
+
+- 真实工程仓库、monorepo、脚本化任务和命令驱动型修复。
+- 希望保留 shell、git、test 和审批边界的团队。
+- 需要 agent 直接和 repo 规则、工作树、构建命令交互的任务。
+
+## 不适用场景
+
+- 高度视觉化的任务，离不开浏览器交互与人工拖拽。
+- 不愿意看命令输出、也不愿意 review diff 的使用方式。
+- 仓库没有任何脚本或验证回路，命令行只能盲改的场景。
+
+## 默认切换条件
+
+- 如果任务规模下降到只剩局部修复，应切回更轻的 bugfix / refactor / test 流。
+- 如果任务规模升级到需要更多角色或更多产物，应切到更重的框架层，而不是硬撑当前模式。
+- 如果团队没有 owner、没有验证命令或没有清晰边界，再好的工作流名词都不会救场。

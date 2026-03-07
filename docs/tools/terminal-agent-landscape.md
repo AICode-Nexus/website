@@ -64,6 +64,7 @@ market_status: current
 
 ## 延伸阅读
 
-- [Claude Code 入门与工作方式](/docs/claude-code-workstyle)
-- [Gemini CLI 入门与 GitHub 工作流](/docs/gemini-cli-github-workflow)
+- [Claude Code Handbook](/docs/tools/terminal-agents/claude-code)
+- [Gemini CLI Handbook](/docs/tools/terminal-agents/gemini-cli)
+- [Cline Handbook](/docs/tools/terminal-agents/cline)
 - [AI 开发方式总览](/docs/development-modes-landscape)

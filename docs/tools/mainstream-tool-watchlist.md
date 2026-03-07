@@ -34,6 +34,7 @@ market_status: watch
 - OpenAI Codex
 - Claude Code
 - Gemini CLI
+- Cline
 - Cursor
 - Windsurf
 
@@ -57,5 +58,6 @@ market_status: watch
 - OpenAI Codex: [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/)
 - Claude Code: [Claude Code overview](https://docs.anthropic.com/en/docs/claude-code/overview)
 - Gemini CLI: [gemini-cli](https://github.com/google-gemini/gemini-cli)
+- Cline: [Plan & Act Mode](https://docs.cline.bot/core-workflows/plan-and-act)
 - Cursor: [Cursor rules](https://docs.cursor.com/context/rules)
 - Windsurf: [AGENTS.md discovery](https://docs.windsurf.com/windsurf/cascade/agents-md)

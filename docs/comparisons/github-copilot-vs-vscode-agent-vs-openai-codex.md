@@ -123,5 +123,7 @@ market_status: current
 ## 延伸阅读
 
 - [AI Coding 平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
-- [工具选择地图](/docs/tool-selection)
+- [GitHub Copilot Handbook](/docs/tools/platforms/github-copilot)
+- [VS Code Agents Handbook](/docs/tools/control-planes/vscode-agents)
+- [OpenAI Codex Handbook](/docs/tools/execution-stacks/openai-codex)
 - [2026 年 3 月 AI Coding 的四个主线变化](/docs/insights/agentic-coding-patterns)

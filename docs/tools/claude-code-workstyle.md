@@ -77,6 +77,7 @@ Claude Code 这类 terminal-first 入口通常比纯 IDE-first 更稳。
 
 ## 延伸阅读
 
+- [Claude Code Handbook](/docs/tools/terminal-agents/claude-code)
 - [终端 Agent 全景](/docs/terminal-agent-landscape)
 - [仓库规则文件体系](/docs/repo-instruction-files)
 - [AI 开发方式总览](/docs/development-modes-landscape)

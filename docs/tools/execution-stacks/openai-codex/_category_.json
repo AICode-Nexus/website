@@ -1,0 +1,8 @@
+{
+  "label": "OpenAI Codex",
+  "position": 3,
+  "link": {
+    "type": "doc",
+    "id": "tools/execution-stacks/openai-codex/index"
+  }
+}

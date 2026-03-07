@@ -159,7 +159,9 @@ AI IDE 市场很热，但不同产品解决的问题层次并不一样。如果�
 
 ## 延伸阅读
 
-- [工具选择地图](/docs/tool-selection)
+- [GitHub Copilot Handbook](/docs/tools/platforms/github-copilot)
+- [VS Code Agents Handbook](/docs/tools/control-planes/vscode-agents)
+- [OpenAI Codex Handbook](/docs/tools/execution-stacks/openai-codex)
 - [终端 Agent 与 CLI](/docs/tools/terminal-agents-and-cli)
 - [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
 

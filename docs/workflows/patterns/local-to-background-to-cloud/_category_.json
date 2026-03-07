@@ -1,0 +1,8 @@
+{
+  "label": "Local -> Background -> Cloud",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "workflows/patterns/local-to-background-to-cloud/index"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Issue / Jira -> Draft PR",
+  "position": 3,
+  "link": {
+    "type": "doc",
+    "id": "workflows/patterns/issue-to-draft-pr/index"
+  }
+}

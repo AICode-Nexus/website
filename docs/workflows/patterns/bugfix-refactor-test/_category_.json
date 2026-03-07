@@ -1,0 +1,8 @@
+{
+  "label": "Bugfix / Refactor / Test",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "workflows/patterns/bugfix-refactor-test/index"
+  }
+}

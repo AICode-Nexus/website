@@ -1,0 +1,8 @@
+{
+  "label": "Claude Code",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "tools/terminal-agents/claude-code/index"
+  }
+}

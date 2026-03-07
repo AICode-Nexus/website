@@ -25,8 +25,9 @@ market_status: current
 
 1. [AI 开发方式总览](/docs/development-modes-landscape)
 2. [工具选择地图](/docs/tool-selection)
-3. [Claude Code 入门与工作方式](/docs/claude-code-workstyle)
-4. [Gemini CLI 入门与 GitHub 工作流](/docs/gemini-cli-github-workflow)
+3. [Claude Code Handbook](/docs/tools/terminal-agents/claude-code)
+4. [Gemini CLI Handbook](/docs/tools/terminal-agents/gemini-cli)
+5. [OpenAI Codex Handbook](/docs/tools/execution-stacks/openai-codex)
 
 ## 第二段：团队工作流期
 
@@ -35,10 +36,10 @@ market_status: current
 建议顺序：
 
 1. [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
-2. [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
-3. [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
-4. [Prompt Contracts](/docs/workflows/prompt-contracts)
-5. [Bugfix / Refactor / Test 工作流](/docs/workflows/bugfix-refactor-test-workflows)
+2. [Spec-First](/docs/workflows/patterns/spec-first)
+3. [Spec Kit](/docs/workflows/frameworks/spec-kit)
+4. [Superpowers](/docs/workflows/community-frameworks/superpowers)
+5. [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
 6. [多 Agent 协作](/docs/workflows/multi-agent-collaboration)
 
 ## 第三段：规范与架构期

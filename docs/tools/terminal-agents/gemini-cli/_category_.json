@@ -1,0 +1,8 @@
+{
+  "label": "Gemini CLI",
+  "position": 5,
+  "link": {
+    "type": "doc",
+    "id": "tools/terminal-agents/gemini-cli/index"
+  }
+}

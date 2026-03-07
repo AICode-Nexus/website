@@ -75,6 +75,7 @@ Gemini CLI 可以承担：
 
 ## 延伸阅读
 
+- [Gemini CLI Handbook](/docs/tools/terminal-agents/gemini-cli)
 - [终端 Agent 全景](/docs/terminal-agent-landscape)
 - [仓库规则文件体系](/docs/repo-instruction-files)
 - [工具选择地图](/docs/tool-selection)

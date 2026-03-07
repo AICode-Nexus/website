@@ -1,0 +1,75 @@
+---
+title: AI 工作流
+description: 把 planning、contract、执行、验证、review 和 PR 收成可复制的团队级流程，而不是临场发挥。
+slug: /workflows
+sidebar_label: AI 工作流
+tags: [ai-coding, workflows, delivery]
+track: prompting-workflows
+kind: hub
+audience: mixed
+stage: starter
+featured: true
+pillar: workflows
+reviewed_at: 2026-03-07
+source_window_end: 2026-03-07
+market_status: current
+---
+
+import Link from '@docusaurus/Link';
+import {workflowCatalogByGroup} from '@site/src/data/workflowCatalog.mjs';
+
+# AI 工作流
+
+这一层不再只是一篇“工作流总览”。现在它拆成三种对象：
+
+- 工作流模式：回答任务应该走哪条交付链。
+- 官方/主线工作流框架：回答团队要不要引入完整框架骨架。
+- 社区工作流框架：回答日常 agent 协作能不能再加一层方法论。
+
+## 先怎么用这一层
+
+如果你还没固定默认交付链，先从工作流模式开始。
+
+如果你已经知道自己要 `spec-first`、`issue -> PR` 还是 `terminal-first`，但团队总在边界和 handoff 上出问题，再看框架层。
+
+如果你已经高频使用 coding agents，想把 brainstorming、worktree、plan、TDD 和 review 变成日常习惯，再看社区工作流框架。
+
+## 工作流模式
+
+{workflowCatalogByGroup[0].items.map((item) => (
+  <div key={item.id}>
+    <h3>
+      <Link to={item.docsRoot}>{item.title}</Link>
+    </h3>
+    <p>{item.summary}</p>
+  </div>
+))}
+
+## 官方/主线工作流框架
+
+{workflowCatalogByGroup[1].items.map((item) => (
+  <div key={item.id}>
+    <h3>
+      <Link to={item.docsRoot}>{item.title}</Link>
+    </h3>
+    <p>{item.summary}</p>
+  </div>
+))}
+
+## 社区工作流框架
+
+{workflowCatalogByGroup[2].items.map((item) => (
+  <div key={item.id}>
+    <h3>
+      <Link to={item.docsRoot}>{item.title}</Link>
+    </h3>
+    <p>{item.summary}</p>
+  </div>
+))}
+
+## 从这里继续往下读
+
+- 想先看一张地图：去 [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
+- 想只看框架选型：去 [工作流框架总览](/docs/workflows/frameworks-overview)
+- 想把执行链写成团队模板：去 [任务工作流目录](/docs/workflows/workflow-catalog)
+- 想落回具体操作：去 [AI 工作流实操手册](/docs/playbooks/workflow-playbook)

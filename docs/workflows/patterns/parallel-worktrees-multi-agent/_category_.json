@@ -1,0 +1,8 @@
+{
+  "label": "Parallel Worktrees / Multi-Agent",
+  "position": 6,
+  "link": {
+    "type": "doc",
+    "id": "workflows/patterns/parallel-worktrees-multi-agent/index"
+  }
+}
