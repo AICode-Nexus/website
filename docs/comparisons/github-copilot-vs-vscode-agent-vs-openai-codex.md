@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选
 
 ## 先给结论
@@ -122,8 +124,34 @@ market_status: current
 
 ## 延伸阅读
 
-- [AI Coding 平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
-- [GitHub Copilot Handbook](/docs/tools/platforms/github-copilot)
-- [VS Code Agents Handbook](/docs/tools/control-planes/vscode-agents)
-- [OpenAI Codex Handbook](/docs/tools/execution-stacks/openai-codex)
-- [2026 年 3 月 AI Coding 的四个主线变化](/docs/insights/agentic-coding-patterns)
+<RelatedReadings
+  title="继续阅读与落地路径"
+  description="这篇比较负责缩小选择范围。真正进入实施时，应该回到对应工具簇看工作流、规则边界与治理要求。"
+  items={[
+    {
+      title: 'AI Coding 平台比较框架',
+      href: '/docs/comparisons/ai-coding-platform-comparison-framework',
+      description: '如果你还要继续把更多产品拉进同一套标准下比较，回到框架文统一方法。',
+    },
+    {
+      title: 'GitHub Copilot',
+      href: '/docs/tools/platforms/github-copilot',
+      description: '继续看 GitHub-first 平台入口的工作流、review 证据与 rollout 边界。',
+    },
+    {
+      title: 'VS Code Agents',
+      href: '/docs/tools/control-planes/vscode-agents',
+      description: '继续看控制面如何承接 local、background、cloud 与 third-party agent。',
+    },
+    {
+      title: 'OpenAI Codex',
+      href: '/docs/tools/execution-stacks/openai-codex',
+      description: '继续看执行栈如何处理 worktree、审批与并行 lane。',
+    },
+    {
+      title: '2026 年 3 月 AI Coding 的四个主线变化',
+      href: '/docs/insights/agentic-coding-patterns',
+      description: '如果你想把这次比较放回更大的行业变化里，这篇趋势文最合适。',
+    },
+  ]}
+/>

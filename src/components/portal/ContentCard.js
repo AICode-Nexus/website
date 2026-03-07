@@ -18,26 +18,28 @@ export default function ContentCard({
 }) {
   return (
     <article className={clsx(styles.contentCard, className)}>
-      {badge ? <p className={styles.cardBadge}>{badge}</p> : null}
-      <h3>{title}</h3>
-      {meta ? <p className={styles.cardMeta}>{meta}</p> : null}
-      <p>{description}</p>
-      {Array.isArray(bullets) && bullets.length > 0 ? (
-        <ul className={styles.bullets}>
-          {bullets.map((bullet) => (
-            <li key={bullet}>{bullet}</li>
-          ))}
-        </ul>
-      ) : null}
-      {Array.isArray(tags) && tags.length > 0 ? (
-        <div className={styles.tagList}>
-          {tags.map((tag) => (
-            <span className={styles.tagPill} key={tag}>
-              {tag}
-            </span>
-          ))}
-        </div>
-      ) : null}
+      <div className={styles.cardBody}>
+        {badge ? <p className={styles.cardBadge}>{badge}</p> : null}
+        <h3>{title}</h3>
+        {meta ? <p className={styles.cardMeta}>{meta}</p> : null}
+        <p>{description}</p>
+        {Array.isArray(bullets) && bullets.length > 0 ? (
+          <ul className={styles.bullets}>
+            {bullets.map((bullet) => (
+              <li key={bullet}>{bullet}</li>
+            ))}
+          </ul>
+        ) : null}
+        {Array.isArray(tags) && tags.length > 0 ? (
+          <div className={styles.tagList}>
+            {tags.map((tag) => (
+              <span className={styles.tagPill} key={tag}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </div>
       {href && linkLabel ? (
         <Link className={styles.cardLink} rel={linkRel} target={linkTarget} to={href}>
           {linkLabel}

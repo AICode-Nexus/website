@@ -1,3 +1,5 @@
+import {defineToolCatalog} from '../utils/handbookCatalog.mjs';
+
 const reviewedAt = '2026-03-07';
 const marketStatus = 'current';
 
@@ -42,7 +44,7 @@ export const toolGroups = [
   },
 ];
 
-export const toolCatalog = [
+export const toolCatalog = defineToolCatalog([
   {
     ...base,
     id: 'github-copilot',
@@ -777,7 +779,7 @@ export const toolCatalog = [
       source('Windsurf Cascade', 'https://docs.windsurf.com/windsurf/cascade/cascade'),
     ],
   },
-];
+]);
 
 export const toolCatalogByGroup = toolGroups.map((group) => ({
   ...group,

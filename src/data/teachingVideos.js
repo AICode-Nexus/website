@@ -275,6 +275,13 @@ function normalizeTeachingVideoCatalog(rawCatalog) {
   return normalizeLegacyCatalog(rawCatalog);
 }
 
+export const teachingVideoCatalogSync = Object.freeze({
+  intervalHours: 6,
+  intervalLabel: '每 6 小时',
+  pillLabel: '每 6 小时自动同步',
+  description: 'GitHub Actions 每 6 小时自动刷新一次目录数据',
+});
+
 export const teachingVideoCatalog = defineTeachingVideoCatalog(
   normalizeTeachingVideoCatalog(teachingVideoCatalogData),
 );

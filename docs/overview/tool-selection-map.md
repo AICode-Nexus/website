@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # AI Coding 工具选择地图
 
 ## 背景
@@ -114,4 +116,39 @@ market_status: current
 - [AI Coding 平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
 - [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
 - [IDE 与工具链](/docs/ides-tooling)
+- [AI 编程工具](/docs/tools)
 - [7 天上手路线](/docs/playbooks/first-7-days-ai-coding)
+
+## 继续阅读与下一步
+
+<RelatedReadings
+  title="继续阅读与下一步"
+  description="地图页负责做初筛。真正要选型和落地时，下一步应该回到对比文、具体工具簇和入门 playbook。"
+  items={[
+    {
+      title: 'AI Coding 平台比较框架',
+      href: '/docs/comparisons/ai-coding-platform-comparison-framework',
+      description: '继续统一比较维度，避免直接拿不同层级的入口硬排位。',
+    },
+    {
+      title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
+      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      description: '如果你正在平台、控制面和执行栈之间做选择，这篇最直接。',
+    },
+    {
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '按问题类型进入具体工具簇，继续看工作流、治理与替代项。',
+    },
+    {
+      title: '7 天上手路线',
+      href: '/docs/playbooks/first-7-days-ai-coding',
+      description: '把今天的入口判断真正转成一周内可执行的试跑路径。',
+    },
+    {
+      title: 'AI 工作流',
+      href: '/docs/workflows',
+      description: '如果你已经选完入口，下一步就要把它放回稳定的交付链里。',
+    },
+  ]}
+/>

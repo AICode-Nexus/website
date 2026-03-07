@@ -31,6 +31,14 @@ market_status: "current"
 - [BMAD](/docs/workflows/frameworks/bmad)：当任务跨角色跨阶段时，BMAD 更能承载治理。
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你要的是 agent 每天如何执行，而不是 proposal 管理层时，Superpowers 更直接。
 
+## 比较矩阵
+
+| 如果你当前更在意 | 更适合继续用它 | 更适合改看别的 |
+| --- | --- | --- |
+| 先把 planning 合同写稳 | 现有项目、brownfield 场景和高频小改动。 | Spec Kit |
+| 多角色或更重流程 | 需要显式记录变更原因，但又不想引入太多角色和阶段的团队。 | BMAD |
+| 日常执行纪律 | 想把 proposal 与最终实现、归档记录连接起来的组织。 | Superpowers |
+
 ## 什么时候不要选它
 
 - 大范围新功能、跨团队项目或多角色治理型任务。
@@ -41,3 +49,15 @@ market_status: "current"
 
 - [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：OpenSpec 很适合承接高频维护型变化。
 - [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：proposal 通过后，可直接进入异步 PR 流程。
+
+## 下一步怎么读
+
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：当你需要更完整的 spec 与 plan 链时，Spec Kit 更合适。
+- [BMAD](/docs/workflows/frameworks/bmad)：当任务跨角色跨阶段时，BMAD 更能承载治理。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你要的是 agent 每天如何执行，而不是 proposal 管理层时，Superpowers 更直接。
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：OpenSpec 很适合承接高频维护型变化。
+- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：proposal 通过后，可直接进入异步 PR 流程。
+
+## 来源
+
+- [OpenSpec](https://github.com/openspec-ai/openspec)

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import {portalContent} from '@site/src/data/portalContent';
-import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
+import {teachingVideoCatalog, teachingVideoCatalogSync} from '@site/src/data/teachingVideos';
 import {getTeachingVideoLanguageLabel} from '@site/src/utils/teachingVideos';
 import ContentCard from './ContentCard';
 import SectionBlock from './SectionBlock';
@@ -30,10 +30,10 @@ export default function TeachingVideos() {
     >
       <div className={styles.videoStatusRow}>
         <span className={stale ? `${styles.videoStatusPill} ${styles.videoStatusPillCritical}` : styles.videoStatusPill}>
-          {stale ? '数据陈旧' : '自动同步'}
+          {stale ? '数据陈旧' : teachingVideoCatalogSync.pillLabel}
         </span>
         <p className={styles.videoStatusText}>
-          最近同步 {formatLastSyncedAt(teachingVideoCatalog.generatedAt)} · 时间窗 {teachingVideoCatalog.windowStart} 至 {teachingVideoCatalog.windowEnd}
+          最近同步 {formatLastSyncedAt(teachingVideoCatalog.generatedAt)} · 自动同步周期 {teachingVideoCatalogSync.intervalLabel} · 时间窗 {teachingVideoCatalog.windowStart} 至 {teachingVideoCatalog.windowEnd}
         </p>
       </div>
 

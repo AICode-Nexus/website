@@ -9,6 +9,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- Shared docs presentation primitives in `src/components/docs/` for decision matrices, scenario cards, checklists, related-reading blocks, and tool-linked teaching resources so handbook and longform pages can reuse a single docs UI layer.
+- Build-time handbook catalog validation in `src/utils/handbookCatalog.mjs`, forcing tool and workflow source records to provide stable ids, required page sections, internal links, and source metadata before docs generation runs.
 - A scheduled `Teaching Videos Sync` GitHub Actions workflow that refreshes the teaching-video catalog every 6 hours, validates the contract, and auto-commits a new generated catalog when the sync succeeds.
 - Structured workflow and tool handbooks generated from `src/data/workflowCatalog.mjs` and `src/data/toolCatalog.mjs`, adding pattern/framework/community workflow directories and role-based tool directories under `docs/workflows/` and `docs/tools/`.
 - A practical workflow layer for the knowledge base with a new mainstream workflow guide and a step-by-step workflow playbook, covering spec-first, bugfix, async issue-to-PR, terminal-first, and parallel worktree usage.
@@ -34,6 +36,14 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Reworked the teaching-video catalog navigation so desktop now uses a stateful pagination panel with range feedback and page numbers, while mobile switches to shareable incremental "load more" browsing driven by URL state instead of local-only previous/next buttons.
+- Normalized CTA alignment inside teaching-video cards and shared homepage content cards so card buttons now anchor to a consistent bottom edge even when summaries and tag rows have different heights.
+- Rewrote the generated handbook output under `docs/tools/` and `docs/workflows/` so tool, workflow, and framework clusters now render decision-oriented sections, tables, next-step links, and tool learning resources instead of thin bullet-only pages.
+- Reworked the `AI 编程工具` and `AI 工作流` hub docs into decision-first landing pages that route readers by problem shape, family, and reading order instead of stacked title-summary lists.
+- Added reusable related-reading rails to longform comparisons, playbooks, and insights so deep reads now connect back to the relevant handbook clusters and follow-on actions.
+- Tightened `check:content` with family-specific depth rules for generated handbook pages and hub/overview pages, including stronger floors for H2 structure, tables, internal links, and source coverage.
+- Tightened handbook and content validation again so source links are deduplicated, only real docs/blog routes count toward internal-link floors, archive/site-admin docs receive explicit lightweight checks, and handbook catalogs now enforce the minimum array shapes the generator actually reads.
+- Clarified the teaching-video auto-sync cadence across the homepage card, catalog hero, and overview doc so the UI now explicitly states the 6-hour refresh cycle instead of a vague “自动同步” badge.
 - Moved the docs-page freshness/status banner to the bottom of each document article so governance metadata remains available without displacing the main content above the fold.
 - Fixed the teaching-video course CTA deep-link behavior so `查看课程代表视频` now lands on and highlights the corresponding video card, and aligned course-card CTAs to a consistent bottom edge.
 - Removed the decorative underline from the navbar `教学视频` link and disabled the mobile navbar blur on narrow screens so the Docusaurus slide-out menu can render correctly in iOS and WeChat browsers.

@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # AI Coding 平台比较框架
 
 ## 先给结论
@@ -177,6 +179,29 @@ market_status: current
 
 ## 延伸阅读
 
-- [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
-- [工具选择地图](/docs/tool-selection)
-- [7 天上手路线](/docs/playbooks/first-7-days-ai-coding)
+<RelatedReadings
+  title="继续阅读与落地路径"
+  description="这篇框架文负责帮你建立统一比较维度。下一步应该回到更具体的对比文、工具手册和落地 playbook。"
+  items={[
+    {
+      title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
+      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      description: '如果你已经锁定平台、控制面和执行栈三类入口，这篇会更快帮你做取舍。',
+    },
+    {
+      title: '工具选择地图',
+      href: '/docs/tool-selection',
+      description: '如果你还没固定主入口，先回地图页按问题类型分流，再进入具体工具簇。',
+    },
+    {
+      title: '7 天上手路线',
+      href: '/docs/playbooks/first-7-days-ai-coding',
+      description: '把比较结果真正转成一周内可执行的上手路径。',
+    },
+    {
+      title: 'AI 编程工具总入口',
+      href: '/docs/tools',
+      description: '按平台、控制面、执行栈、终端和 IDE-first 进入具体手册簇。',
+    },
+  ]}
+/>

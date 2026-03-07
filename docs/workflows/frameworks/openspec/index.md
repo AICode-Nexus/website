@@ -35,6 +35,30 @@ OpenSpec 更像轻量变更管理层：用 proposal、change 和 archive 管理 
 - 需要追踪“为什么改”，但 spec-first 的完整产物链过重。
 - 现有 repo 治理还算稳定，只缺一层轻量 proposal 记录。
 
+## 角色与阶段概览
+
+| 阶段 | 目标 | 主要产物 |
+| --- | --- | --- |
+| 提 proposal | 先说明为什么要改、改什么、不改什么。 | proposal |
+| 形成 change set | 把 proposal 转成具体改动包与依赖说明。 | change set |
+| 执行与验证 | 在实现阶段对照 proposal 做最小变更。 | implemented change |
+| archive | 把结果、结论和后续处理归档，保留变更历史。 | archive record |
+
+## 采用前检查
+
+- 先确认团队已经有 repo 规则、验证命令和明确 owner，否则只会把流程层再加一层壳。
+- 先挑一个真实任务试跑，而不是先做大面积制度推广。
+- proposal 先确认，再执行 change，不要让实现反推需求。
+- archive 不是可选装饰，而是让后续团队知道这个改动为什么存在。
+
+## 下一步怎么读
+
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：OpenSpec 很适合承接高频维护型变化。
+- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：proposal 通过后，可直接进入异步 PR 流程。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：当你需要更完整的 spec 与 plan 链时，Spec Kit 更合适。
+- [BMAD](/docs/workflows/frameworks/bmad)：当任务跨角色跨阶段时，BMAD 更能承载治理。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你要的是 agent 每天如何执行，而不是 proposal 管理层时，Superpowers 更直接。
+
 ## 来源
 
 - [OpenSpec](https://github.com/openspec-ai/openspec)

@@ -19,6 +19,10 @@ market_status: legacy
 
 这是上一阶段的一级赛道入口，二阶段起改为“旧赛道透镜”。
 
+## 这类透镜现在怎么用
+
+这个入口现在只适合把旧文章当作专题透镜回看，例如执行模式、评分卡、memory 与 rules 等话题。它不再负责告诉你“今天应该先读哪一层”，所以更适合作为补充阅读，而不是起点。
+
 如果你想看新的一级结构，请优先进入：
 
 - [AI 开发方式](/docs/development-modes)
@@ -30,3 +34,9 @@ market_status: legacy
 - 执行模式
 - 评分卡
 - memory、rules 与上下文机制
+
+## 继续阅读
+
+- 如果你在判断 agent 该怎么进入真实交付链，先看 [AI 开发方式](/docs/development-modes)。
+- 如果你在判断具体入口和控制面，回到 [AI 编程工具](/docs/tools)。
+- 如果你关心 rules、权限和长期约束，继续看 [AI 规范](/docs/standards)。

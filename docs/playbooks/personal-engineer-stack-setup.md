@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # 个人工程师栈搭建
 
 ## 目标
@@ -233,7 +235,29 @@ npm run build
 
 ## 下一步
 
-- [从个人工作流到团队协作](/docs/team-delivery/solo-to-team-transition)
-- [质量门禁与 Review](/docs/standards/review-quality-gates)
-- [指标与风险](/docs/standards/evaluation-risk-metrics)
-- [开放式入口对比](/docs/comparisons/cursor-vs-windsurf-vs-cline)
+<RelatedReadings
+  title="继续阅读与补充路径"
+  description="这篇 playbook 负责先把个人工程师栈搭起来。下一步应该把规则、质量门禁和入口对比补齐，而不是继续零散试工具。"
+  items={[
+    {
+      title: '质量门禁与 Review',
+      href: '/docs/standards/review-quality-gates',
+      description: '把 repo 级 review 责任、证据要求和放行条件固定下来。',
+    },
+    {
+      title: '指标与风险',
+      href: '/docs/standards/evaluation-risk-metrics',
+      description: '把“感觉更顺”变成可复盘的效率、返工和风险指标。',
+    },
+    {
+      title: 'Cursor、Windsurf 与 Cline 怎么看',
+      href: '/docs/comparisons/cursor-vs-windsurf-vs-cline',
+      description: '如果你还在犹豫 IDE-first 与开放式入口，这篇对比最直接。',
+    },
+    {
+      title: '7 天上手路线',
+      href: '/docs/playbooks/first-7-days-ai-coding',
+      description: '如果你要把这套栈快速跑起来，这篇是一周内最实用的执行顺序。',
+    },
+  ]}
+/>

@@ -19,11 +19,17 @@ market_status: "current"
 
 把长任务拆成多个低耦合子任务，在独立 worktree 或独立 agent 会话中并行推进，再由 owner 收口 review。
 
-## 适合的任务
+## 什么时候优先用它
 
 - 实现、测试、文档、迁移或适配器等低耦合子任务并存的长链路任务。
 - 需要利用后台 agent、并行 branch 或 worktree 来缩短等待时间的场景。
 - 团队已经有明确 owner，能控制拆分和合流顺序。
+
+## 什么时候先别用它
+
+- 所有改动都集中在同一批核心文件、同一组类型定义或同一套接口上。
+- 边界还没定，拆分出来的只是多份混乱。
+- 没有统一 owner，最后没人负责冲突和收尾。
 
 ## 最小闭环
 
@@ -36,13 +42,42 @@ market_status: "current"
 4. **owner 合流**：由统一 owner 按依赖顺序合并、解决冲突，并做最终回归。
    产物：integrated branch
 
+## 阶段与产物总表
+
+| 阶段 | 目标 | 主要产物 |
+| --- | --- | --- |
+| 先拆任务 | 用 spec、plan 或 owner 判断把任务拆成低耦合子任务，并定义依赖顺序。 | task map |
+| 按 lane 建 worktree 或 agent session | 每条 lane 独立目录、独立上下文、独立验证，避免互相污染。 | isolated worktrees |
+| 分别验证 | 每条 lane 先在自己的边界内通过验证，再进入集成阶段。 | per-lane evidence |
+| owner 合流 | 由统一 owner 按依赖顺序合并、解决冲突，并做最终回归。 | integrated branch |
+
+## 输入、输出与验收
+
+### 输入
+
+- 任务拆分图、依赖顺序、每条 lane 的目录范围。
+- worktree 命名、branch 策略和合流顺序。
+- 每条 lane 的验证命令，以及最终集成验证命令。
+
+### 输出
+
+- 独立 worktree 或 session 中的子任务结果。
+- 每条 lane 的测试/构建/说明证据。
+- 最终合流后的统一 diff 和风险总结。
+
+### 验收证据
+
+- 每条 lane 都要有自己的验证证据，不能只看最终集成结果。
+- 合流阶段要明确解决了哪些冲突、保留了哪些风险。
+- 如果有子任务被放弃或延后，要明确记录而不是静默消失。
+
 ## 默认人工接管点
 
 - 拆分标准要先由 owner 定，不应让多个 agent 各自理解任务边界。
 - 每个 lane 要先完成自己的验证，再进入合流和集成测试。
 - 最终回归必须回到统一 owner，而不是让各 lane 自己宣布完成。
 
-## 推荐入口
+## 推荐入口与下一步
 
 - [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：并行 task 与 worktree 是它最强的场景之一。
 - [Claude Code](/docs/tools/terminal-agents/claude-code)：官方 common workflows 已明确 worktree 并行。

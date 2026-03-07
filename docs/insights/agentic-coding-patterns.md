@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: watch
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # 2026 年 3 月 AI Coding 的四个主线变化
 
 ## 本期最重要的变化
@@ -138,6 +140,29 @@ AI coding 不再只是编辑器里的“帮我写点代码”。它正在进入 
 
 ## 延伸阅读
 
-- [2026 年 3 月月度简报](/docs/insights/monthly-brief-2026-03)
-- [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
-- [Daily Brief | 2026-03-06](/blog/agentic-coding-shifts)
+<RelatedReadings
+  title="继续阅读与落地路径"
+  description="趋势文负责告诉你变化方向。要把这些变化转成动作，下一步应该回到具体对比、工具手册和阶段性简报。"
+  items={[
+    {
+      title: '2026 年 3 月月度简报',
+      href: '/docs/insights/monthly-brief-2026-03',
+      description: '如果你要看更细的时间线与观察重点，从月度层继续往下钻。',
+    },
+    {
+      title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
+      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      description: '把趋势变化落回平台、控制面与执行栈的具体比较。',
+    },
+    {
+      title: 'AI 编程工具总入口',
+      href: '/docs/tools',
+      description: '按问题类型进入具体工具簇，而不是继续只看抽象趋势。',
+    },
+    {
+      title: 'Daily Brief',
+      href: '/blog',
+      description: '如果你要持续跟踪更细粒度变化，就进入每日观察流。',
+    },
+  ]}
+/>

@@ -26,7 +26,7 @@ market_status: "current"
 - Implementer：按照任务包推进实现和验证。
 - Reviewer：对照 spec 与 evidence 判断是否通过。
 
-## 阶段
+## 阶段总表
 
 | 阶段 | 目标 | 主要产物 |
 | --- | --- | --- |
@@ -46,3 +46,19 @@ market_status: "current"
 - spec 先过，再进入 plan；plan 先过，再进入 tasks。
 - tasks 是执行入口，不应该重新定义需求。
 - review 最终回到 spec 与验收标准，而不是只谈代码风格。
+
+## 角色和产物为什么要一起看
+
+如果角色只停留在名称层，而产物没有固定下来，最终执行时还是会回到“谁想起什么就补什么”的状态。把角色、阶段和产物绑在一起看，才有可能让不同人对同一个框架产生相同预期。
+
+## 下一步怎么读
+
+- [Spec-First](/docs/workflows/patterns/spec-first)：Spec Kit 最自然的落点就是 spec-first。
+- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：plan 定稿后可把部分任务交给后台或云端执行。
+- [BMAD](/docs/workflows/frameworks/bmad)：需要多角色和更完整治理时，BMAD 更合适。
+- [OpenSpec](/docs/workflows/frameworks/openspec)：如果主要是 brownfield 高频小改动，OpenSpec 更轻。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：如果你更缺日常 agent 操作框架而不是 spec 链，Superpowers 更贴近执行。
+
+## 来源
+
+- [GitHub Spec Kit](https://github.com/github/spec-kit)

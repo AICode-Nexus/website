@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # Cursor、Windsurf 与 Cline 怎么看
 
 > 本文基于 2026 年 3 月 6 日前可见的官方文档和官方 changelog。涉及“更适合谁”的部分，是基于这些资料做出的工程判断，不是厂商原话。
@@ -166,7 +168,34 @@ market_status: current
 
 ## 延伸阅读
 
-- [平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
-- [GitHub Copilot vs VS Code Agent vs OpenAI Codex](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
-- [AI IDE 全景](/docs/tools/ai-ide-landscape)
-- [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
+<RelatedReadings
+  title="继续阅读与落地路径"
+  description="这篇对比负责区分 IDE-first 与开放式入口。下一步应该进入具体工具簇，而不是继续停留在“谁更好用”的层面。"
+  items={[
+    {
+      title: 'Cursor',
+      href: '/docs/tools/ide-first/cursor',
+      description: '继续看 Cursor 在工作流承接、规则边界、治理与退出信号上的完整手册。',
+    },
+    {
+      title: 'Windsurf',
+      href: '/docs/tools/ide-first/windsurf',
+      description: '继续看 Windsurf 在 workspace、memory、rules 与团队 rollout 上的完整手册。',
+    },
+    {
+      title: 'Cline',
+      href: '/docs/tools/terminal-agents/cline',
+      description: '继续看开放式入口在 MCP、工具壳层和治理上的完整手册。',
+    },
+    {
+      title: 'AI IDE 全景',
+      href: '/docs/tools/ai-ide-landscape',
+      description: '如果你还需要继续比较更大的入口分层，再回到全景文统一视角。',
+    },
+    {
+      title: '个人工程师栈搭建',
+      href: '/docs/playbooks/personal-engineer-stack-setup',
+      description: '把这次选择真正落回个人或小团队的默认主入口与补位入口搭建顺序。',
+    },
+  ]}
+/>

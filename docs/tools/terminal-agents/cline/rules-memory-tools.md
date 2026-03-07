@@ -17,26 +17,54 @@ market_status: "current"
 
 # Cline：规则、记忆与工具边界
 
-一旦一个工具开始支持 rules、memory、background task 或 MCP，它就不只是“会写代码的 UI”，而是在参与团队治理。规则写在哪、状态留在哪、工具权限怎么管，决定了这个入口能不能长期存在。
+一旦一个入口开始支持 rules、memory、background task 或 MCP，它就不再只是“会写代码的 UI”，而是在参与团队治理。规则写在哪、状态留在哪、工具权限怎么管，会直接决定这个入口是否能长期留在标准栈里。
 
-## rules 与上下文
+## 规则分层
 
 - 开放性越强，越需要你自己定义 repo contract、权限边界和停止条件。
 - 最好把关键规则收回仓库文件，避免全靠客户端配置。
 - 对同一个团队，不宜让每个人都维护完全不同的规则集。
 
-## 记忆与状态
+## 状态与记忆边界
 
 - checkpoint、会话状态和工具配置是主要状态层。
 - 更适合实验和高度可组合场景，不天然提供统一组织记忆层。
 
-## tools / approvals / 执行边界
+## 规则与边界矩阵
 
-- Plan / Act、browser automation、MCP、checkpoint。
-- 强项是开放组合，而不是默认流程治理。
+| 边界层 | 应该放什么 | 不要放什么 |
+| --- | --- | --- |
+| 入口规则 | 开放性越强，越需要你自己定义 repo contract、权限边界和停止条件。 | 最好把关键规则收回仓库文件，避免全靠客户端配置。 |
+| 状态与记忆 | checkpoint、会话状态和工具配置是主要状态层。 | 更适合实验和高度可组合场景，不天然提供统一组织记忆层。 |
+| 执行边界 | Plan / Act、browser automation、MCP、checkpoint。 | 强项是开放组合，而不是默认流程治理。 |
+| 仓库合同 | 先定义哪些任务允许用开放式工具，哪些必须走更稳的标准入口。 | 高风险改动建议强制 worktree 和 checkpoint，避免开放栈误伤主工作区。 |
 
 ## 仓库接入建议
 
 - 先定义哪些任务允许用开放式工具，哪些必须走更稳的标准入口。
 - 高风险改动建议强制 worktree 和 checkpoint，避免开放栈误伤主工作区。
 - 把 provider 与工具权限管理当成正式治理问题，而不是个人偏好。
+
+如果你已经在 repo 里有 AGENTS.md、目录边界、验证命令和 review checklist，那么 Cline 更应该做的是补足入口体验，而不是再造第二套事实来源。
+
+## 团队检查清单
+
+- 先定义哪些规则必须版本化留在 repo，哪些只属于 Cline 的入口习惯。
+- 任何长期状态都必须能解释 owner、刷新时机和失效条件。
+- 执行边界要能回到真实命令、diff 和 PR 证据，而不是只剩界面内的一句“完成了”。
+- 先定义哪些任务允许用开放式工具，哪些必须走更稳的标准入口。
+
+## 下一步怎么读
+
+- [Continue Rules](/docs/tools/ai-ide-landscape)：开放栈通常不只看 Cline，还要看 rules 与模型配置生态。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在开放壳层上再叠加一套日常操作方法时很有帮助。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：部分团队会把 Cline 留作开放实验入口，把 Codex 留作正式执行栈。
+- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更想要整合好的工作台体验。
+- [Cursor](/docs/tools/ide-first/cursor)：如果你更偏向成熟 IDE-first 体验。
+- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更想要终端式但更稳的 repo pairing。
+
+## 来源
+
+- [Cline Plan & Act](https://docs.cline.bot/core-workflows/plan-and-act)
+- [Cline Checkpoints](https://docs.cline.bot/core-workflows/checkpoints)
+- [Cline MCP Overview](https://docs.cline.bot/mcp/mcp-overview)

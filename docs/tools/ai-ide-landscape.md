@@ -15,6 +15,8 @@ source_window_end: 2026-03-07
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # AI IDE 全景
 
 ## 背景
@@ -159,11 +161,37 @@ AI IDE 市场很热，但不同产品解决的问题层次并不一样。如果�
 
 ## 延伸阅读
 
-- [GitHub Copilot Handbook](/docs/tools/platforms/github-copilot)
-- [VS Code Agents Handbook](/docs/tools/control-planes/vscode-agents)
-- [OpenAI Codex Handbook](/docs/tools/execution-stacks/openai-codex)
-- [终端 Agent 与 CLI](/docs/tools/terminal-agents-and-cli)
-- [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
+<RelatedReadings
+  title="继续阅读与落地路径"
+  description="全景文负责先把入口分层。接下来应该进入具体工具簇或更聚焦的对比文，而不是停留在大图层。"
+  items={[
+    {
+      title: 'GitHub Copilot',
+      href: '/docs/tools/platforms/github-copilot',
+      description: '继续看平台型入口如何接 issue、PR、review 与工作系统。',
+    },
+    {
+      title: 'VS Code Agents',
+      href: '/docs/tools/control-planes/vscode-agents',
+      description: '继续看控制面如何承接 local / background / cloud 的协同。',
+    },
+    {
+      title: 'OpenAI Codex',
+      href: '/docs/tools/execution-stacks/openai-codex',
+      description: '继续看执行栈如何处理审批、worktree、并行 lane 与长任务。',
+    },
+    {
+      title: '终端 Agent 与 CLI',
+      href: '/docs/tools/terminal-agents-and-cli',
+      description: '如果你在考虑 terminal-first 路线，这篇会把 CLI 任务合同和验证边界写清。',
+    },
+    {
+      title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
+      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      description: '如果你已经缩小到平台、控制面和执行栈三者之间，直接进入更具体的对比文。',
+    },
+  ]}
+/>
 
 ## 来源
 

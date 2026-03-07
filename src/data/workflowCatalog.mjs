@@ -1,3 +1,5 @@
+import {defineWorkflowCatalog} from '../utils/handbookCatalog.mjs';
+
 const reviewedAt = '2026-03-07';
 const marketStatus = 'current';
 
@@ -32,7 +34,7 @@ export const workflowGroups = [
   },
 ];
 
-export const workflowCatalog = [
+export const workflowCatalog = defineWorkflowCatalog([
   {
     ...base,
     id: 'spec-first',
@@ -1090,7 +1092,7 @@ export const workflowCatalog = [
       source('Superpowers Marketplace', 'https://github.com/obra/superpowers-marketplace'),
     ],
   },
-];
+]);
 
 export const workflowCatalogByGroup = workflowGroups.map((group) => ({
   ...group,

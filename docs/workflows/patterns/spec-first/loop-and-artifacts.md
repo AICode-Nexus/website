@@ -31,6 +31,15 @@ Spec-First 的价值，不在于步骤名字好看，而在于每一步都有清
 - 对照 spec 的代码改动与验证证据。
 - 范围变化记录和未完成项说明。
 
+## 阶段与产物总表
+
+| 阶段 | 目标 | 主要产物 |
+| --- | --- | --- |
+| 写目标与边界 | 先把目标、非目标、影响面、约束和验收条件写成可 review 的 spec。 | spec 草稿 |
+| 补实现计划 | 在读完仓库上下文后，把任务拆成可验证的阶段和工作包。 | plan 与 task list |
+| 小步执行并对照 spec | 每次修改都回到 spec 和验收标准，避免实现漂移。 | 按阶段完成的 diff |
+| 按验收标准验证 | 把测试、构建、人工检查和风险说明映射回验收项。 | verification packet |
+
 ## 标准步骤
 
 1. **写目标与边界**：先把目标、非目标、影响面、约束和验收条件写成可 review 的 spec。
@@ -47,3 +56,22 @@ Spec-First 的价值，不在于步骤名字好看，而在于每一步都有清
 - 每个验收点都要能映射到命令输出、截图或人工检查结果。
 - 最终说明要指出哪些需求明确完成，哪些被延后或切分。
 - 如果实现偏离 spec，必须记录原因和补充批准点。
+
+## 最容易断裂的地方
+
+- spec 定稿前必须明确谁能改目标、谁只能补实现细节。
+- plan 定稿后再进入执行，避免边执行边发明范围。
+- 计划写得很长，但没有被实际执行或验证，最后只剩文档负担。
+
+## 下一步怎么读
+
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合先把 spec、plan、tasks 链条固定下来。
+- [BMAD](/docs/workflows/frameworks/bmad)：适合需要多角色 handoff 的更重流程。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合在 spec 定稿后进入本地或云端执行。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合把本地探索和后台执行串在一条控制面里。
+
+## 来源
+
+- [GitHub Spec Kit](https://github.com/github/spec-kit)
+- [BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)
+- [VS Code Agents Overview](https://code.visualstudio.com/docs/copilot/agents/overview)

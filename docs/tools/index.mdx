@@ -15,68 +15,149 @@ source_window_end: 2026-03-07
 market_status: current
 ---
 
-import Link from '@docusaurus/Link';
-import {toolCatalogByGroup} from '@site/src/data/toolCatalog.mjs';
+import {
+  DecisionMatrix,
+  RelatedReadings,
+  ScenarioCards,
+} from '@site/src/components/docs';
+import {toolCatalogByGroup, toolGroups} from '@site/src/data/toolCatalog.mjs';
+
+export const groupMap = new Map(toolCatalogByGroup.map((group) => [group.id, group]));
+
+export const problemCards = [
+  {
+    id: 'platform',
+    meta: '问题 01',
+    title: '我需要把 issue、PR、review 串成一条线',
+    description: '这类问题优先看平台型入口，而不是先看编辑器体验。',
+    href: '/docs/tools/platforms/github-copilot',
+    bullets: ['先看 GitHub-first 闭环', '再决定本地控制面和执行栈怎么补位'],
+  },
+  {
+    id: 'control-plane',
+    meta: '问题 02',
+    title: '我想在一个编辑器里统一调度本地与后台 agent',
+    description: '这类问题先看控制面，再决定是否还需要更深的执行栈。',
+    href: '/docs/tools/control-planes/vscode-agents',
+    bullets: ['优先理解 local / background / cloud 的分工', '再看平台或终端入口如何补位'],
+  },
+  {
+    id: 'execution',
+    meta: '问题 03',
+    title: '我更在意长任务、并行 worktree 和审批',
+    description: '这时先看执行栈，而不是只比较聊天体验。',
+    href: '/docs/tools/execution-stacks/openai-codex',
+    bullets: ['先看长链路交付', '再看平台与 IDE 怎么协同'],
+  },
+  {
+    id: 'terminal',
+    meta: '问题 04',
+    title: '我想让 repo pairing、命令验证和规则文件成为主线',
+    description: '终端 agent 更适合解决 shell-first 与 repo-first 的协作问题。',
+    href: '/docs/tools/terminal-agents/claude-code',
+    bullets: ['优先看 terminal-first 场景', '再比较开放性与治理深度'],
+  },
+  {
+    id: 'ide',
+    meta: '问题 05',
+    title: '我想把 IDE 当成长期主入口',
+    description: '先看 IDE-first，再决定是否需要平台或终端做补位。',
+    href: '/docs/tools/ide-first/cursor',
+    bullets: ['优先判断控制面', '再判断 rules、记忆和治理是否跟得上'],
+  },
+];
+
+export const familyColumns = [
+  {key: 'family', label: '工具家族'},
+  {key: 'focus', label: '先解决什么问题'},
+  {key: 'read', label: '先读哪一页'},
+];
+
+export const familyRows = toolGroups.map((group) => {
+  const firstItem = groupMap.get(group.id)?.items[0];
+
+  return {
+    id: group.id,
+    family: group.title,
+    focus: group.description,
+    read: {
+      label: firstItem?.title ?? '查看该类入口',
+      href: firstItem?.docsRoot ?? '/docs/tools',
+    },
+  };
+});
+
+export const groupCards = toolCatalogByGroup.flatMap((group) =>
+  group.items.map((item) => ({
+    id: item.id,
+    meta: group.title,
+    title: item.title,
+    description: item.summary,
+    href: item.docsRoot,
+    bullets: [
+      `角色定位：${item.role}`,
+      `更适合：${item.bestFor[0]}`,
+      `默认补位：${item.combos[0]?.title ?? '相关 workflow 或平台'}`,
+    ],
+  })),
+);
+
+export const readingOrder = [
+  {
+    title: '先看工具选择地图',
+    href: '/docs/tool-selection',
+    description: '如果你还没有固定主入口，先用地图判断问题类型，再进入具体工具簇。',
+  },
+  {
+    title: '再看 AI IDE 全景',
+    href: '/docs/tools/ai-ide-landscape',
+    description: '先把平台、控制面、执行栈、IDE-first 和开放式入口分层，不要直接拿营销体验互比。',
+  },
+  {
+    title: '然后进入具体工具簇',
+    href: '/docs/tools/platforms/github-copilot',
+    description: '进入任一工具簇后，优先读概览页，再读工作流、规则边界、治理和替代项。',
+  },
+  {
+    title: '最后再看对比文',
+    href: '/docs/comparisons',
+    description: '对比文负责帮你做取舍，不负责替代每个工具簇的落地细节。',
+  },
+];
 
 # AI 编程工具
 
 这一层不再只按“哪个产品最热”来堆页面，而是先回答一个工程问题：你现在最需要的是平台、控制面、执行栈、终端入口，还是 IDE-first 主入口。
 
-## 先决定你在选什么
+## 我当前到底在解决什么问题
 
-- 平台型：重点是 issue、PR、review、Jira 和工作系统闭环。
-- 控制面：重点是本地 agent、background agents 和 editor 内的统一调度。
-- 执行栈：重点是审批、worktree、并行任务和长链路执行。
-- 终端 Agent：重点是 repo pairing、命令验证和规则文件。
-- IDE-First：重点是编辑体验、rules、记忆和日常高频交互。
+<ScenarioCards
+  title="先判断问题，再判断产品"
+  description="如果你一上来就比较具体产品，通常会把平台能力、入口体验、后台执行和治理边界混成一锅。先看下面这 5 类问题，选对问题入口。"
+  items={problemCards}
+/>
 
-## 平台型工具
+## 应该先读哪一类
 
-{toolCatalogByGroup[0].items.map((item) => (
-  <div key={item.id}>
-    <h3>
-      <Link to={item.docsRoot}>{item.title}</Link>
-    </h3>
-    <p>{item.summary}</p>
-  </div>
-))}
+<DecisionMatrix
+  title="五类工具家族怎么分"
+  description="把主流 AI coding 工具先按控制面与交付位置分层，再决定具体产品。"
+  columns={familyColumns}
+  rows={familyRows}
+/>
 
-## 控制面与执行栈
+## 各类入口的代表页面
 
-{[...toolCatalogByGroup[1].items, ...toolCatalogByGroup[2].items].map((item) => (
-  <div key={item.id}>
-    <h3>
-      <Link to={item.docsRoot}>{item.title}</Link>
-    </h3>
-    <p>{item.summary}</p>
-  </div>
-))}
+<ScenarioCards
+  title="从这一屏直接进入具体工具簇"
+  description="每个工具簇都会继续拆成概览、适合的工作流、规则边界、治理与优劣取舍。不要把这页当成终点。"
+  items={groupCards}
+/>
 
-## 终端 Agent
+## 推荐阅读顺序
 
-{toolCatalogByGroup[3].items.map((item) => (
-  <div key={item.id}>
-    <h3>
-      <Link to={item.docsRoot}>{item.title}</Link>
-    </h3>
-    <p>{item.summary}</p>
-  </div>
-))}
-
-## IDE-First
-
-{toolCatalogByGroup[4].items.map((item) => (
-  <div key={item.id}>
-    <h3>
-      <Link to={item.docsRoot}>{item.title}</Link>
-    </h3>
-    <p>{item.summary}</p>
-  </div>
-))}
-
-## 从这里继续往下读
-
-- 想先看选型地图：去 [工具选择地图](/docs/tool-selection)
-- 想看平台、控制面和执行栈的分层：去 [AI IDE 全景](/docs/tools/ai-ide-landscape)
-- 想先比较终端入口：去 [终端 Agent 全景](/docs/terminal-agent-landscape)
-- 想保留观察名单：去 [主流工具观察名单](/docs/mainstream-tool-watchlist)
+<RelatedReadings
+  title="推荐阅读顺序"
+  description="如果你想最少走弯路，按这个顺序读，会比直接在产品名之间横跳更稳。"
+  items={readingOrder}
+/>

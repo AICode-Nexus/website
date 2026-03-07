@@ -29,6 +29,58 @@ const KIND_RULES = {
   insight: {minChars: 420, minHeadings: 4},
 };
 
+const FAMILY_RULES = {
+  generatedTool: {
+    minChars: 900,
+    minHeadings: 5,
+    minInternalDocLinks: 3,
+    minSourceLinks: 2,
+    requiresTable: true,
+  },
+  generatedWorkflow: {
+    minChars: 850,
+    minHeadings: 5,
+    minInternalDocLinks: 3,
+    minSourceLinks: 1,
+    requiresTable: true,
+  },
+  hubOverview: {
+    minChars: 700,
+    minHeadings: 4,
+    minInternalDocLinks: 6,
+  },
+  archiveLens: {
+    minChars: 160,
+    minHeadings: 2,
+    minInternalDocLinks: 2,
+    requiredHeadingPatterns: [
+      {
+        label: '定位或用途',
+        pattern: /(背景|定位|这里仍然保留什么|结论先行|适用场景|这类透镜现在怎么用)/u,
+      },
+      {
+        label: '继续阅读',
+        pattern: /(延伸阅读|相关文档|继续阅读|下一步|后续方向)/u,
+      },
+    ],
+  },
+  siteAdminProcess: {
+    minChars: 260,
+    minHeadings: 4,
+    minInternalDocLinks: 2,
+    requiredHeadingPatterns: [
+      {
+        label: '定位或用途',
+        pattern: /(目标|背景|适用场景|当前阶段|推荐结构|标准流程)/u,
+      },
+      {
+        label: '继续阅读',
+        pattern: /(相关文档|继续阅读|后续方向)/u,
+      },
+    ],
+  },
+};
+
 const DAILY_BRIEF_SECTIONS = [
   'TL;DR',
   'What changed today',
@@ -41,6 +93,54 @@ const DAILY_BRIEF_SECTIONS = [
 
 function relativeFromRoot(filePath) {
   return path.relative(workspaceRoot, filePath).replace(/\\/gu, '/');
+}
+
+function normalizeRoutePath(value) {
+  if (typeof value !== 'string' || value.trim() === '') {
+    return null;
+  }
+
+  const trimmedValue = value.trim().replace(/^https?:\/\/[^/]+/u, '');
+  if (!trimmedValue.startsWith('/')) {
+    return null;
+  }
+
+  const [withoutQuery] = trimmedValue.split('?');
+  const [withoutHash] = withoutQuery.split('#');
+  if (withoutHash === '/') {
+    return '/';
+  }
+
+  return withoutHash.replace(/\/+$/u, '');
+}
+
+function normalizeExternalUrl(value) {
+  if (typeof value !== 'string' || value.trim() === '') {
+    return null;
+  }
+
+  return value.trim().replace(/[),.;]+$/u, '');
+}
+
+function extractLinkTargets(value) {
+  const targets = [];
+  const patterns = [
+    /(?<!!)\[[^\]]+\]\(([^)\s]+)\)/gu,
+    /\b(?:href|to)\s*:\s*['"]([^'"]+)['"]/gu,
+    /\b(?:href|to)\s*=\s*['"]([^'"]+)['"]/gu,
+  ];
+
+  patterns.forEach((pattern) => {
+    for (const match of value.matchAll(pattern)) {
+      targets.push(match[1]);
+    }
+  });
+
+  return targets;
+}
+
+function extractRawUrls(value) {
+  return value.match(/https?:\/\/[^\s<>"')]+/gu) ?? [];
 }
 
 function getDocKind(relativePath, frontMatter) {
@@ -74,6 +174,10 @@ function validateDocDirectory(relativePath, frontMatter, errors) {
 }
 
 function validateKindShape(relativePath, document, kind, errors) {
+  if (relativePath.startsWith('docs/archive/')) {
+    return;
+  }
+
   const rule = KIND_RULES[kind];
   if (!rule) {
     errors.push(`${relativePath}: unsupported or missing kind "${kind ?? 'missing'}".`);
@@ -97,6 +201,166 @@ function validateKindShape(relativePath, document, kind, errors) {
       errors,
       `${relativePath}: kind "${kind}" must include at least one markdown table.`,
     );
+  }
+}
+
+function buildValidDocRoutes(documents) {
+  const routes = new Set(['/docs']);
+
+  documents.forEach((document) => {
+    const slug = document.frontMatter.slug;
+    if (typeof slug !== 'string' || slug.trim() === '') {
+      return;
+    }
+
+    const route = normalizeRoutePath(slug.startsWith('/docs/') ? slug : `/docs${slug.startsWith('/') ? slug : `/${slug}`}`);
+    if (route) {
+      routes.add(route);
+    }
+  });
+
+  return routes;
+}
+
+function isCountableInternalRoute(target, validDocRoutes) {
+  const route = normalizeRoutePath(target);
+  if (!route) {
+    return false;
+  }
+
+  if (route === '/blog' || route.startsWith('/blog/')) {
+    return true;
+  }
+
+  return validDocRoutes.has(route);
+}
+
+function countInternalDocLinks(value, validDocRoutes) {
+  const routes = new Set();
+
+  extractLinkTargets(value).forEach((target) => {
+    if (isCountableInternalRoute(target, validDocRoutes)) {
+      routes.add(normalizeRoutePath(target));
+    }
+  });
+
+  return routes.size;
+}
+
+function countSourceLinks(document) {
+  const sourceCandidate =
+    document.sections.get('来源') ??
+    document.sections.get('Sources') ??
+    document.sections.get('官方事实与工程判断') ??
+    document.sections.get('当前官方事实') ??
+    document.body;
+  const urls = new Set();
+
+  extractLinkTargets(sourceCandidate).forEach((target) => {
+    if (/^https?:\/\//u.test(target)) {
+      const normalizedTarget = normalizeExternalUrl(target);
+      if (normalizedTarget) {
+        urls.add(normalizedTarget);
+      }
+    }
+  });
+
+  extractRawUrls(sourceCandidate).forEach((target) => {
+    const normalizedTarget = normalizeExternalUrl(target);
+    if (normalizedTarget) {
+      urls.add(normalizedTarget);
+    }
+  });
+
+  return urls.size;
+}
+
+function getFamilyRule(relativePath) {
+  if (
+    /^docs\/tools\/(?:platforms|control-planes|execution-stacks|terminal-agents|ide-first)\//u.test(
+      relativePath,
+    )
+  ) {
+    return {name: 'generatedTool', rule: FAMILY_RULES.generatedTool};
+  }
+
+  if (/^docs\/workflows\/(?:patterns|frameworks|community-frameworks)\//u.test(relativePath)) {
+    return {name: 'generatedWorkflow', rule: FAMILY_RULES.generatedWorkflow};
+  }
+
+  if (
+    relativePath === 'docs/tools/index.mdx' ||
+    relativePath === 'docs/workflows/index.mdx' ||
+    relativePath.startsWith('docs/overview/')
+  ) {
+    return {name: 'hubOverview', rule: FAMILY_RULES.hubOverview};
+  }
+
+  if (relativePath.startsWith('docs/archive/')) {
+    return {name: 'archiveLens', rule: FAMILY_RULES.archiveLens};
+  }
+
+  if (relativePath.startsWith('docs/site-admin/')) {
+    return {name: 'siteAdminProcess', rule: FAMILY_RULES.siteAdminProcess};
+  }
+
+  return null;
+}
+
+function validateFamilyShape(relativePath, document, errors, validDocRoutes) {
+  const family = getFamilyRule(relativePath);
+  if (!family) {
+    return;
+  }
+
+  const {rule, name} = family;
+
+  ensure(
+    document.plainText.length >= rule.minChars,
+    errors,
+    `${relativePath}: body is too short for family "${name}" (${document.plainText.length} < ${rule.minChars}).`,
+  );
+  ensure(
+    document.headings.length >= rule.minHeadings,
+    errors,
+    `${relativePath}: expected at least ${rule.minHeadings} H2 sections for family "${name}".`,
+  );
+
+  if (rule.requiresTable) {
+    ensure(
+      /\|.+\|/u.test(document.body),
+      errors,
+      `${relativePath}: family "${name}" must include at least one markdown table.`,
+    );
+  }
+
+  if (rule.minInternalDocLinks) {
+    const internalDocLinks = countInternalDocLinks(document.body, validDocRoutes);
+    ensure(
+      internalDocLinks >= rule.minInternalDocLinks,
+      errors,
+      `${relativePath}: family "${name}" must include at least ${rule.minInternalDocLinks} internal docs/blog links (${internalDocLinks} found).`,
+    );
+  }
+
+  if (rule.minSourceLinks) {
+    const sourceLinks = countSourceLinks(document);
+    ensure(
+      sourceLinks >= rule.minSourceLinks,
+      errors,
+      `${relativePath}: family "${name}" must include at least ${rule.minSourceLinks} source links (${sourceLinks} found).`,
+    );
+  }
+
+  if (rule.requiredHeadingPatterns) {
+    const joinedHeadings = document.headings.join('\n');
+    rule.requiredHeadingPatterns.forEach(({label, pattern}) => {
+      ensure(
+        pattern.test(joinedHeadings),
+        errors,
+        `${relativePath}: family "${name}" must include an H2 that covers ${label}.`,
+      );
+    });
   }
 }
 
@@ -127,14 +391,11 @@ function validateDailyBrief(relativePath, source, frontMatter, errors) {
 async function validateDocs() {
   const errors = [];
   const docFiles = await listMarkdownFiles(DOCS_ROOT);
+  const documents = await Promise.all(docFiles.map((filePath) => readMarkdownDocument(filePath)));
+  const validDocRoutes = buildValidDocRoutes(documents);
 
-  for (const filePath of docFiles) {
-    const relativePath = relativeFromRoot(filePath);
-    if (relativePath.startsWith('docs/archive/')) {
-      continue;
-    }
-
-    const document = await readMarkdownDocument(filePath);
+  documents.forEach((document) => {
+    const relativePath = relativeFromRoot(document.filePath);
     const frontMatter = document.frontMatter;
 
     ensure(Boolean(frontMatter.title), errors, `${relativePath}: missing frontmatter.title.`);
@@ -144,7 +405,8 @@ async function validateDocs() {
     const kind = getDocKind(relativePath, frontMatter);
     validateDocDirectory(relativePath, frontMatter, errors);
     validateKindShape(relativePath, document, kind, errors);
-  }
+    validateFamilyShape(relativePath, document, errors, validDocRoutes);
+  });
 
   return errors;
 }

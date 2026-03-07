@@ -15,6 +15,8 @@ source_window_end: 2026-03-07
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # 开始这里
 
 这个站点现在不再只服务“个人工程师如何起步”，而是要帮助团队与平台负责人回答一个更大的问题：
@@ -105,3 +107,32 @@ market_status: current
 1. [知识新鲜度治理](/docs/freshness-governance)
 2. [主流工具观察名单](/docs/mainstream-tool-watchlist)
 3. [Daily Brief](/blog)
+
+## 推荐阅读顺序
+
+<RelatedReadings
+  title="推荐阅读顺序"
+  description="这页负责帮你起步，不负责替代五大支柱本身。读完这里之后，按问题继续深入，而不是停留在总览层。"
+  items={[
+    {
+      title: '知识体系总表',
+      href: '/docs/taxonomy',
+      description: '先把五大支柱与旧赛道透镜的关系看清，再决定从哪根主线切入。',
+    },
+    {
+      title: 'AI 开发方式',
+      href: '/docs/development-modes',
+      description: '如果你还没决定默认入口和人机分工，下一步先回到开发方式层。',
+    },
+    {
+      title: 'AI 工作流',
+      href: '/docs/workflows',
+      description: '如果你已经在试工具，但流程总是不稳，就先进入工作流层固定交付链。',
+    },
+    {
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '如果你已经知道自己要比较哪类入口，就直接进入工具簇继续往下看。',
+    },
+  ]}
+/>

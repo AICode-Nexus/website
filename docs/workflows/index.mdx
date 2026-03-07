@@ -15,61 +15,147 @@ source_window_end: 2026-03-07
 market_status: current
 ---
 
-import Link from '@docusaurus/Link';
-import {workflowCatalogByGroup} from '@site/src/data/workflowCatalog.mjs';
+import {
+  DecisionMatrix,
+  RelatedReadings,
+  ScenarioCards,
+} from '@site/src/components/docs';
+import {workflowCatalogByGroup, workflowGroups} from '@site/src/data/workflowCatalog.mjs';
+
+export const groupMap = new Map(workflowCatalogByGroup.map((group) => [group.id, group]));
+
+export const problemCards = [
+  {
+    id: 'pattern',
+    meta: '问题 01',
+    title: '我还没有默认交付链',
+    description: '先看工作流模式，先固定“任务怎么走”，再谈框架和工具。',
+    href: '/docs/workflows/patterns/spec-first',
+    bullets: ['先判断任务类型', '再决定要不要引入更重的框架'],
+  },
+  {
+    id: 'framework',
+    meta: '问题 02',
+    title: '我知道流程方向，但 handoff 和产物总是乱',
+    description: '这时应该先看主线框架，固定角色、阶段和产物链。',
+    href: '/docs/workflows/frameworks/spec-kit',
+    bullets: ['优先看 spec / plan / tasks 或多角色治理', '不要直接把框架当模板复读机'],
+  },
+  {
+    id: 'community',
+    meta: '问题 03',
+    title: '团队已经在高频用 agent，但节奏不稳定',
+    description: '这时再看社区框架，把 daily workflow、worktree、review ritual 固定下来。',
+    href: '/docs/workflows/community-frameworks/superpowers',
+    bullets: ['先确保 repo 规则和验证命令已存在', '再引入更强的方法层'],
+  },
+  {
+    id: 'playbook',
+    meta: '问题 04',
+    title: '我现在缺的是可直接照做的落地步骤',
+    description: '先看 playbook，再回到模式或框架页补概念层。',
+    href: '/docs/playbooks/workflow-playbook',
+    bullets: ['先解决怎么跑起来', '再补制度和治理抽象'],
+  },
+];
+
+export const familyColumns = [
+  {key: 'family', label: '工作流家族'},
+  {key: 'focus', label: '先解决什么问题'},
+  {key: 'read', label: '先读哪一页'},
+];
+
+export const familyRows = workflowGroups.map((group) => {
+  const firstItem = groupMap.get(group.id)?.items[0];
+
+  return {
+    id: group.id,
+    family: group.title,
+    focus: group.description,
+    read: {
+      label: firstItem?.title ?? '查看该类工作流',
+      href: firstItem?.docsRoot ?? '/docs/workflows',
+    },
+  };
+});
+
+export const workflowCards = workflowCatalogByGroup.flatMap((group) =>
+  group.items.map((item) => ({
+    id: item.id,
+    meta: group.title,
+    title: item.title,
+    description: item.summary,
+    href: item.docsRoot,
+    bullets: group.id === 'pattern'
+      ? [
+          `触发信号：${item.signals[0]}`,
+          `默认产物：${item.steps[0]?.artifact ?? '可 review 的合同与执行证据'}`,
+          `默认入口：${item.toolFit[0]?.title ?? '相关工具或框架'}`,
+        ]
+      : [
+          `默认进入方式：${item.entry}`,
+          `更适合：${item.signals[0]}`,
+          `补位方式：${item.comboPatterns[0]?.title ?? '相关工具或模式'}`,
+        ],
+  })),
+);
+
+export const readingOrder = [
+  {
+    title: '先看主流 AI Coding 工作流',
+    href: '/docs/workflows/mainstream-ai-coding-workflows',
+    description: '先理解有哪些主线交付链，再进入具体工作流簇。',
+  },
+  {
+    title: '再看工作流模式',
+    href: '/docs/workflows/patterns/spec-first',
+    description: '模式层先回答任务怎么走，适合做默认流程分流。',
+  },
+  {
+    title: '需要制度骨架时看框架层',
+    href: '/docs/workflows/frameworks-overview',
+    description: '当 handoff、角色和产物开始频繁失控时，再引入框架层。',
+  },
+  {
+    title: '最后回到 playbook',
+    href: '/docs/playbooks/workflow-playbook',
+    description: '把模式和框架转成可执行步骤，避免只停留在概念层。',
+  },
+];
 
 # AI 工作流
 
-这一层不再只是一篇“工作流总览”。现在它拆成三种对象：
+这一层不再只是一篇“工作流总览”。它拆成三种对象：工作流模式、主线框架、社区框架。目的不是增加术语，而是让你在读到第一个具体页面前，就知道自己到底缺哪一层。
 
-- 工作流模式：回答任务应该走哪条交付链。
-- 官方/主线工作流框架：回答团队要不要引入完整框架骨架。
-- 社区工作流框架：回答日常 agent 协作能不能再加一层方法论。
+## 我当前是什么问题
 
-## 先怎么用这一层
+<ScenarioCards
+  title="先定位你缺的是哪一层"
+  description="如果问题只是“今天这个任务怎么做”，直接上 playbook；如果问题是“团队总在边界与 handoff 上出事”，就该回到模式或框架层。"
+  items={problemCards}
+/>
 
-如果你还没固定默认交付链，先从工作流模式开始。
+## 应该先读哪一类
 
-如果你已经知道自己要 `spec-first`、`issue -> PR` 还是 `terminal-first`，但团队总在边界和 handoff 上出问题，再看框架层。
+<DecisionMatrix
+  title="三类工作流对象怎么分"
+  description="不要一上来就看框架名。先判断你缺的是默认交付链、制度骨架，还是 daily execution 方法。"
+  columns={familyColumns}
+  rows={familyRows}
+/>
 
-如果你已经高频使用 coding agents，想把 brainstorming、worktree、plan、TDD 和 review 变成日常习惯，再看社区工作流框架。
+## 代表页面入口
 
-## 工作流模式
+<ScenarioCards
+  title="从这里直接进入具体工作流簇"
+  description="每个工作流簇都会继续拆成概览、适用边界、流程与产物、治理与风险，以及案例或接入手册。"
+  items={workflowCards}
+/>
 
-{workflowCatalogByGroup[0].items.map((item) => (
-  <div key={item.id}>
-    <h3>
-      <Link to={item.docsRoot}>{item.title}</Link>
-    </h3>
-    <p>{item.summary}</p>
-  </div>
-))}
+## 推荐阅读顺序
 
-## 官方/主线工作流框架
-
-{workflowCatalogByGroup[1].items.map((item) => (
-  <div key={item.id}>
-    <h3>
-      <Link to={item.docsRoot}>{item.title}</Link>
-    </h3>
-    <p>{item.summary}</p>
-  </div>
-))}
-
-## 社区工作流框架
-
-{workflowCatalogByGroup[2].items.map((item) => (
-  <div key={item.id}>
-    <h3>
-      <Link to={item.docsRoot}>{item.title}</Link>
-    </h3>
-    <p>{item.summary}</p>
-  </div>
-))}
-
-## 从这里继续往下读
-
-- 想先看一张地图：去 [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
-- 想只看框架选型：去 [工作流框架总览](/docs/workflows/frameworks-overview)
-- 想把执行链写成团队模板：去 [任务工作流目录](/docs/workflows/workflow-catalog)
-- 想落回具体操作：去 [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
+<RelatedReadings
+  title="推荐阅读顺序"
+  description="第一次建设团队级 AI 工作流时，建议按这个顺序从广到深推进。"
+  items={readingOrder}
+/>

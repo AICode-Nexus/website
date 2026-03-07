@@ -26,7 +26,7 @@ market_status: "current"
 - Executor / Subagent：按 plan 在 worktree 或子任务里推进实现。
 - Reviewer：核对测试、diff、review packet 和 branch 完成状态。
 
-## 阶段
+## 阶段总表
 
 | 阶段 | 目标 | 主要产物 |
 | --- | --- | --- |
@@ -47,3 +47,21 @@ market_status: "current"
 - 先 brainstorming 和 plan，再开多条 lane；不要直接让多个 agent 胡乱开工。
 - 每个 lane 要把测试和 review 证据带回 owner，而不是只说“我做完了”。
 - Finish branch 阶段要收掉临时工作区、整理总结并准备 merge。
+
+## 角色和产物为什么要一起看
+
+如果角色只停留在名称层，而产物没有固定下来，最终执行时还是会回到“谁想起什么就补什么”的状态。把角色、阶段和产物绑在一起看，才有可能让不同人对同一个框架产生相同预期。
+
+## 下一步怎么读
+
+- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Superpowers 很适合叠加在终端式 repo pairing 上。
+- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它把 worktree 和 subagent 使用方式标准化。
+- [Spec-First](/docs/workflows/patterns/spec-first)：复杂任务可先 spec-first，再交给 Superpowers 组织日常执行。
+- [BMAD](/docs/workflows/frameworks/bmad)：如果你需要团队角色和阶段制度，BMAD 更适合组织治理。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：如果你主要想固定 spec -> plan -> tasks，Spec Kit 更直接。
+- [OpenSpec](/docs/workflows/frameworks/openspec)：如果你主要是 brownfield 小改动管理，OpenSpec 更轻。
+
+## 来源
+
+- [Superpowers](https://github.com/obra/superpowers)
+- [Superpowers Marketplace](https://github.com/obra/superpowers-marketplace)

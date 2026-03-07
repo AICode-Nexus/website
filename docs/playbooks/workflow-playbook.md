@@ -15,6 +15,8 @@ source_window_end: 2026-03-07
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # AI 工作流实操手册
 
 ## 这篇怎么用
@@ -245,7 +247,29 @@ PR 需要包含的说明：
 
 ## 下一步
 
-- [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
-- [Prompt Contracts](/docs/workflows/prompt-contracts)
-- [Bugfix / Refactor / Test 工作流](/docs/workflows/bugfix-refactor-test-workflows)
-- [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
+<RelatedReadings
+  title="继续阅读与补充路径"
+  description="这篇 playbook 负责把常用 workflow 跑起来。下一步应该回到模式页与规范页，把步骤变成稳定制度。"
+  items={[
+    {
+      title: '主流 AI Coding 工作流',
+      href: '/docs/workflows/mainstream-ai-coding-workflows',
+      description: '先把常见交付链全景再看一遍，确认团队默认主线是否选对。',
+    },
+    {
+      title: 'Prompt Contracts',
+      href: '/docs/workflows/prompt-contracts',
+      description: '把任务输入、边界、禁区和验收条件写成稳定合同。',
+    },
+    {
+      title: 'Bugfix / Refactor / Test',
+      href: '/docs/workflows/patterns/bugfix-refactor-test',
+      description: '把维护类任务沉淀成最常用的固定流程簇。',
+    },
+    {
+      title: 'Spec-driven AI Delivery',
+      href: '/docs/spec-driven-ai-delivery',
+      description: '如果团队开始进入更复杂的新功能交付，就转去看 spec 驱动层。',
+    },
+  ]}
+/>

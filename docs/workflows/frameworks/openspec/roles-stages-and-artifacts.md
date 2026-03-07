@@ -26,7 +26,7 @@ market_status: "current"
 - Implementer：按 proposal 执行代码与验证。
 - Approver：确认 proposal 是否值得进入实现与归档。
 
-## 阶段
+## 阶段总表
 
 | 阶段 | 目标 | 主要产物 |
 | --- | --- | --- |
@@ -46,3 +46,19 @@ market_status: "current"
 - proposal 先确认，再执行 change，不要让实现反推需求。
 - archive 不是可选装饰，而是让后续团队知道这个改动为什么存在。
 - 所有轻量流程最终仍要回到测试、review 和 branch policy。
+
+## 角色和产物为什么要一起看
+
+如果角色只停留在名称层，而产物没有固定下来，最终执行时还是会回到“谁想起什么就补什么”的状态。把角色、阶段和产物绑在一起看，才有可能让不同人对同一个框架产生相同预期。
+
+## 下一步怎么读
+
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：OpenSpec 很适合承接高频维护型变化。
+- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：proposal 通过后，可直接进入异步 PR 流程。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：当你需要更完整的 spec 与 plan 链时，Spec Kit 更合适。
+- [BMAD](/docs/workflows/frameworks/bmad)：当任务跨角色跨阶段时，BMAD 更能承载治理。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你要的是 agent 每天如何执行，而不是 proposal 管理层时，Superpowers 更直接。
+
+## 来源
+
+- [OpenSpec](https://github.com/openspec-ai/openspec)

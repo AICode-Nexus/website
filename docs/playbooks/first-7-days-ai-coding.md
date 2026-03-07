@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: current
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # 7 天上手路线
 
 ## 目标
@@ -173,6 +175,29 @@ market_status: current
 
 ## 下一步
 
-- [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
-- [Bugfix / Refactor / Test 工作流](/docs/workflows/bugfix-refactor-test-workflows)
-- [学习路径](/docs/learning-paths)
+<RelatedReadings
+  title="继续阅读与补充路径"
+  description="这篇是入门执行路线。跑完 7 天之后，应该把个人栈、默认维护流和学习路径补成长期机制。"
+  items={[
+    {
+      title: '个人工程师栈搭建',
+      href: '/docs/playbooks/personal-engineer-stack-setup',
+      description: '把 7 天内试出来的入口、规则和验证回路固定成可持续栈。',
+    },
+    {
+      title: 'Bugfix / Refactor / Test',
+      href: '/docs/workflows/patterns/bugfix-refactor-test',
+      description: '把最高频的维护类任务固定成最小闭环，而不是每次重新设计流程。',
+    },
+    {
+      title: '学习路径',
+      href: '/docs/learning-paths',
+      description: '按阶段继续扩展你的工具、工作流和规范阅读顺序。',
+    },
+    {
+      title: 'AI 工作流实操手册',
+      href: '/docs/playbooks/workflow-playbook',
+      description: '把入门练习过渡到更稳定的日常 workflow 模板。',
+    },
+  ]}
+/>

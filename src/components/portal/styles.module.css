@@ -249,6 +249,18 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
 }
 
+.contentCard {
+  min-height: 100%;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.cardBody {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  min-height: 0;
+}
+
 .contentCard h3,
 .quickCard strong,
 .linkTile strong,
@@ -316,6 +328,7 @@
   padding: 0.45rem 0.85rem;
   font-size: 0.78rem;
   font-weight: 800;
+  white-space: nowrap;
   color: #92400e;
   background: rgba(255, 247, 237, 0.96);
   border-color: rgba(245, 158, 11, 0.2);

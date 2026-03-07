@@ -15,6 +15,8 @@ source_window_end: 2026-03-06
 market_status: watch
 ---
 
+import {RelatedReadings} from '@site/src/components/docs';
+
 # 2026 年 3 月月度简报
 
 > 本文写于 2026 年 3 月 6 日，代表 2026 年 3 月上旬的阶段性简报，不代表整月最终结论。后续如果 3 月下旬出现更大变化，应在同一文档中补充更新，而不是让同名月报同时存在多个版本。
@@ -155,7 +157,29 @@ Cursor 已经在 2026 年 3 月 5 日公开 `Automations`。下一步需要观�
 
 ## 延伸阅读
 
-- [趋势总览](/docs/insights)
-- [2026 年 3 月 AI Coding 的四个主线变化](/docs/insights/agentic-coding-patterns)
-- [工具对比总览](/docs/comparisons)
-- [Daily Brief](/blog)
+<RelatedReadings
+  title="继续阅读与落地路径"
+  description="月度简报负责拉齐时间线与观察重点。下一步应该回到趋势长文、对比文和工具簇，把观察变成行动。"
+  items={[
+    {
+      title: '趋势总览',
+      href: '/docs/insights',
+      description: '如果你要回看这类内容在站内的定位和使用原则，从总览页开始。',
+    },
+    {
+      title: '2026 年 3 月 AI Coding 的四个主线变化',
+      href: '/docs/insights/agentic-coding-patterns',
+      description: '这篇会把月度变化压缩成更清晰的长期主线判断。',
+    },
+    {
+      title: '工具对比总览',
+      href: '/docs/comparisons',
+      description: '把本月变化落回具体工具和入口取舍时，先从对比总览进入。',
+    },
+    {
+      title: 'Daily Brief',
+      href: '/blog',
+      description: '如果你要跟更细粒度的日更变化，就继续看 Daily Brief 流。',
+    },
+  ]}
+/>

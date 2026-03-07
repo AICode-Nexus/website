@@ -31,6 +31,14 @@ market_status: "current"
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：如果你主要想固定 spec -> plan -> tasks，Spec Kit 更直接。
 - [OpenSpec](/docs/workflows/frameworks/openspec)：如果你主要是 brownfield 小改动管理，OpenSpec 更轻。
 
+## 比较矩阵
+
+| 如果你当前更在意 | 更适合继续用它 | 更适合改看别的 |
+| --- | --- | --- |
+| 先把 planning 合同写稳 | 已经高频使用 Claude Code、Codex、Cursor 等 agent 的团队或个人。 | BMAD |
+| 多角色或更重流程 | 希望把日常 agent 协作方式标准化，而不是每次手工拼 prompt。 | Spec Kit |
+| 日常执行纪律 | 接受 worktree、技能库和更强执行纪律的终端或 IDE power user。 | OpenSpec |
+
 ## 什么时候不要选它
 
 - 还没有任何 repo 规则或验证习惯的团队。
@@ -42,3 +50,17 @@ market_status: "current"
 - [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Superpowers 很适合叠加在终端式 repo pairing 上。
 - [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它把 worktree 和 subagent 使用方式标准化。
 - [Spec-First](/docs/workflows/patterns/spec-first)：复杂任务可先 spec-first，再交给 Superpowers 组织日常执行。
+
+## 下一步怎么读
+
+- [BMAD](/docs/workflows/frameworks/bmad)：如果你需要团队角色和阶段制度，BMAD 更适合组织治理。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：如果你主要想固定 spec -> plan -> tasks，Spec Kit 更直接。
+- [OpenSpec](/docs/workflows/frameworks/openspec)：如果你主要是 brownfield 小改动管理，OpenSpec 更轻。
+- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Superpowers 很适合叠加在终端式 repo pairing 上。
+- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它把 worktree 和 subagent 使用方式标准化。
+- [Spec-First](/docs/workflows/patterns/spec-first)：复杂任务可先 spec-first，再交给 Superpowers 组织日常执行。
+
+## 来源
+
+- [Superpowers](https://github.com/obra/superpowers)
+- [Superpowers Marketplace](https://github.com/obra/superpowers-marketplace)
