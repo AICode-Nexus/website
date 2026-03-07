@@ -187,6 +187,12 @@ const config = {
           position: 'left',
         },
         {
+          to: '/docs/ai-code-teaching-videos',
+          label: 'AI 视频',
+          position: 'left',
+          className: 'navbar-video-link',
+        },
+        {
           to: '/docs/standards',
           label: '规范',
           position: 'left',
