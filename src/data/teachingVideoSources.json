@@ -1,0 +1,624 @@
+{
+  "sources": [
+    {
+      "id": "yt-claude-code-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "ytsearchdate20:Claude Code tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-claude-code-beginners-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "ytsearchdate20:Claude Code for beginners",
+      "enabled": true
+    },
+    {
+      "id": "yt-github-copilot-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["GitHub Copilot"],
+      "discoveryUrl": "ytsearchdate20:GitHub Copilot tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-github-copilot-beginners-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["GitHub Copilot"],
+      "discoveryUrl": "ytsearchdate20:GitHub Copilot for beginners",
+      "enabled": true
+    },
+    {
+      "id": "yt-cursor-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Cursor"],
+      "discoveryUrl": "ytsearchdate20:Cursor AI tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-cursor-beginners-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Cursor"],
+      "discoveryUrl": "ytsearchdate20:Cursor AI for beginners",
+      "enabled": true
+    },
+    {
+      "id": "yt-openai-codex-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["OpenAI Codex"],
+      "discoveryUrl": "ytsearchdate20:OpenAI Codex tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-openai-codex-beginners-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["OpenAI Codex"],
+      "discoveryUrl": "ytsearchdate20:OpenAI Codex for beginners",
+      "enabled": true
+    },
+    {
+      "id": "yt-gemini-cli-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Gemini CLI"],
+      "discoveryUrl": "ytsearchdate20:Gemini CLI tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-gemini-cli-beginners-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Gemini CLI"],
+      "discoveryUrl": "ytsearchdate20:Gemini CLI for beginners",
+      "enabled": true
+    },
+    {
+      "id": "yt-windsurf-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Windsurf"],
+      "discoveryUrl": "ytsearchdate20:Windsurf editor tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-cline-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "primary",
+      "tools": ["Cline"],
+      "discoveryUrl": "ytsearchdate20:Cline tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-roo-code-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "watch",
+      "tools": ["Roo Code"],
+      "discoveryUrl": "ytsearchdate20:Roo Code tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-aider-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "watch",
+      "tools": ["Aider"],
+      "discoveryUrl": "ytsearchdate20:Aider AI coding tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-continue-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "watch",
+      "tools": ["Continue"],
+      "discoveryUrl": "ytsearchdate20:Continue.dev tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-vscode-ai-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "secondary",
+      "tools": ["VS Code Agent"],
+      "discoveryUrl": "ytsearchdate20:VS Code AI coding tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-mcp-dev-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "secondary",
+      "tools": ["MCP"],
+      "discoveryUrl": "ytsearchdate20:MCP for developers tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-ai-coding-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "ytsearchdate20:AI coding tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-ai-coding-beginners-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "ytsearchdate20:AI coding for beginners",
+      "enabled": true
+    },
+    {
+      "id": "yt-vibe-coding-tutorial-en",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "en",
+      "tier": "watch",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "ytsearchdate20:vibe coding tutorial",
+      "enabled": true
+    },
+    {
+      "id": "yt-ai-coding-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "ytsearchdate20:AI 编程 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-claude-code-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "ytsearchdate20:Claude Code 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-github-copilot-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["GitHub Copilot"],
+      "discoveryUrl": "ytsearchdate20:GitHub Copilot 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-cursor-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Cursor"],
+      "discoveryUrl": "ytsearchdate20:Cursor 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-openai-codex-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["OpenAI Codex"],
+      "discoveryUrl": "ytsearchdate20:OpenAI Codex 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-gemini-cli-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Gemini CLI"],
+      "discoveryUrl": "ytsearchdate20:Gemini CLI 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-windsurf-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Windsurf"],
+      "discoveryUrl": "ytsearchdate20:Windsurf 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-cline-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Cline"],
+      "discoveryUrl": "ytsearchdate20:Cline 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-roo-code-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "watch",
+      "tools": ["Roo Code"],
+      "discoveryUrl": "ytsearchdate20:Roo Code 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-mcp-dev-tutorial-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["MCP"],
+      "discoveryUrl": "ytsearchdate20:MCP 编程 教程",
+      "enabled": true
+    },
+    {
+      "id": "yt-ai-coding-starter-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "ytsearchdate20:AI 编程 入门",
+      "enabled": true
+    },
+    {
+      "id": "yt-ai-coding-practice-zh",
+      "platform": "YouTube",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "ytsearchdate20:AI 编程 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-claude-code-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "bilisearch15:Claude Code 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-claude-code-starter",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "bilisearch15:Claude Code 入门",
+      "enabled": true
+    },
+    {
+      "id": "bili-claude-code-practice",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "bilisearch15:Claude Code 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-claude-code-workflow",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "bilisearch15:Claude Code 工作流",
+      "enabled": true
+    },
+    {
+      "id": "bili-cursor-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Cursor"],
+      "discoveryUrl": "bilisearch15:Cursor 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-cursor-starter",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Cursor"],
+      "discoveryUrl": "bilisearch15:Cursor 入门",
+      "enabled": true
+    },
+    {
+      "id": "bili-cursor-practice",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Cursor"],
+      "discoveryUrl": "bilisearch15:Cursor 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-cursor-rules",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Cursor"],
+      "discoveryUrl": "bilisearch15:Cursor Rules 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-copilot-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["GitHub Copilot"],
+      "discoveryUrl": "bilisearch15:GitHub Copilot 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-copilot-starter",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["GitHub Copilot"],
+      "discoveryUrl": "bilisearch15:GitHub Copilot 入门",
+      "enabled": true
+    },
+    {
+      "id": "bili-copilot-practice",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["GitHub Copilot"],
+      "discoveryUrl": "bilisearch15:GitHub Copilot 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-openai-codex-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["OpenAI Codex"],
+      "discoveryUrl": "bilisearch15:OpenAI Codex 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-openai-codex-practice",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["OpenAI Codex"],
+      "discoveryUrl": "bilisearch15:OpenAI Codex 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-gemini-cli-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Gemini CLI"],
+      "discoveryUrl": "bilisearch15:Gemini CLI 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-gemini-cli-practice",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Gemini CLI"],
+      "discoveryUrl": "bilisearch15:Gemini CLI 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-trae-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Trae"],
+      "discoveryUrl": "bilisearch15:Trae 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-trae-practice",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "primary",
+      "tools": ["Trae"],
+      "discoveryUrl": "bilisearch15:Trae 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-windsurf-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Windsurf"],
+      "discoveryUrl": "bilisearch15:Windsurf 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-cline-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Cline"],
+      "discoveryUrl": "bilisearch15:Cline 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-roo-code-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "watch",
+      "tools": ["Roo Code"],
+      "discoveryUrl": "bilisearch15:Roo Code 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-mcp-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["MCP"],
+      "discoveryUrl": "bilisearch15:MCP 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-mcp-server-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["MCP"],
+      "discoveryUrl": "bilisearch15:MCP Server 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-ai-coding-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "bilisearch15:AI 编程 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-ai-coding-starter",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "bilisearch15:AI 编程 入门",
+      "enabled": true
+    },
+    {
+      "id": "bili-ai-coding-practice",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "bilisearch15:AI 编程 实战",
+      "enabled": true
+    },
+    {
+      "id": "bili-ai-coding-workflow",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "bilisearch15:AI 编程 工作流",
+      "enabled": true
+    },
+    {
+      "id": "bili-vibe-coding-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "watch",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "bilisearch15:vibe coding 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-agent-coding-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["AI Coding"],
+      "discoveryUrl": "bilisearch15:Agent 编程 教程",
+      "enabled": true
+    },
+    {
+      "id": "bili-vscode-ai-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["VS Code Agent"],
+      "discoveryUrl": "bilisearch15:VS Code AI 编程",
+      "enabled": true
+    },
+    {
+      "id": "bili-claude-code-domestic-query",
+      "platform": "Bilibili",
+      "kind": "query",
+      "language": "zh",
+      "tier": "secondary",
+      "tools": ["Claude Code"],
+      "discoveryUrl": "bilisearch15:Claude Code 国内使用 教程",
+      "enabled": true
+    }
+  ]
+}

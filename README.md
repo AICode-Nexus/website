@@ -45,13 +45,24 @@ npm run generate:weekly-roundup -- --week-ending=2026-03-07
 npm run check:content
 ```
 
+## 生成工作流 / 工具手册目录
+
+```bash
+npm run generate:handbooks
+```
+
+这个生成器会根据 [`src/data/workflowCatalog.mjs`](./src/data/workflowCatalog.mjs) 和 [`src/data/toolCatalog.mjs`](./src/data/toolCatalog.mjs) 批量生成 `docs/workflows/` 与 `docs/tools/` 下的结构化 handbook 子目录，保持工作流模式、框架和工具目录的模板一致。
+
 ## 同步教学视频数据
 
 ```bash
 npm run sync:teaching-videos
+npm run check:teaching-videos
 ```
 
-这个命令会读取 [`src/data/teachingVideos.seed.json`](./src/data/teachingVideos.seed.json) 中的种子项，抓取 B 站公开视频详情页元数据，并生成 [`src/data/teachingVideos.generated.json`](./src/data/teachingVideos.generated.json) 供首页和文档页使用。
+这个流程会读取 [`src/data/teachingVideoSources.json`](./src/data/teachingVideoSources.json) 与 [`src/data/teachingVideoTaxonomy.json`](./src/data/teachingVideoTaxonomy.json)，通过 `yt-dlp` 发现近 90 天的公开视频候选、抓取详情、执行规则分类与质量过滤，并生成 [`src/data/teachingVideos.generated.json`](./src/data/teachingVideos.generated.json) 供首页、文档页和全站搜索使用。
+
+GitHub Actions 中还包含一个每 6 小时运行一次的 `Teaching Videos Sync` 工作流，用来自动刷新 catalog 并在通过校验后直接提交生成文件。
 
 ## 发布到 GitHub Pages
 
@@ -68,12 +79,16 @@ npm run sync:teaching-videos
 ## 目录说明
 
 - `docs/development-modes/`、`docs/workflows/`、`docs/tools/`、`docs/standards/`、`docs/architecture/`: 五大长期知识支柱
+- `docs/workflows/patterns/`、`docs/workflows/frameworks/`、`docs/workflows/community-frameworks/`: 工作流模式、主线框架与社区框架手册
+- `docs/tools/platforms/`、`docs/tools/control-planes/`、`docs/tools/execution-stacks/`、`docs/tools/terminal-agents/`、`docs/tools/ide-first/`: 按角色分层的工具手册
 - `docs/archive/tracks/`: 旧赛道 / 专题透镜
 - `docs/`: 知识库与站点维护文档
 - `blog/daily/`、`blog/weekly/`、`blog/monthly/`: 时效内容分层
 - `content-sources/`: Daily / Weekly 草稿的 source manifest
 - `drafts/notes/`: 非发布笔记草稿
-- `scripts/sync-teaching-videos.mjs`: 教学视频元数据同步脚本
+- `scripts/sync-teaching-videos.mjs`: 教学视频目录同步脚本
+- `scripts/content/generate-handbooks.mjs`: 结构化工作流 / 工具目录生成器
+- `scripts/lib/teaching-video-pipeline.mjs`: 视频发现、归一化、聚合与 contract 校验
 - `scripts/content/`: 内容校验、Daily 草稿和 Weekly 草稿脚本
 - `src/pages/index.js`: 门户首页
 - `docusaurus.config.js`: 站点配置

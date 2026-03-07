@@ -9,6 +9,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- A scheduled `Teaching Videos Sync` GitHub Actions workflow that refreshes the teaching-video catalog every 6 hours, validates the contract, and auto-commits a new generated catalog when the sync succeeds.
+- Structured workflow and tool handbooks generated from `src/data/workflowCatalog.mjs` and `src/data/toolCatalog.mjs`, adding pattern/framework/community workflow directories and role-based tool directories under `docs/workflows/` and `docs/tools/`.
 - A practical workflow layer for the knowledge base with a new mainstream workflow guide and a step-by-step workflow playbook, covering spec-first, bugfix, async issue-to-PR, terminal-first, and parallel worktree usage.
 - Repository-level frontend and release guardrails in `AGENTS.md` for performance, low coupling, reusable components, fail-fast config validation, and release discipline.
 - A validated homepage content model in `src/data/portalContent.js` and `src/utils/portalContent.js` to centralize portal copy, links, and section metadata.
@@ -32,6 +34,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Reworked the `AI 工作流` and `AI 编程工具` hubs, sidebar, homepage links, and learning paths around handbook-style subdirectories while preserving legacy routes such as `/docs/workflows/mainstream-ai-coding-workflows`, `/docs/claude-code-workstyle`, and `/docs/gemini-cli-github-workflow`.
+- Expanded the workflow framework layer to include `Superpowers` alongside `BMAD`, `Spec Kit`, and `OpenSpec`, and added detailed handbook pages for GitHub Copilot, VS Code Agents, OpenAI Codex, Claude Code, Gemini CLI, Cline, Cursor, and Windsurf.
+- Rebuilt the `AI Code 教学视频` module around a 90-day multi-source catalog with generated metrics, facets, course aggregation, featured ranking, search deep-links, and a filterable docs directory instead of a hand-laid flat list.
+- Promoted the homepage teaching-video section into a primary portal block with freshness status, 7/30/90-day counters, 8 featured videos, and tool quick filters sourced from generated catalog metadata.
+- Tightened CI so website builds now validate teaching-video freshness and catalog contract before deployment.
 - Tightened homepage CTA layout and mobile navbar behavior so section actions keep a compact size and the main navigation remains reachable on narrow screens.
 - Reworked workflow discovery across the workflow hub, playbooks hub, start-here guide, learning paths, sidebar, and homepage quick actions so readers reach concrete workflow docs before abstract framework pages.
 - Refactored the portal homepage to consume centralized content config instead of spreading section text and routes across individual components.

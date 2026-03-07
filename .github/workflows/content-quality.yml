@@ -30,5 +30,8 @@ jobs:
       - name: Test teaching video scraper
         run: npm run test:teaching-videos
 
+      - name: Validate teaching video catalog
+        run: npm run check:teaching-videos
+
       - name: Build website
         run: npm run build

@@ -10,11 +10,12 @@
     "swizzle": "docusaurus swizzle",
     "clear": "docusaurus clear",
     "check:content": "node scripts/content/check-content-quality.mjs",
+    "generate:handbooks": "node scripts/content/generate-handbooks.mjs",
     "generate:daily-brief": "node scripts/content/generate-daily-brief.mjs",
     "generate:weekly-roundup": "node scripts/content/generate-weekly-roundup.mjs",
     "sync:teaching-videos": "node scripts/sync-teaching-videos.mjs",
     "check:teaching-videos": "node scripts/sync-teaching-videos.mjs --check",
-    "test:teaching-videos": "node --test scripts/__tests__/teaching-video-scraper.test.mjs"
+    "test:teaching-videos": "node --test scripts/__tests__/*.test.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",

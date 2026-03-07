@@ -1,0 +1,184 @@
+{
+  "teachingKeywords": [
+    "tutorial",
+    "guide",
+    "walkthrough",
+    "how to",
+    "for beginners",
+    "beginner",
+    "crash course",
+    "full course",
+    "masterclass",
+    "tips",
+    "step by step",
+    "workshop",
+    "lesson",
+    "教程",
+    "入门",
+    "保姆级",
+    "指南",
+    "教学",
+    "完整教程",
+    "快速上手",
+    "实战",
+    "课程",
+    "手把手",
+    "从零",
+    "演示"
+  ],
+  "blockedKeywords": [
+    "news",
+    "announcement",
+    "launch",
+    "reaction",
+    "review",
+    "benchmark",
+    "pricing",
+    "vs",
+    "versus",
+    "comparison",
+    "发布会",
+    "资讯",
+    "新闻",
+    "评测",
+    "测评",
+    "对比",
+    "价格",
+    "发布"
+  ],
+  "summaryStopPhrases": [
+    "newsletter",
+    "sponsor",
+    "resources",
+    "timestamps",
+    "connect with me",
+    "support the channel",
+    "disclosure",
+    "sub_confirmation",
+    "赞助",
+    "资料领取",
+    "关注我",
+    "商务合作",
+    "资源下载"
+  ],
+  "toolRules": [
+    {
+      "id": "Claude Code",
+      "keywords": ["claude code", "claudecode", "anthropic claude code"]
+    },
+    {
+      "id": "GitHub Copilot",
+      "keywords": ["github copilot", "copilot workspace", "copilot chat"]
+    },
+    {
+      "id": "Cursor",
+      "keywords": ["cursor ai", "cursor editor", "cursor"]
+    },
+    {
+      "id": "OpenAI Codex",
+      "keywords": ["openai codex", "codex cli", "codex agent", "codex"]
+    },
+    {
+      "id": "Gemini CLI",
+      "keywords": ["gemini cli", "gemini code", "gemini coding"]
+    },
+    {
+      "id": "Windsurf",
+      "keywords": ["windsurf"]
+    },
+    {
+      "id": "Cline",
+      "keywords": ["cline"]
+    },
+    {
+      "id": "Roo Code",
+      "keywords": ["roo code", "roo-code"]
+    },
+    {
+      "id": "Aider",
+      "keywords": ["aider"]
+    },
+    {
+      "id": "Continue",
+      "keywords": ["continue.dev", "continue dev", "continue extension"]
+    },
+    {
+      "id": "VS Code Agent",
+      "keywords": ["vs code agent", "vscode agent", "visual studio code ai", "github copilot in vscode"]
+    },
+    {
+      "id": "MCP",
+      "keywords": ["model context protocol", "mcp server", "mcp"]
+    },
+    {
+      "id": "AI Coding",
+      "keywords": ["ai coding", "vibe coding", "ai 编程", "智能编程"]
+    }
+  ],
+  "topicRules": [
+    {
+      "id": "安装配置",
+      "keywords": ["install", "setup", "config", "configure", "下载安装", "安装", "配置", "setup"]
+    },
+    {
+      "id": "工作流",
+      "keywords": ["workflow", "plan mode", "agent", "spec", "flow", "工作流", "流程", "代理"]
+    },
+    {
+      "id": "Rules / Prompting",
+      "keywords": ["rules", "claude.md", "prompt", "context", "instructions", "规则", "提示词"]
+    },
+    {
+      "id": "MCP / Tool Use",
+      "keywords": ["mcp", "tool use", "server", "tools", "协议", "工具调用"]
+    },
+    {
+      "id": "实战构建",
+      "keywords": ["build", "project", "app", "ship", "实战", "项目", "应用"]
+    },
+    {
+      "id": "Review / Testing",
+      "keywords": ["test", "testing", "review", "qa", "debug", "测试", "评审", "调试"]
+    },
+    {
+      "id": "DevOps / CI",
+      "keywords": ["devops", "ci", "cd", "github actions", "deploy", "交付", "部署"]
+    }
+  ],
+  "formatRules": [
+    {
+      "id": "系列课程",
+      "keywords": ["episode", "part ", "lesson", "series", "playlist", "第", "集", "课", "系列"]
+    },
+    {
+      "id": "完整教程",
+      "keywords": ["full course", "complete", "crash course", "masterclass", "完整教程", "完整版", "系统课"]
+    },
+    {
+      "id": "入门教程",
+      "keywords": ["for beginners", "getting started", "quickstart", "入门", "新手", "快速上手"]
+    },
+    {
+      "id": "实战演示",
+      "keywords": ["build", "demo", "walkthrough", "实战", "演示", "案例"]
+    },
+    {
+      "id": "技巧速览",
+      "keywords": ["tips", "tricks", "技巧", "速览", "best practices"]
+    }
+  ],
+  "levelRules": [
+    {
+      "id": "高级",
+      "keywords": ["advanced", "architecture", "agentic", "subagents", "高级", "架构", "深度", "进阶实战"]
+    },
+    {
+      "id": "进阶",
+      "keywords": ["intermediate", "workflow", "production", "real project", "进阶", "实战", "工程化"]
+    },
+    {
+      "id": "入门",
+      "keywords": ["beginner", "getting started", "intro", "quickstart", "入门", "新手", "保姆级", "快速上手"]
+    }
+  ]
+}

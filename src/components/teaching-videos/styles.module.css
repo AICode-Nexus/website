@@ -1,0 +1,302 @@
+.page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero,
+.metricsGrid,
+.filtersPanel,
+.courseGrid,
+.videoGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero {
+  padding: 1.5rem;
+  border-radius: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.16), transparent 32%),
+    radial-gradient(circle at right center, rgba(15, 118, 110, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.94));
+}
+
+.heroTitleRow,
+.heroMetaRow,
+.quickFilters,
+.filterGrid,
+.pagination,
+.videoMeta,
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.heroTitle {
+  margin: 0;
+  color: #0f172a;
+}
+
+.heroDescription,
+.sectionLead,
+.videoSummary,
+.courseSummary,
+.heroMetaText {
+  margin: 0;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.statusPill,
+.quickFilter,
+.metricCard,
+.courseCard,
+.videoCard,
+.filtersPanel {
+  border-radius: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
+}
+
+.statusPill,
+.quickFilter,
+.filterSelect,
+.filterInput,
+.paginationButton,
+.videoLink {
+  min-height: 42px;
+  border-radius: 999px;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #92400e;
+  background: rgba(255, 247, 237, 0.96);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.statusPillCritical {
+  color: #991b1b;
+  background: rgba(254, 242, 242, 0.98);
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+.metricsGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metricCard {
+  padding: 1rem 1.1rem;
+}
+
+.metricLabel,
+.courseMeta,
+.videoMeta,
+.resultsMeta {
+  color: #0f4c5c;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.metricValue {
+  display: block;
+  margin-top: 0.2rem;
+  color: #0f172a;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.quickFilter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  color: #0f4c5c;
+  text-decoration: none;
+  font-weight: 700;
+  background: rgba(240, 253, 250, 1);
+  border-color: rgba(15, 118, 110, 0.18);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: #0f172a;
+}
+
+.filtersPanel {
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.filterLabel {
+  display: grid;
+  gap: 0.4rem;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.filterSelect,
+.filterInput {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+}
+
+.courseGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.courseCard,
+.videoCard {
+  padding: 1.15rem;
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+}
+
+.courseCard h3,
+.videoCard h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.pillRow {
+  gap: 0.5rem;
+}
+
+.topicPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 247, 237, 0.96);
+  border: 1px solid rgba(245, 158, 11, 0.16);
+  color: #9a3412;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.videoGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.videoLink,
+.paginationButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: #0f4c5c;
+  background: rgba(240, 253, 250, 1);
+  border: 1px solid rgba(15, 118, 110, 0.18);
+}
+
+.pagination {
+  justify-content: space-between;
+}
+
+.paginationButton[disabled] {
+  opacity: 0.48;
+}
+
+.emptyState {
+  padding: 1.5rem;
+  border-radius: 24px;
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  color: #475569;
+}
+
+@media (max-width: 996px) {
+  .metricsGrid,
+  .courseGrid,
+  .videoGrid,
+  .filterGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .metricsGrid,
+  .courseGrid,
+  .videoGrid,
+  .filterGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+:global([data-theme='dark']) .hero,
+:global([data-theme='dark']) .metricCard,
+:global([data-theme='dark']) .filtersPanel,
+:global([data-theme='dark']) .courseCard,
+:global([data-theme='dark']) .videoCard,
+:global([data-theme='dark']) .quickFilter {
+  border-color: rgba(148, 163, 184, 0.16);
+  background: linear-gradient(180deg, rgba(12, 22, 31, 0.9), rgba(8, 15, 23, 0.92));
+}
+
+:global([data-theme='dark']) .heroTitle,
+:global([data-theme='dark']) .sectionTitle,
+:global([data-theme='dark']) .courseCard h3,
+:global([data-theme='dark']) .videoCard h3,
+:global([data-theme='dark']) .metricValue {
+  color: #e2e8f0;
+}
+
+:global([data-theme='dark']) .heroDescription,
+:global([data-theme='dark']) .sectionLead,
+:global([data-theme='dark']) .videoSummary,
+:global([data-theme='dark']) .courseSummary,
+:global([data-theme='dark']) .heroMetaText {
+  color: #cbd5e1;
+}
+
+:global([data-theme='dark']) .metricLabel,
+:global([data-theme='dark']) .courseMeta,
+:global([data-theme='dark']) .videoMeta,
+:global([data-theme='dark']) .resultsMeta {
+  color: #67e8f9;
+}
+
+:global([data-theme='dark']) .filterSelect,
+:global([data-theme='dark']) .filterInput {
+  border-color: rgba(148, 163, 184, 0.18);
+  background: rgba(8, 15, 23, 0.88);
+  color: #e2e8f0;
+}
+
+:global([data-theme='dark']) .statusPill {
+  background: rgba(120, 53, 15, 0.24);
+  color: #fdba74;
+}
+
+:global([data-theme='dark']) .statusPillCritical {
+  background: rgba(127, 29, 29, 0.32);
+  color: #fca5a5;
+}
+
+:global([data-theme='dark']) .topicPill {
+  background: rgba(120, 53, 15, 0.24);
+  border-color: rgba(251, 191, 36, 0.2);
+  color: #fdba74;
+}

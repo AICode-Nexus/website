@@ -44,8 +44,8 @@ export const portalContent = definePortalContent({
       {
         id: 'design-delivery',
         title: '看主流工作流',
-        description: '先看 6 条主流 AI coding workflow，再决定你的默认交付链路。',
-        href: '/docs/workflows/mainstream-ai-coding-workflows',
+        description: '先看工作流模式、主线框架和社区框架，再决定默认交付链路。',
+        href: '/docs/workflows',
       },
       {
         id: 'compare-tools',
@@ -135,7 +135,7 @@ export const portalContent = definePortalContent({
         badge: 'Platform',
         title: 'GitHub Copilot',
         description: '适合 GitHub-first 团队，把 issue、PR、review 和 coding agent 拉进同一平台闭环。',
-        href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+        href: '/docs/tools/platforms/github-copilot',
         linkLabel: '查看入口',
       },
       {
@@ -143,7 +143,7 @@ export const portalContent = definePortalContent({
         badge: 'Execution Stack',
         title: 'OpenAI Codex',
         description: '适合长任务、并行 worktree、后台执行和多 agent 调度。',
-        href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+        href: '/docs/tools/execution-stacks/openai-codex',
         linkLabel: '查看入口',
       },
       {
@@ -151,7 +151,7 @@ export const portalContent = definePortalContent({
         badge: 'Terminal Agent',
         title: 'Claude Code',
         description: '适合 terminal-first 开发方式、仓库级 CLAUDE.md 和强控制的实战协作。',
-        href: '/docs/claude-code-workstyle',
+        href: '/docs/tools/terminal-agents/claude-code',
         linkLabel: '查看入口',
       },
       {
@@ -159,15 +159,15 @@ export const portalContent = definePortalContent({
         badge: 'Terminal Agent',
         title: 'Gemini CLI',
         description: '适合 Google/GitHub 结合的终端工作流，以及把 GEMINI.md 版本化到仓库里。',
-        href: '/docs/gemini-cli-github-workflow',
+        href: '/docs/tools/terminal-agents/gemini-cli',
         linkLabel: '查看入口',
       },
       {
         id: 'cursor-windsurf',
         badge: 'AI IDE',
-        title: 'Cursor / Windsurf',
-        description: '适合长期把 IDE 作为 AI 主入口，同时管理 rules、memory、background agents 和 MCP。',
-        href: '/docs/comparisons/cursor-vs-windsurf-vs-cline',
+        title: 'Cursor',
+        description: '适合长期把 IDE 作为 AI 主入口，同时管理 rules、memory 与 background agents。',
+        href: '/docs/tools/ide-first/cursor',
         linkLabel: '查看入口',
       },
       {
@@ -175,7 +175,7 @@ export const portalContent = definePortalContent({
         badge: 'Landscape',
         title: '终端 Agent 全景',
         description: '横向比较 Claude Code、Gemini CLI、Codex 与 Cline，决定 terminal-first 栈怎么搭。',
-        href: '/docs/terminal-agent-landscape',
+        href: '/docs/tools/terminal-agents/cline',
         linkLabel: '查看入口',
       },
     ],
@@ -291,9 +291,9 @@ export const portalContent = definePortalContent({
     kicker: 'Video Library',
     title: 'AI Code 教学视频',
     description:
-      '教学视频继续保留，但不再只是补充资源页，而是“AI 编程工具”支柱下的二级入口，用来补齐主流工具上手与演示素材。',
+      '这个模块升级为首页重点入口，默认只保留近 90 天内容，用来集中承接主流 AI coding 工具的入门、规则、MCP、工作流与实战视频。',
     primaryAction: {
-      label: '查看视频库',
+      label: '进入 300+ 视频目录',
       href: '/docs/ai-code-teaching-videos',
     },
   },

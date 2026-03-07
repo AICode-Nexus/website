@@ -2,6 +2,12 @@ import React, {useEffect, useRef, useState} from 'react';
 import Link from '@docusaurus/Link';
 import {useHistory} from '@docusaurus/router';
 import {useWindowSize} from '@docusaurus/theme-common';
+import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
+import {
+  getTeachingVideoCoursePermalink,
+  getTeachingVideoItemPermalink,
+  getTeachingVideoLanguageLabel,
+} from '@site/src/utils/teachingVideos';
 import styles from './styles.module.css';
 
 const docMetadataContext = require.context(
@@ -62,6 +68,30 @@ function loadEntries(context, section) {
     .filter(Boolean);
 }
 
+function buildTeachingVideoEntries() {
+  const videoEntries = teachingVideoCatalog.items.map((video) => ({
+    id: `video-${video.id}`,
+    title: video.title,
+    description: `${video.creator} · ${video.publishedAt} · ${video.tool} · ${video.platform}`,
+    permalink: getTeachingVideoItemPermalink(video.id),
+    section: '教学视频',
+    tags: [video.tool, video.platform, getTeachingVideoLanguageLabel(video.language), video.format, video.level],
+    keywords: [video.creator, video.summary, video.topics.join(' '), video.courseId].join(' '),
+  }));
+
+  const courseEntries = teachingVideoCatalog.courses.map((course) => ({
+    id: `course-${course.id}`,
+    title: course.title,
+    description: `${course.creator} · ${course.tool} · ${course.episodeCount} 个视频`,
+    permalink: getTeachingVideoCoursePermalink(course.id),
+    section: '教学视频',
+    tags: [course.tool, getTeachingVideoLanguageLabel(course.language)],
+    keywords: [course.creator, course.latestEpisodeAt, course.coverVideoId].join(' '),
+  }));
+
+  return [...videoEntries, ...courseEntries];
+}
+
 function dedupeEntries(entries) {
   const uniqueEntries = new Map();
 
@@ -77,6 +107,7 @@ function dedupeEntries(entries) {
 const searchEntries = dedupeEntries([
   ...loadEntries(docMetadataContext, '知识库'),
   ...loadEntries(blogMetadataContext, 'Daily Brief'),
+  ...buildTeachingVideoEntries(),
 ]);
 
 function scoreEntry(entry, query) {

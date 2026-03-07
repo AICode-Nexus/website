@@ -24,10 +24,10 @@ export default function HomePage() {
           <QuickActions />
           <PillarMap />
           <ToolMatrix />
+          <TeachingVideos />
           <LearningPath />
           <FeaturedDocs />
           <LatestBriefs />
-          <TeachingVideos />
           <HowToUseSite />
         </div>
       </main>

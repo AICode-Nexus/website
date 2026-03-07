@@ -224,7 +224,8 @@
 
 .trackGrid,
 .briefGrid,
-.featureGrid {
+.featureGrid,
+.videoGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -293,6 +294,84 @@
   justify-content: flex-start;
 }
 
+.videoStatusRow,
+.videoFilterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.videoStatusPill,
+.videoFilterChip,
+.videoStatCard {
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.videoStatusPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #92400e;
+  background: rgba(255, 247, 237, 0.96);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.videoStatusPillCritical {
+  color: #991b1b;
+  background: rgba(254, 242, 242, 0.98);
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+.videoStatusText {
+  margin: 0;
+  color: #334155;
+}
+
+.videoStatsGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.videoStatCard {
+  padding: 1rem 1.1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
+}
+
+.videoStatLabel {
+  display: block;
+  color: #0f4c5c;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.videoStatValue {
+  display: block;
+  margin-top: 0.18rem;
+  color: #0f172a;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.videoFilterChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.72rem 1rem;
+  color: #0f4c5c;
+  text-decoration: none;
+  font-weight: 700;
+  background: rgba(240, 253, 250, 1);
+  border-color: rgba(15, 118, 110, 0.18);
+}
+
 .bullets li + li {
   margin-top: 0.35rem;
 }
@@ -346,7 +425,10 @@
 
 :global([data-theme='dark']) .brandMeta span,
 :global([data-theme='dark']) .cardMeta,
-:global([data-theme='dark']) .cardLink {
+:global([data-theme='dark']) .cardLink,
+:global([data-theme='dark']) .videoStatusText,
+:global([data-theme='dark']) .videoStatLabel,
+:global([data-theme='dark']) .videoFilterChip {
   color: #5eead4;
 }
 
@@ -387,6 +469,22 @@
   color: #fde68a;
 }
 
+:global([data-theme='dark']) .videoStatusPill {
+  background: rgba(120, 53, 15, 0.24);
+  border-color: rgba(251, 191, 36, 0.18);
+  color: #fde68a;
+}
+
+:global([data-theme='dark']) .videoStatusPillCritical {
+  background: rgba(127, 29, 29, 0.32);
+  border-color: rgba(248, 113, 113, 0.18);
+  color: #fca5a5;
+}
+
+:global([data-theme='dark']) .videoStatValue {
+  color: #f8fafc;
+}
+
 :global([data-theme='dark']) .contentCard,
 :global([data-theme='dark']) .toolCard,
 :global([data-theme='dark']) .trackCard,
@@ -396,7 +494,9 @@
 :global([data-theme='dark']) .linkTile,
 :global([data-theme='dark']) .featureCard,
 :global([data-theme='dark']) .featureColumn,
-:global([data-theme='dark']) .usagePanel {
+:global([data-theme='dark']) .usagePanel,
+:global([data-theme='dark']) .videoStatCard,
+:global([data-theme='dark']) .videoFilterChip {
   border-color: rgba(148, 163, 184, 0.16);
   background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(8, 15, 23, 0.88));
   box-shadow: 0 18px 40px rgba(2, 6, 23, 0.18);
@@ -415,6 +515,7 @@
   .pathGrid,
   .briefGrid,
   .featureGrid,
+  .videoGrid,
   .usagePanel {
     grid-template-columns: 1fr;
   }
@@ -429,5 +530,15 @@
 
   .sectionActionRow {
     flex-wrap: wrap;
+  }
+
+  .videoStatsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .videoStatsGrid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

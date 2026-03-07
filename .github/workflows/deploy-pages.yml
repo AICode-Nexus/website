@@ -29,8 +29,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Validate teaching video catalog
+        run: npm run check:teaching-videos
+
       - name: Build website
         run: npm run build
+
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

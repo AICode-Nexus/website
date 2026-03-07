@@ -1,162 +1,203 @@
 import {readFile, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {fetchBilibiliVideoMetadata} from './lib/teaching-video-scraper.mjs';
+import {
+  addDays,
+  buildCatalog,
+  discoverSourceCandidates,
+  fetchDetailedEntries,
+  getShanghaiDateString,
+  normalizeDetailedRecord,
+  validateCatalogContract,
+} from './lib/teaching-video-pipeline.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const workspaceRoot = path.resolve(__dirname, '..');
-const seedPath = path.join(workspaceRoot, 'src/data/teachingVideos.seed.json');
+const sourceRegistryPath = path.join(workspaceRoot, 'src/data/teachingVideoSources.json');
+const taxonomyPath = path.join(workspaceRoot, 'src/data/teachingVideoTaxonomy.json');
 const generatedPath = path.join(workspaceRoot, 'src/data/teachingVideos.generated.json');
 const checkMode = process.argv.includes('--check');
 
 function ensureString(value, fieldName) {
   if (typeof value !== 'string' || value.trim() === '') {
-    throw new Error(`Teaching video seed field "${fieldName}" must be a non-empty string.`);
+    throw new Error(`Teaching video field "${fieldName}" must be a non-empty string.`);
   }
 
   return value.trim();
 }
 
+function ensureBoolean(value, fieldName) {
+  if (typeof value !== 'boolean') {
+    throw new Error(`Teaching video source field "${fieldName}" must be a boolean.`);
+  }
+
+  return value;
+}
+
 function ensureStringArray(value, fieldName) {
   if (!Array.isArray(value) || value.some((item) => typeof item !== 'string' || item.trim() === '')) {
-    throw new Error(`Teaching video seed field "${fieldName}" must be an array of non-empty strings.`);
+    throw new Error(`Teaching video source field "${fieldName}" must be an array of non-empty strings.`);
   }
 
   return value.map((item) => item.trim());
 }
 
-function validateSeed(seedCatalog) {
-  ensureString(seedCatalog?.title, 'title');
-  ensureString(seedCatalog?.description, 'description');
-
-  if (!Array.isArray(seedCatalog?.sources) || !Array.isArray(seedCatalog?.items)) {
-    throw new Error('Teaching video seed must include "sources" and "items" arrays.');
+function validateSourceRegistry(sourceRegistry) {
+  if (!sourceRegistry || typeof sourceRegistry !== 'object' || !Array.isArray(sourceRegistry.sources)) {
+    throw new Error('Teaching video source registry must define a "sources" array.');
   }
 
-  const sourceIds = new Set();
+  const ids = new Set();
 
-  seedCatalog.sources.forEach((source, index) => {
+  sourceRegistry.sources.forEach((source, index) => {
     const sourceId = ensureString(source?.id, `sources[${index}].id`);
-    ensureString(source?.title, `sources[${index}].title`);
-    ensureString(source?.description, `sources[${index}].description`);
+    ensureString(source?.platform, `sources[${index}].platform`);
+    ensureString(source?.kind, `sources[${index}].kind`);
+    ensureString(source?.language, `sources[${index}].language`);
+    ensureString(source?.tier, `sources[${index}].tier`);
+    ensureStringArray(source?.tools, `sources[${index}].tools`);
+    ensureString(source?.discoveryUrl, `sources[${index}].discoveryUrl`);
+    ensureBoolean(source?.enabled, `sources[${index}].enabled`);
 
-    if (sourceIds.has(sourceId)) {
-      throw new Error(`Teaching video seed contains duplicate source id "${sourceId}".`);
+    if (ids.has(sourceId)) {
+      throw new Error(`Teaching video source registry contains duplicate source id "${sourceId}".`);
     }
 
-    sourceIds.add(sourceId);
-  });
-
-  const itemIds = new Set();
-
-  seedCatalog.items.forEach((item, index) => {
-    const itemId = ensureString(item?.id, `items[${index}].id`);
-    ensureString(item?.platform, `items[${index}].platform`);
-    ensureString(item?.href, `items[${index}].href`);
-    ensureString(item?.summary, `items[${index}].summary`);
-    ensureString(item?.sourceId, `items[${index}].sourceId`);
-    ensureStringArray(item?.tags, `items[${index}].tags`);
-
-    if (!sourceIds.has(item.sourceId)) {
-      throw new Error(`Teaching video seed item "${itemId}" references unknown sourceId "${item.sourceId}".`);
-    }
-
-    if (itemIds.has(itemId)) {
-      throw new Error(`Teaching video seed contains duplicate item id "${itemId}".`);
-    }
-
-    itemIds.add(itemId);
+    ids.add(sourceId);
   });
 }
 
-function buildGeneratedItem(seedItem, scrapedMetadata) {
-  const generatedItem = {
-    id: seedItem.id,
-    platform: seedItem.platform,
-    title: seedItem.titleOverride ?? scrapedMetadata.title,
-    creator: seedItem.creatorOverride ?? scrapedMetadata.creator,
-    publishedAt: seedItem.publishedAtOverride ?? scrapedMetadata.publishedAt,
-    href: scrapedMetadata.href,
-    tags: seedItem.tags,
-    summary: seedItem.summary,
-    sourceId: seedItem.sourceId,
-  };
-
-  if (seedItem.sourceNote) {
-    generatedItem.sourceNote = seedItem.sourceNote;
+function validateTaxonomy(taxonomy) {
+  if (!taxonomy || typeof taxonomy !== 'object') {
+    throw new Error('Teaching video taxonomy must be an object.');
   }
 
-  if (scrapedMetadata.thumbnailUrl) {
-    generatedItem.thumbnailUrl = scrapedMetadata.thumbnailUrl;
-  }
-
-  if (scrapedMetadata.description) {
-    generatedItem.scrapedDescription = scrapedMetadata.description;
-  }
-
-  if (scrapedMetadata.keywords?.length) {
-    generatedItem.keywords = scrapedMetadata.keywords;
-  }
-
-  if (scrapedMetadata.episodeCount) {
-    generatedItem.episodeCount = scrapedMetadata.episodeCount;
-  }
-
-  return generatedItem;
+  [
+    'teachingKeywords',
+    'blockedKeywords',
+    'summaryStopPhrases',
+    'toolRules',
+    'topicRules',
+    'formatRules',
+    'levelRules',
+  ].forEach((fieldName) => {
+    if (!Array.isArray(taxonomy[fieldName])) {
+      throw new Error(`Teaching video taxonomy field "${fieldName}" must be an array.`);
+    }
+  });
 }
 
-async function loadSeedCatalog() {
-  const seedContent = await readFile(seedPath, 'utf8');
-  const seedCatalog = JSON.parse(seedContent);
-  validateSeed(seedCatalog);
-  return seedCatalog;
+async function loadJsonFile(filePath) {
+  const content = await readFile(filePath, 'utf8');
+  return JSON.parse(content);
 }
 
-async function generateCatalog(existingCatalog = null) {
-  const seedCatalog = await loadSeedCatalog();
-  const generatedAt = existingCatalog?.generatedAt ?? new Date().toISOString();
-  const generatedItems = [];
-
-  for (const seedItem of seedCatalog.items) {
-    const scrapedMetadata = await fetchBilibiliVideoMetadata(seedItem.href);
-    generatedItems.push(buildGeneratedItem(seedItem, scrapedMetadata));
-  }
-
-  return {
-    title: seedCatalog.title,
-    description: seedCatalog.description,
-    generatedAt,
-    generator: {
-      script: 'scripts/sync-teaching-videos.mjs',
-      strategy: 'bilibili-public-video-page',
-    },
-    sources: seedCatalog.sources,
-    items: generatedItems,
-  };
+async function loadSourceRegistry() {
+  const sourceRegistry = await loadJsonFile(sourceRegistryPath);
+  validateSourceRegistry(sourceRegistry);
+  return sourceRegistry.sources;
 }
 
-async function main() {
-  if (checkMode) {
-    const currentContent = await readFile(generatedPath, 'utf8');
-    const currentCatalog = JSON.parse(currentContent);
-    const generatedCatalog = await generateCatalog(currentCatalog);
-    const nextContent = `${JSON.stringify(generatedCatalog, null, 2)}\n`;
+async function loadTaxonomy() {
+  const taxonomy = await loadJsonFile(taxonomyPath);
+  validateTaxonomy(taxonomy);
+  return taxonomy;
+}
 
-    if (currentContent !== nextContent) {
-      throw new Error(
-        'Teaching video catalog is stale. Run "npm run sync:teaching-videos" and commit the regenerated file.',
+function selectActiveSources(sources) {
+  const enabledSources = sources.filter((source) => source.enabled);
+  const domesticSources = enabledSources.filter((source) => source.platform === 'Bilibili');
+
+  // Prefer Chinese public sources when overseas platforms are unstable.
+  return domesticSources.length > 0 ? domesticSources : enabledSources;
+}
+
+function dedupeCandidates(candidates) {
+  const unique = new Map();
+
+  candidates.forEach((candidate) => {
+    const key = `${candidate.sourceId}:${candidate.url}`;
+    if (!unique.has(key)) {
+      unique.set(key, candidate);
+    }
+  });
+
+  return Array.from(unique.values());
+}
+
+async function generateCatalog() {
+  const [sources, taxonomy] = await Promise.all([loadSourceRegistry(), loadTaxonomy()]);
+  const enabledSources = selectActiveSources(sources);
+  const generatedAt = new Date().toISOString();
+  const windowEnd = getShanghaiDateString(new Date(generatedAt));
+  const windowStart = addDays(windowEnd, -89);
+  const discoveredCandidates = [];
+  const discoveredDetailedEntries = [];
+
+  for (const source of enabledSources) {
+    try {
+      const discovery = await discoverSourceCandidates(source);
+      discoveredCandidates.push(...discovery.candidates);
+      discoveredDetailedEntries.push(...discovery.detailedEntries);
+      console.log(
+        `Discovered ${discovery.detailedEntries.length} detailed entries and ${discovery.candidates.length} candidates from ${source.id} via ${discovery.strategy}.`,
+      );
+    } catch (error) {
+      console.warn(
+        `Skipping source ${source.id}: ${error instanceof Error ? error.message : String(error)}`,
       );
     }
-
-    console.log('Teaching video catalog is up to date.');
-    return;
   }
 
+  const uniqueCandidates = dedupeCandidates(discoveredCandidates);
+  const fetchedDetailedEntries =
+    uniqueCandidates.length > 0 ? await fetchDetailedEntries(uniqueCandidates) : [];
+  const items = [...discoveredDetailedEntries, ...fetchedDetailedEntries]
+    .map((detail) => normalizeDetailedRecord(detail, taxonomy, windowStart, windowEnd, generatedAt))
+    .filter(Boolean);
+
+  const catalog = buildCatalog({
+    title: 'AI Code 教学视频库',
+    description:
+      '聚焦近 90 天内的 AI coding 教学内容，以可播放视频数和课程数双口径组织多平台公开资源，并通过规则化分类与质量阈值维持首页入口质量。',
+    sources: enabledSources,
+    items,
+    generatedAt,
+    windowStart,
+    windowEnd,
+  });
+
+  catalog.generator = {
+    script: 'scripts/sync-teaching-videos.mjs',
+    strategy: 'ytdlp-query-channel-playlist-pipeline',
+  };
+
+  validateCatalogContract(catalog);
+  return catalog;
+}
+
+async function checkCatalog() {
+  const currentContent = await readFile(generatedPath, 'utf8');
+  const currentCatalog = JSON.parse(currentContent);
+  validateCatalogContract(currentCatalog);
+  console.log('Teaching video catalog passed freshness and contract checks.');
+}
+
+async function writeCatalog() {
   const generatedCatalog = await generateCatalog();
   const nextContent = `${JSON.stringify(generatedCatalog, null, 2)}\n`;
   await writeFile(generatedPath, nextContent, 'utf8');
   console.log(`Teaching video catalog synced to ${path.relative(workspaceRoot, generatedPath)}.`);
+}
+
+async function main() {
+  if (checkMode) {
+    await checkCatalog();
+    return;
+  }
+
+  await writeCatalog();
 }
 
 main().catch((error) => {
