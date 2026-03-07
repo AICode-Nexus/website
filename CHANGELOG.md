@@ -34,6 +34,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Removed the decorative underline from the navbar `教学视频` link and disabled the mobile navbar blur on narrow screens so the Docusaurus slide-out menu can render correctly in iOS and WeChat browsers.
 - Elevated the `AI Code 教学视频库` discovery path with a dedicated right-side navbar `教学视频` entry and a lighter desktop highlight so the video hub is reachable above the fold without disrupting the main pillar navigation.
 - Reworked the `AI 工作流` and `AI 编程工具` hubs, sidebar, homepage links, and learning paths around handbook-style subdirectories while preserving legacy routes such as `/docs/workflows/mainstream-ai-coding-workflows`, `/docs/claude-code-workstyle`, and `/docs/gemini-cli-github-workflow`.
 - Expanded the workflow framework layer to include `Superpowers` alongside `BMAD`, `Spec Kit`, and `OpenSpec`, and added detailed handbook pages for GitHub Copilot, VS Code Agents, OpenAI Codex, Claude Code, Gemini CLI, Cline, Cursor, and Windsurf.
