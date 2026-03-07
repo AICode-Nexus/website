@@ -68,7 +68,7 @@ market_status: current
 
 动作：
 
-- 读 [Prompt Contracts](/docs/prompting-workflows/prompt-contracts)
+- 读 [Prompt Contracts](/docs/workflows/prompt-contracts)
 - 为一个 bugfix 写第一版 contract
 - 明确输入、输出、边界和验收条件
 
@@ -174,5 +174,5 @@ market_status: current
 ## 下一步
 
 - [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
-- [Bugfix / Refactor / Test 工作流](/docs/prompting-workflows/bugfix-refactor-test-workflows)
+- [Bugfix / Refactor / Test 工作流](/docs/workflows/bugfix-refactor-test-workflows)
 - [学习路径](/docs/learning-paths)

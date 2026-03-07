@@ -168,5 +168,5 @@ market_status: current
 
 - [平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
 - [GitHub Copilot vs VS Code Agent vs OpenAI Codex](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
-- [AI IDE 全景](/docs/ides-tooling/ai-ide-landscape)
+- [AI IDE 全景](/docs/tools/ai-ide-landscape)
 - [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)

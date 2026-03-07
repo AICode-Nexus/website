@@ -8,7 +8,7 @@ fi
 
 slug="$1"
 date_prefix="$(date +%F)"
-out_dir="docs/notes"
+out_dir="drafts/notes"
 out_file="${out_dir}/${date_prefix}-${slug}.md"
 
 mkdir -p "$out_dir"
@@ -21,28 +21,29 @@ fi
 cat > "$out_file" <<TEMPLATE
 # ${slug}
 
-## 背景
-- 问题：
+## 目标
+- 受众：
 - 场景：
 
-## 结论
-- 
+## 已知信息
+- 待补充
 
-## 详细步骤
-1. 
-2. 
-3. 
+## 核心判断
+- 待补充
 
-## 示例
-\`\`\`bash
-# command here
-\`\`\`
+## 推荐结构
+1. 待补充
+2. 待补充
+3. 待补充
+
+## 待补证据
+- 待补充
 
 ## 风险与边界
-- 
+- 待补充
 
-## 参考
-- 
+## 相关链接
+- 待补充
 TEMPLATE
 
 echo "Created: $out_file"

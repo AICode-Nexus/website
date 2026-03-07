@@ -23,6 +23,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - New pillar hub docs and new topic docs covering Claude Code, Gemini CLI, terminal agent landscape, repo instruction files, freshness governance, AI-native engineering architecture, and MCP topology.
 - A docs-page freshness banner and build-time validation for `pillar`, `reviewed_at`, `source_window_end`, and `market_status` frontmatter on knowledge docs.
 - A maintained mainstream tool watchlist to keep GitHub Copilot, VS Code Agents, OpenAI Codex, Claude Code, Gemini CLI, Cursor, and Windsurf under explicit review cadence.
+- New first-class docs directories for `development-modes`, `workflows`, `tools`, `standards`, and `architecture`, plus `docs/archive/tracks` for legacy lenses.
+- New workflow docs covering framework selection, task workflow catalog, async agent delivery, expanded prompt contracts, and deeper spec-driven delivery guidance.
+- New standards docs covering skills/commands/hooks, review quality gates, evaluation metrics, and richer repository rule ownership guidance.
+- New content automation under `scripts/content/` for content quality checks and draft generation of daily briefs and weekly roundups from repository manifests.
+- New content source manifests in `content-sources/` and tracked draft-only folders for `blog/weekly`, `blog/monthly`, and `drafts/notes`.
 
 ### Changed
 
@@ -37,6 +42,9 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Reframed the homepage, navbar, sidebar, and overview docs around team/platform-owner needs instead of only individual-engineer onboarding.
 - Demoted the old `models-agents / ides-tooling / prompting-workflows / team-delivery` structure into legacy lenses while preserving their existing routes.
 - Added pillar/freshness metadata to public knowledge docs and surfaced that metadata in homepage featured cards and search indexing.
+- Reorganized the sidebar so main navigation now points to long-term pillar directories while old track hubs live under the archive lens section.
+- Split the blog into `daily`, `weekly`, and `monthly` layers, and rewrote Daily Brief standards and site-admin workflows around draft-first publishing.
+- Moved scratch note creation from `docs/notes` to `drafts/notes` so unpublished material no longer mixes with public docs.
 
 ### Removed
 

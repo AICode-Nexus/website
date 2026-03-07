@@ -1,0 +1,29 @@
+{
+  "defaultDailySources": [
+    {
+      "title": "GitHub Changelog",
+      "url": "https://github.blog/changelog/",
+      "note": "检查当天与 AI coding 相关的官方更新。"
+    },
+    {
+      "title": "VS Code Blog",
+      "url": "https://code.visualstudio.com/blogs",
+      "note": "检查 agents、background、chat、workbench 相关更新。"
+    },
+    {
+      "title": "OpenAI News",
+      "url": "https://openai.com/news/",
+      "note": "检查 Codex、API、Agents 与开发工具相关发布。"
+    }
+  ],
+  "defaultRelatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ]
+}

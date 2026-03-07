@@ -1,0 +1,85 @@
+name: Daily Brief Draft
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Daily brief date (YYYY-MM-DD)'
+        required: false
+        default: ''
+      slug:
+        description: 'Draft slug'
+        required: false
+        default: 'ai-coding-daily-draft'
+      title:
+        description: 'Draft topic title'
+        required: false
+        default: '待确认主题'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate daily brief draft
+        run: |
+          run_date="${{ github.event.inputs.date }}"
+          run_slug="${{ github.event.inputs.slug }}"
+          run_title="${{ github.event.inputs.title }}"
+
+          if [ -z "$run_date" ]; then
+            run_date="$(date +%F)"
+          fi
+
+          if [ -z "$run_slug" ]; then
+            run_slug="ai-coding-daily-draft"
+          fi
+
+          if [ -z "$run_title" ]; then
+            run_title="待确认主题"
+          fi
+
+          echo "RUN_DATE=$run_date" >> "$GITHUB_ENV"
+          echo "RUN_SLUG=$run_slug" >> "$GITHUB_ENV"
+          npm run generate:daily-brief -- --date="$run_date" --slug="$run_slug" --title="$run_title"
+
+      - name: Create draft PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs(daily): generate ${{ env.RUN_DATE }} draft"
+          branch: "automation/daily-brief-${{ env.RUN_DATE }}"
+          title: "docs(daily): generate ${{ env.RUN_DATE }} draft"
+          body: |
+            Automated Daily Brief draft generated for `${{ env.RUN_DATE }}`.
+
+            - Manifest updated under `content-sources/daily/`
+            - Draft post generated under `blog/daily/`
+            - Draft remains unpublished until manually reviewed and merged
+          add-paths: |
+            content-sources/daily/
+            blog/daily/
+          labels: |
+            automation
+            daily-brief
+          delete-branch: true
+          draft: true

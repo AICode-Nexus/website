@@ -82,8 +82,8 @@ AI coding 一旦进入多文件改动和终端执行，边界不写下来，返�
 
 补充阅读：
 
-- [上下文、记忆与规则](/docs/models-agents/context-memory-and-rules)
-- [Prompt Contracts](/docs/prompting-workflows/prompt-contracts)
+- [上下文、记忆与规则](/docs/standards/context-memory-and-rules)
+- [Prompt Contracts](/docs/workflows/prompt-contracts)
 
 ### Step 3：接上最小校验回路
 
@@ -112,8 +112,8 @@ npm run build
 
 相关文档：
 
-- [质量门禁与 Review](/docs/team-delivery/quality-gates-and-review)
-- [指标与风险](/docs/team-delivery/metrics-and-risk)
+- [质量门禁与 Review](/docs/standards/review-quality-gates)
+- [指标与风险](/docs/standards/evaluation-risk-metrics)
 
 ### Step 4：把高频任务做成合同
 
@@ -145,8 +145,8 @@ npm run build
 
 对应上游文档：
 
-- [Bugfix / Refactor / Test Workflows](/docs/prompting-workflows/bugfix-refactor-test-workflows)
-- [多 Agent 协作](/docs/prompting-workflows/multi-agent-collaboration)
+- [Bugfix / Refactor / Test Workflows](/docs/workflows/bugfix-refactor-test-workflows)
+- [多 Agent 协作](/docs/workflows/multi-agent-collaboration)
 
 ### Step 5：建立周度复盘，而不是只看当天爽感
 
@@ -234,6 +234,6 @@ npm run build
 ## 下一步
 
 - [从个人工作流到团队协作](/docs/team-delivery/solo-to-team-transition)
-- [质量门禁与 Review](/docs/team-delivery/quality-gates-and-review)
-- [指标与风险](/docs/team-delivery/metrics-and-risk)
+- [质量门禁与 Review](/docs/standards/review-quality-gates)
+- [指标与风险](/docs/standards/evaluation-risk-metrics)
 - [开放式入口对比](/docs/comparisons/cursor-vs-windsurf-vs-cline)

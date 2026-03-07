@@ -35,6 +35,21 @@ featured: false
 2. Claude Code / Gemini CLI / 规则文件体系 / MCP 架构补齐
 3. 月度与季度复核机制
 
+## 当前阶段：Phase 3
+
+### 目标
+
+- 把工作流与规范文档迁入真实支柱目录
+- 把 `docs/tracks/*` 迁入 `docs/archive/tracks/*`
+- 引入 `blog/daily / weekly / monthly` 分层
+- 增加内容质量校验和 Daily / Weekly 草稿生成脚本
+
+### 当前优先级
+
+1. 工作流与规范内容扩写
+2. 内容校验、草稿脚本与 GitHub Actions
+3. 周报 / 月报与长期专题的回流机制
+
 ## 后续方向
 
 - Newsletter

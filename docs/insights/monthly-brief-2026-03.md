@@ -84,7 +84,7 @@ market_status: watch
 
 - [工具选择地图](/docs/tool-selection)
 - [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
-- [Bugfix / Refactor / Test Workflows](/docs/prompting-workflows/bugfix-refactor-test-workflows)
+- [Bugfix / Refactor / Test Workflows](/docs/workflows/bugfix-refactor-test-workflows)
 
 ### 开始按任务选入口，而不是只认单一产品
 
@@ -114,8 +114,8 @@ agent 越能改代码，`review`、`test`、`build`、`hooks` 的重要性就越
 
 建议配套阅读：
 
-- [质量门禁与 Review](/docs/team-delivery/quality-gates-and-review)
-- [指标与风险](/docs/team-delivery/metrics-and-risk)
+- [质量门禁与 Review](/docs/standards/review-quality-gates)
+- [指标与风险](/docs/standards/evaluation-risk-metrics)
 
 ## 接下来观察什么
 

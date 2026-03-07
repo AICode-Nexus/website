@@ -10,14 +10,20 @@ audience: mixed
 stage: starter
 featured: true
 pillar: tools
-reviewed_at: 2026-03-06
-source_window_end: 2026-03-06
+reviewed_at: 2026-03-07
+source_window_end: 2026-03-07
 market_status: current
 ---
 
 # 对比与选型
 
-对比文的任务是解决“同一层里怎么选”，不是承担整个知识结构。
+## 这一类内容解决什么问题
+
+对比文的任务是解决“同一层里怎么选”，不是承担整个知识结构。它适合回答：
+
+- 同类工具之间怎么选
+- 选型时该看哪些维度
+- 默认入口、补位入口和观察名单怎么搭
 
 ## 当前最该看的 3 类对比
 
@@ -30,3 +36,16 @@ market_status: current
 1. 先确定 [AI 开发方式](/docs/development-modes)
 2. 再回到这里做同层对比
 3. 比完以后回到 [AI 工作流](/docs/workflows) 和 [AI 规范](/docs/standards)
+
+## 对比时至少看 4 个维度
+
+- 默认入口是否清晰
+- 是否能接进验证、review 和 PR
+- 是否支持 rules、context 与权限边界
+- 是否适合团队当前任务形态
+
+## 不要把对比文当成什么
+
+- 不要把热度榜单当成选型结论
+- 不要跨层比较，例如用 IDE 体验去比较 GitHub 工作系统
+- 不要忽略长期维护成本和治理成本

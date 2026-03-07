@@ -61,6 +61,6 @@ market_status: current
 
 ## 延伸阅读
 
-- [质量门禁与 Review](/docs/team-delivery/quality-gates-and-review)
-- [指标与风险](/docs/team-delivery/metrics-and-risk)
+- [质量门禁与 Review](/docs/standards/review-quality-gates)
+- [指标与风险](/docs/standards/evaluation-risk-metrics)
 - [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)

@@ -35,9 +35,9 @@ market_status: current
 建议顺序：
 
 1. [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
-2. [Prompt Contracts](/docs/prompting-workflows/prompt-contracts)
-3. [Bugfix / Refactor / Test 工作流](/docs/prompting-workflows/bugfix-refactor-test-workflows)
-4. [多 Agent 协作](/docs/prompting-workflows/multi-agent-collaboration)
+2. [Prompt Contracts](/docs/workflows/prompt-contracts)
+3. [Bugfix / Refactor / Test 工作流](/docs/workflows/bugfix-refactor-test-workflows)
+4. [多 Agent 协作](/docs/workflows/multi-agent-collaboration)
 
 ## 第三段：规范与架构期
 
