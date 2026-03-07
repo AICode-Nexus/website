@@ -36,6 +36,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Added an explicit keyword search button to the teaching-video catalog filters so query edits now apply on button click or Enter instead of re-filtering on every keystroke.
 - Updated teaching-video quick filters and tool-scoped learning-resource CTAs so they now deep-link straight to the catalog `视频明细` section instead of stopping at the top of the page after applying a filter.
 - Reworked the teaching-video catalog navigation so desktop now uses a stateful pagination panel with range feedback and page numbers, while mobile switches to shareable incremental "load more" browsing driven by URL state instead of local-only previous/next buttons.
 - Normalized CTA alignment inside teaching-video cards and shared homepage content cards so card buttons now anchor to a consistent bottom edge even when summaries and tag rows have different heights.

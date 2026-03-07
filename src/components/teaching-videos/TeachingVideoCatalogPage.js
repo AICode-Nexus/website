@@ -68,6 +68,7 @@ export default function TeachingVideoCatalogPage() {
   const videoSectionRef = useRef(null);
   const pendingScrollRef = useRef('');
   const [catalogState, setCatalogState] = useState(() => parseTeachingVideoCatalogSearch(''));
+  const [queryDraft, setQueryDraft] = useState('');
   const isMobileCatalog = windowSize === 'mobile';
   const filteredItems = filterTeachingVideoItems(
     teachingVideoCatalog.items,
@@ -107,6 +108,10 @@ export default function TeachingVideoCatalogPage() {
     setCatalogState(parseTeachingVideoCatalogSearch(location.search));
   }, [location.search]);
 
+  useEffect(() => {
+    setQueryDraft(catalogState.query);
+  }, [catalogState.query]);
+
   function scrollToVideoSection() {
     if (!videoSectionRef.current) {
       return;
@@ -144,6 +149,16 @@ export default function TeachingVideoCatalogPage() {
     }
 
     history.replace(nextUrl);
+  }
+
+  function applyKeywordSearch(event) {
+    event.preventDefault();
+    navigateCatalogState(
+      {
+        query: queryDraft,
+      },
+      {resetPage: true, clearTargets: true},
+    );
   }
 
   useEffect(() => {
@@ -328,23 +343,27 @@ export default function TeachingVideoCatalogPage() {
             value={catalogState.filters.level}
           />
         </div>
-        <label className={styles.filterLabel}>
-          <span>关键词</span>
-          <input
-            className={styles.filterInput}
-            onChange={(event) => {
-              navigateCatalogState(
-                {
-                  query: event.target.value,
-                },
-                {resetPage: true, clearTargets: true},
-              );
-            }}
-            placeholder="搜索标题、作者、工具、摘要或主题"
-            type="search"
-            value={catalogState.query}
-          />
-        </label>
+        <div className={styles.filterLabel}>
+          <label htmlFor="teaching-video-catalog-query">关键词</label>
+          <form className={styles.searchForm} onSubmit={applyKeywordSearch}>
+            <input
+              className={styles.filterInput}
+              id="teaching-video-catalog-query"
+              onChange={(event) => {
+                setQueryDraft(event.target.value);
+              }}
+              placeholder="搜索标题、作者、工具、摘要或主题"
+              type="search"
+              value={queryDraft}
+            />
+            <button
+              className={clsx(styles.paginationButton, styles.paginationButtonPrimary, styles.searchButton)}
+              type="submit"
+            >
+              搜索
+            </button>
+          </form>
+        </div>
       </section>
 
       <section className={styles.page}>
