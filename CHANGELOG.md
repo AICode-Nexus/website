@@ -33,6 +33,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Refactored the portal homepage to consume centralized content config instead of spreading section text and routes across individual components.
 - Unified homepage card rendering around shared presentation components to improve style consistency, component boundaries, and future extensibility.
+- Constrained the navbar search results panel to the viewport and enabled touch-friendly vertical scrolling so long result lists remain usable on narrow or short screens.
+- Switched docs tables to horizontal scrolling on small screens so comparison and workflow tables are no longer clipped on mobile.
 - Restored dark-mode styling across the navbar, docs surface, and portal homepage cards so the theme switch updates the full site instead of leaving light-only hardcoded colors behind.
 - Stabilized docs-page backgrounds so long-form knowledge pages no longer reveal the global homepage gradient while scrolling.
 - Shifted homepage featured content to deterministic build-time grouping by docs `featured` and `kind` metadata, and documented that contract in the taxonomy doc.

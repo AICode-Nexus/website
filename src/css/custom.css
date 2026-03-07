@@ -215,3 +215,14 @@ html.docs-wrapper .theme-doc-sidebar-container {
 .theme-doc-markdown table thead {
   background: var(--site-table-head-background);
 }
+
+@media (max-width: 996px) {
+  .theme-doc-markdown table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}

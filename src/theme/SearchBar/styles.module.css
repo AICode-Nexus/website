@@ -74,12 +74,19 @@
   right: 0;
   z-index: 30;
   width: max(100%, 20rem);
+  max-width: calc(100vw - 1rem);
+  max-height: calc(100dvh - 5.5rem);
   padding: 0.45rem;
   border: 1px solid var(--search-border);
   border-radius: 1rem;
   background: var(--search-surface-strong);
   box-shadow: var(--search-shadow);
   backdrop-filter: blur(20px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .resultsList {
@@ -148,5 +155,11 @@
 @media (max-width: 1180px) {
   .searchBar {
     width: 12rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .resultsPanel {
+    max-height: calc(100dvh - 5rem);
   }
 }
