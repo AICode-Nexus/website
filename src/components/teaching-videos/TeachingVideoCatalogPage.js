@@ -4,7 +4,9 @@ import {useLocation} from '@docusaurus/router';
 import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
 import {
   formatTeachingVideoDuration,
+  getTeachingVideoCourseAnchorId,
   getTeachingVideoItemPermalink,
+  getTeachingVideoItemAnchorId,
   getTeachingVideoLanguageLabel,
 } from '@site/src/utils/teachingVideos';
 import styles from './styles.module.css';
@@ -162,6 +164,13 @@ export default function TeachingVideoCatalogPage() {
   const featuredCourses = targetCourseId && focusedCourse
     ? [focusedCourse, ...teachingVideoCatalog.courses.filter((course) => course.id !== targetCourseId).slice(0, 5)]
     : teachingVideoCatalog.courses.slice(0, 6);
+  const visibleCourseIds = featuredCourses.map((course) => course.id).join('|');
+  const visibleVideoIds = pageItems.map((item) => item.id).join('|');
+  const targetAnchorId = targetVideoId
+    ? getTeachingVideoItemAnchorId(targetVideoId)
+    : targetCourseId
+      ? getTeachingVideoCourseAnchorId(targetCourseId)
+      : '';
 
   const lastSyncedAt = new Intl.DateTimeFormat('zh-CN', {
     dateStyle: 'medium',
@@ -170,6 +179,22 @@ export default function TeachingVideoCatalogPage() {
   }).format(new Date(teachingVideoCatalog.generatedAt));
 
   const stale = teachingVideoCatalog.metrics.stale.isStale;
+
+  useEffect(() => {
+    if (!targetAnchorId) {
+      return undefined;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      const targetElement = document.getElementById(targetAnchorId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [currentPage, targetAnchorId, visibleCourseIds, visibleVideoIds]);
 
   return (
     <div className={styles.page}>
@@ -303,7 +328,10 @@ export default function TeachingVideoCatalogPage() {
         </div>
         <div className={styles.courseGrid}>
           {featuredCourses.map((course) => (
-            <article className={styles.courseCard} id={`course-${course.id}`} key={course.id}>
+            <article
+              className={course.id === targetCourseId ? `${styles.courseCard} ${styles.cardTarget}` : styles.courseCard}
+              id={getTeachingVideoCourseAnchorId(course.id)}
+              key={course.id}>
               <h3>{course.title}</h3>
               <p className={styles.courseMeta}>
                 {course.creator} · {getTeachingVideoLanguageLabel(course.language)} · {course.tool}
@@ -330,7 +358,10 @@ export default function TeachingVideoCatalogPage() {
           <>
             <div className={styles.videoGrid}>
               {pageItems.map((video) => (
-                <article className={styles.videoCard} id={`video-${video.id}`} key={video.id}>
+                <article
+                  className={video.id === targetVideoId ? `${styles.videoCard} ${styles.cardTarget}` : styles.videoCard}
+                  id={getTeachingVideoItemAnchorId(video.id)}
+                  key={video.id}>
                   <h3>{video.title}</h3>
                   <p className={styles.videoMeta}>
                     {video.creator} · {video.publishedAt} · {video.platform} · {formatTeachingVideoDuration(video.durationSec)}

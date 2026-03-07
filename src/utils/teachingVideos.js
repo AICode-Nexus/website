@@ -217,6 +217,14 @@ export function getTeachingVideoCoursePermalink(courseId) {
   return `/docs/ai-code-teaching-videos?course=${encodeURIComponent(courseId)}`;
 }
 
+export function getTeachingVideoItemAnchorId(itemId) {
+  return `video-${itemId}`;
+}
+
+export function getTeachingVideoCourseAnchorId(courseId) {
+  return `course-${courseId}`;
+}
+
 export function getTeachingVideoLanguageLabel(language) {
   return (
     {

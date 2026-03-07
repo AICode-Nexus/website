@@ -49,9 +49,9 @@ export default function DocItemLayout({children}) {
             <DocBreadcrumbs />
             <DocVersionBadge />
             {docTOC.mobile}
-            <DocFreshnessBanner frontMatter={frontMatter} />
             <DocItemContent>{children}</DocItemContent>
             <DocItemFooter />
+            <DocFreshnessBanner frontMatter={frontMatter} />
           </article>
           <DocItemPaginator />
         </div>

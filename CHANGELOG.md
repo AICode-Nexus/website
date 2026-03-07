@@ -34,6 +34,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Moved the docs-page freshness/status banner to the bottom of each document article so governance metadata remains available without displacing the main content above the fold.
+- Fixed the teaching-video course CTA deep-link behavior so `查看课程代表视频` now lands on and highlights the corresponding video card, and aligned course-card CTAs to a consistent bottom edge.
 - Removed the decorative underline from the navbar `教学视频` link and disabled the mobile navbar blur on narrow screens so the Docusaurus slide-out menu can render correctly in iOS and WeChat browsers.
 - Elevated the `AI Code 教学视频库` discovery path with a dedicated right-side navbar `教学视频` entry and a lighter desktop highlight so the video hub is reachable above the fold without disrupting the main pillar navigation.
 - Reworked the `AI 工作流` and `AI 编程工具` hubs, sidebar, homepage links, and learning paths around handbook-style subdirectories while preserving legacy routes such as `/docs/workflows/mainstream-ai-coding-workflows`, `/docs/claude-code-workstyle`, and `/docs/gemini-cli-github-workflow`.
