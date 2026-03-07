@@ -24,6 +24,13 @@ market_status: current
 - 减少“这次能成、下次跑偏”的波动
 - 让 agent 输出更容易被 review 和合并
 
+## 先看哪两篇
+
+如果你觉得这一层内容过去太“框架化”，先不要从抽象概念开始读，先看这两篇：
+
+- [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)：先回答“现在主流 workflow 到底有哪些”
+- [AI 工作流实操手册](/docs/playbooks/workflow-playbook)：再回答“具体怎么跑、输入怎么写、什么叫完成”
+
 ## 先记住一条原则
 
 工作流不是 prompt 模板集合，而是交付链路设计。
@@ -43,6 +50,7 @@ market_status: current
 
 | 任务类型 | 推荐工作流 |
 | --- | --- |
+| 我想先知道主流 workflow 有哪些 | [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows) |
 | 小 bug、局部修复 | [Bugfix / Refactor / Test](/docs/workflows/bugfix-refactor-test-workflows) |
 | 新功能、跨模块改动 | [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery) |
 | 平台或团队规范建设 | [任务工作流目录](/docs/workflows/workflow-catalog) |
@@ -81,6 +89,8 @@ market_status: current
 
 ## 核心入口
 
+- [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
+- [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
 - [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
 - [工作流框架总览](/docs/workflows/frameworks-overview)
 - [Prompt Contracts](/docs/workflows/prompt-contracts)

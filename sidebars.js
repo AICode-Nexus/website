@@ -24,6 +24,7 @@ const sidebars = {
       label: 'AI 工作流',
       items: [
         'workflows/index',
+        'workflows/mainstream-ai-coding-workflows',
         'workflows/frameworks-overview',
         'workflows/spec-driven-ai-delivery',
         'workflows/prompt-contracts',
@@ -32,6 +33,7 @@ const sidebars = {
         'workflows/workflow-catalog',
         'workflows/async-agent-delivery',
         'playbooks/index',
+        'playbooks/workflow-playbook',
         'playbooks/personal-engineer-stack-setup',
         'playbooks/first-7-days-ai-coding',
       ],

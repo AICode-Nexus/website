@@ -203,6 +203,7 @@ const config = {
         },
         {
           href: `https://github.com/${organizationName}/${projectName}`,
+          className: 'navbar-github-link',
           label: 'GitHub',
           position: 'right',
         },

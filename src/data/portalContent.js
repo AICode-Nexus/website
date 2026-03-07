@@ -43,9 +43,9 @@ export const portalContent = definePortalContent({
       },
       {
         id: 'design-delivery',
-        title: '定交付流程',
-        description: '把 spec、计划、执行、验证、review 和 PR 串成一条标准链路。',
-        href: '/docs/spec-driven-ai-delivery',
+        title: '看主流工作流',
+        description: '先看 6 条主流 AI coding workflow，再决定你的默认交付链路。',
+        href: '/docs/workflows/mainstream-ai-coding-workflows',
       },
       {
         id: 'compare-tools',
@@ -92,7 +92,7 @@ export const portalContent = definePortalContent({
         badge: 'Pillar 02',
         title: 'AI 工作流',
         description: '把 spec、prompt contract、任务分型、多 agent handoff 与交付闭环做成团队可复用模板。',
-        bullets: ['Spec-driven Delivery', 'Prompt Contracts', 'Bugfix / Refactor / Test'],
+        bullets: ['主流工作流总览', 'Spec-driven Delivery', '工作流实操手册'],
         href: '/docs/workflows',
         linkLabel: '进入支柱',
       },

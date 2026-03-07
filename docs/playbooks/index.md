@@ -27,9 +27,17 @@ Playbook 不是一级骨架，而是“AI 工作流”支柱下最可执行的�
 
 ## 当前入口
 
+- [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
 - [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
 - [7 天上手路线](/docs/playbooks/first-7-days-ai-coding)
 - [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
+
+## 如果你现在缺的是具体步骤
+
+优先看：
+
+1. [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
+2. [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
 
 ## 什么时候该看 Playbook
 

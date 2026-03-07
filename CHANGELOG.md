@@ -9,6 +9,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- A practical workflow layer for the knowledge base with a new mainstream workflow guide and a step-by-step workflow playbook, covering spec-first, bugfix, async issue-to-PR, terminal-first, and parallel worktree usage.
 - Repository-level frontend and release guardrails in `AGENTS.md` for performance, low coupling, reusable components, fail-fast config validation, and release discipline.
 - A validated homepage content model in `src/data/portalContent.js` and `src/utils/portalContent.js` to centralize portal copy, links, and section metadata.
 - Shared portal primitives for section wrappers and reusable cards in `src/components/portal/SectionBlock.js`, `src/components/portal/ContentCard.js`, and `src/components/portal/LinkTile.js`.
@@ -31,6 +32,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Tightened homepage CTA layout and mobile navbar behavior so section actions keep a compact size and the main navigation remains reachable on narrow screens.
+- Reworked workflow discovery across the workflow hub, playbooks hub, start-here guide, learning paths, sidebar, and homepage quick actions so readers reach concrete workflow docs before abstract framework pages.
 - Refactored the portal homepage to consume centralized content config instead of spreading section text and routes across individual components.
 - Unified homepage card rendering around shared presentation components to improve style consistency, component boundaries, and future extensibility.
 - Constrained the navbar search results panel to the viewport and enabled touch-friendly vertical scrolling so long result lists remain usable on narrow or short screens.

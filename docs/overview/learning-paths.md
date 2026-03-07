@@ -10,8 +10,8 @@ audience: mixed
 stage: starter
 featured: true
 pillar: development-modes
-reviewed_at: 2026-03-06
-source_window_end: 2026-03-06
+reviewed_at: 2026-03-07
+source_window_end: 2026-03-07
 market_status: current
 ---
 
@@ -34,10 +34,12 @@ market_status: current
 
 建议顺序：
 
-1. [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
-2. [Prompt Contracts](/docs/workflows/prompt-contracts)
-3. [Bugfix / Refactor / Test 工作流](/docs/workflows/bugfix-refactor-test-workflows)
-4. [多 Agent 协作](/docs/workflows/multi-agent-collaboration)
+1. [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
+2. [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
+3. [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
+4. [Prompt Contracts](/docs/workflows/prompt-contracts)
+5. [Bugfix / Refactor / Test 工作流](/docs/workflows/bugfix-refactor-test-workflows)
+6. [多 Agent 协作](/docs/workflows/multi-agent-collaboration)
 
 ## 第三段：规范与架构期
 

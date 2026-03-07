@@ -16,6 +16,8 @@ export default function HowToUseSite() {
             <p>{item.description}</p>
           </div>
         ))}
+      </div>
+      <div className={styles.sectionActionRow}>
         <Link className={styles.primaryAction} to={howToUse.primaryAction.href}>
           {howToUse.primaryAction.label}
         </Link>
