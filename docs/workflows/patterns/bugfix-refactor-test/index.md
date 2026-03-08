@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "starter"
+featured: true
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "testing-validation"
 title: "Bugfix / Refactor / Test"
 description: "Bugfix / Refactor / Test 的定位、适合任务和默认人工接管点。"
 slug: "/workflows/patterns/bugfix-refactor-test"
 sidebar_label: "概览"
 tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "starter"
-featured: true
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Bugfix / Refactor / Test

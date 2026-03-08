@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "implementation"
 title: "VS Code Agents：规则、记忆与工具边界"
 description: "VS Code Agents 的 rules、memory、tools 与 repo 接入建议。"
 slug: "/tools/control-planes/vscode-agents/rules-memory-tools"
 sidebar_label: "规则记忆与工具"
 tags: ["ai-coding", "tool", "vscode-agents"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # VS Code Agents：规则、记忆与工具边界
@@ -59,9 +62,9 @@ market_status: "current"
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责平台闭环，VS Code 负责本地控制面。
 - [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：用 VS Code 作为可视化控制面，Codex 负责更深执行。
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把计划、worktree 和 review ritual 固化时可以叠加。
+- [VS Code Agents：集成、review 与治理](/docs/ecosystem/integrations/vscode-agents)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [Cursor](/docs/tools/ide-first/cursor)：如果你想把 editor-first 体验做得更深、更产品化。
 - [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：这是 VS Code Agents 最自然的主线。
-- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：本地修复与后台补跑结合得比较顺。
 
 ## 来源
 

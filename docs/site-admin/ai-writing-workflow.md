@@ -6,6 +6,10 @@ sidebar_label: AI 写作流程
 tags: [site-admin, writing]
 track: cross-track
 kind: guide
+content_form: guide
+domain: standards
+journey_stage: implementation
+entry_role: admin
 audience: advanced
 stage: intermediate
 featured: false
@@ -86,7 +90,7 @@ featured: false
 - 不要先让 AI 自由写，再反向猜结构
 - 不要把会议记录或脑暴提纲直接发布
 - 不要缺少“风险与边界”或“现在该做什么”
-- 不要让短文长期占据核心支柱入口
+- 不要让短文长期占据核心知识方向入口
 
 ## 相关文档
 

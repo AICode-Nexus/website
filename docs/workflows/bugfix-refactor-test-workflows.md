@@ -6,10 +6,13 @@ sidebar_label: Bugfix / Refactor / Test
 tags: [ai-coding, workflow, testing]
 track: prompting-workflows
 kind: guide
+content_form: guide
+domain: workflows
+journey_stage: testing-validation
+entry_role: domain
 audience: mixed
 stage: starter
 featured: true
-pillar: workflows
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

@@ -179,15 +179,17 @@ export function buildTeachingVideoPagination({
   items,
   requestedPage,
   hasRequestedPage,
+  targetItemId = '',
   targetVideoId,
   mode = 'desktop',
   pageSize = TEACHING_VIDEO_PAGE_SIZE,
 }) {
   const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
   let safePage = normalizeRequestedPage(requestedPage);
+  const focusItemId = normalizeString(targetItemId || targetVideoId);
 
-  if (!hasRequestedPage && targetVideoId) {
-    const targetIndex = items.findIndex((item) => item.id === targetVideoId);
+  if (!hasRequestedPage && focusItemId) {
+    const targetIndex = items.findIndex((item) => item.id === focusItemId);
     if (targetIndex >= 0) {
       safePage = Math.floor(targetIndex / pageSize) + 1;
     }

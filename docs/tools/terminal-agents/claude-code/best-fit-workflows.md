@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Claude Code：最适合的工作流"
 description: "Claude Code 最适合承接哪些工作流，以及不适合单独承接什么。"
 slug: "/tools/terminal-agents/claude-code/best-fit-workflows"
 sidebar_label: "最适合的工作流"
 tags: ["ai-coding", "tool", "claude-code"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Claude Code：最适合的工作流
@@ -71,9 +74,9 @@ Claude Code 更适合承接那些需要频繁交互、快速回看改动、并�
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：如果你想把 brainstorming、plan、worktree、TDD 和 review ritual 固定下来。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：复杂 feature 先用 spec 固定边界，再回到 Claude Code 执行。
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：本地终端执行与 GitHub PR 收口形成分工。
+- [Claude Code：集成、review 与治理](/docs/ecosystem/integrations/claude-code)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要更强执行栈和云端任务。
 - [Gemini CLI](/docs/tools/terminal-agents/gemini-cli)：如果你更倾向轻量终端入口和 GitHub 结合。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更依赖 editor 控制面与 background agents。
 
 ## 来源
 

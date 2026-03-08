@@ -1,18 +1,21 @@
 ---
+audience: "individual"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Windsurf：最适合的工作流"
 description: "Windsurf 最适合承接哪些工作流，以及不适合单独承接什么。"
 slug: "/tools/ide-first/windsurf/best-fit-workflows"
 sidebar_label: "最适合的工作流"
 tags: ["ai-coding", "tool", "windsurf"]
-track: "cross-track"
-kind: "guide"
-audience: "individual"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Windsurf：最适合的工作流
@@ -71,9 +74,9 @@ Windsurf 更适合承接那些需要频繁交互、快速回看改动、并且�
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Windsurf 之上加一层方法论与 lane discipline。
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：Windsurf 负责日常 workspace，GitHub 负责最终 review 闭环。
 - [OpenSpec](/docs/workflows/frameworks/openspec)：高频 brownfield 变化可用 OpenSpec 管理提案层。
+- [Windsurf：集成、review 与治理](/docs/ecosystem/integrations/windsurf)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [Cursor](/docs/tools/ide-first/cursor)：如果你更重视成熟 IDE-first 体验与 background agents。
 - [Cline](/docs/tools/terminal-agents/cline)：如果你更想完全控制开放工具栈。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更希望保留 VS Code 作为统一控制面。
 
 ## 来源
 

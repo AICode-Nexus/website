@@ -1,18 +1,21 @@
 ---
+audience: "individual"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Cursor：优点、边界与替代项"
 description: "Cursor 的优势、边界、替代项和退出信号。"
 slug: "/tools/ide-first/cursor/tradeoffs-and-boundaries"
 sidebar_label: "优点与边界"
 tags: ["ai-coding", "tool", "cursor"]
-track: "cross-track"
-kind: "guide"
-audience: "individual"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Cursor：优点、边界与替代项

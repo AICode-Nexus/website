@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: true
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "development-planning"
 title: "OpenSpec"
 description: "OpenSpec 的定位、适用团队和默认进入方式。"
 slug: "/workflows/frameworks/openspec"
 sidebar_label: "概览"
 tags: ["ai-coding", "workflow-framework", "openspec"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: true
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # OpenSpec

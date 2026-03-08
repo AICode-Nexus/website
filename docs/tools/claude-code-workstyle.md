@@ -6,10 +6,13 @@ sidebar_label: Claude Code 工作方式
 tags: [ai-coding, claude-code, terminal-agent]
 track: cross-track
 kind: guide
+content_form: guide
+domain: tools
+journey_stage: implementation
+entry_role: domain
 audience: mixed
 stage: intermediate
 featured: false
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current

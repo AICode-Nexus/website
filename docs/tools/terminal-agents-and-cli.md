@@ -6,10 +6,13 @@ sidebar_label: 终端 Agent 与 CLI
 tags: [ai-coding, cli, terminal]
 track: cross-track
 kind: guide
+content_form: guide
+domain: tools
+journey_stage: tech-selection
+entry_role: domain
 audience: individual
 stage: intermediate
 featured: false
-pillar: tools
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
@@ -141,7 +144,7 @@ CLI Agent 不应该从头管到尾。关键节点要明确由人接管：
 
 - [旧赛道中的 Review 与 PR 工具链](/docs/ides-tooling/review-and-pr-tooling)
 - [Agent 执行模式](/docs/development-modes/agent-execution-modes)
-- [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
+- [个人工程师栈搭建](/docs/workflows/playbooks/personal-engineer-stack-setup)
 
 ## 来源
 

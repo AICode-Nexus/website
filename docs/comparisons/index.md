@@ -6,10 +6,13 @@ sidebar_label: 对比总览
 tags: [ai-coding, comparison, tool-selection]
 track: cross-track
 kind: hub
+content_form: hub
 audience: mixed
 stage: starter
 featured: true
-pillar: tools
+domain: tools
+journey_stage: tech-selection
+entry_role: index
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
@@ -27,9 +30,9 @@ market_status: current
 
 ## 当前最该看的 3 类对比
 
-- 平台 / 控制面 / 执行栈： [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
-- AI IDE / 开放式入口： [Cursor、Windsurf 与 Cline 怎么看](/docs/comparisons/cursor-vs-windsurf-vs-cline)
-- 统一方法论： [AI Coding 平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
+- 平台 / 控制面 / 执行栈： [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)
+- AI IDE / 开放式入口： [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)
+- 统一方法论： [AI Coding 平台比较框架](/docs/tools/compare/ai-coding-platform-comparison-framework)
 
 ## 先看什么，再看什么
 

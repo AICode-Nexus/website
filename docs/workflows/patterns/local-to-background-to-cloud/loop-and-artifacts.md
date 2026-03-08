@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Local -> Background -> Cloud：流程与产物"
 description: "Local -> Background -> Cloud 的输入、输出、标准步骤和验收证据。"
 slug: "/workflows/patterns/local-to-background-to-cloud/loop-and-artifacts"
 sidebar_label: "流程与产物"
 tags: ["ai-coding", "workflow", "local-to-background-to-cloud"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Local -> Background -> Cloud：流程与产物

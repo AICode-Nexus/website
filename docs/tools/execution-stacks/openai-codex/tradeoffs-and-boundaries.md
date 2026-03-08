@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "OpenAI Codex：优点、边界与替代项"
 description: "OpenAI Codex 的优势、边界、替代项和退出信号。"
 slug: "/tools/execution-stacks/openai-codex/tradeoffs-and-boundaries"
 sidebar_label: "优点与边界"
 tags: ["ai-coding", "tool", "openai-codex"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "advanced"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # OpenAI Codex：优点、边界与替代项
@@ -61,7 +64,7 @@ market_status: "current"
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更需要平台工作系统而不是执行栈。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Codex CLI 很适合作为终端内的主执行入口。
+- [OpenAI Codex：集成、review 与治理](/docs/ecosystem/integrations/openai-codex)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

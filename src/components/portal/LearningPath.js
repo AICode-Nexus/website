@@ -8,7 +8,11 @@ const {learningPath} = portalContent;
 
 export default function LearningPath() {
   return (
-    <SectionBlock kicker={learningPath.kicker} title={learningPath.title}>
+    <SectionBlock
+      description={learningPath.description}
+      kicker={learningPath.kicker}
+      title={learningPath.title}
+    >
       <div className={styles.pathGrid}>
         {learningPath.items.map((item) => (
           <ContentCard

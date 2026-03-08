@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: true
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "VS Code Agents"
 description: "VS Code Agents 的角色定位、最佳使用者和默认工作方式。"
 slug: "/tools/control-planes/vscode-agents"
 sidebar_label: "概览"
 tags: ["ai-coding", "tool", "vscode-agents"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: true
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 import {LearningResources} from '@site/src/components/docs';

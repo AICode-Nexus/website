@@ -1,15 +1,18 @@
 ---
 title: Cursor、Windsurf 与 Cline 怎么看
 description: 从个人工程师视角比较 Cursor、Windsurf 和 Cline 这类开放式 AI coding 入口各自适合的任务与工作方式。
-slug: /comparisons/cursor-vs-windsurf-vs-cline
+slug: /tools/compare/cursor-vs-windsurf-vs-cline
 sidebar_label: Cursor vs Windsurf vs Cline
 tags: [ai-coding, comparison, cursor, windsurf, cline]
 track: cross-track
 kind: comparison
+content_form: comparison
+domain: tools
+journey_stage: tech-selection
+entry_role: index
 audience: individual
 stage: intermediate
 featured: true
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -194,7 +197,7 @@ import {RelatedReadings} from '@site/src/components/docs';
     },
     {
       title: '个人工程师栈搭建',
-      href: '/docs/playbooks/personal-engineer-stack-setup',
+      href: '/docs/workflows/playbooks/personal-engineer-stack-setup',
       description: '把这次选择真正落回个人或小团队的默认主入口与补位入口搭建顺序。',
     },
   ]}

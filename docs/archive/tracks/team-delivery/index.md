@@ -6,10 +6,13 @@ sidebar_label: 团队与交付
 tags: [ai-coding, team, delivery]
 track: team-delivery
 kind: hub
+content_form: hub
+domain: standards
+journey_stage: development-planning
+entry_role: archive
 audience: mixed
 stage: intermediate
 featured: true
-pillar: standards
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: legacy

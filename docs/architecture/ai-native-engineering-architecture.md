@@ -6,10 +6,13 @@ sidebar_label: AI 原生工程架构
 tags: [ai-coding, architecture, worktree]
 track: cross-track
 kind: guide
+content_form: guide
+domain: architecture
+journey_stage: project-architecture
+entry_role: domain
 audience: advanced
 stage: advanced
 featured: false
-pillar: architecture
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current

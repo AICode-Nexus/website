@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Local -> Background -> Cloud：治理与风险"
 description: "Local -> Background -> Cloud 需要的权限边界、验证方式和失败模式。"
 slug: "/workflows/patterns/local-to-background-to-cloud/governance-and-risks"
 sidebar_label: "治理与风险"
 tags: ["ai-coding", "workflow", "local-to-background-to-cloud"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Local -> Background -> Cloud：治理与风险

@@ -4,29 +4,20 @@ const FEATURED_DOC_COLLECTIONS = [
   {id: 'insight', kind: 'insight'},
 ];
 
-const VALID_PILLARS = new Set([
-  'development-modes',
-  'workflows',
-  'tools',
-  'standards',
-  'architecture',
-]);
-
-const VALID_MARKET_STATUSES = new Set(['current', 'watch', 'legacy']);
-
-const PILLAR_LABELS = {
-  'development-modes': 'AI 开发方式',
-  workflows: 'AI 工作流',
-  tools: 'AI 编程工具',
-  standards: 'AI 规范',
-  architecture: 'AI 架构',
-};
-
-const MARKET_STATUS_LABELS = {
-  current: '当前主线',
-  watch: '持续观察',
-  legacy: '旧赛道透镜',
-};
+const {
+  MARKET_STATUS_LABELS,
+  VALID_MARKET_STATUSES,
+  VALID_CONTENT_FORMS,
+  VALID_DOMAINS,
+  VALID_ENTRY_ROLES,
+  VALID_JOURNEY_STAGES,
+  getDomainLabel,
+  getJourneyStageLabel,
+  resolveContentFormKey,
+  resolveDomainKey,
+  resolveEntryRoleKey,
+  resolveJourneyStageKey,
+} = require('../../src/data/knowledgeModel');
 
 const titleCollator = new Intl.Collator('zh-CN', {
   numeric: true,
@@ -111,15 +102,22 @@ function ensureDateField(value, fieldName, docId) {
 
 function validateKnowledgeDoc(doc) {
   const frontMatter = doc.frontMatter ?? {};
-  const pillar = frontMatter.pillar;
+  const domain = resolveDomainKey(frontMatter);
   const marketStatus = frontMatter.market_status;
+  const journeyStage = resolveJourneyStageKey(frontMatter);
+  const entryRole = resolveEntryRoleKey(frontMatter);
+  const contentForm = resolveContentFormKey(frontMatter);
 
-  if (!VALID_PILLARS.has(pillar)) {
+  if (!frontMatter.domain || !VALID_DOMAINS.has(domain)) {
     throw new Error(
-      `Knowledge doc "${doc.id}" must define a valid frontmatter.pillar (${Array.from(
-        VALID_PILLARS,
+      `Knowledge doc "${doc.id}" must define a valid frontmatter.domain (${Array.from(
+        VALID_DOMAINS,
       ).join(', ')}).`,
     );
+  }
+
+  if (Object.hasOwn(frontMatter, 'pillar')) {
+    throw new Error(`Knowledge doc "${doc.id}" must not define legacy frontmatter.pillar.`);
   }
 
   ensureDateField(frontMatter.reviewed_at, 'reviewed_at', doc.id);
@@ -132,18 +130,51 @@ function validateKnowledgeDoc(doc) {
       ).join(', ')}).`,
     );
   }
+
+  if (!frontMatter.journey_stage || !VALID_JOURNEY_STAGES.has(journeyStage)) {
+    throw new Error(
+      `Knowledge doc "${doc.id}" must define a valid frontmatter.journey_stage (${Array.from(
+        VALID_JOURNEY_STAGES,
+      ).join(', ')}).`,
+    );
+  }
+
+  if (!frontMatter.entry_role || !VALID_ENTRY_ROLES.has(entryRole)) {
+    throw new Error(
+      `Knowledge doc "${doc.id}" must define a valid frontmatter.entry_role (${Array.from(
+        VALID_ENTRY_ROLES,
+      ).join(', ')}).`,
+    );
+  }
+
+  if (!frontMatter.content_form || !VALID_CONTENT_FORMS.has(contentForm)) {
+    throw new Error(
+      `Knowledge doc "${doc.id}" must define a valid frontmatter.content_form (${Array.from(
+        VALID_CONTENT_FORMS,
+      ).join(', ')}).`,
+    );
+  }
 }
 
 function toFeaturedDocItem(doc) {
   const frontMatter = doc.frontMatter ?? {};
   const reviewedAt = ensureDateField(frontMatter.reviewed_at, 'reviewed_at', doc.id);
+  const domain = resolveDomainKey(frontMatter);
+  const journeyStage = resolveJourneyStageKey(frontMatter);
+  const metaParts = [getDomainLabel(domain)];
+
+  if (journeyStage) {
+    metaParts.push(getJourneyStageLabel(journeyStage));
+  }
+
+  metaParts.push(`复核 ${reviewedAt}`);
 
   return {
     id: doc.id.replace(/\//g, '-'),
     title: doc.title,
     description: ensureDocSummary(doc),
     href: doc.permalink,
-    meta: `${PILLAR_LABELS[frontMatter.pillar]} · 复核 ${reviewedAt}`,
+    meta: metaParts.filter(Boolean).join(' · '),
     tags: [MARKET_STATUS_LABELS[frontMatter.market_status]],
   };
 }
@@ -184,7 +215,7 @@ module.exports = function portalDataPlugin() {
             const frontMatter = doc.frontMatter ?? {};
             return (
               frontMatter.featured === true &&
-              frontMatter.kind === collection.kind &&
+              resolveContentFormKey(frontMatter) === collection.kind &&
               !doc.unlisted &&
               !doc.draft
             );

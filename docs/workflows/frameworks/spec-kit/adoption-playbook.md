@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "playbook"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "development-planning"
 title: "Spec Kit：接入手册"
 description: "把 Spec Kit 接进真实仓库时的试跑、接入和收口方式。"
 slug: "/workflows/frameworks/spec-kit/adoption-playbook"
 sidebar_label: "接入手册"
 tags: ["ai-coding", "workflow-framework", "spec-kit"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Spec Kit：接入手册

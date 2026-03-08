@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "playbook"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "development-planning"
 title: "Superpowers：接入手册"
 description: "把 Superpowers 接进真实仓库时的试跑、接入和收口方式。"
 slug: "/workflows/community-frameworks/superpowers/adoption-playbook"
 sidebar_label: "接入手册"
 tags: ["ai-coding", "workflow-framework", "superpowers"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Superpowers：接入手册

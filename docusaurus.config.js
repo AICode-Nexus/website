@@ -1,5 +1,7 @@
 // @ts-check
 
+const {ECOSYSTEM_INTEGRATIONS} = require('./src/data/ecosystemIntegrations');
+
 const repo = process.env.GITHUB_REPOSITORY || 'AICode-Nexus/website';
 const [organizationName, projectName] = repo.split('/');
 const isUserSite = projectName === `${organizationName}.github.io`;
@@ -40,7 +42,7 @@ const footerTopicsHtml = `
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'AICode-Nexus',
-  tagline: 'AI 开发方式、工作流、规范与架构知识库',
+  tagline: 'AI Code 流程地图、知识方向与治理入口',
   favicon: 'img/favicon.svg',
   url: `https://${organizationName}.github.io`,
   baseUrl: process.env.NODE_ENV === 'production' ? (isUserSite ? '/' : `/${projectName}/`) : '/',
@@ -63,8 +65,24 @@ const config = {
       {
         redirects: [
           {
-            to: '/docs/taxonomy',
+            to: '/docs/start/taxonomy',
             from: ['/knowledge-taxonomy'],
+          },
+          {
+            to: '/docs/start/start-here',
+            from: ['/docs/start-here'],
+          },
+          {
+            to: '/docs/start/taxonomy',
+            from: ['/docs/taxonomy'],
+          },
+          {
+            to: '/docs/start/learning-paths',
+            from: ['/docs/learning-paths'],
+          },
+          {
+            to: '/docs/tools/map',
+            from: ['/docs/tool-selection'],
           },
           {
             to: '/docs/models-agents',
@@ -83,16 +101,48 @@ const config = {
             from: ['/tracks/team-and-delivery'],
           },
           {
-            to: '/docs/insights/agentic-coding-patterns',
+            to: '/docs/tools/insights/agentic-coding-patterns',
             from: ['/insights/agentic-coding-patterns'],
           },
           {
-            to: '/docs/comparisons/ai-coding-platform-comparison-framework',
+            to: '/docs/tools/compare/ai-coding-platform-comparison-framework',
             from: ['/insights/ai-coding-platform-comparison-framework'],
           },
           {
-            to: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+            to: '/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex',
             from: ['/insights/github-copilot-vs-vscode-agent-vs-openai-codex'],
+          },
+          {
+            to: '/docs/tools/compare/ai-coding-platform-comparison-framework',
+            from: ['/docs/comparisons/ai-coding-platform-comparison-framework'],
+          },
+          {
+            to: '/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex',
+            from: ['/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex'],
+          },
+          {
+            to: '/docs/tools/compare/cursor-vs-windsurf-vs-cline',
+            from: ['/docs/comparisons/cursor-vs-windsurf-vs-cline'],
+          },
+          {
+            to: '/docs/workflows/playbooks/workflow-playbook',
+            from: ['/docs/playbooks/workflow-playbook'],
+          },
+          {
+            to: '/docs/workflows/playbooks/personal-engineer-stack-setup',
+            from: ['/docs/playbooks/personal-engineer-stack-setup'],
+          },
+          {
+            to: '/docs/workflows/playbooks/first-7-days-ai-coding',
+            from: ['/docs/playbooks/first-7-days-ai-coding'],
+          },
+          {
+            to: '/docs/tools/insights/agentic-coding-patterns',
+            from: ['/docs/insights/agentic-coding-patterns'],
+          },
+          {
+            to: '/docs/tools/insights/monthly-brief-2026-03',
+            from: ['/docs/insights/monthly-brief-2026-03'],
           },
           {
             to: '/docs/workflows/prompt-contracts',
@@ -130,6 +180,10 @@ const config = {
             to: '/docs/tools/ai-ide-landscape',
             from: ['/docs/ides-tooling/ai-ide-landscape'],
           },
+          ...ECOSYSTEM_INTEGRATIONS.map(({href, legacyHref}) => ({
+            to: href,
+            from: [legacyHref],
+          })),
         ],
       },
     ],
@@ -167,44 +221,38 @@ const config = {
       },
       items: [
         {
-          to: '/',
-          position: 'left',
-          label: '首页',
-        },
-        {
-          to: '/docs/development-modes',
-          label: '开发方式',
+          to: '/docs/start/start-here',
+          label: '开始',
           position: 'left',
         },
         {
-          to: '/docs/workflows',
-          label: '工作流',
+          to: '/docs/start/journey-map',
+          label: 'AI Code 地图',
           position: 'left',
         },
         {
-          to: '/docs/tools',
-          label: '编程工具',
+          to: '/docs/tools/resources',
+          label: '资源中心',
           position: 'left',
         },
         {
-          to: '/docs/ai-code-teaching-videos',
-          label: '教学视频',
-          position: 'right',
-          className: 'navbar-video-link',
-        },
-        {
-          to: '/docs/standards',
-          label: '规范',
+          to: '/docs/content-index',
+          label: '内容索引',
           position: 'left',
         },
         {
-          to: '/docs/architecture',
-          label: '架构',
+          to: '/docs/archive',
+          label: '旧赛道归档',
           position: 'left',
         },
         {
           to: '/blog',
           label: 'Daily Brief',
+          position: 'left',
+        },
+        {
+          to: '/docs/site-admin/editorial-workflow',
+          label: '站点维护',
           position: 'left',
         },
         {
@@ -226,24 +274,24 @@ const config = {
           title: '知识入口',
           items: [
             {
-              label: '首页',
-              to: '/',
+              label: '开始',
+              to: '/docs/start/start-here',
             },
             {
-              label: '知识体系总表',
-              to: '/docs/taxonomy',
+              label: 'AI Code 地图',
+              to: '/docs/start/journey-map',
             },
             {
-              label: 'AI 编程工具',
-              to: '/docs/tools',
+              label: '资源中心',
+              to: '/docs/tools/resources',
             },
             {
-              label: 'AI 规范',
-              to: '/docs/standards',
+              label: '内容索引',
+              to: '/docs/content-index',
             },
             {
-              label: 'AI 架构',
-              to: '/docs/architecture',
+              label: '旧赛道归档',
+              to: '/docs/archive',
             },
           ],
         },

@@ -6,10 +6,13 @@ sidebar_label: AI IDE 全景
 tags: [ai-coding, ide, comparison]
 track: cross-track
 kind: guide
+content_form: guide
+domain: tools
+journey_stage: tech-selection
+entry_role: domain
 audience: individual
 stage: intermediate
 featured: false
-pillar: tools
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
@@ -148,7 +151,7 @@ AI IDE 市场很热，但不同产品解决的问题层次并不一样。如果�
 
 更具体地说：
 
-- 如果你主要在 GitHub 工作，先看 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
+- 如果你主要在 GitHub 工作，先看 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)
 - 如果你主要在 IDE 里推进任务，再结合 Cursor、Windsurf、Cline / Continue 的规则与执行方式做补充
 - 第一阶段永远先选一个主入口，不要长期并用三个主平台
 
@@ -187,7 +190,7 @@ AI IDE 市场很热，但不同产品解决的问题层次并不一样。如果�
     },
     {
       title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
-      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      href: '/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex',
       description: '如果你已经缩小到平台、控制面和执行栈三者之间，直接进入更具体的对比文。',
     },
   ]}

@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "implementation"
 title: "Cline：规则、记忆与工具边界"
 description: "Cline 的 rules、memory、tools 与 repo 接入建议。"
 slug: "/tools/terminal-agents/cline/rules-memory-tools"
 sidebar_label: "规则记忆与工具"
 tags: ["ai-coding", "tool", "cline"]
-track: "cross-track"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Cline：规则、记忆与工具边界
@@ -59,9 +62,9 @@ market_status: "current"
 - [Continue Rules](/docs/tools/ai-ide-landscape)：开放栈通常不只看 Cline，还要看 rules 与模型配置生态。
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在开放壳层上再叠加一套日常操作方法时很有帮助。
 - [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：部分团队会把 Cline 留作开放实验入口，把 Codex 留作正式执行栈。
+- [Cline：集成、review 与治理](/docs/ecosystem/integrations/cline)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [Windsurf](/docs/tools/ide-first/windsurf)：如果你更想要整合好的工作台体验。
 - [Cursor](/docs/tools/ide-first/cursor)：如果你更偏向成熟 IDE-first 体验。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更想要终端式但更稳的 repo pairing。
 
 ## 来源
 

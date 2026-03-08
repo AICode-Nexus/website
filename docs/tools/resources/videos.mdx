@@ -1,0 +1,92 @@
+---
+title: AI Code 视频目录
+description: 近 90 天 AI coding 教学视频的视频视图，只展示当前筛选命中的视频条目。
+slug: /tools/resources/videos
+sidebar_label: 视频目录
+tags: [ai-coding, video-library, teaching-videos]
+track: cross-track
+kind: guide
+content_form: resource
+audience: mixed
+stage: starter
+featured: true
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-03-07
+source_window_end: 2026-03-07
+market_status: current
+---
+
+import TeachingVideoCatalogPage from '@site/src/components/teaching-videos/TeachingVideoCatalogPage';
+import {RelatedReadings} from '@site/src/components/docs';
+import {teachingVideoCatalog, teachingVideoCatalogSync} from '@site/src/data/teachingVideos';
+
+export const lastSyncedAt = new Intl.DateTimeFormat('zh-CN', {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+  timeZone: 'Asia/Shanghai',
+}).format(new Date(teachingVideoCatalog.generatedAt));
+
+# AI Code 视频目录
+
+这个页面只保留近 90 天、{teachingVideoCatalogSync.intervalLabel} 自动同步一次的公开视频条目。课程聚合已经拆到独立课程目录，避免打断“筛选 -> 结果 -> 下钻”的主链路。
+
+最近一次同步：**{lastSyncedAt}**；自动同步周期：**{teachingVideoCatalogSync.intervalLabel}**
+
+## 什么时候优先看视频目录
+
+- 你已经知道自己要找的是具体视频条目，而不是课程系列。
+- 你需要按平台、语言、工具、主题和难度快速筛选公开视频。
+- 你想先看单条内容，再决定是否回到 [课程目录](/docs/tools/resources/courses) 按系列继续学。
+
+## 当前目录规则
+
+- 只展示 `windowStart` 到 `windowEnd` 时间窗内的公开视频。
+- 同一语言的重复镜像会做 canonical 去重，并保留 `alternateUrls`。
+- 页面运行时不做任何外部抓取，所有分类、打标、排序都在同步脚本阶段完成。
+- 课程目录是独立资源视图，不再夹在视频结果中间。
+
+## 同步入口
+
+```bash
+npm run sync:teaching-videos
+npm run check:teaching-videos
+npm run build
+```
+
+自动同步策略：**{teachingVideoCatalogSync.description}**
+
+<TeachingVideoCatalogPage resourceType="videos" />
+
+## 什么时候切到课程目录
+
+- 如果你已经通过视频条目确认某位创作者或某个系列值得系统性看完，切到 [课程目录](/docs/tools/resources/courses)。
+- 如果你看完素材后想把经验回流到长期知识结构，回到 [AI 编程工具](/docs/tools) 或 [AI 工作流](/docs/workflows)。
+
+<RelatedReadings
+  title="从这里继续往下读"
+  description="视频目录负责帮你快速定位素材；真正要形成长期结论，下一步还是回到工具、工作流和 playbook。"
+  items={[
+    {
+      title: '课程目录',
+      href: '/docs/tools/resources/courses',
+      description: '如果你更想按系列课程浏览，直接切到课程聚合视图。',
+    },
+    {
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '回到工具与技术选型方向，继续读平台、控制面、执行栈和 IDE-first 入口。',
+    },
+    {
+      title: 'AI 工作流',
+      href: '/docs/workflows',
+      description: '把视频里学到的操作方式重新放回稳定的交付链里。',
+    },
+    {
+      title: '7 天上手路线',
+      href: '/docs/workflows/playbooks/first-7-days-ai-coding',
+      description: '把今天看到的素材转成一周内可执行的动作。',
+    },
+  ]}
+/>

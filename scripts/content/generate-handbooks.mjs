@@ -1,5 +1,6 @@
 import {mkdir, rm, writeFile} from 'node:fs/promises';
 import path from 'node:path';
+import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 
 import {toolCatalog} from '../../src/data/toolCatalog.mjs';
@@ -8,8 +9,11 @@ import {workflowCatalog, workflowGroups} from '../../src/data/workflowCatalog.mj
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const workspaceRoot = path.resolve(__dirname, '../..');
+const require = createRequire(import.meta.url);
+const {getEcosystemIntegrationByToolId} = require('../../src/data/ecosystemIntegrations');
 
 const generatedRoots = [
+  'docs/ecosystem/integrations',
   'docs/workflows/patterns',
   'docs/workflows/frameworks',
   'docs/workflows/community-frameworks',
@@ -248,24 +252,90 @@ function toolImports() {
   return `import {LearningResources} from '@site/src/components/docs';`;
 }
 
-function buildToolIndexDoc(item) {
-  const nextLinks = dedupeLinks(item.workflows, item.combos, item.alternatives).slice(0, 6);
+function buildGeneratedFrontMatter(item, overrides) {
+  return frontMatter({
+    audience: item.audience,
+    stage: item.stage,
+    featured: false,
+    reviewed_at: item.reviewedAt,
+    source_window_end: item.reviewedAt,
+    market_status: item.marketStatus,
+    entry_role: 'domain',
+    kind: 'guide',
+    content_form: 'guide',
+    ...overrides,
+  });
+}
 
-  return `${frontMatter({
+function buildToolFrontMatter(item, overrides = {}) {
+  const {
+    domain = 'tools',
+    journeyStage = 'tech-selection',
+    ...rest
+  } = overrides;
+
+  return buildGeneratedFrontMatter(item, {
+    track: 'cross-track',
+    domain,
+    journey_stage: journeyStage,
+    ...rest,
+  });
+}
+
+function getWorkflowPatternJourneyStage(item) {
+  if (item.docsRoot.includes('/spec-first')) {
+    return 'solution-design';
+  }
+
+  if (item.docsRoot.includes('/bugfix-refactor-test')) {
+    return 'testing-validation';
+  }
+
+  return 'implementation';
+}
+
+function buildWorkflowPatternFrontMatter(item, overrides = {}) {
+  const {journeyStage = getWorkflowPatternJourneyStage(item), ...rest} = overrides;
+
+  return buildGeneratedFrontMatter(item, {
+    track: 'prompting-workflows',
+    domain: 'workflows',
+    journey_stage: journeyStage,
+    ...rest,
+  });
+}
+
+function buildWorkflowFrameworkFrontMatter(item, overrides = {}) {
+  const {journeyStage = 'development-planning', ...rest} = overrides;
+
+  return buildGeneratedFrontMatter(item, {
+    track: 'prompting-workflows',
+    domain: 'workflows',
+    journey_stage: journeyStage,
+    ...rest,
+  });
+}
+
+function getToolGovernanceLink(item) {
+  const ecosystemIntegration = getEcosystemIntegrationByToolId(item.id);
+
+  return {
+    title: `${item.title}：集成、review 与治理`,
+    href: ecosystemIntegration?.href ?? `/docs/ecosystem/integrations/${item.id}`,
+    description: '如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。',
+  };
+}
+
+function buildToolIndexDoc(item) {
+  const nextLinks = dedupeLinks(item.workflows, item.combos, [getToolGovernanceLink(item)], item.alternatives).slice(0, 6);
+
+  return `${buildToolFrontMatter(item, {
     title: item.title,
     description: `${item.title} 的角色定位、最佳使用者和默认工作方式。`,
     slug: item.docsRoot.replace('/docs', ''),
     sidebar_label: '概览',
     tags: ['ai-coding', 'tool', item.id],
-    track: 'cross-track',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
     featured: item.featured,
-    pillar: 'tools',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 ${toolImports()}
@@ -336,23 +406,14 @@ ${linkedList(nextLinks)}
 }
 
 function buildToolWorkflowDoc(item) {
-  const nextLinks = dedupeLinks(item.combos, item.alternatives, item.workflows).slice(0, 6);
+  const nextLinks = dedupeLinks(item.combos, [getToolGovernanceLink(item)], item.alternatives, item.workflows).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildToolFrontMatter(item, {
     title: `${item.title}：最适合的工作流`,
     description: `${item.title} 最适合承接哪些工作流，以及不适合单独承接什么。`,
     slug: `${item.docsRoot.replace('/docs', '')}/best-fit-workflows`,
     sidebar_label: '最适合的工作流',
     tags: ['ai-coding', 'tool', item.id],
-    track: 'cross-track',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'tools',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}：最适合的工作流
@@ -408,23 +469,15 @@ ${sourceList(item.sources)}
 }
 
 function buildToolRulesDoc(item) {
-  const nextLinks = dedupeLinks(item.combos, item.alternatives, item.workflows).slice(0, 6);
+  const nextLinks = dedupeLinks(item.combos, [getToolGovernanceLink(item)], item.alternatives, item.workflows).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildToolFrontMatter(item, {
     title: `${item.title}：规则、记忆与工具边界`,
     description: `${item.title} 的 rules、memory、tools 与 repo 接入建议。`,
     slug: `${item.docsRoot.replace('/docs', '')}/rules-memory-tools`,
     sidebar_label: '规则记忆与工具',
     tags: ['ai-coding', 'tool', item.id],
-    track: 'cross-track',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'tools',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
+    journeyStage: 'implementation',
   })}
 
 # ${item.title}：规则、记忆与工具边界
@@ -470,22 +523,16 @@ ${sourceList(item.sources)}
 
 function buildToolGovernanceDoc(item) {
   const nextLinks = dedupeLinks(item.combos, item.alternatives, item.workflows).slice(0, 6);
+  const ecosystemIntegration = getEcosystemIntegrationByToolId(item.id);
 
-  return `${frontMatter({
+  return `${buildToolFrontMatter(item, {
     title: `${item.title}：集成、review 与治理`,
     description: `${item.title} 如何接工作系统、保留 review 证据并纳入治理。`,
-    slug: `${item.docsRoot.replace('/docs', '')}/integration-review-governance`,
+    slug: ecosystemIntegration?.href.replace('/docs', '') ?? `/ecosystem/integrations/${item.id}`,
     sidebar_label: '集成与治理',
     tags: ['ai-coding', 'tool', item.id],
-    track: 'cross-track',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'tools',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
+    domain: 'ecosystem',
+    journeyStage: 'implementation',
   })}
 
 # ${item.title}：集成、review 与治理
@@ -531,23 +578,14 @@ ${sourceList(item.sources)}
 }
 
 function buildToolTradeoffDoc(item) {
-  const nextLinks = dedupeLinks(item.alternatives, item.combos, item.workflows).slice(0, 6);
+  const nextLinks = dedupeLinks(item.alternatives, item.combos, [getToolGovernanceLink(item)], item.workflows).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildToolFrontMatter(item, {
     title: `${item.title}：优点、边界与替代项`,
     description: `${item.title} 的优势、边界、替代项和退出信号。`,
     slug: `${item.docsRoot.replace('/docs', '')}/tradeoffs-and-boundaries`,
     sidebar_label: '优点与边界',
     tags: ['ai-coding', 'tool', item.id],
-    track: 'cross-track',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'tools',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}：优点、边界与替代项
@@ -593,21 +631,13 @@ ${sourceList(item.sources)}
 function buildWorkflowIndexDoc(item) {
   const nextLinks = dedupeLinks(item.toolFit).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowPatternFrontMatter(item, {
     title: item.title,
     description: `${item.title} 的定位、适合任务和默认人工接管点。`,
     slug: item.docsRoot.replace('/docs', ''),
     sidebar_label: '概览',
     tags: ['ai-coding', 'workflow', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
     featured: item.featured,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}
@@ -661,21 +691,12 @@ ${sourceList(item.sources)}
 function buildWorkflowFitDoc(item) {
   const nextLinks = dedupeLinks(item.toolFit).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowPatternFrontMatter(item, {
     title: `${item.title}：适用信号与边界`,
     description: `什么时候优先用 ${item.title}，什么时候不要用。`,
     slug: `${item.docsRoot.replace('/docs', '')}/fit-and-signals`,
     sidebar_label: '适用信号',
     tags: ['ai-coding', 'workflow', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}：适用信号与边界
@@ -719,21 +740,12 @@ ${sourceList(item.sources)}
 function buildWorkflowLoopDoc(item) {
   const nextLinks = dedupeLinks(item.toolFit).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowPatternFrontMatter(item, {
     title: `${item.title}：流程与产物`,
     description: `${item.title} 的输入、输出、标准步骤和验收证据。`,
     slug: `${item.docsRoot.replace('/docs', '')}/loop-and-artifacts`,
     sidebar_label: '流程与产物',
     tags: ['ai-coding', 'workflow', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}：流程与产物
@@ -781,21 +793,12 @@ ${sourceList(item.sources)}
 function buildWorkflowGovernanceDoc(item) {
   const nextLinks = dedupeLinks(item.toolFit).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowPatternFrontMatter(item, {
     title: `${item.title}：治理与风险`,
     description: `${item.title} 需要的权限边界、验证方式和失败模式。`,
     slug: `${item.docsRoot.replace('/docs', '')}/governance-and-risks`,
     sidebar_label: '治理与风险',
     tags: ['ai-coding', 'workflow', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}：治理与风险
@@ -845,21 +848,12 @@ ${sourceList(item.sources)}
 function buildWorkflowExamplesDoc(item) {
   const nextLinks = dedupeLinks(item.toolFit).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowPatternFrontMatter(item, {
     title: `${item.title}：案例与工具组合`,
     description: `${item.title} 的代表案例，以及最适合搭配的工具或框架。`,
     slug: `${item.docsRoot.replace('/docs', '')}/examples-and-tool-fit`,
     sidebar_label: '案例与工具组合',
     tags: ['ai-coding', 'workflow', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}：案例与工具组合
@@ -907,21 +901,13 @@ ${sourceList(item.sources)}
 function buildFrameworkIndexDoc(item) {
   const nextLinks = dedupeLinks(item.comboPatterns, item.alternatives).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowFrameworkFrontMatter(item, {
     title: item.title,
     description: `${item.title} 的定位、适用团队和默认进入方式。`,
     slug: item.docsRoot.replace('/docs', ''),
     sidebar_label: '概览',
     tags: ['ai-coding', 'workflow-framework', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
     featured: item.featured,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}
@@ -966,21 +952,12 @@ ${sourceList(item.sources)}
 function buildFrameworkRolesDoc(item) {
   const nextLinks = dedupeLinks(item.comboPatterns, item.alternatives).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowFrameworkFrontMatter(item, {
     title: `${item.title}：角色、阶段与产物`,
     description: `${item.title} 的角色切面、阶段划分和核心产物。`,
     slug: `${item.docsRoot.replace('/docs', '')}/roles-stages-and-artifacts`,
     sidebar_label: '角色阶段与产物',
     tags: ['ai-coding', 'workflow-framework', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
   })}
 
 # ${item.title}：角色、阶段与产物
@@ -1028,21 +1005,13 @@ function buildFrameworkAdoptionDoc(item) {
     ],
   );
 
-  return `${frontMatter({
+  return `${buildWorkflowFrameworkFrontMatter(item, {
     title: `${item.title}：接入手册`,
     description: `把 ${item.title} 接进真实仓库时的试跑、接入和收口方式。`,
     slug: `${item.docsRoot.replace('/docs', '')}/adoption-playbook`,
     sidebar_label: '接入手册',
     tags: ['ai-coding', 'workflow-framework', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
+    content_form: 'playbook',
   })}
 
 # ${item.title}：接入手册
@@ -1086,21 +1055,14 @@ ${sourceList(item.sources)}
 function buildFrameworkFitDoc(item) {
   const nextLinks = dedupeLinks(item.alternatives, item.comboPatterns).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowFrameworkFrontMatter(item, {
     title: `${item.title}：适配边界与替代方案`,
     description: `${item.title} 适合什么、不适合什么，以及与其他框架如何分工。`,
     slug: `${item.docsRoot.replace('/docs', '')}/fit-vs-alternatives`,
     sidebar_label: '边界与替代方案',
     tags: ['ai-coding', 'workflow-framework', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
+    content_form: 'comparison',
+    journeyStage: 'tech-selection',
   })}
 
 # ${item.title}：适配边界与替代方案
@@ -1140,21 +1102,13 @@ ${sourceList(item.sources)}
 function buildFrameworkRiskDoc(item) {
   const nextLinks = dedupeLinks(item.alternatives, item.comboPatterns).slice(0, 6);
 
-  return `${frontMatter({
+  return `${buildWorkflowFrameworkFrontMatter(item, {
     title: `${item.title}：误用与退出条件`,
     description: `${item.title} 的常见误用、维护成本和退出信号。`,
     slug: `${item.docsRoot.replace('/docs', '')}/risks-and-failure-modes`,
     sidebar_label: '误用与退出条件',
     tags: ['ai-coding', 'workflow-framework', item.id],
-    track: 'prompting-workflows',
-    kind: 'guide',
-    audience: item.audience,
-    stage: item.stage,
-    featured: false,
-    pillar: 'workflows',
-    reviewed_at: item.reviewedAt,
-    source_window_end: item.reviewedAt,
-    market_status: item.marketStatus,
+    journeyStage: 'testing-validation',
   })}
 
 # ${item.title}：误用与退出条件
@@ -1251,6 +1205,7 @@ async function generateToolDocs() {
   for (const [index, item] of toolCatalog.entries()) {
     const folder = path.join('docs', item.docsRoot.replace('/docs/', ''));
     const id = item.docsRoot.replace('/docs/', '') + '/index';
+    const ecosystemIntegration = getEcosystemIntegrationByToolId(item.id);
 
     await writeTextFile(
       path.join(folder, '_category_.json'),
@@ -1259,8 +1214,11 @@ async function generateToolDocs() {
     await writeTextFile(path.join(folder, 'index.md'), buildToolIndexDoc(item));
     await writeTextFile(path.join(folder, 'best-fit-workflows.md'), buildToolWorkflowDoc(item));
     await writeTextFile(path.join(folder, 'rules-memory-tools.md'), buildToolRulesDoc(item));
+    if (!ecosystemIntegration) {
+      throw new Error(`Missing ecosystem integration route for tool "${item.id}".`);
+    }
     await writeTextFile(
-      path.join(folder, 'integration-review-governance.md'),
+      path.join('docs', 'ecosystem', 'integrations', `${item.id}.md`),
       buildToolGovernanceDoc(item),
     );
     await writeTextFile(

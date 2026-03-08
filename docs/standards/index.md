@@ -6,10 +6,13 @@ sidebar_label: AI 规范
 tags: [ai-coding, standards, governance]
 track: cross-track
 kind: hub
+content_form: hub
 audience: advanced
 stage: intermediate
 featured: true
-pillar: standards
+domain: standards
+journey_stage: testing-validation
+entry_role: domain
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

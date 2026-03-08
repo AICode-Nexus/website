@@ -1,15 +1,18 @@
 ---
 title: 个人工程师栈搭建
 description: 把平台、IDE、CLI、rules、hooks 和评估方式组合成一套可长期使用的个人 AI coding 栈。
-slug: /playbooks/personal-engineer-stack-setup
+slug: /workflows/playbooks/personal-engineer-stack-setup
 sidebar_label: 个人工程师栈搭建
 tags: [ai-coding, playbook, setup]
 track: cross-track
 kind: playbook
+content_form: playbook
+domain: workflows
+journey_stage: tech-selection
+entry_role: index
 audience: individual
 stage: intermediate
 featured: true
-pillar: workflows
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -33,7 +36,7 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 ## 输入条件
 
-- 你已经完成一次 [7 天上手路线](/docs/playbooks/first-7-days-ai-coding)
+- 你已经完成一次 [7 天上手路线](/docs/workflows/playbooks/first-7-days-ai-coding)
 - 你已经知道自己更偏平台型入口、IDE 型入口还是开放式 Agent 入口
 - 你的项目至少已经有 `lint`、`test`、`build` 中的 2 项基础校验
 - 你愿意维护 repo 级指令，例如 `AGENTS.md`、tool rules 或工作流文档
@@ -61,7 +64,7 @@ import {RelatedReadings} from '@site/src/components/docs';
 - IDE-first：`Cursor` 或 `Windsurf` + 官方平台入口
 - Open stack：`Cline` / `Continue` + 明确的模型与 MCP 组合
 
-先做这件事，再读 [工具选择地图](/docs/tool-selection) 和 [开放式入口对比](/docs/comparisons/cursor-vs-windsurf-vs-cline)。
+先做这件事，再读 [工具选择地图](/docs/tools/map) 和 [开放式入口对比](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
 
 ### Step 2：把 repo 边界写成文件
 
@@ -251,12 +254,12 @@ npm run build
     },
     {
       title: 'Cursor、Windsurf 与 Cline 怎么看',
-      href: '/docs/comparisons/cursor-vs-windsurf-vs-cline',
+      href: '/docs/tools/compare/cursor-vs-windsurf-vs-cline',
       description: '如果你还在犹豫 IDE-first 与开放式入口，这篇对比最直接。',
     },
     {
       title: '7 天上手路线',
-      href: '/docs/playbooks/first-7-days-ai-coding',
+      href: '/docs/workflows/playbooks/first-7-days-ai-coding',
       description: '如果你要把这套栈快速跑起来，这篇是一周内最实用的执行顺序。',
     },
   ]}

@@ -6,10 +6,13 @@ sidebar_label: AI 架构
 tags: [ai-coding, architecture, mcp]
 track: cross-track
 kind: hub
+content_form: hub
 audience: advanced
 stage: intermediate
 featured: true
-pillar: architecture
+domain: architecture
+journey_stage: project-architecture
+entry_role: domain
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

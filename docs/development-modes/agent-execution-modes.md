@@ -6,10 +6,13 @@ sidebar_label: Agent 执行模式
 tags: [ai-coding, agent, execution]
 track: cross-track
 kind: guide
+content_form: guide
+domain: development-modes
+journey_stage: raw-need
+entry_role: domain
 audience: individual
 stage: intermediate
 featured: false
-pillar: development-modes
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

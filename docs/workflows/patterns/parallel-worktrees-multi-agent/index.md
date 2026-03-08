@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: true
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Parallel Worktrees / Multi-Agent"
 description: "Parallel Worktrees / Multi-Agent 的定位、适合任务和默认人工接管点。"
 slug: "/workflows/patterns/parallel-worktrees-multi-agent"
 sidebar_label: "概览"
 tags: ["ai-coding", "workflow", "parallel-worktrees-multi-agent"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: true
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Parallel Worktrees / Multi-Agent

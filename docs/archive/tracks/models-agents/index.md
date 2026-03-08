@@ -6,10 +6,13 @@ sidebar_label: 模型与 Agent
 tags: [ai-coding, model, agent]
 track: models-agents
 kind: hub
+content_form: hub
+domain: development-modes
+journey_stage: raw-need
+entry_role: archive
 audience: mixed
 stage: starter
 featured: true
-pillar: development-modes
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: legacy

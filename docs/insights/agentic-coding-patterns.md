@@ -1,15 +1,18 @@
 ---
 title: 2026 年 3 月 AI Coding 的四个主线变化
 description: 把 2026 年 3 月初 GitHub、VS Code 和 OpenAI 的更新抽象成更长期有效的四个判断框架。
-slug: /insights/agentic-coding-patterns
+slug: /tools/insights/agentic-coding-patterns
 sidebar_label: 2026 年 3 月主线变化
 tags: [ai-coding, insight, agent]
 track: cross-track
 kind: insight
+content_form: insight
+domain: ecosystem
+journey_stage: defect-optimization
+entry_role: index
 audience: mixed
 stage: intermediate
 featured: true
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: watch
@@ -146,12 +149,12 @@ AI coding 不再只是编辑器里的“帮我写点代码”。它正在进入 
   items={[
     {
       title: '2026 年 3 月月度简报',
-      href: '/docs/insights/monthly-brief-2026-03',
+      href: '/docs/tools/insights/monthly-brief-2026-03',
       description: '如果你要看更细的时间线与观察重点，从月度层继续往下钻。',
     },
     {
       title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
-      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      href: '/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex',
       description: '把趋势变化落回平台、控制面与执行栈的具体比较。',
     },
     {

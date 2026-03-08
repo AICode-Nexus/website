@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Terminal-First Repo Pairing：适用信号与边界"
 description: "什么时候优先用 Terminal-First Repo Pairing，什么时候不要用。"
 slug: "/workflows/patterns/terminal-first-repo-pairing/fit-and-signals"
 sidebar_label: "适用信号"
 tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Terminal-First Repo Pairing：适用信号与边界

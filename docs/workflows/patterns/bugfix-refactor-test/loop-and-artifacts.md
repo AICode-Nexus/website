@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "starter"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "testing-validation"
 title: "Bugfix / Refactor / Test：流程与产物"
 description: "Bugfix / Refactor / Test 的输入、输出、标准步骤和验收证据。"
 slug: "/workflows/patterns/bugfix-refactor-test/loop-and-artifacts"
 sidebar_label: "流程与产物"
 tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "starter"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Bugfix / Refactor / Test：流程与产物

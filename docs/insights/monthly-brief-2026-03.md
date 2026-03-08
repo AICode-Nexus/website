@@ -1,15 +1,18 @@
 ---
 title: 2026 年 3 月月度简报
 description: 用月度视角复盘 2026 年 3 月 AI coding 的重点变化、对个人工程师的意义以及下一步最值得跟踪的主题。
-slug: /insights/monthly-brief-2026-03
+slug: /tools/insights/monthly-brief-2026-03
 sidebar_label: 2026 年 3 月月度简报
 tags: [ai-coding, monthly-brief, insight]
 track: cross-track
 kind: insight
+content_form: insight
+domain: ecosystem
+journey_stage: defect-optimization
+entry_role: index
 audience: mixed
 stage: intermediate
 featured: true
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: watch
@@ -84,8 +87,8 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 对应入口：
 
-- [工具选择地图](/docs/tool-selection)
-- [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
+- [工具选择地图](/docs/tools/map)
+- [个人工程师栈搭建](/docs/workflows/playbooks/personal-engineer-stack-setup)
 - [Bugfix / Refactor / Test Workflows](/docs/workflows/bugfix-refactor-test-workflows)
 
 ### 开始按任务选入口，而不是只认单一产品
@@ -168,7 +171,7 @@ Cursor 已经在 2026 年 3 月 5 日公开 `Automations`。下一步需要观�
     },
     {
       title: '2026 年 3 月 AI Coding 的四个主线变化',
-      href: '/docs/insights/agentic-coding-patterns',
+      href: '/docs/tools/insights/agentic-coding-patterns',
       description: '这篇会把月度变化压缩成更清晰的长期主线判断。',
     },
     {

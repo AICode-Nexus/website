@@ -1,18 +1,21 @@
 ---
-title: "Cursor：集成、review 与治理"
-description: "Cursor 如何接工作系统、保留 review 证据并纳入治理。"
-slug: "/tools/ide-first/cursor/integration-review-governance"
-sidebar_label: "集成与治理"
-tags: ["ai-coding", "tool", "cursor"]
-track: "cross-track"
-kind: "guide"
 audience: "individual"
 stage: "intermediate"
 featured: false
-pillar: "tools"
 reviewed_at: "2026-03-07"
 source_window_end: "2026-03-07"
 market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "ecosystem"
+journey_stage: "implementation"
+title: "Cursor：集成、review 与治理"
+description: "Cursor 如何接工作系统、保留 review 证据并纳入治理。"
+slug: "/ecosystem/integrations/cursor"
+sidebar_label: "集成与治理"
+tags: ["ai-coding", "tool", "cursor"]
 ---
 
 # Cursor：集成、review 与治理

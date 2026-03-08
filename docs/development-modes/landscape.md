@@ -6,10 +6,13 @@ sidebar_label: 开发方式总览
 tags: [ai-coding, development-modes, strategy]
 track: cross-track
 kind: guide
+content_form: guide
+domain: development-modes
+journey_stage: raw-need
+entry_role: domain
 audience: mixed
 stage: intermediate
 featured: false
-pillar: development-modes
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current

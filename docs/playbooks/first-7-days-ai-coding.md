@@ -1,15 +1,18 @@
 ---
 title: 7 天上手路线
 description: 面向个人工程师的 7 天 AI coding 路线：每天解决一个关键问题，快速跑通第一套可复用工作流。
-slug: /playbooks/first-7-days-ai-coding
+slug: /workflows/playbooks/first-7-days-ai-coding
 sidebar_label: 7 天上手路线
 tags: [ai-coding, playbook, beginner]
 track: cross-track
 kind: playbook
+content_form: playbook
+domain: workflows
+journey_stage: development-planning
+entry_role: index
 audience: individual
 stage: starter
 featured: true
-pillar: workflows
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -38,8 +41,8 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 动作：
 
-- 读 [工具选择地图](/docs/tool-selection)
-- 读 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
+- 读 [工具选择地图](/docs/tools/map)
+- 读 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)
 - 写下你的初始判断：为什么选它作为默认入口
 
 当天产出：
@@ -181,7 +184,7 @@ import {RelatedReadings} from '@site/src/components/docs';
   items={[
     {
       title: '个人工程师栈搭建',
-      href: '/docs/playbooks/personal-engineer-stack-setup',
+      href: '/docs/workflows/playbooks/personal-engineer-stack-setup',
       description: '把 7 天内试出来的入口、规则和验证回路固定成可持续栈。',
     },
     {
@@ -191,12 +194,12 @@ import {RelatedReadings} from '@site/src/components/docs';
     },
     {
       title: '学习路径',
-      href: '/docs/learning-paths',
+      href: '/docs/start/learning-paths',
       description: '按阶段继续扩展你的工具、工作流和规范阅读顺序。',
     },
     {
       title: 'AI 工作流实操手册',
-      href: '/docs/playbooks/workflow-playbook',
+      href: '/docs/workflows/playbooks/workflow-playbook',
       description: '把入门练习过渡到更稳定的日常 workflow 模板。',
     },
   ]}

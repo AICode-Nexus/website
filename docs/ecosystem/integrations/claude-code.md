@@ -1,18 +1,21 @@
 ---
-title: "Claude Code：集成、review 与治理"
-description: "Claude Code 如何接工作系统、保留 review 证据并纳入治理。"
-slug: "/tools/terminal-agents/claude-code/integration-review-governance"
-sidebar_label: "集成与治理"
-tags: ["ai-coding", "tool", "claude-code"]
-track: "cross-track"
-kind: "guide"
 audience: "mixed"
 stage: "intermediate"
 featured: false
-pillar: "tools"
 reviewed_at: "2026-03-07"
 source_window_end: "2026-03-07"
 market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "ecosystem"
+journey_stage: "implementation"
+title: "Claude Code：集成、review 与治理"
+description: "Claude Code 如何接工作系统、保留 review 证据并纳入治理。"
+slug: "/ecosystem/integrations/claude-code"
+sidebar_label: "集成与治理"
+tags: ["ai-coding", "tool", "claude-code"]
 ---
 
 # Claude Code：集成、review 与治理

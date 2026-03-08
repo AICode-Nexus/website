@@ -1,100 +1,24 @@
 ---
-title: AI Code 教学视频库
-description: 聚焦近 90 天 AI coding 教学视频，按视频数和课程数双口径组织多平台公开内容，并支持目录筛选与搜索深链。
+title: 教学视频入口迁移说明
+description: 旧版教学视频目录已迁移到资源中心，并按视频目录与课程目录拆分。
 slug: /ai-code-teaching-videos
-sidebar_label: 教学视频库
+sidebar_label: 教学视频入口迁移
 tags: [ai-coding, video-library, teaching-videos]
 track: cross-track
 kind: guide
-audience: individual
+content_form: resource
+audience: mixed
 stage: starter
 featured: false
-pillar: tools
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
+unlisted: true
 ---
 
-import TeachingVideoCatalogPage from '@site/src/components/teaching-videos/TeachingVideoCatalogPage';
-import {RelatedReadings} from '@site/src/components/docs';
-import {teachingVideoCatalog, teachingVideoCatalogSync} from '@site/src/data/teachingVideos';
+import LegacyTeachingVideoCatalogRedirect from '@site/src/components/teaching-videos/LegacyTeachingVideoCatalogRedirect';
 
-export const lastSyncedAt = new Intl.DateTimeFormat('zh-CN', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-  timeZone: 'Asia/Shanghai',
-}).format(new Date(teachingVideoCatalog.generatedAt));
-
-# AI Code 教学视频库
-
-这个页面不再是手工精选列表，而是一个<strong>近 90 天、{teachingVideoCatalogSync.intervalLabel} 自动同步一次的视频中心</strong>。目录只保留符合教学内容识别、时间窗口、字段完整性和质量阈值的公开视频，并同时给出 `videoCount` 与 `courseCount` 两个口径。
-
-最近一次同步：**{lastSyncedAt}**；自动同步周期：**{teachingVideoCatalogSync.intervalLabel}**
-
-## 当前目录规则
-
-- 只展示 `windowStart` 到 `windowEnd` 时间窗内的公开视频。
-- 同一语言的重复镜像会做 canonical 去重，并保留 `alternateUrls`。
-- 系列教程会拆成可播放视频条目，同时聚合课程层数据。
-- 页面运行时不做任何外部抓取，所有分类、打标、排序都在同步脚本阶段完成。
-
-## 同步入口
-
-```bash
-npm run sync:teaching-videos
-npm run check:teaching-videos
-npm run build
-```
-
-自动同步策略：**{teachingVideoCatalogSync.description}**
-
-## 当前页面内容
-
-下面的目录页由本地生成的数据直接渲染，支持按平台、主题、语言和时间窗口筛选。页面本身不请求外部站点，所有清洗、聚合和分类都在同步脚本阶段完成。
-
-<TeachingVideoCatalogPage />
-
-## 维护边界
-
-- 这个页面优先服务“知识入口”和“视频目录索引”，不是文章内容本体。
-- 质量门槛、标签规则和时间窗策略应在同步脚本与测试里调整，而不是在页面运行时临时修补。
-- 如果后续扩平台，优先继续沿用“同步脚本生成本地数据”的方式，避免把实时抓取塞进构建或浏览器运行时。
-
-## 从这里继续往下读
-
-<RelatedReadings
-  title="从这里继续往下读"
-  description="视频库负责给你找学习素材，不负责替代知识手册本身。看完目录后，应该回到对应工具簇或 workflow 页面消化结论。"
-  items={[
-    {
-      title: 'AI 编程工具',
-      href: '/docs/tools',
-      description: '按平台、控制面、执行栈、终端和 IDE-first 进入具体工具手册。',
-    },
-    {
-      title: 'AI 工作流',
-      href: '/docs/workflows',
-      description: '把视频里学到的操作方式放回稳定的交付链里，而不是只记技巧片段。',
-    },
-    {
-      title: '7 天上手路线',
-      href: '/docs/playbooks/first-7-days-ai-coding',
-      description: '如果你想把视频学习变成一周内可执行的动作，先回这篇 playbook。',
-    },
-    {
-      title: '工具选择地图',
-      href: '/docs/tool-selection',
-      description: '如果你还没固定默认入口，先回地图页决定该优先学哪一类工具。',
-    },
-    {
-      title: '学习路径',
-      href: '/docs/learning-paths',
-      description: '如果你在判断自己当前该补工具、workflow 还是规范，就回到学习路径页。',
-    },
-    {
-      title: 'Daily Brief',
-      href: '/blog',
-      description: '如果你要继续跟踪新视频背后的产品变化和趋势，就进入 Daily Brief 流。',
-    },
-  ]}
-/>
+<LegacyTeachingVideoCatalogRedirect />

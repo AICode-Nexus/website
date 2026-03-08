@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "development-planning"
 title: "BMAD：角色、阶段与产物"
 description: "BMAD 的角色切面、阶段划分和核心产物。"
 slug: "/workflows/frameworks/bmad/roles-stages-and-artifacts"
 sidebar_label: "角色阶段与产物"
 tags: ["ai-coding", "workflow-framework", "bmad"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # BMAD：角色、阶段与产物

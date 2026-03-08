@@ -6,10 +6,13 @@ sidebar_label: Review 与 PR 工具链
 tags: [ai-coding, review, pr, ci]
 track: ides-tooling
 kind: guide
+content_form: guide
 audience: mixed
 stage: intermediate
 featured: false
-pillar: standards
+domain: ecosystem
+journey_stage: testing-validation
+entry_role: archive
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -140,7 +143,7 @@ AI review 可以加快发现风险，但不能代替 lint、test、build 和人�
 
 - [质量门禁与 Review](/docs/standards/review-quality-gates)
 - [上下文、记忆与规则](/docs/standards/context-memory-and-rules)
-- [平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
+- [平台比较框架](/docs/tools/compare/ai-coding-platform-comparison-framework)
 
 ## 来源
 

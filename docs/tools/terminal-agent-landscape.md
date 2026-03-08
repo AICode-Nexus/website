@@ -6,10 +6,13 @@ sidebar_label: 终端 Agent 全景
 tags: [ai-coding, terminal-agent, comparison]
 track: cross-track
 kind: comparison
+content_form: comparison
+domain: tools
+journey_stage: tech-selection
+entry_role: domain
 audience: mixed
 stage: intermediate
 featured: false
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current

@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Issue / Jira -> Draft PR：适用信号与边界"
 description: "什么时候优先用 Issue / Jira -> Draft PR，什么时候不要用。"
 slug: "/workflows/patterns/issue-to-draft-pr/fit-and-signals"
 sidebar_label: "适用信号"
 tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Issue / Jira -> Draft PR：适用信号与边界

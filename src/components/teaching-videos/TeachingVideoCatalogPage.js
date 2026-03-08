@@ -6,7 +6,9 @@ import {useWindowSize} from '@docusaurus/theme-common';
 import {teachingVideoCatalog, teachingVideoCatalogSync} from '@site/src/data/teachingVideos';
 import {
   formatTeachingVideoDuration,
+  getTeachingVideoCatalogPermalink,
   getTeachingVideoCourseAnchorId,
+  getTeachingVideoCoursePermalink,
   getTeachingVideoItemPermalink,
   getTeachingVideoItemAnchorId,
   getTeachingVideoLanguageLabel,
@@ -24,9 +26,32 @@ import {
 } from '@site/src/utils/teachingVideoCatalogState.mjs';
 import styles from './styles.module.css';
 
-function findFocusedCourse(courseId) {
-  return teachingVideoCatalog.courses.find((course) => course.id === courseId) ?? null;
-}
+const COURSE_MAP = new Map(teachingVideoCatalog.courses.map((course) => [course.id, course]));
+
+const RESOURCE_COPY = {
+  videos: {
+    id: 'videos',
+    heroTitle: 'AI Code 视频资源中心',
+    heroDescription:
+      '当前视图只聚焦可直接播放的视频条目。课程聚合已经拆到独立资源页，避免筛选链路被中间层打断。',
+    sectionTitle: '视频结果',
+    sectionLead: '按平台、语言、工具、主题、形式和难度过滤；结果页只显示当前命中的视频条目。',
+    resultsLabel: '条视频',
+    summaryLabel: '视频目录',
+    emptyState: '当前筛选没有命中视频，建议先清空关键词或切回“全部”。',
+  },
+  courses: {
+    id: 'courses',
+    heroTitle: 'AI Code 课程资源中心',
+    heroDescription:
+      '课程视图基于当前筛选命中的视频结果实时聚合，不再展示与本次筛选无关的全量课程卡片。',
+    sectionTitle: '课程结果',
+    sectionLead: '课程目录由当前命中的视频集合实时汇总，每门课程都能继续下钻到对应视频列表。',
+    resultsLabel: '门课程',
+    summaryLabel: '课程目录',
+    emptyState: '当前筛选没有聚合出课程，建议先放宽筛选条件或直接回到视频目录。',
+  },
+};
 
 function FacetSelect({label, value, options, onChange}) {
   return (
@@ -61,7 +86,76 @@ function PaginationPageButton({page, currentPage, onSelect}) {
   );
 }
 
-export default function TeachingVideoCatalogPage() {
+function buildCourseResults(items) {
+  const courseBuckets = new Map();
+
+  items.forEach((item) => {
+    if (!courseBuckets.has(item.courseId)) {
+      courseBuckets.set(item.courseId, []);
+    }
+
+    courseBuckets.get(item.courseId).push(item);
+  });
+
+  return Array.from(courseBuckets.entries())
+    .map(([courseId, videos]) => {
+      const course = COURSE_MAP.get(courseId);
+
+      if (!course) {
+        return null;
+      }
+
+      const sortedVideos = [...videos].sort((left, right) => {
+        if (right.publishedAt !== left.publishedAt) {
+          return right.publishedAt.localeCompare(left.publishedAt, 'zh-CN');
+        }
+
+        return right.featuredScore - left.featuredScore;
+      });
+      const topicCounts = sortedVideos.reduce((accumulator, video) => {
+        video.topics.forEach((topic) => {
+          accumulator[topic] = (accumulator[topic] ?? 0) + 1;
+        });
+        return accumulator;
+      }, {});
+      const topics = Object.entries(topicCounts)
+        .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0], 'zh-CN'))
+        .slice(0, 3)
+        .map(([topic]) => topic);
+
+      return {
+        ...course,
+        coverVideoId: sortedVideos[0]?.id ?? course.coverVideoId,
+        filteredEpisodeCount: sortedVideos.length,
+        latestFilteredAt: sortedVideos[0]?.publishedAt ?? course.latestEpisodeAt,
+        featuredVideos: sortedVideos.slice(0, 3),
+        topics,
+      };
+    })
+    .filter(Boolean)
+    .sort((left, right) => {
+      if (right.latestFilteredAt !== left.latestFilteredAt) {
+        return right.latestFilteredAt.localeCompare(left.latestFilteredAt, 'zh-CN');
+      }
+
+      return right.filteredEpisodeCount - left.filteredEpisodeCount;
+    });
+}
+
+function buildCatalogPermalink(resourceType, catalogState, overrides = {}) {
+  return getTeachingVideoCatalogPermalink({
+    resourceType,
+    filters: overrides.filters ?? catalogState.filters,
+    query: overrides.query ?? catalogState.query,
+    requestedPage: overrides.requestedPage ?? null,
+    videoId: overrides.videoId ?? '',
+    courseId: overrides.courseId ?? '',
+    focusResults: overrides.focusResults ?? false,
+  });
+}
+
+export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
+  const resource = RESOURCE_COPY[resourceType] ?? RESOURCE_COPY.videos;
   const history = useHistory();
   const location = useLocation();
   const windowSize = useWindowSize();
@@ -75,24 +169,26 @@ export default function TeachingVideoCatalogPage() {
     catalogState.filters,
     catalogState.query,
   );
+  const scopedVideoItems =
+    resource.id === 'videos' && catalogState.targetCourseId
+      ? filteredItems.filter((item) => item.courseId === catalogState.targetCourseId)
+      : filteredItems;
+  const filteredCourses = buildCourseResults(filteredItems);
+  const pagedItems = resource.id === 'courses' ? filteredCourses : scopedVideoItems;
+  const targetItemId = resource.id === 'courses' ? catalogState.targetCourseId : catalogState.targetVideoId;
   const {currentPage, totalPages, pageItems, rangeStart, rangeEnd, hasMore} = buildTeachingVideoPagination({
-    items: filteredItems,
+    items: pagedItems,
     requestedPage: catalogState.requestedPage,
     hasRequestedPage: catalogState.hasRequestedPage,
-    targetVideoId: catalogState.targetVideoId,
+    targetItemId,
     mode: isMobileCatalog ? 'mobile' : 'desktop',
   });
-  const focusedCourse = findFocusedCourse(catalogState.targetCourseId);
-  const featuredCourses = catalogState.targetCourseId && focusedCourse
-    ? [focusedCourse, ...teachingVideoCatalog.courses.filter((course) => course.id !== catalogState.targetCourseId).slice(0, 5)]
-    : teachingVideoCatalog.courses.slice(0, 6);
-  const visibleCourseIds = featuredCourses.map((course) => course.id).join('|');
-  const visibleVideoIds = pageItems.map((item) => item.id).join('|');
-  const targetAnchorId = catalogState.targetVideoId
-    ? getTeachingVideoItemAnchorId(catalogState.targetVideoId)
-    : catalogState.targetCourseId
-      ? getTeachingVideoCourseAnchorId(catalogState.targetCourseId)
-      : '';
+  const targetAnchorId = targetItemId
+    ? resource.id === 'courses'
+      ? getTeachingVideoCourseAnchorId(targetItemId)
+      : getTeachingVideoItemAnchorId(targetItemId)
+    : '';
+  const visibleResultIds = pageItems.map((item) => item.id).join('|');
   const paginationTokens = isMobileCatalog ? [] : buildTeachingVideoPaginationTokens(currentPage, totalPages);
   const lastSyncedAt = new Intl.DateTimeFormat('zh-CN', {
     dateStyle: 'medium',
@@ -100,9 +196,13 @@ export default function TeachingVideoCatalogPage() {
     timeZone: 'Asia/Shanghai',
   }).format(new Date(teachingVideoCatalog.generatedAt));
   const stale = teachingVideoCatalog.metrics.stale.isStale;
-  const resultsMeta = isMobileCatalog
-    ? `当前筛选命中 ${filteredItems.length} 条视频，已加载 ${rangeEnd} 条，共 ${totalPages} 批。`
-    : `当前筛选命中 ${filteredItems.length} 条视频，当前显示 ${rangeStart}-${rangeEnd} 条，第 ${currentPage}/${totalPages} 页。`;
+  const focusResults = searchFocusesTeachingVideoResults(location.search);
+  const preserveTargetsOnPagination = resource.id === 'videos' && Boolean(catalogState.targetCourseId);
+  const resultsMeta = resource.id === 'courses'
+    ? `当前筛选命中 ${filteredCourses.length} 门课程，对应 ${filteredItems.length} 条视频；当前显示 ${rangeStart}-${rangeEnd} 门课程。`
+    : isMobileCatalog
+      ? `当前筛选命中 ${scopedVideoItems.length} 条视频，已加载 ${rangeEnd} 条，共 ${totalPages} 批。`
+      : `当前筛选命中 ${scopedVideoItems.length} 条视频，当前显示 ${rangeStart}-${rangeEnd} 条，第 ${currentPage}/${totalPages} 页。`;
 
   useEffect(() => {
     setCatalogState(parseTeachingVideoCatalogSearch(location.search));
@@ -112,7 +212,7 @@ export default function TeachingVideoCatalogPage() {
     setQueryDraft(catalogState.query);
   }, [catalogState.query]);
 
-  function scrollToVideoSection() {
+  function scrollToResultsSection() {
     if (!videoSectionRef.current) {
       return;
     }
@@ -137,8 +237,8 @@ export default function TeachingVideoCatalogPage() {
     pendingScrollRef.current = scroll;
 
     if (nextUrl === currentUrl) {
-      if (scroll === 'video-section') {
-        scrollToVideoSection();
+      if (scroll === 'results-section') {
+        scrollToResultsSection();
       }
       return;
     }
@@ -162,7 +262,7 @@ export default function TeachingVideoCatalogPage() {
   }
 
   useEffect(() => {
-    if (!targetAnchorId && pendingScrollRef.current !== 'video-section') {
+    if (!targetAnchorId && pendingScrollRef.current !== 'results-section') {
       return undefined;
     }
 
@@ -177,17 +277,17 @@ export default function TeachingVideoCatalogPage() {
         return;
       }
 
-      if (pendingScrollRef.current === 'video-section') {
+      if (pendingScrollRef.current === 'results-section') {
         videoSectionRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
         pendingScrollRef.current = '';
       }
     });
 
     return () => window.cancelAnimationFrame(frameId);
-  }, [location.search, targetAnchorId, visibleCourseIds, visibleVideoIds]);
+  }, [location.search, targetAnchorId, visibleResultIds]);
 
   useEffect(() => {
-    if (!searchFocusesTeachingVideoResults(location.search)) {
+    if (!focusResults) {
       return undefined;
     }
 
@@ -196,20 +296,20 @@ export default function TeachingVideoCatalogPage() {
     });
 
     return () => window.cancelAnimationFrame(frameId);
-  }, [location.search, visibleVideoIds]);
+  }, [focusResults, visibleResultIds]);
 
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroTitleRow}>
-          <h2 className={styles.heroTitle}>近 90 天 AI Code 教学视频中心</h2>
+          <h2 className={styles.heroTitle}>{resource.heroTitle}</h2>
           <span className={stale ? `${styles.statusPill} ${styles.statusPillCritical}` : styles.statusPill}>
             {stale ? '数据陈旧' : teachingVideoCatalogSync.pillLabel}
           </span>
         </div>
         <p className={styles.heroDescription}>
           当前目录只展示 {teachingVideoCatalog.windowStart} 到 {teachingVideoCatalog.windowEnd} 的公开教学内容。
-          站内同时保留视频数和课程数双口径，优先覆盖主流 AI coding 工具的上手、规则、MCP、工作流与实战内容。
+          {resource.heroDescription}
         </p>
         <div className={styles.heroMetaRow}>
           <p className={styles.heroMetaText}>最近同步：{lastSyncedAt}</p>
@@ -237,7 +337,18 @@ export default function TeachingVideoCatalogPage() {
         </div>
         <div className={styles.quickFilters}>
           {teachingVideoCatalog.featured.quickFilters.map((filter) => (
-            <Link className={styles.quickFilter} key={filter.id} to={filter.href}>
+            <Link
+              className={styles.quickFilter}
+              key={filter.id}
+              to={buildCatalogPermalink(resource.id, catalogState, {
+                filters: {
+                  ...catalogState.filters,
+                  [filter.parameter]: filter.value,
+                },
+                requestedPage: null,
+                focusResults: true,
+              })}
+            >
               {filter.label} · {filter.count}
             </Link>
           ))}
@@ -245,11 +356,28 @@ export default function TeachingVideoCatalogPage() {
       </section>
 
       <section className={styles.filtersPanel}>
-        <div>
-          <h3 className={styles.sectionTitle}>筛选目录</h3>
-          <p className={styles.sectionLead}>
-            支持按平台、语言、工具、主题、形式和难度过滤；默认按最新发布时间展示。
-          </p>
+        <div className={styles.resourceSwitchRow}>
+          <div>
+            <h3 className={styles.sectionTitle}>{resource.summaryLabel}</h3>
+            <p className={styles.sectionLead}>{resource.sectionLead}</p>
+          </div>
+          <div className={styles.resourceSwitches}>
+            {Object.values(RESOURCE_COPY).map((entry) => (
+              <Link
+                className={clsx(
+                  styles.resourceSwitch,
+                  entry.id === resource.id && styles.resourceSwitchActive,
+                )}
+                key={entry.id}
+                to={buildCatalogPermalink(entry.id, catalogState, {
+                  requestedPage: null,
+                  focusResults,
+                })}
+              >
+                {entry.summaryLabel}
+              </Link>
+            ))}
+          </div>
         </div>
         <div className={styles.filterGrid}>
           <FacetSelect
@@ -344,11 +472,11 @@ export default function TeachingVideoCatalogPage() {
           />
         </div>
         <div className={styles.filterLabel}>
-          <label htmlFor="teaching-video-catalog-query">关键词</label>
+          <label htmlFor={`teaching-video-catalog-query-${resource.id}`}>关键词</label>
           <form className={styles.searchForm} onSubmit={applyKeywordSearch}>
             <input
               className={styles.filterInput}
-              id="teaching-video-catalog-query"
+              id={`teaching-video-catalog-query-${resource.id}`}
               onChange={(event) => {
                 setQueryDraft(event.target.value);
               }}
@@ -366,94 +494,133 @@ export default function TeachingVideoCatalogPage() {
         </div>
       </section>
 
-      <section className={styles.page}>
-        <div>
-          <h3 className={styles.sectionTitle}>课程聚合</h3>
-          <p className={styles.sectionLead}>
-            课程数用于识别系列教程与单视频课程，默认展示最新课程；如果通过搜索命中了特定课程，会优先置顶。
-          </p>
-        </div>
-        <div className={styles.courseGrid}>
-          {featuredCourses.map((course) => (
-            <article
-              className={course.id === catalogState.targetCourseId ? `${styles.courseCard} ${styles.cardTarget}` : styles.courseCard}
-              id={getTeachingVideoCourseAnchorId(course.id)}
-              key={course.id}>
-              <div className={styles.cardBody}>
-                <h3>{course.title}</h3>
-                <p className={styles.courseMeta}>
-                  {course.creator} · {getTeachingVideoLanguageLabel(course.language)} · {course.tool}
-                </p>
-                <p className={styles.courseSummary}>
-                  首次发布时间 {course.publishedAt}，最近更新 {course.latestEpisodeAt}，当前聚合 {course.episodeCount} 个视频。
-                </p>
-              </div>
-              <Link className={styles.videoLink} to={getTeachingVideoItemPermalink(course.coverVideoId)}>
-                查看课程代表视频
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section
         className={clsx(styles.page, styles.resultsSection)}
         id={TEACHING_VIDEO_RESULTS_SECTION_ID}
         ref={videoSectionRef}
       >
         <div>
-          <h3 className={styles.sectionTitle}>视频明细</h3>
+          <h3 className={styles.sectionTitle}>{resource.sectionTitle}</h3>
           <p className={styles.resultsMeta}>{resultsMeta}</p>
         </div>
         {pageItems.length ? (
           <>
-            <div className={styles.videoGrid}>
-              {pageItems.map((video) => (
-                <article
-                  className={video.id === catalogState.targetVideoId ? `${styles.videoCard} ${styles.cardTarget}` : styles.videoCard}
-                  id={getTeachingVideoItemAnchorId(video.id)}
-                  key={video.id}>
-                  <div className={styles.cardBody}>
-                    <h3>{video.title}</h3>
-                    <p className={styles.videoMeta}>
-                      {video.creator} · {video.publishedAt} · {video.platform} · {formatTeachingVideoDuration(video.durationSec)}
-                    </p>
-                    <p className={styles.videoSummary}>{video.editorSummary ?? video.summary}</p>
-                    <div className={styles.pillRow}>
-                      <span className={styles.topicPill}>{video.tool}</span>
-                      <span className={styles.topicPill}>{getTeachingVideoLanguageLabel(video.language)}</span>
-                      <span className={styles.topicPill}>{video.format}</span>
-                      <span className={styles.topicPill}>{video.level}</span>
-                      {video.topics.slice(0, 2).map((topic) => (
-                        <span className={styles.topicPill} key={topic}>
-                          {topic}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <Link
-                    className={styles.videoLink}
-                    rel="noreferrer"
-                    target="_blank"
-                    to={video.canonicalUrl}
+            {resource.id === 'courses' ? (
+              <div className={styles.courseGrid}>
+                {pageItems.map((course) => (
+                  <article
+                    className={course.id === catalogState.targetCourseId ? `${styles.courseCard} ${styles.cardTarget}` : styles.courseCard}
+                    id={getTeachingVideoCourseAnchorId(course.id)}
+                    key={course.id}
                   >
-                    打开视频
-                  </Link>
-                </article>
-              ))}
-            </div>
+                    <div className={styles.cardBody}>
+                      <h3>{course.title}</h3>
+                      <p className={styles.courseMeta}>
+                        {course.creator} · {getTeachingVideoLanguageLabel(course.language)} · {course.tool}
+                      </p>
+                      <p className={styles.courseSummary}>
+                        当前筛选命中 {course.filteredEpisodeCount} / {course.episodeCount} 条视频，最近命中时间 {course.latestFilteredAt}。
+                      </p>
+                      <div className={styles.pillRow}>
+                        <span className={styles.topicPill}>{course.tool}</span>
+                        <span className={styles.topicPill}>{getTeachingVideoLanguageLabel(course.language)}</span>
+                        {course.topics.map((topic) => (
+                          <span className={styles.topicPill} key={topic}>
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                      <div className={styles.inlineList}>
+                        {course.featuredVideos.map((video) => (
+                          <Link className={styles.inlineLink} key={video.id} to={getTeachingVideoItemPermalink(video.id)}>
+                            {video.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    <div className={styles.cardActions}>
+                      <Link
+                        className={styles.videoLink}
+                        to={buildCatalogPermalink('videos', catalogState, {
+                          videoId: '',
+                          courseId: course.id,
+                          requestedPage: null,
+                          focusResults: true,
+                        })}
+                      >
+                        查看课程视频
+                      </Link>
+                      <Link className={styles.secondaryLink} to={getTeachingVideoItemPermalink(course.coverVideoId)}>
+                        代表视频
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className={styles.videoGrid}>
+                {pageItems.map((video) => (
+                  <article
+                    className={video.id === catalogState.targetVideoId ? `${styles.videoCard} ${styles.cardTarget}` : styles.videoCard}
+                    id={getTeachingVideoItemAnchorId(video.id)}
+                    key={video.id}
+                  >
+                    <div className={styles.cardBody}>
+                      <h3>{video.title}</h3>
+                      <p className={styles.videoMeta}>
+                        {video.creator} · {video.publishedAt} · {video.platform} · {formatTeachingVideoDuration(video.durationSec)}
+                      </p>
+                      <p className={styles.videoSummary}>{video.editorSummary ?? video.summary}</p>
+                      <div className={styles.pillRow}>
+                        <span className={styles.topicPill}>{video.tool}</span>
+                        <span className={styles.topicPill}>{getTeachingVideoLanguageLabel(video.language)}</span>
+                        <span className={styles.topicPill}>{video.format}</span>
+                        <span className={styles.topicPill}>{video.level}</span>
+                        {video.topics.slice(0, 2).map((topic) => (
+                          <span className={styles.topicPill} key={topic}>
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className={styles.cardActions}>
+                      <Link
+                        className={styles.videoLink}
+                        rel="noreferrer"
+                        target="_blank"
+                        to={video.canonicalUrl}
+                      >
+                        打开视频
+                      </Link>
+                      <Link
+                        className={styles.secondaryLink}
+                        to={getTeachingVideoCoursePermalink(video.courseId, {
+                          filters: catalogState.filters,
+                          query: catalogState.query,
+                          focusResults: true,
+                        })}
+                      >
+                        所属课程
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
             {isMobileCatalog ? (
               <div className={styles.loadMorePanel}>
                 <div className={styles.paginationSummary}>
                   <p className={styles.paginationEyebrow}>连续浏览</p>
-                  <strong className={styles.paginationHeadline}>已加载 {rangeEnd} / {filteredItems.length}</strong>
+                  <strong className={styles.paginationHeadline}>
+                    已加载 {rangeEnd} / {pagedItems.length} {resource.resultsLabel}
+                  </strong>
                   <p className={styles.paginationCaption}>
                     {hasMore
                       ? `当前位于第 ${currentPage}/${totalPages} 批，继续加载下一批 ${Math.min(
                         TEACHING_VIDEO_PAGE_SIZE,
-                        filteredItems.length - rangeEnd,
-                      )} 条视频。`
-                      : '已经加载全部视频，可以直接回到视频区顶部继续筛选。'}
+                        pagedItems.length - rangeEnd,
+                      )} ${resource.resultsLabel}。`
+                      : '已经加载全部结果，可以直接回到结果区顶部继续筛选。'}
                   </p>
                 </div>
                 <div className={styles.loadMoreActions}>
@@ -466,22 +633,22 @@ export default function TeachingVideoCatalogPage() {
                             requestedPage: currentPage + 1,
                             hasRequestedPage: true,
                           },
-                          {clearTargets: true},
+                          {clearTargets: !preserveTargetsOnPagination},
                         );
                       }}
                       type="button"
                     >
-                      加载更多视频
+                      加载更多结果
                     </button>
                   ) : (
                     <button
                       className={styles.paginationButton}
                       onClick={() => {
-                        scrollToVideoSection();
+                        scrollToResultsSection();
                       }}
                       type="button"
                     >
-                      返回视频区顶部
+                      返回结果区顶部
                     </button>
                   )}
                 </div>
@@ -489,9 +656,9 @@ export default function TeachingVideoCatalogPage() {
             ) : (
               <div className={styles.paginationPanel}>
                 <div className={styles.paginationSummary}>
-                  <p className={styles.paginationEyebrow}>视频列表导航</p>
+                  <p className={styles.paginationEyebrow}>{resource.summaryLabel}</p>
                   <strong className={styles.paginationHeadline}>
-                    显示 {rangeStart}-{rangeEnd} / {filteredItems.length}
+                    显示 {rangeStart}-{rangeEnd} / {pagedItems.length}
                   </strong>
                   <p className={styles.paginationCaption}>
                     第 {currentPage} / {totalPages} 页 · 每页 {TEACHING_VIDEO_PAGE_SIZE} 条
@@ -510,8 +677,8 @@ export default function TeachingVideoCatalogPage() {
                           },
                           {
                             method: 'push',
-                            clearTargets: true,
-                            scroll: 'video-section',
+                            clearTargets: !preserveTargetsOnPagination,
+                            scroll: 'results-section',
                           },
                         );
                       }}
@@ -530,8 +697,8 @@ export default function TeachingVideoCatalogPage() {
                           },
                           {
                             method: 'push',
-                            clearTargets: true,
-                            scroll: 'video-section',
+                            clearTargets: !preserveTargetsOnPagination,
+                            scroll: 'results-section',
                           },
                         );
                       }}
@@ -558,8 +725,8 @@ export default function TeachingVideoCatalogPage() {
                               },
                               {
                                 method: 'push',
-                                clearTargets: true,
-                                scroll: 'video-section',
+                                clearTargets: !preserveTargetsOnPagination,
+                                scroll: 'results-section',
                               },
                             );
                           }}
@@ -573,9 +740,7 @@ export default function TeachingVideoCatalogPage() {
             )}
           </>
         ) : (
-          <div className={styles.emptyState}>
-            当前筛选没有命中结果，建议先清空关键词或切回“全部”。
-          </div>
+          <div className={styles.emptyState}>{resource.emptyState}</div>
         )}
       </section>
     </div>

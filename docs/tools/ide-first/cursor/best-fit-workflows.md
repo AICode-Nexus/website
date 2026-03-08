@@ -1,18 +1,21 @@
 ---
+audience: "individual"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Cursor：最适合的工作流"
 description: "Cursor 最适合承接哪些工作流，以及不适合单独承接什么。"
 slug: "/tools/ide-first/cursor/best-fit-workflows"
 sidebar_label: "最适合的工作流"
 tags: ["ai-coding", "tool", "cursor"]
-track: "cross-track"
-kind: "guide"
-audience: "individual"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Cursor：最适合的工作流
@@ -71,9 +74,9 @@ Cursor 更适合承接那些需要频繁交互、快速回看改动、并且仍�
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责 PR / review，Cursor 负责日常编辑入口。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec / plan 先固定，再回 IDE 做执行。
+- [Cursor：集成、review 与治理](/docs/ecosystem/integrations/cursor)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你想保留 VS Code 生态与控制面。
 - [Windsurf](/docs/tools/ide-first/windsurf)：如果你更偏好更整合的 workspace 工作流。
-- [Cline](/docs/tools/terminal-agents/cline)：如果你更重视开放工具壳层而非 IDE 体验。
 
 ## 来源
 

@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "comparison"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "tech-selection"
 title: "OpenSpec：适配边界与替代方案"
 description: "OpenSpec 适合什么、不适合什么，以及与其他框架如何分工。"
 slug: "/workflows/frameworks/openspec/fit-vs-alternatives"
 sidebar_label: "边界与替代方案"
 tags: ["ai-coding", "workflow-framework", "openspec"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # OpenSpec：适配边界与替代方案

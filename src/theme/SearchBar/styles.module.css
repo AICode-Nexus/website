@@ -95,6 +95,26 @@
   list-style: none;
 }
 
+.resultGroups {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.resultGroup {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.resultGroupTitle {
+  margin: 0;
+  padding: 0.1rem 0.45rem 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #92400e;
+}
+
 .resultLink {
   display: grid;
   gap: 0.22rem;
@@ -150,6 +170,10 @@
 
 :global([data-theme='dark']) .resultMeta {
   color: #5eead4;
+}
+
+:global([data-theme='dark']) .resultGroupTitle {
+  color: #fdba74;
 }
 
 @media (max-width: 1180px) {

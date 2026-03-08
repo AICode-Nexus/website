@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: true
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "development-planning"
 title: "Superpowers"
 description: "Superpowers 的定位、适用团队和默认进入方式。"
 slug: "/workflows/community-frameworks/superpowers"
 sidebar_label: "概览"
 tags: ["ai-coding", "workflow-framework", "superpowers"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: true
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Superpowers

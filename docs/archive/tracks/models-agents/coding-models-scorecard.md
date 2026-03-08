@@ -6,10 +6,13 @@ sidebar_label: Coding Models 评分卡
 tags: [ai-coding, model, benchmark]
 track: models-agents
 kind: guide
+content_form: guide
+domain: development-modes
+journey_stage: tech-selection
+entry_role: archive
 audience: individual
 stage: intermediate
 featured: false
-pillar: development-modes
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -186,7 +189,7 @@ market_status: current
 
 - [Agent 执行模式](/docs/development-modes/agent-execution-modes)
 - [上下文、记忆与规则](/docs/standards/context-memory-and-rules)
-- [AI Coding 平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
+- [AI Coding 平台比较框架](/docs/tools/compare/ai-coding-platform-comparison-framework)
 
 ## 来源
 

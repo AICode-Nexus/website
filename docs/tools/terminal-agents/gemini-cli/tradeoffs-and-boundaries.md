@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Gemini CLI：优点、边界与替代项"
 description: "Gemini CLI 的优势、边界、替代项和退出信号。"
 slug: "/tools/terminal-agents/gemini-cli/tradeoffs-and-boundaries"
 sidebar_label: "优点与边界"
 tags: ["ai-coding", "tool", "gemini-cli"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Gemini CLI：优点、边界与替代项
@@ -61,7 +64,7 @@ market_status: "current"
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更想以平台工作系统为中心。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec 定稿后可用 Gemini CLI 接手执行与验证。
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要更重的日常操作方法时可以叠加。
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Gemini CLI 适合做轻量终端入口。
+- [Gemini CLI：集成、review 与治理](/docs/ecosystem/integrations/gemini-cli)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

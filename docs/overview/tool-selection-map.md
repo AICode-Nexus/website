@@ -1,15 +1,18 @@
 ---
 title: AI Coding 工具选择地图
 description: 按任务目标选择主平台、执行方式和工作流，而不是盲目追逐最热产品名。
-slug: /tool-selection
+slug: /tools/map
 sidebar_label: 工具选择地图
 tags: [ai-coding, tool-selection, comparison]
 track: cross-track
 kind: guide
+content_form: guide
+domain: tools
+journey_stage: tech-selection
+entry_role: domain
 audience: individual
 stage: starter
 featured: true
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -113,11 +116,11 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 ## 延伸阅读
 
-- [AI Coding 平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
-- [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex)
+- [AI Coding 平台比较框架](/docs/tools/compare/ai-coding-platform-comparison-framework)
+- [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)
 - [IDE 与工具链](/docs/ides-tooling)
 - [AI 编程工具](/docs/tools)
-- [7 天上手路线](/docs/playbooks/first-7-days-ai-coding)
+- [7 天上手路线](/docs/workflows/playbooks/first-7-days-ai-coding)
 
 ## 继续阅读与下一步
 
@@ -127,12 +130,12 @@ import {RelatedReadings} from '@site/src/components/docs';
   items={[
     {
       title: 'AI Coding 平台比较框架',
-      href: '/docs/comparisons/ai-coding-platform-comparison-framework',
+      href: '/docs/tools/compare/ai-coding-platform-comparison-framework',
       description: '继续统一比较维度，避免直接拿不同层级的入口硬排位。',
     },
     {
       title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
-      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      href: '/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex',
       description: '如果你正在平台、控制面和执行栈之间做选择，这篇最直接。',
     },
     {
@@ -142,7 +145,7 @@ import {RelatedReadings} from '@site/src/components/docs';
     },
     {
       title: '7 天上手路线',
-      href: '/docs/playbooks/first-7-days-ai-coding',
+      href: '/docs/workflows/playbooks/first-7-days-ai-coding',
       description: '把今天的入口判断真正转成一周内可执行的试跑路径。',
     },
     {

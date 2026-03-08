@@ -172,11 +172,19 @@ export function definePortalContent(content) {
   validateSection(content.toolMatrix, 'toolMatrix');
   validateItems(content.toolMatrix.items, 'toolMatrix.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
 
-  validateSection(content.pillarMap, 'pillarMap');
-  validateItems(content.pillarMap.items, 'pillarMap.items', ['id', 'title', 'description', 'href', 'linkLabel']);
-  content.pillarMap.items.forEach((item, index) => {
-    ensureArray(item.bullets, `pillarMap.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
-      ensureString(bullet, `pillarMap.items[${index}].bullets[${bulletIndex}]`);
+  validateSection(content.journeyMap, 'journeyMap');
+  validateItems(content.journeyMap.items, 'journeyMap.items', ['id', 'title', 'description', 'href', 'linkLabel']);
+  content.journeyMap.items.forEach((item, index) => {
+    ensureArray(item.bullets, `journeyMap.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
+      ensureString(bullet, `journeyMap.items[${index}].bullets[${bulletIndex}]`);
+    });
+  });
+
+  validateSection(content.directionMap, 'directionMap');
+  validateItems(content.directionMap.items, 'directionMap.items', ['id', 'title', 'description', 'href', 'linkLabel']);
+  content.directionMap.items.forEach((item, index) => {
+    ensureArray(item.bullets, `directionMap.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
+      ensureString(bullet, `directionMap.items[${index}].bullets[${bulletIndex}]`);
     });
   });
 
@@ -191,10 +199,9 @@ export function definePortalContent(content) {
 
   validateSection(content.teachingVideos, 'teachingVideos');
   validateLink(content.teachingVideos.primaryAction, 'teachingVideos.primaryAction');
-
-  validateSection(content.howToUse, 'howToUse');
-  validateUsageItems(content.howToUse.items, 'howToUse.items');
-  validateLink(content.howToUse.primaryAction, 'howToUse.primaryAction');
+  if (content.teachingVideos.secondaryAction !== undefined) {
+    validateLink(content.teachingVideos.secondaryAction, 'teachingVideos.secondaryAction');
+  }
 
   return deepFreeze(content);
 }

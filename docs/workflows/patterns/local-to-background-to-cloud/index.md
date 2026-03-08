@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Local -> Background -> Cloud"
 description: "Local -> Background -> Cloud 的定位、适合任务和默认人工接管点。"
 slug: "/workflows/patterns/local-to-background-to-cloud"
 sidebar_label: "概览"
 tags: ["ai-coding", "workflow", "local-to-background-to-cloud"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Local -> Background -> Cloud

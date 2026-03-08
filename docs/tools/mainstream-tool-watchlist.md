@@ -6,10 +6,13 @@ sidebar_label: 主流工具观察名单
 tags: [ai-coding, watchlist, tools]
 track: cross-track
 kind: guide
+content_form: guide
+domain: tools
+journey_stage: tech-selection
+entry_role: domain
 audience: advanced
 stage: intermediate
 featured: false
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: watch

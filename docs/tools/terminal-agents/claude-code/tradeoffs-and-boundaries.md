@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Claude Code：优点、边界与替代项"
 description: "Claude Code 的优势、边界、替代项和退出信号。"
 slug: "/tools/terminal-agents/claude-code/tradeoffs-and-boundaries"
 sidebar_label: "优点与边界"
 tags: ["ai-coding", "tool", "claude-code"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Claude Code：优点、边界与替代项

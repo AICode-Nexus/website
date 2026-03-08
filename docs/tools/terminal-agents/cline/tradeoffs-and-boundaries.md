@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Cline：优点、边界与替代项"
 description: "Cline 的优势、边界、替代项和退出信号。"
 slug: "/tools/terminal-agents/cline/tradeoffs-and-boundaries"
 sidebar_label: "优点与边界"
 tags: ["ai-coding", "tool", "cline"]
-track: "cross-track"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Cline：优点、边界与替代项

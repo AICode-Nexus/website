@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Issue / Jira -> Draft PR：流程与产物"
 description: "Issue / Jira -> Draft PR 的输入、输出、标准步骤和验收证据。"
 slug: "/workflows/patterns/issue-to-draft-pr/loop-and-artifacts"
 sidebar_label: "流程与产物"
 tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Issue / Jira -> Draft PR：流程与产物

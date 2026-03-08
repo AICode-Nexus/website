@@ -9,6 +9,22 @@ import {
   getTeachingVideoLanguageLabel,
 } from '@site/src/utils/teachingVideos';
 import styles from './styles.module.css';
+const {
+  CONTENT_FORM_LABELS,
+  ENTRY_ROLE_LABELS,
+  getDomainLabel,
+  getJourneyStageLabel,
+  resolveContentFormKey,
+  resolveDomainKey,
+  resolveEntryRoleKey,
+  resolveJourneyStageKey,
+} = require('@site/src/data/knowledgeModel');
+
+const RESULT_GROUPS = [
+  {id: 'knowledge', label: '知识文档', limit: 4},
+  {id: 'video', label: '视频', limit: 3},
+  {id: 'course', label: '课程', limit: 3},
+];
 
 const docMetadataContext = require.context(
   '@generated/docusaurus-plugin-content-docs/default',
@@ -26,68 +42,126 @@ function normalizeText(value) {
   return String(value ?? '').trim().toLowerCase();
 }
 
-function buildSearchEntry(section, metadata) {
+function buildSearchEntry(sectionLabel, metadata, overrides = {}) {
   if (!metadata?.title || !metadata?.permalink || metadata.unlisted || metadata.draft) {
     return null;
   }
+
+  const frontMatter = metadata.frontMatter ?? {};
+  const domain = overrides.domain ?? resolveDomainKey(frontMatter);
+  const journeyStage = overrides.journeyStage ?? resolveJourneyStageKey(frontMatter);
+  const entryRole = overrides.entryRole ?? resolveEntryRoleKey(frontMatter);
+  const contentForm = resolveContentFormKey(frontMatter, overrides.contentForm);
 
   return {
     id: metadata.id ?? metadata.permalink,
     title: metadata.title,
     description: metadata.description ?? '',
     permalink: metadata.permalink,
-    section,
+    sectionLabel,
     tags: Array.isArray(metadata.tags)
       ? metadata.tags
           .map((tag) => tag?.label)
           .filter(Boolean)
       : [],
-    keywords: [
-      metadata.id,
-      metadata.source,
-      metadata.sourceDirName,
-      metadata.frontMatter?.sidebar_label,
-      metadata.frontMatter?.track,
-      metadata.frontMatter?.pillar,
-      metadata.frontMatter?.audience,
-      metadata.frontMatter?.kind,
-      metadata.frontMatter?.reviewed_at,
-      metadata.frontMatter?.source_window_end,
-      metadata.frontMatter?.market_status,
-    ]
-      .filter(Boolean)
-      .join(' '),
+    keywords:
+      overrides.keywords ??
+      [
+        metadata.id,
+        metadata.source,
+        metadata.sourceDirName,
+        frontMatter.sidebar_label,
+        frontMatter.track,
+        domain,
+        frontMatter.entry_role,
+        frontMatter.content_form,
+        frontMatter.journey_stage,
+        frontMatter.audience,
+        frontMatter.kind,
+        frontMatter.reviewed_at,
+        frontMatter.source_window_end,
+        frontMatter.market_status,
+      ]
+        .filter(Boolean)
+        .join(' '),
+    entityType: overrides.entityType ?? 'knowledge',
+    domain,
+    journeyStage,
+    entryRole,
+    contentForm,
+    resourceType: overrides.resourceType ?? '',
   };
 }
 
-function loadEntries(context, section) {
+function loadEntries(context, sectionLabel, overrides = {}) {
   return context
     .keys()
     .sort()
-    .map((key) => buildSearchEntry(section, context(key)))
+    .map((key) => buildSearchEntry(sectionLabel, context(key), overrides))
     .filter(Boolean);
 }
 
 function buildTeachingVideoEntries() {
-  const videoEntries = teachingVideoCatalog.items.map((video) => ({
-    id: `video-${video.id}`,
-    title: video.title,
-    description: `${video.creator} · ${video.publishedAt} · ${video.tool} · ${video.platform}`,
-    permalink: getTeachingVideoItemPermalink(video.id),
-    section: '教学视频',
-    tags: [video.tool, video.platform, getTeachingVideoLanguageLabel(video.language), video.format, video.level],
-    keywords: [video.creator, video.summary, video.topics.join(' '), video.courseId].join(' '),
-  }));
+  const videoEntries = teachingVideoCatalog.items.map((video) =>
+    buildSearchEntry(
+      '视频目录',
+      {
+        id: `video-${video.id}`,
+        title: video.title,
+        description: `${video.creator} · ${video.publishedAt} · ${video.tool} · ${video.platform}`,
+        permalink: getTeachingVideoItemPermalink(video.id),
+        tags: [
+          {label: video.tool},
+          {label: video.platform},
+          {label: getTeachingVideoLanguageLabel(video.language)},
+          {label: video.format},
+          {label: video.level},
+        ],
+        frontMatter: {
+          domain: 'tools',
+          entry_role: 'resource',
+          content_form: 'resource',
+        },
+      },
+      {
+        entityType: 'video',
+        domain: 'tools',
+        entryRole: 'resource',
+        contentForm: 'resource',
+        resourceType: 'video',
+        keywords: [video.creator, video.summary, video.topics.join(' '), video.courseId].join(' '),
+      },
+    ),
+  );
 
-  const courseEntries = teachingVideoCatalog.courses.map((course) => ({
-    id: `course-${course.id}`,
-    title: course.title,
-    description: `${course.creator} · ${course.tool} · ${course.episodeCount} 个视频`,
-    permalink: getTeachingVideoCoursePermalink(course.id),
-    section: '教学视频',
-    tags: [course.tool, getTeachingVideoLanguageLabel(course.language)],
-    keywords: [course.creator, course.latestEpisodeAt, course.coverVideoId].join(' '),
-  }));
+  const courseEntries = teachingVideoCatalog.courses.map((course) =>
+    buildSearchEntry(
+      '课程目录',
+      {
+        id: `course-${course.id}`,
+        title: course.title,
+        description: `${course.creator} · ${course.tool} · ${course.episodeCount} 个视频`,
+        permalink: getTeachingVideoCoursePermalink(course.id),
+        tags: [
+          {label: course.tool},
+          {label: getTeachingVideoLanguageLabel(course.language)},
+        ],
+        frontMatter: {
+          domain: 'tools',
+          entry_role: 'resource',
+          content_form: 'resource',
+        },
+      },
+      {
+        entityType: 'course',
+        domain: 'tools',
+        entryRole: 'resource',
+        contentForm: 'resource',
+        resourceType: 'course',
+        keywords: [course.creator, course.latestEpisodeAt, course.coverVideoId].join(' '),
+      },
+    ),
+  );
 
   return [...videoEntries, ...courseEntries];
 }
@@ -105,8 +179,11 @@ function dedupeEntries(entries) {
 }
 
 const searchEntries = dedupeEntries([
-  ...loadEntries(docMetadataContext, '知识库'),
-  ...loadEntries(blogMetadataContext, 'Daily Brief'),
+  ...loadEntries(docMetadataContext, '知识文档'),
+  ...loadEntries(blogMetadataContext, 'Daily Brief', {
+    contentForm: 'brief',
+    entryRole: 'brief',
+  }),
   ...buildTeachingVideoEntries(),
 ]);
 
@@ -175,16 +252,48 @@ function scoreEntry(entry, query) {
   return score;
 }
 
+function formatResultMeta(entry) {
+  const metaParts = [entry.sectionLabel];
+  const domainLabel = getDomainLabel(entry.domain, {short: true});
+
+  if (domainLabel) {
+    metaParts.push(domainLabel);
+  }
+
+  if (entry.entryRole && ['start', 'index', 'archive', 'admin'].includes(entry.entryRole)) {
+    metaParts.push(ENTRY_ROLE_LABELS[entry.entryRole] ?? entry.entryRole);
+  }
+
+  if (entry.journeyStage) {
+    metaParts.push(getJourneyStageLabel(entry.journeyStage) ?? entry.journeyStage);
+  }
+
+  if (
+    entry.contentForm &&
+    !(entry.entityType !== 'knowledge' && ['resource', 'brief'].includes(entry.contentForm)) &&
+    entry.contentForm !== 'brief'
+  ) {
+    metaParts.push(CONTENT_FORM_LABELS[entry.contentForm] ?? entry.contentForm);
+  }
+
+  return metaParts.join(' · ');
+}
+
 function findMatches(query) {
-  return searchEntries
+  const scoredEntries = searchEntries
     .map((entry) => ({
-      entry,
+      ...entry,
       score: scoreEntry(entry, query),
     }))
-    .filter(({score}) => score > 0)
-    .sort((left, right) => right.score - left.score)
-    .slice(0, 6)
-    .map(({entry}) => entry);
+    .filter((entry) => entry.score > 0)
+    .sort((left, right) => right.score - left.score);
+
+  return RESULT_GROUPS.map((group) => ({
+    ...group,
+    items: scoredEntries
+      .filter((entry) => entry.entityType === group.id)
+      .slice(0, group.limit),
+  })).filter((group) => group.items.length > 0);
 }
 
 export default function SearchBar() {
@@ -194,7 +303,11 @@ export default function SearchBar() {
   const history = useHistory();
   const windowSize = useWindowSize();
 
-  const matches = findMatches(query);
+  const groups = findMatches(query);
+  const firstMatch =
+    groups
+      .flatMap((group) => group.items)
+      .sort((left, right) => right.score - left.score)[0] ?? null;
   const hasQuery = query.trim().length > 0;
   const showPanel = isOpen && hasQuery;
 
@@ -227,11 +340,11 @@ export default function SearchBar() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (!matches.length) {
+    if (!firstMatch) {
       return;
     }
 
-    history.push(matches[0].permalink);
+    history.push(firstMatch.permalink);
     setIsOpen(false);
     setQuery('');
   }
@@ -264,26 +377,33 @@ export default function SearchBar() {
       </form>
       {showPanel && (
         <div className={styles.resultsPanel} id="global-site-search-results">
-          {matches.length ? (
-            <ul className={styles.resultsList}>
-              {matches.map((match) => (
-                <li key={match.permalink}>
-                  <Link
-                    className={styles.resultLink}
-                    onClick={handleResultClick}
-                    to={match.permalink}
-                  >
-                    <span className={styles.resultMeta}>{match.section}</span>
-                    <strong className={styles.resultTitle}>{match.title}</strong>
-                    {match.description ? (
-                      <span className={styles.resultDescription}>
-                        {match.description}
-                      </span>
-                    ) : null}
-                  </Link>
-                </li>
+          {groups.length ? (
+            <div className={styles.resultGroups}>
+              {groups.map((group) => (
+                <section className={styles.resultGroup} key={group.id}>
+                  <p className={styles.resultGroupTitle}>{group.label}</p>
+                  <ul className={styles.resultsList}>
+                    {group.items.map((match) => (
+                      <li key={match.permalink}>
+                        <Link
+                          className={styles.resultLink}
+                          onClick={handleResultClick}
+                          to={match.permalink}
+                        >
+                          <span className={styles.resultMeta}>{formatResultMeta(match)}</span>
+                          <strong className={styles.resultTitle}>{match.title}</strong>
+                          {match.description ? (
+                            <span className={styles.resultDescription}>
+                              {match.description}
+                            </span>
+                          ) : null}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
               ))}
-            </ul>
+            </div>
           ) : (
             <div className={styles.emptyState}>没有找到匹配内容</div>
           )}

@@ -6,10 +6,13 @@ sidebar_label: IDE 与工具链
 tags: [ai-coding, ide, tooling]
 track: ides-tooling
 kind: hub
+content_form: hub
+domain: tools
+journey_stage: tech-selection
+entry_role: archive
 audience: mixed
 stage: starter
 featured: true
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: legacy

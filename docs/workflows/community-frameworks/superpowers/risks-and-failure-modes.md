@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "testing-validation"
 title: "Superpowers：误用与退出条件"
 description: "Superpowers 的常见误用、维护成本和退出信号。"
 slug: "/workflows/community-frameworks/superpowers/risks-and-failure-modes"
 sidebar_label: "误用与退出条件"
 tags: ["ai-coding", "workflow-framework", "superpowers"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Superpowers：误用与退出条件

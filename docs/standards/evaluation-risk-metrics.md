@@ -6,10 +6,13 @@ sidebar_label: 指标与风险
 tags: [ai-coding, metrics, risk]
 track: cross-track
 kind: guide
+content_form: guide
+domain: standards
+journey_stage: testing-validation
+entry_role: domain
 audience: advanced
 stage: advanced
 featured: false
-pillar: standards
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

@@ -85,6 +85,11 @@ export default function TeachingVideos() {
         <Link className={styles.primaryAction} to={teachingVideos.primaryAction.href}>
           {teachingVideos.primaryAction.label}
         </Link>
+        {teachingVideos.secondaryAction ? (
+          <Link className={styles.secondaryAction} to={teachingVideos.secondaryAction.href}>
+            {teachingVideos.secondaryAction.label}
+          </Link>
+        ) : null}
       </div>
     </SectionBlock>
   );

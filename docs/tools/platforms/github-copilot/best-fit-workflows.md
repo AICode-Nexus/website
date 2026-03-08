@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "GitHub Copilot：最适合的工作流"
 description: "GitHub Copilot 最适合承接哪些工作流，以及不适合单独承接什么。"
 slug: "/tools/platforms/github-copilot/best-fit-workflows"
 sidebar_label: "最适合的工作流"
 tags: ["ai-coding", "tool", "github-copilot"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # GitHub Copilot：最适合的工作流
@@ -71,9 +74,9 @@ GitHub Copilot 更适合承接那些需要频繁交互、快速回看改动、�
 - [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。
 - [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务可在执行栈里推进，最后回到 GitHub 收口。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
+- [GitHub Copilot：集成、review 与治理](/docs/ecosystem/integrations/github-copilot)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更需要 terminal-first repo pairing。
 - [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：GitHub Copilot 天然适合把清晰任务委派成 draft PR。
-- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：适合在平台层追踪异步执行和最终 review。
 
 ## 来源
 

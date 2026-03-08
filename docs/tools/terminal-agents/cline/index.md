@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Cline"
 description: "Cline 的角色定位、最佳使用者和默认工作方式。"
 slug: "/tools/terminal-agents/cline"
 sidebar_label: "概览"
 tags: ["ai-coding", "tool", "cline"]
-track: "cross-track"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 import {LearningResources} from '@site/src/components/docs';

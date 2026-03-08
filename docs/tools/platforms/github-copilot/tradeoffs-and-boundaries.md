@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "GitHub Copilot：优点、边界与替代项"
 description: "GitHub Copilot 的优势、边界、替代项和退出信号。"
 slug: "/tools/platforms/github-copilot/tradeoffs-and-boundaries"
 sidebar_label: "优点与边界"
 tags: ["ai-coding", "tool", "github-copilot"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # GitHub Copilot：优点、边界与替代项
@@ -60,8 +63,8 @@ market_status: "current"
 - [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行执行与 worktree。
 - [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更需要 terminal-first repo pairing。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
+- [GitHub Copilot：集成、review 与治理](/docs/ecosystem/integrations/github-copilot)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：GitHub Copilot 天然适合把清晰任务委派成 draft PR。
-- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：适合在平台层追踪异步执行和最终 review。
 
 ## 来源
 

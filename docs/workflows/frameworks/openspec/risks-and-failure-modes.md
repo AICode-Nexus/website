@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "testing-validation"
 title: "OpenSpec：误用与退出条件"
 description: "OpenSpec 的常见误用、维护成本和退出信号。"
 slug: "/workflows/frameworks/openspec/risks-and-failure-modes"
 sidebar_label: "误用与退出条件"
 tags: ["ai-coding", "workflow-framework", "openspec"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # OpenSpec：误用与退出条件

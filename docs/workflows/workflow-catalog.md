@@ -6,10 +6,13 @@ sidebar_label: 任务工作流目录
 tags: [ai-coding, workflow, delivery]
 track: prompting-workflows
 kind: guide
+content_form: guide
+domain: workflows
+journey_stage: development-planning
+entry_role: domain
 audience: advanced
 stage: intermediate
 featured: false
-pillar: workflows
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

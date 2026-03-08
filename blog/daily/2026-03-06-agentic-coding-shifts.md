@@ -124,8 +124,8 @@ GitHub、VS Code、OpenAI 这几天的动作虽然不完全一样，但方向一
 
 ## Related docs
 
-- [2026 年 3 月 AI Coding 的四个主线变化](/docs/insights/agentic-coding-patterns)
-- [AI Coding 平台比较框架](/docs/comparisons/ai-coding-platform-comparison-framework)
+- [2026 年 3 月 AI Coding 的四个主线变化](/docs/tools/insights/agentic-coding-patterns)
+- [AI Coding 平台比较框架](/docs/tools/compare/ai-coding-platform-comparison-framework)
 
 ## Sources
 

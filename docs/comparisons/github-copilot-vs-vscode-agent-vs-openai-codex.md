@@ -1,15 +1,18 @@
 ---
 title: GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选
 description: 截至 2026 年 3 月，从平台、控制台和执行栈三个层次比较 GitHub Copilot、VS Code Agent 与 OpenAI Codex。
-slug: /comparisons/github-copilot-vs-vscode-agent-vs-openai-codex
+slug: /tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex
 sidebar_label: Copilot vs VS Code Agent vs Codex
 tags: [ai-coding, comparison, copilot, codex, vscode]
 track: cross-track
 kind: comparison
+content_form: comparison
+domain: tools
+journey_stage: tech-selection
+entry_role: index
 audience: individual
 stage: intermediate
 featured: true
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -130,7 +133,7 @@ import {RelatedReadings} from '@site/src/components/docs';
   items={[
     {
       title: 'AI Coding 平台比较框架',
-      href: '/docs/comparisons/ai-coding-platform-comparison-framework',
+      href: '/docs/tools/compare/ai-coding-platform-comparison-framework',
       description: '如果你还要继续把更多产品拉进同一套标准下比较，回到框架文统一方法。',
     },
     {
@@ -150,7 +153,7 @@ import {RelatedReadings} from '@site/src/components/docs';
     },
     {
       title: '2026 年 3 月 AI Coding 的四个主线变化',
-      href: '/docs/insights/agentic-coding-patterns',
+      href: '/docs/tools/insights/agentic-coding-patterns',
       description: '如果你想把这次比较放回更大的行业变化里，这篇趋势文最合适。',
     },
   ]}

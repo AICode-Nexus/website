@@ -6,9 +6,13 @@ sidebar_label: 示例知识条目
 tags: [site-admin, example]
 track: cross-track
 kind: guide
+content_form: guide
+domain: standards
+journey_stage: implementation
 audience: advanced
 stage: starter
 featured: false
+entry_role: admin
 ---
 
 # 示例：第一篇知识条目
@@ -35,7 +39,7 @@ featured: false
 ## 推荐做法
 
 1. 先把草稿写在 `drafts/notes/`
-2. 确认内容归属到哪个支柱或内容形态
+2. 确认内容归属到哪个知识方向、流程阶段或内容形态
 3. 用正式结构改写，而不是直接复制草稿
 4. 补齐 frontmatter、内部链接和复核信息
 
@@ -48,5 +52,5 @@ featured: false
 ## 相关文档
 
 - [AI 写作流程](/docs/site-admin/ai-writing-workflow)
-- [知识体系总表](/docs/taxonomy)
+- [知识体系总表](/docs/start/taxonomy)
 - [每日更新工作流](/docs/site-admin/editorial-workflow)

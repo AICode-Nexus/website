@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Terminal-First Repo Pairing：流程与产物"
 description: "Terminal-First Repo Pairing 的输入、输出、标准步骤和验收证据。"
 slug: "/workflows/patterns/terminal-first-repo-pairing/loop-and-artifacts"
 sidebar_label: "流程与产物"
 tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Terminal-First Repo Pairing：流程与产物

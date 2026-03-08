@@ -6,10 +6,13 @@ sidebar_label: Skills、Commands 与 Hooks
 tags: [ai-coding, skills, commands, hooks]
 track: cross-track
 kind: guide
+content_form: guide
+domain: standards
+journey_stage: testing-validation
+entry_role: domain
 audience: advanced
 stage: intermediate
 featured: false
-pillar: standards
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

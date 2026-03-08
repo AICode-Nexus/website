@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "implementation"
 title: "OpenAI Codex：规则、记忆与工具边界"
 description: "OpenAI Codex 的 rules、memory、tools 与 repo 接入建议。"
 slug: "/tools/execution-stacks/openai-codex/rules-memory-tools"
 sidebar_label: "规则记忆与工具"
 tags: ["ai-coding", "tool", "openai-codex"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "advanced"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # OpenAI Codex：规则、记忆与工具边界
@@ -59,9 +62,9 @@ market_status: "current"
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 收口 PR 与 review，Codex 负责执行层。
+- [OpenAI Codex：集成、review 与治理](/docs/ecosystem/integrations/openai-codex)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更偏向轻量 terminal-first pairing。
 - [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面和 background agents。
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Codex CLI 很适合作为终端内的主执行入口。
 
 ## 来源
 

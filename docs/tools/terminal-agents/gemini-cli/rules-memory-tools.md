@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "implementation"
 title: "Gemini CLI：规则、记忆与工具边界"
 description: "Gemini CLI 的 rules、memory、tools 与 repo 接入建议。"
 slug: "/tools/terminal-agents/gemini-cli/rules-memory-tools"
 sidebar_label: "规则记忆与工具"
 tags: ["ai-coding", "tool", "gemini-cli"]
-track: "cross-track"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: false
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Gemini CLI：规则、记忆与工具边界
@@ -59,9 +62,9 @@ market_status: "current"
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：Gemini CLI 做本地终端入口，GitHub 负责 PR 与 review。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec 定稿后可用 Gemini CLI 接手执行与验证。
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要更重的日常操作方法时可以叠加。
+- [Gemini CLI：集成、review 与治理](/docs/ecosystem/integrations/gemini-cli)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 - [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更看重 repo pairing、worktree 和规则文件沉淀。
 - [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行任务和云端执行。
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Gemini CLI 适合做轻量终端入口。
 
 ## 来源
 

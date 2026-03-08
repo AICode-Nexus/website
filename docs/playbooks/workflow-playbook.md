@@ -1,15 +1,18 @@
 ---
 title: AI 工作流实操手册
 description: 把 4 条最常用的 AI coding workflow 写成可直接照着执行的 SOP、输入模板和验收清单。
-slug: /playbooks/workflow-playbook
+slug: /workflows/playbooks/workflow-playbook
 sidebar_label: 工作流实操手册
 tags: [ai-coding, playbook, workflow]
 track: prompting-workflows
 kind: playbook
+content_form: playbook
+domain: workflows
+journey_stage: development-planning
+entry_role: index
 audience: mixed
 stage: starter
 featured: true
-pillar: workflows
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

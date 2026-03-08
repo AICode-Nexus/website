@@ -1,15 +1,18 @@
 ---
 title: AI Coding 平台比较框架
 description: 用模型、上下文、执行、流程集成、治理和总交付成本六个维度来比较 AI coding 平台。
-slug: /comparisons/ai-coding-platform-comparison-framework
+slug: /tools/compare/ai-coding-platform-comparison-framework
 sidebar_label: 平台比较框架
 tags: [ai-coding, comparison, framework]
 track: cross-track
 kind: comparison
+content_form: comparison
+domain: tools
+journey_stage: tech-selection
+entry_role: index
 audience: individual
 stage: intermediate
 featured: true
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -185,17 +188,17 @@ import {RelatedReadings} from '@site/src/components/docs';
   items={[
     {
       title: 'GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选',
-      href: '/docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+      href: '/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex',
       description: '如果你已经锁定平台、控制面和执行栈三类入口，这篇会更快帮你做取舍。',
     },
     {
       title: '工具选择地图',
-      href: '/docs/tool-selection',
+      href: '/docs/tools/map',
       description: '如果你还没固定主入口，先回地图页按问题类型分流，再进入具体工具簇。',
     },
     {
       title: '7 天上手路线',
-      href: '/docs/playbooks/first-7-days-ai-coding',
+      href: '/docs/workflows/playbooks/first-7-days-ai-coding',
       description: '把比较结果真正转成一周内可执行的上手路径。',
     },
     {

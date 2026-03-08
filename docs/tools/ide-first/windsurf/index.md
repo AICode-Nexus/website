@@ -1,18 +1,21 @@
 ---
+audience: "individual"
+stage: "intermediate"
+featured: true
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "cross-track"
+domain: "tools"
+journey_stage: "tech-selection"
 title: "Windsurf"
 description: "Windsurf 的角色定位、最佳使用者和默认工作方式。"
 slug: "/tools/ide-first/windsurf"
 sidebar_label: "概览"
 tags: ["ai-coding", "tool", "windsurf"]
-track: "cross-track"
-kind: "guide"
-audience: "individual"
-stage: "intermediate"
-featured: true
-pillar: "tools"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 import {LearningResources} from '@site/src/components/docs';

@@ -6,10 +6,13 @@ sidebar_label: Prompt Contracts
 tags: [ai-coding, prompting, workflow]
 track: prompting-workflows
 kind: guide
+content_form: guide
+domain: workflows
+journey_stage: normalized-requirement
+entry_role: domain
 audience: mixed
 stage: intermediate
 featured: false
-pillar: workflows
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current

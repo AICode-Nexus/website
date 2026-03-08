@@ -1,19 +1,12 @@
 import React from 'react';
 import styles from './DocFreshnessBanner.module.css';
-
-const PILLAR_LABELS = {
-  'development-modes': 'AI 开发方式',
-  workflows: 'AI 工作流',
-  tools: 'AI 编程工具',
-  standards: 'AI 规范',
-  architecture: 'AI 架构',
-};
-
-const MARKET_STATUS_LABELS = {
-  current: '当前主线',
-  watch: '持续观察',
-  legacy: '旧赛道透镜',
-};
+const {
+  MARKET_STATUS_LABELS,
+  getDomainLabel,
+  getJourneyStageLabel,
+  resolveDomainKey,
+  resolveJourneyStageKey,
+} = require('@site/src/data/knowledgeModel');
 
 function formatDateValue(value) {
   if (value instanceof Date && !Number.isNaN(value.valueOf())) {
@@ -28,12 +21,13 @@ function formatDateValue(value) {
 }
 
 export default function DocFreshnessBanner({frontMatter}) {
-  const pillar = frontMatter?.pillar;
+  const domain = resolveDomainKey(frontMatter);
+  const journeyStage = resolveJourneyStageKey(frontMatter);
   const reviewedAt = formatDateValue(frontMatter?.reviewed_at);
   const sourceWindowEnd = formatDateValue(frontMatter?.source_window_end);
   const marketStatus = frontMatter?.market_status;
 
-  if (!pillar || !reviewedAt || !sourceWindowEnd || !marketStatus) {
+  if (!domain || !reviewedAt || !sourceWindowEnd || !marketStatus) {
     return null;
   }
 
@@ -45,9 +39,15 @@ export default function DocFreshnessBanner({frontMatter}) {
       </div>
       <dl className={styles.grid}>
         <div className={styles.item}>
-          <dt>知识支柱</dt>
-          <dd>{PILLAR_LABELS[pillar] ?? pillar}</dd>
+          <dt>知识方向</dt>
+          <dd>{getDomainLabel(domain) || domain}</dd>
         </div>
+        {journeyStage ? (
+          <div className={styles.item}>
+            <dt>流程阶段</dt>
+            <dd>{getJourneyStageLabel(journeyStage) || journeyStage}</dd>
+          </div>
+        ) : null}
         <div className={styles.item}>
           <dt>人工复核</dt>
           <dd>{reviewedAt}</dd>

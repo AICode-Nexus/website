@@ -6,6 +6,10 @@ sidebar_label: 每日更新工作流
 tags: [site-admin, editorial]
 track: cross-track
 kind: guide
+content_form: guide
+domain: standards
+journey_stage: implementation
+entry_role: admin
 audience: advanced
 stage: intermediate
 featured: false
@@ -59,7 +63,7 @@ Daily Brief 是站点的时效层，负责发现变化、给出初步判断，�
 
 - 同一主题连续一周都出现重要变化
 - 已经形成稳定做法、规范或选型判断
-- 能明确归属到某个支柱文档
+- 能明确归属到某个知识方向文档
 
 回流时要把“快讯表述”改写成“长期知识表述”，并补上复核日期、事实截止和市场状态。
 

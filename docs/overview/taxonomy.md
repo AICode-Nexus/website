@@ -1,111 +1,131 @@
 ---
-title: AI Coding 知识体系总表
-description: 用 5 大知识支柱、内容形态和时效治理来组织 AI coding 知识，而不是按单一产品名堆目录。
-slug: /taxonomy
+title: AI Code 知识方向总表
+description: 用 6 个长期知识方向加上流程阶段与覆盖层来组织 AI Code 知识，避免按产品名或内容载体堆目录。
+slug: /start/taxonomy
 sidebar_label: Taxonomy
 tags: [ai-coding, taxonomy, knowledge-base]
 track: cross-track
 kind: guide
+content_form: guide
 audience: mixed
 stage: starter
 featured: true
-pillar: standards
-reviewed_at: 2026-03-06
-source_window_end: 2026-03-06
+domain: standards
+journey_stage: tech-selection
+entry_role: start
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: current
 ---
 
-# AI Coding 知识体系总表
+# AI Code 知识方向总表
 
-## 为什么要重构
+## 这页解决什么问题
 
-上一阶段的站点骨架是：
+当你已经知道自己在做 AI Code，但还不知道这篇内容究竟属于哪类长期知识时，就来这里。
 
-- 模型与 Agent
-- IDE 与工具链
-- 提示词与工作流
-- 团队与交付
+这页不负责告诉你先做哪一步，那是 [流程地图](/docs/start/journey-map) 的职责。它只负责告诉你该进入哪个知识方向。
 
-这套结构完成了第一轮门户搭建，但已经不够承载 2026 年更主流的主题变化。当前主流内容不再只是“模型 + IDE”，而是已经明显扩展到：
+## 当前采用的两条主轴
 
-- 终端 agent
-- 仓库规则文件
-- GitHub / Jira / PR 工作系统
-- MCP 与工具拓扑
-- 团队级规范与评估
+### 主轴 1：流程阶段
 
-## 新骨架：5 大知识支柱
+用 [流程地图](/docs/start/journey-map) 判断你现在卡在：
 
-### 1. AI 开发方式
+- 原始需求
+- 标准化需求
+- 技术选型
+- 项目架构
+- 开发规划
+- 开发方案设计
+- 开发实施
+- 测试验证
+- 缺陷优化
 
-解决默认入口、人机分工、控制边界和协作模式。
+### 主轴 2：知识方向
 
-### 2. AI 工作流
+用这页判断你该进入哪一类长期知识。
 
-解决 spec、planning、execution、verification、review、PR 这条交付链。
+## 6 个长期知识方向
 
-### 3. AI 编程工具
+### 1. 开发范式与协作方式
 
-解决平台、终端 agent、AI IDE、开放式入口和观察名单。
+解决默认入口、人机分工、协作方式和开发范式。
 
-### 4. AI 规范
+入口：
 
-解决规则文件、权限、验证、评估、review 与时效治理。
+- [开发范式与协作方式](/docs/development-modes)
 
-### 5. AI 架构
+### 2. 工作流与交付
 
-解决目录边界、上下文切片、worktree、CI 和 MCP 拓扑。
+解决任务合同、handoff、交付链、执行模板和多 agent 协作。
 
-## 第二维：内容形态
+入口：
 
-一级结构是支柱，第二维仍然保留内容形态：
+- [工作流与交付](/docs/workflows)
 
-- `hub`
-- `guide`
-- `comparison`
-- `playbook`
-- `insight`
+### 3. 工具与技术选型
 
-这意味着：
+解决平台、执行栈、终端 agent、AI IDE、技术比较和资源入口。
 
-- `comparisons / playbooks / insights` 继续保留
-- 但它们不再承担一级导航骨架
-- 同一篇对比文或 playbook 仍需归入某个支柱
+入口：
 
-## 第三维：时效治理
+- [工具与技术选型](/docs/tools)
+- [资源中心](/docs/tools/resources)
 
-从二阶段开始，所有知识文档统一增加：
+### 4. 规范评估与治理
 
-- `pillar`
+解决规则文件、权限、验证、评估、review、风险和时效治理。
+
+入口：
+
+- [规范评估与治理](/docs/standards)
+
+### 5. 架构与上下文系统
+
+解决目录边界、上下文切片、worktree、MCP 拓扑和系统设计。
+
+入口：
+
+- [架构与上下文系统](/docs/architecture)
+
+### 6. 生态与集成
+
+解决 GitHub、Jira、CI、PR、组织接入和工作系统闭环。
+
+入口：
+
+- [生态与集成](/docs/ecosystem)
+
+## 4 个覆盖层
+
+这些层是入口或载体，不是长期知识方向：
+
+- `资源中心`：放视频和课程这类可直接消费的材料。
+- `内容索引`：放对比、Playbook 和 Insight 这类内容形态入口。
+- `Daily Brief`：放高时效观察。
+- `旧赛道归档`：保留历史链接和旧透镜。
+
+## 元数据契约
+
+从这轮开始，新改文档统一使用：
+
+- `domain`
+- `journey_stage`
+- `entry_role`
+- `content_form`
 - `reviewed_at`
 - `source_window_end`
 - `market_status`
 
-### `market_status` 语义
+兼容策略：
 
-- `current`: 当前主线知识
-- `watch`: 仍需高频观察
-- `legacy`: 旧赛道或旧透镜，只保留兼容入口
+- 仓库内主写法已经统一为 `domain`
+- 运行时仍兼容历史 `pillar` frontmatter，但不再继续写入新文档或生成产物
 
-## 旧赛道如何处理
+## 推荐顺序
 
-旧的 4 条赛道不会删除：
-
-- 继续保留原链接
-- 继续保留原文资产
-- 但退到“旧赛道 / 专题透镜”层
-
-这让站点可以同时做到：
-
-- 新结构清楚
-- 旧内容不丢
-- SEO 和历史链接不断
-
-## 推荐阅读顺序
-
-1. [开始这里](/docs/)
-2. [AI 开发方式](/docs/development-modes)
-3. [AI 工作流](/docs/workflows)
-4. [AI 编程工具](/docs/tools)
-5. [AI 规范](/docs/standards)
-6. [AI 架构](/docs/architecture)
+1. [开始这里](/docs/start/start-here)
+2. [流程地图](/docs/start/journey-map)
+3. [学习路径](/docs/start/learning-paths)
+4. 进入对应知识方向或覆盖层

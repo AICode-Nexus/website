@@ -1,15 +1,18 @@
 ---
 title: 开始这里
-description: 先按 5 大支柱建立 AI 开发知识体系，再决定默认入口、工具栈、规范和架构，而不是只追当下最热产品。
-slug: /
+description: 先判断自己当前处在哪个流程阶段，再决定进入哪个知识方向，而不是直接在产品名之间横跳。
+slug: /start/start-here
 sidebar_label: 开始这里
 tags: [ai-coding, start-here, workflow]
 track: cross-track
 kind: hub
+content_form: hub
 audience: mixed
 stage: starter
 featured: true
-pillar: development-modes
+domain: development-modes
+journey_stage: raw-need
+entry_role: start
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
@@ -19,120 +22,83 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 # 开始这里
 
-这个站点现在不再只服务“个人工程师如何起步”，而是要帮助团队与平台负责人回答一个更大的问题：
+这不是一页“先背目录名”的导览，而是一页用来判断下一步该去哪里的入口。
 
-如何把 AI 开发方式、工作流、工具、规范和架构一起设计成长期能力。
+这个站点要回答的是一个更大的问题：
 
-## 先建立 5 层认知
+如何把 AI Code 的需求收口、技术取舍、项目架构、开发规划、实施验证和工作系统接入一起设计成长期能力。
 
-### 1. AI 开发方式
+## 先判断你现在缺哪一类信息
 
-先决定默认入口与人机分工。
+### 我还没把问题说清楚
 
-先读：
+先去 [流程地图](/docs/start/journey-map)。
 
-- [AI 开发方式](/docs/development-modes)
-- [AI 开发方式总览](/docs/development-modes-landscape)
+这一步优先解决“我到底处在哪一环”，不急着谈具体产品或框架。
 
-### 2. AI 工作流
+### 我已经知道问题，但不知道该补哪类长期知识
 
-把需求到 PR 的交付链写清。
+先去 [知识方向总表](/docs/start/taxonomy)。
 
-先读：
+这一步优先解决“这件事更像开发范式、工作流、技术选型、治理、架构还是生态集成”。
 
-- [AI 工作流](/docs/workflows)
-- [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
-- [工作流框架总览](/docs/workflows/frameworks-overview)
-- [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
+### 我只想找可直接消费的材料
 
-### 3. AI 编程工具
+先去 [资源中心](/docs/tools/resources)。
 
-再比较平台、终端 agent、AI IDE 与开放式入口。
+这一步只负责视频和课程，不承担长期知识骨架。
 
-先读：
+### 我已经知道方向，但想选阅读形态
 
-- [AI 编程工具](/docs/tools)
-- [工具选择地图](/docs/tool-selection)
-- [OpenAI Codex Handbook](/docs/tools/execution-stacks/openai-codex)
+先去 [内容索引](/docs/content-index)。
 
-### 4. AI 规范
+这一步只负责告诉你该读对比、Playbook 还是 Insight。
 
-让不同入口共享同一套规则、权限、验证和评估标准。
+### 我已经在真实工作系统里落地 AI Code
 
-先读：
+可以直接去 [生态与集成](/docs/ecosystem)。
 
-- [AI 规范](/docs/standards)
-- [仓库规则文件体系](/docs/repo-instruction-files)
+这一步优先解决 GitHub、Jira、CI、PR 和组织接入闭环，而不是继续停留在单点工具体验。
 
-### 5. AI 架构
+## 推荐的最短进入顺序
 
-最后把目录、上下文、worktree 和 MCP 拓扑固定下来。
+1. [流程地图](/docs/start/journey-map)
+2. [知识方向总表](/docs/start/taxonomy)
+3. [学习路径](/docs/start/learning-paths)
+4. 进入对应方向或覆盖层
 
-先读：
+## 如果你只有 20 分钟
 
-- [AI 架构](/docs/architecture)
-- [MCP 与工具拓扑](/docs/mcp-tool-topology)
+1. 前 5 分钟：看 [流程地图](/docs/start/journey-map)，确定当前阶段。
+2. 接下来 5 分钟：看 [知识方向总表](/docs/start/taxonomy)，确定主方向。
+3. 接下来 5 分钟：看 [学习路径](/docs/start/learning-paths)，确定默认顺序。
+4. 最后 5 分钟：进入对应方向首页或资源中心。
 
-## 如果你只有 90 分钟
-
-1. 前 20 分钟：读 [知识体系总表](/docs/taxonomy)
-2. 接下来 20 分钟：读 [AI 开发方式总览](/docs/development-modes-landscape)
-3. 接下来 20 分钟：读 [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
-4. 接下来 15 分钟：读 [工作流框架总览](/docs/workflows/frameworks-overview)
-5. 最后 15 分钟：读 [工具选择地图](/docs/tool-selection)
-
-## 按你当前的问题进入
-
-### 我还没决定默认入口
-
-先看：
-
-1. [AI 开发方式](/docs/development-modes)
-2. [AI 编程工具](/docs/tools)
-
-### 我已经在用工具，但流程不稳
-
-先看：
-
-1. [AI 工作流](/docs/workflows)
-2. [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
-3. [Spec-First](/docs/workflows/patterns/spec-first)
-4. [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
-5. [AI 规范](/docs/standards)
-
-### 我已经在做试点，但知识容易过时
-
-先看：
-
-1. [知识新鲜度治理](/docs/freshness-governance)
-2. [主流工具观察名单](/docs/mainstream-tool-watchlist)
-3. [Daily Brief](/blog)
-
-## 推荐阅读顺序
+## 推荐入口
 
 <RelatedReadings
-  title="推荐阅读顺序"
-  description="这页负责帮你起步，不负责替代五大支柱本身。读完这里之后，按问题继续深入，而不是停留在总览层。"
+  title="推荐入口"
+  description="先判断自己缺的是流程判断、方向判断、学习材料还是内容形态。"
   items={[
     {
-      title: '知识体系总表',
-      href: '/docs/taxonomy',
-      description: '先把五大支柱与旧赛道透镜的关系看清，再决定从哪根主线切入。',
+      title: 'AI Code 流程地图',
+      href: '/docs/start/journey-map',
+      description: '先确定你当前处在哪个流程阶段，下一步该补什么。',
     },
     {
-      title: 'AI 开发方式',
-      href: '/docs/development-modes',
-      description: '如果你还没决定默认入口和人机分工，下一步先回到开发方式层。',
+      title: '知识方向总表',
+      href: '/docs/start/taxonomy',
+      description: '把长期知识分区看清，再决定进入哪个方向。',
     },
     {
-      title: 'AI 工作流',
-      href: '/docs/workflows',
-      description: '如果你已经在试工具，但流程总是不稳，就先进入工作流层固定交付链。',
+      title: '学习路径',
+      href: '/docs/start/learning-paths',
+      description: '按默认顺序推进，不再把工具比较误当成全部问题。',
     },
     {
-      title: 'AI 编程工具',
-      href: '/docs/tools',
-      description: '如果你已经知道自己要比较哪类入口，就直接进入工具簇继续往下看。',
+      title: '资源中心',
+      href: '/docs/tools/resources',
+      description: '如果你当前更需要可直接消费的材料，就从资源中心进入。',
     },
   ]}
 />

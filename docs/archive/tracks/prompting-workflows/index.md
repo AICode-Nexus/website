@@ -6,10 +6,13 @@ sidebar_label: 提示词与工作流
 tags: [ai-coding, workflow, prompting]
 track: prompting-workflows
 kind: hub
+content_form: hub
+domain: workflows
+journey_stage: development-planning
+entry_role: archive
 audience: mixed
 stage: starter
 featured: true
-pillar: workflows
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: legacy

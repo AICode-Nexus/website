@@ -6,10 +6,13 @@ sidebar_label: AI 开发方式
 tags: [ai-coding, development-modes, workflow]
 track: cross-track
 kind: hub
+content_form: hub
 audience: mixed
 stage: starter
 featured: true
-pillar: development-modes
+domain: development-modes
+journey_stage: raw-need
+entry_role: domain
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
@@ -93,8 +96,8 @@ market_status: current
 ## 推荐阅读顺序
 
 1. [AI 开发方式总览](/docs/development-modes-landscape)
-2. [开始这里](/docs/)
-3. [学习路径](/docs/learning-paths)
+2. [开始这里](/docs/start/start-here)
+3. [学习路径](/docs/start/learning-paths)
 4. [Agent 执行模式](/docs/development-modes/agent-execution-modes)
 5. [终端 Agent 全景](/docs/terminal-agent-landscape)
 

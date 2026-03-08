@@ -1,18 +1,21 @@
 ---
+audience: "advanced"
+stage: "advanced"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Parallel Worktrees / Multi-Agent：案例与工具组合"
 description: "Parallel Worktrees / Multi-Agent 的代表案例，以及最适合搭配的工具或框架。"
 slug: "/workflows/patterns/parallel-worktrees-multi-agent/examples-and-tool-fit"
 sidebar_label: "案例与工具组合"
 tags: ["ai-coding", "workflow", "parallel-worktrees-multi-agent"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "advanced"
-stage: "advanced"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Parallel Worktrees / Multi-Agent：案例与工具组合

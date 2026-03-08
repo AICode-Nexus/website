@@ -6,10 +6,13 @@ sidebar_label: 从个人到团队协作
 tags: [ai-coding, team, workflow]
 track: team-delivery
 kind: guide
+content_form: guide
+domain: standards
+journey_stage: development-planning
+entry_role: archive
 audience: mixed
 stage: intermediate
 featured: false
-pillar: standards
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -124,5 +127,5 @@ market_status: current
 ## 延伸阅读
 
 - [质量门禁与 Review](/docs/standards/review-quality-gates)
-- [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
+- [个人工程师栈搭建](/docs/workflows/playbooks/personal-engineer-stack-setup)
 - [指标与风险](/docs/standards/evaluation-risk-metrics)

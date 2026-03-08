@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "intermediate"
+featured: true
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "implementation"
 title: "Terminal-First Repo Pairing"
 description: "Terminal-First Repo Pairing 的定位、适合任务和默认人工接管点。"
 slug: "/workflows/patterns/terminal-first-repo-pairing"
 sidebar_label: "概览"
 tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "intermediate"
-featured: true
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Terminal-First Repo Pairing

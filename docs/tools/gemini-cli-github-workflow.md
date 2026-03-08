@@ -6,10 +6,13 @@ sidebar_label: Gemini CLI 工作流
 tags: [ai-coding, gemini-cli, terminal-agent]
 track: cross-track
 kind: guide
+content_form: guide
+domain: tools
+journey_stage: implementation
+entry_role: domain
 audience: mixed
 stage: intermediate
 featured: false
-pillar: tools
 reviewed_at: 2026-03-06
 source_window_end: 2026-03-06
 market_status: current
@@ -78,4 +81,4 @@ Gemini CLI 可以承担：
 - [Gemini CLI Handbook](/docs/tools/terminal-agents/gemini-cli)
 - [终端 Agent 全景](/docs/terminal-agent-landscape)
 - [仓库规则文件体系](/docs/repo-instruction-files)
-- [工具选择地图](/docs/tool-selection)
+- [工具选择地图](/docs/tools/map)

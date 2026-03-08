@@ -209,7 +209,9 @@ export function defineTeachingVideoCatalog(catalog) {
   return deepFreeze(catalog);
 }
 
-const TEACHING_VIDEO_CATALOG_PATH = '/docs/ai-code-teaching-videos';
+export const TEACHING_VIDEO_LEGACY_CATALOG_PATH = '/docs/ai-code-teaching-videos';
+export const TEACHING_VIDEO_VIDEO_CATALOG_PATH = '/docs/tools/resources/videos';
+export const TEACHING_VIDEO_COURSE_CATALOG_PATH = '/docs/tools/resources/courses';
 
 export const TEACHING_VIDEO_RESULTS_SECTION_ID = 'video-results';
 export const TEACHING_VIDEO_RESULTS_SECTION_PARAM = 'section';
@@ -217,6 +219,16 @@ export const TEACHING_VIDEO_RESULTS_SECTION_VALUE = 'results';
 
 function normalizeCatalogRouteValue(value) {
   return typeof value === 'string' ? value.trim() : '';
+}
+
+function normalizeTeachingVideoResourceType(resourceType = 'videos') {
+  return resourceType === 'courses' ? 'courses' : 'videos';
+}
+
+function getTeachingVideoCatalogPath(resourceType = 'videos') {
+  return normalizeTeachingVideoResourceType(resourceType) === 'courses'
+    ? TEACHING_VIDEO_COURSE_CATALOG_PATH
+    : TEACHING_VIDEO_VIDEO_CATALOG_PATH;
 }
 
 function setCatalogSearchParam(params, key, value) {
@@ -228,6 +240,7 @@ function setCatalogSearchParam(params, key, value) {
 }
 
 export function getTeachingVideoCatalogPermalink({
+  resourceType = 'videos',
   filters = {},
   query = '',
   requestedPage = null,
@@ -260,7 +273,7 @@ export function getTeachingVideoCatalogPermalink({
 
   const search = params.toString();
 
-  return `${TEACHING_VIDEO_CATALOG_PATH}${search ? `?${search}` : ''}`;
+  return `${getTeachingVideoCatalogPath(resourceType)}${search ? `?${search}` : ''}`;
 }
 
 export function getTeachingVideoCatalogFilterPermalink(parameter, value, options = {}) {
@@ -277,12 +290,12 @@ export function searchFocusesTeachingVideoResults(search) {
   );
 }
 
-export function getTeachingVideoItemPermalink(itemId) {
-  return getTeachingVideoCatalogPermalink({videoId: itemId});
+export function getTeachingVideoItemPermalink(itemId, options = {}) {
+  return getTeachingVideoCatalogPermalink({...options, resourceType: 'videos', videoId: itemId});
 }
 
-export function getTeachingVideoCoursePermalink(courseId) {
-  return getTeachingVideoCatalogPermalink({courseId});
+export function getTeachingVideoCoursePermalink(courseId, options = {}) {
+  return getTeachingVideoCatalogPermalink({...options, resourceType: 'courses', courseId});
 }
 
 export function getTeachingVideoItemAnchorId(itemId) {

@@ -6,10 +6,13 @@ sidebar_label: 趋势总览
 tags: [ai-coding, insight, trends]
 track: cross-track
 kind: hub
+content_form: hub
 audience: mixed
 stage: starter
 featured: true
-pillar: tools
+domain: ecosystem
+journey_stage: defect-optimization
+entry_role: index
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: watch
@@ -27,8 +30,8 @@ market_status: watch
 
 ## 当前入口
 
-- [2026 年 3 月 AI Coding 的四个主线变化](/docs/insights/agentic-coding-patterns)
-- [2026 年 3 月月度简报](/docs/insights/monthly-brief-2026-03)
+- [2026 年 3 月 AI Coding 的四个主线变化](/docs/tools/insights/agentic-coding-patterns)
+- [2026 年 3 月月度简报](/docs/tools/insights/monthly-brief-2026-03)
 - [Daily Brief](/blog)
 
 ## 使用原则

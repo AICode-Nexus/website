@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "starter"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "testing-validation"
 title: "Bugfix / Refactor / Test：案例与工具组合"
 description: "Bugfix / Refactor / Test 的代表案例，以及最适合搭配的工具或框架。"
 slug: "/workflows/patterns/bugfix-refactor-test/examples-and-tool-fit"
 sidebar_label: "案例与工具组合"
 tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "starter"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Bugfix / Refactor / Test：案例与工具组合

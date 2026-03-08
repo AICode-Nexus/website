@@ -6,10 +6,13 @@ sidebar_label: Playbooks 总览
 tags: [ai-coding, playbook, workflow]
 track: prompting-workflows
 kind: hub
+content_form: hub
 audience: mixed
 stage: starter
 featured: true
-pillar: workflows
+domain: workflows
+journey_stage: solution-design
+entry_role: index
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
@@ -19,7 +22,7 @@ market_status: current
 
 ## 这一类内容解决什么问题
 
-Playbook 不是一级骨架，而是“AI 工作流”支柱下最可执行的一层。它用来回答：
+Playbook 不是一级骨架，而是“工作流与交付”方向下最可执行的一层。它用来回答：
 
 - 具体该怎么做
 - 先做什么后做什么
@@ -27,16 +30,16 @@ Playbook 不是一级骨架，而是“AI 工作流”支柱下最可执行的�
 
 ## 当前入口
 
-- [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
+- [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)
 - [Spec-driven AI Delivery](/docs/spec-driven-ai-delivery)
-- [7 天上手路线](/docs/playbooks/first-7-days-ai-coding)
-- [个人工程师栈搭建](/docs/playbooks/personal-engineer-stack-setup)
+- [7 天上手路线](/docs/workflows/playbooks/first-7-days-ai-coding)
+- [个人工程师栈搭建](/docs/workflows/playbooks/personal-engineer-stack-setup)
 
 ## 如果你现在缺的是具体步骤
 
 优先看：
 
-1. [AI 工作流实操手册](/docs/playbooks/workflow-playbook)
+1. [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)
 2. [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
 
 ## 什么时候该看 Playbook

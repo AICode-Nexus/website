@@ -1,18 +1,21 @@
 ---
+audience: "mixed"
+stage: "starter"
+featured: false
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
+market_status: "current"
+entry_role: "domain"
+kind: "guide"
+content_form: "guide"
+track: "prompting-workflows"
+domain: "workflows"
+journey_stage: "testing-validation"
 title: "Bugfix / Refactor / Test：适用信号与边界"
 description: "什么时候优先用 Bugfix / Refactor / Test，什么时候不要用。"
 slug: "/workflows/patterns/bugfix-refactor-test/fit-and-signals"
 sidebar_label: "适用信号"
 tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
-track: "prompting-workflows"
-kind: "guide"
-audience: "mixed"
-stage: "starter"
-featured: false
-pillar: "workflows"
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
-market_status: "current"
 ---
 
 # Bugfix / Refactor / Test：适用信号与边界

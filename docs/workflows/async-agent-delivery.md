@@ -6,10 +6,13 @@ sidebar_label: 异步 Agent 交付链
 tags: [ai-coding, agent, async]
 track: prompting-workflows
 kind: guide
+content_form: guide
+domain: workflows
+journey_stage: implementation
+entry_role: domain
 audience: advanced
 stage: advanced
 featured: false
-pillar: workflows
 reviewed_at: 2026-03-07
 source_window_end: 2026-03-07
 market_status: current
