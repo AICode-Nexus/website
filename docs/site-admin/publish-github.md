@@ -6,6 +6,10 @@ sidebar_label: 发布到 GitHub Pages
 tags: [site-admin, deploy]
 track: cross-track
 kind: guide
+content_form: guide
+domain: standards
+journey_stage: implementation
+entry_role: admin
 audience: advanced
 stage: intermediate
 featured: false
@@ -26,15 +30,19 @@ featured: false
 ## 标准发布流程
 
 1. 提交内容或代码改动
-2. 先通过 `Content Quality` 工作流
+2. 先通过 `Content Quality` 工作流，确认 handbook 生成产物、IA、内容质量和教学视频目录都一致
 3. 再通过站点 build
 4. 合并到 `main` 或 `development`
 5. 由 `Deploy Docusaurus to GitHub Pages` 自动部署
 
 ## 发布前检查
 
+- 推荐直接运行：`npm run verify:release`
+- `npm run check:handbooks`
+- `npm run check:ia`
 - `npm run check:content`
 - `npm run test:teaching-videos`
+- `npm run check:teaching-videos`
 - `npm run build`
 
 如果 Daily / Weekly 仍然是草稿，确认它们保留 `draft: true`，不要误当作已发布内容。
@@ -42,6 +50,8 @@ featured: false
 ## 风险与边界
 
 - 不要跳过内容质量检查直接发布
+- 不要在 handbook 生成产物不同步时直接发布
+- 不要让 IA 结构漂移后只靠 build 兜底
 - 不要把草稿文章当成正式文章合并
 - 不要只看构建通过，而忽略内部链接和文档结构质量
 

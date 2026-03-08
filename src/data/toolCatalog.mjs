@@ -60,7 +60,7 @@ export const toolCatalog = defineToolCatalog([
     bestFor: [
       'GitHub-first 团队、平台负责人和默认在 PR / review 里协作的工程组织。',
       '已经使用 issue、PR、branch protection 和 reviewer 流程的团队。',
-      '希望把 agent 直接接入工作系统，而不是只停留在本地 IDE。 ',
+      '希望把 agent 直接接入工作系统，而不是只停留在本地 IDE。',
     ],
     workflows: [
       docLink('Issue / Jira -> Draft PR', '/docs/workflows/patterns/issue-to-draft-pr', 'GitHub Copilot 天然适合把清晰任务委派成 draft PR。'),
@@ -190,7 +190,7 @@ export const toolCatalog = defineToolCatalog([
     repoAdvice: [
       '把常用验证命令、任务模板和目录边界写回仓库文件，减少 editor 特有配置漂移。',
       '背景任务必须有 owner 和 handoff 规则，不能把编辑器当异步黑盒。',
-      '视觉验证、浏览器操作和终端验证最好有固定时机，不要混成一锅。 ',
+      '视觉验证、浏览器操作和终端验证最好有固定时机，不要混成一锅。',
     ],
     integrations: [
       '本地 agent、background agents 和第三方 agents。',

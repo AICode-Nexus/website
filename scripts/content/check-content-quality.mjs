@@ -1,4 +1,5 @@
 import path from 'node:path';
+import {createRequire} from 'node:module';
 import {
   extractHeadings,
   fileExists,
@@ -10,15 +11,28 @@ import {
   workspaceRoot,
 } from './lib/content-utils.mjs';
 
+const require = createRequire(import.meta.url);
+const {
+  VALID_CONTENT_FORMS,
+  VALID_DOMAINS,
+  VALID_ENTRY_ROLES,
+  VALID_JOURNEY_STAGES,
+  resolveContentFormKey,
+  resolveDomainKey,
+  resolveEntryRoleKey,
+  resolveJourneyStageKey,
+} = require('../../src/data/knowledgeModel');
+
 const DOCS_ROOT = path.join(workspaceRoot, 'docs');
 const BLOG_ROOT = path.join(workspaceRoot, 'blog');
 
-const PILLAR_DIRS = new Map([
+const DOMAIN_DIRS = new Map([
   ['development-modes', 'development-modes'],
   ['workflows', 'workflows'],
   ['tools', 'tools'],
   ['standards', 'standards'],
   ['architecture', 'architecture'],
+  ['ecosystem', 'ecosystem'],
 ]);
 
 const KIND_RULES = {
@@ -161,16 +175,59 @@ function validateDocDirectory(relativePath, frontMatter, errors) {
     return;
   }
 
-  for (const [directoryName, pillar] of PILLAR_DIRS.entries()) {
+  const resolvedDomain = resolveDomainKey(frontMatter);
+
+  for (const [directoryName, domain] of DOMAIN_DIRS.entries()) {
     if (relativePath.startsWith(`docs/${directoryName}/`)) {
       ensure(
-        frontMatter.pillar === pillar,
+        resolvedDomain === domain,
         errors,
-        `${relativePath}: expected pillar "${pillar}" for this directory but found "${frontMatter.pillar ?? 'missing'}".`,
+        `${relativePath}: expected domain "${domain}" for this directory but found "${frontMatter.domain ?? frontMatter.pillar ?? 'missing'}".`,
       );
       return;
     }
   }
+}
+
+function validateFrontMatterModel(relativePath, frontMatter, errors) {
+  const domain = resolveDomainKey(frontMatter);
+  const journeyStage = resolveJourneyStageKey(frontMatter);
+  const entryRole = resolveEntryRoleKey(frontMatter);
+  const contentForm = resolveContentFormKey(frontMatter);
+
+  ensure(Boolean(frontMatter.domain), errors, `${relativePath}: missing frontmatter.domain.`);
+  ensure(
+    !Object.hasOwn(frontMatter, 'pillar'),
+    errors,
+    `${relativePath}: legacy frontmatter.pillar is no longer allowed; use frontmatter.domain only.`,
+  );
+  ensure(VALID_DOMAINS.has(domain), errors, `${relativePath}: invalid frontmatter.domain "${frontMatter.domain ?? 'missing'}".`);
+  ensure(
+    Boolean(frontMatter.journey_stage),
+    errors,
+    `${relativePath}: missing frontmatter.journey_stage.`,
+  );
+  ensure(
+    VALID_JOURNEY_STAGES.has(journeyStage),
+    errors,
+    `${relativePath}: invalid frontmatter.journey_stage "${frontMatter.journey_stage ?? 'missing'}".`,
+  );
+  ensure(Boolean(frontMatter.entry_role), errors, `${relativePath}: missing frontmatter.entry_role.`);
+  ensure(
+    VALID_ENTRY_ROLES.has(entryRole),
+    errors,
+    `${relativePath}: invalid frontmatter.entry_role "${frontMatter.entry_role ?? 'missing'}".`,
+  );
+  ensure(
+    Boolean(frontMatter.content_form),
+    errors,
+    `${relativePath}: missing frontmatter.content_form.`,
+  );
+  ensure(
+    VALID_CONTENT_FORMS.has(contentForm),
+    errors,
+    `${relativePath}: invalid frontmatter.content_form "${frontMatter.content_form ?? 'missing'}".`,
+  );
 }
 
 function validateKindShape(relativePath, document, kind, errors) {
@@ -277,9 +334,8 @@ function countSourceLinks(document) {
 
 function getFamilyRule(relativePath) {
   if (
-    /^docs\/tools\/(?:platforms|control-planes|execution-stacks|terminal-agents|ide-first)\//u.test(
-      relativePath,
-    )
+    /^docs\/tools\/(?:platforms|control-planes|execution-stacks|terminal-agents|ide-first)\//u.test(relativePath) ||
+    relativePath.startsWith('docs/ecosystem/integrations/')
   ) {
     return {name: 'generatedTool', rule: FAMILY_RULES.generatedTool};
   }
@@ -402,7 +458,12 @@ async function validateDocs() {
     ensure(Boolean(frontMatter.description), errors, `${relativePath}: missing frontmatter.description.`);
     ensure(Boolean(frontMatter.slug), errors, `${relativePath}: missing frontmatter.slug.`);
 
+    if (frontMatter.unlisted === true) {
+      return;
+    }
+
     const kind = getDocKind(relativePath, frontMatter);
+    validateFrontMatterModel(relativePath, frontMatter, errors);
     validateDocDirectory(relativePath, frontMatter, errors);
     validateKindShape(relativePath, document, kind, errors);
     validateFamilyShape(relativePath, document, errors, validDocRoutes);

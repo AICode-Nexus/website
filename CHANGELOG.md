@@ -9,6 +9,9 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- A shared `domain / journey_stage / entry_role / content_form` knowledge model in `src/data/knowledgeModel.js`, plus a new `/docs/start/journey-map` flow overview and `/docs/ecosystem` hub for the `生态与集成` direction.
+- Dedicated hub pages for `开始`、`内容索引`、`资源中心` and `旧赛道归档`, plus split tool-resource docs for `/docs/tools/resources/videos` and `/docs/tools/resources/courses`.
+- A legacy teaching-video redirect shim that forwards `/docs/ai-code-teaching-videos` deep links to the new video or course resource routes without breaking shared URLs.
 - Shared docs presentation primitives in `src/components/docs/` for decision matrices, scenario cards, checklists, related-reading blocks, and tool-linked teaching resources so handbook and longform pages can reuse a single docs UI layer.
 - Build-time handbook catalog validation in `src/utils/handbookCatalog.mjs`, forcing tool and workflow source records to provide stable ids, required page sections, internal links, and source metadata before docs generation runs.
 - A scheduled `Teaching Videos Sync` GitHub Actions workflow that refreshes the teaching-video catalog every 6 hours, validates the contract, and auto-commits a new generated catalog when the sync succeeds.
@@ -24,9 +27,9 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - A build-time portal data plugin that auto-aggregates homepage featured docs from docs frontmatter instead of requiring hand-maintained homepage doc entries.
 - A new `AI Code 教学视频` homepage section and `/docs/ai-code-teaching-videos` catalog page backed by validated local video metadata, prioritizing Bilibili public videos.
 - A build-time `sync:teaching-videos` workflow that scrapes public Bilibili video metadata from a curated seed list and writes committed generated catalog data for the portal and docs pages.
-- A second-phase knowledge architecture with five top-level pillars: `AI 开发方式`、`AI 工作流`、`AI 编程工具`、`AI 规范`、`AI 架构`.
-- New pillar hub docs and new topic docs covering Claude Code, Gemini CLI, terminal agent landscape, repo instruction files, freshness governance, AI-native engineering architecture, and MCP topology.
-- A docs-page freshness banner and build-time validation for `pillar`, `reviewed_at`, `source_window_end`, and `market_status` frontmatter on knowledge docs.
+- An earlier direction-based knowledge architecture spanning `AI 开发方式`、`AI 工作流`、`AI 编程工具`、`AI 规范`、`AI 架构`, which now serves as the foundation for the expanded journey-plus-direction model.
+- New direction hub docs and new topic docs covering Claude Code, Gemini CLI, terminal agent landscape, repo instruction files, freshness governance, AI-native engineering architecture, and MCP topology.
+- A docs-page freshness banner and build-time validation for knowledge-doc freshness metadata, while retaining `pillar` compatibility for older frontmatter.
 - A maintained mainstream tool watchlist to keep GitHub Copilot, VS Code Agents, OpenAI Codex, Claude Code, Gemini CLI, Cursor, and Windsurf under explicit review cadence.
 - New first-class docs directories for `development-modes`, `workflows`, `tools`, `standards`, and `architecture`, plus `docs/archive/tracks` for legacy lenses.
 - New workflow docs covering framework selection, task workflow catalog, async agent delivery, expanded prompt contracts, and deeper spec-driven delivery guidance.
@@ -36,6 +39,20 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Reframed the homepage around `Quick Start -> Journey Map -> Direction Map -> Learning Path -> Resource Center -> Content Index -> Daily Brief`, replacing the old portal narrative with a process-first AI Code map.
+- Updated sidebar, navbar, overview docs, search metadata, featured-doc aggregation, and doc freshness badges to prefer `domain` with `pillar` fallback, and to surface `journey_stage` where available.
+- Backfilled `domain / journey_stage / entry_role / content_form` across the remaining handbook, archive, comparison, playbook, insight, and site-admin docs, and normalized legacy `pillar` values where those pages were reclassified.
+- Aligned the handbook generator, content-quality checks, and portal-data validation with the new metadata contract so generated docs now emit `domain / journey_stage / entry_role / content_form` by default and build-time checks enforce those fields.
+- Codified the allowed `tools/* -> ecosystem` integration-governance exceptions in the shared knowledge model, documented that policy on the ecosystem hub, and added a dedicated IA audit script so future path/domain drift fails explicitly.
+- Consolidated the public integration-governance URLs under `/docs/ecosystem/integrations/*`, moved those generated docs into the ecosystem sidebar cluster, and kept the old tool-scoped governance URLs alive through redirects.
+- Added a generated-handbook sync check and wired `check:handbooks -> check:ia -> check:content` into CI and release documentation so stale generated docs or IA drift fail before deployment.
+- Added `npm run verify:release` so release validation can be run as one deterministic local gate instead of manually remembering each pre-publish check.
+- Removed `pillar` from the active docs metadata contract, handbook generator output, and search keywords so the repo now writes `domain` only while runtime compatibility remains in place for historical content.
+- Rebuilt the site IA around `开始 / AI Code 地图 / 资源中心 / 内容索引 / 旧赛道归档 / Daily Brief / 站点维护`, updating navbar, sidebar, footer entry points, homepage ordering, and core overview links to match the new journey-plus-direction model.
+- Aligned the footer `AI Code 地图` entry with the navbar so both now land on the process-first journey map instead of splitting between journey and taxonomy routes.
+- Moved start, tool-map, comparison, playbook, and insight docs onto the newer docs routes with redirect coverage for the previous slugs, while keeping comparison/playbook/insight index hubs as discovery layers instead of primary leaf paths.
+- Split the teaching-video experience into separate video and course directories so filters now drive only the active result entity, course aggregation is computed from the filtered video set, and video cards link down into the dedicated course view instead of rendering a course block mid-page.
+- Upgraded the navbar search index with stable `entityType / domain / journeyStage / contentForm / resourceType` metadata and grouped result rendering for knowledge docs, videos, and courses.
 - Added an explicit keyword search button to the teaching-video catalog filters so query edits now apply on button click or Enter instead of re-filtering on every keystroke.
 - Updated teaching-video quick filters and tool-scoped learning-resource CTAs so they now deep-link straight to the catalog `视频明细` section instead of stopping at the top of the page after applying a filter.
 - Reworked the teaching-video catalog navigation so desktop now uses a stateful pagination panel with range feedback and page numbers, while mobile switches to shareable incremental "load more" browsing driven by URL state instead of local-only previous/next buttons.
@@ -49,7 +66,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Moved the docs-page freshness/status banner to the bottom of each document article so governance metadata remains available without displacing the main content above the fold.
 - Fixed the teaching-video course CTA deep-link behavior so `查看课程代表视频` now lands on and highlights the corresponding video card, and aligned course-card CTAs to a consistent bottom edge.
 - Removed the decorative underline from the navbar `教学视频` link and disabled the mobile navbar blur on narrow screens so the Docusaurus slide-out menu can render correctly in iOS and WeChat browsers.
-- Elevated the `AI Code 教学视频库` discovery path with a dedicated right-side navbar `教学视频` entry and a lighter desktop highlight so the video hub is reachable above the fold without disrupting the main pillar navigation.
+- Elevated the `AI Code 教学视频库` discovery path with a dedicated right-side navbar `教学视频` entry and a lighter desktop highlight so the video hub is reachable above the fold without disrupting the main knowledge navigation.
 - Reworked the `AI 工作流` and `AI 编程工具` hubs, sidebar, homepage links, and learning paths around handbook-style subdirectories while preserving legacy routes such as `/docs/workflows/mainstream-ai-coding-workflows`, `/docs/claude-code-workstyle`, and `/docs/gemini-cli-github-workflow`.
 - Expanded the workflow framework layer to include `Superpowers` alongside `BMAD`, `Spec Kit`, and `OpenSpec`, and added detailed handbook pages for GitHub Copilot, VS Code Agents, OpenAI Codex, Claude Code, Gemini CLI, Cline, Cursor, and Windsurf.
 - Rebuilt the `AI Code 教学视频` module around a 90-day multi-source catalog with generated metrics, facets, course aggregation, featured ranking, search deep-links, and a filterable docs directory instead of a hand-laid flat list.
@@ -69,8 +86,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Expanded the global footer with direct contact details, collaboration topics, and a usable repository fallback so the bottom section carries real personal entry points instead of empty space.
 - Reframed the homepage, navbar, sidebar, and overview docs around team/platform-owner needs instead of only individual-engineer onboarding.
 - Demoted the old `models-agents / ides-tooling / prompting-workflows / team-delivery` structure into legacy lenses while preserving their existing routes.
-- Added pillar/freshness metadata to public knowledge docs and surfaced that metadata in homepage featured cards and search indexing.
-- Reorganized the sidebar so main navigation now points to long-term pillar directories while old track hubs live under the archive lens section.
+- Added domain-compatible freshness metadata to public knowledge docs and surfaced that metadata in homepage featured cards and search indexing, with `pillar` fallback for older pages.
+- Reorganized the sidebar so main navigation now points to long-term knowledge-direction directories while old track hubs live under the archive lens section.
 - Split the blog into `daily`, `weekly`, and `monthly` layers, and rewrote Daily Brief standards and site-admin workflows around draft-first publishing.
 - Moved scratch note creation from `docs/notes` to `drafts/notes` so unpublished material no longer mixes with public docs.
 
