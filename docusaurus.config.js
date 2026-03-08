@@ -221,27 +221,32 @@ const config = {
       },
       items: [
         {
-          to: '/docs/start/start-here',
+          type: 'docSidebar',
+          sidebarId: 'startSidebar',
           label: '开始',
           position: 'left',
         },
         {
-          to: '/docs/start/journey-map',
+          type: 'docSidebar',
+          sidebarId: 'mapSidebar',
           label: 'AI Code 地图',
           position: 'left',
         },
         {
-          to: '/docs/tools/resources',
-          label: '资源中心',
+          type: 'docSidebar',
+          sidebarId: 'videoResourcesSidebar',
+          label: '视频资源',
           position: 'left',
         },
         {
-          to: '/docs/content-index',
+          type: 'docSidebar',
+          sidebarId: 'contentIndexSidebar',
           label: '内容索引',
           position: 'left',
         },
         {
-          to: '/docs/archive',
+          type: 'docSidebar',
+          sidebarId: 'archiveSidebar',
           label: '旧赛道归档',
           position: 'left',
         },
@@ -251,7 +256,8 @@ const config = {
           position: 'left',
         },
         {
-          to: '/docs/site-admin/editorial-workflow',
+          type: 'docSidebar',
+          sidebarId: 'siteAdminSidebar',
           label: '站点维护',
           position: 'left',
         },
@@ -282,7 +288,7 @@ const config = {
               to: '/docs/start/journey-map',
             },
             {
-              label: '资源中心',
+              label: '视频资源',
               to: '/docs/tools/resources',
             },
             {

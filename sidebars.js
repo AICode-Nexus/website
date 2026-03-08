@@ -2,17 +2,12 @@ const {DOMAIN_DEFINITIONS} = require('./src/data/knowledgeModel');
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  tutorialSidebar: [
-    {
-      type: 'category',
-      label: '开始',
-      items: [
-        'overview/start-here',
-        'overview/journey-map',
-        'overview/taxonomy',
-        'overview/learning-paths',
-      ],
-    },
+  startSidebar: ['overview/start-here'],
+
+  mapSidebar: [
+    'overview/journey-map',
+    'overview/taxonomy',
+    'overview/learning-paths',
     {
       type: 'category',
       label: '知识方向',
@@ -20,17 +15,20 @@ const sidebars = {
         {
           type: 'category',
           label: DOMAIN_DEFINITIONS['development-modes'].label,
-          items: [
-            'development-modes/index',
-            'development-modes/landscape',
-            'development-modes/agent-execution-modes',
-          ],
+          link: {
+            type: 'doc',
+            id: 'development-modes/index',
+          },
+          items: ['development-modes/landscape', 'development-modes/agent-execution-modes'],
         },
         {
           type: 'category',
           label: DOMAIN_DEFINITIONS.workflows.label,
+          link: {
+            type: 'doc',
+            id: 'workflows/index',
+          },
           items: [
-            'workflows/index',
             'workflows/mainstream-ai-coding-workflows',
             'workflows/frameworks-overview',
             {
@@ -74,10 +72,12 @@ const sidebars = {
         {
           type: 'category',
           label: DOMAIN_DEFINITIONS.tools.label,
+          link: {
+            type: 'doc',
+            id: 'tools/index',
+          },
           items: [
-            'tools/index',
             'overview/tool-selection-map',
-            'tools/resources/index',
             {
               type: 'category',
               label: '工具家族',
@@ -134,27 +134,22 @@ const sidebars = {
                 },
               ],
             },
-            {
-              type: 'category',
-              label: '工具相关内容',
-              items: [
-                'comparisons/index',
-                'insights/index',
-                'tools/ai-ide-landscape',
-                'tools/terminal-agents-and-cli',
-                'tools/claude-code-workstyle',
-                'tools/gemini-cli-github-workflow',
-                'tools/terminal-agent-landscape',
-                'tools/mainstream-tool-watchlist',
-              ],
-            },
+            'tools/ai-ide-landscape',
+            'tools/terminal-agents-and-cli',
+            'tools/claude-code-workstyle',
+            'tools/gemini-cli-github-workflow',
+            'tools/terminal-agent-landscape',
+            'tools/mainstream-tool-watchlist',
           ],
         },
         {
           type: 'category',
           label: DOMAIN_DEFINITIONS.standards.label,
+          link: {
+            type: 'doc',
+            id: 'standards/index',
+          },
           items: [
-            'standards/index',
             'standards/repo-instruction-files',
             'standards/skills-commands-hooks',
             'standards/context-memory-and-rules',
@@ -167,8 +162,11 @@ const sidebars = {
         {
           type: 'category',
           label: DOMAIN_DEFINITIONS.architecture.label,
+          link: {
+            type: 'doc',
+            id: 'architecture/index',
+          },
           items: [
-            'architecture/index',
             'architecture/ai-native-engineering-architecture',
             'architecture/mcp-tool-topology',
           ],
@@ -176,8 +174,11 @@ const sidebars = {
         {
           type: 'category',
           label: DOMAIN_DEFINITIONS.ecosystem.label,
+          link: {
+            type: 'doc',
+            id: 'ecosystem/index',
+          },
           items: [
-            'ecosystem/index',
             {
               type: 'category',
               label: '工具接入与治理',
@@ -192,73 +193,91 @@ const sidebars = {
         },
       ],
     },
+  ],
+
+  videoResourcesSidebar: [
+    'tools/resources/index',
+    'tools/resources/videos',
+    'tools/resources/courses',
+  ],
+
+  contentIndexSidebar: [
+    'overview/content-index',
     {
       type: 'category',
-      label: '资源中心',
+      label: 'Comparisons',
+      link: {
+        type: 'doc',
+        id: 'comparisons/index',
+      },
       items: [
-        'tools/resources/index',
-        'tools/resources/videos',
-        'tools/resources/courses',
+        'comparisons/ai-coding-platform-comparison-framework',
+        'comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
+        'comparisons/cursor-vs-windsurf-vs-cline',
       ],
     },
     {
       type: 'category',
-      label: '内容索引',
+      label: 'Playbooks',
+      link: {
+        type: 'doc',
+        id: 'playbooks/index',
+      },
       items: [
-        'overview/content-index',
-        {
-          type: 'category',
-          label: 'Comparisons',
-          items: [
-            'comparisons/index',
-            'comparisons/ai-coding-platform-comparison-framework',
-            'comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
-            'comparisons/cursor-vs-windsurf-vs-cline',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Playbooks',
-          items: [
-            'playbooks/index',
-            'playbooks/workflow-playbook',
-            'playbooks/personal-engineer-stack-setup',
-            'playbooks/first-7-days-ai-coding',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Insights',
-          items: [
-            'insights/index',
-            'insights/agentic-coding-patterns',
-            'insights/monthly-brief-2026-03',
-          ],
-        },
+        'playbooks/workflow-playbook',
+        'playbooks/personal-engineer-stack-setup',
+        'playbooks/first-7-days-ai-coding',
       ],
     },
     {
       type: 'category',
-      label: '旧赛道归档',
-      items: [
-        'archive/index',
-        'archive/tracks/models-agents/index',
-        'archive/tracks/ides-tooling/index',
-        'archive/tracks/prompting-workflows/index',
-        'archive/tracks/team-delivery/index',
-      ],
+      label: 'Insights',
+      link: {
+        type: 'doc',
+        id: 'insights/index',
+      },
+      items: ['insights/agentic-coding-patterns', 'insights/monthly-brief-2026-03'],
+    },
+  ],
+
+  archiveSidebar: [
+    'archive/index',
+    {
+      type: 'category',
+      label: '模型与 Agent',
+      link: {
+        type: 'doc',
+        id: 'archive/tracks/models-agents/index',
+      },
+      items: ['archive/tracks/models-agents/coding-models-scorecard'],
     },
     {
       type: 'category',
-      label: '站点维护',
-      items: [
-        'site-admin/editorial-workflow',
-        'site-admin/ai-writing-workflow',
-        'site-admin/publish-github',
-        'site-admin/site-roadmap',
-        'site-admin/example-first-note',
-      ],
+      label: 'IDE 与工具链',
+      link: {
+        type: 'doc',
+        id: 'archive/tracks/ides-tooling/index',
+      },
+      items: ['archive/tracks/ides-tooling/review-and-pr-tooling'],
     },
+    'archive/tracks/prompting-workflows/index',
+    {
+      type: 'category',
+      label: '团队与交付',
+      link: {
+        type: 'doc',
+        id: 'archive/tracks/team-delivery/index',
+      },
+      items: ['archive/tracks/team-delivery/solo-to-team-transition'],
+    },
+  ],
+
+  siteAdminSidebar: [
+    'site-admin/editorial-workflow',
+    'site-admin/ai-writing-workflow',
+    'site-admin/publish-github',
+    'site-admin/site-roadmap',
+    'site-admin/example-first-note',
   ],
 };
 

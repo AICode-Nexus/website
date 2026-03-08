@@ -39,6 +39,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Split the docs navigation into per-tab sidebars so the left rail now follows the active top-level section, and promoted the teaching-video/resource area into a dedicated `视频资源` navbar tab instead of repeating every first-level docs section in the sidebar.
 - Reframed the homepage around `Quick Start -> Journey Map -> Direction Map -> Learning Path -> Resource Center -> Content Index -> Daily Brief`, replacing the old portal narrative with a process-first AI Code map.
 - Updated sidebar, navbar, overview docs, search metadata, featured-doc aggregation, and doc freshness badges to prefer `domain` with `pillar` fallback, and to surface `journey_stage` where available.
 - Backfilled `domain / journey_stage / entry_role / content_form` across the remaining handbook, archive, comparison, playbook, insight, and site-admin docs, and normalized legacy `pillar` values where those pages were reclassified.
