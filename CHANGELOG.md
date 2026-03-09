@@ -118,6 +118,10 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Split the blog into `daily`, `weekly`, and `monthly` layers, and rewrote Daily Brief standards and site-admin workflows around draft-first publishing.
 - Moved scratch note creation from `docs/notes` to `drafts/notes` so unpublished material no longer mixes with public docs.
 
+### Fixed
+
+- Reworked the scheduled Daily Brief and Weekly Roundup draft workflows to validate a build and commit generated draft files directly to the default branch, avoiding repeated failures when `GITHUB_TOKEN` is not allowed to create pull requests.
+
 ### Removed
 
 - Removed the old split portal content sources `src/utils/docsCatalog.js` and `src/data/featuredBriefs.js` in favor of a single validated portal content source.

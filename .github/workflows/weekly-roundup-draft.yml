@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   generate:
@@ -27,6 +26,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name || github.event.repository.default_branch }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -52,24 +54,19 @@ jobs:
           echo "WEEK_ENDING=$week_ending" >> "$GITHUB_ENV"
           npm run generate:weekly-roundup -- --week-ending="$week_ending" --slug="$roundup_slug"
 
-      - name: Create draft PR
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "docs(weekly): generate ${{ env.WEEK_ENDING }} roundup draft"
-          branch: "automation/weekly-roundup-${{ env.WEEK_ENDING }}"
-          title: "docs(weekly): generate ${{ env.WEEK_ENDING }} roundup draft"
-          body: |
-            Automated Weekly Roundup draft generated for week ending `${{ env.WEEK_ENDING }}`.
+      - name: Build website
+        run: npm run build
 
-            - Manifest updated under `content-sources/weekly/`
-            - Draft post generated under `blog/weekly/`
-            - Draft remains unpublished until manually reviewed and merged
-          add-paths: |
-            content-sources/weekly/
-            blog/weekly/
-          labels: |
-            automation
-            weekly-roundup
-          delete-branch: true
-          draft: true
+      - name: Commit generated draft
+        run: |
+          git add content-sources/weekly blog/weekly
+
+          if git diff --cached --quiet; then
+            echo "No weekly roundup changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs(weekly): generate ${{ env.WEEK_ENDING }} roundup draft"
+          git push origin "HEAD:${{ github.ref_name || github.event.repository.default_branch }}"
