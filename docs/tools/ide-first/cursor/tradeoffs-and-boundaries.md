@@ -2,8 +2,8 @@
 audience: "individual"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,47 +11,60 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "Cursor：优点、边界与替代项"
-description: "Cursor 的优势、边界、替代项和退出信号。"
+title: "Cursor：优点与替代"
+description: "Cursor 值不值得保留，什么时候该换别的入口。"
 slug: "/tools/ide-first/cursor/tradeoffs-and-boundaries"
-sidebar_label: "补充：优点与替代"
-sidebar_position: 8
+sidebar_label: "优点与替代"
 tags: ["ai-coding", "tool", "cursor"]
 ---
 
-# Cursor：优点、边界与替代项
+# Cursor：优点与替代
 
-## 现在先做什么
+真正的判断不是“它能不能用”，而是它是否还值得占据你的默认入口。保留理由、替代路线和退出信号必须一起看，否则团队很容易继续被一个已经不匹配的入口拖住。
 
-- 还没实际跑过 IDE 主入口：去 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
-- 想先看 IDE 工作台怎么分工：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
-- 想先看本地到后台主线：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+## 保留理由
 
-## 保留它的理由
+- IDE 体验成熟。
+- rules 与 background agents 结合自然。
+- 适合作为个人或小团队的长期主入口。
 
-- 你要的是成熟 IDE-first 体验，而不是完全开放的工具壳层。
-- 你主要做的是高频维护、交互式编辑和个人连续工作流。
-- 团队愿意把 repo 规则留在公共文件里，让 IDE 体验做加速层。
+## 取舍矩阵
+
+| 面向 | 你会得到什么 | 你要接受什么 |
+| --- | --- | --- |
+| 优势 | IDE 体验成熟。 | 不是 GitHub-first 平台。 |
+| 长期使用 | rules 与 background agents 结合自然。 | 开放度和执行栈深度不如 Cline / Codex 这类工具。 |
+| 团队 rollout | 适合作为个人或小团队的长期主入口。 | 团队规则越来越依赖 Cursor 私有配置，导致入口一换就断。 |
+| 补位路线 | VS Code Agents | Windsurf |
+
+## 替代路线
+
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你想保留 VS Code 生态与控制面。
+- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更偏好更整合的 workspace 工作流。
+- [Cline](/docs/tools/terminal-agents/cline)：如果你更重视开放工具壳层而非 IDE 体验。
+
+替代路线不是为了证明谁更强，而是为了在主入口已经不匹配时，尽快换到更合适的控制面、执行栈或 IDE 入口。
 
 ## 退出信号
 
-- 复杂任务仍主要依赖其他控制面或执行栈，Cursor 只剩补全用途。
-- 团队规则越来越绑定在私有配置里，换入口就断。
-- 你真正需要的是更开放的壳层或更整合的工作台，而不是现有 IDE 入口。
+- 团队规则越来越依赖 Cursor 私有配置，导致入口一换就断。
+- 长任务和平台协作长期要切回其他工具。
+- background agents 产物难以纳入统一治理。
 
-## 换到哪里
+## 决策检查
 
-- 想保留 VS Code 生态并加后台 agent：去 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。
-- 想要更整合的工作台和记忆层：去 [Windsurf](/docs/tools/ide-first/windsurf)。
-- 想要最大开放可组合性：去 [Cline](/docs/tools/terminal-agents/cline)。
+- 如果主线任务还落在 Cursor 的优势区间，就继续保留它。
+- 如果退出信号已经持续出现，就不要再把它留在主入口。
+- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
 
-## 读完回哪里
+## 下一步
 
-- 想先确认 IDE 入口值不值得保留：回 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
-- 想看它和其他 IDE/终端入口怎么分工：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
-- 想继续看本地到后台主线：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你想保留 VS Code 生态与控制面。
+- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更偏好更整合的 workspace 工作流。
+- [Cline](/docs/tools/terminal-agents/cline)：如果你更重视开放工具壳层而非 IDE 体验。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
 
 ## 来源
 
-- [Cursor docs](https://docs.cursor.com/)
 - [Cursor Background Agents](https://docs.cursor.com/en/background-agents)
+- [Cursor Rules](https://docs.cursor.com/context/rules)

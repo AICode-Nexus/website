@@ -56,7 +56,11 @@ function createToolGuideCategory(tool) {
       type: 'doc',
       id: `${tool.id}/index`,
     },
-    items: validatedToolDocNavigation.pageOrder.map((page) => `${tool.id}/${page.id}`),
+    items: validatedToolDocNavigation.pageOrder.map((page) => ({
+      type: 'doc',
+      id: `${tool.id}/${page.id}`,
+      label: page.label,
+    })),
   };
 }
 
@@ -90,12 +94,9 @@ const sidebars = {
         'overview/content-index',
       ],
     },
-    {
-      type: 'category',
-      label: '学习资源',
-      items: ['tools/resources/index', 'tools/resources/videos', 'tools/resources/courses'],
-    },
   ],
+
+  resourcesSidebar: ['tools/resources/index', 'tools/resources/videos', 'tools/resources/courses'],
 
   toolTutorialsSidebar: [
     'tools/index',

@@ -381,7 +381,7 @@ function buildQuickFilters(toolFacetEntries) {
     parameter: 'tool',
     value: entry.id,
     count: entry.count,
-    href: `/docs/ai-code-teaching-videos?tool=${encodeURIComponent(entry.id)}${TEACHING_VIDEO_RESULTS_SEARCH}`,
+    href: `/docs/resources/videos?tool=${encodeURIComponent(entry.id)}${TEACHING_VIDEO_RESULTS_SEARCH}`,
   }));
 }
 

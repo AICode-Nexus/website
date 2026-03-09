@@ -1,7 +1,8 @@
 ---
 title: AI Code 课程目录
 description: 基于当前筛选命中的视频结果实时聚合课程目录，不再展示与当前筛选无关的课程。
-slug: /tools/resources/courses
+slug: /resources/courses
+displayed_sidebar: resourcesSidebar
 sidebar_label: 课程目录
 tags: [ai-coding, resources, courses]
 track: cross-track
@@ -29,19 +30,19 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 - 你已经不只是想找一条视频，而是想按系列内容连续学习。
 - 你希望按创作者、课程主题和长期学习路径浏览，而不是逐条筛素材。
-- 你已经通过 [视频目录](/docs/tools/resources/videos) 锁定了几个值得系统追的课程方向。
+- 你已经通过 [视频目录](/docs/resources/videos) 锁定了几个值得系统追的课程方向。
 
 ## 当前聚合规则
 
 - 课程视图来自当前筛选命中的视频结果，不再额外混入无关课程。
 - 如果某门课程当前没有命中视频条目，它就不会出现在这页里。
-- 课程目录仍然只承接学习材料，不替代 [视频资源](/docs/tools/resources) 或 [AI 编程工具](/docs/tools) 的长期知识结构。
+- 课程目录仍然只承接学习材料，不替代独立的 [视频资源](/docs/resources) 入口或 [AI 编程工具](/docs/tools) 的长期知识结构。
 
 <TeachingVideoCatalogPage resourceType="courses" />
 
 ## 什么时候切回视频目录
 
-- 如果你已经锁定课程，但需要回到单条视频细看发布时间、语言或具体主题，切回 [视频目录](/docs/tools/resources/videos)。
+- 如果你已经锁定课程，但需要回到单条视频细看发布时间、语言或具体主题，切回 [视频目录](/docs/resources/videos)。
 - 如果你已经学完一轮，想把经验回流到长期知识结构，继续去 [AI 工作流](/docs/workflows) 或 [内容索引](/docs/content-index)。
 
 <RelatedReadings
@@ -50,12 +51,12 @@ import {RelatedReadings} from '@site/src/components/docs';
   items={[
     {
       title: '视频目录',
-      href: '/docs/tools/resources/videos',
+      href: '/docs/resources/videos',
       description: '回到逐条视频结果，继续按时间和关键词细看。',
     },
     {
       title: '视频资源',
-      href: '/docs/tools/resources',
+      href: '/docs/resources',
       description: '回到视频资源总览，了解视频目录与课程目录的分工。',
     },
     {

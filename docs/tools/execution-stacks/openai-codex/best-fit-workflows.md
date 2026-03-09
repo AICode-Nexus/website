@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "advanced"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,48 +11,55 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "OpenAI Codex：最适合的工作流"
-description: "OpenAI Codex 最适合承接哪些工作流，以及不适合单独承接什么。"
+title: "OpenAI Codex：工作流适配"
+description: "OpenAI Codex 适合接哪类工作流，以及不适合接什么。"
 slug: "/tools/execution-stacks/openai-codex/best-fit-workflows"
-sidebar_label: "补充：工作流适配"
-sidebar_position: 6
+sidebar_label: "工作流适配"
 tags: ["ai-coding", "tool", "openai-codex"]
 ---
 
-# OpenAI Codex：最适合的工作流
+# OpenAI Codex：工作流适配
 
-## 现在先做什么
+## 适合接什么
 
-- 第一次跑通执行栈：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
-- 想固定高频执行 SOP：去 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks)。
-- 想直接进入最自然的长任务主线：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Codex CLI 很适合作为终端内的主执行入口。
+- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它天然适合并行 worktree 与多任务分治。
+- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：本地探索、后台执行和平台收口都能承接。
 
-## 什么时候读这页
+## 场景判断
 
-- 你已经知道 Codex 能执行，现在只想判断它该接哪类长任务。
-- 你在分本地探索、后台执行、云端任务和平台收口的边界。
-- 你要决定它是正式执行栈，还是只做局部并行加速入口。
+| 场景 | 为什么适合 | 搭配入口 |
+| --- | --- | --- |
+| Terminal-First Repo Pairing | Codex CLI 很适合作为终端内的主执行入口。 | Spec Kit |
+| Parallel Worktrees / Multi-Agent | 它天然适合并行 worktree 与多任务分治。 | Superpowers |
+| Local -> Background -> Cloud | 本地探索、后台执行和平台收口都能承接。 | GitHub Copilot |
 
-## 默认优先搭配
+## 常见任务
 
-- [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)：这是它最自然的主线。
-- [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)：适合把并行 lane 做成正式执行栈。
-- [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)：适合终端内长链路执行和验证。
+- 长链路重构、并行子任务、跨模块实现与验证。
+- 本地探索后转交 cloud task 持续执行。
+- 需要审批模式和命令证据的 repo 级改动。
 
-## 不该拿它单独做什么
+## 不适合接什么
 
-- 只想要 IDE 补全或轻量聊天，不需要执行链和审批模式的人。
-- 团队完全不愿维护 repo 规则、命令证据和 task 边界。
-- 大部分工作都发生在 GitHub 平台 review 层，本地执行价值很小的组织。
+- 只需要轻量 IDE 补全或聊天，不需要执行链与审批模式。
+- 团队完全不愿意维护 repo 规则和 command evidence。
+- 工作主要发生在纯平台 review 层，本地执行价值不大。
 
-## 读完回哪里
+## 默认搭配
 
-- 想直接跑执行栈：回 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
-- 想固定高频长任务动作：去 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks)。
-- 想看真实执行到验证闭环：去 [Codex Refactor with Verification 案例](/docs/case-studies/codex-refactor-with-verification)。
-- 想看平台与执行栈怎么分工：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 收口 PR 与 review，Codex 负责执行层。
+
+## 下一步
+
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 收口 PR 与 review，Codex 负责执行层。
+- [OpenAI Codex：集成、review 与治理](/docs/ecosystem/integrations/openai-codex)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 
 - [OpenAI Codex App](https://openai.com/index/introducing-the-codex-app/)
-- [OpenAI Codex CLI](https://github.com/openai/codex)
+- [OpenAI Codex Upgrades](https://openai.com/index/codex-upgrades/)

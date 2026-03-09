@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,51 +11,54 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "implementation"
-title: "GitHub Copilot：规则、记忆与工具边界"
-description: "GitHub Copilot 的 rules、memory、tools 与 repo 接入建议。"
+title: "GitHub Copilot：规则与边界"
+description: "GitHub Copilot 的规则应该放哪，哪些边界必须写清。"
 slug: "/tools/platforms/github-copilot/rules-memory-tools"
-sidebar_label: "补充：规则与边界"
-sidebar_position: 7
+sidebar_label: "规则与边界"
 tags: ["ai-coding", "tool", "github-copilot"]
 ---
 
-# GitHub Copilot：规则、记忆与工具边界
+# GitHub Copilot：规则与边界
 
-## 现在先做什么
+## 规则分层
 
-- 第一次厘清平台边界：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
-- 想把平台习惯稳定下来：去 [GitHub Copilot 最佳实践](/docs/tools/platforms/github-copilot/best-practices)。
-- 想先把 repo 规则与 review 合同理清：去 [仓库规则文件体系](/docs/repo-instruction-files)。
+- 优先把 issue 模板、PR 模板、branch policy 和 repo 指令当成平台规则源头。
+- 平台层的自定义说明应该服务于 repo 规则，而不是覆盖 repo 合同。
+- 当组织开始用 memory 或 coding agent 指令时，仍需明确谁能修改这些默认规则。
 
-## 什么时候读这页
+## 状态与记忆边界
 
-- 你准备长期把 GitHub 当 AI 交付工作系统，而不是只偶尔让 agent 提交 PR。
-- 你要决定 issue 模板、PR 模板、CODEOWNERS 和平台设置分别放在哪。
-- 你已经开始担心“平台里很顺，但仓库事实和 review 边界没有同步”。
+- 平台更适合保存工作系统上下文，例如 issue、PR、review、Jira 状态。
+- 个体偏好可以交给平台记忆，但仓库级规则仍应版本化在 repo 内。
 
-## 应该写进 repo 的东西
+## 规则与边界矩阵
 
-- issue 模板、PR 模板、目录边界、验证命令和 reviewer 责任。
-- 允许 agent 改哪些目录、哪些检查必须通过、何时必须人工接管。
-- 必须跟 PR 一起存在的验收标准、风险说明和交付证据。
+| 边界层 | 应该放什么 | 不要放什么 |
+| --- | --- | --- |
+| 入口规则 | 优先把 issue 模板、PR 模板、branch policy 和 repo 指令当成平台规则源头。 | 平台层的自定义说明应该服务于 repo 规则，而不是覆盖 repo 合同。 |
+| 状态与记忆 | 平台更适合保存工作系统上下文，例如 issue、PR、review、Jira 状态。 | 个体偏好可以交给平台记忆，但仓库级规则仍应版本化在 repo 内。 |
+| 执行边界 | 强项在 GitHub issue、PR、review、branch 与外部工单系统集成。 | 不应该把它当成 shell-first 的主入口，而应把本地执行交给更合适的工具。 |
+| 仓库合同 | 先把 issue 模板、PR checklist 和 branch protection 写清，再扩大 coding agent 使用范围。 | 在 repo 里固定好验证命令和 reviewer 规则，平台只负责承接这些制度。 |
 
-## 只留在工具里的东西
+## 写进 repo
 
-- 平台层的个人通知习惯、短期队列整理和一次性任务偏好。
-- 不值得版本化的临时提示语和单次交互上下文。
-- 用来追踪执行状态的临时平台视图，但不能代替 repo 合同。
+- 先把 issue 模板、PR checklist 和 branch protection 写清，再扩大 coding agent 使用范围。
+- 在 repo 里固定好验证命令和 reviewer 规则，平台只负责承接这些制度。
+- 如果平台 agent 产物无法回流到 PR 描述或检查结果，就不要扩大使用。
 
-## 失控信号
+## 团队检查
 
-- 平台里能看到任务状态，但仓库里找不到对应规则和验收依据。
-- issue 和 PR 越来越多，真正可复用的模板和目录边界却越来越少。
-- 一离开 GitHub UI，团队就说不清任务到底该怎么完成和怎么验收。
+- 先定义哪些规则必须版本化留在 repo，哪些只属于 GitHub Copilot 的入口习惯。
+- 任何长期状态都必须能解释 owner、刷新时机和失效条件。
+- 执行边界要能回到真实命令、diff 和 PR 证据，而不是只剩界面内的一句“完成了”。
+- 先把 issue 模板、PR checklist 和 branch protection 写清，再扩大 coding agent 使用范围。
 
-## 读完回哪里
+## 下一步
 
-- 想先把平台边界定住：回 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
-- 想看长期使用的稳定写法：去 [GitHub Copilot 最佳实践](/docs/tools/platforms/github-copilot/best-practices)。
-- 想先把 repo 规则和 review 文件梳理清楚：去 [仓库规则文件体系](/docs/repo-instruction-files)。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务可在执行栈里推进，最后回到 GitHub 收口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
+- [GitHub Copilot：集成、review 与治理](/docs/ecosystem/integrations/github-copilot)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

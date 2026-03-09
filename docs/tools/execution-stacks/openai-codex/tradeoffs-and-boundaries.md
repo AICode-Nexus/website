@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "advanced"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,47 +11,60 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "OpenAI Codex：优点、边界与替代项"
-description: "OpenAI Codex 的优势、边界、替代项和退出信号。"
+title: "OpenAI Codex：优点与替代"
+description: "OpenAI Codex 值不值得保留，什么时候该换别的入口。"
 slug: "/tools/execution-stacks/openai-codex/tradeoffs-and-boundaries"
-sidebar_label: "补充：优点与替代"
-sidebar_position: 8
+sidebar_label: "优点与替代"
 tags: ["ai-coding", "tool", "openai-codex"]
 ---
 
-# OpenAI Codex：优点、边界与替代项
+# OpenAI Codex：优点与替代
 
-## 现在先做什么
+真正的判断不是“它能不能用”，而是它是否还值得占据你的默认入口。保留理由、替代路线和退出信号必须一起看，否则团队很容易继续被一个已经不匹配的入口拖住。
 
-- 还没实际跑过执行栈：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
-- 想先看执行到验证的真实闭环：去 [Codex Refactor with Verification 案例](/docs/case-studies/codex-refactor-with-verification)。
-- 想先比较平台与执行栈：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+## 保留理由
 
-## 保留它的理由
+- 长任务与并行执行能力强。
+- 审批模式和执行证据意识明确。
+- 适合 worktree、隔离环境和云端任务协作。
 
-- 你要的是正式执行栈、并行 task 和可持续的长任务推进。
-- 你重视审批模式、命令证据和本地到云端的连续执行。
-- 团队愿意维护 repo 合同，不把执行链降级成纯聊天体验。
+## 取舍矩阵
+
+| 面向 | 你会得到什么 | 你要接受什么 |
+| --- | --- | --- |
+| 优势 | 长任务与并行执行能力强。 | 对仅需轻量编辑器交互的用户可能过重。 |
+| 长期使用 | 审批模式和执行证据意识明确。 | 如果团队没有 repo contract，执行栈会很快失控。 |
+| 团队 rollout | 适合 worktree、隔离环境和云端任务协作。 | 团队真正依赖的只有聊天和补全，执行链几乎不用。 |
+| 补位路线 | Claude Code | VS Code Agents |
+
+## 替代路线
+
+- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更偏向轻量 terminal-first pairing。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面和 background agents。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更需要平台工作系统而不是执行栈。
+
+替代路线不是为了证明谁更强，而是为了在主入口已经不匹配时，尽快换到更合适的控制面、执行栈或 IDE 入口。
 
 ## 退出信号
 
-- 大多数任务其实只需要 IDE 补位或平台 review，不需要执行栈。
-- 任务边界和审批方式始终不清，强执行能力反而放大噪音。
-- 团队真正使用的只有补全和问答，长链路执行几乎没有落地。
+- 团队真正依赖的只有聊天和补全，执行链几乎不用。
+- owner 无法解释每个任务到底跑了什么命令、改了什么东西。
+- 并行与后台能力带来的协调成本超过收益。
 
-## 换到哪里
+## 决策检查
 
-- 想保留轻量终端 pairing：去 [Claude Code](/docs/tools/terminal-agents/claude-code)。
-- 想把本地与后台 agent 都留在编辑器：去 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。
-- 想主要在平台和 PR 流里收口：去 [GitHub Copilot](/docs/tools/platforms/github-copilot)。
+- 如果主线任务还落在 OpenAI Codex 的优势区间，就继续保留它。
+- 如果退出信号已经持续出现，就不要再把它留在主入口。
+- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
 
-## 读完回哪里
+## 下一步
 
-- 想先确认执行栈值不值得保留：回 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
-- 想看真实执行证据链：去 [Codex Refactor with Verification 案例](/docs/case-studies/codex-refactor-with-verification)。
-- 想做平台与执行栈的横向判断：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更偏向轻量 terminal-first pairing。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面和 background agents。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更需要平台工作系统而不是执行栈。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
 
 ## 来源
 
 - [OpenAI Codex App](https://openai.com/index/introducing-the-codex-app/)
-- [OpenAI Codex CLI](https://github.com/openai/codex)
+- [OpenAI Codex Upgrades](https://openai.com/index/codex-upgrades/)

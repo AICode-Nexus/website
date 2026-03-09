@@ -57,6 +57,20 @@ const EXPECTED_NAVBAR_LEFT_ITEMS = [
     to: '/blog',
   },
 ];
+const EXPECTED_NAVBAR_RIGHT_ITEMS = [
+  {
+    label: '视频资源',
+    type: 'docSidebar',
+    sidebarId: 'resourcesSidebar',
+  },
+  {
+    label: 'GitHub',
+    href: 'github',
+  },
+  {
+    type: 'search',
+  },
+];
 const EXPECTED_ACTION_CATEGORIES = [
   {
     sidebarId: 'toolTutorialsSidebar',
@@ -329,6 +343,8 @@ function normalizeNavbarItem(item) {
     type: item?.type || '',
     sidebarId: item?.sidebarId || '',
     to: item?.to || '',
+    href: item?.href || '',
+    className: item?.className || '',
     position: item?.position || 'right',
   };
 }
@@ -481,6 +497,32 @@ function validateNavigationGuards(failures) {
     if (mismatches.length > 0) {
       failures.push(
         `- Navbar item ${index + 1} should be ${JSON.stringify(expectedItem)}, found ${JSON.stringify(actualItem)}.`,
+      );
+    }
+  });
+
+  const actualRightItems = (docusaurusConfig.themeConfig?.navbar?.items || [])
+    .map(normalizeNavbarItem)
+    .filter((item) => item.position === 'right')
+    .map((item) => ({
+      ...item,
+      href: item.href.includes('github.com/') ? 'github' : item.href,
+    }));
+
+  if (actualRightItems.length !== EXPECTED_NAVBAR_RIGHT_ITEMS.length) {
+    failures.push(
+      `- Navbar should expose exactly ${EXPECTED_NAVBAR_RIGHT_ITEMS.length} right-side items, found ${actualRightItems.length}.`,
+    );
+    return;
+  }
+
+  EXPECTED_NAVBAR_RIGHT_ITEMS.forEach((expectedItem, index) => {
+    const actualItem = actualRightItems[index];
+    const mismatches = Object.entries(expectedItem).filter(([key, value]) => actualItem[key] !== value);
+
+    if (mismatches.length > 0) {
+      failures.push(
+        `- Right-side navbar item ${index + 1} should be ${JSON.stringify(expectedItem)}, found ${JSON.stringify(actualItem)}.`,
       );
     }
   });

@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,51 +11,54 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "implementation"
-title: "VS Code Agents：规则、记忆与工具边界"
-description: "VS Code Agents 的 rules、memory、tools 与 repo 接入建议。"
+title: "VS Code Agents：规则与边界"
+description: "VS Code Agents 的规则应该放哪，哪些边界必须写清。"
 slug: "/tools/control-planes/vscode-agents/rules-memory-tools"
-sidebar_label: "补充：规则与边界"
-sidebar_position: 7
+sidebar_label: "规则与边界"
 tags: ["ai-coding", "tool", "vscode-agents"]
 ---
 
-# VS Code Agents：规则、记忆与工具边界
+# VS Code Agents：规则与边界
 
-## 现在先做什么
+## 规则分层
 
-- 第一次进入控制面：去 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start)。
-- 想把它用成长期系统：去 [VS Code Agents 最佳实践](/docs/tools/control-planes/vscode-agents/best-practices)。
-- 想先把仓库规则写清：去 [仓库规则文件体系](/docs/repo-instruction-files)。
+- 编辑器级工作区配置应与 repo 规则相互对照，而不是成为第二套事实来源。
+- 当团队启用 custom agents 或 reusable prompts 时，仍要明确职责归属。
+- 本地与后台 agent 共享的任务合同最好回写到仓库或工单，而不是只留在会话里。
 
-## 什么时候读这页
+## 状态与记忆边界
 
-- 你已经开始长期使用 VS Code Agents，想判断哪些规则该写回 repo。
-- 你发现 background task、会话状态和仓库事实开始分叉。
-- 你要定义本地与后台 agent 的职责边界。
+- 编辑器会保留会话上下文和 background task 状态，但 repo 级长期规则仍应版本化。
+- 适合承载“当前任务”与“当前工作区”的短中期状态。
 
-## 应该写进 repo 的东西
+## 规则与边界矩阵
 
-- 目录边界、禁止修改区和必跑命令。
-- 本地与后台 handoff 的最小合同。
-- review 说明和接管条件。
+| 边界层 | 应该放什么 | 不要放什么 |
+| --- | --- | --- |
+| 入口规则 | 编辑器级工作区配置应与 repo 规则相互对照，而不是成为第二套事实来源。 | 当团队启用 custom agents 或 reusable prompts 时，仍要明确职责归属。 |
+| 状态与记忆 | 编辑器会保留会话上下文和 background task 状态，但 repo 级长期规则仍应版本化。 | 适合承载“当前任务”与“当前工作区”的短中期状态。 |
+| 执行边界 | 编辑器内代码理解、diff、终端和 background agents 是主要优势。 | 第三方 agents 与扩展机制让它更像控制面，而不是单一 vendor agent。 |
+| 仓库合同 | 把常用验证命令、任务模板和目录边界写回仓库文件，减少 editor 特有配置漂移。 | 背景任务必须有 owner 和 handoff 规则，不能把编辑器当异步黑盒。 |
 
-## 只留在工具里的东西
+## 写进 repo
 
-- 当前工作区的短期状态。
-- 只对编辑器控制面有意义的操作习惯。
-- 暂时不值得沉淀成仓库公共规范的偏好。
+- 把常用验证命令、任务模板和目录边界写回仓库文件，减少 editor 特有配置漂移。
+- 背景任务必须有 owner 和 handoff 规则，不能把编辑器当异步黑盒。
+- 视觉验证、浏览器操作和终端验证最好有固定时机，不要混成一锅。
 
-## 失控信号
+## 团队检查
 
-- 编辑器配置已经变成第二套事实来源。
-- background task 产物无法回到仓库或 PR 证据里解释。
-- 团队成员说不清哪些规则来自 repo，哪些来自工作台。
+- 先定义哪些规则必须版本化留在 repo，哪些只属于 VS Code Agents 的入口习惯。
+- 任何长期状态都必须能解释 owner、刷新时机和失效条件。
+- 执行边界要能回到真实命令、diff 和 PR 证据，而不是只剩界面内的一句“完成了”。
+- 把常用验证命令、任务模板和目录边界写回仓库文件，减少 editor 特有配置漂移。
 
-## 读完回哪里
+## 下一步
 
-- 想先整理规则源头：回 [仓库规则文件体系](/docs/repo-instruction-files)。
-- 想把这些边界用进日常协作：回 [VS Code Agents 最佳实践](/docs/tools/control-planes/vscode-agents/best-practices)。
-- 想继续看真实工作系统接入：去 [VS Code Agents：集成、review 与治理](/docs/ecosystem/integrations/vscode-agents)。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责平台闭环，VS Code 负责本地控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：用 VS Code 作为可视化控制面，Codex 负责更深执行。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把计划、worktree 和 review ritual 固化时可以叠加。
+- [VS Code Agents：集成、review 与治理](/docs/ecosystem/integrations/vscode-agents)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

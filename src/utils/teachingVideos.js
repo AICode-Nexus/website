@@ -210,8 +210,8 @@ export function defineTeachingVideoCatalog(catalog) {
 }
 
 export const TEACHING_VIDEO_LEGACY_CATALOG_PATH = '/docs/ai-code-teaching-videos';
-export const TEACHING_VIDEO_VIDEO_CATALOG_PATH = '/docs/tools/resources/videos';
-export const TEACHING_VIDEO_COURSE_CATALOG_PATH = '/docs/tools/resources/courses';
+export const TEACHING_VIDEO_VIDEO_CATALOG_PATH = '/docs/resources/videos';
+export const TEACHING_VIDEO_COURSE_CATALOG_PATH = '/docs/resources/courses';
 
 export const TEACHING_VIDEO_RESULTS_SECTION_ID = 'video-results';
 export const TEACHING_VIDEO_RESULTS_SECTION_PARAM = 'section';

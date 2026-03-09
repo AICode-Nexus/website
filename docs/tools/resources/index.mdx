@@ -1,7 +1,8 @@
 ---
 title: 视频资源
-description: 视频资源入口只负责承接可直接消费的教学素材，按视频目录和课程目录拆分，不再与工具主骨架混排。
-slug: /tools/resources
+description: 视频资源现在作为独立一级入口承接可直接消费的教学素材，按视频目录和课程目录拆分，不再挂在工具教程下面。
+slug: /resources
+displayed_sidebar: resourcesSidebar
 sidebar_label: 视频资源
 tags: [ai-coding, resources, teaching-videos]
 track: cross-track
@@ -22,17 +23,17 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 # 视频资源
 
-视频资源只承接“拿来就看、拿来就学”的材料，不承担“工具与技术选型”方向的一级知识骨架职责。
+视频资源现在是独立一级入口，只承接“拿来就看、拿来就学”的材料，不再并入工具教程主骨架。
 
 这里默认拆成两类视图：
 
-- [视频目录](/docs/tools/resources/videos)：按可直接播放的视频条目筛选和浏览。
-- [课程目录](/docs/tools/resources/courses)：把当前筛选命中的视频实时聚合成课程视图。
+- [视频目录](/docs/resources/videos)：按可直接播放的视频条目筛选和浏览。
+- [课程目录](/docs/resources/courses)：把当前筛选命中的视频实时聚合成课程视图。
 
 ## 两类视图怎么分
 
-- 如果你已经知道自己要找的是具体视频条目，先去 [视频目录](/docs/tools/resources/videos)。
-- 如果你更想按系列内容、课程作者和连续学习路径浏览，先去 [课程目录](/docs/tools/resources/courses)。
+- 如果你已经知道自己要找的是具体视频条目，先去 [视频目录](/docs/resources/videos)。
+- 如果你更想按系列内容、课程作者和连续学习路径浏览，先去 [课程目录](/docs/resources/courses)。
 - 这两个页面都只承接学习材料，不负责替代 [AI 编程工具](/docs/tools) 或 [AI 工作流](/docs/workflows) 的长期知识结构。
 
 ## 使用原则
@@ -53,12 +54,12 @@ import {RelatedReadings} from '@site/src/components/docs';
   items={[
     {
       title: '视频目录',
-      href: '/docs/tools/resources/videos',
+      href: '/docs/resources/videos',
       description: '按平台、语言、工具、主题和难度筛选可直接播放的视频条目。',
     },
     {
       title: '课程目录',
-      href: '/docs/tools/resources/courses',
+      href: '/docs/resources/courses',
       description: '基于当前筛选命中的视频结果查看课程聚合视图。',
     },
     {

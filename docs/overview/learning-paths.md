@@ -67,7 +67,7 @@ import {RelatedReadings} from '@site/src/components/docs';
 - 如果你知道阶段，但不知道该补哪类长期知识，回 [知识方向总表](/docs/start/taxonomy)。
 - 如果你只想按任务直接做，不想再看路径设计，回 [AI 工作流](/docs/workflows)。
 - 如果你只差一个入口没定，回 [AI 编程工具](/docs/tools)。
-- 如果你需要的是视频、课程或材料，而不是顺序判断，回 [资源中心](/docs/tools/resources)。
+- 如果你需要的是视频、课程或材料，而不是顺序判断，回 [视频资源](/docs/resources)。
 
 <RelatedReadings
   title="继续阅读与下一步"

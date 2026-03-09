@@ -2,8 +2,8 @@
 audience: "individual"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,48 +11,55 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "Cursor：最适合的工作流"
-description: "Cursor 最适合承接哪些工作流，以及不适合单独承接什么。"
+title: "Cursor：工作流适配"
+description: "Cursor 适合接哪类工作流，以及不适合接什么。"
 slug: "/tools/ide-first/cursor/best-fit-workflows"
-sidebar_label: "补充：工作流适配"
-sidebar_position: 6
+sidebar_label: "工作流适配"
 tags: ["ai-coding", "tool", "cursor"]
 ---
 
-# Cursor：最适合的工作流
+# Cursor：工作流适配
 
-## 现在先做什么
+## 适合接什么
 
-- 第一次跑通 IDE 主入口：去 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
-- 想固定 IDE 内高频 SOP：去 [Cursor 常见任务](/docs/tools/ide-first/cursor/common-tasks)。
-- 想直接进入最自然的维护主线：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：Cursor 很适合高频迭代和小步修复。
+- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：适合本地编辑与 background agents 组合。
+- [Spec-First](/docs/workflows/patterns/spec-first)：轻中型 spec-first 任务可以在 IDE 内先规划再执行。
 
-## 什么时候读这页
+## 场景判断
 
-- 你已经知道 Cursor 顺手，但还没决定它到底该接哪类任务。
-- 你在分 IDE 内连续编辑、本地到后台 handoff 和平台收口的边界。
-- 你要判断它是默认 IDE 工作台，还是只做个人高频入口。
+| 场景 | 为什么适合 | 搭配入口 |
+| --- | --- | --- |
+| Bugfix / Refactor / Test | Cursor 很适合高频迭代和小步修复。 | Superpowers |
+| Local -> Background -> Cloud | 适合本地编辑与 background agents 组合。 | GitHub Copilot |
+| Spec-First | 轻中型 spec-first 任务可以在 IDE 内先规划再执行。 | Spec Kit |
 
-## 默认优先搭配
+## 常见任务
 
-- [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)：这是它最自然的主线。
-- [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)：适合本地编辑加后台 agent 的组合。
-- [Spec-First Runbook](/docs/workflows/patterns/spec-first/runbook)：适合轻中型 spec 定稿后继续在 IDE 内执行。
+- 高频重构、交互式编辑、局部修复和 background agents。
+- 需要在 IDE 中保持较低上下文切换成本的日常任务。
+- 对规则和编辑器体验都比较敏感的个人工作流。
 
-## 不该拿它单独做什么
+## 不适合接什么
 
 - 团队核心协作都在 GitHub 平台，不需要 IDE 作为主入口。
-- 纯终端文化、强脚本化和高控制 shell 为主的团队。
-- 更看重最大开放可组合性，而不是 IDE 连续体验的人。
+- 纯终端或强脚本文化团队。
+- 更看重开放 provider 与工具编排，而不是 IDE 体验的人。
 
-## 读完回哪里
+## 默认搭配
 
-- 想直接开 IDE 主线：回 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
-- 想固定 IDE 高频任务：去 [Cursor 常见任务](/docs/tools/ide-first/cursor/common-tasks)。
-- 想看 IDE 工作台怎么和别的入口分工：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
-- 想看本地到后台的工作流主线：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责 PR / review，Cursor 负责日常编辑入口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec / plan 先固定，再回 IDE 做执行。
+
+## 下一步
+
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责 PR / review，Cursor 负责日常编辑入口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec / plan 先固定，再回 IDE 做执行。
+- [Cursor：集成、review 与治理](/docs/ecosystem/integrations/cursor)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 
-- [Cursor docs](https://docs.cursor.com/)
 - [Cursor Background Agents](https://docs.cursor.com/en/background-agents)
+- [Cursor Rules](https://docs.cursor.com/context/rules)

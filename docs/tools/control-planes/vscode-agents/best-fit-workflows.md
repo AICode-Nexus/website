@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,45 +11,53 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "VS Code Agents：最适合的工作流"
-description: "VS Code Agents 最适合承接哪些工作流，以及不适合单独承接什么。"
+title: "VS Code Agents：工作流适配"
+description: "VS Code Agents 适合接哪类工作流，以及不适合接什么。"
 slug: "/tools/control-planes/vscode-agents/best-fit-workflows"
-sidebar_label: "补充：工作流适配"
-sidebar_position: 6
+sidebar_label: "工作流适配"
 tags: ["ai-coding", "tool", "vscode-agents"]
 ---
 
-# VS Code Agents：最适合的工作流
+# VS Code Agents：工作流适配
 
-## 现在先做什么
+## 适合接什么
 
-- 第一次跑通控制面闭环：去 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start)。
-- 想固定高频控制面 SOP：去 [VS Code Agents 常见任务](/docs/tools/control-planes/vscode-agents/common-tasks)。
-- 想直接进入最自然的工作流：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：这是 VS Code Agents 最自然的主线。
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：本地修复与后台补跑结合得比较顺。
+- [Spec-First](/docs/workflows/patterns/spec-first)：适合先在本地规划，再把明确任务交给后台。
 
-## 什么时候读这页
+## 场景判断
 
-- 你已经知道 VS Code Agents 能做什么，现在只想判断它该接哪一段流程。
-- 你要决定它是主控制面，还是只做局部补位入口。
-- 你在分本地探索、后台执行和编辑器审阅的边界。
+| 场景 | 为什么适合 | 搭配入口 |
+| --- | --- | --- |
+| Local -> Background -> Cloud | 这是 VS Code Agents 最自然的主线。 | GitHub Copilot |
+| Bugfix / Refactor / Test | 本地修复与后台补跑结合得比较顺。 | OpenAI Codex |
+| Spec-First | 适合先在本地规划，再把明确任务交给后台。 | Superpowers |
 
-## 默认优先搭配
+## 常见任务
 
-- [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)：这是它最自然的主线。
-- [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)：适合本地修复后顺手补跑验证。
-- [Spec-First Runbook](/docs/workflows/patterns/spec-first/runbook)：适合先在本地规划，再交给后台推进。
+- 在本地读代码、起草方案，然后发给 background agent 继续执行。
+- 结合终端、浏览器和编辑器 diff 做交互式修复。
+- 用统一工作台接入第三方 agent 或 MCP 风格工具。
 
-## 不该拿它单独做什么
+## 不适合接什么
 
-- 纯终端文化团队的唯一主入口。
-- 以 GitHub 平台为绝对中心的唯一工作系统。
-- 本来就很小、没有后台交接必要的单点任务。
+- 纯终端文化团队，不愿意依赖编辑器控制面。
+- 想要 GitHub 平台即入口，而不是 editor 先行的组织。
+- 只需轻量 CLI 助手，不需要本地/后台统一调度的场景。
 
-## 读完回哪里
+## 默认搭配
 
-- 想直接开跑：回 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start)。
-- 想看真实 handoff：去 [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff)。
-- 想继续补平台与执行栈分工：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责平台闭环，VS Code 负责本地控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：用 VS Code 作为可视化控制面，Codex 负责更深执行。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把计划、worktree 和 review ritual 固化时可以叠加。
+
+## 下一步
+
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责平台闭环，VS Code 负责本地控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：用 VS Code 作为可视化控制面，Codex 负责更深执行。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把计划、worktree 和 review ritual 固化时可以叠加。
+- [VS Code Agents：集成、review 与治理](/docs/ecosystem/integrations/vscode-agents)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

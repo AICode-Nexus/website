@@ -72,12 +72,11 @@ market_status: current
 
 ### 3. 工具与技术选型
 
-解决平台、执行栈、终端 agent、AI IDE、技术比较和资源入口。
+解决平台、执行栈、终端 agent、AI IDE 和技术比较。
 
 入口：
 
 - [工具与技术选型](/docs/tools)
-- [资源中心](/docs/tools/resources)
 
 ### 4. 规范评估与治理
 
@@ -107,7 +106,7 @@ market_status: current
 
 这些层是入口或载体，不是长期知识方向：
 
-- `资源中心`：放视频和课程这类可直接消费的材料。
+- [`视频资源`](/docs/resources)：放视频和课程这类可直接消费的材料。
 - `内容索引`：放对比、Playbook 和 Insight 这类内容形态入口。
 - `Daily Brief`：放高时效观察。
 - `旧赛道归档`：保留历史链接和旧透镜。

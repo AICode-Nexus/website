@@ -403,58 +403,38 @@ function buildToolWorkflowDoc(item) {
   const nextLinks = dedupeLinks(item.combos, [getToolGovernanceLink(item)], item.alternatives, item.workflows).slice(0, 6);
 
   return `${buildToolFrontMatter(item, {
-    title: `${item.title}：最适合的工作流`,
-    description: `${item.title} 最适合承接哪些工作流，以及不适合单独承接什么。`,
+    title: `${item.title}：工作流适配`,
+    description: `${item.title} 适合接哪类工作流，以及不适合接什么。`,
     slug: `${item.docsRoot.replace('/docs', '')}/best-fit-workflows`,
-    sidebar_label: '最适合的工作流',
+    sidebar_label: '工作流适配',
     tags: ['ai-coding', 'tool', item.id],
   })}
 
-# ${item.title}：最适合的工作流
+# ${item.title}：工作流适配
 
-工具选型真正困难的地方，不是它能不能“做很多事”，而是它最适合承接哪一段 workflow。主入口和任务形状不匹配，再强的模型和 UI 也会变成频繁切换上下文的负担。
-
-## 哪些任务最自然
+## 适合接什么
 
 ${linkedList(item.workflows)}
 
-${admonition(
-    'info',
-    '默认使用法',
-    `${item.title} 更适合承接那些需要频繁交互、快速回看改动、并且仍能把验证结果回流到 repo 或 PR 的任务。`,
-  )}
-
-## 场景矩阵
+## 场景判断
 
 ${buildToolWorkflowMatrix(item)}
 
-## 典型任务长什么样
+## 常见任务
 
 ${bulletList(item.typicalTasks)}
 
-这些任务有一个共同点：你需要的不是“纯聊天式解释”，而是能在一个连续入口里做读代码、改代码、看 diff、再决定是否把任务交给补位工具。
-
-## 最好不要单独承接的工作
+## 不适合接什么
 
 ${bulletList(item.badFit)}
 
-如果团队已经明确属于这些情形，最稳的做法不是硬上 ${item.title}，而是把它降级成局部补位入口，避免让主入口和治理结构长期错位。
-
-## 推荐组合与进入顺序
+## 默认搭配
 
 ${linkedList(item.combos)}
 
-### 常见误配信号
+## 下一步
 
-${bulletList([
-    `大家知道 ${item.title} 很顺手，但说不清它到底应该负责工作流的哪一段。`,
-    '复杂任务总是先在这个入口里开工，最后又回到别的工具才能真正收口。',
-    item.exitSignals[0],
-  ])}
-
-## 下一步怎么读
-
-${linkedList(nextLinks)}
+${linkedList(nextLinks.slice(0, 4))}
 
 ## 来源
 
@@ -466,17 +446,15 @@ function buildToolRulesDoc(item) {
   const nextLinks = dedupeLinks(item.combos, [getToolGovernanceLink(item)], item.alternatives, item.workflows).slice(0, 6);
 
   return `${buildToolFrontMatter(item, {
-    title: `${item.title}：规则、记忆与工具边界`,
-    description: `${item.title} 的 rules、memory、tools 与 repo 接入建议。`,
+    title: `${item.title}：规则与边界`,
+    description: `${item.title} 的规则应该放哪，哪些边界必须写清。`,
     slug: `${item.docsRoot.replace('/docs', '')}/rules-memory-tools`,
-    sidebar_label: '规则记忆与工具',
+    sidebar_label: '规则与边界',
     tags: ['ai-coding', 'tool', item.id],
     journeyStage: 'implementation',
   })}
 
-# ${item.title}：规则、记忆与工具边界
-
-一旦一个入口开始支持 rules、memory、background task 或 MCP，它就不再只是“会写代码的 UI”，而是在参与团队治理。规则写在哪、状态留在哪、工具权限怎么管，会直接决定这个入口是否能长期留在标准栈里。
+# ${item.title}：规则与边界
 
 ## 规则分层
 
@@ -490,13 +468,11 @@ ${bulletList(item.memory)}
 
 ${buildToolRuleBoundaryMatrix(item)}
 
-## 仓库接入建议
+## 写进 repo
 
 ${bulletList(item.repoAdvice)}
 
-如果你已经在 repo 里有 AGENTS.md、目录边界、验证命令和 review checklist，那么 ${item.title} 更应该做的是补足入口体验，而不是再造第二套事实来源。
-
-## 团队检查清单
+## 团队检查
 
 ${bulletList([
     `先定义哪些规则必须版本化留在 repo，哪些只属于 ${item.title} 的入口习惯。`,
@@ -505,9 +481,9 @@ ${bulletList([
     item.repoAdvice[0],
   ])}
 
-## 下一步怎么读
+## 下一步
 
-${linkedList(nextLinks)}
+${linkedList(nextLinks.slice(0, 4))}
 
 ## 来源
 
@@ -575,18 +551,18 @@ function buildToolTradeoffDoc(item) {
   const nextLinks = dedupeLinks(item.alternatives, item.combos, [getToolGovernanceLink(item)], item.workflows).slice(0, 6);
 
   return `${buildToolFrontMatter(item, {
-    title: `${item.title}：优点、边界与替代项`,
-    description: `${item.title} 的优势、边界、替代项和退出信号。`,
+    title: `${item.title}：优点与替代`,
+    description: `${item.title} 值不值得保留，什么时候该换别的入口。`,
     slug: `${item.docsRoot.replace('/docs', '')}/tradeoffs-and-boundaries`,
-    sidebar_label: '优点与边界',
+    sidebar_label: '优点与替代',
     tags: ['ai-coding', 'tool', item.id],
   })}
 
-# ${item.title}：优点、边界与替代项
+# ${item.title}：优点与替代
 
-没有一个入口应该永久占据所有场景。真正成熟的工具栈，必须知道某个入口为什么值得主用、什么时候只是补位、又在什么条件下应该退出标准栈。
+真正的判断不是“它能不能用”，而是它是否还值得占据你的默认入口。保留理由、替代路线和退出信号必须一起看，否则团队很容易继续被一个已经不匹配的入口拖住。
 
-## 核心优势
+## 保留理由
 
 ${bulletList(item.strengths)}
 
@@ -598,23 +574,23 @@ ${buildToolTradeoffMatrix(item)}
 
 ${linkedList(item.alternatives)}
 
-替代项的价值，不是为了证明“谁更强”，而是帮你在主控制面、治理要求和执行深度发生变化时及时换挡，而不是让整个团队继续被一个已经不匹配的入口拖着走。
+替代路线不是为了证明谁更强，而是为了在主入口已经不匹配时，尽快换到更合适的控制面、执行栈或 IDE 入口。
 
-## 退出与迁移信号
+## 退出信号
 
 ${bulletList(item.exitSignals)}
 
-## 决策检查清单
+## 决策检查
 
 ${bulletList([
-    `如果你需要的是 ${item.role}，${item.title} 仍然值得保留。`,
-    `如果团队更在意的是 ${item.limits[0]} 这一类问题，就该优先评估替代路线。`,
+    `如果主线任务还落在 ${item.title} 的优势区间，就继续保留它。`,
+    `如果退出信号已经持续出现，就不要再把它留在主入口。`,
     '任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。',
   ])}
 
-## 下一步怎么读
+## 下一步
 
-${linkedList(nextLinks)}
+${linkedList(nextLinks.slice(0, 4))}
 
 ## 来源
 
@@ -1198,6 +1174,18 @@ async function generateToolDocs() {
       path.join('docs', 'ecosystem', 'integrations', `${item.id}.md`),
       buildToolGovernanceDoc(item),
     );
+    await writeTextFile(
+      path.join('docs', ...item.docsRoot.replace('/docs/', '').split('/'), 'best-fit-workflows.md'),
+      buildToolWorkflowDoc(item),
+    );
+    await writeTextFile(
+      path.join('docs', ...item.docsRoot.replace('/docs/', '').split('/'), 'rules-memory-tools.md'),
+      buildToolRulesDoc(item),
+    );
+    await writeTextFile(
+      path.join('docs', ...item.docsRoot.replace('/docs/', '').split('/'), 'tradeoffs-and-boundaries.md'),
+      buildToolTradeoffDoc(item),
+    );
   }
 }
 
@@ -1207,7 +1195,7 @@ async function main() {
   await generateToolDocs();
   const generatedWorkflowCount = workflowCatalog.filter(({group}) => group !== 'pattern').length;
   console.log(
-    `Generated ${generatedWorkflowCount} framework/community workflow handbooks and ${toolCatalog.length} ecosystem integration docs.`,
+    `Generated ${generatedWorkflowCount} framework/community workflow handbooks, ${toolCatalog.length} ecosystem integration docs, and ${toolCatalog.length * 3} compact tool supplemental docs.`,
   );
 }
 

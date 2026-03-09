@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,45 +11,58 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "GitHub Copilot：优点、边界与替代项"
-description: "GitHub Copilot 的优势、边界、替代项和退出信号。"
+title: "GitHub Copilot：优点与替代"
+description: "GitHub Copilot 值不值得保留，什么时候该换别的入口。"
 slug: "/tools/platforms/github-copilot/tradeoffs-and-boundaries"
-sidebar_label: "补充：优点与替代"
-sidebar_position: 8
+sidebar_label: "优点与替代"
 tags: ["ai-coding", "tool", "github-copilot"]
 ---
 
-# GitHub Copilot：优点、边界与替代项
+# GitHub Copilot：优点与替代
 
-## 现在先做什么
+真正的判断不是“它能不能用”，而是它是否还值得占据你的默认入口。保留理由、替代路线和退出信号必须一起看，否则团队很容易继续被一个已经不匹配的入口拖住。
 
-- 还没实际跑过平台主线：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
-- 想先看真实 draft PR 交接：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
-- 想先比较平台、控制面和执行栈：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+## 保留理由
 
-## 保留它的理由
+- 最接近组织已有 GitHub 工作系统。
+- 异步委派与 review 闭环天然强。
+- 适合团队级 rollout 和可追溯治理。
 
-- 你要的是 issue、PR、review 和 agent 交付在同一个平台里闭环。
-- 团队已经有分支保护、模板、reviewer 和审计路径。
-- 你更看重可追踪性和平台工作系统，而不是本地入口的控制深度。
+## 取舍矩阵
+
+| 面向 | 你会得到什么 | 你要接受什么 |
+| --- | --- | --- |
+| 优势 | 最接近组织已有 GitHub 工作系统。 | 对本地终端深潜、复杂 worktree 和自定义工具编排不如执行栈或终端 agent 灵活。 |
+| 长期使用 | 异步委派与 review 闭环天然强。 | 如果团队并不以 GitHub 为核心协作系统，平台优势会明显下降。 |
+| 团队 rollout | 适合团队级 rollout 和可追溯治理。 | 团队越来越多地绕过 GitHub 工作系统，在别处交付和 review。 |
+| 补位路线 | VS Code Agents | OpenAI Codex |
+
+## 替代路线
+
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行执行与 worktree。
+- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更需要 terminal-first repo pairing。
+
+替代路线不是为了证明谁更强，而是为了在主入口已经不匹配时，尽快换到更合适的控制面、执行栈或 IDE 入口。
 
 ## 退出信号
 
-- 团队越来越绕过 GitHub，在别处探索、交付和 review。
-- 真正复杂任务还是靠其他控制面或执行栈推进，平台只剩尾部收口。
-- 你需要的是更强本地控制或更开放的工具编排，而不是平台主入口。
+- 团队越来越多地绕过 GitHub 工作系统，在别处交付和 review。
+- 平台 agent 产物无法提供足够的 repo 证据与验证记录。
+- 真正困难的任务总要回退到其他入口，本平台只剩外围补位。
 
-## 换到哪里
+## 决策检查
 
-- 想把本地和后台 agent 都收在编辑器控制面：去 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。
-- 想用正式执行栈推进长任务：去 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)。
-- 想回到终端 repo pairing：去 [Claude Code](/docs/tools/terminal-agents/claude-code)。
+- 如果主线任务还落在 GitHub Copilot 的优势区间，就继续保留它。
+- 如果退出信号已经持续出现，就不要再把它留在主入口。
+- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
 
-## 读完回哪里
+## 下一步
 
-- 想先确认平台主线值不值得保留：回 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
-- 想看真实 draft PR 证据链：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
-- 想横向比较平台和其他入口：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行执行与 worktree。
+- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更需要 terminal-first repo pairing。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
 
 ## 来源
 

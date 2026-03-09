@@ -173,6 +173,18 @@ const config = {
             from: ['/docs/team-delivery/metrics-and-risk'],
           },
           {
+            to: '/docs/resources',
+            from: ['/docs/tools/resources'],
+          },
+          {
+            to: '/docs/resources/videos',
+            from: ['/docs/tools/resources/videos'],
+          },
+          {
+            to: '/docs/resources/courses',
+            from: ['/docs/tools/resources/courses'],
+          },
+          {
             to: '/docs/tools/terminal-agents-and-cli',
             from: ['/docs/ides-tooling/terminal-agents-and-cli'],
           },
@@ -254,6 +266,12 @@ const config = {
           to: '/blog',
           label: '动态',
           position: 'left',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'resourcesSidebar',
+          label: '视频资源',
+          position: 'right',
         },
         {
           href: `https://github.com/${organizationName}/${projectName}`,

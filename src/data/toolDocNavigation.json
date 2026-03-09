@@ -18,15 +18,15 @@
     },
     {
       "id": "best-fit-workflows",
-      "label": "补充：工作流适配"
+      "label": "工作流适配"
     },
     {
       "id": "rules-memory-tools",
-      "label": "补充：规则与边界"
+      "label": "规则与边界"
     },
     {
       "id": "tradeoffs-and-boundaries",
-      "label": "补充：优点与替代"
+      "label": "优点与替代"
     }
   ],
   "quickStartGroups": [

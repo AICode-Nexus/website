@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,46 +11,53 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "GitHub Copilot：最适合的工作流"
-description: "GitHub Copilot 最适合承接哪些工作流，以及不适合单独承接什么。"
+title: "GitHub Copilot：工作流适配"
+description: "GitHub Copilot 适合接哪类工作流，以及不适合接什么。"
 slug: "/tools/platforms/github-copilot/best-fit-workflows"
-sidebar_label: "补充：工作流适配"
-sidebar_position: 6
+sidebar_label: "工作流适配"
 tags: ["ai-coding", "tool", "github-copilot"]
 ---
 
-# GitHub Copilot：最适合的工作流
+# GitHub Copilot：工作流适配
 
-## 现在先做什么
+## 适合接什么
 
-- 第一次跑通平台闭环：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
-- 想固定 issue 到 PR 的高频 SOP：去 [GitHub Copilot 常见任务](/docs/tools/platforms/github-copilot/common-tasks)。
-- 想直接进入最自然的平台主线：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：GitHub Copilot 天然适合把清晰任务委派成 draft PR。
+- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：适合在平台层追踪异步执行和最终 review。
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：对已有 issue 与 PR 模板的日常维护任务尤其顺手。
 
-## 什么时候读这页
+## 场景判断
 
-- 你已经知道 GitHub Copilot 顺手，但还没决定它到底该接哪类平台任务。
-- 你在分 issue、draft PR、异步执行和 review 收口的边界。
-- 你要判断 GitHub 平台是不是团队 AI 交付的默认工作系统。
+| 场景 | 为什么适合 | 搭配入口 |
+| --- | --- | --- |
+| Issue / Jira -> Draft PR | GitHub Copilot 天然适合把清晰任务委派成 draft PR。 | VS Code Agents |
+| Local -> Background -> Cloud | 适合在平台层追踪异步执行和最终 review。 | OpenAI Codex |
+| Bugfix / Refactor / Test | 对已有 issue 与 PR 模板的日常维护任务尤其顺手。 | Spec Kit |
 
-## 默认优先搭配
+## 常见任务
 
-- [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)：这是它最自然的主线。
-- [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)：适合把异步执行和最终 review 留在平台层。
-- [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)：适合已有 issue、PR 模板和 reviewer 机制的日常维护。
+- 从 issue 或 Jira 委派清晰任务并生成 draft PR。
+- 在 review comment 往返中让 agent 修改代码或补说明。
+- 以平台身份统一管理多个 repo 的日常 AI 交付流程。
 
-## 不该拿它单独做什么
+## 不适合接什么
 
-- 纯本地终端深潜、重脚本化和高频 worktree 操作的唯一主入口。
+- 纯本地终端深潜、重脚本化和高频 worktree 操作的仓库内协作。
 - 几乎不在 GitHub PR 流里协作的团队。
-- 需要高度开放 provider、自定义工具编排和细粒度本地控制的高级用户。
+- 需要高度开放 provider、自定义 MCP 和工具编排的高级用户。
 
-## 读完回哪里
+## 默认搭配
 
-- 想直接走平台主线：回 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
-- 想固定 issue 到 PR 的常见动作：去 [GitHub Copilot 常见任务](/docs/tools/platforms/github-copilot/common-tasks)。
-- 想看真实 draft PR 交接：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
-- 想比较平台、控制面和执行栈：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务可在执行栈里推进，最后回到 GitHub 收口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
+
+## 下一步
+
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务可在执行栈里推进，最后回到 GitHub 收口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
+- [GitHub Copilot：集成、review 与治理](/docs/ecosystem/integrations/github-copilot)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

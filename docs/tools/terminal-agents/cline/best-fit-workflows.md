@@ -2,8 +2,8 @@
 audience: "advanced"
 stage: "advanced"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,46 +11,53 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "tech-selection"
-title: "Cline：最适合的工作流"
-description: "Cline 最适合承接哪些工作流，以及不适合单独承接什么。"
+title: "Cline：工作流适配"
+description: "Cline 适合接哪类工作流，以及不适合接什么。"
 slug: "/tools/terminal-agents/cline/best-fit-workflows"
-sidebar_label: "补充：工作流适配"
-sidebar_position: 6
+sidebar_label: "工作流适配"
 tags: ["ai-coding", "tool", "cline"]
 ---
 
-# Cline：最适合的工作流
+# Cline：工作流适配
 
-## 现在先做什么
+## 适合接什么
 
-- 第一次控制开放式壳层：去 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
-- 想固定 Plan / Act 高频 SOP：去 [Cline 常见任务](/docs/tools/terminal-agents/cline/common-tasks)。
-- 想直接进入最自然的长任务流程：去 [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)。
+- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：在高控制 shell 环境里很自然。
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：配合 Plan / Act 和 checkpoints 适合迭代修复。
+- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：若团队已有外部 orchestration，可作为开放式执行壳。
 
-## 什么时候读这页
+## 场景判断
 
-- 你已经知道 Cline 能跑起来，现在只想判断它该接哪一段流程。
-- 你在决定它是正式入口，还是开放实验和补位入口。
-- 你在比较终端壳层、IDE 工作台和平台执行栈的分工。
+| 场景 | 为什么适合 | 搭配入口 |
+| --- | --- | --- |
+| Terminal-First Repo Pairing | 在高控制 shell 环境里很自然。 | Continue Rules |
+| Bugfix / Refactor / Test | 配合 Plan / Act 和 checkpoints 适合迭代修复。 | Superpowers |
+| Parallel Worktrees / Multi-Agent | 若团队已有外部 orchestration，可作为开放式执行壳。 | OpenAI Codex |
 
-## 默认优先搭配
+## 常见任务
 
-- [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)：这是它最自然的主线。
-- [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)：适合用 Plan / Act 推短闭环维护任务。
-- [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)：适合把它留作开放式执行壳。
+- Plan / Act 交替的长任务推进。
+- MCP 重度场景、浏览器自动化或外部 provider 实验。
+- 需要 checkpoints 与回滚意识的开放式 agent 工作流。
 
-## 不该拿它单独做什么
+## 不适合接什么
 
-- 需要统一 rollout、统一权限和低运维波动的团队主入口。
-- 不想自己管 provider、MCP 和工具权限的人。
-- 本来就可以在 IDE 内一条线完成的小型维护任务。
+- 只想要产品化完整体验，不想自己拼装模型、rules 和工具的人。
+- 团队更重视统一治理而不是开放扩展的组织。
+- 没有人能维护 provider、MCP 与权限配置的仓库。
 
-## 读完回哪里
+## 默认搭配
 
-- 想直接开跑：回 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
-- 想把开放壳层用成稳定 SOP：去 [Cline 常见任务](/docs/tools/terminal-agents/cline/common-tasks)。
-- 想看 owner 怎么收并行 lane：去 [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop)。
-- 想比较 IDE 工作台与开放壳层：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
+- [Continue Rules](/docs/tools/ai-ide-landscape)：开放栈通常不只看 Cline，还要看 rules 与模型配置生态。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在开放壳层上再叠加一套日常操作方法时很有帮助。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：部分团队会把 Cline 留作开放实验入口，把 Codex 留作正式执行栈。
+
+## 下一步
+
+- [Continue Rules](/docs/tools/ai-ide-landscape)：开放栈通常不只看 Cline，还要看 rules 与模型配置生态。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在开放壳层上再叠加一套日常操作方法时很有帮助。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：部分团队会把 Cline 留作开放实验入口，把 Codex 留作正式执行栈。
+- [Cline：集成、review 与治理](/docs/ecosystem/integrations/cline)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

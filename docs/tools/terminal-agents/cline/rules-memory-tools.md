@@ -2,8 +2,8 @@
 audience: "advanced"
 stage: "advanced"
 featured: false
-reviewed_at: "2026-03-08"
-source_window_end: "2026-03-08"
+reviewed_at: "2026-03-07"
+source_window_end: "2026-03-07"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -11,51 +11,54 @@ content_form: "guide"
 track: "cross-track"
 domain: "tools"
 journey_stage: "implementation"
-title: "Cline：规则、记忆与工具边界"
-description: "Cline 的 rules、memory、tools 与 repo 接入建议。"
+title: "Cline：规则与边界"
+description: "Cline 的规则应该放哪，哪些边界必须写清。"
 slug: "/tools/terminal-agents/cline/rules-memory-tools"
-sidebar_label: "补充：规则与边界"
-sidebar_position: 7
+sidebar_label: "规则与边界"
 tags: ["ai-coding", "tool", "cline"]
 ---
 
-# Cline：规则、记忆与工具边界
+# Cline：规则与边界
 
-## 现在先做什么
+## 规则分层
 
-- 第一次收紧权限和工具边界：去 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
-- 想把开放能力用成长期系统：去 [Cline 最佳实践](/docs/tools/terminal-agents/cline/best-practices)。
-- 想先把 repo 合同写清：去 [仓库规则文件体系](/docs/repo-instruction-files)。
+- 开放性越强，越需要你自己定义 repo contract、权限边界和停止条件。
+- 最好把关键规则收回仓库文件，避免全靠客户端配置。
+- 对同一个团队，不宜让每个人都维护完全不同的规则集。
 
-## 什么时候读这页
+## 状态与记忆边界
 
-- 你准备长期保留 Cline，而不是只偶尔试一次。
-- 你要决定 repo 规则、工具权限和 provider 配置分别归谁管。
-- 你已经开始担心“同一个仓库，不同人配置完全不同”。
+- checkpoint、会话状态和工具配置是主要状态层。
+- 更适合实验和高度可组合场景，不天然提供统一组织记忆层。
 
-## 应该写进 repo 的东西
+## 规则与边界矩阵
 
-- AGENTS.md、目录边界、验证命令和必须保留的交付证据。
-- 哪些命令允许执行，哪些目录必须人工确认。
-- MCP、provider 或高风险权限的 owner、审批和回退方式。
+| 边界层 | 应该放什么 | 不要放什么 |
+| --- | --- | --- |
+| 入口规则 | 开放性越强，越需要你自己定义 repo contract、权限边界和停止条件。 | 最好把关键规则收回仓库文件，避免全靠客户端配置。 |
+| 状态与记忆 | checkpoint、会话状态和工具配置是主要状态层。 | 更适合实验和高度可组合场景，不天然提供统一组织记忆层。 |
+| 执行边界 | Plan / Act、browser automation、MCP、checkpoint。 | 强项是开放组合，而不是默认流程治理。 |
+| 仓库合同 | 先定义哪些任务允许用开放式工具，哪些必须走更稳的标准入口。 | 高风险改动建议强制 worktree 和 checkpoint，避免开放栈误伤主工作区。 |
 
-## 只留在工具里的东西
+## 写进 repo
 
-- 临时实验模型、个人 UI 习惯和短期会话状态。
-- 单次排障时的局部提示语，不值得进入 repo 的临时约束。
-- checkpoint 或临时执行上下文，但不要把它们当成唯一事实源。
+- 先定义哪些任务允许用开放式工具，哪些必须走更稳的标准入口。
+- 高风险改动建议强制 worktree 和 checkpoint，避免开放栈误伤主工作区。
+- 把 provider 与工具权限管理当成正式治理问题，而不是个人偏好。
 
-## 失控信号
+## 团队检查
 
-- repo 里找不到关键规则，只能去每个人自己的配置里猜。
-- provider、MCP 或权限问题出了事，但没人能说清 owner。
-- diff 和验证证据回不到仓库，只剩工具里一句“已经完成”。
+- 先定义哪些规则必须版本化留在 repo，哪些只属于 Cline 的入口习惯。
+- 任何长期状态都必须能解释 owner、刷新时机和失效条件。
+- 执行边界要能回到真实命令、diff 和 PR 证据，而不是只剩界面内的一句“完成了”。
+- 先定义哪些任务允许用开放式工具，哪些必须走更稳的标准入口。
 
-## 读完回哪里
+## 下一步
 
-- 想先把基础边界收紧：回 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
-- 想看长期使用的固定写法：去 [Cline 最佳实践](/docs/tools/terminal-agents/cline/best-practices)。
-- 想横向看开放栈规则问题：去 [AI IDE Landscape](/docs/tools/ai-ide-landscape)。
+- [Continue Rules](/docs/tools/ai-ide-landscape)：开放栈通常不只看 Cline，还要看 rules 与模型配置生态。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在开放壳层上再叠加一套日常操作方法时很有帮助。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：部分团队会把 Cline 留作开放实验入口，把 Codex 留作正式执行栈。
+- [Cline：集成、review 与治理](/docs/ecosystem/integrations/cline)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 
