@@ -1,34 +1,21 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
 import {
   getTeachingVideoCatalogFilterPermalink,
   formatTeachingVideoDuration,
   getTeachingVideoItemPermalink,
   getTeachingVideoCoursePermalink,
 } from '@site/src/utils/teachingVideos';
+import toolDocNavigation from '@site/src/data/toolDocNavigation.json';
+import {getToolTeachingVideoResourceSet} from '@site/src/utils/toolLearningResources';
 import styles from './HandbookBlocks.module.css';
 
-function sortResources(items) {
-  return [...items].sort((left, right) => {
-    if (right.featuredScore !== left.featuredScore) {
-      return right.featuredScore - left.featuredScore;
-    }
-    return right.publishedAt.localeCompare(left.publishedAt, 'zh-CN');
-  });
-}
-
-function uniqueByCourse(items) {
-  const seen = new Set();
-
-  return items.filter((item) => {
-    if (seen.has(item.courseId)) {
-      return false;
-    }
-    seen.add(item.courseId);
-    return true;
-  });
-}
+const TOOL_VIDEO_SOURCES = new Map(
+  [...toolDocNavigation.coreTools, ...toolDocNavigation.extendedTools].map((toolEntry) => [
+    toolEntry.label,
+    toolEntry.videoTools ?? [toolEntry.label],
+  ]),
+);
 
 export default function LearningResources({
   title = '精选视频与课程',
@@ -36,8 +23,8 @@ export default function LearningResources({
   description,
   limit = 4,
 }) {
-  const filteredItems = teachingVideoCatalog.items.filter((item) => item.tool === tool);
-  const featuredItems = uniqueByCourse(sortResources(filteredItems)).slice(0, limit);
+  const videoTools = TOOL_VIDEO_SOURCES.get(tool) ?? [tool];
+  const {sourceTool, items: featuredItems} = getToolTeachingVideoResourceSet(videoTools, limit);
 
   if (featuredItems.length === 0) {
     return null;
@@ -52,9 +39,9 @@ export default function LearningResources({
         </div>
         <Link
           className={styles.resourceAction}
-          to={getTeachingVideoCatalogFilterPermalink('tool', tool, {focusResults: true})}
+          to={getTeachingVideoCatalogFilterPermalink('tool', sourceTool ?? tool, {focusResults: true})}
         >
-          查看 {tool} 全部教学内容
+          查看 {sourceTool ?? tool} 全部教学内容
         </Link>
       </div>
       <div className={styles.resourceList}>

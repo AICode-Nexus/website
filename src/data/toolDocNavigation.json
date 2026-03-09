@@ -1,0 +1,140 @@
+{
+  "pageOrder": [
+    {
+      "id": "quick-start",
+      "label": "快速开始"
+    },
+    {
+      "id": "common-tasks",
+      "label": "常见任务"
+    },
+    {
+      "id": "troubleshooting",
+      "label": "排错"
+    },
+    {
+      "id": "best-practices",
+      "label": "最佳实践"
+    },
+    {
+      "id": "best-fit-workflows",
+      "label": "补充：工作流适配"
+    },
+    {
+      "id": "rules-memory-tools",
+      "label": "补充：规则与边界"
+    },
+    {
+      "id": "tradeoffs-and-boundaries",
+      "label": "补充：优点与替代"
+    }
+  ],
+  "quickStartGroups": [
+    {
+      "id": "platforms",
+      "label": "平台型工具",
+      "items": [
+        {
+          "id": "tools/platforms/github-copilot",
+          "label": "GitHub Copilot"
+        }
+      ]
+    },
+    {
+      "id": "control-planes",
+      "label": "控制面",
+      "items": [
+        {
+          "id": "tools/control-planes/vscode-agents",
+          "label": "VS Code Agents"
+        }
+      ]
+    },
+    {
+      "id": "execution-stacks",
+      "label": "执行栈",
+      "items": [
+        {
+          "id": "tools/execution-stacks/openai-codex",
+          "label": "OpenAI Codex"
+        }
+      ]
+    },
+    {
+      "id": "terminal-agents",
+      "label": "终端 Agent",
+      "items": [
+        {
+          "id": "tools/terminal-agents/claude-code",
+          "label": "Claude Code"
+        },
+        {
+          "id": "tools/terminal-agents/gemini-cli",
+          "label": "Gemini CLI"
+        },
+        {
+          "id": "tools/terminal-agents/cline",
+          "label": "Cline"
+        }
+      ]
+    },
+    {
+      "id": "ide-first",
+      "label": "IDE-First",
+      "items": [
+        {
+          "id": "tools/ide-first/cursor",
+          "label": "Cursor"
+        },
+        {
+          "id": "tools/ide-first/windsurf",
+          "label": "Windsurf"
+        }
+      ]
+    }
+  ],
+  "coreTools": [
+    {
+      "id": "tools/terminal-agents/claude-code",
+      "label": "Claude Code",
+      "videoTools": ["Claude Code"]
+    },
+    {
+      "id": "tools/execution-stacks/openai-codex",
+      "label": "OpenAI Codex",
+      "videoTools": ["OpenAI Codex"]
+    },
+    {
+      "id": "tools/ide-first/cursor",
+      "label": "Cursor",
+      "videoTools": ["Cursor"]
+    },
+    {
+      "id": "tools/platforms/github-copilot",
+      "label": "GitHub Copilot",
+      "videoTools": ["GitHub Copilot"]
+    }
+  ],
+  "extendedTools": [
+    {
+      "id": "tools/control-planes/vscode-agents",
+      "label": "VS Code Agents",
+      "videoTools": ["VS Code Agents", "AI Coding", "GitHub Copilot"]
+    },
+    {
+      "id": "tools/terminal-agents/gemini-cli",
+      "label": "Gemini CLI",
+      "videoTools": ["Gemini CLI"]
+    },
+    {
+      "id": "tools/terminal-agents/cline",
+      "label": "Cline",
+      "videoTools": ["Cline", "AI Coding", "Claude Code"]
+    },
+    {
+      "id": "tools/ide-first/windsurf",
+      "label": "Windsurf",
+      "videoTools": ["Windsurf"]
+    }
+  ]
+}

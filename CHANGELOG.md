@@ -47,6 +47,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Rebuilt the `工具教程` sidebar into explicit tool directories so quick starts are grouped by tool family and each handbook now expands under its own tool label instead of flattening into repeated generic page names.
+- Added a docs right rail for tool pages that surfaces tool-filtered teaching videos beside the article and TOC, making resource discovery available without leaving the current tutorial.
 - Repositioned concept landing pages so they now point readers to concrete tutorial or case-study next steps instead of stopping at maps, indexes, or tool-role summaries.
 - Reworked the homepage plugin and content-quality checks to prioritize tutorial and case-study collections instead of comparison/playbook/insight homepage groupings.
 - Slimmed the second-wave supplementary tool and workflow docs into shorter decision-aid pages, and taught `check:content` to validate `补充：...` docs as lightweight decision aids instead of forcing them to mimic full handbook pages, so `quick-start`, `common-tasks`, `runbook`, and case-study content remain the primary learning path.
