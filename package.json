@@ -4,7 +4,7 @@
   "private": true,
   "description": "AICode-Nexus knowledge site powered by Docusaurus",
   "scripts": {
-    "start": "docusaurus start",
+    "start": "docusaurus start --poll 1000",
     "build": "docusaurus build",
     "serve": "docusaurus serve build",
     "swizzle": "docusaurus swizzle",
