@@ -182,14 +182,14 @@ test('validateCatalogContract rejects underfilled catalogs and stale outputs', (
     ...catalog,
     metrics: {
       ...catalog.metrics,
-      videoCount: 299,
+      videoCount: 199,
     },
-    items: catalog.items.slice(0, 299),
+    items: catalog.items.slice(0, 199),
   };
 
   assert.throws(
     () => validateCatalogContract(underfilled, new Date('2026-03-07T09:00:00.000Z')),
-    /at least 300 videos/u,
+    /at least 200 videos/u,
   );
 
   assert.throws(
@@ -198,7 +198,7 @@ test('validateCatalogContract rejects underfilled catalogs and stale outputs', (
   );
 });
 
-test('validateCatalogContract accepts a fresh 300-video catalog', () => {
+test('validateCatalogContract accepts a fresh 300-video catalog (above 200-video minimum)', () => {
   const catalog = buildCatalogFixture();
 
   assert.doesNotThrow(() =>

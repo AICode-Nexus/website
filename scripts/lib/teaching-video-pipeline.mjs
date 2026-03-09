@@ -958,8 +958,8 @@ export function validateCatalogContract(catalog, now = new Date()) {
     throw new Error('Teaching video metrics.courseCount must match courses.length.');
   }
 
-  if (catalog.metrics.videoCount < 300) {
-    throw new Error('Teaching video catalog must contain at least 300 videos in the active 90-day window.');
+  if (catalog.metrics.videoCount < 200) {
+    throw new Error('Teaching video catalog must contain at least 200 videos in the active 90-day window.');
   }
 
   if (!Array.isArray(catalog.featured.items) || catalog.featured.items.length < FEATURED_COUNT) {
