@@ -10,14 +10,8 @@ const workspaceRoot = path.resolve(__dirname, '../..');
 
 const generatedRoots = [
   'docs/ecosystem/integrations',
-  'docs/workflows/patterns',
   'docs/workflows/frameworks',
   'docs/workflows/community-frameworks',
-  'docs/tools/platforms',
-  'docs/tools/control-planes',
-  'docs/tools/execution-stacks',
-  'docs/tools/terminal-agents',
-  'docs/tools/ide-first',
 ];
 
 function hashContent(content) {

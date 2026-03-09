@@ -14,14 +14,8 @@ const {getEcosystemIntegrationByToolId} = require('../../src/data/ecosystemInteg
 
 const generatedRoots = [
   'docs/ecosystem/integrations',
-  'docs/workflows/patterns',
   'docs/workflows/frameworks',
   'docs/workflows/community-frameworks',
-  'docs/tools/platforms',
-  'docs/tools/control-planes',
-  'docs/tools/execution-stacks',
-  'docs/tools/terminal-agents',
-  'docs/tools/ide-first',
 ];
 
 function fmArray(values) {
@@ -1164,6 +1158,12 @@ async function generateWorkflowDocs() {
   const groupLookup = new Map(workflowGroups.map((group) => [group.id, group]));
 
   for (const [index, item] of workflowCatalog.entries()) {
+    const group = groupLookup.get(item.group);
+
+    if (!group || group.id === 'pattern') {
+      continue;
+    }
+
     const folder = path.join('docs', item.docsRoot.replace('/docs/', ''));
     const id = item.docsRoot.replace('/docs/', '') + '/index';
 
@@ -1171,21 +1171,6 @@ async function generateWorkflowDocs() {
       path.join(folder, '_category_.json'),
       buildCategoryMetadata(item.title, index + 1, id),
     );
-
-    if (groupLookup.get(item.group).id === 'pattern') {
-      await writeTextFile(path.join(folder, 'index.md'), buildWorkflowIndexDoc(item));
-      await writeTextFile(path.join(folder, 'fit-and-signals.md'), buildWorkflowFitDoc(item));
-      await writeTextFile(path.join(folder, 'loop-and-artifacts.md'), buildWorkflowLoopDoc(item));
-      await writeTextFile(
-        path.join(folder, 'governance-and-risks.md'),
-        buildWorkflowGovernanceDoc(item),
-      );
-      await writeTextFile(
-        path.join(folder, 'examples-and-tool-fit.md'),
-        buildWorkflowExamplesDoc(item),
-      );
-      continue;
-    }
 
     await writeTextFile(path.join(folder, 'index.md'), buildFrameworkIndexDoc(item));
     await writeTextFile(
@@ -1202,28 +1187,16 @@ async function generateWorkflowDocs() {
 }
 
 async function generateToolDocs() {
-  for (const [index, item] of toolCatalog.entries()) {
-    const folder = path.join('docs', item.docsRoot.replace('/docs/', ''));
-    const id = item.docsRoot.replace('/docs/', '') + '/index';
+  for (const item of toolCatalog) {
     const ecosystemIntegration = getEcosystemIntegrationByToolId(item.id);
 
-    await writeTextFile(
-      path.join(folder, '_category_.json'),
-      buildCategoryMetadata(item.title, index + 1, id),
-    );
-    await writeTextFile(path.join(folder, 'index.md'), buildToolIndexDoc(item));
-    await writeTextFile(path.join(folder, 'best-fit-workflows.md'), buildToolWorkflowDoc(item));
-    await writeTextFile(path.join(folder, 'rules-memory-tools.md'), buildToolRulesDoc(item));
     if (!ecosystemIntegration) {
       throw new Error(`Missing ecosystem integration route for tool "${item.id}".`);
     }
+
     await writeTextFile(
       path.join('docs', 'ecosystem', 'integrations', `${item.id}.md`),
       buildToolGovernanceDoc(item),
-    );
-    await writeTextFile(
-      path.join(folder, 'tradeoffs-and-boundaries.md'),
-      buildToolTradeoffDoc(item),
     );
   }
 }
@@ -1232,7 +1205,10 @@ async function main() {
   await resetGeneratedRoots();
   await generateWorkflowDocs();
   await generateToolDocs();
-  console.log(`Generated ${workflowCatalog.length} workflow handbooks and ${toolCatalog.length} tool handbooks.`);
+  const generatedWorkflowCount = workflowCatalog.filter(({group}) => group !== 'pattern').length;
+  console.log(
+    `Generated ${generatedWorkflowCount} framework/community workflow handbooks and ${toolCatalog.length} ecosystem integration docs.`,
+  );
 }
 
 main().catch((error) => {
