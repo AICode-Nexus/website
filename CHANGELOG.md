@@ -9,6 +9,14 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- A tutorial-first public IA with new `开始上手 / 工具教程 / 工作流教程 / 实战案例 / 进阶专题 / 动态` entry points, a rebuilt homepage, and a new homepage data contract centered on starter tracks, featured tutorials, case studies, and updates.
+- Explicit `tutorial` and `case-study` content forms in `src/data/knowledgeModel.js`, plus build-time validation for tutorial metadata (`tutorial_series`, `estimated_time`, `prerequisites`, `deliverable`) and case-study metadata (`case_type`, `scenario`, `tool_stack`, `verification`).
+- A new `30 分钟上手` starter tutorial, four first-wave tool tutorial tracks (Claude Code, OpenAI Codex, Cursor, GitHub Copilot), four first-wave workflow tutorial tracks (Bugfix / Refactor / Test, Terminal-First Repo Pairing, Issue / Jira -> Draft PR, Spec-First), and three cross-tool case-study docs under `/docs/case-studies`.
+- A second tutorial wave for `VS Code Agents`, `Gemini CLI`, `Cline`, and `Windsurf`, plus new runbook/example/pitfall/tooling tracks for `Parallel Worktrees / Multi-Agent` and `Local -> Background -> Cloud`.
+- Three additional cross-tool case studies covering `VS Code Agents -> OpenAI Codex -> GitHub review`, `Cline + parallel worktrees`, and `Windsurf -> draft PR` handoff patterns, plus expanded case-study navigation and homepage case-study surfacing.
+- A `Gemini CLI -> terminal audit -> draft PR` case study, and explicit `现在应该读什么` jump sections on downgraded archive lenses so legacy map/index/archive pages now route readers back into current tutorial paths.
+- Comparison and insight hubs now act as tutorial-return pages, and key comparison/insight articles are required to link back into executable tutorials or case studies.
+
 - A shared `domain / journey_stage / entry_role / content_form` knowledge model in `src/data/knowledgeModel.js`, plus a new `/docs/start/journey-map` flow overview and `/docs/ecosystem` hub for the `生态与集成` direction.
 - Dedicated hub pages for `开始`、`内容索引`、`资源中心` and `旧赛道归档`, plus split tool-resource docs for `/docs/tools/resources/videos` and `/docs/tools/resources/courses`.
 - A legacy teaching-video redirect shim that forwards `/docs/ai-code-teaching-videos` deep links to the new video or course resource routes without breaking shared URLs.
@@ -38,6 +46,19 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - New content source manifests in `content-sources/` and tracked draft-only folders for `blog/weekly`, `blog/monthly`, and `drafts/notes`.
 
 ### Changed
+
+- Repositioned concept landing pages so they now point readers to concrete tutorial or case-study next steps instead of stopping at maps, indexes, or tool-role summaries.
+- Reworked the homepage plugin and content-quality checks to prioritize tutorial and case-study collections instead of comparison/playbook/insight homepage groupings.
+- Slimmed the second-wave supplementary tool and workflow docs into shorter decision-aid pages, and taught `check:content` to validate `补充：...` docs as lightweight decision aids instead of forcing them to mimic full handbook pages, so `quick-start`, `common-tasks`, `runbook`, and case-study content remain the primary learning path.
+- Slimmed the first-wave Claude Code, OpenAI Codex, Cursor, GitHub Copilot, Bugfix / Refactor / Test, Terminal-First Repo Pairing, Issue / Jira -> Draft PR, and Spec-First supplementary docs into the same lightweight decision-aid format, and demoted their sidebar labels/positions behind the runnable tutorial and runbook pages.
+- Rewrote the first-wave tool and workflow overview pages into tutorial-first landing pages with clearer "start here" CTAs, direct reading order, and less repeated conceptual prose, so the overview layer now routes readers into runnable docs instead of competing with them.
+- Rewrote the second-wave VS Code Agents, Gemini CLI, Cline, Windsurf, Parallel Worktrees / Multi-Agent, and Local -> Background -> Cloud overview pages into the same tutorial-first landing pattern, reducing repeated concept prose while keeping the overview layer as an entry point into quick starts, runbooks, and cases.
+- Reworked the `AI 编程工具`, `AI 工作流`, `开始这里`, `学习路径`, `工具选择地图`, `流程地图`, and `内容索引` hub pages into shorter routing pages that now prioritize direct quick-start, runbook, case-study, and comparison entry points over repeated high-level explanation.
+- Tightened homepage entry validation so primary homepage CTAs must point to actionable routes, homepage gateway pages must expose enough tutorial/playbook/case-study links, and the portal cannot quietly drift back toward abstract landing pages.
+- Tightened navbar and sidebar IA guards so the six primary top-level entries stay fixed, each primary sidebar opens on the expected tutorial-first landing doc, and the tool/workflow rails must keep explicit `先跑 Quick Start` and `先跑 Runbook` sections ahead of slower conceptual reading.
+- Added click-budget acceptance to `check:ia` and `check:content`, so homepage hero/starter entries must remain one click from executable docs, homepage gateway CTAs must remain within two clicks of tutorials or case studies, and the case-study hub now carries the same direct-return requirements as the tool and workflow hubs.
+- Added a repeatable browser acceptance script (`npm run check:browser`) that serves the production build under `/website`, drives a real browser through `playwright-cli`, verifies desktop/mobile primary navigation and tutorial entry rails, and writes screenshots plus a JSON report under `output/playwright/browser-acceptance/`.
+- Added an optional release smoke path with `npm run verify:release:smoke` and a manual GitHub Actions workflow (`.github/workflows/browser-smoke.yml`) so browser acceptance can be run on demand and its screenshots/report uploaded as artifacts without turning the default CI lane into a slow hard gate.
 
 - Split the docs navigation into per-tab sidebars so the left rail now follows the active top-level section, and promoted the teaching-video/resource area into a dedicated `视频资源` navbar tab instead of repeating every first-level docs section in the sidebar.
 - Reframed the homepage around `Quick Start -> Journey Map -> Direction Map -> Learning Path -> Resource Center -> Content Index -> Daily Brief`, replacing the old portal narrative with a process-first AI Code map.
@@ -95,6 +116,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Removed
 
 - Removed the old split portal content sources `src/utils/docsCatalog.js` and `src/data/featuredBriefs.js` in favor of a single validated portal content source.
+- Removed unused legacy homepage section components that no longer participate in the tutorial-first portal flow.
 
 ## [1.0.0] - 2026-03-06
 

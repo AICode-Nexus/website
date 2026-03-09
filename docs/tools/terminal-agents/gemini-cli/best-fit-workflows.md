@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,69 +14,42 @@ journey_stage: "tech-selection"
 title: "Gemini CLI：最适合的工作流"
 description: "Gemini CLI 最适合承接哪些工作流，以及不适合单独承接什么。"
 slug: "/tools/terminal-agents/gemini-cli/best-fit-workflows"
-sidebar_label: "最适合的工作流"
+sidebar_label: "补充：工作流适配"
+sidebar_position: 6
 tags: ["ai-coding", "tool", "gemini-cli"]
 ---
 
 # Gemini CLI：最适合的工作流
 
-工具选型真正困难的地方，不是它能不能“做很多事”，而是它最适合承接哪一段 workflow。主入口和任务形状不匹配，再强的模型和 UI 也会变成频繁切换上下文的负担。
+## 现在先做什么
 
-## 哪些任务最自然
+- 第一次跑通终端闭环：去 [Gemini CLI 快速开始](/docs/tools/terminal-agents/gemini-cli/quick-start)。
+- 想固定高频终端 SOP：去 [Gemini CLI 常见任务](/docs/tools/terminal-agents/gemini-cli/common-tasks)。
+- 想直接进入最自然的工作流：去 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
 
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Gemini CLI 适合做轻量终端入口。
-- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：本地修复和命令验证是它的主战场。
-- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：和 GitHub review 流搭配时比较顺手。
+## 什么时候读这页
 
-:::info 默认使用法
-Gemini CLI 更适合承接那些需要频繁交互、快速回看改动、并且仍能把验证结果回流到 repo 或 PR 的任务。
-:::
+- 你已经知道 Gemini CLI 能进终端，但还没判断它该接哪一段流程。
+- 你想把终端执行和 PR 收口串起来。
+- 你在判断它是否该做主入口，还是只做补位入口。
 
+## 默认优先搭配
 
-## 场景矩阵
+- [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)：这是它最自然的主线。
+- [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)：适合终端内小步维护。
+- [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)：适合把命令证据带进平台交付。
 
-| 场景 | 为什么适合 | 搭配入口 |
-| --- | --- | --- |
-| Terminal-First Repo Pairing | Gemini CLI 适合做轻量终端入口。 | GitHub Copilot |
-| Bugfix / Refactor / Test | 本地修复和命令验证是它的主战场。 | Spec Kit |
-| Issue / Jira -> Draft PR | 和 GitHub review 流搭配时比较顺手。 | Superpowers |
+## 不该拿它单独做什么
 
-## 典型任务长什么样
+- 长阶段并行执行栈。
+- 完全不愿维护 context file 和脚本验证的团队。
+- 想让一个入口同时承担平台、控制面和执行栈全部角色的场景。
 
-- 终端里的 bugfix、重构、脚本运行和 repo 巡检。
-- 把规则文件、命令验证和 GitHub review 拼成双入口组合。
-- 让 AI 入口与自动化脚本共用一套上下文文件。
+## 读完回哪里
 
-这些任务有一个共同点：你需要的不是“纯聊天式解释”，而是能在一个连续入口里做读代码、改代码、看 diff、再决定是否把任务交给补位工具。
-
-## 最好不要单独承接的工作
-
-- 需要很强后台 agent 编排和 worktree 并行的长任务。
-- 团队完全不想维护 context file 或脚本化验证。
-- 希望一个产品同时承担平台、控制面和执行栈全部角色的人。
-
-如果团队已经明确属于这些情形，最稳的做法不是硬上 Gemini CLI，而是把它降级成局部补位入口，避免让主入口和治理结构长期错位。
-
-## 推荐组合与进入顺序
-
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：Gemini CLI 做本地终端入口，GitHub 负责 PR 与 review。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec 定稿后可用 Gemini CLI 接手执行与验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要更重的日常操作方法时可以叠加。
-
-### 常见误配信号
-
-- 大家知道 Gemini CLI 很顺手，但说不清它到底应该负责工作流的哪一段。
-- 复杂任务总是先在这个入口里开工，最后又回到别的工具才能真正收口。
-- CLI 只被用来聊天，不再真正跑命令和回传证据。
-
-## 下一步怎么读
-
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：Gemini CLI 做本地终端入口，GitHub 负责 PR 与 review。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec 定稿后可用 Gemini CLI 接手执行与验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要更重的日常操作方法时可以叠加。
-- [Gemini CLI：集成、review 与治理](/docs/ecosystem/integrations/gemini-cli)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更看重 repo pairing、worktree 和规则文件沉淀。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行任务和云端执行。
+- 想直接开跑：回 [Gemini CLI 快速开始](/docs/tools/terminal-agents/gemini-cli/quick-start)。
+- 想看真实终端到 PR 交接：去 [Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr)。
+- 想继续比较终端入口与执行栈：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
 
 ## 来源
 

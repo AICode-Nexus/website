@@ -42,7 +42,7 @@ const footerTopicsHtml = `
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'AICode-Nexus',
-  tagline: 'AI Code 流程地图、知识方向与治理入口',
+  tagline: 'AI coding 教程、工作流与实战案例',
   favicon: 'img/favicon.svg',
   url: `https://${organizationName}.github.io`,
   baseUrl: process.env.NODE_ENV === 'production' ? (isUserSite ? '/' : `/${projectName}/`) : '/',
@@ -222,43 +222,37 @@ const config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'startSidebar',
-          label: '开始',
+          sidebarId: 'gettingStartedSidebar',
+          label: '开始上手',
           position: 'left',
         },
         {
           type: 'docSidebar',
-          sidebarId: 'mapSidebar',
-          label: 'AI Code 地图',
+          sidebarId: 'toolTutorialsSidebar',
+          label: '工具教程',
           position: 'left',
         },
         {
           type: 'docSidebar',
-          sidebarId: 'videoResourcesSidebar',
-          label: '视频资源',
+          sidebarId: 'workflowTutorialsSidebar',
+          label: '工作流教程',
           position: 'left',
         },
         {
           type: 'docSidebar',
-          sidebarId: 'contentIndexSidebar',
-          label: '内容索引',
+          sidebarId: 'caseStudiesSidebar',
+          label: '实战案例',
           position: 'left',
         },
         {
           type: 'docSidebar',
-          sidebarId: 'archiveSidebar',
-          label: '旧赛道归档',
+          sidebarId: 'advancedTopicsSidebar',
+          label: '进阶专题',
           position: 'left',
         },
         {
           to: '/blog',
-          label: 'Daily Brief',
-          position: 'left',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'siteAdminSidebar',
-          label: '站点维护',
+          label: '动态',
           position: 'left',
         },
         {
@@ -277,19 +271,40 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: '知识入口',
+          title: '教程入口',
           items: [
             {
-              label: '开始',
-              to: '/docs/start/start-here',
+              label: '30 分钟上手',
+              to: '/docs/start/30-minute-quick-start',
             },
+            {
+              label: '工具教程',
+              to: '/docs/tools',
+            },
+            {
+              label: '工作流教程',
+              to: '/docs/workflows',
+            },
+            {
+              label: '实战案例',
+              to: '/docs/case-studies',
+            },
+            {
+              label: '进阶专题',
+              to: '/docs/standards',
+            },
+            {
+              label: '动态',
+              to: '/blog',
+            },
+          ],
+        },
+        {
+          title: '辅助导航',
+          items: [
             {
               label: 'AI Code 地图',
               to: '/docs/start/journey-map',
-            },
-            {
-              label: '视频资源',
-              to: '/docs/tools/resources',
             },
             {
               label: '内容索引',
@@ -298,6 +313,10 @@ const config = {
             {
               label: '旧赛道归档',
               to: '/docs/archive',
+            },
+            {
+              label: '站点维护',
+              to: '/docs/site-admin/site-roadmap',
             },
           ],
         },
@@ -320,7 +339,7 @@ const config = {
               html: footerTopicsHtml,
             },
             {
-              label: '最近 Daily Brief',
+              label: '最近动态',
               to: '/blog',
             },
           ],

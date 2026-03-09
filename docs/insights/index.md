@@ -13,12 +13,18 @@ featured: true
 domain: ecosystem
 journey_stage: defect-optimization
 entry_role: index
-reviewed_at: 2026-03-07
+reviewed_at: 2026-03-08
 source_window_end: 2026-03-07
 market_status: watch
 ---
 
 # 趋势观察
+
+## 现在先做什么
+
+- 先跑通可执行主线，再回来读趋势：去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 如果你要看案例化落地，去 [实战案例](/docs/case-studies)。
+- 如果你已经准备收敛工具或流程，先回 [对比与选型](/docs/comparisons) 或 [工作流教程首页](/docs/workflows)。
 
 ## 这一类内容解决什么问题
 
@@ -51,3 +57,9 @@ market_status: watch
 - 只有热度、没有工程行动价值的更新
 - 尚未确认真伪的单条传闻
 - 只能作为当天快讯阅读的零散变动
+
+## 看完趋势后回哪条主线
+
+- 如果趋势影响的是你的主入口选择，回到 [工具教程首页](/docs/tools)。
+- 如果趋势影响的是你的交付链和 handoff，回到 [工作流教程首页](/docs/workflows)。
+- 如果趋势已经能映射到真实任务，直接去 [实战案例](/docs/case-studies)。

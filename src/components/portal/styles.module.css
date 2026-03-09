@@ -196,6 +196,45 @@
   line-height: 1.6;
 }
 
+.panelSubtitle {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.signalLinks {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.signalLink {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 16px;
+  text-decoration: none;
+  background: rgba(15, 118, 110, 0.16);
+  border: 1px solid rgba(94, 234, 212, 0.14);
+}
+
+.signalLink:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.signalLinkTitle {
+  color: #f8fafc;
+}
+
+.signalLinkDescription {
+  color: #cbd5e1;
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
 .signalDot {
   width: 10px;
   height: 10px;
@@ -229,6 +268,20 @@
 .featureGrid,
 .videoGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.splitGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+  align-items: start;
+}
+
+.updateColumn,
+.updateList {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
 }
 
 .pathGrid {
@@ -480,6 +533,11 @@
   background: linear-gradient(180deg, rgba(2, 6, 23, 0.98), rgba(8, 15, 23, 0.94));
 }
 
+:global([data-theme='dark']) .signalLink {
+  background: rgba(13, 148, 136, 0.16);
+  border-color: rgba(94, 234, 212, 0.16);
+}
+
 :global([data-theme='dark']) .tagPill {
   background: rgba(120, 53, 15, 0.24);
   border-color: rgba(251, 191, 36, 0.18);
@@ -535,6 +593,10 @@
   .featureGrid,
   .videoGrid,
   .usagePanel {
+    grid-template-columns: 1fr;
+  }
+
+  .splitGrid {
     grid-template-columns: 1fr;
   }
 

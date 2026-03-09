@@ -13,14 +13,20 @@ entry_role: archive
 audience: mixed
 stage: starter
 featured: true
-reviewed_at: 2026-03-06
-source_window_end: 2026-03-06
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: legacy
 ---
 
 # 提示词与工作流
 
 这是上一阶段的一级赛道入口，二阶段起改为“旧赛道透镜”。
+
+## 现在应该读什么
+
+- 想先按任务形状找流程：去 [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)。
+- 想先跑最常见维护闭环：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 想先跑结构性任务流程：去 [Spec-First Runbook](/docs/workflows/patterns/spec-first/runbook)。
 
 ## 这类透镜现在怎么用
 

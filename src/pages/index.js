@@ -1,13 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import HomeHero from '@site/src/components/portal/HomeHero';
-import QuickActions from '@site/src/components/portal/QuickActions';
-import JourneyMap from '@site/src/components/portal/JourneyMap';
-import DirectionMap from '@site/src/components/portal/DirectionMap';
-import LearningPath from '@site/src/components/portal/LearningPath';
-import FeaturedDocs from '@site/src/components/portal/FeaturedDocs';
-import LatestBriefs from '@site/src/components/portal/LatestBriefs';
-import TeachingVideos from '@site/src/components/portal/TeachingVideos';
+import StarterTracks from '@site/src/components/portal/StarterTracks';
+import FeaturedCollection from '@site/src/components/portal/FeaturedCollection';
+import CaseStudiesAndUpdates from '@site/src/components/portal/CaseStudiesAndUpdates';
 import styles from '@site/src/components/portal/styles.module.css';
 import {portalContent} from '@site/src/data/portalContent';
 
@@ -20,13 +16,10 @@ export default function HomePage() {
       <main className="container">
         <div className={styles.page}>
           <HomeHero />
-          <QuickActions />
-          <JourneyMap />
-          <DirectionMap />
-          <LearningPath />
-          <TeachingVideos />
-          <FeaturedDocs />
-          <LatestBriefs />
+          <StarterTracks />
+          <FeaturedCollection collectionKey="featuredToolTutorials" sectionKey="featuredToolTutorials" />
+          <FeaturedCollection collectionKey="featuredWorkflowTutorials" sectionKey="featuredWorkflowTutorials" />
+          <CaseStudiesAndUpdates />
         </div>
       </main>
     </Layout>

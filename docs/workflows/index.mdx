@@ -13,8 +13,8 @@ featured: true
 domain: workflows
 journey_stage: development-planning
 entry_role: domain
-reviewed_at: 2026-03-07
-source_window_end: 2026-03-07
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: current
 ---
 
@@ -29,36 +29,36 @@ export const groupMap = new Map(workflowCatalogByGroup.map((group) => [group.id,
 
 export const problemCards = [
   {
-    id: 'pattern',
-    meta: '问题 01',
-    title: '我还没有默认交付链',
-    description: '先看工作流模式，先固定“任务怎么走”，再谈框架和工具。',
-    href: '/docs/workflows/patterns/spec-first',
-    bullets: ['先判断任务类型', '再决定要不要引入更重的框架'],
+    id: 'maintenance',
+    meta: '主线 01',
+    title: '我现在就要修 bug、补测试或做小重构',
+    description: '先跑维护主线，不要先读框架名。',
+    href: '/docs/workflows/patterns/bugfix-refactor-test/runbook',
+    bullets: ['先跑最小闭环', '再补治理和补充页'],
   },
   {
-    id: 'framework',
-    meta: '问题 02',
-    title: '我知道流程方向，但 handoff 和产物总是乱',
-    description: '这时应该先看主线框架，固定角色、阶段和产物链。',
-    href: '/docs/workflows/frameworks/spec-kit',
-    bullets: ['优先看 spec / plan / tasks 或多角色治理', '不要直接把框架当模板复读机'],
+    id: 'terminal',
+    meta: '主线 02',
+    title: '我想让终端里的 repo pairing 成为默认做法',
+    description: '先固定终端主线，再看工具和平台如何补位。',
+    href: '/docs/workflows/patterns/terminal-first-repo-pairing/runbook',
+    bullets: ['先跑 terminal-first runbook', '再决定 Claude Code / Codex / Gemini CLI 分工'],
   },
   {
-    id: 'community',
-    meta: '问题 03',
-    title: '团队已经在高频用 agent，但节奏不稳定',
-    description: '这时再看社区框架，把 daily workflow、worktree、review ritual 固定下来。',
-    href: '/docs/workflows/community-frameworks/superpowers',
-    bullets: ['先确保 repo 规则和验证命令已存在', '再引入更强的方法层'],
+    id: 'platform',
+    meta: '主线 03',
+    title: '我已经有 issue / Jira，只差把任务稳稳交进 draft PR',
+    description: '先跑平台 handoff 主线，再看控制面和执行栈怎么接入。',
+    href: '/docs/workflows/patterns/issue-to-draft-pr/runbook',
+    bullets: ['先把 issue 写到可委派', '再看平台和本地怎么分工'],
   },
   {
-    id: 'playbook',
-    meta: '问题 04',
-    title: '我现在缺的是可直接照做的落地步骤',
-    description: '先看 playbook，再回到模式或框架页补概念层。',
-    href: '/docs/workflows/playbooks/workflow-playbook',
-    bullets: ['先解决怎么跑起来', '再补制度和治理抽象'],
+    id: 'spec',
+    meta: '主线 04',
+    title: '我在做新功能或结构性改动，先要把边界和验收写清',
+    description: '这时先跑 spec 主线，不要边做边发明范围。',
+    href: '/docs/workflows/patterns/spec-first/runbook',
+    bullets: ['先定目标和非目标', '再进入执行栈或控制面'],
   },
 ];
 
@@ -105,40 +105,49 @@ export const workflowCards = workflowCatalogByGroup.flatMap((group) =>
 
 export const readingOrder = [
   {
-    title: '先看主流 AI Coding 工作流',
-    href: '/docs/workflows/mainstream-ai-coding-workflows',
-    description: '先理解有哪些主线交付链，再进入具体工作流簇。',
+    title: '先跑一条 runbook 主线',
+    href: '/docs/workflows/patterns/bugfix-refactor-test/runbook',
+    description: '先让一个真实任务跑起来，再决定你缺的是模式、框架还是方法层。',
   },
   {
-    title: '再看工作流模式',
-    href: '/docs/workflows/patterns/spec-first',
-    description: '模式层先回答任务怎么走，适合做默认流程分流。',
+    title: '再回到工作流概览',
+    href: '/docs/workflows',
+    description: '概览页负责做分流，不负责替代 runbook 和案例。',
   },
   {
-    title: '需要制度骨架时看框架层',
-    href: '/docs/workflows/frameworks-overview',
-    description: '当 handoff、角色和产物开始频繁失控时，再引入框架层。',
+    title: '需要制度骨架时再看框架层',
+    href: '/docs/workflows/frameworks/spec-kit',
+    description: '当 handoff、角色和产物总是乱，再引入更重的框架。',
   },
   {
-    title: '最后回到 playbook',
+    title: '最后回到案例和 playbook',
     href: '/docs/workflows/playbooks/workflow-playbook',
-    description: '把模式和框架转成可执行步骤，避免只停留在概念层。',
+    description: '把模式和框架转成日常执行方法，避免只停留在概念层。',
   },
 ];
 
 # AI 工作流
 
-这一层不再只是一篇“工作流总览”。它拆成三种对象：工作流模式、主线框架、社区框架。目的不是增加术语，而是让你在读到第一个具体页面前，就知道自己到底缺哪一层。
+这页不是“工作流总表”，而是工作流分流器。目标只有一个：把你尽快送进正确的 `runbook`，而不是让你先在框架名和术语里打转。
 
-## 我当前是什么问题
+## 现在先做什么
+
+- 维护类任务：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 终端内仓库协作：去 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
+- 平台任务交接：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- 新功能或结构性改动：去 [Spec-First Runbook](/docs/workflows/patterns/spec-first/runbook)。
+- 本地到后台 handoff：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+- 想先看真实闭环：去 [Claude Code Bugfix Loop 案例](/docs/case-studies/claude-code-bugfix-loop)。
+
+## 先按任务选默认主线
 
 <ScenarioCards
-  title="先定位你缺的是哪一层"
-  description="如果问题只是“今天这个任务怎么做”，直接上 playbook；如果问题是“团队总在边界与 handoff 上出事”，就该回到模式或框架层。"
+  title="先把当前任务跑起来"
+  description="如果你当前缺的是一条可执行主线，先选 runbook；不要一上来就看框架、方法论或术语总览。"
   items={problemCards}
 />
 
-## 应该先读哪一类
+## 如果主线已经跑通，再看家族分层
 
 <DecisionMatrix
   title="三类工作流对象怎么分"
@@ -147,11 +156,11 @@ export const readingOrder = [
   rows={familyRows}
 />
 
-## 代表页面入口
+## 从这里直接进入具体工作流簇
 
 <ScenarioCards
-  title="从这里直接进入具体工作流簇"
-  description="每个工作流簇都会继续拆成概览、适用边界、流程与产物、治理与风险，以及案例或接入手册。"
+  title="每个工作流簇都该回到可执行页"
+  description="进入任一工作流簇后，优先读概览页和 runbook，再决定是否补治理、案例和工具组合。"
   items={workflowCards}
 />
 
@@ -159,6 +168,6 @@ export const readingOrder = [
 
 <RelatedReadings
   title="推荐阅读顺序"
-  description="第一次建设团队级 AI 工作流时，建议按这个顺序从广到深推进。"
+  description="第一次建设团队级 AI 工作流时，建议按这个顺序从可执行主线回到制度层。"
   items={readingOrder}
 />

@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "advanced"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,71 +14,45 @@ journey_stage: "tech-selection"
 title: "OpenAI Codex：最适合的工作流"
 description: "OpenAI Codex 最适合承接哪些工作流，以及不适合单独承接什么。"
 slug: "/tools/execution-stacks/openai-codex/best-fit-workflows"
-sidebar_label: "最适合的工作流"
+sidebar_label: "补充：工作流适配"
+sidebar_position: 6
 tags: ["ai-coding", "tool", "openai-codex"]
 ---
 
 # OpenAI Codex：最适合的工作流
 
-工具选型真正困难的地方，不是它能不能“做很多事”，而是它最适合承接哪一段 workflow。主入口和任务形状不匹配，再强的模型和 UI 也会变成频繁切换上下文的负担。
+## 现在先做什么
 
-## 哪些任务最自然
+- 第一次跑通执行栈：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
+- 想固定高频执行 SOP：去 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks)。
+- 想直接进入最自然的长任务主线：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
 
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Codex CLI 很适合作为终端内的主执行入口。
-- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它天然适合并行 worktree 与多任务分治。
-- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：本地探索、后台执行和平台收口都能承接。
+## 什么时候读这页
 
-:::info 默认使用法
-OpenAI Codex 更适合承接那些需要频繁交互、快速回看改动、并且仍能把验证结果回流到 repo 或 PR 的任务。
-:::
+- 你已经知道 Codex 能执行，现在只想判断它该接哪类长任务。
+- 你在分本地探索、后台执行、云端任务和平台收口的边界。
+- 你要决定它是正式执行栈，还是只做局部并行加速入口。
 
+## 默认优先搭配
 
-## 场景矩阵
+- [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)：这是它最自然的主线。
+- [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)：适合把并行 lane 做成正式执行栈。
+- [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)：适合终端内长链路执行和验证。
 
-| 场景 | 为什么适合 | 搭配入口 |
-| --- | --- | --- |
-| Terminal-First Repo Pairing | Codex CLI 很适合作为终端内的主执行入口。 | Spec Kit |
-| Parallel Worktrees / Multi-Agent | 它天然适合并行 worktree 与多任务分治。 | Superpowers |
-| Local -> Background -> Cloud | 本地探索、后台执行和平台收口都能承接。 | GitHub Copilot |
+## 不该拿它单独做什么
 
-## 典型任务长什么样
+- 只想要 IDE 补全或轻量聊天，不需要执行链和审批模式的人。
+- 团队完全不愿维护 repo 规则、命令证据和 task 边界。
+- 大部分工作都发生在 GitHub 平台 review 层，本地执行价值很小的组织。
 
-- 长链路重构、并行子任务、跨模块实现与验证。
-- 本地探索后转交 cloud task 持续执行。
-- 需要审批模式和命令证据的 repo 级改动。
+## 读完回哪里
 
-这些任务有一个共同点：你需要的不是“纯聊天式解释”，而是能在一个连续入口里做读代码、改代码、看 diff、再决定是否把任务交给补位工具。
-
-## 最好不要单独承接的工作
-
-- 只需要轻量 IDE 补全或聊天，不需要执行链与审批模式。
-- 团队完全不愿意维护 repo 规则和 command evidence。
-- 工作主要发生在纯平台 review 层，本地执行价值不大。
-
-如果团队已经明确属于这些情形，最稳的做法不是硬上 OpenAI Codex，而是把它降级成局部补位入口，避免让主入口和治理结构长期错位。
-
-## 推荐组合与进入顺序
-
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 收口 PR 与 review，Codex 负责执行层。
-
-### 常见误配信号
-
-- 大家知道 OpenAI Codex 很顺手，但说不清它到底应该负责工作流的哪一段。
-- 复杂任务总是先在这个入口里开工，最后又回到别的工具才能真正收口。
-- 团队真正依赖的只有聊天和补全，执行链几乎不用。
-
-## 下一步怎么读
-
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 收口 PR 与 review，Codex 负责执行层。
-- [OpenAI Codex：集成、review 与治理](/docs/ecosystem/integrations/openai-codex)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更偏向轻量 terminal-first pairing。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面和 background agents。
+- 想直接跑执行栈：回 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
+- 想固定高频长任务动作：去 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks)。
+- 想看真实执行到验证闭环：去 [Codex Refactor with Verification 案例](/docs/case-studies/codex-refactor-with-verification)。
+- 想看平台与执行栈怎么分工：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
 
 ## 来源
 
 - [OpenAI Codex App](https://openai.com/index/introducing-the-codex-app/)
-- [OpenAI Codex Upgrades](https://openai.com/index/codex-upgrades/)
+- [OpenAI Codex CLI](https://github.com/openai/codex)

@@ -2,8 +2,8 @@
 audience: "advanced"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,49 +14,42 @@ journey_stage: "implementation"
 title: "Local -> Background -> Cloud：案例与工具组合"
 description: "Local -> Background -> Cloud 的代表案例，以及最适合搭配的工具或框架。"
 slug: "/workflows/patterns/local-to-background-to-cloud/examples-and-tool-fit"
-sidebar_label: "案例与工具组合"
+sidebar_label: "补充：案例与工具"
+sidebar_position: 9
 tags: ["ai-coding", "workflow", "local-to-background-to-cloud"]
 ---
 
 # Local -> Background -> Cloud：案例与工具组合
 
-没有一种工具能自动修正糟糕的 workflow，但合适的入口确实能让同一条交付链更稳。这一页的目标，是把代表案例、工具组合和常见误配放在一起看。
+## 现在先做什么
+
+- 想先看标准 handoff 示例：去 [Local -> Background -> Cloud 示例](/docs/workflows/patterns/local-to-background-to-cloud/examples)。
+- 想先选默认工具组合：去 [Local -> Background -> Cloud Tooling](/docs/workflows/patterns/local-to-background-to-cloud/tooling)。
+- 想先看控制面到平台的真实交接：去 [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff)。
 
 ## 代表案例
 
-- **前端回归先本地复现再交后台实现**：本地先确认交互路径和快照，后台再修复和补测试，最后回到 PR review。
-- **跨仓库文档更新**：本地先明确目录与链接影响面，再把批量改动交给后台运行。
+- 前端回归先本地复现，再交后台补修复和测试，最后回到 PR review。
+- 跨仓库文档或批量更新先在本地圈定影响面，再把执行交给后台。
+- 本地先收敛目录与风险，再用平台任务面板追踪长耗时执行。
 
-## 案例与工具组合矩阵
+## 默认工具组合
 
-| 案例 | 为什么适合这个流程 | 优先搭配 |
-| --- | --- | --- |
-| 前端回归先本地复现再交后台实现 | 本地先确认交互路径和快照，后台再修复和补测试，最后回到 PR review。 | VS Code Agents |
-| 跨仓库文档更新 | 本地先明确目录与链接影响面，再把批量改动交给后台运行。 | OpenAI Codex |
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合作为本地 owner 加后台 agent 的控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合把收敛后的任务交给 cloud task 或执行栈。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：适合最后在 PR 与 review 流里收口。
 
-## 推荐工具组合
+## 常见误配
 
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：最适合作为本地与后台 agent 的控制面。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合本地探索后转交 cloud task 或并行执行。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：适合最终在 PR 与 review 流里收口。
+- 任务还没收敛就急着交后台，结果只是把噪音搬家。
+- 同时上多条 async lane，但没有稳定 owner 和统一平台收口。
+- 只看模型产出速度，不看证据是否真正回流到 PR、测试和 review。
 
-## 常见组合误区
+## 读完回哪里
 
-- 把工具当成 workflow 本身，而不是 workflow 的承载入口。
-- 同时上多个重流程和多个重工具，最后先死在上下文和治理成本上。
-- 只看生成速度，不看证据是否能回流到 diff、测试和 review。
-
-## 什么时候切到更重或更轻的流程
-
-- 如果任务开始涉及更多角色、更多产物或更长审批链，应切到框架层。
-- 如果任务降级成单点修复或纯配置修订，应切回更轻量的维护流。
-- 如果案例看起来很像，但团队没有任何验证命令，先补基础设施再谈流程。
-
-## 下一步怎么读
-
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：最适合作为本地与后台 agent 的控制面。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合本地探索后转交 cloud task 或并行执行。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：适合最终在 PR 与 review 流里收口。
+- 想按标准 handoff 看例子：回 [Local -> Background -> Cloud 示例](/docs/workflows/patterns/local-to-background-to-cloud/examples)。
+- 想先选入口组合：去 [Local -> Background -> Cloud Tooling](/docs/workflows/patterns/local-to-background-to-cloud/tooling)。
+- 想看真实本地到后台交接：去 [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff)。
 
 ## 来源
 

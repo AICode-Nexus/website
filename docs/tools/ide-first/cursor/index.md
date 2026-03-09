@@ -2,8 +2,8 @@
 audience: "individual"
 stage: "intermediate"
 featured: true
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -22,77 +22,53 @@ import {LearningResources} from '@site/src/components/docs';
 
 # Cursor
 
-Cursor 是打磨很深的 IDE-first 入口：把编辑体验、rules、background agents 和上下文管理组合成主开发环境。
+Cursor 的合理定位不是“万能 AI IDE”，而是成熟的 IDE-first 主入口。它最适合高频交互式编辑、局部修复和逐步扩展到 background agents 的日常工作。
 
-## 60 秒结论
+## 现在先做什么
 
-:::tip 先给判断
-Cursor 最稳的使用方式，不是把它当成“所有任务都交给一个入口”，而是先承认它的主控制面是：IDE-first 主入口，强项是高频交互式编辑与逐步扩展到 background agents。
-:::
+- 第一次把 IDE 当主入口：去 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
+- 想固定 IDE 内任务模板：去 [Cursor 常见任务](/docs/tools/ide-first/cursor/common-tasks)。
+- 想直接进入高频维护主线：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
 
+## 60 秒定位
 
-如果你主要在同一个工作区里高频推进任务、频繁读 diff、并且愿意把 rules、review 证据和 handoff 节点写清，Cursor 会非常顺手。反过来，如果你的工作系统、审批边界和最终交付主要不发生在这个入口里，那么它就更像补位层，而不是标准栈中心。
+如果你主要在 IDE 里工作，重视编辑体验、规则连续性和低切换成本，Cursor 很顺。如果团队真正的主系统在 GitHub、终端或更开放的工具壳层，Cursor 更适合作为个人生产力入口，而不是统一主控制面。
 
-## 适合谁，也不适合谁
+它的上限不只在编辑速度，而在于把 IDE 内连续工作和 background agents 接上真实交付链。前提仍然是 repo 规则、验证命令和 review 证据不能只留在私有配置里。
 
-### 更适合
+## 默认进入顺序
 
-- 默认长期在 IDE 中工作、重视编辑体验的个人工程师或小团队。
-- 想把 rules、context 和 background agents 收进一个日常主入口的人。
-- 需要较强交互式编辑体验，同时又想有 agent 能力的组织。
-
-### 暂时不要先选
-
-- 团队核心协作都在 GitHub 平台，不需要 IDE 作为主入口。
-- 纯终端或强脚本文化团队。
-- 更看重开放 provider 与工具编排，而不是 IDE 体验的人。
+1. 先用 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start) 跑通最小编辑和验证闭环。
+2. 再用 [Cursor 常见任务](/docs/tools/ide-first/cursor/common-tasks) 固定高频重构、修复和规则操作。
+3. 然后进入 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook) 或 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+4. 长期使用前补 [Cursor 最佳实践](/docs/tools/ide-first/cursor/best-practices) 和 [Cursor 排错](/docs/tools/ide-first/cursor/troubleshooting)。
 
 ## 快速判断矩阵
 
 | 判断维度 | 如果你满足这个条件 | 默认建议 |
 | --- | --- | --- |
-| 主控制面 | IDE-first 主入口，强项是高频交互式编辑与逐步扩展到 background agents。 | 先把 Cursor 当成日常主入口，再用其他入口补平台或执行层。 |
-| 任务形状 | 高频重构、交互式编辑、局部修复和 background agents。 | 先跑 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)。 |
-| 团队约束 | Cursor 很适合个人提效，但团队 rollout 时必须明确 rules ownership。 | 把规则与证据链先写回 repo，再扩大 Cursor 使用面。 |
-| 退出信号 | 团队规则越来越依赖 Cursor 私有配置，导致入口一换就断。 | 一旦出现这些信号，就优先评估 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。 |
+| 主控制面 | 你希望把日常编辑、规则和上下文管理留在 IDE 内。 | 先把 Cursor 当个人或小团队主入口，再用平台层补 review。 |
+| 任务形状 | 高频重构、局部修复、交互式编辑和 background agents。 | 先跑 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)。 |
+| 团队约束 | 团队能把规则和证据链留在 repo，而不是绑定私有配置。 | 先理顺规则 ownership，再扩大 Cursor 使用面。 |
+| 退出信号 | 复杂任务始终要回到其他控制面，或者规则越来越依赖私有配置。 | 一旦出现这些信号，就优先评估 [VS Code Agents](/docs/tools/control-planes/vscode-agents) 或 [Windsurf](/docs/tools/ide-first/windsurf)。 |
 
-## 默认进入方式与补位组合
+## 默认补位组合
 
-Cursor 进入标准栈时，最重要的不是“功能有没有”，而是你打算让它承担哪一段主线。默认建议是先把高频日常任务放进 Cursor，再用平台、框架或终端入口兜住验证与治理。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：平台负责 PR 和 review，Cursor 负责 IDE 主入口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：先定 spec，再回 IDE 执行。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：需要更强控制面和后台 agent 时补位。
 
-### 推荐组合
-
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责 PR / review，Cursor 负责日常编辑入口。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec / plan 先固定，再回 IDE 做执行。
-
-### 典型任务
-
-- 高频重构、交互式编辑、局部修复和 background agents。
-- 需要在 IDE 中保持较低上下文切换成本的日常任务。
-- 对规则和编辑器体验都比较敏感的个人工作流。
-
-## 官方事实与工程判断
-
-### 官方资料明确说明了什么
+## 官方依据
 
 - [Cursor Background Agents](https://docs.cursor.com/en/background-agents)
 - [Cursor Rules](https://docs.cursor.com/context/rules)
 
-### 这份手册据此做出的工程判断
-
-- Cursor 的真正优势，不是“它也能做很多事”，而是它把 IDE-first 主入口，强项是高频交互式编辑与逐步扩展到 background agents。 这件事打磨得更顺。
-- 如果团队没有把 repo 规则、验证命令和人工 review 固定下来，再好的入口体验也会被流程噪音抵消。
-- 决定 Cursor 能不能长期留在栈里的，不是单次演示效果，而是这些治理要求：Cursor 很适合个人提效，但团队 rollout 时必须明确 rules ownership。
-
 ## 下一步怎么读
 
-- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：Cursor 很适合高频迭代和小步修复。
-- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：适合本地编辑与 background agents 组合。
-- [Spec-First](/docs/workflows/patterns/spec-first)：轻中型 spec-first 任务可以在 IDE 内先规划再执行。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责 PR / review，Cursor 负责日常编辑入口。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec / plan 先固定，再回 IDE 做执行。
+- 想直接上手：去 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
+- 想按高频维护主线跑任务：去 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)。
+- 想看它和其他 IDE/终端入口怎么分工：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
+- 想看本地到后台 handoff：去 [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)。
 
 <LearningResources
   tool="Cursor"

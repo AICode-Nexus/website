@@ -20,6 +20,12 @@ market_status: current
 
 # AI Code 知识方向总表
 
+## 现在先做什么
+
+- 需要先完成第一条可执行主线：去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 需要先选主工具：去 [工具教程首页](/docs/tools)。
+- 需要先固定任务流程：去 [工作流教程首页](/docs/workflows)。
+
 ## 这页解决什么问题
 
 当你已经知道自己在做 AI Code，但还不知道这篇内容究竟属于哪类长期知识时，就来这里。

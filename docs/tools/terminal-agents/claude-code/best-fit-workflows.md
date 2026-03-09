@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,69 +14,43 @@ journey_stage: "tech-selection"
 title: "Claude Code：最适合的工作流"
 description: "Claude Code 最适合承接哪些工作流，以及不适合单独承接什么。"
 slug: "/tools/terminal-agents/claude-code/best-fit-workflows"
-sidebar_label: "最适合的工作流"
+sidebar_label: "补充：工作流适配"
+sidebar_position: 6
 tags: ["ai-coding", "tool", "claude-code"]
 ---
 
 # Claude Code：最适合的工作流
 
-工具选型真正困难的地方，不是它能不能“做很多事”，而是它最适合承接哪一段 workflow。主入口和任务形状不匹配，再强的模型和 UI 也会变成频繁切换上下文的负担。
+## 现在先做什么
 
-## 哪些任务最自然
+- 第一次跑通终端 pairing：去 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)。
+- 想固定高频终端 SOP：去 [Claude Code 常见任务](/docs/tools/terminal-agents/claude-code/common-tasks)。
+- 想直接进入默认主线：去 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
 
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：这几乎就是 Claude Code 的默认工作姿势。
-- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：官方 common workflows 已经把 worktree 并行写成主线。
-- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：命令驱动和验证回路尤其适合高频维护任务。
+## 什么时候读这页
 
-:::info 默认使用法
-Claude Code 更适合承接那些需要频繁交互、快速回看改动、并且仍能把验证结果回流到 repo 或 PR 的任务。
-:::
+- 你已经知道 Claude Code 能跑起来，现在只想判断它该接哪一段流程。
+- 你在决定它是默认主入口，还是只负责长任务和高控制场景。
+- 你在比较终端 pairing、平台收口和云端执行栈的分工。
 
+## 默认优先搭配
 
-## 场景矩阵
+- [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)：这是它最自然的主线。
+- [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)：适合 owner 驱动的 worktree 并行。
+- [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)：适合复现、修复、验证一条线完成。
 
-| 场景 | 为什么适合 | 搭配入口 |
-| --- | --- | --- |
-| Terminal-First Repo Pairing | 这几乎就是 Claude Code 的默认工作姿势。 | Superpowers |
-| Parallel Worktrees / Multi-Agent | 官方 common workflows 已经把 worktree 并行写成主线。 | Spec Kit |
-| Bugfix / Refactor / Test | 命令驱动和验证回路尤其适合高频维护任务。 | GitHub Copilot |
+## 不该拿它单独做什么
 
-## 典型任务长什么样
+- 完全不想看 shell、diff 和命令输出的团队主入口。
+- 高度依赖浏览器人工操作或重视觉检查的唯一工作流。
+- 已经把 GitHub 平台当成唯一系统、不想再维护终端规则文件的组织。
 
-- repo 读代码、跑脚本、修构建、补测试和做小步重构。
-- 在独立 worktree 里推进长任务或并行子任务。
-- 围绕规则文件和审批边界做高控制开发。
+## 读完回哪里
 
-这些任务有一个共同点：你需要的不是“纯聊天式解释”，而是能在一个连续入口里做读代码、改代码、看 diff、再决定是否把任务交给补位工具。
-
-## 最好不要单独承接的工作
-
-- 完全不想看 shell、diff 和命令输出的团队。
-- 工作大量依赖可视化拖拽或浏览器人工操作的任务。
-- 希望把 GitHub 平台工作系统当作唯一入口的组织。
-
-如果团队已经明确属于这些情形，最稳的做法不是硬上 Claude Code，而是把它降级成局部补位入口，避免让主入口和治理结构长期错位。
-
-## 推荐组合与进入顺序
-
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：如果你想把 brainstorming、plan、worktree、TDD 和 review ritual 固定下来。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：复杂 feature 先用 spec 固定边界，再回到 Claude Code 执行。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：本地终端执行与 GitHub PR 收口形成分工。
-
-### 常见误配信号
-
-- 大家知道 Claude Code 很顺手，但说不清它到底应该负责工作流的哪一段。
-- 复杂任务总是先在这个入口里开工，最后又回到别的工具才能真正收口。
-- 团队不愿维护规则文件，也不愿看 diff 和命令输出。
-
-## 下一步怎么读
-
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：如果你想把 brainstorming、plan、worktree、TDD 和 review ritual 固定下来。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：复杂 feature 先用 spec 固定边界，再回到 Claude Code 执行。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：本地终端执行与 GitHub PR 收口形成分工。
-- [Claude Code：集成、review 与治理](/docs/ecosystem/integrations/claude-code)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要更强执行栈和云端任务。
-- [Gemini CLI](/docs/tools/terminal-agents/gemini-cli)：如果你更倾向轻量终端入口和 GitHub 结合。
+- 想直接开跑：回 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)。
+- 想固定终端高频动作：去 [Claude Code 常见任务](/docs/tools/terminal-agents/claude-code/common-tasks)。
+- 想看真实 repo pairing 收口：去 [Claude Code Bugfix Loop 案例](/docs/case-studies/claude-code-bugfix-loop)。
+- 想比较终端执行栈怎么分工：去 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)。
 
 ## 来源
 

@@ -3,3 +3,5 @@ build/
 .docusaurus/
 .cache-loader/
 .DS_Store
+.playwright-cli/
+output/playwright/

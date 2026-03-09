@@ -13,7 +13,7 @@ entry_role: index
 audience: individual
 stage: intermediate
 featured: true
-reviewed_at: 2026-03-06
+reviewed_at: 2026-03-08
 source_window_end: 2026-03-06
 market_status: current
 ---
@@ -21,6 +21,13 @@ market_status: current
 import {RelatedReadings} from '@site/src/components/docs';
 
 # Cursor、Windsurf 与 Cline 怎么看
+
+## 现在先做什么
+
+- 如果你基本确定自己要 IDE-first 主入口，直接去 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
+- 如果你想先跑一体化工作台闭环，直接去 [Windsurf 快速开始](/docs/tools/ide-first/windsurf/quick-start)。
+- 如果你要更高控制的开放式壳层，直接去 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
+- 如果你想先看工作台或开放式入口怎么落地，直接去 [Windsurf 维护到 PR 交接案例](/docs/case-studies/windsurf-maintenance-to-pr) 和 [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop)。
 
 > 本文基于 2026 年 3 月 6 日前可见的官方文档和官方 changelog。涉及“更适合谁”的部分，是基于这些资料做出的工程判断，不是厂商原话。
 

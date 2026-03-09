@@ -1,0 +1,94 @@
+---
+title: 30 分钟上手 AI Coding
+description: 用 30 分钟跑通第一条 AI coding 教程：选主工具、固定边界、完成一次可验证任务。
+slug: /start/30-minute-quick-start
+sidebar_label: 30 分钟上手
+tags: [ai-coding, quick-start, tutorial]
+track: cross-track
+kind: tutorial
+content_form: tutorial
+audience: individual
+stage: starter
+featured: true
+domain: workflows
+journey_stage: development-planning
+entry_role: start
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
+market_status: current
+tutorial_series: [starter-track, quick-start]
+estimated_time: 30
+prerequisites: [一个可运行的代码仓库, 一个 AI coding 主入口, 至少一个可执行的验证命令]
+deliverable: "一次完成并验证的最小任务记录"
+---
+
+# 30 分钟上手 AI Coding
+
+这不是一页“先看地图”的导览，而是一条最短的实操主线。目标不是理解所有名词，而是在半小时内完成一次真实的 AI coding 协作，并留下下一次还能复用的记录。
+
+## 前置条件
+
+- 你已经有一个可以运行的代码仓库，哪怕只是个人 demo。
+- 你能稳定执行至少一个验证命令，例如 `npm test`、`npm run build` 或 `pnpm lint`。
+- 你已经选好一个主入口。如果还没选，先看 [工具选择地图](/docs/tools/map) 和 [工具教程首页](/docs/tools)。
+
+## 步骤
+
+### 第 1 步：固定一个主工具
+
+今天不要同时试 3 个工具。只选 1 个主入口即可：
+
+- 偏终端和仓库控制：从 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start) 或 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start) 进入。
+- 偏 IDE 主入口：从 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start) 进入。
+- 偏 GitHub 任务和 PR：从 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start) 进入。
+
+### 第 2 步：收口任务边界
+
+只选一个最小任务：
+
+- 修一个已知 bug
+- 给一个已有模块补测试
+- 做一次不改变行为的小重构
+
+把边界写成 4 行：
+
+```text
+任务：今天只做什么
+范围：允许改哪些目录或文件
+不要做：这次明确不碰什么
+验收：用什么命令或行为证明完成
+```
+
+### 第 3 步：让工具先做最小闭环
+
+把任务交给主工具时，优先要求它完成完整闭环，而不是直接堆代码：
+
+1. 先复述问题和边界。
+2. 再给出最小计划。
+3. 再执行改动。
+4. 最后回报验证结果。
+
+如果你更想按任务模板跑，直接用 [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)。
+
+## 验证
+
+完成这 4 项就算第一次上手成功：
+
+- 你真的只用了一个主工具。
+- 你留下了边界说明，而不是只留 prompt 聊天记录。
+- 你执行了至少一个验证命令。
+- 你能说清这次任务的结果、风险和下一步。
+
+如果连验证命令都没有，先暂停继续扩展工具，回到 [7 天上手路线](/docs/workflows/playbooks/first-7-days-ai-coding) 把最小校验回路补起来。
+
+## 下一步
+
+- 如果今天的任务是日常维护，进入 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 如果你已经开始固定个人协作方式，进入 [个人工程师栈搭建](/docs/workflows/playbooks/personal-engineer-stack-setup)。
+- 如果你想继续补资源，再去 [学习资源](/docs/tools/resources)。
+
+## 来源
+
+- [Claude Code Common Workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows)
+- [GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent)
+- [OpenAI Codex](https://openai.com/index/introducing-the-codex-app/)

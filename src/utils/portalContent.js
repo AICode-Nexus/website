@@ -6,6 +6,14 @@ function ensureString(value, fieldName) {
   return value;
 }
 
+const ACTIONABLE_PORTAL_ROUTE_PATTERN =
+  /^\/docs\/(?:start\/30-minute-quick-start|workflows\/playbooks\/[^/]+|case-studies(?:\/[^/]+)?|tools\/(?:platforms|control-planes|execution-stacks|terminal-agents|ide-first)\/[^/]+\/quick-start|workflows\/patterns\/[^/]+\/runbook)$/u;
+
+const HUB_PORTAL_ROUTE_PATTERN =
+  /^\/docs\/(?:tools|workflows|case-studies|development-modes|standards|architecture|ecosystem)$/u;
+
+const BLOG_POST_ROUTE_PATTERN = /^\/blog\/[^/]+(?:\/[^/]+)*$/u;
+
 function ensureArray(value, fieldName) {
   if (!Array.isArray(value)) {
     throw new Error(`Portal content field \"${fieldName}\" must be an array.`);
@@ -23,6 +31,12 @@ function validateLink(link, fieldName) {
   ensureString(link.href, `${fieldName}.href`);
 
   return link;
+}
+
+function validateRouteByPattern(href, fieldName, pattern, expectation) {
+  if (!pattern.test(href)) {
+    throw new Error(`Portal content field "${fieldName}.href" must ${expectation}. Received: ${href}`);
+  }
 }
 
 function validateSection(section, fieldName) {
@@ -161,47 +175,88 @@ export function definePortalContent(content) {
   validateBrand(content.hero.brand, 'hero.brand');
   validateLink(content.hero.primaryAction, 'hero.primaryAction');
   validateLink(content.hero.secondaryAction, 'hero.secondaryAction');
+  validateRouteByPattern(
+    content.hero.primaryAction.href,
+    'hero.primaryAction',
+    ACTIONABLE_PORTAL_ROUTE_PATTERN,
+    'point directly to an actionable tutorial, runbook, playbook, or case-study route',
+  );
+  validateRouteByPattern(
+    content.hero.secondaryAction.href,
+    'hero.secondaryAction',
+    ACTIONABLE_PORTAL_ROUTE_PATTERN,
+    'point directly to an actionable tutorial, runbook, playbook, or case-study route',
+  );
   ensureString(content.hero.panelTitle, 'hero.panelTitle');
   ensureArray(content.hero.signals, 'hero.signals').forEach((signal, index) => {
     ensureString(signal, `hero.signals[${index}]`);
   });
 
-  validateSection(content.quickActions, 'quickActions');
-  validateItems(content.quickActions.items, 'quickActions.items', ['id', 'title', 'description', 'href']);
-
-  validateSection(content.toolMatrix, 'toolMatrix');
-  validateItems(content.toolMatrix.items, 'toolMatrix.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
-
-  validateSection(content.journeyMap, 'journeyMap');
-  validateItems(content.journeyMap.items, 'journeyMap.items', ['id', 'title', 'description', 'href', 'linkLabel']);
-  content.journeyMap.items.forEach((item, index) => {
-    ensureArray(item.bullets, `journeyMap.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
-      ensureString(bullet, `journeyMap.items[${index}].bullets[${bulletIndex}]`);
-    });
+  validateSection(content.advancedTopics, 'advancedTopics');
+  validateItems(content.advancedTopics.items, 'advancedTopics.items', ['id', 'title', 'description', 'href']);
+  content.advancedTopics.items.forEach((item, index) => {
+    validateRouteByPattern(
+      item.href,
+      `advancedTopics.items[${index}]`,
+      HUB_PORTAL_ROUTE_PATTERN,
+      'point to an advanced-topic hub route',
+    );
   });
 
-  validateSection(content.directionMap, 'directionMap');
-  validateItems(content.directionMap.items, 'directionMap.items', ['id', 'title', 'description', 'href', 'linkLabel']);
-  content.directionMap.items.forEach((item, index) => {
-    ensureArray(item.bullets, `directionMap.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
-      ensureString(bullet, `directionMap.items[${index}].bullets[${bulletIndex}]`);
+  validateSection(content.starterTracks, 'starterTracks');
+  validateItems(content.starterTracks.items, 'starterTracks.items', [
+    'id',
+    'title',
+    'description',
+    'href',
+    'badge',
+    'linkLabel',
+  ]);
+  content.starterTracks.items.forEach((item, index) => {
+    ensureArray(item.bullets, `starterTracks.items[${index}].bullets`).forEach((bullet, bulletIndex) => {
+      ensureString(bullet, `starterTracks.items[${index}].bullets[${bulletIndex}]`);
     });
+    validateRouteByPattern(
+      item.href,
+      `starterTracks.items[${index}]`,
+      ACTIONABLE_PORTAL_ROUTE_PATTERN,
+      'point directly to an actionable tutorial, runbook, playbook, or case-study route',
+    );
   });
 
-  validateSection(content.learningPath, 'learningPath');
-  validateItems(content.learningPath.items, 'learningPath.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
+  ['featuredToolTutorials', 'featuredWorkflowTutorials', 'featuredCaseStudies'].forEach((fieldName) => {
+    validateSection(content[fieldName], fieldName);
+    validateLink(content[fieldName].primaryAction, `${fieldName}.primaryAction`);
+  });
+  validateRouteByPattern(
+    content.featuredToolTutorials.primaryAction.href,
+    'featuredToolTutorials.primaryAction',
+    HUB_PORTAL_ROUTE_PATTERN,
+    'point to the tools hub route',
+  );
+  validateRouteByPattern(
+    content.featuredWorkflowTutorials.primaryAction.href,
+    'featuredWorkflowTutorials.primaryAction',
+    HUB_PORTAL_ROUTE_PATTERN,
+    'point to the workflows hub route',
+  );
+  validateRouteByPattern(
+    content.featuredCaseStudies.primaryAction.href,
+    'featuredCaseStudies.primaryAction',
+    HUB_PORTAL_ROUTE_PATTERN,
+    'point to the case-studies hub route',
+  );
 
-  validateSection(content.featuredDocs, 'featuredDocs');
-  validateCollectionMetadata(content.featuredDocs.collections, 'featuredDocs.collections');
-
-  validateSection(content.latestBriefs, 'latestBriefs');
-  validateItems(content.latestBriefs.items, 'latestBriefs.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
-
-  validateSection(content.teachingVideos, 'teachingVideos');
-  validateLink(content.teachingVideos.primaryAction, 'teachingVideos.primaryAction');
-  if (content.teachingVideos.secondaryAction !== undefined) {
-    validateLink(content.teachingVideos.secondaryAction, 'teachingVideos.secondaryAction');
-  }
+  validateSection(content.latestUpdates, 'latestUpdates');
+  validateItems(content.latestUpdates.items, 'latestUpdates.items', ['id', 'title', 'description', 'href', 'badge', 'linkLabel']);
+  content.latestUpdates.items.forEach((item, index) => {
+    validateRouteByPattern(
+      item.href,
+      `latestUpdates.items[${index}]`,
+      BLOG_POST_ROUTE_PATTERN,
+      'point to a concrete blog post route',
+    );
+  });
 
   return deepFreeze(content);
 }

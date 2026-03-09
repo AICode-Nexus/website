@@ -13,7 +13,7 @@ entry_role: index
 audience: mixed
 stage: intermediate
 featured: true
-reviewed_at: 2026-03-06
+reviewed_at: 2026-03-08
 source_window_end: 2026-03-06
 market_status: watch
 ---
@@ -21,6 +21,13 @@ market_status: watch
 import {RelatedReadings} from '@site/src/components/docs';
 
 # 2026 年 3 月月度简报
+
+## 看完先做什么
+
+- 如果你现在最缺的是稳定个人默认栈，直接去 [个人工程师栈搭建](/docs/workflows/playbooks/personal-engineer-stack-setup)。
+- 如果你还没跑通第一条主线，直接去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 如果你要先固定高频维护闭环，直接去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 如果你想先看趋势如何进入真实交付，直接去 [Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr)。
 
 > 本文写于 2026 年 3 月 6 日，代表 2026 年 3 月上旬的阶段性简报，不代表整月最终结论。后续如果 3 月下旬出现更大变化，应在同一文档中补充更新，而不是让同名月报同时存在多个版本。
 

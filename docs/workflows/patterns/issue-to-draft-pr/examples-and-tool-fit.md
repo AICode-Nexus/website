@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,49 +14,42 @@ journey_stage: "implementation"
 title: "Issue / Jira -> Draft PR：案例与工具组合"
 description: "Issue / Jira -> Draft PR 的代表案例，以及最适合搭配的工具或框架。"
 slug: "/workflows/patterns/issue-to-draft-pr/examples-and-tool-fit"
-sidebar_label: "案例与工具组合"
+sidebar_label: "补充：案例与工具"
+sidebar_position: 9
 tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 ---
 
 # Issue / Jira -> Draft PR：案例与工具组合
 
-没有一种工具能自动修正糟糕的 workflow，但合适的入口确实能让同一条交付链更稳。这一页的目标，是把代表案例、工具组合和常见误配放在一起看。
+## 现在先做什么
+
+- 想先看标准示例：去 [Issue / Jira -> Draft PR 示例](/docs/workflows/patterns/issue-to-draft-pr/examples)。
+- 想先选默认工具组合：去 [Issue / Jira -> Draft PR Tooling](/docs/workflows/patterns/issue-to-draft-pr/tooling)。
+- 想先看真实平台交接：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
 
 ## 代表案例
 
-- **Jira 中的已定义接口调整**：issue 已给出字段变更、回归点和 reviewer，适合直接委派 agent 产出 draft PR。
-- **文档体系补齐与导航更新**：范围清晰、验收明确、主要通过构建和链接检查验证，适合异步交付。
+- issue 足够清晰，直接委派 agent 生成 draft PR 并进入 reviewer 流。
+- 本地先做最小探索，再把明确任务转成平台委派和 PR 跟踪。
+- Jira ticket 已写清边界，agent 负责交付草稿，owner 负责最终收口。
 
-## 案例与工具组合矩阵
+## 默认工具组合
 
-| 案例 | 为什么适合这个流程 | 优先搭配 |
-| --- | --- | --- |
-| Jira 中的已定义接口调整 | issue 已给出字段变更、回归点和 reviewer，适合直接委派 agent 产出 draft PR。 | GitHub Copilot |
-| 文档体系补齐与导航更新 | 范围清晰、验收明确、主要通过构建和链接检查验证，适合异步交付。 | VS Code Agents |
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：适合 issue、PR 和 review 的平台闭环。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合本地探索后再交后台分支执行。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合把清晰任务转成长链路执行后再回平台收口。
 
-## 推荐工具组合
+## 常见误配
 
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：最适合把 issue、PR 和 review 串成平台闭环。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合从本地探索转到后台分支执行。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合异步长任务和多分支执行。
+- issue 没写清就直接委派，结果只是把噪音搬进 draft PR。
+- 把平台当 workflow 本身，而不是异步交付的承载层。
+- 只看 draft PR 是否生成，不看验证、风险和 reviewer 可读性。
 
-## 常见组合误区
+## 读完回哪里
 
-- 把工具当成 workflow 本身，而不是 workflow 的承载入口。
-- 同时上多个重流程和多个重工具，最后先死在上下文和治理成本上。
-- 只看生成速度，不看证据是否能回流到 diff、测试和 review。
-
-## 什么时候切到更重或更轻的流程
-
-- 如果任务开始涉及更多角色、更多产物或更长审批链，应切到框架层。
-- 如果任务降级成单点修复或纯配置修订，应切回更轻量的维护流。
-- 如果案例看起来很像，但团队没有任何验证命令，先补基础设施再谈流程。
-
-## 下一步怎么读
-
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：最适合把 issue、PR 和 review 串成平台闭环。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合从本地探索转到后台分支执行。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合异步长任务和多分支执行。
+- 想按标准例子开工：回 [Issue / Jira -> Draft PR 示例](/docs/workflows/patterns/issue-to-draft-pr/examples)。
+- 想先选入口组合：去 [Issue / Jira -> Draft PR Tooling](/docs/workflows/patterns/issue-to-draft-pr/tooling)。
+- 想看真实 draft PR 交接：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
 
 ## 来源
 

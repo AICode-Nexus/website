@@ -13,7 +13,7 @@ entry_role: index
 audience: individual
 stage: intermediate
 featured: true
-reviewed_at: 2026-03-06
+reviewed_at: 2026-03-08
 source_window_end: 2026-03-06
 market_status: current
 ---
@@ -21,6 +21,13 @@ market_status: current
 import {RelatedReadings} from '@site/src/components/docs';
 
 # GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选
+
+## 现在先做什么
+
+- 如果你基本确定自己是 GitHub-first，直接去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
+- 如果你想先跑本地探索到后台交接，直接去 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start)。
+- 如果你已经确认自己需要长任务执行栈，直接去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
+- 如果你想先看控制面到执行栈怎么交接，直接去 [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff)。
 
 ## 先给结论
 

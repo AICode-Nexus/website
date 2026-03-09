@@ -4,7 +4,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import {portalContent} from '@site/src/data/portalContent';
 
-const {hero} = portalContent;
+const {advancedTopics, hero} = portalContent;
 
 export default function HomeHero() {
   const brandMarkSrc = useBaseUrl(hero.brand.markSrc);
@@ -45,6 +45,15 @@ export default function HomeHero() {
             <span>{signal}</span>
           </div>
         ))}
+        <p className={styles.panelSubtitle}>{advancedTopics.title}</p>
+        <div className={styles.signalLinks}>
+          {advancedTopics.items.map((item) => (
+            <Link className={styles.signalLink} key={item.id} to={item.href}>
+              <strong className={styles.signalLinkTitle}>{item.title}</strong>
+              <span className={styles.signalLinkDescription}>{item.description}</span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

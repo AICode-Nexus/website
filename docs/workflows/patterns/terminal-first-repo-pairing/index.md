@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: true
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -20,59 +20,35 @@ tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
 
 # Terminal-First Repo Pairing
 
-把 agent 当成仓库里的搭档，而不是网页聊天框：围绕规则文件、命令执行、diff 审阅和验证闭环工作。
+这条主线的核心不是“在终端里也能跑 agent”，而是把规则文件、命令执行、diff 审阅和验证闭环放回仓库内部。
 
-## 什么时候优先用它
+## 现在先做什么
 
-- 真实工程仓库、monorepo、脚本化任务和命令驱动型修复。
-- 希望保留 shell、git、test 和审批边界的团队。
-- 需要 agent 直接和 repo 规则、工作树、构建命令交互的任务。
+- 直接开始执行：去 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
+- 想先看仓库内示例：去 [Terminal-First Repo Pairing 示例](/docs/workflows/patterns/terminal-first-repo-pairing/examples)。
+- 想先定终端主入口：去 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)。
 
-## 什么时候先别用它
+## 60 秒定位
 
-- 高度视觉化的任务，离不开浏览器交互与人工拖拽。
-- 不愿意看命令输出、也不愿意 review diff 的使用方式。
-- 仓库没有任何脚本或验证回路，命令行只能盲改的场景。
+这条工作流适合真实工程仓库、monorepo、脚本化任务和需要高控制边界的团队。你要相信的是命令输出、验证结果和 diff，而不是某个界面里的一句“完成了”。
 
-## 最小闭环
+如果任务高度视觉化、离不开浏览器人工操作，或者仓库根本没有脚本和验证回路，就不该硬上终端主线。那类问题更适合走 IDE 工作台或平台型入口。
 
-1. **读规则文件**：先读取 AGENTS.md、CLAUDE.md、GEMINI.md 或其他 repo 规则，明确边界。
-   产物：task contract
-2. **说明计划与权限**：先说准备怎么做、要跑哪些命令、哪里需要审批。
-   产物：execution plan
-3. **小步执行**：边执行边看输出，必要时中断和缩小范围。
-   产物：incremental diff
-4. **跑命令验证并审 diff**：完成标准来自命令结果、diff 质量和人工审阅，而不是模型自评。
-   产物：verified patch
+## 默认进入顺序
 
-## 阶段与产物总表
+1. 先用 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook) 跑通最小闭环。
+2. 再看 [Terminal-First Repo Pairing 示例](/docs/workflows/patterns/terminal-first-repo-pairing/examples) 对照真实命令和证据链。
+3. 然后按入口选择 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)、[OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start) 或 [Gemini CLI 快速开始](/docs/tools/terminal-agents/gemini-cli/quick-start)。
+4. 最后再补 [Terminal-First Repo Pairing 风险与切换条件](/docs/workflows/patterns/terminal-first-repo-pairing/pitfalls) 和补充页。
 
-| 阶段 | 目标 | 主要产物 |
+## 快速判断矩阵
+
+| 判断维度 | 如果你满足这个条件 | 默认建议 |
 | --- | --- | --- |
-| 读规则文件 | 先读取 AGENTS.md、CLAUDE.md、GEMINI.md 或其他 repo 规则，明确边界。 | task contract |
-| 说明计划与权限 | 先说准备怎么做、要跑哪些命令、哪里需要审批。 | execution plan |
-| 小步执行 | 边执行边看输出，必要时中断和缩小范围。 | incremental diff |
-| 跑命令验证并审 diff | 完成标准来自命令结果、diff 质量和人工审阅，而不是模型自评。 | verified patch |
-
-## 输入、输出与验收
-
-### 输入
-
-- 任务目标、目录范围、允许执行的命令。
-- 规则文件、审批策略、环境约束。
-- 需要保留的手工检查点，例如 UI 或数据正确性。
-
-### 输出
-
-- 带命令证据的 patch。
-- 清晰的 diff、验证结果和剩余风险。
-- 必要时的 worktree、branch 或回滚建议。
-
-### 验收证据
-
-- 命令执行记录和关键输出摘要。
-- 与规则文件一致的边界说明。
-- 最终 diff review 结论和未覆盖风险。
+| 任务边界 | 仓库已有构建、测试、脚本或 codemod 回路。 | 直接进入 [Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。 |
+| 协作方式 | 团队不想把全部上下文和执行都锁在 IDE 或网页产品里。 | 把规则文件和命令验证先写回 repo。 |
+| 验收要求 | 你更信命令输出和 diff，而不是一句“已经完成”。 | 用终端主线承接 repo pairing 和验证闭环。 |
+| 切换信号 | 任务高度视觉化，或根本没有验证回路。 | 转去 IDE/平台入口，别在终端里硬撑。 |
 
 ## 默认人工接管点
 
@@ -80,12 +56,12 @@ tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
 - 任何大改动都要在 diff 可读的前提下推进，不宜一次性倾倒大 patch。
 - 最终仍由人决定验证是否充分、是否值得 merge。
 
-## 推荐入口与下一步
+## 下一步怎么读
 
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：终端协作、规则文件和 worktree 是它的强项。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合审批模式、并行 worktree 和更长的执行链。
-- [Gemini CLI](/docs/tools/terminal-agents/gemini-cli)：适合轻量终端入口与 GitHub 流结合。
-- [Cline](/docs/tools/terminal-agents/cline)：适合要自己控制 Plan/Act、MCP 和工具权限的人。
+- 想直接开跑：去 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
+- 想看标准例子：去 [Terminal-First Repo Pairing 示例](/docs/workflows/patterns/terminal-first-repo-pairing/examples)。
+- 想看真实终端到 PR 交付：去 [Gemini CLI Terminal Audit to Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr)。
+- 想看它和平台主线怎么分工：去 [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)。
 
 ## 来源
 

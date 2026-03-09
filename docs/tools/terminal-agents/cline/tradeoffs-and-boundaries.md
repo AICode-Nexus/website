@@ -2,8 +2,8 @@
 audience: "advanced"
 stage: "advanced"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,56 +14,42 @@ journey_stage: "tech-selection"
 title: "Cline：优点、边界与替代项"
 description: "Cline 的优势、边界、替代项和退出信号。"
 slug: "/tools/terminal-agents/cline/tradeoffs-and-boundaries"
-sidebar_label: "优点与边界"
+sidebar_label: "补充：优点与替代"
+sidebar_position: 8
 tags: ["ai-coding", "tool", "cline"]
 ---
 
 # Cline：优点、边界与替代项
 
-没有一个入口应该永久占据所有场景。真正成熟的工具栈，必须知道某个入口为什么值得主用、什么时候只是补位、又在什么条件下应该退出标准栈。
+## 现在先做什么
 
-## 核心优势
+- 还没实际跑过开放式壳层：去 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
+- 想先看 owner 如何收口并行 lane：去 [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop)。
+- 想直接比较 IDE 工作台与开放式入口：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
 
-- 开放、可组合、MCP 与自动化能力强。
-- 适合高级用户试验新的 agent 工具链。
+## 保留它的理由
 
-## 取舍矩阵
+- 你要的是开放式终端壳层，而不是预先收紧好的工作台。
+- 你需要 MCP、Plan / Act、checkpoint 这类强可组合能力。
+- 团队里确实有人能维护 provider、权限和实验栈。
 
-| 面向 | 你会得到什么 | 你要接受什么 |
-| --- | --- | --- |
-| 优势 | 开放、可组合、MCP 与自动化能力强。 | 团队统一 rollout 难度高。 |
-| 长期使用 | 适合高级用户试验新的 agent 工具链。 | 默认体验不如更产品化的平台或 IDE 入口收敛。 |
-| 团队 rollout | Cline 的风险不在能力不够，而在开放能力很容易超过团队治理能力。 | 团队无法统一 tool permission 与 provider 配置。 |
-| 补位路线 | Windsurf | Cursor |
+## 退出信号
 
-## 替代路线
+- 正式任务大多还得回到别的入口才能收口。
+- provider、MCP 和权限维护成本已经超过实验收益。
+- 团队想要统一 rollout，但 Cline 仍停留在个人高手工具阶段。
 
-- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更想要整合好的工作台体验。
-- [Cursor](/docs/tools/ide-first/cursor)：如果你更偏向成熟 IDE-first 体验。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更想要终端式但更稳的 repo pairing。
+## 换到哪里
 
-替代项的价值，不是为了证明“谁更强”，而是帮你在主控制面、治理要求和执行深度发生变化时及时换挡，而不是让整个团队继续被一个已经不匹配的入口拖着走。
+- 想要整合好的 IDE 工作台：去 [Windsurf](/docs/tools/ide-first/windsurf)。
+- 想要更成熟的 IDE-first 体验：去 [Cursor](/docs/tools/ide-first/cursor)。
+- 想保留终端风格但更强调稳态 repo pairing：去 [Claude Code](/docs/tools/terminal-agents/claude-code)。
 
-## 退出与迁移信号
+## 读完回哪里
 
-- 团队无法统一 tool permission 与 provider 配置。
-- 大多数正式任务仍回到其他更标准化的入口。
-- 开放性带来的维护负担超过实验收益。
-
-## 决策检查清单
-
-- 如果你需要的是 开放式终端/agent 外壳，适合要自己拼工作流、模型和工具权限的高级用户。，Cline 仍然值得保留。
-- 如果团队更在意的是 团队统一 rollout 难度高。 这一类问题，就该优先评估替代路线。
-- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
-
-## 下一步怎么读
-
-- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更想要整合好的工作台体验。
-- [Cursor](/docs/tools/ide-first/cursor)：如果你更偏向成熟 IDE-first 体验。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更想要终端式但更稳的 repo pairing。
-- [Continue Rules](/docs/tools/ai-ide-landscape)：开放栈通常不只看 Cline，还要看 rules 与模型配置生态。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在开放壳层上再叠加一套日常操作方法时很有帮助。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：部分团队会把 Cline 留作开放实验入口，把 Codex 留作正式执行栈。
+- 想先确认你是不是需要它：回 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
+- 想看它在真实并行任务里值不值得保留：去 [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop)。
+- 想做横向入口判断：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
 
 ## 来源
 

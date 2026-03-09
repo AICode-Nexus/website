@@ -13,8 +13,8 @@ featured: false
 domain: standards
 journey_stage: defect-optimization
 entry_role: archive
-reviewed_at: 2026-03-07
-source_window_end: 2026-03-07
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: legacy
 ---
 
@@ -28,6 +28,12 @@ market_status: legacy
 - 团队与交付
 
 它们现在的定位是“专题透镜”，适合在你已经知道旧分类词汇时回查历史内容，不再是当前站点的默认入口。
+
+## 现在应该读什么
+
+- 还没跑过现行主线：先去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 已经明确自己缺的是工具入口：先去 [工具教程首页](/docs/tools)。
+- 已经明确自己缺的是任务交付链：先去 [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)。
 
 ## 这类透镜现在怎么用
 

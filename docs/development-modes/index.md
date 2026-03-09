@@ -20,6 +20,11 @@ market_status: current
 
 # AI 开发方式
 
+## 现在先做什么
+
+- 如果你还没跑过任何主线，先去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 如果你已经要开始真实任务，先去 [工作流教程首页](/docs/workflows)。
+
 ## 这一类内容解决什么问题
 
 - 先确定组织默认通过什么入口和 AI 协作

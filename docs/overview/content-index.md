@@ -13,8 +13,8 @@ featured: false
 domain: standards
 journey_stage: tech-selection
 entry_role: index
-reviewed_at: 2026-03-07
-source_window_end: 2026-03-07
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: current
 ---
 
@@ -22,58 +22,68 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 # 内容索引
 
-内容索引只负责告诉你“下一步该用哪种内容形态继续往下读”，不再替代流程地图或知识方向。
+内容索引不再承担“站点总入口”的角色。它只负责回答一个问题：你下一步该读对比文、实操手册、案例，还是趋势判断。
 
-当前保留三类索引：
+## 现在先做什么
 
-- [对比与选型](/docs/comparisons)：解决同层工具、入口或方案之间怎么选。
-- [Playbooks](/docs/playbooks)：提供可直接执行的动作手册与 SOP。
-- [趋势观察](/docs/insights)：把短期变化压缩成长期判断。
+- 还没有跑过教程主线：先去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 需要一个可直接执行的任务入口：先去 [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)。
+- 需要完整示例：先去 [实战案例](/docs/case-studies)。
+- 需要一篇真实闭环案例：先去 [Claude Code Bugfix Loop 案例](/docs/case-studies/claude-code-bugfix-loop)。
 
-## 三类索引怎么分
+## 什么时候才回内容索引
 
-- [对比与选型](/docs/comparisons)：适合你已经知道自己在比较哪一类平台、终端 agent、AI IDE 或工作流框架时使用。
-- [Playbooks](/docs/playbooks)：适合你已经确认方向，只差一份可以直接执行的动作清单时使用。
-- [趋势观察](/docs/insights)：适合你想把近一周或近一月的变化收成长期判断，而不是继续追单条快讯时使用。
+- 你已经知道自己当前的问题属于哪一层，只差一种合适的阅读形态。
+- 你已经跑过至少一条主线，不再需要首页级分流。
+- 你明确知道自己是在做“比较”“照做”“看案例”还是“看趋势判断”。
 
-## 使用方式
+如果你现在还不知道阶段、方向或默认主线，先回 [流程地图](/docs/start/journey-map)、[知识方向总表](/docs/start/taxonomy) 或 [AI 工作流](/docs/workflows)。
 
-1. 先从 [流程地图](/docs/start/journey-map) 确认你当前卡在哪个阶段。
-2. 再从 [知识方向总表](/docs/start/taxonomy) 确认你要补哪类长期知识。
-3. 最后回到这里，决定下一步该读对比、Playbook 还是 Insight。
-4. 读完后继续回流到对应方向，而不是把内容索引当成终点。
+## 四种内容形态怎么分
 
-## 什么时候回方向页
+| 你现在需要什么 | 先看什么 | 典型用途 |
+| --- | --- | --- |
+| 同层工具或入口怎么选 | [对比与选型](/docs/comparisons) | 做取舍，而不是上手 |
+| 一份可直接照做的动作清单 | [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook) | 跑主线和 SOP |
+| 一个完整的真实闭环 | [实战案例](/docs/case-studies) | 看工具、工作流和验证如何串起来 |
+| 近期变化对长期判断的影响 | [趋势观察](/docs/insights) | 把短期变化压成长期决策 |
 
-- 如果你读完对比后还在决定默认入口，回到 [工具与技术选型](/docs/tools)。
-- 如果你已经开始写交付链和 handoff，回到 [工作流与交付](/docs/workflows)。
-- 如果你现在缺的是规则、验证和 review 门禁，回到 [规范评估与治理](/docs/standards)。
-- 如果你要把 GitHub、Jira、CI 和 PR 放回真实工作系统，回到 [生态与集成](/docs/ecosystem)。
+## 读完之后该回哪里
 
-## 什么时候回资源中心或 Daily Brief
+- 对比完入口后，回 [AI 编程工具](/docs/tools) 进入具体 `quick-start`。
+- 看完实操手册后，回 [AI 工作流](/docs/workflows) 固定默认主线。
+- 看完案例后，回 [生态与集成](/docs/ecosystem) 或 [规范评估与治理](/docs/standards) 补系统化约束。
+- 看完趋势判断后，回 [AI 编程工具](/docs/tools) 或 [AI 工作流](/docs/workflows) 更新你的默认做法。
 
-- 如果你暂时不缺判断，只缺材料，回到 [资源中心](/docs/tools/resources)。
-- 如果你需要跟踪短期变化，再去 [Daily Brief](/blog)。
-- 如果你已经知道历史分类词汇，想查旧入口，再去 [旧赛道归档](/docs/archive)。
+## 什么时候回资源中心或归档
+
+- 如果你只缺视频、课程和材料，回 [资源中心](/docs/tools/resources)。
+- 如果你只是在追踪短期变化，再去 [Daily Brief](/blog)。
+- 如果你需要查旧分类词汇，再去 [旧赛道归档](/docs/archive)。
 
 <RelatedReadings
   title="继续阅读"
-  description="如果你已经知道自己要哪种内容形态，直接从这里进入对应索引。"
+  description="如果你已经知道自己要哪种内容形态，直接从这里进入对应入口。"
   items={[
     {
       title: '对比与选型',
       href: '/docs/comparisons',
-      description: '查看工具与入口的对比文总览。',
+      description: '查看工具、入口和方案的对比文总览。',
     },
     {
-      title: 'Playbooks',
-      href: '/docs/playbooks',
-      description: '查看可直接执行的操作手册总览。',
+      title: 'AI 工作流实操手册',
+      href: '/docs/workflows/playbooks/workflow-playbook',
+      description: '查看可直接执行的动作手册。',
+    },
+    {
+      title: '实战案例',
+      href: '/docs/case-studies',
+      description: '查看完整的工具 + 工作流 + 验证闭环。',
     },
     {
       title: '趋势观察',
       href: '/docs/insights',
-      description: '查看月度简报与长期趋势判断。',
+      description: '查看月度简报和长期趋势判断。',
     },
   ]}
 />

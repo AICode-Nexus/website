@@ -123,10 +123,22 @@ const ENTRY_ROLE_LABELS = {
 
 const VALID_ENTRY_ROLES = new Set(ENTRY_ROLE_ORDER);
 
-const CONTENT_FORM_ORDER = ['hub', 'guide', 'comparison', 'playbook', 'insight', 'resource', 'brief'];
+const CONTENT_FORM_ORDER = [
+  'hub',
+  'guide',
+  'tutorial',
+  'case-study',
+  'comparison',
+  'playbook',
+  'insight',
+  'resource',
+  'brief',
+];
 const CONTENT_FORM_LABELS = {
   hub: '总览',
   guide: '指南',
+  tutorial: '教程',
+  'case-study': '案例',
   comparison: '对比',
   playbook: 'Playbook',
   insight: 'Insight',

@@ -38,12 +38,29 @@ const DOMAIN_DIRS = new Map([
 const KIND_RULES = {
   hub: {minChars: 260, minHeadings: 3},
   guide: {minChars: 260, minHeadings: 3},
+  tutorial: {minChars: 320, minHeadings: 4},
+  'case-study': {minChars: 360, minHeadings: 5},
   comparison: {minChars: 420, minHeadings: 4, requiresTable: true},
   playbook: {minChars: 420, minHeadings: 4},
   insight: {minChars: 420, minHeadings: 4},
 };
 
 const FAMILY_RULES = {
+  tutorialDoc: {
+    minChars: 320,
+    minHeadings: 4,
+    minInternalDocLinks: 3,
+  },
+  caseStudyDoc: {
+    minChars: 360,
+    minHeadings: 5,
+    minInternalDocLinks: 3,
+  },
+  actionGuide: {
+    minChars: 240,
+    minHeadings: 4,
+    minInternalDocLinks: 2,
+  },
   generatedTool: {
     minChars: 900,
     minHeadings: 5,
@@ -57,6 +74,18 @@ const FAMILY_RULES = {
     minInternalDocLinks: 3,
     minSourceLinks: 1,
     requiresTable: true,
+  },
+  supplementaryTool: {
+    minChars: 520,
+    minHeadings: 5,
+    minInternalDocLinks: 3,
+    minSourceLinks: 2,
+  },
+  supplementaryWorkflow: {
+    minChars: 520,
+    minHeadings: 5,
+    minInternalDocLinks: 3,
+    minSourceLinks: 1,
   },
   hubOverview: {
     minChars: 700,
@@ -104,6 +133,54 @@ const DAILY_BRIEF_SECTIONS = [
   'Sources',
   'Related docs',
 ];
+
+const ACTION_TEMPLATE_PATTERN = /\/(?:quick-start|common-tasks|troubleshooting|best-practices|runbook|examples|pitfalls|tooling)\.md$/u;
+const TUTORIAL_LINK_REQUIRED_PATHS = new Set([
+  'docs/case-studies/index.md',
+  'docs/overview/start-here.mdx',
+  'docs/overview/learning-paths.md',
+  'docs/overview/tool-selection-map.md',
+  'docs/overview/journey-map.md',
+  'docs/overview/taxonomy.md',
+  'docs/overview/content-index.md',
+  'docs/tools/index.mdx',
+  'docs/workflows/index.mdx',
+  'docs/development-modes/index.md',
+  'docs/standards/index.md',
+  'docs/architecture/index.md',
+  'docs/ecosystem/index.md',
+  'docs/comparisons/index.md',
+  'docs/comparisons/github-copilot-vs-vscode-agent-vs-openai-codex.md',
+  'docs/comparisons/cursor-vs-windsurf-vs-cline.md',
+  'docs/insights/index.md',
+  'docs/insights/agentic-coding-patterns.md',
+  'docs/insights/monthly-brief-2026-03.md',
+  'docs/tools/terminal-agents/claude-code/index.md',
+  'docs/tools/execution-stacks/openai-codex/index.md',
+  'docs/tools/ide-first/cursor/index.md',
+  'docs/tools/platforms/github-copilot/index.md',
+  'docs/tools/control-planes/vscode-agents/index.md',
+  'docs/tools/terminal-agents/gemini-cli/index.md',
+  'docs/tools/terminal-agents/cline/index.md',
+  'docs/tools/ide-first/windsurf/index.md',
+  'docs/workflows/patterns/bugfix-refactor-test/index.md',
+  'docs/workflows/patterns/terminal-first-repo-pairing/index.md',
+  'docs/workflows/patterns/issue-to-draft-pr/index.md',
+  'docs/workflows/patterns/spec-first/index.md',
+  'docs/workflows/patterns/parallel-worktrees-multi-agent/index.md',
+  'docs/workflows/patterns/local-to-background-to-cloud/index.md',
+]);
+
+const HOMEPAGE_GATEWAY_REQUIREMENTS = new Map([
+  ['docs/case-studies/index.md', {minTutorialLinks: 4}],
+  ['docs/tools/index.mdx', {minTutorialLinks: 6}],
+  ['docs/workflows/index.mdx', {minTutorialLinks: 6}],
+  ['docs/overview/start-here.mdx', {minTutorialLinks: 4}],
+  ['docs/overview/learning-paths.md', {minTutorialLinks: 5}],
+  ['docs/overview/tool-selection-map.md', {minTutorialLinks: 4}],
+  ['docs/overview/journey-map.md', {minTutorialLinks: 3}],
+  ['docs/overview/content-index.md', {minTutorialLinks: 3}],
+]);
 
 function relativeFromRoot(filePath) {
   return path.relative(workspaceRoot, filePath).replace(/\\/gu, '/');
@@ -304,6 +381,19 @@ function countInternalDocLinks(value, validDocRoutes) {
   return routes.size;
 }
 
+function countLinksToSpecificRoutes(value, allowedRoutes) {
+  const routes = new Set();
+
+  extractLinkTargets(value).forEach((target) => {
+    const route = normalizeRoutePath(target);
+    if (route && allowedRoutes.has(route)) {
+      routes.add(route);
+    }
+  });
+
+  return routes.size;
+}
+
 function countSourceLinks(document) {
   const sourceCandidate =
     document.sections.get('来源') ??
@@ -332,15 +422,40 @@ function countSourceLinks(document) {
   return urls.size;
 }
 
-function getFamilyRule(relativePath) {
+function isSupplementaryDoc(frontMatter) {
+  return typeof frontMatter.sidebar_label === 'string' && /^补充：/u.test(frontMatter.sidebar_label);
+}
+
+function getFamilyRule(relativePath, frontMatter) {
+  const contentForm = resolveContentFormKey(frontMatter);
+  const supplementaryDoc = isSupplementaryDoc(frontMatter);
+
+  if (contentForm === 'tutorial') {
+    return {name: 'tutorialDoc', rule: FAMILY_RULES.tutorialDoc};
+  }
+
+  if (contentForm === 'case-study') {
+    return {name: 'caseStudyDoc', rule: FAMILY_RULES.caseStudyDoc};
+  }
+
+  if (ACTION_TEMPLATE_PATTERN.test(relativePath)) {
+    return {name: 'actionGuide', rule: FAMILY_RULES.actionGuide};
+  }
+
   if (
     /^docs\/tools\/(?:platforms|control-planes|execution-stacks|terminal-agents|ide-first)\//u.test(relativePath) ||
     relativePath.startsWith('docs/ecosystem/integrations/')
   ) {
+    if (supplementaryDoc) {
+      return {name: 'supplementaryTool', rule: FAMILY_RULES.supplementaryTool};
+    }
     return {name: 'generatedTool', rule: FAMILY_RULES.generatedTool};
   }
 
   if (/^docs\/workflows\/(?:patterns|frameworks|community-frameworks)\//u.test(relativePath)) {
+    if (supplementaryDoc) {
+      return {name: 'supplementaryWorkflow', rule: FAMILY_RULES.supplementaryWorkflow};
+    }
     return {name: 'generatedWorkflow', rule: FAMILY_RULES.generatedWorkflow};
   }
 
@@ -363,8 +478,8 @@ function getFamilyRule(relativePath) {
   return null;
 }
 
-function validateFamilyShape(relativePath, document, errors, validDocRoutes) {
-  const family = getFamilyRule(relativePath);
+function validateFamilyShape(relativePath, document, frontMatter, errors, validDocRoutes) {
+  const family = getFamilyRule(relativePath, frontMatter);
   if (!family) {
     return;
   }
@@ -420,6 +535,148 @@ function validateFamilyShape(relativePath, document, errors, validDocRoutes) {
   }
 }
 
+function validateTutorialRequirements(relativePath, frontMatter, document, errors) {
+  if (resolveContentFormKey(frontMatter) !== 'tutorial') {
+    return;
+  }
+
+  ensure(
+    Array.isArray(frontMatter.tutorial_series) && frontMatter.tutorial_series.length > 0,
+    errors,
+    `${relativePath}: tutorial docs must define frontmatter.tutorial_series.`,
+  );
+  ensure(
+    (typeof frontMatter.estimated_time === 'number' && frontMatter.estimated_time > 0) ||
+      (typeof frontMatter.estimated_time === 'string' && /^\d+$/u.test(frontMatter.estimated_time)),
+    errors,
+    `${relativePath}: tutorial docs must define a positive frontmatter.estimated_time.`,
+  );
+  ensure(
+    Array.isArray(frontMatter.prerequisites) && frontMatter.prerequisites.length > 0,
+    errors,
+    `${relativePath}: tutorial docs must define frontmatter.prerequisites.`,
+  );
+  ensure(
+    typeof frontMatter.deliverable === 'string' && frontMatter.deliverable.trim() !== '',
+    errors,
+    `${relativePath}: tutorial docs must define frontmatter.deliverable.`,
+  );
+
+  const joinedHeadings = document.headings.join('\n');
+  ensure(
+    /(前置条件|准备工作|开始前|Prerequisites)/u.test(joinedHeadings),
+    errors,
+    `${relativePath}: tutorial docs must include a 前置条件/Prerequisites H2.`,
+  );
+  ensure(
+    /(步骤|操作|Runbook|任务流程)/u.test(joinedHeadings),
+    errors,
+    `${relativePath}: tutorial docs must include a 步骤/Runbook H2.`,
+  );
+  ensure(
+    /(验证|验收)/u.test(joinedHeadings),
+    errors,
+    `${relativePath}: tutorial docs must include a 验证/验收 H2.`,
+  );
+  ensure(
+    /(下一步|继续阅读)/u.test(joinedHeadings),
+    errors,
+    `${relativePath}: tutorial docs must include a 下一步/继续阅读 H2.`,
+  );
+}
+
+function validateCaseStudyRequirements(relativePath, frontMatter, document, errors) {
+  if (resolveContentFormKey(frontMatter) !== 'case-study') {
+    return;
+  }
+
+  ensure(
+    typeof frontMatter.case_type === 'string' && frontMatter.case_type.trim() !== '',
+    errors,
+    `${relativePath}: case-study docs must define frontmatter.case_type.`,
+  );
+  ensure(
+    typeof frontMatter.scenario === 'string' && frontMatter.scenario.trim() !== '',
+    errors,
+    `${relativePath}: case-study docs must define frontmatter.scenario.`,
+  );
+  ensure(
+    Array.isArray(frontMatter.tool_stack) && frontMatter.tool_stack.length > 0,
+    errors,
+    `${relativePath}: case-study docs must define frontmatter.tool_stack.`,
+  );
+  ensure(
+    typeof frontMatter.verification === 'string' && frontMatter.verification.trim() !== '',
+    errors,
+    `${relativePath}: case-study docs must define frontmatter.verification.`,
+  );
+
+  const joinedHeadings = document.headings.join('\n');
+  ensure(/背景/u.test(joinedHeadings), errors, `${relativePath}: case-study docs must include a 背景 H2.`);
+  ensure(
+    /(输入约束|输入条件)/u.test(joinedHeadings),
+    errors,
+    `${relativePath}: case-study docs must include an 输入约束/输入条件 H2.`,
+  );
+  ensure(
+    /(执行过程|执行步骤)/u.test(joinedHeadings),
+    errors,
+    `${relativePath}: case-study docs must include an 执行过程/执行步骤 H2.`,
+  );
+  ensure(/结果/u.test(joinedHeadings), errors, `${relativePath}: case-study docs must include a 结果 H2.`);
+  ensure(/复盘/u.test(joinedHeadings), errors, `${relativePath}: case-study docs must include a 复盘 H2.`);
+}
+
+function buildTutorialRoutes(documents) {
+  const routes = new Set();
+
+  documents.forEach((document) => {
+    const contentForm = resolveContentFormKey(document.frontMatter);
+    if (!['tutorial', 'playbook', 'case-study'].includes(contentForm)) {
+      return;
+    }
+
+    const route = normalizeRoutePath(
+      document.frontMatter.slug?.startsWith('/docs/')
+        ? document.frontMatter.slug
+        : `/docs${document.frontMatter.slug?.startsWith('/') ? document.frontMatter.slug : `/${document.frontMatter.slug}`}`,
+    );
+
+    if (route) {
+      routes.add(route);
+    }
+  });
+
+  return routes;
+}
+
+function validateConceptTutorialLinks(relativePath, document, tutorialRoutes, errors) {
+  if (!TUTORIAL_LINK_REQUIRED_PATHS.has(relativePath)) {
+    return;
+  }
+
+  const tutorialLinks = countLinksToSpecificRoutes(document.body, tutorialRoutes);
+  ensure(
+    tutorialLinks >= 1,
+    errors,
+    `${relativePath}: concept landing pages must link to at least one tutorial/playbook/case-study doc.`,
+  );
+}
+
+function validateHomepageGatewayLinks(relativePath, document, tutorialRoutes, errors) {
+  const requirement = HOMEPAGE_GATEWAY_REQUIREMENTS.get(relativePath);
+  if (!requirement) {
+    return;
+  }
+
+  const tutorialLinks = countLinksToSpecificRoutes(document.body, tutorialRoutes);
+  ensure(
+    tutorialLinks >= requirement.minTutorialLinks,
+    errors,
+    `${relativePath}: homepage gateway pages must link to at least ${requirement.minTutorialLinks} tutorial/playbook/case-study docs (${tutorialLinks} found).`,
+  );
+}
+
 function validateDailyBrief(relativePath, source, frontMatter, errors) {
   ensure(
     Array.isArray(frontMatter.tags) && frontMatter.tags.includes('daily-brief'),
@@ -449,6 +706,7 @@ async function validateDocs() {
   const docFiles = await listMarkdownFiles(DOCS_ROOT);
   const documents = await Promise.all(docFiles.map((filePath) => readMarkdownDocument(filePath)));
   const validDocRoutes = buildValidDocRoutes(documents);
+  const tutorialRoutes = buildTutorialRoutes(documents);
 
   documents.forEach((document) => {
     const relativePath = relativeFromRoot(document.filePath);
@@ -466,7 +724,11 @@ async function validateDocs() {
     validateFrontMatterModel(relativePath, frontMatter, errors);
     validateDocDirectory(relativePath, frontMatter, errors);
     validateKindShape(relativePath, document, kind, errors);
-    validateFamilyShape(relativePath, document, errors, validDocRoutes);
+    validateFamilyShape(relativePath, document, frontMatter, errors, validDocRoutes);
+    validateTutorialRequirements(relativePath, frontMatter, document, errors);
+    validateCaseStudyRequirements(relativePath, frontMatter, document, errors);
+    validateConceptTutorialLinks(relativePath, document, tutorialRoutes, errors);
+    validateHomepageGatewayLinks(relativePath, document, tutorialRoutes, errors);
   });
 
   return errors;

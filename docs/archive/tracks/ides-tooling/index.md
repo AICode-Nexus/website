@@ -13,14 +13,20 @@ entry_role: archive
 audience: mixed
 stage: starter
 featured: true
-reviewed_at: 2026-03-06
-source_window_end: 2026-03-06
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: legacy
 ---
 
 # IDE 与工具链
 
 这是上一阶段的一级赛道入口，二阶段起改为“旧赛道透镜”。
+
+## 现在应该读什么
+
+- 想从当前站点主线进入：先去 [工具教程首页](/docs/tools)。
+- 想先跑 IDE-first 教程：去 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)。
+- 想先跑一体化工作台教程：去 [Windsurf 快速开始](/docs/tools/ide-first/windsurf/quick-start)。
 
 ## 这类透镜现在怎么用
 

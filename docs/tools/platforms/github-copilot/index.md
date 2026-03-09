@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: true
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -22,77 +22,53 @@ import {LearningResources} from '@site/src/components/docs';
 
 # GitHub Copilot
 
-GitHub Copilot 更像 GitHub-first 的平台入口：把 issue、PR、review、coding agent 和 Jira 集成收在一个工作系统里。
+GitHub Copilot 更合理的定位不是“另一个聊天入口”，而是 GitHub-first 的平台主线。它把 issue、PR、review、coding agent 和 Jira 集成成一套异步交付系统。
 
-## 60 秒结论
+## 现在先做什么
 
-:::tip 先给判断
-GitHub Copilot 最稳的使用方式，不是把它当成“所有任务都交给一个入口”，而是先承认它的主控制面是：平台型主入口，强项是把任务系统、代码评审和异步交付连接起来。
-:::
+- 第一次从任务系统推进到 PR：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
+- 想固定平台内 SOP：去 [GitHub Copilot 常见任务](/docs/tools/platforms/github-copilot/common-tasks)。
+- 想直接进入默认主线：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
 
+## 60 秒定位
 
-如果你主要在同一个工作区里高频推进任务、频繁读 diff、并且愿意把 rules、review 证据和 handoff 节点写清，GitHub Copilot 会非常顺手。反过来，如果你的工作系统、审批边界和最终交付主要不发生在这个入口里，那么它就更像补位层，而不是标准栈中心。
+如果团队默认在 GitHub 或 Jira 的工作系统里协作，Copilot 的价值很高。它适合把清晰任务委派成 draft PR，再用 review 和分支保护收口。反过来，如果团队几乎不在 PR 流里协作，或者核心任务都要靠本地终端深潜，它就不该做唯一主入口。
 
-## 适合谁，也不适合谁
+它真正放大的不是“生成代码”，而是 issue hygiene、PR 模板、reviewer 机制和平台内的可追踪性。没有这些基础时，平台化只会放大流程噪音。
 
-### 更适合
+## 默认进入顺序
 
-- GitHub-first 团队、平台负责人和默认在 PR / review 里协作的工程组织。
-- 已经使用 issue、PR、branch protection 和 reviewer 流程的团队。
-- 希望把 agent 直接接入工作系统，而不是只停留在本地 IDE。
-
-### 暂时不要先选
-
-- 纯本地终端深潜、重脚本化和高频 worktree 操作的仓库内协作。
-- 几乎不在 GitHub PR 流里协作的团队。
-- 需要高度开放 provider、自定义 MCP 和工具编排的高级用户。
+1. 先用 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start) 跑通 issue 到 draft PR 的闭环。
+2. 再用 [GitHub Copilot 常见任务](/docs/tools/platforms/github-copilot/common-tasks) 固定平台委派、review 和 Jira handoff。
+3. 然后进入 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook) 或 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+4. 长期使用前补 [GitHub Copilot 最佳实践](/docs/tools/platforms/github-copilot/best-practices) 和 [GitHub Copilot 排错](/docs/tools/platforms/github-copilot/troubleshooting)。
 
 ## 快速判断矩阵
 
 | 判断维度 | 如果你满足这个条件 | 默认建议 |
 | --- | --- | --- |
-| 主控制面 | 平台型主入口，强项是把任务系统、代码评审和异步交付连接起来。 | 先把 GitHub Copilot 当成日常主入口，再用其他入口补平台或执行层。 |
-| 任务形状 | 从 issue 或 Jira 委派清晰任务并生成 draft PR。 | 先跑 [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)。 |
-| 团队约束 | 平台可以放大团队效率，也会放大 issue hygiene 差的问题。 | 把规则与证据链先写回 repo，再扩大 GitHub Copilot 使用面。 |
-| 退出信号 | 团队越来越多地绕过 GitHub 工作系统，在别处交付和 review。 | 一旦出现这些信号，就优先评估 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。 |
+| 主控制面 | 你希望把任务系统、PR、review 和异步交付放在同一个平台里。 | 先把 GitHub Copilot 当平台主入口，再用本地工具补探索和执行。 |
+| 任务形状 | issue 或 Jira 已足够清晰，适合异步委派成 draft PR。 | 先跑 [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)。 |
+| 团队约束 | 团队已有分支保护、PR 模板和 reviewer 机制。 | 先把 issue hygiene 和验收标准写实，再扩大平台使用面。 |
+| 退出信号 | 团队越来越绕过 GitHub，在别处探索、交付和 review。 | 一旦出现这些信号，就优先评估 [VS Code Agents](/docs/tools/control-planes/vscode-agents) 或 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)。 |
 
-## 默认进入方式与补位组合
-
-GitHub Copilot 进入标准栈时，最重要的不是“功能有没有”，而是你打算让它承担哪一段主线。默认建议是先把高频日常任务放进 GitHub Copilot，再用平台、框架或终端入口兜住验证与治理。
-
-### 推荐组合
+## 默认补位组合
 
 - [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务可在执行栈里推进，最后回到 GitHub 收口。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务在执行栈推进，最后回到 GitHub 收口。
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
 
-### 典型任务
-
-- 从 issue 或 Jira 委派清晰任务并生成 draft PR。
-- 在 review comment 往返中让 agent 修改代码或补说明。
-- 以平台身份统一管理多个 repo 的日常 AI 交付流程。
-
-## 官方事实与工程判断
-
-### 官方资料明确说明了什么
+## 官方依据
 
 - [GitHub Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/about-copilot-coding-agent)
 - [GitHub Copilot for Jira](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira)
 
-### 这份手册据此做出的工程判断
-
-- GitHub Copilot 的真正优势，不是“它也能做很多事”，而是它把 平台型主入口，强项是把任务系统、代码评审和异步交付连接起来。 这件事打磨得更顺。
-- 如果团队没有把 repo 规则、验证命令和人工 review 固定下来，再好的入口体验也会被流程噪音抵消。
-- 决定 GitHub Copilot 能不能长期留在栈里的，不是单次演示效果，而是这些治理要求：平台可以放大团队效率，也会放大 issue hygiene 差的问题。
-
 ## 下一步怎么读
 
-- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：GitHub Copilot 天然适合把清晰任务委派成 draft PR。
-- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：适合在平台层追踪异步执行和最终 review。
-- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：对已有 issue 与 PR 模板的日常维护任务尤其顺手。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务可在执行栈里推进，最后回到 GitHub 收口。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
+- 想直接上手：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
+- 想按平台主线跑任务：去 [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)。
+- 想看真实 draft PR 交接：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
+- 想比较平台、控制面和执行栈：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
 
 <LearningResources
   tool="GitHub Copilot"

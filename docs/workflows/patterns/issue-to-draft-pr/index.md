@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: true
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -20,59 +20,35 @@ tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 
 # Issue / Jira -> Draft PR
 
-把已经进入 GitHub 或 Jira 的清晰任务交给 agent 异步推进，最后以 draft PR 形式回到人工 review。
+这条主线的合理性不在“平台里也能让 agent 干活”，而在它把清晰任务、异步交付、draft PR 和人工 review 连成了一套工作系统。
 
-## 什么时候优先用它
+## 现在先做什么
 
-- issue、Jira ticket 或 PR checklist 已经足够清晰的任务。
-- 团队默认在 GitHub / Jira / review 流里协作，而不是口头同步。
-- 可以接受异步交付，重视工作系统里的可追溯性。
+- 直接按步骤执行：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- 想先看平台交接示例：去 [Issue / Jira -> Draft PR 示例](/docs/workflows/patterns/issue-to-draft-pr/examples)。
+- 想先选平台主入口：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
 
-## 什么时候先别用它
+## 60 秒定位
 
-- 需要大量探索、实时讨论或反复试错的模糊问题。
-- 没有 issue hygiene，连验收标准都写不清的团队。
-- 高风险变更但无人负责最终收口的场景。
+如果 issue、Jira ticket 或 PR checklist 已经足够清晰，这条工作流非常高效。你把目标、验收和禁止事项写实，agent 负责交付草稿，owner 负责最终审阅和合并。
 
-## 最小闭环
+如果问题仍需要大量探索、实时讨论或反复试错，就不该先上这条主线。那类任务更适合先回到本地控制面或 spec 主线，把边界写清再异步委派。
 
-1. **把 issue 写到足够可委派**：补充背景、范围、验收、禁止事项和验证命令，让任务具备异步交付条件。
-   产物：ready issue
-2. **发给 agent 起分支**：由平台或控制面生成分支、读取上下文、执行任务并准备 draft PR。
-   产物：working branch
-3. **以 draft PR 回流**：把 diff、运行结果、剩余风险和任务摘要放回 PR，而不是只给一段聊天记录。
-   产物：draft PR
-4. **人工 review 与 merge**：由 owner 或 reviewer 最终判断是否合并、拆分或退回。
-   产物：merged or returned PR
+## 默认进入顺序
 
-## 阶段与产物总表
+1. 先用 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook) 跑通最小平台闭环。
+2. 再看 [Issue / Jira -> Draft PR 示例](/docs/workflows/patterns/issue-to-draft-pr/examples) 对照真实 issue、draft PR 和 review 证据。
+3. 然后按入口选择 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start) 或 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start)。
+4. 最后再补 [Issue / Jira -> Draft PR 风险与切换条件](/docs/workflows/patterns/issue-to-draft-pr/pitfalls) 和补充页。
 
-| 阶段 | 目标 | 主要产物 |
+## 快速判断矩阵
+
+| 判断维度 | 如果你满足这个条件 | 默认建议 |
 | --- | --- | --- |
-| 把 issue 写到足够可委派 | 补充背景、范围、验收、禁止事项和验证命令，让任务具备异步交付条件。 | ready issue |
-| 发给 agent 起分支 | 由平台或控制面生成分支、读取上下文、执行任务并准备 draft PR。 | working branch |
-| 以 draft PR 回流 | 把 diff、运行结果、剩余风险和任务摘要放回 PR，而不是只给一段聊天记录。 | draft PR |
-| 人工 review 与 merge | 由 owner 或 reviewer 最终判断是否合并、拆分或退回。 | merged or returned PR |
-
-## 输入、输出与验收
-
-### 输入
-
-- issue / Jira 链接、验收标准和禁止修改范围。
-- 分支命名、PR 模板、CI 检查和 reviewer 规则。
-- 平台权限、仓库访问和必要的环境变量声明。
-
-### 输出
-
-- 可追踪的分支、draft PR 与执行摘要。
-- 与 issue 关联的验证结果和剩余风险说明。
-- review 后的 merge、split 或 re-open 决策。
-
-### 验收证据
-
-- PR 描述里应能直接看到 issue、范围和验收映射。
-- 验证结果要落回 PR，而不是只存在 agent 运行面板里。
-- review comment 需要能回指具体风险和未完成项。
+| 任务边界 | issue、Jira ticket 或 PR checklist 已经足够清晰。 | 直接进入 [Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。 |
+| 协作方式 | 团队默认在 GitHub / Jira / review 流里协作。 | 用 draft PR 承接异步交付和人工收口。 |
+| 验收要求 | 重视工作系统里的可追溯性，而不是实时同步盯执行。 | 把验收标准和风险说明写回 issue 与 PR。 |
+| 切换信号 | 需求仍模糊，或高风险变更却无人负责最终收口。 | 先回到 [Spec-First](/docs/workflows/patterns/spec-first) 或本地探索。 |
 
 ## 默认人工接管点
 
@@ -80,11 +56,12 @@ tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 - draft PR 是 review 起点，不是终点，必须保留人工把关。
 - 如果 PR 暴露出需求缺失，要回到 issue 层修，而不是让 reviewer 补需求。
 
-## 推荐入口与下一步
+## 下一步怎么读
 
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：最适合把 issue、PR 和 review 串成平台闭环。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合从本地探索转到后台分支执行。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合异步长任务和多分支执行。
+- 想直接开跑：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- 想看标准例子：去 [Issue / Jira -> Draft PR 示例](/docs/workflows/patterns/issue-to-draft-pr/examples)。
+- 想看真实 draft PR 交接：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
+- 想看它和本地到后台主线怎么分工：去 [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)。
 
 ## 来源
 

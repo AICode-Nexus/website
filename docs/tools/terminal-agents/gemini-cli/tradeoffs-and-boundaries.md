@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,57 +14,42 @@ journey_stage: "tech-selection"
 title: "Gemini CLI：优点、边界与替代项"
 description: "Gemini CLI 的优势、边界、替代项和退出信号。"
 slug: "/tools/terminal-agents/gemini-cli/tradeoffs-and-boundaries"
-sidebar_label: "优点与边界"
+sidebar_label: "补充：优点与替代"
+sidebar_position: 8
 tags: ["ai-coding", "tool", "gemini-cli"]
 ---
 
 # Gemini CLI：优点、边界与替代项
 
-没有一个入口应该永久占据所有场景。真正成熟的工具栈，必须知道某个入口为什么值得主用、什么时候只是补位、又在什么条件下应该退出标准栈。
+## 现在先做什么
 
-## 核心优势
+- 还没实际跑过终端闭环：去 [Gemini CLI 快速开始](/docs/tools/terminal-agents/gemini-cli/quick-start)。
+- 想先看巡检到 PR 的真实交接：去 [Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr)。
+- 如果你已经知道自己需要更长执行链：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
 
-- 终端入口轻量、上手快。
-- context files 很适合版本化。
-- 和 GitHub review 流容易形成稳妥组合。
+## 保留它的理由
 
-## 取舍矩阵
+- 你要一个轻量终端入口，而不是更重的控制面。
+- 你愿意维护 context file 和脚本化验证。
+- 你希望把终端执行和 GitHub review 连起来。
 
-| 面向 | 你会得到什么 | 你要接受什么 |
-| --- | --- | --- |
-| 优势 | 终端入口轻量、上手快。 | 后台执行和并行编排能力不如执行栈或控制面重工具。 |
-| 长期使用 | context files 很适合版本化。 | 如果团队完全不走终端或脚本，优势很难体现。 |
-| 团队 rollout | 和 GitHub review 流容易形成稳妥组合。 | CLI 只被用来聊天，不再真正跑命令和回传证据。 |
-| 补位路线 | Claude Code | OpenAI Codex |
+## 退出信号
 
-## 替代路线
+- CLI 只被用来聊天，不再真正跑命令。
+- GEMINI.md 长期失修，和仓库事实脱节。
+- 复杂任务总要切到其他入口，Gemini CLI 只剩演示用途。
 
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更看重 repo pairing、worktree 和规则文件沉淀。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行任务和云端执行。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更想以平台工作系统为中心。
+## 换到哪里
 
-替代项的价值，不是为了证明“谁更强”，而是帮你在主控制面、治理要求和执行深度发生变化时及时换挡，而不是让整个团队继续被一个已经不匹配的入口拖着走。
+- 更偏 repo pairing：去 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)。
+- 更偏长任务执行：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
+- 更偏平台工作系统：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
 
-## 退出与迁移信号
+## 读完回哪里
 
-- CLI 只被用来聊天，不再真正跑命令和回传证据。
-- GEMINI.md 长期失修，和真实仓库边界脱节。
-- 复杂任务总要换到其他入口，Gemini CLI 只剩演示用途。
-
-## 决策检查清单
-
-- 如果你需要的是 轻量终端入口，重点在 repo context files、命令执行和与 GitHub 流的兼容性。，Gemini CLI 仍然值得保留。
-- 如果团队更在意的是 后台执行和并行编排能力不如执行栈或控制面重工具。 这一类问题，就该优先评估替代路线。
-- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
-
-## 下一步怎么读
-
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更看重 repo pairing、worktree 和规则文件沉淀。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行任务和云端执行。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更想以平台工作系统为中心。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec 定稿后可用 Gemini CLI 接手执行与验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要更重的日常操作方法时可以叠加。
-- [Gemini CLI：集成、review 与治理](/docs/ecosystem/integrations/gemini-cli)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
+- 想先实际试一轮：回 [Gemini CLI 快速开始](/docs/tools/terminal-agents/gemini-cli/quick-start)。
+- 想先看真实巡检到 PR 交接：去 [Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr)。
+- 想继续看平台与终端怎么分工：去 [GitHub Copilot Draft PR 交接案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
 
 ## 来源
 

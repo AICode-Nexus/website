@@ -20,6 +20,11 @@ market_status: current
 
 # AI 规范
 
+## 现在先做什么
+
+- 如果你还没有最小实践闭环，先去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 如果你已经在做任务，但验证和 review 总失控，先去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+
 ## 这一类内容解决什么问题
 
 - 明确规则文件各自负责什么

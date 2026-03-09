@@ -20,96 +20,50 @@ market_status: current
 
 # AI Code 流程地图
 
-这张地图不负责替你选具体产品，也不负责替代知识方向。它只负责回答一个问题：
+这张地图不负责选具体产品，也不负责替代知识方向页。它只回答一个问题：你现在卡在哪个阶段，下一步最该补哪一类页面。
 
-你现在处在哪个流程阶段，下一步最该补什么。
+## 现在先做什么
 
-## 使用方式
+- 还没跑过第一条主线：去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 已经在做日常维护：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 已经在做平台交接：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+
+## 使用方法
 
 1. 先找到你当前最卡的阶段。
-2. 再看该阶段优先进入哪个知识方向。
-3. 如果你需要的是材料或内容形态，再回资源中心或内容索引。
+2. 再看该阶段应该优先进入哪一类页面。
+3. 只有当你缺的是材料或内容形态时，才回 [资源中心](/docs/tools/resources) 或 [内容索引](/docs/content-index)。
 
-## 原始需求 {#raw-need}
+## 阶段速查表
 
-你现在还在收口问题边界、目标用户、输入输出和风险。
+| 你现在卡在哪 | 先去哪里 | 不要先去哪里 |
+| --- | --- | --- |
+| 还没把问题说清楚 | [开始这里](/docs/start/start-here) / [开发范式与协作方式](/docs/development-modes) | 先刷产品对比 |
+| 已经知道任务，但没固定主线 | [AI 工作流](/docs/workflows) | 先看框架名 |
+| 入口和工具分工没定 | [AI 编程工具](/docs/tools) | 先比较营销体验 |
+| 已经进入真实实施 | [生态与集成](/docs/ecosystem) / [规范评估与治理](/docs/standards) | 只停留在单点工具页 |
 
-优先进入：
+## 各阶段默认入口
 
-- [开始这里](/docs/start/start-here)
-- [开发范式与协作方式](/docs/development-modes)
+### 原始需求到标准化需求
 
-## 标准化需求 {#normalized-requirement}
+先去 [开始这里](/docs/start/start-here)、[学习路径](/docs/start/learning-paths) 和 [知识方向总表](/docs/start/taxonomy)，目标是把问题从“模糊想法”收成“可进入主线的任务”。
 
-你已经知道大概想做什么，但还没把它翻成约束、产物和验证方式。
+### 技术选型与开发规划
 
-优先进入：
+先去 [AI 编程工具](/docs/tools) 和 [AI 工作流](/docs/workflows)，目标是把默认入口和默认交付链一起定下来，而不是只定产品名。
 
-- [学习路径](/docs/start/learning-paths)
-- [工作流与交付](/docs/workflows)
+### 开发方案设计与开发实施
 
-## 技术选型 {#tech-selection}
+如果你缺的是边界和验收，先去 [Spec-First](/docs/workflows/patterns/spec-first)。如果你缺的是默认执行主线，先去 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test) 或 [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)。
 
-你在判断平台、终端 agent、AI IDE、执行栈、资源入口怎么分工。
+### 测试验证与缺陷优化
 
-优先进入：
+先去 [规范评估与治理](/docs/standards)、[AI 工作流](/docs/workflows) 和 [生态与集成](/docs/ecosystem)，目标是把验证、review、PR 和系统接入收回到正式工作系统里。
 
-- [工具与技术选型](/docs/tools)
-- [资源中心](/docs/tools/resources)
-- [内容索引](/docs/content-index)
+## 读完回哪里
 
-## 项目架构 {#project-architecture}
-
-你在决定目录边界、上下文切片、MCP、worktree 和系统接缝。
-
-优先进入：
-
-- [架构与上下文系统](/docs/architecture)
-- [生态与集成](/docs/ecosystem)
-
-## 开发规划 {#development-planning}
-
-你需要把任务分型、handoff、交付节奏和人类接管点写成团队默认流程。
-
-优先进入：
-
-- [工作流与交付](/docs/workflows)
-- [学习路径](/docs/start/learning-paths)
-
-## 开发方案设计 {#solution-design}
-
-你已经不缺问题描述，而是缺方案骨架、职责拆分和验收方式。
-
-优先进入：
-
-- [工作流与交付](/docs/workflows)
-- [规范评估与治理](/docs/standards)
-
-## 开发实施 {#implementation}
-
-你已经进入真实编码与改动阶段，需要明确默认入口、执行栈和工作系统分工。
-
-优先进入：
-
-- [开发范式与协作方式](/docs/development-modes)
-- [工具与技术选型](/docs/tools)
-- [生态与集成](/docs/ecosystem)
-
-## 测试验证 {#testing-validation}
-
-你要收口验证命令、review 证据、评估口径和质量门禁。
-
-优先进入：
-
-- [规范评估与治理](/docs/standards)
-- [工作流与交付](/docs/workflows)
-
-## 缺陷优化 {#defect-optimization}
-
-你要把缺陷复盘、风险边界和系统接入经验回流到长期能力里。
-
-优先进入：
-
-- [规范评估与治理](/docs/standards)
-- [生态与集成](/docs/ecosystem)
-- [Daily Brief](/blog)
+- 缺默认顺序：回 [学习路径](/docs/start/learning-paths)。
+- 缺默认入口：回 [AI 编程工具](/docs/tools)。
+- 缺默认交付链：回 [AI 工作流](/docs/workflows)。
+- 缺真实案例：去 [实战案例](/docs/case-studies)。

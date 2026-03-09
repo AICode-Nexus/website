@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,59 +14,42 @@ journey_stage: "implementation"
 title: "Issue / Jira -> Draft PR：治理与风险"
 description: "Issue / Jira -> Draft PR 需要的权限边界、验证方式和失败模式。"
 slug: "/workflows/patterns/issue-to-draft-pr/governance-and-risks"
-sidebar_label: "治理与风险"
+sidebar_label: "补充：治理与风险"
+sidebar_position: 8
 tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 ---
 
 # Issue / Jira -> Draft PR：治理与风险
 
-Issue / Jira -> Draft PR 一旦进入真实工程环境，问题从来不是“能不能生成代码”，而是权限、边界、验证和人工接管点是否足够清楚。治理写不清，执行越快越危险。
+## 现在先做什么
 
-## 权限与边界
+- 想先跑平台主线：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- 想知道什么时候该停：去 [Issue / Jira -> Draft PR 风险与切换条件](/docs/workflows/patterns/issue-to-draft-pr/pitfalls)。
+- 想先补 review 门禁：去 [Review Quality Gates](/docs/standards/review-quality-gates)。
 
-- 先治理 issue 模板，再扩大 agent 使用范围。
-- 异步 agent 只承接清晰任务，模糊任务仍由本地流程先收敛。
-- 所有 merge 仍遵守原有 branch protection 和 reviewer 规则。
+## 权限与 owner
+
+- issue 能否直接委派、哪些目录可改、谁负责最终 merge，先写清再执行。
+- 平台工作系统不等于可以跳过 repo 合同和人工 review。
+- 高风险变更必须明确 owner，不能假设 draft PR 自己会收尾。
 
 ## 验证与 review
 
-- 任务没到“可委派”状态之前，不应该直接丢给后台 agent。
-- draft PR 是 review 起点，不是终点，必须保留人工把关。
-- 如果 PR 暴露出需求缺失，要回到 issue 层修，而不是让 reviewer 补需求。
+- issue 必须写清验收标准，PR 必须附验证结果和风险说明。
+- reviewer 要看 diff、检查项和 handoff 说明，而不是只看标题像不像完成。
+- 如果中途转到本地或后台探索，要把新证据带回平台记录。
 
-## 失败模式
+## 失败信号
 
-- issue 太空，导致 agent 只能胡猜并把噪音带进 PR。
-- 团队把 draft PR 当自动合并候选，跳过真正 review。
-- 平台日志与 repo 证据分离，后续审计困难。
+- issue 越来越多，但真正能独立委派的任务越来越少。
+- draft PR 很多，验证和风险说明却越来越空。
+- 平台里看起来很忙，但没人能说清最终谁负责 merge 判断。
 
-## 风险矩阵
+## 读完回哪里
 
-| 风险面 | 最容易出的问题 | 默认应对 |
-| --- | --- | --- |
-| 边界控制 | issue 太空，导致 agent 只能胡猜并把噪音带进 PR。 | 先从 docs、配置和隔离模块的小任务开始委派。 |
-| 流程执行 | 团队把 draft PR 当自动合并候选，跳过真正 review。 | 把大 ticket 拆成多个可独立 merge 的 issue。 |
-| 团队成本 | 平台日志与 repo 证据分离，后续审计困难。 | 需要先本地探索的任务，先走 local-first 再转后台。 |
-
-## 缩减办法
-
-- 先从 docs、配置和隔离模块的小任务开始委派。
-- 把大 ticket 拆成多个可独立 merge 的 issue。
-- 需要先本地探索的任务，先走 local-first 再转后台。
-
-## 团队治理检查清单
-
-- 默认先锁边界，再放权限，不要边执行边发明范围。
-- 每个验收点都要能映射到命令输出、截图或人工检查结果。
-- 如果流程本身没人维护，就先减重，而不是继续加文档层次。
-
-只要团队能把“风险是什么、怎么缩减、什么时候应该切回更轻流程”讲清，这类治理页才算真的有用。否则它就只是把原本应该在 review 里回答的问题，换了个地方再写一遍。
-
-## 下一步怎么读
-
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：最适合把 issue、PR 和 review 串成平台闭环。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合从本地探索转到后台分支执行。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合异步长任务和多分支执行。
+- 想先按平台稳态流程执行：回 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- 想知道什么时候停下：去 [Issue / Jira -> Draft PR 风险与切换条件](/docs/workflows/patterns/issue-to-draft-pr/pitfalls)。
+- 想补 review 门禁：去 [Review Quality Gates](/docs/standards/review-quality-gates)。
 
 ## 来源
 

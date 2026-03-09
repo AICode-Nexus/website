@@ -13,7 +13,7 @@ entry_role: index
 audience: mixed
 stage: intermediate
 featured: true
-reviewed_at: 2026-03-06
+reviewed_at: 2026-03-08
 source_window_end: 2026-03-06
 market_status: watch
 ---
@@ -21,6 +21,13 @@ market_status: watch
 import {RelatedReadings} from '@site/src/components/docs';
 
 # 2026 年 3 月 AI Coding 的四个主线变化
+
+## 看完先做什么
+
+- 如果你要把“平台 / 控制面 / 执行栈”差异落回具体入口，先看 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
+- 如果你要把本地发现、后台执行和平台收口串起来，直接去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
+- 如果你要先跑一条真实工具主线，直接去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start) 或 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
+- 如果你想先看趋势怎么落回案例，直接去 [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff)。
 
 ## 本期最重要的变化
 

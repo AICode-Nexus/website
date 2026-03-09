@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,57 +14,42 @@ journey_stage: "tech-selection"
 title: "GitHub Copilot：优点、边界与替代项"
 description: "GitHub Copilot 的优势、边界、替代项和退出信号。"
 slug: "/tools/platforms/github-copilot/tradeoffs-and-boundaries"
-sidebar_label: "优点与边界"
+sidebar_label: "补充：优点与替代"
+sidebar_position: 8
 tags: ["ai-coding", "tool", "github-copilot"]
 ---
 
 # GitHub Copilot：优点、边界与替代项
 
-没有一个入口应该永久占据所有场景。真正成熟的工具栈，必须知道某个入口为什么值得主用、什么时候只是补位、又在什么条件下应该退出标准栈。
+## 现在先做什么
 
-## 核心优势
+- 还没实际跑过平台主线：去 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
+- 想先看真实 draft PR 交接：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
+- 想先比较平台、控制面和执行栈：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
 
-- 最接近组织已有 GitHub 工作系统。
-- 异步委派与 review 闭环天然强。
-- 适合团队级 rollout 和可追溯治理。
+## 保留它的理由
 
-## 取舍矩阵
+- 你要的是 issue、PR、review 和 agent 交付在同一个平台里闭环。
+- 团队已经有分支保护、模板、reviewer 和审计路径。
+- 你更看重可追踪性和平台工作系统，而不是本地入口的控制深度。
 
-| 面向 | 你会得到什么 | 你要接受什么 |
-| --- | --- | --- |
-| 优势 | 最接近组织已有 GitHub 工作系统。 | 对本地终端深潜、复杂 worktree 和自定义工具编排不如执行栈或终端 agent 灵活。 |
-| 长期使用 | 异步委派与 review 闭环天然强。 | 如果团队并不以 GitHub 为核心协作系统，平台优势会明显下降。 |
-| 团队 rollout | 适合团队级 rollout 和可追溯治理。 | 团队越来越多地绕过 GitHub 工作系统，在别处交付和 review。 |
-| 补位路线 | VS Code Agents | OpenAI Codex |
+## 退出信号
 
-## 替代路线
+- 团队越来越绕过 GitHub，在别处探索、交付和 review。
+- 真正复杂任务还是靠其他控制面或执行栈推进，平台只剩尾部收口。
+- 你需要的是更强本地控制或更开放的工具编排，而不是平台主入口。
 
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行执行与 worktree。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更需要 terminal-first repo pairing。
+## 换到哪里
 
-替代项的价值，不是为了证明“谁更强”，而是帮你在主控制面、治理要求和执行深度发生变化时及时换挡，而不是让整个团队继续被一个已经不匹配的入口拖着走。
+- 想把本地和后台 agent 都收在编辑器控制面：去 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。
+- 想用正式执行栈推进长任务：去 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)。
+- 想回到终端 repo pairing：去 [Claude Code](/docs/tools/terminal-agents/claude-code)。
 
-## 退出与迁移信号
+## 读完回哪里
 
-- 团队越来越多地绕过 GitHub 工作系统，在别处交付和 review。
-- 平台 agent 产物无法提供足够的 repo 证据与验证记录。
-- 真正困难的任务总要回退到其他入口，本平台只剩外围补位。
-
-## 决策检查清单
-
-- 如果你需要的是 平台型主入口，强项是把任务系统、代码评审和异步交付连接起来。，GitHub Copilot 仍然值得保留。
-- 如果团队更在意的是 对本地终端深潜、复杂 worktree 和自定义工具编排不如执行栈或终端 agent 灵活。 这一类问题，就该优先评估替代路线。
-- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
-
-## 下一步怎么读
-
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行执行与 worktree。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更需要 terminal-first repo pairing。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
-- [GitHub Copilot：集成、review 与治理](/docs/ecosystem/integrations/github-copilot)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
-- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：GitHub Copilot 天然适合把清晰任务委派成 draft PR。
+- 想先确认平台主线值不值得保留：回 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start)。
+- 想看真实 draft PR 证据链：去 [GitHub Copilot Draft PR Handoff 案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
+- 想横向比较平台和其他入口：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
 
 ## 来源
 

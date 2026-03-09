@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,64 +14,42 @@ journey_stage: "implementation"
 title: "Terminal-First Repo Pairing：流程与产物"
 description: "Terminal-First Repo Pairing 的输入、输出、标准步骤和验收证据。"
 slug: "/workflows/patterns/terminal-first-repo-pairing/loop-and-artifacts"
-sidebar_label: "流程与产物"
+sidebar_label: "补充：流程产物"
+sidebar_position: 7
 tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
 ---
 
 # Terminal-First Repo Pairing：流程与产物
 
-Terminal-First Repo Pairing 的价值，不在于步骤名字好看，而在于每一步都有清晰输入、输出和可 review 的证据。只要其中一环变成“相信我已经做了”，流程就会失真。
+## 现在先做什么
 
-## 输入
+- 想按终端主线执行：去 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
+- 想先看完整示例：去 [Terminal-First Repo Pairing 示例](/docs/workflows/patterns/terminal-first-repo-pairing/examples)。
+- 想先选默认工具组合：去 [Terminal-First Repo Pairing Tooling](/docs/workflows/patterns/terminal-first-repo-pairing/tooling)。
 
-- 任务目标、目录范围、允许执行的命令。
-- 规则文件、审批策略、环境约束。
-- 需要保留的手工检查点，例如 UI 或数据正确性。
+## 最小产物清单
 
-## 输出
+- 任务边界、允许修改的目录和实际执行的命令。
+- 关键 diff、验证结果和剩余风险摘要。
+- 需要 handoff 时的下一步动作，而不是一句笼统的“完成了”。
 
-- 带命令证据的 patch。
-- 清晰的 diff、验证结果和剩余风险。
-- 必要时的 worktree、branch 或回滚建议。
+## 交接时必须看见什么
 
-## 阶段与产物总表
-
-| 阶段 | 目标 | 主要产物 |
-| --- | --- | --- |
-| 读规则文件 | 先读取 AGENTS.md、CLAUDE.md、GEMINI.md 或其他 repo 规则，明确边界。 | task contract |
-| 说明计划与权限 | 先说准备怎么做、要跑哪些命令、哪里需要审批。 | execution plan |
-| 小步执行 | 边执行边看输出，必要时中断和缩小范围。 | incremental diff |
-| 跑命令验证并审 diff | 完成标准来自命令结果、diff 质量和人工审阅，而不是模型自评。 | verified patch |
-
-## 标准步骤
-
-1. **读规则文件**：先读取 AGENTS.md、CLAUDE.md、GEMINI.md 或其他 repo 规则，明确边界。
-   产物：task contract
-2. **说明计划与权限**：先说准备怎么做、要跑哪些命令、哪里需要审批。
-   产物：execution plan
-3. **小步执行**：边执行边看输出，必要时中断和缩小范围。
-   产物：incremental diff
-4. **跑命令验证并审 diff**：完成标准来自命令结果、diff 质量和人工审阅，而不是模型自评。
-   产物：verified patch
-
-## 验收证据
-
-- 命令执行记录和关键输出摘要。
-- 与规则文件一致的边界说明。
-- 最终 diff review 结论和未覆盖风险。
+- 命令输出、测试结果和失败/成功信号对照。
+- 如果切了 worktree 或 branch，要说明切分原因和收口方式。
+- 终端里做过的判断要能回到 repo、PR 或 review 证据里。
 
 ## 最容易断裂的地方
 
-- 高风险命令、依赖变更和权限放大前必须显式审批。
-- 任何大改动都要在 diff 可读的前提下推进，不宜一次性倾倒大 patch。
-- 把 terminal-first 当成“自动化万能入口”，忽略视觉和业务验证。
+- 命令执行很多，但没有留下结构化结果和风险说明。
+- shell 很顺手，于是顺手扩大了本次任务边界。
+- 终端里已经解决，但证据没有回收到仓库工作系统。
 
-## 下一步怎么读
+## 读完回哪里
 
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：终端协作、规则文件和 worktree 是它的强项。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合审批模式、并行 worktree 和更长的执行链。
-- [Gemini CLI](/docs/tools/terminal-agents/gemini-cli)：适合轻量终端入口与 GitHub 流结合。
-- [Cline](/docs/tools/terminal-agents/cline)：适合要自己控制 Plan/Act、MCP 和工具权限的人。
+- 想按主线执行：回 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
+- 想看标准例子：去 [Terminal-First Repo Pairing 示例](/docs/workflows/patterns/terminal-first-repo-pairing/examples)。
+- 想先选入口组合：去 [Terminal-First Repo Pairing Tooling](/docs/workflows/patterns/terminal-first-repo-pairing/tooling)。
 
 ## 来源
 

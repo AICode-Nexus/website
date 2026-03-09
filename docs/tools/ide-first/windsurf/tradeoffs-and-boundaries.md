@@ -2,8 +2,8 @@
 audience: "individual"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,57 +14,42 @@ journey_stage: "tech-selection"
 title: "Windsurf：优点、边界与替代项"
 description: "Windsurf 的优势、边界、替代项和退出信号。"
 slug: "/tools/ide-first/windsurf/tradeoffs-and-boundaries"
-sidebar_label: "优点与边界"
+sidebar_label: "补充：优点与替代"
+sidebar_position: 8
 tags: ["ai-coding", "tool", "windsurf"]
 ---
 
 # Windsurf：优点、边界与替代项
 
-没有一个入口应该永久占据所有场景。真正成熟的工具栈，必须知道某个入口为什么值得主用、什么时候只是补位、又在什么条件下应该退出标准栈。
+## 现在先做什么
 
-## 核心优势
+- 还没实际跑过一体化工作台：去 [Windsurf 快速开始](/docs/tools/ide-first/windsurf/quick-start)。
+- 想先看工作台如何进入 PR 交付：去 [Windsurf 维护到 PR 交接案例](/docs/case-studies/windsurf-maintenance-to-pr)。
+- 想直接比较 IDE 工作台与开放式入口：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
 
-- 工作台体验整合度高。
-- AGENTS.md、rules 和记忆组合有明显产品化优势。
-- 适合连续式 IDE 工作流。
+## 保留它的理由
 
-## 取舍矩阵
+- 你想把规则、记忆、模型和工作台体验收在一个产品里。
+- 你主要做的是高频维护、连续式 IDE 工作流和日常 repo 协作。
+- 团队愿意把它作为工作台，而不是只当聊天窗口。
 
-| 面向 | 你会得到什么 | 你要接受什么 |
-| --- | --- | --- |
-| 优势 | 工作台体验整合度高。 | 开放可组合性不如 Cline。 |
-| 长期使用 | AGENTS.md、rules 和记忆组合有明显产品化优势。 | 平台与执行栈能力仍要靠其他入口补位。 |
-| 团队 rollout | 适合连续式 IDE 工作流。 | 团队无法解释 memories、rules 与 repo contract 的边界。 |
-| 补位路线 | Cursor | Cline |
+## 退出信号
 
-## 替代路线
-
-- [Cursor](/docs/tools/ide-first/cursor)：如果你更重视成熟 IDE-first 体验与 background agents。
-- [Cline](/docs/tools/terminal-agents/cline)：如果你更想完全控制开放工具栈。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更希望保留 VS Code 作为统一控制面。
-
-替代项的价值，不是为了证明“谁更强”，而是帮你在主控制面、治理要求和执行深度发生变化时及时换挡，而不是让整个团队继续被一个已经不匹配的入口拖着走。
-
-## 退出与迁移信号
-
+- 复杂任务仍主要靠外部平台或开放壳层推进。
 - 团队无法解释 memories、rules 与 repo contract 的边界。
-- 入口一换，关键工作流就断。
-- 真正复杂任务仍主要依赖外部平台或执行栈。
+- 你真正需要的是更开放或更标准化的主入口，而不是额外工作台层。
 
-## 决策检查清单
+## 换到哪里
 
-- 如果你需要的是 集成式工作台，适合想把规则、记忆、模型和 IDE 体验收进一个产品的人。，Windsurf 仍然值得保留。
-- 如果团队更在意的是 开放可组合性不如 Cline。 这一类问题，就该优先评估替代路线。
-- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
+- 想要更成熟的 IDE-first 体验：去 [Cursor](/docs/tools/ide-first/cursor)。
+- 想保留最大的开放可组合性：去 [Cline](/docs/tools/terminal-agents/cline)。
+- 想把本地与后台 agent 都留在 VS Code：去 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。
 
-## 下一步怎么读
+## 读完回哪里
 
-- [Cursor](/docs/tools/ide-first/cursor)：如果你更重视成熟 IDE-first 体验与 background agents。
-- [Cline](/docs/tools/terminal-agents/cline)：如果你更想完全控制开放工具栈。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更希望保留 VS Code 作为统一控制面。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Windsurf 之上加一层方法论与 lane discipline。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：Windsurf 负责日常 workspace，GitHub 负责最终 review 闭环。
-- [OpenSpec](/docs/workflows/frameworks/openspec)：高频 brownfield 变化可用 OpenSpec 管理提案层。
+- 想先确认工作台值不值得保留：回 [Windsurf 快速开始](/docs/tools/ide-first/windsurf/quick-start)。
+- 想看它怎么进入正式交付：去 [Windsurf 维护到 PR 交接案例](/docs/case-studies/windsurf-maintenance-to-pr)。
+- 想做横向判断：去 [Cursor、Windsurf 与 Cline 怎么看](/docs/tools/compare/cursor-vs-windsurf-vs-cline)。
 
 ## 来源
 

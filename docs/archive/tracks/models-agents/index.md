@@ -13,14 +13,20 @@ entry_role: archive
 audience: mixed
 stage: starter
 featured: true
-reviewed_at: 2026-03-06
-source_window_end: 2026-03-06
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: legacy
 ---
 
 # 模型与 Agent
 
 这是上一阶段的一级赛道入口，二阶段起改为“旧赛道透镜”。
+
+## 现在应该读什么
+
+- 还在找第一条真实可跑的主线：先去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 想判断终端主入口：去 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)。
+- 想判断长任务执行栈：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
 
 ## 这类透镜现在怎么用
 

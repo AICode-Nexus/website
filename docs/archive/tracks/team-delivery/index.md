@@ -13,14 +13,20 @@ entry_role: archive
 audience: mixed
 stage: intermediate
 featured: true
-reviewed_at: 2026-03-06
-source_window_end: 2026-03-06
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: legacy
 ---
 
 # 团队与交付
 
 这是上一阶段的一级赛道入口，二阶段起改为“旧赛道透镜”。
+
+## 现在应该读什么
+
+- 想把任务收口成 draft PR：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- 想先收紧 review 和验证门禁：去 [Review Quality Gates](/docs/standards/review-quality-gates)。
+- 想先把本地发现、后台执行和平台收口串起来：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
 
 ## 这类透镜现在怎么用
 

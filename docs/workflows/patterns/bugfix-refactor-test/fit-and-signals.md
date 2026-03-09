@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "starter"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,53 +14,42 @@ journey_stage: "testing-validation"
 title: "Bugfix / Refactor / Test：适用信号与边界"
 description: "什么时候优先用 Bugfix / Refactor / Test，什么时候不要用。"
 slug: "/workflows/patterns/bugfix-refactor-test/fit-and-signals"
-sidebar_label: "适用信号"
+sidebar_label: "补充：适用信号"
+sidebar_position: 6
 tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
 ---
 
 # Bugfix / Refactor / Test：适用信号与边界
 
-Bugfix / Refactor / Test 不是“越先进越该上”的默认答案，而是一套只在特定任务结构与团队成熟度下真正赚回成本的做法。判断是否该上它，关键是信号是否匹配，而不是词汇是否热门。
+## 现在先做什么
 
-## 触发信号
+- 想直接按最小闭环执行：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 想先看完整示例：去 [Bugfix / Refactor / Test 示例](/docs/workflows/patterns/bugfix-refactor-test/examples)。
+- 想先看真实修复怎么收口：去 [Claude Code Bugfix Loop 案例](/docs/case-studies/claude-code-bugfix-loop)。
 
-- 问题可复现，或者至少能通过日志、快照、断言定位。
-- 允许修改的位置比较清楚，可以定义“最小修复范围”。
-- 组织更在意稳定回归，而不是趁机做大规模设计翻新。
+## 什么时候该上
 
-## 更适合谁
+- 问题可以复现，或者至少能通过日志、断言和快照定位。
+- 允许修改的范围比较清楚，能写出“最小修复边界”。
+- 团队更在意稳定回归，而不是借机扩成大重构。
 
-- 已有失败测试、复现步骤或明确行为边界的维护任务。
-- 需要在小范围内修复问题、清理代码或补充回归测试。
-- 希望快速稳定高频日常任务，而不是每次从零设计流程。
+## 什么时候别上
 
-## 不适用场景
-
-- 需求本身仍在探索，甚至不知道预期行为是什么。
-- 需要同时改 schema、架构边界和产品交互的复杂任务。
+- 需求还在探索，甚至不知道预期行为是什么。
+- 任务同时牵涉 schema、架构边界和产品交互大改。
 - 团队没有固定验证命令，只能靠主观感觉判断完成。
 
-## 快速判断矩阵
+## 切回更轻或更重
 
-| 判断维度 | 匹配信号 | 不匹配信号 |
-| --- | --- | --- |
-| 任务边界 | 问题可复现，或者至少能通过日志、快照、断言定位。 | 需求本身仍在探索，甚至不知道预期行为是什么。 |
-| 协作方式 | 允许修改的位置比较清楚，可以定义“最小修复范围”。 | 需要同时改 schema、架构边界和产品交互的复杂任务。 |
-| 验收要求 | 组织更在意稳定回归，而不是趁机做大规模设计翻新。 | 团队没有固定验证命令，只能靠主观感觉判断完成。 |
-| 默认切换 | 边界越复杂，越适合先写合同再执行。 | 只剩单点修复时应切回更轻流程。 |
+- 如果只是配置微调或文案修正，直接走更轻量维护动作。
+- 如果要跨模块改接口、数据结构和审批链，切到 [Spec-First Runbook](/docs/workflows/patterns/spec-first/runbook)。
+- 如果需要把实现、测试和文档拆成多 lane，切到 [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)。
 
-## 默认切换条件
+## 读完回哪里
 
-- 如果任务规模下降到只剩局部修复，应切回更轻的 bugfix / refactor / test 流。
-- 如果任务规模升级到需要更多角色或更多产物，应切到更重的框架层，而不是硬撑当前模式。
-- 如果团队没有 owner、没有验证命令或没有清晰边界，再好的工作流名词都不会救场。
-
-## 下一步怎么读
-
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：适合终端里先复现、再修、再跑命令。
-- [Gemini CLI](/docs/tools/terminal-agents/gemini-cli)：适合把终端验证与 GitHub 交付串起来。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合本地改动加后台补跑。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：适合已有 issue 与 PR 流的日常小改动。
+- 想直接执行：回 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 想看标准例子：去 [Bugfix / Refactor / Test 示例](/docs/workflows/patterns/bugfix-refactor-test/examples)。
+- 想看真实终端修复闭环：去 [Claude Code Bugfix Loop 案例](/docs/case-studies/claude-code-bugfix-loop)。
 
 ## 来源
 

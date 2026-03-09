@@ -13,8 +13,8 @@ featured: true
 domain: workflows
 journey_stage: development-planning
 entry_role: start
-reviewed_at: 2026-03-07
-source_window_end: 2026-03-07
+reviewed_at: 2026-03-08
+source_window_end: 2026-03-08
 market_status: current
 ---
 
@@ -22,94 +22,76 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 # AI Coding 学习路径
 
-这条路径不试图覆盖所有分支，它只提供一条默认顺序：
+这页不追求覆盖所有分支，它只给一条默认顺序，让你先跑出第一条可执行主线，再逐步补工具、工作流、案例和治理，而不是一直在产品名之间横跳。
 
-先按流程推进，再按知识方向补齐。
+## 现在先做什么
 
-## Step 1：先定开发范式与协作方式
+- 第一次上手：先看 [30 分钟上手](/docs/start/30-minute-quick-start)。
+- 第一周固定工作流：去 [7 天上手路线](/docs/workflows/playbooks/first-7-days-ai-coding)。
+- 已经知道任务类型：直接去 [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)。
 
-目标：先明确默认入口、人机分工和协作边界。
+## 默认三条路径
 
-建议顺序：
+### 路径 A：今天就要跑通第一条主线
 
-1. [开发范式与协作方式](/docs/development-modes)
-2. [AI 开发方式总览](/docs/development-modes-landscape)
-3. [Agent 执行模式](/docs/development-modes/agent-execution-modes)
+1. [30 分钟上手](/docs/start/30-minute-quick-start)
+2. [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)
+3. [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start) 或 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)
+4. [实战案例](/docs/case-studies)
 
-## Step 2：再做工具与技术选型
+### 路径 B：这一周要把默认工作方式固定下来
 
-目标：明确平台、终端 agent、AI IDE、执行栈和资源入口怎么分工。
+1. [7 天上手路线](/docs/workflows/playbooks/first-7-days-ai-coding)
+2. [AI 工作流](/docs/workflows)
+3. [AI 编程工具](/docs/tools)
+4. [生态与集成](/docs/ecosystem)
 
-1. [工具与技术选型](/docs/tools)
-2. [工具选择地图](/docs/tools/map)
-3. [资源中心](/docs/tools/resources)
-4. [内容索引](/docs/content-index)
+### 路径 C：已经在真实项目里，要减少返工和横跳
 
-## Step 3：固定工作流与交付
+1. [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)
+2. [AI 编程工具](/docs/tools)
+3. [实战案例](/docs/case-studies)
+4. [规范评估与治理](/docs/standards)
 
-目标：把开发规划、方案设计、实施、测试验证和缺陷优化串成团队默认交付链。
+## 一周内默认顺序
 
-1. [工作流与交付](/docs/workflows)
-2. [主流 AI Coding 工作流](/docs/workflows/mainstream-ai-coding-workflows)
-3. [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)
-4. [多 Agent 协作](/docs/workflows/multi-agent-collaboration)
+1. 第 1 天：跑 [30 分钟上手](/docs/start/30-minute-quick-start)，把第一条可执行路径跑通。
+2. 第 2 到 3 天：固定一个维护主线，优先跑 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)。
+3. 第 4 到 5 天：固定一个默认入口，去 [AI 编程工具](/docs/tools) 找对应的 `quick-start`。
+4. 第 6 天：看一篇 [实战案例](/docs/case-studies)，把“工具 + 工作流 + 验证”串起来。
+5. 第 7 天：回 [生态与集成](/docs/ecosystem) 或 [规范评估与治理](/docs/standards)，把规则和工作系统补齐。
 
-## Step 4：收口架构与上下文系统
+## 什么时候回总览层
 
-目标：把目录边界、上下文切片、worktree、MCP 和系统接缝固定下来。
-
-1. [架构与上下文系统](/docs/architecture)
-2. [AI 原生工程架构](/docs/ai-native-engineering-architecture)
-3. [MCP 与工具拓扑](/docs/mcp-tool-topology)
-
-## Step 5：补规范评估与治理
-
-目标：把规则文件、权限、验证、评估、review 和风险门禁统一成仓库级治理能力。
-
-1. [规范评估与治理](/docs/standards)
-2. [仓库规则文件体系](/docs/repo-instruction-files)
-3. [AI 开发规范](/docs/ai-development-standards)
-4. [质量门禁与 Review](/docs/standards/review-quality-gates)
-
-## Step 6：最后进入生态与集成
-
-目标：把 GitHub、Jira、CI、PR 和组织接入拉回真实工作系统。
-
-1. [生态与集成](/docs/ecosystem)
-2. [Review 与 PR 工具链](/docs/ides-tooling/review-and-pr-tooling)
-3. [Daily Brief](/blog)
-
-## 什么时候回资源中心或内容索引
-
-- 需要快速补材料：回 [资源中心](/docs/tools/resources)
-- 需要选择阅读形态：回 [内容索引](/docs/content-index)
-- 需要跟踪短期变化：回 [Daily Brief](/blog)
-
-## 继续阅读与下一步
+- 如果你不知道自己当前卡在哪个阶段，回 [流程地图](/docs/start/journey-map)。
+- 如果你知道阶段，但不知道该补哪类长期知识，回 [知识方向总表](/docs/start/taxonomy)。
+- 如果你只想按任务直接做，不想再看路径设计，回 [AI 工作流](/docs/workflows)。
+- 如果你只差一个入口没定，回 [AI 编程工具](/docs/tools)。
+- 如果你需要的是视频、课程或材料，而不是顺序判断，回 [资源中心](/docs/tools/resources)。
 
 <RelatedReadings
   title="继续阅读与下一步"
-  description="如果你已经知道自己当前处在哪一环，下面这些入口会比继续横向刷产品介绍更有效。"
+  description="如果你已经知道自己下一步是缺主线、缺入口还是缺治理，这些入口会比继续刷概念页更有效。"
   items={[
     {
       title: '流程地图',
       href: '/docs/start/journey-map',
-      description: '如果你还不确定自己当前卡在哪一环，先回流程地图。',
+      description: '如果你还不确定自己卡在哪一环，先回阶段判断。',
     },
     {
-      title: '知识方向总表',
-      href: '/docs/start/taxonomy',
-      description: '如果你知道阶段但不知道该进哪个方向，先回方向总表。',
-    },
-    {
-      title: '工作流与交付',
+      title: 'AI 工作流',
       href: '/docs/workflows',
-      description: '如果你的问题已经从“选入口”转向“如何稳定交付”，下一步进工作流层。',
+      description: '如果你现在缺的是一条稳定交付链，下一步直接进这里。',
     },
     {
-      title: '生态与集成',
-      href: '/docs/ecosystem',
-      description: '如果你已经在真实组织里落地 AI Code，就进入生态与集成层。',
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '如果你现在缺的是默认入口，下一步直接进这里。',
+    },
+    {
+      title: '实战案例',
+      href: '/docs/case-studies',
+      description: '如果你想看别人怎么把工具、工作流和验证串起来，直接看案例。',
     },
   ]}
 />

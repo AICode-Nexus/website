@@ -20,6 +20,11 @@ market_status: current
 
 # AI 架构
 
+## 现在先做什么
+
+- 如果你还没稳定日常任务流，先去 [Spec-First Runbook](/docs/workflows/patterns/spec-first/runbook)。
+- 如果你先要跑通最短主线，回到 [30 分钟上手](/docs/start/30-minute-quick-start)。
+
 ## 这一类内容解决什么问题
 
 - 如何让仓库结构更适合 agent 理解和修改

@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "intermediate"
 featured: false
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -14,51 +14,42 @@ journey_stage: "solution-design"
 title: "Spec-First：案例与工具组合"
 description: "Spec-First 的代表案例，以及最适合搭配的工具或框架。"
 slug: "/workflows/patterns/spec-first/examples-and-tool-fit"
-sidebar_label: "案例与工具组合"
+sidebar_label: "补充：案例与工具"
+sidebar_position: 9
 tags: ["ai-coding", "workflow", "spec-first"]
 ---
 
 # Spec-First：案例与工具组合
 
-没有一种工具能自动修正糟糕的 workflow，但合适的入口确实能让同一条交付链更稳。这一页的目标，是把代表案例、工具组合和常见误配放在一起看。
+## 现在先做什么
+
+- 想先看标准示例：去 [Spec-First 示例](/docs/workflows/patterns/spec-first/examples)。
+- 想先选默认工具组合：去 [Spec-First Tooling](/docs/workflows/patterns/spec-first/tooling)。
+- 想先看 spec 定稿后如何进入执行：去 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks)。
 
 ## 代表案例
 
-- **新增组织级权限模型**：先写清角色矩阵、非目标和回归路径，再拆成后端、前端和测试任务。
-- **导出系统增加新格式**：先固定输入输出契约、兼容边界和验收样例，再安排实现与验证。
+- 新功能跨多个模块，需要先对齐目标、非目标和验收标准。
+- 涉及 schema、API、权限或迁移的任务，不能直接跳进实现。
+- 多角色都会 review 同一个改动，先把需求和计划拆开审。
 
-## 案例与工具组合矩阵
+## 默认工具组合
 
-| 案例 | 为什么适合这个流程 | 优先搭配 |
-| --- | --- | --- |
-| 新增组织级权限模型 | 先写清角色矩阵、非目标和回归路径，再拆成后端、前端和测试任务。 | Spec Kit |
-| 导出系统增加新格式 | 先固定输入输出契约、兼容边界和验收样例，再安排实现与验证。 | BMAD |
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec、plan 和 task 链条固定下来。
+- [BMAD](/docs/workflows/frameworks/bmad)：适合多角色 handoff 和更重的过程治理。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合 spec 定稿后进入正式执行栈。
 
-## 推荐工具组合
+## 常见误配
 
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合先把 spec、plan、tasks 链条固定下来。
-- [BMAD](/docs/workflows/frameworks/bmad)：适合需要多角色 handoff 的更重流程。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合在 spec 定稿后进入本地或云端执行。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合把本地探索和后台执行串在一条控制面里。
+- 把 spec 当成长摘要，而不是执行前的边界合同。
+- 还没定目标就急着拆任务，最后计划和执行同时返工。
+- 写了 spec 却没有清晰 handoff，执行阶段又重新发明规则。
 
-## 常见组合误区
+## 读完回哪里
 
-- 把工具当成 workflow 本身，而不是 workflow 的承载入口。
-- 同时上多个重流程和多个重工具，最后先死在上下文和治理成本上。
-- 只看生成速度，不看证据是否能回流到 diff、测试和 review。
-
-## 什么时候切到更重或更轻的流程
-
-- 如果任务开始涉及更多角色、更多产物或更长审批链，应切到框架层。
-- 如果任务降级成单点修复或纯配置修订，应切回更轻量的维护流。
-- 如果案例看起来很像，但团队没有任何验证命令，先补基础设施再谈流程。
-
-## 下一步怎么读
-
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合先把 spec、plan、tasks 链条固定下来。
-- [BMAD](/docs/workflows/frameworks/bmad)：适合需要多角色 handoff 的更重流程。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：适合在 spec 定稿后进入本地或云端执行。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：适合把本地探索和后台执行串在一条控制面里。
+- 想按标准例子开工：回 [Spec-First 示例](/docs/workflows/patterns/spec-first/examples)。
+- 想先选入口组合：去 [Spec-First Tooling](/docs/workflows/patterns/spec-first/tooling)。
+- 想看 spec 定稿后如何进入执行栈：去 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks)。
 
 ## 来源
 

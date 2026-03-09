@@ -26,6 +26,11 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 当 AI Code 真正进入 GitHub、Jira、CI、PR、审批流和组织协作之后，系统怎么接，证据怎么回流，责任怎么收口。
 
+## 现在先做什么
+
+- 如果你正在建设平台交接主线，先去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
+- 如果你还没跑过任何主线，先去 [30 分钟上手](/docs/start/30-minute-quick-start)。
+
 ## 这一层回答什么问题
 
 - GitHub、Jira、CI、PR 和 review 怎么接回主工作系统

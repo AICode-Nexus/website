@@ -2,8 +2,8 @@
 audience: "mixed"
 stage: "advanced"
 featured: true
-reviewed_at: "2026-03-07"
-source_window_end: "2026-03-07"
+reviewed_at: "2026-03-08"
+source_window_end: "2026-03-08"
 market_status: "current"
 entry_role: "domain"
 kind: "guide"
@@ -22,77 +22,53 @@ import {LearningResources} from '@site/src/components/docs';
 
 # OpenAI Codex
 
-OpenAI Codex 更像执行栈：围绕本地 CLI、云端任务、审批模式、隔离环境和并行 worktree 组织长链路执行。
+OpenAI Codex 更像正式执行栈，而不是普通聊天入口。它的强项是把本地 CLI、云端任务、审批模式和并行执行收成一条长任务主线。
 
-## 60 秒结论
+## 现在先做什么
 
-:::tip 先给判断
-OpenAI Codex 最稳的使用方式，不是把它当成“所有任务都交给一个入口”，而是先承认它的主控制面是：执行栈，强项是把复杂任务拆成可执行、可并行、可审阅的任务流。
-:::
+- 第一次跑阶段式任务：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
+- 想固定长任务模板：去 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks)。
+- 想直接进入最自然的主线：去 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook)。
 
+## 60 秒定位
 
-如果你主要在同一个工作区里高频推进任务、频繁读 diff、并且愿意把 rules、review 证据和 handoff 节点写清，OpenAI Codex 会非常顺手。反过来，如果你的工作系统、审批边界和最终交付主要不发生在这个入口里，那么它就更像补位层，而不是标准栈中心。
+如果你需要的只是本地补全或问答，Codex 过重。如果你要的是复杂任务拆分、并行 lane、审批模式、云端持续执行和可回收的证据链，它就比普通 IDE 入口更合理。
 
-## 适合谁，也不适合谁
+它适合那些已经愿意维护 repo 合同、验证命令和人工 review 的团队。没有这些基础时，强执行能力只会把边界不清的问题放大。
 
-### 更适合
+## 默认进入顺序
 
-- 长任务、并行分支、隔离 worktree 和需要后台执行的团队。
-- 想保留本地 repo pairing，又希望把部分任务交给云端或后台环境的人。
-- 重视审批模式、任务日志和执行证据，而不是只要聊天回答的组织。
-
-### 暂时不要先选
-
-- 只需要轻量 IDE 补全或聊天，不需要执行链与审批模式。
-- 团队完全不愿意维护 repo 规则和 command evidence。
-- 工作主要发生在纯平台 review 层，本地执行价值不大。
+1. 先用 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start) 跑通本地执行和验证。
+2. 再用 [OpenAI Codex 常见任务](/docs/tools/execution-stacks/openai-codex/common-tasks) 固定长任务、并行 lane 和 cloud handoff。
+3. 然后进入 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook) 或 [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)。
+4. 长期使用前补 [OpenAI Codex 最佳实践](/docs/tools/execution-stacks/openai-codex/best-practices) 和 [OpenAI Codex 排错](/docs/tools/execution-stacks/openai-codex/troubleshooting)。
 
 ## 快速判断矩阵
 
 | 判断维度 | 如果你满足这个条件 | 默认建议 |
 | --- | --- | --- |
-| 主控制面 | 执行栈，强项是把复杂任务拆成可执行、可并行、可审阅的任务流。 | 先把 OpenAI Codex 当成日常主入口，再用其他入口补平台或执行层。 |
-| 任务形状 | 长链路重构、并行子任务、跨模块实现与验证。 | 先跑 [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)。 |
-| 团队约束 | 执行能力强的工具会放大 repo 边界不清的问题。 | 把规则与证据链先写回 repo，再扩大 OpenAI Codex 使用面。 |
-| 退出信号 | 团队真正依赖的只有聊天和补全，执行链几乎不用。 | 一旦出现这些信号，就优先评估 [Claude Code](/docs/tools/terminal-agents/claude-code)。 |
+| 主控制面 | 你需要正式执行栈，而不是单次会话型入口。 | 先把 Codex 放在执行层，再用平台层做 review 收口。 |
+| 任务形状 | 长链路重构、并行子任务、跨模块实现和云端持续执行。 | 先跑 [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)。 |
+| 团队约束 | 团队愿意维护 repo 合同、审批模式和命令证据。 | 先固定规则和 handoff，再扩大执行栈覆盖面。 |
+| 退出信号 | 实际只在用问答和补全，执行链基本没人跑。 | 一旦出现这些信号，就优先评估 [Claude Code](/docs/tools/terminal-agents/claude-code) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。 |
 
-## 默认进入方式与补位组合
+## 默认补位组合
 
-OpenAI Codex 进入标准栈时，最重要的不是“功能有没有”，而是你打算让它承担哪一段主线。默认建议是先把高频日常任务放进 OpenAI Codex，再用平台、框架或终端入口兜住验证与治理。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：先定 spec 和 planning，再交给 Codex 执行。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：适合把 worktree、subagent 和 TDD 固化成日常方法。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：执行留在 Codex，PR 和 review 在平台收口。
 
-### 推荐组合
-
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 收口 PR 与 review，Codex 负责执行层。
-
-### 典型任务
-
-- 长链路重构、并行子任务、跨模块实现与验证。
-- 本地探索后转交 cloud task 持续执行。
-- 需要审批模式和命令证据的 repo 级改动。
-
-## 官方事实与工程判断
-
-### 官方资料明确说明了什么
+## 官方依据
 
 - [OpenAI Codex App](https://openai.com/index/introducing-the-codex-app/)
 - [OpenAI Codex Upgrades](https://openai.com/index/codex-upgrades/)
 
-### 这份手册据此做出的工程判断
-
-- OpenAI Codex 的真正优势，不是“它也能做很多事”，而是它把 执行栈，强项是把复杂任务拆成可执行、可并行、可审阅的任务流。 这件事打磨得更顺。
-- 如果团队没有把 repo 规则、验证命令和人工 review 固定下来，再好的入口体验也会被流程噪音抵消。
-- 决定 OpenAI Codex 能不能长期留在栈里的，不是单次演示效果，而是这些治理要求：执行能力强的工具会放大 repo 边界不清的问题。
-
 ## 下一步怎么读
 
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Codex CLI 很适合作为终端内的主执行入口。
-- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它天然适合并行 worktree 与多任务分治。
-- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：本地探索、后台执行和平台收口都能承接。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把 worktree、plan、subagent 和 TDD 串起来时尤其合拍。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 收口 PR 与 review，Codex 负责执行层。
+- 想直接上手：去 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)。
+- 想按默认主线推进：去 [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)。
+- 想看真实执行到验证闭环：去 [Codex Refactor with Verification 案例](/docs/case-studies/codex-refactor-with-verification)。
+- 想比较平台、控制面和执行栈：去 [GitHub Copilot、VS Code Agent 与 OpenAI Codex 怎么选](/docs/tools/compare/github-copilot-vs-vscode-agent-vs-openai-codex)。
 
 <LearningResources
   tool="OpenAI Codex"
