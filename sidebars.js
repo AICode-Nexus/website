@@ -96,7 +96,39 @@ const sidebars = {
     },
   ],
 
-  resourcesSidebar: ['tools/resources/index', 'tools/resources/videos', 'tools/resources/courses'],
+  resourcesSidebar: [
+    {
+      type: 'doc',
+      id: 'tools/resources/videos',
+      label: '全部视频',
+    },
+    {
+      type: 'category',
+      label: '按类型进入',
+      items: [
+        {
+          type: 'doc',
+          id: 'tools/resources/beginner-tutorials',
+          label: '入门教程',
+        },
+        {
+          type: 'doc',
+          id: 'tools/resources/hands-on-demos',
+          label: '实战演示',
+        },
+        {
+          type: 'doc',
+          id: 'tools/resources/quick-tips',
+          label: '技巧速览',
+        },
+      ],
+    },
+    {
+      type: 'doc',
+      id: 'tools/resources/courses',
+      label: '课程目录',
+    },
+  ],
 
   toolTutorialsSidebar: [
     'tools/index',

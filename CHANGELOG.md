@@ -48,7 +48,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Changed
 
 - Tightened tool-handbook auxiliary pages so `工作流适配 / 规则与边界 / 优点与替代` now use shorter navigation labels and denser decision-oriented content instead of verbose “补充” framing.
-- Promoted `视频资源` into an independent top-level docs route at `/docs/resources`, moved the navbar entry into the right-side utility area before `GitHub` and search, and kept `/docs/tools/resources*` on explicit redirects so old shared links still resolve.
+- Promoted `视频资源` into an independent top-level docs route, changed the tab to land directly on `/docs/resources/videos`, simplified the resource sidebar to `全部视频 / 按类型进入 / 课程目录`, and kept the older `/docs/resources` plus `/docs/tools/resources*` links redirecting into the video list.
 - Rebuilt the `工具教程` sidebar into explicit tool directories so quick starts are grouped by tool family and each handbook now expands under its own tool label instead of flattening into repeated generic page names.
 - Added a docs right rail for tool pages that surfaces tool-filtered teaching videos beside the article and TOC, making resource discovery available without leaving the current tutorial.
 - Repositioned concept landing pages so they now point readers to concrete tutorial or case-study next steps instead of stopping at maps, indexes, or tool-role summaries.

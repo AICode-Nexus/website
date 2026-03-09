@@ -60,8 +60,7 @@ const EXPECTED_NAVBAR_LEFT_ITEMS = [
 const EXPECTED_NAVBAR_RIGHT_ITEMS = [
   {
     label: '视频资源',
-    type: 'docSidebar',
-    sidebarId: 'resourcesSidebar',
+    to: '/docs/resources/videos',
   },
   {
     label: 'GitHub',

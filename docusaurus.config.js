@@ -173,8 +173,8 @@ const config = {
             from: ['/docs/team-delivery/metrics-and-risk'],
           },
           {
-            to: '/docs/resources',
-            from: ['/docs/tools/resources'],
+            to: '/docs/resources/videos',
+            from: ['/docs/resources', '/docs/tools/resources'],
           },
           {
             to: '/docs/resources/videos',
@@ -268,9 +268,9 @@ const config = {
           position: 'left',
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'resourcesSidebar',
+          to: '/docs/resources/videos',
           label: '视频资源',
+          activeBaseRegex: '^/docs/resources(?:/|$)',
           position: 'right',
         },
         {

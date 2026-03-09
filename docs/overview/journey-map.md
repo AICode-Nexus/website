@@ -32,7 +32,7 @@ market_status: current
 
 1. 先找到你当前最卡的阶段。
 2. 再看该阶段应该优先进入哪一类页面。
-3. 只有当你缺的是材料或内容形态时，才回 [视频资源](/docs/resources) 或 [内容索引](/docs/content-index)。
+3. 只有当你缺的是材料或内容形态时，才回 [视频资源](/docs/resources/videos) 或 [内容索引](/docs/content-index)。
 
 ## 阶段速查表
 

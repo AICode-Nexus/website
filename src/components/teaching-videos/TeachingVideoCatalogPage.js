@@ -37,7 +37,7 @@ const RESOURCE_COPY = {
     sectionTitle: '视频结果',
     sectionLead: '按平台、语言、工具、主题、形式和难度过滤；结果页只显示当前命中的视频条目。',
     resultsLabel: '条视频',
-    summaryLabel: '视频目录',
+    summaryLabel: '全部视频',
     emptyState: '当前筛选没有命中视频，建议先清空关键词或切回“全部”。',
   },
   courses: {
@@ -49,7 +49,7 @@ const RESOURCE_COPY = {
     sectionLead: '课程目录由当前命中的视频集合实时汇总，每门课程都能继续下钻到对应视频列表。',
     resultsLabel: '门课程',
     summaryLabel: '课程目录',
-    emptyState: '当前筛选没有聚合出课程，建议先放宽筛选条件或直接回到视频目录。',
+    emptyState: '当前筛选没有聚合出课程，建议先放宽筛选条件或直接回到全部视频。',
   },
 };
 

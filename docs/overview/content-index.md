@@ -57,7 +57,7 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 ## 什么时候回资源中心或归档
 
-- 如果你只缺视频、课程和材料，回 [视频资源](/docs/resources)。
+- 如果你只缺视频、课程和材料，回 [视频资源](/docs/resources/videos)。
 - 如果你只是在追踪短期变化，再去 [Daily Brief](/blog)。
 - 如果你需要查旧分类词汇，再去 [旧赛道归档](/docs/archive)。
 

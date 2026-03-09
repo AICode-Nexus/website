@@ -104,7 +104,7 @@ function loadEntries(context, sectionLabel, overrides = {}) {
 function buildTeachingVideoEntries() {
   const videoEntries = teachingVideoCatalog.items.map((video) =>
     buildSearchEntry(
-      '视频目录',
+      '全部视频',
       {
         id: `video-${video.id}`,
         title: video.title,

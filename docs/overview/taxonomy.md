@@ -106,7 +106,7 @@ market_status: current
 
 这些层是入口或载体，不是长期知识方向：
 
-- [`视频资源`](/docs/resources)：放视频和课程这类可直接消费的材料。
+- [`视频资源`](/docs/resources/videos)：放视频和课程这类可直接消费的材料。
 - `内容索引`：放对比、Playbook 和 Insight 这类内容形态入口。
 - `Daily Brief`：放高时效观察。
 - `旧赛道归档`：保留历史链接和旧透镜。

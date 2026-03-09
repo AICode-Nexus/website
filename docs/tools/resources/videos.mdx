@@ -1,9 +1,9 @@
 ---
-title: AI Code 视频目录
-description: 近 90 天 AI coding 教学视频的视频视图，只展示当前筛选命中的视频条目。
+title: AI Code 全部视频
+description: 近 90 天 AI coding 教学视频的总视频列表，只展示当前筛选命中的视频条目。
 slug: /resources/videos
 displayed_sidebar: resourcesSidebar
-sidebar_label: 视频目录
+sidebar_label: 全部视频
 tags: [ai-coding, video-library, teaching-videos]
 track: cross-track
 kind: guide
@@ -29,13 +29,13 @@ export const lastSyncedAt = new Intl.DateTimeFormat('zh-CN', {
   timeZone: 'Asia/Shanghai',
 }).format(new Date(teachingVideoCatalog.generatedAt));
 
-# AI Code 视频目录
+# AI Code 全部视频
 
 这个页面只保留近 90 天、{teachingVideoCatalogSync.intervalLabel} 自动同步一次的公开视频条目。课程聚合已经拆到独立课程目录，避免打断“筛选 -> 结果 -> 下钻”的主链路。
 
 最近一次同步：**{lastSyncedAt}**；自动同步周期：**{teachingVideoCatalogSync.intervalLabel}**
 
-## 什么时候优先看视频目录
+## 什么时候优先看全部视频
 
 - 你已经知道自己要找的是具体视频条目，而不是课程系列。
 - 你需要按平台、语言、工具、主题和难度快速筛选公开视频。
@@ -67,7 +67,7 @@ npm run build
 
 <RelatedReadings
   title="从这里继续往下读"
-  description="视频目录负责帮你快速定位素材；真正要形成长期结论，下一步还是回到工具、工作流和 playbook。"
+  description="全部视频负责帮你直接看到可播放条目；真正要形成长期结论，下一步还是回到工具、工作流和 playbook。"
   items={[
     {
       title: '课程目录',
