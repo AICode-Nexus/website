@@ -17,6 +17,7 @@
     "verify:release:smoke": "npm run verify:release && npm run check:browser",
     "generate:handbooks": "node scripts/content/generate-handbooks.mjs",
     "generate:daily-brief": "node scripts/content/generate-daily-brief.mjs",
+    "generate:daily-brief:auto": "node scripts/content/generate-daily-brief-auto.mjs",
     "generate:weekly-roundup": "node scripts/content/generate-weekly-roundup.mjs",
     "sync:teaching-videos": "node scripts/sync-teaching-videos.mjs",
     "check:teaching-videos": "node scripts/sync-teaching-videos.mjs --check",

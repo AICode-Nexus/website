@@ -7,8 +7,15 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Fixed
+
+- Scoped Google Analytics `gtag` to production builds only so local Docusaurus navigation no longer crashes with `window.gtag is not a function` during development.
+- Aligned blog list page backgrounds with the docs surface so the global body gradient no longer bleeds through article spacing while scrolling.
+
 ### Added
 
+- An automated Daily Brief pipeline that reads official GitHub / VS Code / OpenAI feeds, generates a dated source manifest, publishes the daily blog post directly, and emits a no-signal brief when there is no material AI coding update.
+- Homepage latest updates now derive from published blog metadata at build time so the portal refreshes automatically as soon as a Daily Brief is published.
 - A tutorial-first public IA with new `开始上手 / 工具教程 / 工作流教程 / 实战案例 / 进阶专题 / 动态` entry points, a rebuilt homepage, and a new homepage data contract centered on starter tracks, featured tutorials, case studies, and updates.
 - Explicit `tutorial` and `case-study` content forms in `src/data/knowledgeModel.js`, plus build-time validation for tutorial metadata (`tutorial_series`, `estimated_time`, `prerequisites`, `deliverable`) and case-study metadata (`case_type`, `scenario`, `tool_stack`, `verification`).
 - A new `30 分钟上手` starter tutorial, four first-wave tool tutorial tracks (Claude Code, OpenAI Codex, Cursor, GitHub Copilot), four first-wave workflow tutorial tracks (Bugfix / Refactor / Test, Terminal-First Repo Pairing, Issue / Jira -> Draft PR, Spec-First), and three cross-tool case-study docs under `/docs/case-studies`.
@@ -122,6 +129,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Fixed
 
 - Reworked the scheduled Daily Brief and Weekly Roundup draft workflows to validate a build and commit generated draft files directly to the default branch, avoiding repeated failures when `GITHUB_TOKEN` is not allowed to create pull requests.
+- Taught the GitHub Pages deploy workflow to rerun after successful content-generating bot workflows (`Teaching Videos Sync`, `Daily Brief Draft`, `Weekly Roundup Draft`) so site updates publish even when the underlying commit was pushed by `GITHUB_TOKEN`.
 
 ### Removed
 

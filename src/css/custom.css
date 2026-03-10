@@ -54,6 +54,9 @@ body {
 html.docs-wrapper,
 html.docs-wrapper body,
 html.docs-wrapper .main-wrapper,
+html.blog-wrapper,
+html.blog-wrapper body,
+html.blog-wrapper .main-wrapper,
 html.docs-wrapper .theme-doc-sidebar-container {
   background: var(--ifm-background-color);
 }

@@ -25,5 +25,79 @@
       "label": "AI 规范",
       "href": "/docs/standards"
     }
-  ]
+  ],
+  "automation": {
+    "timeZone": "Asia/Shanghai",
+    "lookbackDays": 2,
+    "maxItems": 4,
+    "minItemsForFullBrief": 3,
+    "sources": [
+      {
+        "id": "github-changelog",
+        "title": "GitHub Changelog",
+        "siteUrl": "https://github.blog/changelog/",
+        "feedUrl": "https://github.blog/changelog/feed/",
+        "feedType": "rss",
+        "includeKeywords": [
+          "agent",
+          "copilot",
+          "gpt",
+          "model",
+          "mcp",
+          "codex",
+          "vscode",
+          "jira",
+          "workflow",
+          "prompt",
+          "security",
+          "figma"
+        ]
+      },
+      {
+        "id": "vscode",
+        "title": "VS Code",
+        "siteUrl": "https://code.visualstudio.com/blogs",
+        "feedUrl": "https://code.visualstudio.com/feed.xml",
+        "feedType": "atom",
+        "includeKeywords": [
+          "agent",
+          "copilot",
+          "mcp",
+          "chat",
+          "release",
+          "coding",
+          "code",
+          "debug",
+          "extension",
+          "terminal",
+          "memory",
+          "hooks",
+          "skills",
+          "browser"
+        ]
+      },
+      {
+        "id": "openai-news",
+        "title": "OpenAI News",
+        "siteUrl": "https://openai.com/news/",
+        "feedUrl": "https://openai.com/news/rss.xml",
+        "feedType": "rss",
+        "includeKeywords": [
+          "codex",
+          "gpt-5.4",
+          "gpt-5",
+          "model",
+          "agent",
+          "code",
+          "coding",
+          "developer",
+          "development",
+          "api",
+          "security",
+          "computer use",
+          "promptfoo"
+        ]
+      }
+    ]
+  }
 }

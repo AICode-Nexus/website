@@ -9,14 +9,6 @@ on:
         description: 'Daily brief date (YYYY-MM-DD)'
         required: false
         default: ''
-      slug:
-        description: 'Draft slug'
-        required: false
-        default: 'ai-coding-daily-draft'
-      title:
-        description: 'Draft topic title'
-        required: false
-        default: '待确认主题'
 
 permissions:
   contents: write
@@ -42,32 +34,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate daily brief draft
+      - name: Generate and publish daily brief
         run: |
           run_date="${{ github.event.inputs.date }}"
-          run_slug="${{ github.event.inputs.slug }}"
-          run_title="${{ github.event.inputs.title }}"
 
           if [ -z "$run_date" ]; then
             run_date="$(date +%F)"
           fi
 
-          if [ -z "$run_slug" ]; then
-            run_slug="ai-coding-daily-draft"
-          fi
-
-          if [ -z "$run_title" ]; then
-            run_title="待确认主题"
-          fi
-
           echo "RUN_DATE=$run_date" >> "$GITHUB_ENV"
-          echo "RUN_SLUG=$run_slug" >> "$GITHUB_ENV"
-          npm run generate:daily-brief -- --date="$run_date" --slug="$run_slug" --title="$run_title"
+          npm run generate:daily-brief:auto -- --date="$run_date"
 
       - name: Build website
         run: npm run build
 
-      - name: Commit generated draft
+      - name: Commit generated brief
         run: |
           git add content-sources/daily blog/daily
 
@@ -78,5 +59,5 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "docs(daily): generate ${{ env.RUN_DATE }} draft"
+          git commit -m "docs(daily): publish ${{ env.RUN_DATE }} brief"
           git push origin "HEAD:${{ github.ref_name || github.event.repository.default_branch }}"

@@ -37,7 +37,15 @@ npm run generate:daily-brief -- --date=2026-03-07 --slug=claude-code-workflow-sh
 npm run generate:weekly-roundup -- --week-ending=2026-03-07
 ```
 
-草稿 manifest 会写入 [`content-sources/`](./content-sources/)，博客草稿会写入 `blog/daily/` 或 `blog/weekly/`，默认带 `draft: true`。
+source manifest 会写入 [`content-sources/`](./content-sources/)，手动生成的博客文件会写入 `blog/daily/` 或 `blog/weekly/`；如果不传 `--publish`，Daily / Weekly 默认仍带 `draft: true`。
+
+如果要按官方 feed 自动生成并正式发布当天日报：
+
+```bash
+npm run generate:daily-brief:auto -- --date=2026-03-10
+```
+
+这条命令会抓取 GitHub、VS Code 和 OpenAI 的官方 feed，自动筛选 AI coding 相关更新，并在没有足够信号时产出 no-signal brief。
 
 ## 内容质量检查
 
@@ -64,6 +72,8 @@ npm run check:teaching-videos
 
 GitHub Actions 中还包含一个每 6 小时运行一次的 `Teaching Videos Sync` 工作流，用来自动刷新 catalog 并在通过校验后直接提交生成文件。
 
+名为 `Daily Brief Draft` 的工作流现在会按天自动抓取官方 feed、生成正式 Daily Brief，并在构建通过后直接提交发布文件。
+
 ## 发布到 GitHub Pages
 
 1. push 到 `development`（当前默认分支）或 `main`
@@ -84,12 +94,12 @@ GitHub Actions 中还包含一个每 6 小时运行一次的 `Teaching Videos Sy
 - `docs/archive/tracks/`: 旧赛道 / 专题透镜
 - `docs/`: 知识库与站点维护文档
 - `blog/daily/`、`blog/weekly/`、`blog/monthly/`: 时效内容分层
-- `content-sources/`: Daily / Weekly 草稿的 source manifest
+- `content-sources/`: Daily / Weekly 的 source manifest 与自动化输入
 - `drafts/notes/`: 非发布笔记草稿
 - `scripts/sync-teaching-videos.mjs`: 教学视频目录同步脚本
 - `scripts/content/generate-handbooks.mjs`: 结构化工作流 / 工具目录生成器
 - `scripts/lib/teaching-video-pipeline.mjs`: 视频发现、归一化、聚合与 contract 校验
-- `scripts/content/`: 内容校验、Daily 草稿和 Weekly 草稿脚本
+- `scripts/content/`: 内容校验、Daily 自动发布和 Weekly 草稿脚本
 - `src/pages/index.js`: 门户首页
 - `docusaurus.config.js`: 站点配置
 - `sidebars.js`: 文档侧边栏

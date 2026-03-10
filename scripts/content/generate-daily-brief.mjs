@@ -124,28 +124,29 @@ function buildMarkdown(manifest) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const date = args.date ? formatIsoDate(args.date) : formatIsoDate(new Date());
-  const slug = slugify(args.slug || args.title || 'ai-coding-daily-draft');
-  const title = args.title || '待确认主题';
+  const defaultSlug = slugify(args.slug || args.title || 'ai-coding-daily-draft');
+  const defaultTitle = args.title || '待确认主题';
   const manifestPath = args.manifest
     ? path.resolve(workspaceRoot, args.manifest)
-    : path.join(workspaceRoot, 'content-sources', 'daily', `${date}-${slug}.json`);
-  const outputPath = args.output
-    ? path.resolve(workspaceRoot, args.output)
-    : path.join(workspaceRoot, 'blog', 'daily', `${date}-${slug}.md`);
+    : path.join(workspaceRoot, 'content-sources', 'daily', `${date}-${defaultSlug}.json`);
 
-  const manifest = await loadManifest(manifestPath, date, slug, title);
+  const manifest = await loadManifest(manifestPath, date, defaultSlug, defaultTitle);
   manifest.date = date;
-  manifest.slug = slug;
-  manifest.title = manifest.title || title;
+  manifest.slug = args.slug ? slugify(args.slug) : manifest.slug || defaultSlug;
+  manifest.title = args.title || manifest.title || defaultTitle;
   if (args.draft === 'false' || args.publish === true) {
     manifest.draft = false;
   }
+
+  const outputPath = args.output
+    ? path.resolve(workspaceRoot, args.output)
+    : path.join(workspaceRoot, 'blog', 'daily', `${manifest.date}-${manifest.slug}.md`);
 
   await writeTextFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
   await writeTextFile(outputPath, buildMarkdown(manifest));
 
   console.log(`Daily brief manifest: ${path.relative(workspaceRoot, manifestPath)}`);
-  console.log(`Daily brief draft: ${path.relative(workspaceRoot, outputPath)}`);
+  console.log(`Daily brief post: ${path.relative(workspaceRoot, outputPath)}`);
 }
 
 main().catch((error) => {

@@ -24,7 +24,7 @@ featured: false
 ## 适用场景
 
 - 站点长期知识文档写作
-- Daily Brief、Weekly Roundup 草稿生成
+- Daily Brief 自动发布、Weekly Roundup 草稿生成
 - 把研究笔记改写成可发布 docs
 
 ## 推荐结构

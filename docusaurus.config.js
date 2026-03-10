@@ -5,6 +5,8 @@ const {ECOSYSTEM_INTEGRATIONS} = require('./src/data/ecosystemIntegrations');
 const repo = process.env.GITHUB_REPOSITORY || 'AICode-Nexus/website';
 const [organizationName, projectName] = repo.split('/');
 const isUserSite = projectName === `${organizationName}.github.io`;
+const gaTrackingId = 'G-7XSE8G61G2';
+const enableGtag = process.env.NODE_ENV === 'production';
 const footerContactRows = [
   {
     label: '微信号',
@@ -214,9 +216,13 @@ const config = {
           blogDescription: '每天跟踪最值得关注的 AI coding 变化',
           routeBasePath: 'blog',
         },
-        gtag: {
-          trackingID: 'G-7XSE8G61G2',
-        },
+        ...(enableGtag
+          ? {
+              gtag: {
+                trackingID: gaTrackingId,
+              },
+            }
+          : {}),
         pages: {},
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

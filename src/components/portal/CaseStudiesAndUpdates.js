@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import {usePluginData} from '@docusaurus/useGlobalData';
 import styles from './styles.module.css';
 import {portalContent} from '@site/src/data/portalContent';
+import {getLatestPublishedBlogUpdates} from '@site/src/data/publishedBlogUpdates';
 import ContentCard from './ContentCard';
 import SectionBlock from './SectionBlock';
 
@@ -11,6 +12,8 @@ const {featuredCaseStudies, latestUpdates} = portalContent;
 export default function CaseStudiesAndUpdates() {
   const portalData = usePluginData('aicode-portal-data', undefined, {failfast: true});
   const caseStudies = portalData.featuredCaseStudies?.items ?? [];
+  const latestPublishedUpdates = getLatestPublishedBlogUpdates(latestUpdates.items.length);
+  const updateItems = latestPublishedUpdates.length > 0 ? latestPublishedUpdates : latestUpdates.items;
 
   return (
     <SectionBlock
@@ -42,7 +45,7 @@ export default function CaseStudiesAndUpdates() {
             <p>保留值得继续观察的最新变化，但不让动态抢走教程主线。</p>
           </div>
           <div className={styles.updateList}>
-            {latestUpdates.items.map((item) => (
+            {updateItems.map((item) => (
               <ContentCard
                 key={item.id}
                 badge={item.badge}

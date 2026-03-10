@@ -1,0 +1,70 @@
+{
+  "date": "2026-03-10",
+  "slug": "daily-brief-2026-03-10",
+  "title": "安全与VS Code的最新工程信号",
+  "description": "2026-03-10 AI coding 日报：VS Code 的 March 2026 (version 1.111)；OpenAI News 的 OpenAI to acquire Promptfoo。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "vscode",
+    "security"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-03-08 到 2026-03-10 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-03-10，VS Code 发布《March 2026 (version 1.111)》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-03-09，OpenAI News 发布《OpenAI to acquire Promptfoo》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-03-10，VS Code：March 2026 (version 1.111)",
+      "details": [
+        "事实：VS Code 在 2026-03-10 发布了这条更新。",
+        "官方摘要：Learn what's new in Visual Studio Code 1.111 ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "2. 2026-03-09，OpenAI News：OpenAI to acquire Promptfoo",
+      "details": [
+        "事实：OpenAI News 在 2026-03-09 发布了这条更新。",
+        "官方摘要：OpenAI is acquiring Promptfoo, an AI security platform that helps enterprises identify and remediate vulnerabilities in AI systems during development. ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。",
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。"
+  ],
+  "watchlist": [
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "本次只有 2 条高信号更新进入正式日报，说明当天有效增量偏少，后续要确认是否需要在周报层补充上下文。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "VS Code, 2026-03-10: March 2026 (version 1.111)",
+      "url": "https://code.visualstudio.com/updates/v1_111"
+    },
+    {
+      "title": "OpenAI News, 2026-03-09: OpenAI to acquire Promptfoo",
+      "url": "https://openai.com/index/openai-to-acquire-promptfoo"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 2
+}

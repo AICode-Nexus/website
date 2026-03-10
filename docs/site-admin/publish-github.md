@@ -45,7 +45,7 @@ featured: false
 - `npm run check:teaching-videos`
 - `npm run build`
 
-如果 Daily / Weekly 仍然是草稿，确认它们保留 `draft: true`，不要误当作已发布内容。
+如果 Weekly 或手动生成的 Daily 仍然是草稿，确认它们保留 `draft: true`，不要误当作已发布内容。
 
 ## 风险与边界
 
