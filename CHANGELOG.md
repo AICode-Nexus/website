@@ -7,6 +7,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-03-11
+
 ### Fixed
 
 - Scoped Google Analytics `gtag` to production builds only so local Docusaurus navigation no longer crashes with `window.gtag is not a function` during development.
