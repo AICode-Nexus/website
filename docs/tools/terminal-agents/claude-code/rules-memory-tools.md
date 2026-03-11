@@ -20,77 +20,45 @@ tags: ["ai-coding", "tool", "claude-code"]
 
 # Claude Code：规则与边界
 
-Claude Code 稳不稳定，往往取决于 CLAUDE.md 写得稳不稳。终端入口的好处是边界清楚，坏处是如果规则文件混乱，所有问题都会直接体现在命令、diff 和风险里，所以这里比 IDE 或平台入口更需要明确合同。
+## 规则分层
 
-| 层级 | 应放内容 | 应避开内容 |
+- CLAUDE.md 是长期资产，适合写 repo 结构、命令、边界和审批要求。
+- 如果团队还有 AGENTS.md / GEMINI.md 等文件，需要明确职责而不是互相覆盖。
+- 规则文件越清楚，Claude Code 的稳定性越高。
+
+## 状态与记忆边界
+
+- CLAUDE.md 与会话上下文一起组成主要记忆层。
+- 团队共识应尽量回到版本化文件，而不是只留在个人 session 里。
+
+## 规则与边界矩阵
+
+| 边界层 | 应该放什么 | 不要放什么 |
 | --- | --- | --- |
-| 仓库合同 | CLAUDE.md、命令、边界、审批。 | 只对单次任务有效的细节。 |
-| 入口习惯 | 先读什么、先跑什么、如何汇报。 | 替代正式验收规则。 |
-| 单次任务 | 临时假设、待确认问题、暂停项。 | 不断堆进长期规则文件。 |
+| 入口规则 | CLAUDE.md 是长期资产，适合写 repo 结构、命令、边界和审批要求。 | 如果团队还有 AGENTS.md / GEMINI.md 等文件，需要明确职责而不是互相覆盖。 |
+| 状态与记忆 | CLAUDE.md 与会话上下文一起组成主要记忆层。 | 团队共识应尽量回到版本化文件，而不是只留在个人 session 里。 |
+| 执行边界 | shell、git、worktree、MCP 和命令执行。 | 适合作为 repo 内的高控制主入口。 |
+| 仓库合同 | 先写最小 CLAUDE.md，再决定是否扩展更多流程。 | 高风险任务先切 worktree，再放开更多权限。 |
 
-## 先分清三层
+## 写进 repo
 
-### 仓库合同
+- 先写最小 CLAUDE.md，再决定是否扩展更多流程。
+- 高风险任务先切 worktree，再放开更多权限。
+- 所有最终交付都要附带命令证据和 diff 摘要。
 
-- CLAUDE.md 中的目录结构、命令、验收、禁止事项和审批要求。
-- 这些属于任何终端协作都要遵守的正式规则。
+## 团队检查
 
-### 入口习惯
-
-- 先读哪些文件、先跑哪些命令、结果如何回报。
-- 这些内容可以写进 CLAUDE.md，但要明确哪些是建议、哪些是硬规则。
-
-### 单次任务上下文
-
-- 本轮计划、临时假设、待确认问题、暂缓项。
-- 这类内容不能无限累积进长期规则文件。
-
-## 必须写进 repo 的内容
-
-- 默认验证命令和最小通过标准。
-- 哪些目录可改，哪些目录禁改或需先报备。
-- worktree 或高风险任务的使用条件。
-- 交付必须包含的 diff 摘要、命令结果和风险说明。
-
-## 适合放在规则文件里的内容
-
-- 仓库结构说明和常见入口文件。
-- 常用任务模板，例如 bugfix、补测试、重构的默认流程。
-- 什么时候先跑测试，什么时候先读代码，什么时候停下来问人。
-- 人工 review 前必须准备的证据清单。
-
-## 只保留在单次任务里的内容
-
-- 当前排查到的线索。
-- 本轮为什么先改 A 再改 B。
-- 暂时不处理的边角问题。
-
-## 治理动作
-
-- 先写最小 CLAUDE.md，再逐步增加真正反复出现的规则。
-- 规则文件每一条都要指向实际命令或实际交付动作。
-- 高风险任务默认开 worktree，而不是直接碰主工作区。
-- 任务结束时，把临时经验整理进 repo，而不是继续藏在会话里。
-
-## 常见反模式
-
-- CLAUDE.md 只写原则，不写可执行动作。
-- 每个成员维护一版不同的规则文件，导致入口切换就混乱。
-- 任务总结没有命令证据，只剩“应该好了”。
-- 高风险改动不隔离，靠人为记忆避免误伤。
-
-## 团队上线前检查
-
-- 最小 CLAUDE.md 是否已覆盖结构、命令、边界和交付。
-- 验证命令是否人人都能跑。
-- 规则文件里是否混入大量一次性任务说明。
-- 失败后人工能不能根据证据继续推进。
+- 先定义哪些规则必须版本化留在 repo，哪些只属于 Claude Code 的入口习惯。
+- 任何长期状态都必须能解释 owner、刷新时机和失效条件。
+- 执行边界要能回到真实命令、diff 和 PR 证据，而不是只剩界面内的一句“完成了”。
+- 先写最小 CLAUDE.md，再决定是否扩展更多流程。
 
 ## 下一步
 
-- 去 [Claude Code 常见任务](/docs/tools/terminal-agents/claude-code/common-tasks) 固定终端内常见维护任务模板。
-- 去 [Claude Code：优点与替代](/docs/tools/terminal-agents/claude-code/tradeoffs-and-boundaries) 判断它该不该继续做主入口。
-- 如果你要对比更轻的 context-file 路线，继续看 [Gemini CLI：规则与边界](/docs/tools/terminal-agents/gemini-cli/rules-memory-tools)。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：如果你想把 brainstorming、plan、worktree、TDD 和 review ritual 固定下来。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：复杂 feature 先用 spec 固定边界，再回到 Claude Code 执行。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：本地终端执行与 GitHub PR 收口形成分工。
+- [Claude Code：集成、review 与治理](/docs/ecosystem/integrations/claude-code)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

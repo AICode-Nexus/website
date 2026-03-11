@@ -20,83 +20,45 @@ tags: ["ai-coding", "tool", "windsurf"]
 
 # Windsurf：规则与边界
 
-Windsurf 的难点，是 AGENTS.md、产品内 rules 和记忆层同时存在。它们一起用时体验很好，但如果不分工，就很容易变成三套互相覆盖的规则系统。真正该长期保存的合同，还是要回到 repo。
+## 规则分层
 
-| 层级 | 应放内容 | 应避开内容 |
+- Windsurf 会发现 AGENTS.md，也有自己的 memories / rules 体系。
+- 最好把 repo 级事实边界固定在公共文件里，再让产品内规则做入口补充。
+- 如果同时使用多套规则来源，必须明确优先级和 owner。
+
+## 状态与记忆边界
+
+- Cascade memories 与 workspace 记忆是它的重要差异点。
+- 这类记忆适合承接工作台连续性，但不应替代 repo 级契约。
+
+## 规则与边界矩阵
+
+| 边界层 | 应该放什么 | 不要放什么 |
 | --- | --- | --- |
-| 仓库合同 | AGENTS.md、验证命令、正式边界。 | 只在工作台有效的习惯。 |
-| 工作台规则 | IDE 习惯、补充性 rules。 | 替代 repo contract。 |
-| 记忆层 | 短中期任务上下文和接续信息。 | 唯一业务知识源。 |
+| 入口规则 | Windsurf 会发现 AGENTS.md，也有自己的 memories / rules 体系。 | 最好把 repo 级事实边界固定在公共文件里，再让产品内规则做入口补充。 |
+| 状态与记忆 | Cascade memories 与 workspace 记忆是它的重要差异点。 | 这类记忆适合承接工作台连续性，但不应替代 repo 级契约。 |
+| 执行边界 | 工作台、memories、rules、模型管理、AGENTS.md 发现。 | 偏向整合好的体验，而不是开放式壳层。 |
+| 仓库合同 | 把 AGENTS.md 和 Windsurf 内部 rules 分层管理，减少产品切换成本。 | memory 应服务于任务连续性，不要承载唯一业务知识源。 |
 
-## 先分清三层
+## 写进 repo
 
-### 仓库合同
+- 把 AGENTS.md 和 Windsurf 内部 rules 分层管理，减少产品切换成本。
+- memory 应服务于任务连续性，不要承载唯一业务知识源。
+- 团队 rollout 时要明确谁负责维护 memories 与规则治理。
 
-- AGENTS.md、目录边界、验证命令、禁止事项和交付要求。
-- 这些属于任何入口都要遵守的正式规则。
+## 团队检查
 
-### 工作台规则
-
-- Windsurf 内的 rules、workspace 习惯、工作台默认操作方式。
-- 这些适合优化产品内体验，不适合代替 repo contract。
-
-### 记忆层
-
-- memories 和连续任务状态。
-- 这些适合承接短中期上下文，但不该成为唯一知识源。
-
-## 必须写进 repo 的内容
-
-- 默认测试和构建命令。
-- 跨项目都要遵守的目录边界和禁区。
-- 最终交付必须包含的验证和风险说明。
-- reviewer 和 owner 需要的一致证据结构。
-
-## 适合放在工作台规则里的内容
-
-- IDE 内最常见的任务习惯。
-- AGENTS.md 已经存在时，Windsurf 规则如何补充而不重复。
-- 常用记忆回顾和任务接续方式。
-- 个人或团队在工作台里的高频效率动作。
-
-## 适合放在记忆层里的内容
-
-- 当前项目的最近任务上下文。
-- 这轮工作为什么暂停、下一步是什么。
-- 某些短中期偏好和连续任务线索。
-
-## 不该放进记忆层的内容
-
-- 唯一的业务知识源。
-- 任何必须长期生效的仓库规则。
-- 人工无法审阅、无法版本化的重要交付要求。
-
-## 治理动作
-
-- 先把 AGENTS.md 写成正式合同，再让 Windsurf 规则做体验补充。
-- 定期清理 memories，避免把过期上下文留成“隐性规则”。
-- 团队 rollout 时明确谁能改 repo 合同，谁能改工作台规则。
-- 任何重要记忆都要能回写到 issue、PR 或仓库文档。
-
-## 常见反模式
-
-- AGENTS.md、Windsurf rules 和记忆层同时写同一件事。
-- 重要业务知识只存在 memory 里，没有版本记录。
-- 入口一换，团队就找不到规则和上下文。
-- 工作台记忆长期堆积，谁也不敢删。
-
-## 团队上线前检查
-
-- 仓库合同是否已经独立清楚。
-- 工作台规则是否只承担体验增强角色。
-- memories 是否有 owner、刷新时机和失效条件。
-- 人工离开 Windsurf 后，是否仍能靠 repo 文档继续推进。
+- 先定义哪些规则必须版本化留在 repo，哪些只属于 Windsurf 的入口习惯。
+- 任何长期状态都必须能解释 owner、刷新时机和失效条件。
+- 执行边界要能回到真实命令、diff 和 PR 证据，而不是只剩界面内的一句“完成了”。
+- 把 AGENTS.md 和 Windsurf 内部 rules 分层管理，减少产品切换成本。
 
 ## 下一步
 
-- 去 [Windsurf 常见任务](/docs/tools/ide-first/windsurf/common-tasks) 固定一体化工作台里的高频任务模板。
-- 去 [Windsurf：优点与替代](/docs/tools/ide-first/windsurf/tradeoffs-and-boundaries) 判断它值不值得继续做主工作台。
-- 如果你想看更简洁的 IDE 规则层，继续看 [Cursor：规则与边界](/docs/tools/ide-first/cursor/rules-memory-tools)。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Windsurf 之上加一层方法论与 lane discipline。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：Windsurf 负责日常 workspace，GitHub 负责最终 review 闭环。
+- [OpenSpec](/docs/workflows/frameworks/openspec)：高频 brownfield 变化可用 OpenSpec 管理提案层。
+- [Windsurf：集成、review 与治理](/docs/ecosystem/integrations/windsurf)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
 
 ## 来源
 

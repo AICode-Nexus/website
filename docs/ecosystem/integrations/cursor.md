@@ -20,74 +20,49 @@ tags: ["ai-coding", "tool", "cursor"]
 
 # Cursor：集成、review 与治理
 
-Cursor 进入团队系统时，治理重点是防止 IDE 规则和 background 能力变成隐形流程。它很适合个人和小团队长期主入口，但前提是 `.cursor/rules`、background agents 和 repo 合同分得清，最终证据能回到 PR 和测试。
+一个工具一旦被组织当成主入口，就必须回答三个问题：它怎么接入工作系统、证据回流到哪里、出了问题由谁负责。只有把这三件事说清，工具选型才算进入工程层。
 
-## 默认集成拓扑
+## 工作系统接入
 
-| 集成面 | 默认接法 | 治理重点 |
+- IDE 工作流、background agents、rules。
+- 常与 GitHub review 或终端验证结合。
+
+## 证据链
+
+- background agent 摘要、diff、测试结果和最终 PR 说明缺一不可。
+- 只看 IDE 内成功提示，不足以替代 repo 级验证。
+
+## 治理矩阵
+
+| 治理面 | 最低要求 | 不满足时的风险 |
 | --- | --- | --- |
-| IDE 主线 | 编辑、rules、对话、局部修改。 | IDE 只是入口，不是唯一规则源。 |
-| 后台能力 | background agents。 | 必须定义 handoff 和收口条件。 |
-| 证据回流 | diff、测试结果、背景摘要、PR 描述。 | 不允许只凭 IDE 成功提示交付。 |
-| 最终收口 | GitHub review、CI、人工 merge。 | 私有 IDE 配置不能替代正式证据链。 |
+| 工作系统接入 | IDE 工作流、background agents、rules。 | 入口成功提示会替代真正的任务状态。 |
+| 证据链 | background agent 摘要、diff、测试结果和最终 PR 说明缺一不可。 | 团队无法解释“这次到底跑了什么、改了什么”。 |
+| Owner 与规则 | Cursor 很适合个人提效，但团队 rollout 时必须明确 rules ownership。 | 团队规则越来越依赖 Cursor 私有配置，导致入口一换就断。 |
+| 扩张节奏 | 先从低风险、高频任务试点，再扩大到复杂任务。 | 长任务和平台协作长期要切回其他工具。 |
 
-## 什么时候适合把它接进正式工作系统
+## Owner、审批与 rollout 清单
 
-- 个人或小团队大部分时间都在 IDE 内完成工作。
-- rules 和 background agents 真实改善了高频任务效率。
-- repo 合同已经独立存在，不依赖 Cursor 私有配置。
-- 你接受 Cursor 是 IDE 主入口，而不是平台或执行栈替代品。
+- 先定义谁拥有入口规则、谁拥有 repo 合同、谁拥有最终 merge 责任。
+- 把“哪些任务能直接放行、哪些任务必须人工接管”写成可复用清单。
+- 默认先从低风险、高频任务试点，再扩大到长任务或跨模块任务。
+- Cursor 很适合个人提效，但团队 rollout 时必须明确 rules ownership。
+- editor-first 很容易把流程藏在界面里，需主动回写 repo 规则和证据。
 
-## review 证据最低集
+## 团队落地顺序
 
-至少保留四类证据：
-
-- 本轮任务范围和来源。
-- background agent 的摘要和主要结果。
-- 最终 diff、测试和验证信息。
-- 哪些规则依赖 IDE，哪些已回写到 repo。
-
-如果背景执行的结果只留在 IDE 会话里，就无法团队化复盘。
-
-## 上线前先定的四个 owner
-
-- `IDE 入口 owner`：定义 Cursor 负责哪类日常任务。
-- `rules owner`：维护 `.cursor/rules`，防止规则私有化。
-- `后台执行 owner`：负责 background agent 的边界和失败回退。
-- `平台收口 owner`：确保所有结果进入 PR、CI 和 merge gate。
-
-## 默认审批边界
-
-- `.cursor/rules` 只负责 IDE 入口习惯，不得承载唯一业务规则。
-- background agent 不得自行扩大范围或跳过验证。
-- 复杂长任务或多 lane 协调，应切到更强执行栈。
-- 团队级 rollout 前，必须先解决 rules ownership 和入口切换问题。
-
-## 最小 rollout 路径
-
-1. 先从 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test) 这种高频小步任务试点。
-2. 固定 `.cursor/rules` 的最小范围和 PR 证据模板。
-3. 再把 background agents 接进局部维护任务，而不是一开始就接所有需求。
-4. 最后才评估是否扩展到团队共用规则和更多仓库。
-
-## 什么时候不要继续扩大
-
-- 团队规则越来越依赖 Cursor 私有配置，导致入口一换就断。
-- background agents 产物难以纳入统一治理。
-- 长任务和平台协作长期要切回其他工具。
-- 真正的工程瓶颈已经不在 IDE，而在执行栈或平台系统。
-
-## 配套组合
-
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：IDE 做日常入口，GitHub 做 review 收口。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更想保留 VS Code 生态控制面。
-- [Cursor：规则与边界](/docs/tools/ide-first/cursor/rules-memory-tools)：先把 `.cursor/rules` 和 repo 合同分层。
+1. 先确认 Cursor 在系统里负责哪一段，而不是一开始就给它全部权限。
+2. 再把 review 证据固定成 diff、命令结果、说明和 handoff 记录。
+3. 最后才扩大适用范围，否则你只是在放大现有治理缺口。
 
 ## 下一步怎么读
 
-- 去 [Cursor 常见任务](/docs/tools/ide-first/cursor/common-tasks) 固定 IDE 内高频任务模板。
-- 去 [Cursor：优点与替代](/docs/tools/ide-first/cursor/tradeoffs-and-boundaries) 判断它是否还适合长期做主入口。
-- 如果你要更整合的一体化工作台路线，改读 [Windsurf：集成、review 与治理](/docs/ecosystem/integrations/windsurf)。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责 PR / review，Cursor 负责日常编辑入口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec / plan 先固定，再回 IDE 做执行。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你想保留 VS Code 生态与控制面。
+- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更偏好更整合的 workspace 工作流。
+- [Cline](/docs/tools/terminal-agents/cline)：如果你更重视开放工具壳层而非 IDE 体验。
 
 ## 来源
 

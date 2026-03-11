@@ -20,74 +20,49 @@ tags: ["ai-coding", "workflow-framework", "superpowers"]
 
 # Superpowers
 
-Superpowers 更像面向 coding agents 的日常操作骨架。它不是单一模板，也不是厂商产品说明，而是一套把 brainstorming、worktree、plan、lane execution、TDD、review packet 和 finish branch 串成固定节奏的方法层。
+Superpowers 是面向 coding agents 的社区工作流框架：把 brainstorming、worktree、plan、subagent、TDD 和 review 串成一条日常执行方法链。
 
 ## 这个框架解决什么
 
-- 已经高频使用 Claude Code、Codex、Cursor、Cline 这类入口，但日常执行波动仍很大的人。
-- 希望把 agent 的“先想什么、再拆什么、谁来收口”固定下来，而不是每轮重编 prompt 的团队。
-- 愿意为 worktree、skills、lane owner 和 review evidence 付出维护成本，换取更稳执行的人。
-
-## 典型任务画像
-
-| 任务类型 | 为什么 Superpowers 合适 | 第一次不要这样用 |
-| --- | --- | --- |
-| 中等复杂度的仓库维护 | 可以把 brainstorming、plan、verify 变成固定手感。 | 不要第一次就开很多 lane。 |
-| 多步 refactor 或治理型修复 | worktree 和 lane 能把执行拆开，但仍有 owner 收口。 | 不要跳过 review packet。 |
-| 高频 agent 协作的个人或小团队 | 能减少“今天这样做、明天那样做”的波动。 | 不要把个人习惯直接当团队制度。 |
-| 需要结合 spec 与执行纪律的复杂任务 | 可先接 [Spec-First](/docs/workflows/patterns/spec-first)，再用 Superpowers 管执行。 | 不要把它当 planning 框架本体。 |
+- 已经高频使用 Claude Code、Codex、Cursor 等 agent 的团队或个人。
+- 希望把日常 agent 协作方式标准化，而不是每次手工拼 prompt。
+- 接受 worktree、技能库和更强执行纪律的终端或 IDE power user。
 
 ## 默认进入方式
 
-第一次最稳的进入方式，是在一个已有 repo 规则、验证命令和明确 owner 的仓库里，用 1 到 2 个真实任务试跑。先把它叠加在现有入口之上，而不是一开始就试图替代所有治理。
+在一个已有 repo 规则和固定验证命令的仓库里试跑，让 Superpowers 先叠加在现有工具之上，而不是替代全部治理。
 
 ## 更适合谁
 
-- 你已经知道问题不在“工具不会写”，而在“执行过程不稳定”。
-- 你需要的是一套日常操作方式，而不是更重的组织治理制度。
-- 你能接受把 worktree、review packet、finish note 当成正式工程资产。
-- 你希望不同 agent 入口共享同一套执行习惯，而不是每个入口各有各的套路。
-
-## 不要期待它解决什么
-
-- 它不能替代 repo 规则、测试命令、PR 审批和 branch protection。
-- 它不会自动把模糊需求变清楚，需求和验收仍要靠 owner 拍板。
-- 它不是多角色治理框架；当你需要组织级 handoff 时，先看 [BMAD](/docs/workflows/frameworks/bmad)。
-- 它不是轻量变更记录层；当你主要缺 proposal 和 archive 时，先看 [OpenSpec](/docs/workflows/frameworks/openspec)。
+- 团队已经熟悉 coding agents，但产出波动仍然很大，缺少统一套路。
+- 你需要的是“每天怎么做事”的方法框架，而不是仅仅一个 spec 模板。
+- 愿意为技能、worktree、TDD 和 review 付出维护成本，换取稳定性。
 
 ## 角色与阶段概览
 
-| 阶段 | 目标 | 主要 owner | 主要产物 |
-| --- | --- | --- | --- |
-| Brainstorming | 先把问题、选项和边界讲清。 | Owner / Planner | brainstorm note |
-| Writing Plans | 把任务转成可执行计划和停点。 | Planner | execution plan |
-| Worktree / Lane Setup | 为长任务或并行任务准备隔离工作区。 | Owner / Lane Owner | worktree + lane brief |
-| Lane Execution | 按计划推进实现、验证和汇总。 | Lane Owner / Subagent | diff + verify evidence |
-| Review / Finish Branch | 汇总 review packet、收尾分支并准备 merge。 | Owner / Reviewer | review packet + finish note |
+| 阶段 | 目标 | 主要产物 |
+| --- | --- | --- |
+| Brainstorming | 先把问题理解、方案选项和拆分方式讲清，不急着直接改代码。 | brainstorm note |
+| Worktree / Branch Setup | 为长任务或并行 lane 准备独立工作区和命名约定。 | task worktrees |
+| Writing Plans | 把方案固化为分步计划、执行清单和风险说明。 | plan |
+| Subagent / Execution | 根据 plan 分配子任务，逐步执行并汇总结果。 | execution lanes |
+| TDD / Review / Finish Branch | 用测试、review packet 和 branch 清理收尾，保证可 merge。 | review-ready branch |
 
 ## 采用前检查
 
-- 先确认仓库里已经有最小 repo contract，例如规则文件、验证命令和人工 merge 责任。
-- 先确认 owner 能解释这次任务为什么适合 lane 和 worktree，而不是为了“更酷”。
-- 先决定哪些输出必须回到 PR 或 issue，不要把证据留在聊天或终端里。
-- 先挑中等复杂度任务试跑，不要用事故热修，也不要用最大 feature。
-
-## 第一次试点至少要留下什么
-
-- 一份 brainstorm note，说明问题定义、边界和主要方案取舍。
-- 一份可执行 plan，说明阶段顺序、停点和验证方式。
-- 一份 lane brief 或 worktree 说明，解释每条 lane 在做什么。
-- 一份 review packet，汇总关键 diff、命令结果和剩余风险。
-- 一份 finish note，说明这套方法哪些有用、哪些应该删。
+- 先确认团队已经有 repo 规则、验证命令和明确 owner，否则只会把流程层再加一层壳。
+- 先挑一个真实任务试跑，而不是先做大面积制度推广。
+- 先 brainstorming 和 plan，再开多条 lane；不要直接让多个 agent 胡乱开工。
+- 每个 lane 要把测试和 review 证据带回 owner，而不是只说“我做完了”。
 
 ## 下一步怎么读
 
-- [Superpowers：边界与替代方案](/docs/workflows/community-frameworks/superpowers/fit-vs-alternatives)
-- [Superpowers：接入手册](/docs/workflows/community-frameworks/superpowers/adoption-playbook)
-- [Superpowers：角色、阶段与产物](/docs/workflows/community-frameworks/superpowers/roles-stages-and-artifacts)
-- [Superpowers：误用与退出条件](/docs/workflows/community-frameworks/superpowers/risks-and-failure-modes)
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)
-- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)
+- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Superpowers 很适合叠加在终端式 repo pairing 上。
+- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它把 worktree 和 subagent 使用方式标准化。
+- [Spec-First](/docs/workflows/patterns/spec-first)：复杂任务可先 spec-first，再交给 Superpowers 组织日常执行。
+- [BMAD](/docs/workflows/frameworks/bmad)：如果你需要团队角色和阶段制度，BMAD 更适合组织治理。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：如果你主要想固定 spec -> plan -> tasks，Spec Kit 更直接。
+- [OpenSpec](/docs/workflows/frameworks/openspec)：如果你主要是 brownfield 小改动管理，OpenSpec 更轻。
 
 ## 来源
 

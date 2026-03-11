@@ -20,74 +20,50 @@ tags: ["ai-coding", "tool", "claude-code"]
 
 # Claude Code：集成、review 与治理
 
-Claude Code 的治理核心，是把终端里的工程纪律变成团队里的正式纪律。终端入口最容易犯的错，不是改坏代码，而是把计划、命令、验证和审批都混在一轮对话里，最后没有人能复盘“为什么这样改”。
+一个工具一旦被组织当成主入口，就必须回答三个问题：它怎么接入工作系统、证据回流到哪里、出了问题由谁负责。只有把这三件事说清，工具选型才算进入工程层。
 
-## 默认集成拓扑
+## 工作系统接入
 
-| 集成面 | 默认接法 | 治理重点 |
+- 终端、git、worktree、MCP。
+- 可与 GitHub review、Spec Kit、Superpowers 等方法层叠加。
+- 适合做本地 owner，再把结果回流到 PR 系统。
+
+## 证据链
+
+- 命令执行记录、root cause / plan 说明和最终 diff 是主要证据。
+- 如果只剩一段对话，没有命令和验证结果，说明流程没有落地。
+
+## 治理矩阵
+
+| 治理面 | 最低要求 | 不满足时的风险 |
 | --- | --- | --- |
-| 本地执行 | 终端、git、worktree、MCP。 | repo pairing 必须有清晰边界。 |
-| 任务来源 | issue、spec、人工委派。 | 需求不清时先回任务层。 |
-| 证据回流 | 命令结果、root cause、plan、diff、验证说明。 | 终端输出必须沉淀成 review 资产。 |
-| 最终收口 | GitHub PR、CI、人工 merge。 | 本地执行不能替代最终审批。 |
+| 工作系统接入 | 终端、git、worktree、MCP。 | 入口成功提示会替代真正的任务状态。 |
+| 证据链 | 命令执行记录、root cause / plan 说明和最终 diff 是主要证据。 | 团队无法解释“这次到底跑了什么、改了什么”。 |
+| Owner 与规则 | terminal-first 最大价值来自边界控制，不是自动化本身。 | 团队不愿维护规则文件，也不愿看 diff 和命令输出。 |
+| 扩张节奏 | 先从低风险、高频任务试点，再扩大到复杂任务。 | 高频任务都转到平台或 IDE，终端入口只剩边缘用途。 |
 
-## 什么时候适合把它接进正式工作系统
+## Owner、审批与 rollout 清单
 
-- 团队的主线任务大多发生在 repo 和终端。
-- 你愿意把 CLAUDE.md、worktree 和命令验证当成正式流程的一部分。
-- 高频任务是 bugfix、测试、局部 refactor，而不是平台委派。
-- 团队愿意接受“小步执行 + 清晰证据 + 明确接管点”的节奏。
+- 先定义谁拥有入口规则、谁拥有 repo 合同、谁拥有最终 merge 责任。
+- 把“哪些任务能直接放行、哪些任务必须人工接管”写成可复用清单。
+- 默认先从低风险、高频任务试点，再扩大到长任务或跨模块任务。
+- terminal-first 最大价值来自边界控制，不是自动化本身。
+- 计划、执行、验证和审批必须有清晰顺序，不能混在同一次输出里。
 
-## review 证据最低集
+## 团队落地顺序
 
-至少保留四类内容：
-
-- root cause 或任务理解摘要。
-- 本轮计划和边界。
-- 关键命令和验证结果。
-- diff 摘要、剩余风险和 handoff 说明。
-
-如果任务结束后只剩一段终端聊天，而不是结构化证据，这条终端工作流还没有真正落地。
-
-## 上线前先定的四个 owner
-
-- `终端入口 owner`：定义 Claude Code 负责哪类任务。
-- `仓库规则 owner`：维护 CLAUDE.md、验证脚本和目录边界。
-- `人工接管 owner`：明确何时暂停自动推进，由谁接手。
-- `平台收口 owner`：保证终端结果进入 PR、CI 和 merge 责任链。
-
-## 默认审批边界
-
-- 计划、执行、验证和审批必须分层，不要一轮输出全做完还没人复核。
-- 高风险改动默认开 worktree，不直接碰主工作区。
-- 没有验证命令或验证命令不稳定时，不扩大使用范围。
-- 如果任务已经明显变成长任务 orchestration，应切到更强执行栈，而不是继续硬扛。
-
-## 最小 rollout 路径
-
-1. 先从 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test) 这种验证回路短的任务试点。
-2. 固定 root cause、plan、verify 三段式输出。
-3. 再把更复杂的 repo pairing 和 worktree 流接入。
-4. 最后才考虑更深的 MCP 或多 lane 协作，而不是先追求“自动化程度”。
-
-## 什么时候不要继续扩大
-
-- 团队不愿维护 CLAUDE.md，也不愿看命令输出。
-- 高频任务已经明显转向 IDE 或平台，终端只剩边缘用途。
-- 终端产物无法稳定回流到 PR 和测试证据。
-- 一旦任务稍复杂，就总是切到别的入口，Claude Code 不再承担主线价值。
-
-## 配套组合
-
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：终端做执行，平台做 review 和 merge。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：复杂 feature 先写清边界，再回到终端推进。
-- [Claude Code：规则与边界](/docs/tools/terminal-agents/claude-code/rules-memory-tools)：先把 CLAUDE.md 的职责定清。
+1. 先确认 Claude Code 在系统里负责哪一段，而不是一开始就给它全部权限。
+2. 再把 review 证据固定成 diff、命令结果、说明和 handoff 记录。
+3. 最后才扩大适用范围，否则你只是在放大现有治理缺口。
 
 ## 下一步怎么读
 
-- 去 [Claude Code 常见任务](/docs/tools/terminal-agents/claude-code/common-tasks) 固定终端内高频维护模板。
-- 去 [Claude Code：优点与替代](/docs/tools/terminal-agents/claude-code/tradeoffs-and-boundaries) 判断它是否还值得继续做主入口。
-- 如果你要更轻的终端治理路线，改读 [Gemini CLI：集成、review 与治理](/docs/ecosystem/integrations/gemini-cli)。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：如果你想把 brainstorming、plan、worktree、TDD 和 review ritual 固定下来。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：复杂 feature 先用 spec 固定边界，再回到 Claude Code 执行。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：本地终端执行与 GitHub PR 收口形成分工。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要更强执行栈和云端任务。
+- [Gemini CLI](/docs/tools/terminal-agents/gemini-cli)：如果你更倾向轻量终端入口和 GitHub 结合。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更依赖 editor 控制面与 background agents。
 
 ## 来源
 

@@ -20,74 +20,50 @@ tags: ["ai-coding", "tool", "vscode-agents"]
 
 # VS Code Agents：集成、review 与治理
 
-VS Code Agents 的治理重点不是“编辑器里能不能跑起来”，而是“本地控制面、background agent 和最终平台收口是不是同一条责任链”。编辑器入口最大的问题，往往不是能力不够，而是证据和 owner 留在界面里，没有回到 repo。
+一个工具一旦被组织当成主入口，就必须回答三个问题：它怎么接入工作系统、证据回流到哪里、出了问题由谁负责。只有把这三件事说清，工具选型才算进入工程层。
 
-## 默认集成拓扑
+## 工作系统接入
 
-| 集成面 | 默认接法 | 治理重点 |
+- 本地 agent、background agents 和第三方 agents。
+- 编辑器内终端、浏览器工具和 diff 评审。
+- 可与 GitHub 平台或终端执行栈组合。
+
+## 证据链
+
+- 背景任务摘要、编辑器内 diff、命令结果和最终 PR 说明应形成一套完整证据。
+- 不要只因为 editor 里看起来顺，就跳过平台 review。
+
+## 治理矩阵
+
+| 治理面 | 最低要求 | 不满足时的风险 |
 | --- | --- | --- |
-| 本地工作台 | 代码阅读、终端、diff、浏览器工具。 | 编辑器只是控制面，不是唯一事实源。 |
-| 后台执行 | background agents、第三方 agents。 | 必须有 handoff 和 owner。 |
-| 证据回流 | diff、命令输出、任务摘要、PR 描述。 | 不允许只凭编辑器面板状态收口。 |
-| 最终收口 | GitHub review、测试、CI、merge gate。 | 平台和 repo 证据仍是最终标准。 |
+| 工作系统接入 | 本地 agent、background agents 和第三方 agents。 | 入口成功提示会替代真正的任务状态。 |
+| 证据链 | 背景任务摘要、编辑器内 diff、命令结果和最终 PR 说明应形成一套完整证据。 | 团队无法解释“这次到底跑了什么、改了什么”。 |
+| Owner 与规则 | 需要定义本地与后台 agent 的职责边界，以及何时必须升级到人工审批。 | 团队无法统一在 VS Code 上协作。 |
+| 扩张节奏 | 先从低风险、高频任务试点，再扩大到复杂任务。 | 真正的复杂任务仍然需要大量切换到终端或平台，控制面没有形成价值闭环。 |
 
-## 什么时候适合把它接进正式工作系统
+## Owner、审批与 rollout 清单
 
-- 团队大部分时间都在 VS Code 内工作。
-- 本地探索和后台执行之间确实存在明确 handoff。
-- 你需要的是控制面，而不是把编辑器当成全能执行栈。
-- 团队愿意把 repo 合同独立出来，不把所有制度塞进工作区配置。
+- 先定义谁拥有入口规则、谁拥有 repo 合同、谁拥有最终 merge 责任。
+- 把“哪些任务能直接放行、哪些任务必须人工接管”写成可复用清单。
+- 默认先从低风险、高频任务试点，再扩大到长任务或跨模块任务。
+- 需要定义本地与后台 agent 的职责边界，以及何时必须升级到人工审批。
+- 统一控制面会提升效率，也会把不清晰的任务定义放大得更快。
 
-## review 证据最低集
+## 团队落地顺序
 
-至少保留四类证据：
-
-- 任务在本地如何被理解和拆解。
-- background agent 接手后做了什么。
-- 最终有哪些 diff、测试和验证结果。
-- 哪些结果已经回写到 PR、issue 或仓库文档。
-
-如果 background agent 只回一句“完成”，说明这套控制面还没有被纳入治理。
-
-## 上线前先定的四个 owner
-
-- `编辑器入口 owner`：定义 custom agents、reusable prompts 和团队默认面板习惯。
-- `后台执行 owner`：负责 background task 的边界、升级条件和失败回退。
-- `仓库合同 owner`：维护验证命令、目录边界和 PR 证据结构。
-- `平台收口 owner`：保证最终 review 仍落在 PR、CI 和 merge rule 上。
-
-## 默认审批边界
-
-- background agent 不得自行扩大需求范围。
-- 高风险任务必须把关键决策回到人工审阅。
-- 任何后台执行都必须能追溯到真实命令、真实 diff 和真实测试。
-- 如果任务已经从控制面滑向正式执行栈，要及时切换，不要继续堆在编辑器里。
-
-## 最小 rollout 路径
-
-1. 先从 [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud) 这种天然匹配的工作流试点。
-2. 固定本地探索摘要和后台 handoff 模板。
-3. 再把 bugfix、测试补齐和局部 refactor 接入同一控制面。
-4. 只有在证据能稳定回流到 PR 和 CI 后，再扩大到更长任务。
-
-## 什么时候不要继续扩大
-
-- 团队无法统一在 VS Code 上协作。
-- background agent 的产物长期没人收口。
-- 编辑器里看起来很顺，但 PR 里没有足够证据。
-- 真正复杂的任务仍要大量切去终端或平台，控制面没有形成实质价值闭环。
-
-## 配套组合
-
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：平台收口最自然。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：复杂执行主线交给执行栈。
-- [VS Code Agents：规则与边界](/docs/tools/control-planes/vscode-agents/rules-memory-tools)：先处理编辑器规则和 repo 合同的分层。
+1. 先确认 VS Code Agents 在系统里负责哪一段，而不是一开始就给它全部权限。
+2. 再把 review 证据固定成 diff、命令结果、说明和 handoff 记录。
+3. 最后才扩大适用范围，否则你只是在放大现有治理缺口。
 
 ## 下一步怎么读
 
-- 去 [VS Code Agents 常见任务](/docs/tools/control-planes/vscode-agents/common-tasks) 固定本地探索和后台 handoff 模板。
-- 去 [VS Code Agents：优点与替代](/docs/tools/control-planes/vscode-agents/tradeoffs-and-boundaries) 判断控制面值不值得继续占主位。
-- 如果后台执行已经成为主线，改读 [OpenAI Codex：集成、review 与治理](/docs/ecosystem/integrations/openai-codex)。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责平台闭环，VS Code 负责本地控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：用 VS Code 作为可视化控制面，Codex 负责更深执行。
+- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把计划、worktree 和 review ritual 固化时可以叠加。
+- [Cursor](/docs/tools/ide-first/cursor)：如果你想把 editor-first 体验做得更深、更产品化。
+- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：这是 VS Code Agents 最自然的主线。
+- [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test)：本地修复与后台补跑结合得比较顺。
 
 ## 来源
 
