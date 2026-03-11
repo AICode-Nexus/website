@@ -20,47 +20,55 @@ tags: ["ai-coding", "workflow-framework", "superpowers"]
 
 # Superpowers：接入手册
 
-把框架写进文档并不难，真正难的是它进入真实仓库后还能和 repo 规则、验证命令、PR 审批和团队节奏对齐。接入手册的重点，就是降低“文档很好看、但真实任务没人照着走”的风险。
+Superpowers 最容易失败的地方，不是文档写不出来，而是进了真实仓库以后和 repo 规则、测试节奏、PR 审批完全脱钩。接入时要做的不是“把方法写进 README”，而是把它嵌进现有交付链。
 
 ## 先在哪类仓库试跑
 
-在一个已有 repo 规则和固定验证命令的仓库里试跑，让 Superpowers 先叠加在现有工具之上，而不是替代全部治理。
+最适合先试跑的，是已经有固定验证命令、明确 owner 和真实维护需求的仓库。第一次不要拿事故热修，也不要拿全新平台重构，而要选一个中等复杂度、确实需要两到三段执行节奏的任务。
 
-## 接入步骤
+## 试点前准备
 
-- 先确定主入口工具，再决定哪些 Superpowers 能力通过 skills、rules 或 repo contract 承接。
-- 把 worktree 命名、测试要求和 review packet 变成团队共识，不要只留在个人习惯里。
-- 先从一两个长任务试点，观察是否真的降低返工和上下文丢失。
-- 把与 repo 相关的强约束仍然放回 AGENTS.md / CLAUDE.md / GEMINI.md，而不是全压在社区框架里。
+- 先明确主入口工具是什么，是 Claude Code、Codex、Cursor 还是其他入口。
+- 先把 repo contract 钉住，例如规则文件、验证命令和禁止修改区。
+- 先决定哪些证据必须回到 PR、issue 或文档，而不是只留在聊天里。
+- 先设定 lane 的最小粒度，避免一开始就并行到 owner 无法理解。
 
-## 试跑矩阵
+## 三周接入顺序
 
-| 阶段 | 应该做什么 | 完成标准 |
+| 周期 | 应该做什么 | 最低交付 |
 | --- | --- | --- |
-| 试跑前 | 在一个已有 repo 规则和固定验证命令的仓库里试跑，让 Superpowers 先叠加在现有工具之上，而不是替代全部治理。 | 能明确一类真实任务和一位 owner。 |
-| 试跑中 | 先确定主入口工具，再决定哪些 Superpowers 能力通过 skills、rules 或 repo contract 承接。 | 真实任务能按框架阶段推进。 |
-| 试跑后 | 把与 repo 相关的强约束仍然放回 AGENTS.md / CLAUDE.md / GEMINI.md，而不是全压在社区框架里。 | 能判断返工量、review 成本和维护成本是否下降。 |
+| 第 1 周 | 固定 brainstorming note、plan 模板和 review packet 结构。 | 一套最小模板。 |
+| 第 2 周 | 用 1 到 2 个真实任务试跑 lane、worktree 和验证回流。 | lane brief + verify evidence。 |
+| 第 3 周 | 复盘哪些 ritual 真有价值，删掉没人使用的步骤。 | finish note + keep/drop 清单。 |
 
 ## 与仓库规范的连接
 
-- Superpowers 更像方法层，可叠加在 Claude Code、Codex、Cursor 等主入口之上。
-- 与 Spec Kit 结合时，可先用 spec 固定边界，再用 Superpowers 管理执行节奏。
-- 与 GitHub / PR 系统结合时，最终仍要把证据回流到 branch、PR 和 review。
+- Superpowers 负责方法层，仓库规则负责权限、目录边界和验证门禁。
+- 任何 lane 结果最终都要回到 git diff、命令结果和 PR 描述，而不是停在工具面板里。
+- 如果你已经使用 [Spec-First](/docs/workflows/patterns/spec-first) 或 [Spec Kit](/docs/workflows/frameworks/spec-kit)，不要替换，只要让 Superpowers 从执行阶段开始接手。
+- 如果团队大量依赖 worktree，分支命名、合并顺序和 lane owner 必须写成明文规则。
 
-## 试跑周期与收口
+## 可以扩大范围的信号
 
-- 最少跑 2 到 4 个真实任务，再判断是否值得扩大。
-- 每轮试跑都要记录返工量、review 修补量和文档维护成本。
-- 如果试跑阶段就明显没人遵守，应该先减重，而不是继续加流程。
+- owner 能解释每条 lane 在做什么，而不是只知道“开了很多 agent”。
+- review packet 真的帮助 reviewer 判断，而不是又多一份没人看的摘要。
+- brainstorming 和 plan 能减少返工，而不是只是把思考前移成更长文档。
+- 工具入口不同，但执行节奏开始出现一致性。
+
+## 该先减法的信号
+
+- 团队开始记住框架名，却说不清每个阶段交付什么。
+- lane 越来越多，但没人能稳定收口。
+- review 仍主要靠口头补充，而不是靠结构化证据判断。
+- 模板和 skills 越来越多，真实任务采用率却在下降。
 
 ## 下一步怎么读
 
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Superpowers 很适合叠加在终端式 repo pairing 上。
-- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它把 worktree 和 subagent 使用方式标准化。
-- [Spec-First](/docs/workflows/patterns/spec-first)：复杂任务可先 spec-first，再交给 Superpowers 组织日常执行。
-- [BMAD](/docs/workflows/frameworks/bmad)：如果你需要团队角色和阶段制度，BMAD 更适合组织治理。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：如果你主要想固定 spec -> plan -> tasks，Spec Kit 更直接。
-- [OpenSpec](/docs/workflows/frameworks/openspec)：如果你主要是 brownfield 小改动管理，OpenSpec 更轻。
+- [Superpowers：角色、阶段与产物](/docs/workflows/community-frameworks/superpowers/roles-stages-and-artifacts)
+- [Superpowers：误用与退出条件](/docs/workflows/community-frameworks/superpowers/risks-and-failure-modes)
+- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)
+- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)
+- [Spec-First](/docs/workflows/patterns/spec-first)
 
 ## 来源
 

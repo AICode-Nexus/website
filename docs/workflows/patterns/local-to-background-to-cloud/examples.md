@@ -31,14 +31,21 @@ deliverable: "一个从本地 brief 到后台结果再到平台审阅的完整�
 - 任务可以分成 discovery 与 execution 两段。
 - reviewer 能在平台里完成最终判断。
 
-## 步骤
+## 示例卡片
 
-示例任务：修复一个在生产环境偶发失败的导出接口，并补回归测试。
+| 项目 | 本例内容 |
+| --- | --- |
+| 任务类型 | 修复一个生产环境偶发失败的导出接口，并补回归测试。 |
+| 本地产出 | discovery brief、根因、允许修改范围。 |
+| 后台产出 | 日志、diff、测试结果。 |
+| 平台产出 | PR 说明、review 结论、最终合并判断。 |
+
+## 步骤
 
 1. 本地阶段先复现问题、读日志、收敛根因，并写 discovery brief。
 2. 把“允许改哪些目录、需要补哪些测试、必须回传哪些命令结果”交给后台执行。
 3. 在平台里查看后台分支、测试日志和 diff。
-4. owner 合并 discovery brief 与后台结果，准备 PR 说明。
+4. owner 合并 discovery brief 与后台结果，准备 PR 说明并给 reviewer 判断。
 
 这个例子里：
 
@@ -46,11 +53,18 @@ deliverable: "一个从本地 brief 到后台结果再到平台审阅的完整�
 - 后台执行适合 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)
 - 最终 PR 收口适合 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)
 
+## 这个示例里最重要的判断
+
+- 本地阶段不是做实现，而是做 discovery 和定界。
+- 后台阶段不是重新理解需求，而是接着推进已收敛部分。
+- 平台阶段不是只看状态，而是承担正式 review 和人工判断。
+
 ## 验证
 
 - discovery brief 足够清楚，后台不需要重新理解任务。
 - 后台结果包含真实日志、diff 和命令输出。
 - 平台阶段不是纯展示，而是能真正支持 review 与判断。
+- 三层之间的 handoff 没有丢失关键上下文。
 
 ## 结果
 

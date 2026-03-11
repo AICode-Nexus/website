@@ -20,49 +20,74 @@ tags: ["ai-coding", "tool", "gemini-cli"]
 
 # Gemini CLI：集成、review 与治理
 
-一个工具一旦被组织当成主入口，就必须回答三个问题：它怎么接入工作系统、证据回流到哪里、出了问题由谁负责。只有把这三件事说清，工具选型才算进入工程层。
+Gemini CLI 真正进入团队系统时，治理重点不在“能不能在终端里聊”，而在“能不能用最小 context file 和最稳定的验证脚本，把日常终端任务接到正式 review 流里”。它适合轻量终端主线，不适合承担所有角色。
 
-## 工作系统接入
+## 默认集成拓扑
 
-- GitHub review 流、CI 脚本和 repo context files。
-- 适合作为终端入口补位，不必强行承担平台职责。
-
-## 证据链
-
-- 命令输出、context file 更新和 PR 说明应一起出现。
-- 如果 CLI 行为没有回流到 repo 证据，review 仍然会很痛苦。
-
-## 治理矩阵
-
-| 治理面 | 最低要求 | 不满足时的风险 |
+| 集成面 | 默认接法 | 治理重点 |
 | --- | --- | --- |
-| 工作系统接入 | GitHub review 流、CI 脚本和 repo context files。 | 入口成功提示会替代真正的任务状态。 |
-| 证据链 | 命令输出、context file 更新和 PR 说明应一起出现。 | 团队无法解释“这次到底跑了什么、改了什么”。 |
-| Owner 与规则 | 规则文件一旦版本化，就要指定 owner，防止不同人按不同风格膨胀。 | CLI 只被用来聊天，不再真正跑命令和回传证据。 |
-| 扩张节奏 | 先从低风险、高频任务试点，再扩大到复杂任务。 | GEMINI.md 长期失修，和真实仓库边界脱节。 |
+| 本地入口 | CLI、脚本、仓库 context files。 | context file 必须克制，不能越写越大。 |
+| 任务来源 | issue、PR、终端内人工委派。 | 范围不清的任务先回任务层。 |
+| 证据回流 | 命令输出、验证脚本结果、PR 描述。 | 不能只留下聊天记录。 |
+| 最终收口 | GitHub review、CI、人工 merge。 | CLI 结果必须进入正式证据链。 |
 
-## Owner、审批与 rollout 清单
+## 什么时候适合把它接进正式工作系统
 
-- 先定义谁拥有入口规则、谁拥有 repo 合同、谁拥有最终 merge 责任。
-- 把“哪些任务能直接放行、哪些任务必须人工接管”写成可复用清单。
-- 默认先从低风险、高频任务试点，再扩大到长任务或跨模块任务。
-- 规则文件一旦版本化，就要指定 owner，防止不同人按不同风格膨胀。
-- 终端 agent 只能在验证命令足够稳定时规模化使用。
+- 团队日常任务以中小型 bugfix、脚本执行和测试补齐为主。
+- 你希望先把 AI 接进现有 shell 流，而不是一次重建全部工具链。
+- GEMINI.md 这类文件可以保持最小且有人维护。
+- 你接受它是终端入口补位，不强求它同时承担平台和执行栈职责。
 
-## 团队落地顺序
+## review 证据最低集
 
-1. 先确认 Gemini CLI 在系统里负责哪一段，而不是一开始就给它全部权限。
-2. 再把 review 证据固定成 diff、命令结果、说明和 handoff 记录。
-3. 最后才扩大适用范围，否则你只是在放大现有治理缺口。
+至少保留四类证据：
+
+- 本轮任务来源和范围。
+- 实际运行的命令或脚本结果。
+- 产生的 diff 和最终 PR 摘要。
+- 未覆盖风险和需要人工判断的部分。
+
+如果命令没有回流到 repo 证据，review 还是会退化成“相信执行者自己说没问题”。
+
+## 上线前先定的四个 owner
+
+- `终端入口 owner`：定义 Gemini CLI 负责哪类轻量任务。
+- `context file owner`：维护 GEMINI.md 或等价规则文件，防止膨胀。
+- `仓库合同 owner`：维护验证脚本、目录边界和 PR 要求。
+- `平台收口 owner`：确保所有结果都进入 PR、CI 和 merge gate。
+
+## 默认审批边界
+
+- 没有稳定验证命令的任务，不扩大到大规模 CLI 使用。
+- context file 不得承载唯一业务规则，长期规则必须回 repo。
+- 复杂结构改动或并行 lane，不继续留在轻量终端入口。
+- 当命令结果与人工判断冲突时，以人工复核为准，不以 CLI 摘要代替决策。
+
+## 最小 rollout 路径
+
+1. 先从 [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test) 中最清晰的维护任务开始。
+2. 固定“范围 -> 命令 -> 验证 -> PR 摘要”的最小模板。
+3. 再把与 GitHub review 配套的本地执行任务迁进来。
+4. 只有当 context file 和脚本都稳定后，才扩大到更多仓库和更多成员。
+
+## 什么时候不要继续扩大
+
+- CLI 只被用来聊天，不再真正跑命令和回传证据。
+- GEMINI.md 长期失修，和真实仓库边界脱节。
+- 复杂任务总要切去更强执行栈，Gemini CLI 只剩形式上的入口价值。
+- 团队对终端流本身没有共识，只是被动跟风接入。
+
+## 配套组合
+
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：本地终端做执行，平台做 review 收口。
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)：复杂任务先写清，再交给 CLI 执行。
+- [Gemini CLI：规则与边界](/docs/tools/terminal-agents/gemini-cli/rules-memory-tools)：先把 context files 收紧。
 
 ## 下一步怎么读
 
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：Gemini CLI 做本地终端入口，GitHub 负责 PR 与 review。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec 定稿后可用 Gemini CLI 接手执行与验证。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要更重的日常操作方法时可以叠加。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更看重 repo pairing、worktree 和规则文件沉淀。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要并行任务和云端执行。
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Gemini CLI 适合做轻量终端入口。
+- 去 [Gemini CLI 常见任务](/docs/tools/terminal-agents/gemini-cli/common-tasks) 固定轻量终端任务模板。
+- 去 [Gemini CLI：优点与替代](/docs/tools/terminal-agents/gemini-cli/tradeoffs-and-boundaries) 判断它是否还适合做默认终端入口。
+- 如果你需要更高控制终端路线，改读 [Claude Code：集成、review 与治理](/docs/ecosystem/integrations/claude-code)。
 
 ## 来源
 

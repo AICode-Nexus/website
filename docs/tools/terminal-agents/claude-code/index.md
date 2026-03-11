@@ -52,6 +52,26 @@ Claude Code 适合把 agent 当成 repo 内的搭档，而不是 IDE 里的补�
 | 团队约束 | 团队愿意把规则和证据链写回 repo，而不是留在个人会话里。 | 把 `CLAUDE.md` 和验证命令先固定下来，再扩大使用面。 |
 | 退出信号 | 团队不愿看 shell、diff 和命令输出。 | 一旦出现这些信号，就优先评估 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。 |
 
+## 谁最适合用
+
+- 终端和仓库本来就是主工作面的团队。
+- 愿意把 `CLAUDE.md`、验证命令和 worktree 当正式流程维护的人。
+- 更看重 repo pairing 和证据，而不是 UI 层体验的人。
+- 中小团队里需要稳定终端主线的工程师。
+
+## 不要期待它做什么
+
+- 不要期待它替代平台 review、任务系统或视觉化工作台。
+- 不要期待团队不看 shell 输出时还能发挥它的优势。
+- 不要期待没有规则文件和验证脚本时，它还能长期稳定。
+
+## 团队采用前检查
+
+- `CLAUDE.md`、目录边界和验证脚本是否真的被维护。
+- 高风险命令和 worktree 是否有明确接管规则。
+- 终端输出能否稳定沉淀回 PR、issue 或仓库文档。
+- 如果主线不再在终端，是否准备切去 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。
+
 ## 默认补位组合
 
 - [Superpowers](/docs/workflows/community-frameworks/superpowers)：适合把 brainstorming、plan、worktree、TDD 和 review ritual 固化下来。

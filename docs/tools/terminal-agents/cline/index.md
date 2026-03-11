@@ -52,6 +52,26 @@ Cline 的合理定位不是“另一个更强 IDE”，而是开放式 agent 壳
 | 团队约束 | 团队里有人能维护 provider、权限、checkpoint 和规则文件。 | 先把 owner、权限和证据链理顺，再扩大使用面。 |
 | 退出信号 | 团队无法统一 tool permission 与 provider 配置。 | 一旦出现这些信号，就优先评估 [Windsurf](/docs/tools/ide-first/windsurf) 或 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)。 |
 
+## 谁最适合用
+
+- 高级用户或实验团队，需要开放工具栈而不是固定产品路径。
+- 明确要用 MCP、browser automation、外部 provider 组合的人。
+- 能接受高治理成本来换取高自由度的团队。
+- 愿意把开放实验 lane 和正式交付 lane 分开的团队。
+
+## 不要期待它做什么
+
+- 不要期待它天然适合全员统一 rollout。
+- 不要期待没有权限 owner 和 checkpoint 策略时还能稳定运行。
+- 不要期待开放壳层自动替你补齐 repo 合同和 review 证据。
+
+## 团队采用前检查
+
+- provider、tool permission 和 checkpoint 是否有明确 owner。
+- 开放实验 lane 和正式生产 lane 是否已经分层。
+- repo 规则是否独立存在，而不是依赖私有配置。
+- 如果开放性已经不再带来收益，是否准备切回 [Windsurf](/docs/tools/ide-first/windsurf) 或 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)。
+
 ## 默认人工接管点
 
 - 高风险命令、外部工具权限和 provider 切换必须有明确 owner。

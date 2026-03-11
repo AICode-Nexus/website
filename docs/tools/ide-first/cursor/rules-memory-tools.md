@@ -20,45 +20,77 @@ tags: ["ai-coding", "tool", "cursor"]
 
 # Cursor：规则与边界
 
-## 规则分层
+Cursor 最容易踩的坑，是把 `.cursor/rules` 当成全部规则源。IDE 规则适合承载入口习惯和高频编辑上下文，但真正的仓库合同、验证命令和团队边界必须回到 repo。不然一旦换入口，整个工作流就断。
 
-- `.cursor/rules` 适合放入口专用规则，但仓库级真实边界仍应有统一来源。
-- 不要把所有团队制度都塞进 IDE 规则里，避免入口切换后失效。
-- 最好定义哪些规则是个人偏好，哪些是团队必须遵守的 contract。
-
-## 状态与记忆边界
-
-- 规则、上下文和 background agent 状态是核心状态层。
-- 更适合承载 IDE 使用习惯和当前任务上下文，不适合替代 repo 规则文件。
-
-## 规则与边界矩阵
-
-| 边界层 | 应该放什么 | 不要放什么 |
+| 层级 | 应放内容 | 应避开内容 |
 | --- | --- | --- |
-| 入口规则 | `.cursor/rules` 适合放入口专用规则，但仓库级真实边界仍应有统一来源。 | 不要把所有团队制度都塞进 IDE 规则里，避免入口切换后失效。 |
-| 状态与记忆 | 规则、上下文和 background agent 状态是核心状态层。 | 更适合承载 IDE 使用习惯和当前任务上下文，不适合替代 repo 规则文件。 |
-| 执行边界 | IDE 编辑、rules、background agents。 | 适合高频主入口，而不是唯一平台或唯一执行栈。 |
-| 仓库合同 | 把 repo contract 与 `.cursor/rules` 分层管理，避免同一规则写两遍且互相打架。 | background agent 的验收要回到 PR、测试和 repo 证据里。 |
+| 仓库合同 | 验证脚本、目录边界、PR 要求。 | 只在 Cursor 内成立的习惯。 |
+| IDE 入口 | `.cursor/rules`、background handoff。 | 团队正式制度。 |
+| 单次任务 | 当前线索、回改顺序、局部策略。 | 升级成长期规则。 |
 
-## 写进 repo
+## 先分清三层
 
-- 把 repo contract 与 `.cursor/rules` 分层管理，避免同一规则写两遍且互相打架。
-- background agent 的验收要回到 PR、测试和 repo 证据里。
-- 如果团队多人共用 Cursor，最好定规则目录和命名约定。
+### 仓库合同
 
-## 团队检查
+- 目录边界、默认测试命令、禁止事项、PR 验收要求。
+- 这些必须版本化并脱离 Cursor 也能成立。
 
-- 先定义哪些规则必须版本化留在 repo，哪些只属于 Cursor 的入口习惯。
-- 任何长期状态都必须能解释 owner、刷新时机和失效条件。
-- 执行边界要能回到真实命令、diff 和 PR 证据，而不是只剩界面内的一句“完成了”。
-- 把 repo contract 与 `.cursor/rules` 分层管理，避免同一规则写两遍且互相打架。
+### IDE 入口规则
+
+- `.cursor/rules`、编辑器级习惯、background agent 的默认 handoff。
+- 这些内容适合加速 IDE 体验，不适合替代正式合同。
+
+### 单次任务上下文
+
+- 本轮只做什么、当前排查结论、为什么要把某步交给后台。
+- 这类信息不该升级成长期规则。
+
+## 必须写进 repo 的内容
+
+- 所有人共享的验证脚本和最小验收标准。
+- 模块边界和不可改目录。
+- 最终交付必须包含的证据。
+- 任何跨入口都要遵守的 reviewer 规则。
+
+## 适合放在 `.cursor/rules` 的内容
+
+- IDE 内的默认任务步骤。
+- 常见文件阅读顺序和优先检查项。
+- background agent 的回报格式。
+- 个人或小团队高频编辑习惯。
+
+## 只保留在单次任务里的内容
+
+- 当前探索得到的临时线索。
+- 这轮 comment 或改动的处理顺序。
+- 当次改动的局部策略和后续补项。
+
+## 治理动作
+
+- 先把 repo contract 写清，再决定 `.cursor/rules` 放什么。
+- background agent 的验收必须回到测试、diff 或 PR 描述。
+- 团队多人共用 Cursor 时，给规则目录、命名和 owner 定标准。
+- 定期清理已经失效的 IDE 规则，别让它变成堆积场。
+
+## 常见反模式
+
+- 同一条规则同时写在 repo 和 Cursor 里，内容还不一致。
+- `.cursor/rules` 里混入大量一次性任务说明。
+- background 产物只剩一句“完成”，没有证据。
+- 团队把私有 IDE 习惯误当成正式工程制度。
+
+## 团队上线前检查
+
+- repo 合同是否已经独立可用。
+- `.cursor/rules` 是否只保留 IDE 入口特有内容。
+- background agent 的 owner 和收口动作是否明确。
+- 换到别的入口时，团队是否还能执行同一套规则。
 
 ## 下一步
 
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：当你想在 Cursor 之上再固定 daily workflow 和 review ritual。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：GitHub 负责 PR / review，Cursor 负责日常编辑入口。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec / plan 先固定，再回 IDE 做执行。
-- [Cursor：集成、review 与治理](/docs/ecosystem/integrations/cursor)：如果你已经进入真实工作系统，需要把 review、PR、CI 和责任边界收口，就继续看这页。
+- 去 [Cursor 常见任务](/docs/tools/ide-first/cursor/common-tasks) 固定 IDE 内高频任务模板。
+- 去 [Cursor：优点与替代](/docs/tools/ide-first/cursor/tradeoffs-and-boundaries) 判断它是否适合长期做主入口。
+- 如果你要看另一种 AGENTS.md + memory 路线，继续看 [Windsurf：规则与边界](/docs/tools/ide-first/windsurf/rules-memory-tools)。
 
 ## 来源
 

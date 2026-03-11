@@ -21,29 +21,50 @@ tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 
 # Issue / Jira -> Draft PR：治理与风险
 
+平台型主线最常见的失控方式，不是工具生成了错误代码，而是 issue、PR、review 和 merge 责任看起来都在流程里，实际上没有一个环节说得清谁负责最终判断。它最需要的是治理，而不是更多自动化。
+
 ## 现在先做什么
 
 - 想先跑平台主线：去 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)。
 - 想知道什么时候该停：去 [Issue / Jira -> Draft PR 风险与切换条件](/docs/workflows/patterns/issue-to-draft-pr/pitfalls)。
 - 想先补 review 门禁：去 [Review Quality Gates](/docs/standards/review-quality-gates)。
 
+## 治理检查表
+
+| 治理面 | 最低要求 | 失控时会发生什么 |
+| --- | --- | --- |
+| issue 合同 | 目标、验收、禁区、owner 清楚。 | draft PR 很快生成，但任务并没被定义清楚。 |
+| PR 证据 | 改动摘要、验证结果、风险说明齐全。 | reviewer 只能猜 agent 到底做了什么。 |
+| merge 责任 | 明确谁能 merge、谁能要求回改。 | 平台看起来在运转，实际上没人拍板。 |
+| 平台边界 | 平台负责收口，不负责替需求层补边界。 | 所有模糊问题都被拖进 PR。 |
+
 ## 权限与 owner
 
 - issue 能否直接委派、哪些目录可改、谁负责最终 merge，先写清再执行。
 - 平台工作系统不等于可以跳过 repo 合同和人工 review。
 - 高风险变更必须明确 owner，不能假设 draft PR 自己会收尾。
+- review comment 回改也要有边界，不能把本轮 PR 变成长期积压清理站。
 
 ## 验证与 review
 
 - issue 必须写清验收标准，PR 必须附验证结果和风险说明。
 - reviewer 要看 diff、检查项和 handoff 说明，而不是只看标题像不像完成。
 - 如果中途转到本地或后台探索，要把新证据带回平台记录。
+- merge 前必须能解释“这轮验证覆盖了什么、没覆盖什么”。
 
-## 失败信号
+## 最常见失控模式
 
 - issue 越来越多，但真正能独立委派的任务越来越少。
 - draft PR 很多，验证和风险说明却越来越空。
 - 平台里看起来很忙，但没人能说清最终谁负责 merge 判断。
+- agent 产物开始替代 issue hygiene，本末倒置。
+
+## 什么时候先停下来
+
+- issue 里连禁区和验收都写不清。
+- PR review 开始承担需求澄清工作，而不是做变更判断。
+- 平台里只有状态，没有 repo 级证据。
+- 真正的工作大头已经跑到本地和后台，平台只剩形式上的挂靠。
 
 ## 读完回哪里
 

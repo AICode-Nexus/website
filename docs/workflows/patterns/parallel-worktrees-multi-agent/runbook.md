@@ -31,12 +31,22 @@ deliverable: "一份包含 lane 拆分、每 lane 证据和最终集成结果的
 - 你能明确拆出低耦合 lane，而不是把同一组核心文件硬拆给多人。
 - 每个 lane 都能有自己的验证方式和 owner 收口顺序。
 
+## 执行表
+
+| 阶段 | 要做什么 | 产出 |
+| --- | --- | --- |
+| lane map | 写每条 lane 的目标、依赖和顺序。 | lane map。 |
+| 建隔离环境 | 每条 lane 建独立 worktree 或会话。 | 干净执行环境。 |
+| 各自验证 | 每条 lane 先过自己的验证。 | lane 级证据。 |
+| owner 合流 | 按顺序合流并做最终回归。 | 最终集成结果。 |
+
 ## 步骤
 
 1. 先写 lane map：说明每条 lane 做什么、依赖谁、什么时候合流。
 2. 再为每条 lane 建独立 worktree 或独立 agent 会话，确保上下文互不污染。
 3. 每条 lane 先在自己的边界内通过验证，再交给 owner 合流。
 4. owner 按依赖顺序合并、解决冲突，并做最终回归。
+5. 把 lane 级证据和合流结论统一写回 PR、issue 或阶段记录。
 
 最常见的 lane 组合是：
 
@@ -46,14 +56,27 @@ deliverable: "一份包含 lane 拆分、每 lane 证据和最终集成结果的
 
 如果你需要更强的执行栈，可以把 lane 交给 [OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start)；如果你需要更开放的壳层和工具权限，可以用 [Cline 快速开始](/docs/tools/terminal-agents/cline/quick-start)。
 
+## 默认停点
+
+- lane map 写不清，先停，不并行。
+- 某条 lane 没有稳定验证，先停，不合流。
+- owner 说不清合流顺序，先停，不开更多 lane。
+
 ## 验证
 
 至少留下四类证据：
 
-- lane map 与依赖顺序
-- 每条 lane 的命令或检查结果
-- 合流时解决过的冲突说明
-- 最终集成验证结果
+- lane map 与依赖顺序。
+- 每条 lane 的命令或检查结果。
+- 合流时解决过的冲突说明。
+- 最终集成验证结果。
+
+## 交付检查
+
+- 每条 lane 是否都能独立复盘。
+- 合流是否由 owner 统一判断，而不是靠默认成功。
+- reviewer 是否能理解并行为什么值得。
+- 如果某条 lane 延后，剩余交付是否仍然成立。
 
 ## 下一步
 

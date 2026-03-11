@@ -31,14 +31,22 @@ deliverable: "一个包含 lane 拆分、验证与 owner 合流的完整示例"
 - 当前任务不是所有改动都压在同一组文件上。
 - owner 能控制拆分与最终合流。
 
-## 步骤
+## 示例卡片
 
-示例任务：为一个已有服务新增导出能力，同时补测试和文档。
+| 项目 | 本例内容 |
+| --- | --- |
+| 任务类型 | 为已有服务新增导出能力，同时补测试和文档。 |
+| lane 拆分 | 实现 lane / 测试 lane / 文档 lane。 |
+| owner 动作 | 拆 lane、定顺序、收证据、做最终回归。 |
+| 最终交付 | 可 review 的多 lane 合流记录。 |
+
+## 步骤
 
 1. owner 先把任务拆成实现 lane、测试 lane、文档 lane。
 2. 三条 lane 各自进入独立 worktree 或 agent 会话推进。
 3. 每条 lane 完成后先提交自己的验证证据。
 4. owner 按“实现 -> 测试 -> 文档”的顺序合流并跑最终回归。
+5. 最后把 lane map、合流冲突和最终验证整理成正式交付材料。
 
 在这个例子里：
 
@@ -46,17 +54,18 @@ deliverable: "一个包含 lane 拆分、验证与 owner 合流的完整示例"
 - 测试 lane 可以继续按 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook) 收小
 - owner 也可以用 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start) 作为控制面
 
+## 这个示例里最重要的判断
+
+- lane 不是“每个人找点事做”，而是每条 lane 都有清晰输入输出。
+- owner 的价值不是执行某一条 lane，而是保证最终能收回来。
+- 并行带来的收益必须能从证据链里被看出来。
+
 ## 验证
 
 - 每条 lane 都能独立说明输入、改动和验证。
 - 合流阶段没有把“谁解决了什么冲突”变成黑盒。
 - 最终 reviewer 能清楚看到并行带来的收益，而不是只看到更复杂的 diff。
-
-## 结果
-
-- 任务等待时间被拆散，不需要所有事情串行完成。
-- 风险被留在各自 lane 内，而不是最后一次性爆炸。
-- owner 仍保留最终判断权，没有把收尾责任丢给并行执行者。
+- 若某条 lane 失败，owner 也知道如何回退或延期。
 
 ## 下一步
 

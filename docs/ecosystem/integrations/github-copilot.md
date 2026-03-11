@@ -20,50 +20,74 @@ tags: ["ai-coding", "tool", "github-copilot"]
 
 # GitHub Copilot：集成、review 与治理
 
-一个工具一旦被组织当成主入口，就必须回答三个问题：它怎么接入工作系统、证据回流到哪里、出了问题由谁负责。只有把这三件事说清，工具选型才算进入工程层。
+GitHub Copilot 真正进入团队系统，不是从“会不会生成代码”开始，而是从“它能不能接住 issue、PR、review 和 merge 责任”开始。平台型入口最大的优势是协作闭环，最大的风险也是协作闭环看起来存在，但真正的证据和责任没有落地。
 
-## 工作系统接入
+## 默认集成拓扑
 
-- GitHub Issues、Pull Requests、Reviews、branch protections。
-- Jira 集成与任务追踪。
-- 与本地控制面或执行栈的组合使用。
-
-## 证据链
-
-- draft PR 描述、运行结果、linked issue 和 reviewer comment 应成为主要证据载体。
-- 不要把“平台面板里显示成功”当成唯一完成标准。
-
-## 治理矩阵
-
-| 治理面 | 最低要求 | 不满足时的风险 |
+| 集成面 | 默认接法 | 治理重点 |
 | --- | --- | --- |
-| 工作系统接入 | GitHub Issues、Pull Requests、Reviews、branch protections。 | 入口成功提示会替代真正的任务状态。 |
-| 证据链 | draft PR 描述、运行结果、linked issue 和 reviewer comment 应成为主要证据载体。 | 团队无法解释“这次到底跑了什么、改了什么”。 |
-| Owner 与规则 | 平台可以放大团队效率，也会放大 issue hygiene 差的问题。 | 团队越来越多地绕过 GitHub 工作系统，在别处交付和 review。 |
-| 扩张节奏 | 先从低风险、高频任务试点，再扩大到复杂任务。 | 平台 agent 产物无法提供足够的 repo 证据与验证记录。 |
+| 任务来源 | GitHub Issues、Jira、PR 模板。 | issue hygiene 必须先过关。 |
+| 执行入口 | 平台委派、draft PR、review 回改。 | 平台只接清晰任务，不替代需求澄清。 |
+| 证据回流 | PR 描述、linked issue、review comment、检查结果。 | 不允许只留“平台里显示成功”。 |
+| 最终收口 | reviewer、branch protection、merge policy。 | merge 责任不能转嫁给 agent。 |
 
-## Owner、审批与 rollout 清单
+## 什么时候适合把它接进正式工作系统
 
-- 先定义谁拥有入口规则、谁拥有 repo 合同、谁拥有最终 merge 责任。
-- 把“哪些任务能直接放行、哪些任务必须人工接管”写成可复用清单。
-- 默认先从低风险、高频任务试点，再扩大到长任务或跨模块任务。
-- 平台可以放大团队效率，也会放大 issue hygiene 差的问题。
-- merge 规则、审批边界和 reviewer 责任不应因为有 agent 而放松。
+- 团队已经主要在 GitHub 上协作，而不是把 GitHub 只当代码托管。
+- issue 和 PR 模板足够清楚，能直接承接任务委派。
+- reviewer 需要的是稳定交付节奏，而不是每轮重新解释任务背景。
+- 你希望平台层能统一 rollout，而不是每个工程师各用一套入口。
 
-## 团队落地顺序
+## review 证据最低集
 
-1. 先确认 GitHub Copilot 在系统里负责哪一段，而不是一开始就给它全部权限。
-2. 再把 review 证据固定成 diff、命令结果、说明和 handoff 记录。
-3. 最后才扩大适用范围，否则你只是在放大现有治理缺口。
+至少要求四类证据同时存在：
+
+- issue 或 Jira 来源，能解释这次为什么要做。
+- PR 描述中的改动摘要，能解释这次具体做了什么。
+- 验证结果，能解释这次如何证明没做坏。
+- 剩余风险和待办，能解释这次没有覆盖什么。
+
+如果缺少其中任意一类，平台流就只是“看起来像流程”，不是可治理流程。
+
+## 上线前先定的四个 owner
+
+- `任务系统 owner`：维护 issue / Jira 模板和字段完整性。
+- `平台入口 owner`：定义 GitHub Copilot 在平台里负责哪一段。
+- `仓库合同 owner`：维护验证命令、目录边界和 reviewer 规则。
+- `merge owner`：保留最后合并责任，不允许“agent 做的所以默认可信”。
+
+## 默认审批边界
+
+- 需求不清、范围未定的任务，不进平台委派流。
+- 涉及高风险目录、跨模块结构改动或权限配置的任务，必须人工接管。
+- review comment 回改只能处理本轮明确意见，不得顺手扩大需求。
+- branch protection、required checks 和 reviewer gate 不能因为有 agent 就放松。
+
+## 最小 rollout 路径
+
+1. 先从 [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr) 这种边界最清楚的任务试点。
+2. 再把 PR 描述、验证方式和剩余风险固定成模板。
+3. 然后只扩大到已有验收标准的 bugfix、测试补齐和文档回补。
+4. 最后才考虑把更复杂的异步执行接回平台，而不是一开始就让平台承担所有任务。
+
+## 什么时候不要继续扩大
+
+- issue 本身写不清，平台流开始替需求工程背锅。
+- draft PR 经常只有 diff，没有验证证据。
+- reviewer 只能靠口头补充理解任务，而不是靠 PR 资产判断。
+- 真正困难的任务总要先到本地终端做完，再回来补一个平台外壳。
+
+## 配套组合
+
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：平台做收口，本地做控制面。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：执行栈推进长任务，GitHub 做最终 review。
+- [GitHub Copilot：规则与边界](/docs/tools/platforms/github-copilot/rules-memory-tools)：先把规则分层，再谈 rollout。
 
 ## 下一步怎么读
 
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：长任务可在执行栈里推进，最后回到 GitHub 收口。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：适合把 spec 或 task 摘要附着在 issue / PR 流里。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更需要 terminal-first repo pairing。
-- [Issue / Jira -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr)：GitHub Copilot 天然适合把清晰任务委派成 draft PR。
-- [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)：适合在平台层追踪异步执行和最终 review。
+- 去 [GitHub Copilot 常见任务](/docs/tools/platforms/github-copilot/common-tasks) 固定平台任务模板。
+- 去 [GitHub Copilot：优点与替代](/docs/tools/platforms/github-copilot/tradeoffs-and-boundaries) 判断它是否还应继续做主入口。
+- 如果你发现主线其实在本地执行，改读 [OpenAI Codex：集成、review 与治理](/docs/ecosystem/integrations/openai-codex)。
 
 ## 来源
 

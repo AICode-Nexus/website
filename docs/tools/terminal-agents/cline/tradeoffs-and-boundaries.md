@@ -20,48 +20,65 @@ tags: ["ai-coding", "tool", "cline"]
 
 # Cline：优点与替代
 
-真正的判断不是“它能不能用”，而是它是否还值得占据你的默认入口。保留理由、替代路线和退出信号必须一起看，否则团队很容易继续被一个已经不匹配的入口拖住。
+Cline 值不值得保留，核心不是“它能不能做”，而是“你的团队是否配得上它的开放度”。如果你需要开放组合、MCP、browser automation 和实验速度，它很值；如果你更需要统一 rollout、低维护和稳定默认值，它就会成为负担。
 
-## 保留理由
-
-- 开放、可组合、MCP 与自动化能力强。
-- 适合高级用户试验新的 agent 工具链。
-
-## 取舍矩阵
-
-| 面向 | 你会得到什么 | 你要接受什么 |
+| 决策面 | 保留它的理由 | 该换入口的信号 |
 | --- | --- | --- |
-| 优势 | 开放、可组合、MCP 与自动化能力强。 | 团队统一 rollout 难度高。 |
-| 长期使用 | 适合高级用户试验新的 agent 工具链。 | 默认体验不如更产品化的平台或 IDE 入口收敛。 |
-| 团队 rollout | Cline 的风险不在能力不够，而在开放能力很容易超过团队治理能力。 | 团队无法统一 tool permission 与 provider 配置。 |
-| 补位路线 | Windsurf | Cursor |
+| 开放性 | 工具编排和实验速度很强。 | 配置与权限治理失控。 |
+| 组织形态 | 适合高级 lane 和实验团队。 | 大多数正式任务回到稳态入口。 |
+| 长期维护 | 能承接前沿能力试验。 | 治理成本长期高于收益。 |
+
+## 什么时候值得继续保留
+
+- 高级用户确实要做开放工具编排。
+- 团队愿意维护 provider、权限、MCP 和回退策略。
+- 实验速度和自由度比统一产品化体验更重要。
+- 组织能够接受某些能力只适合高级 lane，而不是全员默认。
+
+## 你会得到什么
+
+- 极高的可组合性和扩展自由度。
+- 更容易接入外部工具、浏览器和实验性流程。
+- 对前沿 agent 工具链试验非常友好。
+
+## 你要接受什么
+
+- 团队统一 rollout 难度高。
+- 默认体验不如更收敛的平台或 IDE。
+- 治理成本会随着权限和工具数快速上升。
 
 ## 替代路线
 
-- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更想要整合好的工作台体验。
-- [Cursor](/docs/tools/ide-first/cursor)：如果你更偏向成熟 IDE-first 体验。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更想要终端式但更稳的 repo pairing。
-
-替代路线不是为了证明谁更强，而是为了在主入口已经不匹配时，尽快换到更合适的控制面、执行栈或 IDE 入口。
+- [Windsurf](/docs/tools/ide-first/windsurf)：你更想要一体化工作台体验。
+- [Cursor](/docs/tools/ide-first/cursor)：你更偏成熟 IDE-first 路线。
+- [Claude Code](/docs/tools/terminal-agents/claude-code)：你更想保留终端，但要更稳的规则纪律。
 
 ## 退出信号
 
-- 团队无法统一 tool permission 与 provider 配置。
-- 大多数正式任务仍回到其他更标准化的入口。
-- 开放性带来的维护负担超过实验收益。
+- 团队无法统一工具权限和 provider 配置。
+- 大多数正式任务仍然回到其他更标准化的入口。
+- 开放性带来的维护负担已经超过实验收益。
+- 关键知识只存在某些人的私有配置里。
 
-## 决策检查
+再直白一点说，Cline 不是“默认推荐给所有人”的工具，而是“当你明确知道自己为什么需要开放栈时才值得保留”的工具。如果团队已经不再从开放能力中获益，就该及时降级它的角色。
 
-- 如果主线任务还落在 Cline 的优势区间，就继续保留它。
-- 如果退出信号已经持续出现，就不要再把它留在主入口。
-- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
+## 迁移顺序
+
+1. 先把正式规则、验证和权限边界收回 repo。
+2. 把正式生产任务迁回更稳的入口。
+3. 让 Cline 留在实验 lane，或彻底退出默认路径。
+
+## 最后判断题
+
+- 当前主痛点是“工具不够开放”，还是“治理不够稳定”。
+- 如果没有 Cline，团队是否真的失去关键能力。
+- 继续保留它，是否有人愿意承担长期配置和治理工作。
 
 ## 下一步
 
-- [Windsurf](/docs/tools/ide-first/windsurf)：如果你更想要整合好的工作台体验。
-- [Cursor](/docs/tools/ide-first/cursor)：如果你更偏向成熟 IDE-first 体验。
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更想要终端式但更稳的 repo pairing。
-- [Continue Rules](/docs/tools/ai-ide-landscape)：开放栈通常不只看 Cline，还要看 rules 与模型配置生态。
+- 去 [Cline：工作流适配](/docs/tools/terminal-agents/cline/best-fit-workflows) 看哪些任务值得继续留在开放栈。
+- 去 [Windsurf：优点与替代](/docs/tools/ide-first/windsurf/tradeoffs-and-boundaries) 对比一体化工作台路线。
+- 去 [Claude Code：优点与替代](/docs/tools/terminal-agents/claude-code/tradeoffs-and-boundaries) 对比更稳终端路线。
 
 ## 来源
 

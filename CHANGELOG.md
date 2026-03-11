@@ -54,6 +54,12 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Finished the remaining thin framework and discovery hubs by expanding the `Superpowers` community-framework set, deepening the workflow-framework overview, and rewriting the `实战案例 / 对比与选型 / 趋势观察` index pages into decision-first hubs that route readers back into executable tutorials instead of acting as shallow link lists.
+- Reworked the `先跑 Quick Start` tools sidebar so single-tool families now link straight to named tool entries instead of nesting repetitive one-item `快速开始` groups, expanded the eight tool quick-start docs into fuller first-run guides with task-fit advice, copyable templates, acceptance checklists, and common failure modes, and upgraded all eight tool `常见任务 / 排错 / 最佳实践` pages into denser operational docs with reusable task templates, explicit diagnosis paths, switch criteria, and long-term usage rules.
+- Expanded the eight tool `工作流适配 / 规则与边界 / 优点与替代` pages from thin decision-aid stubs into fuller selection and governance guides with task-fit signals, rule-placement guidance, anti-patterns, migration order, and explicit switch/exit criteria.
+- Expanded the eight `生态 / 集成与治理` tool pages from lightweight governance notes into fuller rollout guides with integration topologies, minimum review evidence sets, owner models, approval boundaries, pilot sequences, and stop-expansion signals.
+- Expanded the six workflow-pattern `适用信号 / 治理与风险 / 工具组合` page sets from brief supplement stubs into fuller decision and rollout guides, and deepened the eight tool overview pages with clearer fit profiles, anti-fit guidance, and team adoption checks.
+- Expanded the six workflow-pattern `概览 / 示例 / Runbook` page sets from lightweight route maps into fuller executable workflow guides with clearer role fit, handoff assets, stop points, validation criteria, and example-based decision framing.
 - Switched the local Docusaurus dev server to polling mode so generated blog/content files reliably trigger rebuilds and browser refreshes during editing.
 - Tightened tool-handbook auxiliary pages so `工作流适配 / 规则与边界 / 优点与替代` now use shorter navigation labels and denser decision-oriented content instead of verbose “补充” framing.
 - Promoted `视频资源` into an independent top-level docs route, changed the tab to land directly on `/docs/resources/videos`, simplified the resource sidebar to `全部视频 / 按类型进入 / 课程目录`, and kept the older `/docs/resources` plus `/docs/tools/resources*` links redirecting into the video list.

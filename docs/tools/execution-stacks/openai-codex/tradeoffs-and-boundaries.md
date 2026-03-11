@@ -20,49 +20,63 @@ tags: ["ai-coding", "tool", "openai-codex"]
 
 # OpenAI Codex：优点与替代
 
-真正的判断不是“它能不能用”，而是它是否还值得占据你的默认入口。保留理由、替代路线和退出信号必须一起看，否则团队很容易继续被一个已经不匹配的入口拖住。
+OpenAI Codex 值不值得保留，关键不是它强不强，而是你的团队到底需不需要“执行栈”。如果大多数任务都需要计划、验证、lane 管理和命令证据，它值得做主线；如果日常只剩聊天和轻量补全，它会变成过度配置。
 
-## 保留理由
-
-- 长任务与并行执行能力强。
-- 审批模式和执行证据意识明确。
-- 适合 worktree、隔离环境和云端任务协作。
-
-## 取舍矩阵
-
-| 面向 | 你会得到什么 | 你要接受什么 |
+| 决策面 | 保留它的理由 | 该换入口的信号 |
 | --- | --- | --- |
-| 优势 | 长任务与并行执行能力强。 | 对仅需轻量编辑器交互的用户可能过重。 |
-| 长期使用 | 审批模式和执行证据意识明确。 | 如果团队没有 repo contract，执行栈会很快失控。 |
-| 团队 rollout | 适合 worktree、隔离环境和云端任务协作。 | 团队真正依赖的只有聊天和补全，执行链几乎不用。 |
-| 补位路线 | Claude Code | VS Code Agents |
+| 长任务 | lane、worktree、后台执行很值。 | 大多数任务都很轻。 |
+| 证据纪律 | 命令和验证能自然留痕。 | owner 说不清做了什么。 |
+| 团队成本 | 复杂任务推进能力强。 | 协调成本超过收益。 |
+
+## 什么时候值得继续保留
+
+- 复杂任务经常跨多个模块或多个阶段。
+- 团队确实会用 worktree、隔离环境或后台执行。
+- 你需要审批和执行证据，而不是只要结果摘要。
+- 任务边界通常已经足够清楚，可以进入稳定执行。
+
+## 你会得到什么
+
+- 长任务和并行执行能力更强。
+- 对命令、验证和证据的要求更自然。
+- 更适合把复杂任务拆成阶段性交付，而不是压成一次对话。
+
+## 你要接受什么
+
+- 对只做轻量编辑的人来说会显得过重。
+- 如果 repo contract 不清晰，执行栈会迅速失控。
+- 协调多个 lane、审批点和收口动作本身有成本。
 
 ## 替代路线
 
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更偏向轻量 terminal-first pairing。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面和 background agents。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更需要平台工作系统而不是执行栈。
-
-替代路线不是为了证明谁更强，而是为了在主入口已经不匹配时，尽快换到更合适的控制面、执行栈或 IDE 入口。
+- [Claude Code](/docs/tools/terminal-agents/claude-code)：你更想要轻量 terminal-first repo pairing。
+- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：你更需要 editor 控制面和 background agent。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：你更想让平台工作系统做主入口。
 
 ## 退出信号
 
-- 团队真正依赖的只有聊天和补全，执行链几乎不用。
-- owner 无法解释每个任务到底跑了什么命令、改了什么东西。
-- 并行与后台能力带来的协调成本超过收益。
+- 团队真正依赖的只有聊天、补全和小修小补。
+- 大多数任务根本不需要 lane、worktree 或后台继续。
+- owner 说不清每个任务到底做了什么、跑了什么。
+- 协调成本已经大于执行收益。
 
-## 决策检查
+## 迁移顺序
 
-- 如果主线任务还落在 OpenAI Codex 的优势区间，就继续保留它。
-- 如果退出信号已经持续出现，就不要再把它留在主入口。
-- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
+1. 先把 repo contract、验证命令和审批边界保留住。
+2. 把轻量任务迁回更合适的 IDE 或平台入口。
+3. 只把真正复杂的任务留给执行栈，或者彻底降级它的角色。
+
+## 最后判断题
+
+- 你的主痛点是“复杂任务推进困难”，还是“入口太重”。
+- 如果没有执行栈，团队是不是立刻失去长任务能力。
+- 如果继续保留它，是否有人愿意维护 contract 和证据纪律。
 
 ## 下一步
 
-- [Claude Code](/docs/tools/terminal-agents/claude-code)：如果你更偏向轻量 terminal-first pairing。
-- [VS Code Agents](/docs/tools/control-planes/vscode-agents)：如果你更需要 editor 控制面和 background agents。
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更需要平台工作系统而不是执行栈。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：Spec Kit 提供清晰 planning，Codex 负责执行和验证。
+- 去 [OpenAI Codex：工作流适配](/docs/tools/execution-stacks/openai-codex/best-fit-workflows) 看哪些任务值得继续留在执行栈。
+- 去 [Claude Code：优点与替代](/docs/tools/terminal-agents/claude-code/tradeoffs-and-boundaries) 对比轻量终端路线。
+- 去 [VS Code Agents：优点与替代](/docs/tools/control-planes/vscode-agents/tradeoffs-and-boundaries) 对比控制面路线。
 
 ## 来源
 

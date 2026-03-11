@@ -52,6 +52,26 @@ OpenAI Codex 更像正式执行栈，而不是普通聊天入口。它的强项�
 | 团队约束 | 团队愿意维护 repo 合同、审批模式和命令证据。 | 先固定规则和 handoff，再扩大执行栈覆盖面。 |
 | 退出信号 | 实际只在用问答和补全，执行链基本没人跑。 | 一旦出现这些信号，就优先评估 [Claude Code](/docs/tools/terminal-agents/claude-code) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。 |
 
+## 谁最适合用
+
+- 已经明确需要长任务、并行 lane 和 worktree 的团队。
+- 愿意维护 AGENTS.md、审批边界和命令证据的人。
+- 希望把“执行过程”也做成正式工程资产的团队。
+- 对平台和 IDE 入口都觉得“不够深”的用户。
+
+## 不要期待它做什么
+
+- 不要期待它像轻量 IDE 那样低门槛、低治理成本。
+- 不要期待它在 repo 合同不清时还能稳定推进复杂任务。
+- 不要期待它替代最终 PR review 和人工 merge 判断。
+
+## 团队采用前检查
+
+- AGENTS.md、验证脚本和审批模式是否已经存在。
+- lane owner、handoff 和证据回流规则是否写清。
+- 团队是真的需要执行栈，还是只是想“试试更强工具”。
+- 如果执行栈太重，是否知道回退到 [Claude Code](/docs/tools/terminal-agents/claude-code) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。
+
 ## 默认补位组合
 
 - [Spec Kit](/docs/workflows/frameworks/spec-kit)：先定 spec 和 planning，再交给 Codex 执行。

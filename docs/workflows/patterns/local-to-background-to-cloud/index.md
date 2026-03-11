@@ -20,7 +20,7 @@ tags: ["ai-coding", "workflow", "local-to-background-to-cloud"]
 
 # Local -> Background -> Cloud
 
-这条主线的重点不是把任务拆成三段，而是先在本地摸清问题和边界，再把可执行部分交给后台或云端，最后在平台里收口 review。
+这条主线的重点不是把任务拆成三段，而是先在本地摸清问题和边界，再把可执行部分交给后台或云端，最后在平台里收口 review。它适合需要 handoff，而不是适合形式上分三层。
 
 ## 现在先做什么
 
@@ -39,7 +39,7 @@ tags: ["ai-coding", "workflow", "local-to-background-to-cloud"]
 1. 先用 [Local -> Background -> Cloud Runbook](/docs/workflows/patterns/local-to-background-to-cloud/runbook) 跑通本地 brief、后台执行和平台收口的最小闭环。
 2. 再看 [Local -> Background -> Cloud 示例](/docs/workflows/patterns/local-to-background-to-cloud/examples) 对照真实 handoff。
 3. 然后按入口选择 [VS Code Agents](/docs/tools/control-planes/vscode-agents)、[OpenAI Codex](/docs/tools/execution-stacks/openai-codex) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。
-4. 最后再补 [Local -> Background -> Cloud 风险与切换条件](/docs/workflows/patterns/local-to-background-to-cloud/pitfalls) 和补充页。
+4. 最后再补 [Local -> Background -> Cloud 风险与切换条件](/docs/workflows/patterns/local-to-background-to-cloud/pitfalls)、[适用信号](/docs/workflows/patterns/local-to-background-to-cloud/fit-and-signals) 和 [治理与风险](/docs/workflows/patterns/local-to-background-to-cloud/governance-and-risks)。
 
 ## 快速判断矩阵
 
@@ -50,11 +50,26 @@ tags: ["ai-coding", "workflow", "local-to-background-to-cloud"]
 | 验收要求 | 最终仍要回到 PR、任务面板或 cloud task 系统做审阅。 | 用平台层承接 review，不要停在后台状态里。 |
 | 切换信号 | 任务很小、无法切出稳定 handoff，或团队没有后台入口。 | 回到本地主线，不要为了三层结构而三层结构。 |
 
+## 谁最适合先跑这条主线
+
+- discovery 和 execution 明显可以分层的团队。
+- 本地 owner、后台执行和平台 reviewer 角色比较清楚的团队。
+- 需要减少长任务等待时间，但不想丢掉本地判断的人。
+- 已经有 background agents、cloud task 或等价基础设施的人。
+
+## 不该硬上的情况
+
+- 任务本来就很短，本地一条线就能做完。
+- 没有后台入口，却想硬凑三层 handoff。
+- brief 永远写不清，后台只能重新理解任务。
+- 平台根本不是最终收口位置。
+
 ## 默认人工接管点
 
 - 本地探索必须输出结构化 brief，否则后台只是在放大噪音。
 - 后台执行要有清晰 owner，避免“没人知道谁该收尾”。
 - 云端面板只负责状态和审阅，不替代最终人工判断。
+- 如果三层切换成本已经大于收益，就回到更单纯的主线。
 
 ## 下一步怎么读
 

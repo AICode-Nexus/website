@@ -52,6 +52,26 @@ Cursor 的合理定位不是“万能 AI IDE”，而是成熟的 IDE-first 主�
 | 团队约束 | 团队能把规则和证据链留在 repo，而不是绑定私有配置。 | 先理顺规则 ownership，再扩大 Cursor 使用面。 |
 | 退出信号 | 复杂任务始终要回到其他控制面，或者规则越来越依赖私有配置。 | 一旦出现这些信号，就优先评估 [VS Code Agents](/docs/tools/control-planes/vscode-agents) 或 [Windsurf](/docs/tools/ide-first/windsurf)。 |
 
+## 谁最适合用
+
+- 主要工作发生在 IDE 内的个人和小团队。
+- 高频修复、局部重构和交互式编辑很多的团队。
+- 想把 rules 和 background agents 用成日常工作流的人。
+- 更在意低切换成本，而不是开放壳层自由度的人。
+
+## 不要期待它做什么
+
+- 不要期待它替代平台 review 和 merge 治理。
+- 不要期待它在长任务执行栈和多 lane 协调上天然占优。
+- 不要期待私有 `.cursor/rules` 能长期替代 repo 合同。
+
+## 团队采用前检查
+
+- `.cursor/rules` 是否已经和 repo 合同分层。
+- background agents 的结果能否稳定回到 PR、测试或 issue。
+- 团队是不是确实主要在 IDE 内完成日常工作。
+- 如果规则越来越私有化，是否准备切去 [VS Code Agents](/docs/tools/control-planes/vscode-agents) 或 [Windsurf](/docs/tools/ide-first/windsurf)。
+
 ## 默认补位组合
 
 - [GitHub Copilot](/docs/tools/platforms/github-copilot)：平台负责 PR 和 review，Cursor 负责 IDE 主入口。

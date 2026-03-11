@@ -20,39 +20,56 @@ tags: ["ai-coding", "workflow-framework", "openspec"]
 
 # OpenSpec：角色、阶段与产物
 
-框架和“任务模板”的差别，在于它不仅告诉你先做什么、后做什么，还定义了哪些角色切面需要出现、哪些产物必须沉淀、哪些 handoff 不能跳过。
+框架和“任务模板”的差别，在于它不仅告诉你先做什么、后做什么，还定义了哪些角色切面需要出现、哪些产物必须沉淀、哪些 handoff 不能跳过。OpenSpec 的重点是保持轻，但轻不等于省掉交付边界。
 
 ## 角色切面
 
-- Requester：提出变更需求和业务背景。
-- Proposer：把需求转成 proposal 与 change set。
-- Implementer：按 proposal 执行代码与验证。
-- Approver：确认 proposal 是否值得进入实现与归档。
+| 角色切面 | 主要责任 | 至少要确认什么 |
+| --- | --- | --- |
+| Requester | 提出变更需求和业务背景。 | 为什么现在要改。 |
+| Proposer | 把需求转成 proposal 与 change set。 | 影响面、非目标和风险是否清楚。 |
+| Implementer | 按 proposal 执行代码与验证。 | 实现是否仍在原边界内。 |
+| Approver | 确认 proposal 是否值得进入实现与归档。 | 是否真的要做，是否可以 merge。 |
 
 ## 阶段总表
 
-| 阶段 | 目标 | 主要产物 |
-| --- | --- | --- |
-| 提 proposal | 先说明为什么要改、改什么、不改什么。 | proposal |
-| 形成 change set | 把 proposal 转成具体改动包与依赖说明。 | change set |
-| 执行与验证 | 在实现阶段对照 proposal 做最小变更。 | implemented change |
-| archive | 把结果、结论和后续处理归档，保留变更历史。 | archive record |
+| 阶段 | 目标 | 主要 owner | 退出证据 |
+| --- | --- | --- | --- |
+| 提 proposal | 先说明为什么要改、改什么、不改什么。 | Requester / Proposer | proposal 被确认。 |
+| 形成 change set | 把 proposal 转成具体改动包与依赖说明。 | Proposer | change set 能说明影响目录与验证。 |
+| 执行与验证 | 在实现阶段对照 proposal 做最小变更。 | Implementer | 实际改动与 proposal 对齐。 |
+| archive | 把结果、结论和后续处理归档，保留变更历史。 | Approver / Implementer | archive 可以被后续检索和引用。 |
 
 ## 核心产物
 
-- proposal、change、archive 三段式记录。
-- 与 PR 或任务系统可关联的轻量变化说明。
-- 适合 brownfield 语境的最小验证与决策证据。
+| 产物 | 最低应包含什么 | 谁来确认 |
+| --- | --- | --- |
+| proposal | 背景、目标、非目标、风险、是否值得做。 | Requester / Approver |
+| change set | 影响模块、实施范围、验证方式、依赖。 | Proposer |
+| implemented change | 实际变更、测试结果、偏差说明。 | Implementer / Reviewer |
+| archive record | 结果、结论、后续事项、回退线索。 | Approver |
 
-## 交接点
+## 交接规则
 
 - proposal 先确认，再执行 change，不要让实现反推需求。
+- change set 必须明确哪些模块受影响，不能只写“按 proposal 实现”。
 - archive 不是可选装饰，而是让后续团队知道这个改动为什么存在。
 - 所有轻量流程最终仍要回到测试、review 和 branch policy。
+- 如果执行中边界扩大到 feature 级别，应升级到 [Spec Kit](/docs/workflows/frameworks/spec-kit) 或 [BMAD](/docs/workflows/frameworks/bmad)。
 
-## 角色和产物为什么要一起看
+## 最小证据包
 
-如果角色只停留在名称层，而产物没有固定下来，最终执行时还是会回到“谁想起什么就补什么”的状态。把角色、阶段和产物绑在一起看，才有可能让不同人对同一个框架产生相同预期。
+- 一份可追溯到 issue 或需求源头的 proposal。
+- 一份包含影响面和验证命令的 change set。
+- 一份实现后的验证摘要。
+- 一份便于检索的 archive 记录。
+
+## 常见塌陷点
+
+- proposal 写得很热闹，但没有任何非目标和回退线索。
+- change set 过于抽象，执行时仍然要重新猜影响面。
+- archive 只是复制 PR 描述，没有任何后续价值。
+- 小修小补全都要求 proposal，最后没人愿意维护。
 
 ## 下一步怎么读
 

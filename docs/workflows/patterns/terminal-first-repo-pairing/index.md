@@ -20,7 +20,7 @@ tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
 
 # Terminal-First Repo Pairing
 
-这条主线的核心不是“在终端里也能跑 agent”，而是把规则文件、命令执行、diff 审阅和验证闭环放回仓库内部。
+这条主线的核心不是“在终端里也能跑 agent”，而是把规则文件、命令执行、diff 审阅和验证闭环放回仓库内部。它是工程纪律优先的工作流，不是终端情怀。
 
 ## 现在先做什么
 
@@ -39,7 +39,7 @@ tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
 1. 先用 [Terminal-First Repo Pairing Runbook](/docs/workflows/patterns/terminal-first-repo-pairing/runbook) 跑通最小闭环。
 2. 再看 [Terminal-First Repo Pairing 示例](/docs/workflows/patterns/terminal-first-repo-pairing/examples) 对照真实命令和证据链。
 3. 然后按入口选择 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)、[OpenAI Codex 快速开始](/docs/tools/execution-stacks/openai-codex/quick-start) 或 [Gemini CLI 快速开始](/docs/tools/terminal-agents/gemini-cli/quick-start)。
-4. 最后再补 [Terminal-First Repo Pairing 风险与切换条件](/docs/workflows/patterns/terminal-first-repo-pairing/pitfalls) 和补充页。
+4. 最后再补 [Terminal-First Repo Pairing 风险与切换条件](/docs/workflows/patterns/terminal-first-repo-pairing/pitfalls)、[适用信号](/docs/workflows/patterns/terminal-first-repo-pairing/fit-and-signals) 和 [治理与风险](/docs/workflows/patterns/terminal-first-repo-pairing/governance-and-risks)。
 
 ## 快速判断矩阵
 
@@ -50,11 +50,26 @@ tags: ["ai-coding", "workflow", "terminal-first-repo-pairing"]
 | 验收要求 | 你更信命令输出和 diff，而不是一句“已经完成”。 | 用终端主线承接 repo pairing 和验证闭环。 |
 | 切换信号 | 任务高度视觉化，或根本没有验证回路。 | 转去 IDE/平台入口，别在终端里硬撑。 |
 
+## 谁最适合先跑这条主线
+
+- 真实工作主要发生在 repo、shell 和脚本里的团队。
+- 愿意维护规则文件、命令验证和 diff 证据的团队。
+- 更关注仓库内真实执行，而不是界面体验的工程师。
+- 想把 repo pairing 固定成长期习惯的人。
+
+## 不该硬上的情况
+
+- 团队不愿看命令输出，也不愿 review diff。
+- 任务主要是平台交接或视觉操作。
+- 仓库没有任何脚本、测试或验证命令。
+- 高风险命令没有明确人工接管点。
+
 ## 默认人工接管点
 
 - 高风险命令、依赖变更和权限放大前必须显式审批。
 - 任何大改动都要在 diff 可读的前提下推进，不宜一次性倾倒大 patch。
 - 最终仍由人决定验证是否充分、是否值得 merge。
+- 一旦并行 lane 或平台流程变成主成本，就切到对应主线。
 
 ## 下一步怎么读
 

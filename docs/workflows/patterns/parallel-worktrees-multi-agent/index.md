@@ -20,7 +20,7 @@ tags: ["ai-coding", "workflow", "parallel-worktrees-multi-agent"]
 
 # Parallel Worktrees / Multi-Agent
 
-这条主线的价值不在“多开几个 agent”，而在把长任务拆成多个低耦合 lane，再由 owner 用 worktree、分支和统一回归把它们收回来。
+这条主线的价值不在“多开几个 agent”，而在把长任务拆成多个低耦合 lane，再由 owner 用 worktree、分支和统一回归把它们收回来。并行本身不是目标，收口才是目标。
 
 ## 现在先做什么
 
@@ -39,7 +39,7 @@ tags: ["ai-coding", "workflow", "parallel-worktrees-multi-agent"]
 1. 先用 [Parallel Worktrees / Multi-Agent Runbook](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook) 跑通拆 lane、验证和合流的最小闭环。
 2. 再看 [Parallel Worktrees / Multi-Agent 示例](/docs/workflows/patterns/parallel-worktrees-multi-agent/examples) 对照真实 lane 切法和 owner 收口方式。
 3. 然后按入口选择 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)、[Claude Code](/docs/tools/terminal-agents/claude-code) 或 [VS Code Agents](/docs/tools/control-planes/vscode-agents)。
-4. 最后再补 [Parallel Worktrees / Multi-Agent 风险与切换条件](/docs/workflows/patterns/parallel-worktrees-multi-agent/pitfalls) 和补充页。
+4. 最后再补 [Parallel Worktrees / Multi-Agent 风险与切换条件](/docs/workflows/patterns/parallel-worktrees-multi-agent/pitfalls)、[适用信号](/docs/workflows/patterns/parallel-worktrees-multi-agent/fit-and-signals) 和 [治理与风险](/docs/workflows/patterns/parallel-worktrees-multi-agent/governance-and-risks)。
 
 ## 快速判断矩阵
 
@@ -50,11 +50,26 @@ tags: ["ai-coding", "workflow", "parallel-worktrees-multi-agent"]
 | 验收要求 | 需要缩短长链路任务等待时间，而不是写更长 prompt。 | 用并行 lane 换时间，但证据必须分别保留。 |
 | 切换信号 | 改动都围绕同一份合同，或团队根本没有合流 owner。 | 回到串行主线，不要为了并行而并行。 |
 
+## 谁最适合先跑这条主线
+
+- 已经熟悉 worktree、分支和合流节奏的团队。
+- 真正需要多 lane 才能缩短等待时间的长任务团队。
+- 有明确 owner，且 owner 愿意承担最终收口责任的团队。
+- 已经有共享合同、共享验证和共享节奏的人。
+
+## 不该硬上的情况
+
+- 任务边界仍在变化，同一份合同还没稳定。
+- 没人愿意做 owner，只想“大家各跑各的”。
+- 每条 lane 都会碰同一组热点文件。
+- 并行的成本主要来自协调，而不是来自执行时长。
+
 ## 默认人工接管点
 
 - 拆分标准必须由 owner 先定，不应让多个 agent 各自理解任务边界。
 - 每条 lane 都要先完成自己的验证，再进入合流和集成测试。
 - 最终回归必须回到统一 owner，而不是让各 lane 自己宣布完成。
+- 一旦 lane 边界开始频繁重叠，就停止继续开新 lane。
 
 ## 下一步怎么读
 

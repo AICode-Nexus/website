@@ -20,49 +20,63 @@ tags: ["ai-coding", "tool", "vscode-agents"]
 
 # VS Code Agents：优点与替代
 
-真正的判断不是“它能不能用”，而是它是否还值得占据你的默认入口。保留理由、替代路线和退出信号必须一起看，否则团队很容易继续被一个已经不匹配的入口拖住。
+VS Code Agents 的价值，在于把编辑器变成 AI 控制面，而不是把编辑器变成唯一答案。保不保留它，取决于团队是不是把 VS Code 当主工作台，以及本地探索、后台推进和平台收口能不能真的连起来。
 
-## 保留理由
-
-- 本地与后台结合自然。
-- editor-first 团队迁移成本低。
-- 适合混合多种 agent 能力。
-
-## 取舍矩阵
-
-| 面向 | 你会得到什么 | 你要接受什么 |
+| 决策面 | 保留它的理由 | 该换入口的信号 |
 | --- | --- | --- |
-| 优势 | 本地与后台结合自然。 | 如果团队不以 VS Code 为中心，控制面价值会明显下降。 |
-| 长期使用 | editor-first 团队迁移成本低。 | 它不是 GitHub 平台，也不是最深的执行栈，常需要和其他入口配合。 |
-| 团队 rollout | 适合混合多种 agent 能力。 | 团队无法统一在 VS Code 上协作。 |
-| 补位路线 | GitHub Copilot | Cursor |
+| 控制面 | 本地探索和后台推进衔接自然。 | 团队不统一在 VS Code。 |
+| 任务连续性 | diff、终端、代码阅读集中在一处。 | 真复杂任务仍要切重执行栈。 |
+| 治理 | 作为补位层很有价值。 | background 产物长期无人收口。 |
+
+## 什么时候值得继续保留
+
+- 团队主要在 VS Code 里读写代码。
+- 你希望减少“编辑器、终端、平台”之间的上下文切换。
+- background agent 确实能承接长步骤，而不是摆设。
+- 你需要控制面，而不是另一个更重的执行栈。
+
+## 你会得到什么
+
+- editor-first 团队迁移成本低。
+- 本地探索和后台推进之间衔接自然。
+- 可以把 diff、代码阅读、终端和 agent 汇总在同一工作台。
+
+## 你要接受什么
+
+- 它不是平台闭环，也不是最深执行栈，通常要和其他入口配合。
+- 如果团队不统一在 VS Code，控制面价值会明显下降。
+- 如果 background 产物没有回到 repo 证据，编辑器优势会变成噪音。
 
 ## 替代路线
 
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更需要平台入口与异步 PR 闭环。
-- [Cursor](/docs/tools/ide-first/cursor)：如果你想把 editor-first 体验做得更深、更产品化。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要长任务执行与 worktree 能力。
-
-替代路线不是为了证明谁更强，而是为了在主入口已经不匹配时，尽快换到更合适的控制面、执行栈或 IDE 入口。
+- [GitHub Copilot](/docs/tools/platforms/github-copilot)：你更需要平台入口和异步 PR 闭环。
+- [Cursor](/docs/tools/ide-first/cursor)：你更想要更深、更产品化的 IDE-first 体验。
+- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：你更需要长任务执行栈和并行 lane。
 
 ## 退出信号
 
 - 团队无法统一在 VS Code 上协作。
-- 真正的复杂任务仍然需要大量切换到终端或平台，控制面没有形成价值闭环。
-- background agent 产物长期无人收口。
+- 真正复杂的任务总要切到终端执行栈，编辑器只剩展示层。
+- background agent 的产物长期没人收口。
+- 团队对 editor 规则和 repo 合同的边界越来越说不清。
 
-## 决策检查
+## 迁移顺序
 
-- 如果主线任务还落在 VS Code Agents 的优势区间，就继续保留它。
-- 如果退出信号已经持续出现，就不要再把它留在主入口。
-- 任何迁移都应该先迁出规则边界和证据链，再迁主入口本身。
+1. 先把规则和验收收回 repo。
+2. 再决定本地探索继续留在编辑器，还是转去终端入口。
+3. 最后再评估平台收口是否需要换主入口。
+
+## 最后判断题
+
+- 如果删掉 VS Code Agents，团队的本地工作流会不会明显变笨重。
+- 如果保留它，background 能不能真的减少人类负担。
+- 当前瓶颈到底是控制面不足，还是执行栈不足。
 
 ## 下一步
 
-- [GitHub Copilot](/docs/tools/platforms/github-copilot)：如果你更需要平台入口与异步 PR 闭环。
-- [Cursor](/docs/tools/ide-first/cursor)：如果你想把 editor-first 体验做得更深、更产品化。
-- [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)：如果你更需要长任务执行与 worktree 能力。
-- [Superpowers](/docs/workflows/community-frameworks/superpowers)：需要把计划、worktree 和 review ritual 固化时可以叠加。
+- 去 [VS Code Agents：工作流适配](/docs/tools/control-planes/vscode-agents/best-fit-workflows) 看哪些任务应该继续留在这里。
+- 去 [Cursor：优点与替代](/docs/tools/ide-first/cursor/tradeoffs-and-boundaries) 对比更深 IDE 路线。
+- 去 [OpenAI Codex：优点与替代](/docs/tools/execution-stacks/openai-codex/tradeoffs-and-boundaries) 对比执行栈路线。
 
 ## 来源
 

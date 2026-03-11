@@ -64,7 +64,17 @@ function createToolGuideCategory(tool) {
   };
 }
 
-function createQuickStartCategory(group) {
+function createQuickStartEntry(group) {
+  if (group.items.length === 1) {
+    const [item] = group.items;
+
+    return {
+      type: 'doc',
+      id: `${item.id}/quick-start`,
+      label: item.label,
+    };
+  }
+
   return {
     type: 'category',
     label: group.label,
@@ -135,7 +145,7 @@ const sidebars = {
     {
       type: 'category',
       label: '先跑 Quick Start',
-      items: validatedToolDocNavigation.quickStartGroups.map(createQuickStartCategory),
+      items: validatedToolDocNavigation.quickStartGroups.map(createQuickStartEntry),
     },
     {
       type: 'category',

@@ -20,50 +20,59 @@ tags: ["ai-coding", "workflow-framework", "superpowers"]
 
 # Superpowers：误用与退出条件
 
-框架最大的风险，不是它本身太差，而是团队把它用成“看起来很完整”的仪式，却没有把真实交付、验证和 review 绑进去。能不能及时退出错误用法，比一开始会不会写模板更重要。
+Superpowers 的风险，不是“太新”或“太社区”，而是它很容易看起来很完整，实际上却没有把真实交付、验证和 review 接进去。方法层一旦空心化，维护成本会迅速超过收益。
 
-## 常见误用
+## 最常见的误用
 
-- 装了框架却没有 repo 规则、测试门禁和 owner，最后只剩复杂 ritual。
-- 过度并行 subagent，导致 owner 无法解释每条 lane 在做什么。
-- 跳过 TDD 和 review，只保留“skills 很多”的表面热闹。
+- 把 lane 和 subagent 当成炫技手段，而不是降低返工和提高清晰度的手段。
+- skills、rules 和 worktree 很多，但没有稳定回流到 diff、测试和 review packet。
+- brainstorming 没讲清边界，就直接并行执行，最后 owner 无法解释每条 lane 为什么存在。
+- 把 Superpowers 当成治理总框架，试图跳过 repo contract、CI 和 merge 责任。
 
-## 维护成本
+## 隐性维护成本
 
-- 技能、模板和工作约定需要持续同步到团队真实做法。
-- 需要有人负责 worktree、plan 和 review packet 的最小标准。
-- 如果工具入口切换，Superpowers 的接入方式也要调整。
+- skills、模板和 lane 约定需要持续同步到真实仓库和真实工具入口。
+- worktree、review packet 和 finish note 需要有人维护最小标准。
+- 一旦主入口工具切换，方法层也要跟着调整，而不是假设永远通用。
+- 如果团队规模变化，lane 数量和分工深度也要跟着收缩。
 
-## 退出条件
+## 风险矩阵
 
-- 团队已经完全绕开它，回到各自 improvisation。
-- 大家能说出技能名，但说不出每个阶段产出什么。
-- 框架维护成本高于它带来的返工下降和节奏稳定收益。
-
-## 维护与退出矩阵
-
-| 判断面 | 继续保留框架的条件 | 该停下来做减法的信号 |
+| 风险 | 早期信号 | 更好的处理 |
 | --- | --- | --- |
-| 执行方式 | 技能、模板和工作约定需要持续同步到团队真实做法。 | 团队已经完全绕开它，回到各自 improvisation。 |
-| 团队认知 | 需要有人负责 worktree、plan 和 review packet 的最小标准。 | 大家能说出技能名，但说不出每个阶段产出什么。 |
-| 长期收益 | 如果工具入口切换，Superpowers 的接入方式也要调整。 | 框架维护成本高于它带来的返工下降和节奏稳定收益。 |
+| 过度并行 | lane 越来越多，但 owner 说不清每条 lane 的目标。 | 先压缩 lane 数量，只保留低耦合任务。 |
+| 技能腐化 | skills 越积越多，真实任务越来越少复用。 | 定期删减，保留高频有效能力。 |
+| review 空心化 | review packet 只剩总结，没有命令和验证事实。 | 把 review packet 改成证据汇总，而不是作文摘要。 |
+| 方法漂移 | 不同人都说在用 Superpowers，但做法完全不同。 | 固定最小模板和阶段定义，停止无限个性化。 |
+
+## 什么时候该降级使用
+
+- 团队已经回到各自 improvisation，框架只存在于文档标题。
+- owner 无法再区分哪些 ritual 真帮助 merge，哪些只是历史包袱。
+- 大多数任务其实只需要轻量 runbook 或 [OpenSpec](/docs/workflows/frameworks/openspec)。
+- 如果 planning 合同比执行纪律更痛，应该切回 [Spec Kit](/docs/workflows/frameworks/spec-kit) 或 [Spec-First](/docs/workflows/patterns/spec-first)。
+
+## 减法顺序
+
+1. 先减少 lane 数量和并行深度，只保留 owner 能稳定收口的结构。
+2. 再删掉没人会看的中间模板，把证据集中到 review packet 和 finish note。
+3. 然后收缩 skills 和 rules，只保留高频且仍有效的部分。
+4. 如果减完仍无人采用，就说明这套方法对当前团队偏重，应切回更轻骨架。
 
 ## 团队检查清单
 
-- 团队能不能说清每个阶段产出什么，而不只是记住框架名。
-- 框架维护成本有没有低于它带来的返工下降与节奏稳定收益。
-- 只要真实任务已经持续绕开这套骨架，就该先停下来做减法。
-
-这类风险页的作用，不是证明框架“也有问题”，而是帮助你在框架开始失效时尽早识别出错方向，避免继续往一个已经不被真实任务采用的骨架里堆更多 ritual。
+- 团队能不能说清每个阶段交付什么，而不只是记住框架名。
+- review 是否真的比以前更容易做判断，而不是多了一层摘要。
+- owner 是否能稳定解释每条 lane 的目标、结果和剩余风险。
+- 框架维护成本是否低于它带来的返工下降和节奏稳定收益。
 
 ## 下一步怎么读
 
-- [BMAD](/docs/workflows/frameworks/bmad)：如果你需要团队角色和阶段制度，BMAD 更适合组织治理。
-- [Spec Kit](/docs/workflows/frameworks/spec-kit)：如果你主要想固定 spec -> plan -> tasks，Spec Kit 更直接。
-- [OpenSpec](/docs/workflows/frameworks/openspec)：如果你主要是 brownfield 小改动管理，OpenSpec 更轻。
-- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)：Superpowers 很适合叠加在终端式 repo pairing 上。
-- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)：它把 worktree 和 subagent 使用方式标准化。
-- [Spec-First](/docs/workflows/patterns/spec-first)：复杂任务可先 spec-first，再交给 Superpowers 组织日常执行。
+- [Superpowers：边界与替代方案](/docs/workflows/community-frameworks/superpowers/fit-vs-alternatives)
+- [OpenSpec](/docs/workflows/frameworks/openspec)
+- [Spec Kit](/docs/workflows/frameworks/spec-kit)
+- [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)
+- [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent)
 
 ## 来源
 

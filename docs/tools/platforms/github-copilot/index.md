@@ -52,6 +52,26 @@ GitHub Copilot 更合理的定位不是“另一个聊天入口”，而是 GitH
 | 团队约束 | 团队已有分支保护、PR 模板和 reviewer 机制。 | 先把 issue hygiene 和验收标准写实，再扩大平台使用面。 |
 | 退出信号 | 团队越来越绕过 GitHub，在别处探索、交付和 review。 | 一旦出现这些信号，就优先评估 [VS Code Agents](/docs/tools/control-planes/vscode-agents) 或 [OpenAI Codex](/docs/tools/execution-stacks/openai-codex)。 |
 
+## 谁最适合用
+
+- 已经把 GitHub 或 Jira 当成正式工作系统的团队。
+- reviewer 文化成熟、需要稳定 PR 节奏的团队。
+- 希望把异步委派、draft PR 和 branch protection 串成一条线的人。
+- 更在意组织可追踪性，而不是个人入口自由度的人。
+
+## 不要期待它做什么
+
+- 不要期待它替你完成本地终端深潜和复杂仓库排查。
+- 不要期待它在 issue 还没写清时替你补需求工程。
+- 不要期待它单独承担开放工具编排、worktree 策略和长任务执行栈。
+
+## 团队采用前检查
+
+- issue 模板、PR 模板和 reviewer 规则是否已经稳定。
+- 平台里产出的结果是否能回到 diff、验证和风险说明。
+- merge 责任是否仍然归人，而不是隐性转给 agent。
+- 当平台不再是主协作系统时，是否有明确退出路线。
+
 ## 默认补位组合
 
 - [VS Code Agents](/docs/tools/control-planes/vscode-agents)：本地控制面与 GitHub 平台形成前后端分工。

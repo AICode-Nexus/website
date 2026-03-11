@@ -52,6 +52,26 @@ Windsurf 的合理定位不是“另一个 IDE 插件”，而是一套整合好
 | 团队约束 | 团队愿意把 repo 合同写在公共文件里，不让记忆层变成唯一知识源。 | 先理顺 AGENTS.md、规则和 memory 边界，再扩大使用面。 |
 | 退出信号 | 团队无法解释 memories、rules 与 repo contract 的边界。 | 一旦出现这些信号，就优先评估 [Cursor](/docs/tools/ide-first/cursor) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。 |
 
+## 谁最适合用
+
+- 想要一体化 IDE 工作台而不是自己拼装工具链的人。
+- 重视连续上下文、rules 和记忆接续的个人和小团队。
+- 希望把 AGENTS.md 发现、workspace 和记忆层收进一个产品的人。
+- 更看重产品化体验，而不是开放壳层自由度的人。
+
+## 不要期待它做什么
+
+- 不要期待它替代开放工具栈和正式执行栈。
+- 不要期待记忆层可以长期充当唯一知识源。
+- 不要期待工作台内部状态能天然变成公共 review 证据。
+
+## 团队采用前检查
+
+- AGENTS.md、产品内 rules 和记忆层的优先级是否已经讲清。
+- 关键结论能否稳定回写到 repo、PR 或任务系统。
+- 团队是否真的需要一体化工作台，而不是更轻或更开放的入口。
+- 如果记忆层开始失控，是否知道切去 [Cursor](/docs/tools/ide-first/cursor) 或 [GitHub Copilot](/docs/tools/platforms/github-copilot)。
+
 ## 默认人工接管点
 
 - repo 级事实、验证命令和 handoff 条件必须写回公共文件，不要只藏在 memories 里。

@@ -20,7 +20,7 @@ tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 
 # Issue / Jira -> Draft PR
 
-这条主线的合理性不在“平台里也能让 agent 干活”，而在它把清晰任务、异步交付、draft PR 和人工 review 连成了一套工作系统。
+这条主线的合理性不在“平台里也能让 agent 干活”，而在它把清晰任务、异步交付、draft PR 和人工 review 连成了一套工作系统。它的前提永远是任务系统先清楚，而不是平台工具先强大。
 
 ## 现在先做什么
 
@@ -39,7 +39,7 @@ tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 1. 先用 [Issue / Jira -> Draft PR Runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook) 跑通最小平台闭环。
 2. 再看 [Issue / Jira -> Draft PR 示例](/docs/workflows/patterns/issue-to-draft-pr/examples) 对照真实 issue、draft PR 和 review 证据。
 3. 然后按入口选择 [GitHub Copilot 快速开始](/docs/tools/platforms/github-copilot/quick-start) 或 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start)。
-4. 最后再补 [Issue / Jira -> Draft PR 风险与切换条件](/docs/workflows/patterns/issue-to-draft-pr/pitfalls) 和补充页。
+4. 最后再补 [Issue / Jira -> Draft PR 风险与切换条件](/docs/workflows/patterns/issue-to-draft-pr/pitfalls)、[适用信号](/docs/workflows/patterns/issue-to-draft-pr/fit-and-signals) 和 [治理与风险](/docs/workflows/patterns/issue-to-draft-pr/governance-and-risks)。
 
 ## 快速判断矩阵
 
@@ -50,11 +50,26 @@ tags: ["ai-coding", "workflow", "issue-to-draft-pr"]
 | 验收要求 | 重视工作系统里的可追溯性，而不是实时同步盯执行。 | 把验收标准和风险说明写回 issue 与 PR。 |
 | 切换信号 | 需求仍模糊，或高风险变更却无人负责最终收口。 | 先回到 [Spec-First](/docs/workflows/patterns/spec-first) 或本地探索。 |
 
+## 谁最适合先跑这条主线
+
+- 已有 issue hygiene、PR 模板和 branch protection 的团队。
+- 以 reviewer 节奏和异步交付为中心的团队。
+- 任务来源天然就在 Jira 或 GitHub 的团队。
+- 想把“任务定义 -> draft PR -> human review”固定成制度的人。
+
+## 不该硬上的情况
+
+- 需求边界仍然模糊，需要大量实时讨论。
+- 团队并不真正依赖平台 review 流。
+- draft PR 常常变成“先提上来再说”，没有验证和风险说明。
+- 高风险改动没有明确 merge owner。
+
 ## 默认人工接管点
 
 - 任务没到“可委派”状态之前，不应该直接丢给后台 agent。
 - draft PR 是 review 起点，不是终点，必须保留人工把关。
 - 如果 PR 暴露出需求缺失，要回到 issue 层修，而不是让 reviewer 补需求。
+- 一旦本地探索价值大于平台流，及时切去 [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud)。
 
 ## 下一步怎么读
 

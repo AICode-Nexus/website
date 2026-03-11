@@ -20,7 +20,7 @@ tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
 
 # Bugfix / Refactor / Test
 
-这是知识站里最该优先跑通的日常主线之一。它不追求“最先进”，而是把修 bug、局部重构和补测试固定成最小可验证闭环。
+这是知识站里最该优先跑通的日常主线之一。它不追求“最先进”，而是把修 bug、局部重构和补测试固定成最小可验证闭环，让团队先把最常见、最容易失控的维护任务做稳。
 
 ## 现在先做什么
 
@@ -39,7 +39,7 @@ tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
 1. 先用 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook) 跑通最小闭环。
 2. 再看 [Bugfix / Refactor / Test 示例](/docs/workflows/patterns/bugfix-refactor-test/examples) 对照真实输入、输出和验证。
 3. 然后按入口选择 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)、[Gemini CLI 快速开始](/docs/tools/terminal-agents/gemini-cli/quick-start) 或 [VS Code Agents 快速开始](/docs/tools/control-planes/vscode-agents/quick-start)。
-4. 最后再补 [Bugfix / Refactor / Test 风险与切换条件](/docs/workflows/patterns/bugfix-refactor-test/pitfalls) 和补充页。
+4. 最后再补 [Bugfix / Refactor / Test 风险与切换条件](/docs/workflows/patterns/bugfix-refactor-test/pitfalls)、[适用信号](/docs/workflows/patterns/bugfix-refactor-test/fit-and-signals) 和 [治理与风险](/docs/workflows/patterns/bugfix-refactor-test/governance-and-risks)。
 
 ## 快速判断矩阵
 
@@ -50,11 +50,26 @@ tags: ["ai-coding", "workflow", "bugfix-refactor-test"]
 | 验收要求 | 团队更在意稳定回归，而不是借机做大规模设计翻新。 | 把验证证据和剩余风险一并回收到 PR。 |
 | 切换信号 | 需求本身还在探索，或改动已跨到 schema / 架构层。 | 转去 [Spec-First](/docs/workflows/patterns/spec-first) 或更重流程。 |
 
+## 谁最适合先跑这条主线
+
+- 已经有明确复现路径和验证命令的维护团队。
+- 不想把每次 bugfix 都升级成“重新设计”的团队。
+- 需要把根因、最小改动和回归证据固定成日常节奏的人。
+- 正在搭建 AI coding 默认工作流，想先从最稳的一条开始的人。
+
+## 不该硬上的情况
+
+- 需求还在探索，连预期行为都没定清。
+- 这轮真实目标是架构翻新，而不是维护。
+- 没有验证脚本、没有回归步骤、没有 reviewer 判断标准。
+- 团队默认会在修复中顺手做大重构，却没有额外审批。
+
 ## 默认人工接管点
 
 - 根因没说清之前，不进入大改动。
 - 重构必须先写出行为边界，否则 review 无从判断是否越界。
 - 最终交付要附回归结果和覆盖缺口，而不是只贴 diff。
+- 一旦发现任务已不再是“最小维护闭环”，立即切回 [Spec-First](/docs/workflows/patterns/spec-first)。
 
 ## 下一步怎么读
 
