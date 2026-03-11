@@ -274,6 +274,12 @@ const config = {
           position: 'left',
         },
         {
+          to: '/docs/ai-directory',
+          label: 'AI 资源导航',
+          activeBaseRegex: '^/docs/ai-directory(?:/|$)',
+          position: 'right',
+        },
+        {
           to: '/docs/resources/videos',
           label: '视频资源',
           activeBaseRegex: '^/docs/resources(?:/|$)',

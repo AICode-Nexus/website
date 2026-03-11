@@ -180,6 +180,37 @@
   color: var(--ifm-color-emphasis-700);
 }
 
+.entryName {
+  margin-bottom: 0.25rem;
+}
+
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.tagPill {
+  display: inline-flex;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+:global([data-theme='dark']) .tagPill {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ifm-color-emphasis-200);
+}
+
+.linkStack {
+  display: grid;
+  gap: 0.35rem;
+}
+
 .emptyState {
   margin: 0;
   color: var(--ifm-color-emphasis-700);

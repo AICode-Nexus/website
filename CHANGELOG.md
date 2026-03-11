@@ -14,6 +14,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- A data-driven `AI 资源导航` docs section under `/docs/ai-directory`, with seven curated directories spanning AI coding products, execution agents, agent frameworks, eval/LLMOps tools, model platforms, MCP ecosystem resources, Chinese community navigators, and official learning resources such as Microsoft `ai-agents-for-beginners`.
 - An automated Daily Brief pipeline that reads official GitHub / VS Code / OpenAI feeds, generates a dated source manifest, publishes the daily blog post directly, and emits a no-signal brief when there is no material AI coding update.
 - Homepage latest updates now derive from published blog metadata at build time so the portal refreshes automatically as soon as a Daily Brief is published.
 - A tutorial-first public IA with new `开始上手 / 工具教程 / 工作流教程 / 实战案例 / 进阶专题 / 动态` entry points, a rebuilt homepage, and a new homepage data contract centered on starter tracks, featured tutorials, case studies, and updates.

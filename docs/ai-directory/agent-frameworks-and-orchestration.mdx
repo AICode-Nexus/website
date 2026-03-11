@@ -1,0 +1,66 @@
+---
+title: Agent 框架与编排
+description: 收 OpenAI Agents SDK、AutoGen、LangGraph、CrewAI 等常见 agent framework 和 orchestration 入口。
+slug: /ai-directory/agent-frameworks
+displayed_sidebar: aiDirectorySidebar
+sidebar_label: Agent 框架与编排
+tags: [ai-coding, agents, frameworks, directory]
+track: cross-track
+kind: guide
+content_form: resource
+audience: mixed
+stage: starter
+featured: false
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-03-11
+source_window_end: 2026-03-11
+market_status: current
+---
+
+import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+
+# Agent 框架与编排
+
+这一页不是收“会聊天的 UI”，而是收那些真正帮你组织工具调用、状态流转、handoff 和多 agent 拓扑的 SDK 与框架。判断标准是：它能不能成为你业务里的 agent runtime 或 workflow backbone。
+
+## 先判断你要 SDK 还是 orchestration
+
+- 如果你要的是轻量封装、函数工具和 handoff 能力，优先看 SDK 类入口。
+- 如果你要的是图式编排、多角色流程、长期状态和复杂路由，优先看 orchestration 类框架。
+- 如果你只是想试一个 demo，不要急着上重框架；先用轻量 SDK 跑一个真实任务再决定。
+
+## 首批精选入口
+
+<AiDirectoryCategoryView categoryId="agent-frameworks" />
+
+## 什么时候先用轻量 SDK
+
+- 你还没跑通第一个工具调用、handoff 或 approval loop。
+- 你当前最重要的是验证任务闭环，而不是先追求多 agent 拓扑。
+- 你还没有清楚的 tracing、eval 和状态管理策略，上重框架会先把复杂度抬起来。
+
+## 继续阅读
+
+<RelatedReadings
+  title="继续阅读"
+  description="选框架前，最好先把任务工作流和工具主线跑通。"
+  items={[
+    {
+      title: '工作流框架总览',
+      href: '/docs/workflows/frameworks-overview',
+      description: '先区分方法论框架、交付框架和真正的 agent runtime。',
+    },
+    {
+      title: 'AI 工作流',
+      href: '/docs/workflows',
+      description: '把框架选择拉回到具体任务流程，而不是只看技术名词。',
+    },
+    {
+      title: 'AI 资源导航首页',
+      href: '/docs/ai-directory',
+      description: '回到目录首页，切换到工具入口、LLMOps、模型平台或学习资源。',
+    },
+  ]}
+/>

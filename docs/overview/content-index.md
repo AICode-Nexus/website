@@ -58,6 +58,7 @@ import {RelatedReadings} from '@site/src/components/docs';
 ## 什么时候回资源中心或归档
 
 - 如果你只缺视频、课程和材料，回 [视频资源](/docs/resources/videos)。
+- 如果你缺的是官网、官方文档和仓库地址目录，去 [AI 资源导航](/docs/ai-directory)。
 - 如果你只是在追踪短期变化，再去 [Daily Brief](/blog)。
 - 如果你需要查旧分类词汇，再去 [旧赛道归档](/docs/archive)。
 
@@ -79,6 +80,11 @@ import {RelatedReadings} from '@site/src/components/docs';
       title: '实战案例',
       href: '/docs/case-studies',
       description: '查看完整的工具 + 工作流 + 验证闭环。',
+    },
+    {
+      title: 'AI 资源导航',
+      href: '/docs/ai-directory',
+      description: '查看官网、官方文档、开源仓库和课程入口的分类目录。',
     },
     {
       title: '趋势观察',

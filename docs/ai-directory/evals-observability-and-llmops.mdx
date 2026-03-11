@@ -1,0 +1,66 @@
+---
+title: Eval、观测与 LLMOps
+description: 收 tracing、prompt regression、应用观测和实验管理相关的网站与仓库。
+slug: /ai-directory/evals-and-llmops
+displayed_sidebar: aiDirectorySidebar
+sidebar_label: Eval、观测与 LLMOps
+tags: [ai-coding, evals, llmops, observability, directory]
+track: cross-track
+kind: guide
+content_form: resource
+audience: mixed
+stage: starter
+featured: false
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-03-11
+source_window_end: 2026-03-11
+market_status: current
+---
+
+import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+
+# Eval、观测与 LLMOps
+
+AI 应用一旦进入多人协作或线上环境，光有模型和 agent 不够。你还需要 trace、prompt 回归测试、实验记录、成本观察和生产态诊断入口。这一页就是把这些工具按工程任务集中起来。
+
+## 这类资源解决什么问题
+
+- 帮你快速找到 tracing、prompt regression 和 experiment 平台的稳定入口。
+- 把“观测工具”和“生产平台”分开看，避免刚开始就把平台层做过大。
+- 让你先补可见性，再回到治理和工作流做落地。
+
+## 首批精选入口
+
+<AiDirectoryCategoryView categoryId="evals-and-llmops" />
+
+## 接入顺序建议
+
+1. 先补 tracing，不然你连 agent 到底做了什么都很难稳定复盘。
+2. 再补 regression eval，把关键任务收成可重复跑的检查项。
+3. 最后再看更重的 experiment / platform 管理，不要一开始就把平台层做得过大。
+
+## 继续阅读
+
+<RelatedReadings
+  title="继续阅读"
+  description="观测和 eval 最终要回到你的流程与治理，而不是只留在工具层。"
+  items={[
+    {
+      title: '规范评估与治理',
+      href: '/docs/standards',
+      description: '把 eval、review、风险和门禁收回到规则层。',
+    },
+    {
+      title: 'AI 工作流',
+      href: '/docs/workflows',
+      description: '让 tracing 与 regression 回到具体交付流程里。',
+    },
+    {
+      title: 'AI 资源导航首页',
+      href: '/docs/ai-directory',
+      description: '回到目录首页，切换到工具入口、模型平台或学习资源。',
+    },
+  ]}
+/>

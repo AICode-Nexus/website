@@ -1,0 +1,66 @@
+---
+title: MCP 与协议生态
+description: 收 Model Context Protocol 官方入口、SDK、注册表和协议生态里的高频资源。
+slug: /ai-directory/mcp-and-protocols
+displayed_sidebar: aiDirectorySidebar
+sidebar_label: MCP 与协议生态
+tags: [ai-coding, mcp, protocol, directory]
+track: cross-track
+kind: guide
+content_form: resource
+audience: mixed
+stage: starter
+featured: false
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-03-11
+source_window_end: 2026-03-11
+market_status: current
+---
+
+import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+
+# MCP 与协议生态
+
+这一页收的是 `Model Context Protocol` 及其周边生态，而不是单纯的“某个工具支持不支持 MCP”。目标是把协议文档、官方 SDK、参考实现和常用目录站放在一个稳定入口里。
+
+## 先看哪一层
+
+- 先看协议原点和官方 SDK，别一开始就刷社区 server 列表。
+- 再看官方 servers 仓库和参考实现，建立对 server 形状的直觉。
+- 最后再看 `Smithery`、`MCP.so` 这类社区目录站，作为发现层补充。
+
+## 首批精选入口
+
+<AiDirectoryCategoryView categoryId="mcp-and-protocols" />
+
+## 建议进入顺序
+
+1. 先读 `Model Context Protocol` 官方文档。
+2. 再按语言选择 `TypeScript SDK` 或 `Python SDK`。
+3. 需要快速扫生态时，再看 `Smithery`、`MCP.so` 之类的目录站。
+
+## 继续阅读
+
+<RelatedReadings
+  title="继续阅读"
+  description="MCP 是协议与工具桥接层，真正落地还要回架构、工具和工作流。"
+  items={[
+    {
+      title: 'MCP 与工具拓扑',
+      href: '/docs/mcp-tool-topology',
+      description: '把协议入口拉回到系统拓扑和架构边界。',
+    },
+    {
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '继续判断哪些工具真正值得接入 MCP 生态。',
+    },
+    {
+      title: 'AI 资源导航首页',
+      href: '/docs/ai-directory',
+      description: '回到目录首页，切换到模型平台、课程或中文社区资源。',
+    },
+  ]}
+/>

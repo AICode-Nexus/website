@@ -59,6 +59,10 @@ const EXPECTED_NAVBAR_LEFT_ITEMS = [
 ];
 const EXPECTED_NAVBAR_RIGHT_ITEMS = [
   {
+    label: 'AI 资源导航',
+    to: '/docs/ai-directory',
+  },
+  {
     label: '视频资源',
     to: '/docs/resources/videos',
   },

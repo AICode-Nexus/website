@@ -317,6 +317,17 @@ const sidebars = {
     },
   ],
 
+  aiDirectorySidebar: [
+    'ai-directory/index',
+    'ai-directory/coding-agents-and-products',
+    'ai-directory/agent-frameworks-and-orchestration',
+    'ai-directory/evals-observability-and-llmops',
+    'ai-directory/learning-and-curated-collections',
+    'ai-directory/model-platforms',
+    'ai-directory/mcp-and-protocols',
+    'ai-directory/chinese-community',
+  ],
+
   archiveSidebar: [
     'archive/index',
     {

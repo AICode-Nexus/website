@@ -1,0 +1,120 @@
+---
+title: AI 资源导航
+description: 把优秀的 AI 官网、官方文档、开源仓库和课程入口按使用场景收成一个可持续扩展的目录。
+slug: /ai-directory
+displayed_sidebar: aiDirectorySidebar
+sidebar_label: AI 资源导航
+tags: [ai-coding, directory, resources]
+track: cross-track
+kind: hub
+content_form: resource
+audience: mixed
+stage: starter
+featured: true
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-03-11
+source_window_end: 2026-03-11
+market_status: current
+---
+
+import {ChecklistPanel, RelatedReadings, ScenarioCards} from '@site/src/components/docs';
+import {aiDirectoryCategories, getAiDirectoryEntriesByCategory} from '@site/src/data/aiDirectory';
+
+export const directoryCards = aiDirectoryCategories.map((category, index) => ({
+  id: category.id,
+  meta: `目录 ${String(index + 1).padStart(2, '0')}`,
+  title: category.title,
+  description: category.description,
+  href: category.slug,
+  bullets: [`当前收录 ${getAiDirectoryEntriesByCategory(category.id).length} 个入口`],
+}));
+
+# AI 资源导航
+
+这不是“AI 全网大全”，而是一个面向 `AI coding / agents / LLM application` 的精选目录。目标是把优秀官网、官方文档、开源仓库和课程入口放到一个可维护的结构里，减少你每次都从搜索引擎重新找入口的成本。
+
+## 这页怎么用
+
+- 先按你当前缺的入口形状分，再进入具体分类页，而不是先刷热门榜单。
+- 如果你在找产品、IDE、CLI 或执行型 agent，先去 `AI 编码工具与执行型 Agent`。
+- 如果你在找 framework、RAG/agent runtime、LLMOps 或模型平台，直接切到对应分类，不要和学习资源混看。
+- 如果你更需要中文入口和长期收藏站，再去 `中文社区与精选导航`。
+
+## 目录结构
+
+<ScenarioCards
+  title="先按资源形状分，再往下扩"
+  description="这轮把 AI 资源导航正式改成数据驱动目录，分类卡片和分类页都从统一数据源读取。"
+  items={directoryCards}
+/>
+
+## 收录规则
+
+<ChecklistPanel
+  title="首批目录遵守的 5 条规则"
+  description="这不是按热度抄榜单，而是按后续可维护性筛选。"
+  items={[
+    {
+      id: 'official-first',
+      label: '官方优先',
+      description: '优先官网、官方 docs、官方 GitHub 仓库或官方课程页。',
+    },
+    {
+      id: 'repo-reality',
+      label: '仓库真实可用',
+      description: '每个条目至少保留一个可访问入口，优先保存官网、Docs、GitHub 这三类稳定地址。',
+    },
+    {
+      id: 'ai-coding-scope',
+      label: '范围收敛',
+      description: '先围绕 AI coding、agents、LLM application 和相关工程工具，不把泛 AI 新闻站混进来。',
+    },
+    {
+      id: 'category-by-job',
+      label: '按工作任务分层',
+      description: '分类以“我要做什么”为主，不按营销话术或投资热度排目录。',
+    },
+    {
+      id: 'date-rigor',
+      label: '带日期复核',
+      description: '当前目录按 2026-03-11 复核首批官方或社区精选入口，后续扩容沿用同一节奏。',
+    },
+  ]}
+/>
+
+## 这轮补了什么
+
+- 把原来 4 个手写表格页升级成统一数据源驱动的目录。
+- 在原有 `编码工具 / Agent`、`框架 / 编排`、`Eval / LLMOps`、`课程 / Cookbook` 之外，新增了 `模型 API 与平台`、`MCP 与协议生态`、`中文社区与精选导航` 三类。
+- 继续保留 [Microsoft AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) 作为学习资源类的官方课程仓库样板。
+
+## 继续阅读
+
+<RelatedReadings
+  title="继续阅读"
+  description="资源导航解决的是“去哪里找入口”，不替代工具教程、工作流和视频资源本身。"
+  items={[
+    {
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '回到工具教程主线，按平台、控制面、执行栈、终端和 IDE-first 进入具体 quick start。',
+    },
+    {
+      title: 'AI 工作流',
+      href: '/docs/workflows',
+      description: '把找到的工具和资源回收成稳定的交付流程。',
+    },
+    {
+      title: '视频资源',
+      href: '/docs/resources/videos',
+      description: '如果你缺的是可直接观看的课程或视频素材，去视频资源中心。',
+    },
+    {
+      title: '内容索引',
+      href: '/docs/content-index',
+      description: '如果你要找的是对比文、案例或趋势判断，回内容索引。',
+    },
+  ]}
+/>

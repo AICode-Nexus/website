@@ -1,3 +1,5 @@
+export {default as AiDirectoryCategoryView} from './AiDirectoryCategoryView';
+export {default as AiDirectoryTable} from './AiDirectoryTable';
 export {default as ChecklistPanel} from './ChecklistPanel';
 export {default as DecisionMatrix} from './DecisionMatrix';
 export {default as LearningResources} from './LearningResources';

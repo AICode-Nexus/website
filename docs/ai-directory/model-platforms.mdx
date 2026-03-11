@@ -1,0 +1,66 @@
+---
+title: 模型 API 与平台
+description: 收主流模型 API、推理平台和多模型接入入口，便于快速确定默认 provider 策略。
+slug: /ai-directory/model-platforms
+displayed_sidebar: aiDirectorySidebar
+sidebar_label: 模型 API 与平台
+tags: [ai-coding, model-platforms, providers, directory]
+track: cross-track
+kind: guide
+content_form: resource
+audience: mixed
+stage: starter
+featured: false
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-03-11
+source_window_end: 2026-03-11
+market_status: current
+---
+
+import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+
+# 模型 API 与平台
+
+这一类资源解决的是“我该先把哪些模型 API 和 provider 入口固定下来”。这里不做详细对比，而是帮你把官网、Docs 和统一 provider 入口先收藏好，避免每次临时再找。
+
+## 这类资源怎么用
+
+- 先把主 provider 的官方 Docs 收下来，建立默认接入基线。
+- 再根据是否需要开源模型、多模型路由或性能型推理平台补第二层入口。
+- 不要把聚合入口当成唯一事实来源，核心能力仍以官方平台为准。
+
+## 首批精选入口
+
+<AiDirectoryCategoryView categoryId="model-platforms" />
+
+## 建议进入顺序
+
+1. 先看 `OpenAI / Anthropic / Gemini` 这类主 provider 官方入口。
+2. 如果你要补开源模型和多模型平台，再看 `Hugging Face / Together / Replicate / Fireworks`。
+3. 如果你只是想快速做横向试验，再把 `OpenRouter` 当精选补充，而不是平台基线。
+
+## 继续阅读
+
+<RelatedReadings
+  title="继续阅读"
+  description="模型平台决定的是默认 provider 入口，真正的产品形态还要回工具和工作流。"
+  items={[
+    {
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '回到工具教程主线，继续判断平台、控制面、执行栈和 IDE-first。',
+    },
+    {
+      title: 'AI 工作流',
+      href: '/docs/workflows',
+      description: '把模型选择拉回到任务交付链，而不是只比参数和价格。',
+    },
+    {
+      title: 'AI 资源导航首页',
+      href: '/docs/ai-directory',
+      description: '回到目录首页，切换到 MCP、课程或中文社区资源。',
+    },
+  ]}
+/>
