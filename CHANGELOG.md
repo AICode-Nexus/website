@@ -11,6 +11,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 - Scoped Google Analytics `gtag` to production builds only so local Docusaurus navigation no longer crashes with `window.gtag is not a function` during development.
 - Aligned blog list page backgrounds with the docs surface so the global body gradient no longer bleeds through article spacing while scrolling.
+- Teaching video resource pages now compute sync health at runtime, showing explicit `同步延迟` / `数据陈旧` states when the 6-hour auto-refresh window is missed instead of only echoing the build-time timestamp.
 
 ### Added
 

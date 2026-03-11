@@ -20,20 +20,15 @@ market_status: current
 ---
 
 import TeachingVideoCatalogPage from '@site/src/components/teaching-videos/TeachingVideoCatalogPage';
+import TeachingVideoSyncSummary from '@site/src/components/teaching-videos/TeachingVideoSyncSummary';
 import {RelatedReadings} from '@site/src/components/docs';
 import {teachingVideoCatalog, teachingVideoCatalogSync} from '@site/src/data/teachingVideos';
-
-export const lastSyncedAt = new Intl.DateTimeFormat('zh-CN', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-  timeZone: 'Asia/Shanghai',
-}).format(new Date(teachingVideoCatalog.generatedAt));
 
 # AI Code 全部视频
 
 这个页面只保留近 90 天、{teachingVideoCatalogSync.intervalLabel} 自动同步一次的公开视频条目。课程聚合已经拆到独立课程目录，避免打断“筛选 -> 结果 -> 下钻”的主链路。
 
-最近一次同步：**{lastSyncedAt}**；自动同步周期：**{teachingVideoCatalogSync.intervalLabel}**
+<TeachingVideoSyncSummary generatedAt={teachingVideoCatalog.generatedAt} showPill />
 
 ## 什么时候优先看全部视频
 

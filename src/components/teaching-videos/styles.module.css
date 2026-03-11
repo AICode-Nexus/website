@@ -79,6 +79,15 @@
   font-size: 0.82rem;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.statusPillOk {
+  color: #0f766e;
+  background: rgba(240, 253, 250, 0.98);
+  border-color: rgba(13, 148, 136, 0.18);
+}
+
+.statusPillWarning {
   color: #92400e;
   background: rgba(255, 247, 237, 0.96);
   border-color: rgba(245, 158, 11, 0.2);
@@ -88,6 +97,16 @@
   color: #991b1b;
   background: rgba(254, 242, 242, 0.98);
   border-color: rgba(239, 68, 68, 0.18);
+}
+
+.syncMetaWarning {
+  color: #9a3412;
+  font-weight: 700;
+}
+
+.syncMetaCritical {
+  color: #b91c1c;
+  font-weight: 700;
 }
 
 .metricsGrid {
@@ -529,13 +548,26 @@
   border-color: transparent;
 }
 
-:global([data-theme='dark']) .statusPill {
+:global([data-theme='dark']) .statusPillOk {
+  background: rgba(15, 118, 110, 0.24);
+  color: #99f6e4;
+}
+
+:global([data-theme='dark']) .statusPillWarning {
   background: rgba(120, 53, 15, 0.24);
   color: #fdba74;
 }
 
 :global([data-theme='dark']) .statusPillCritical {
   background: rgba(127, 29, 29, 0.32);
+  color: #fca5a5;
+}
+
+:global([data-theme='dark']) .syncMetaWarning {
+  color: #fdba74;
+}
+
+:global([data-theme='dark']) .syncMetaCritical {
   color: #fca5a5;
 }
 

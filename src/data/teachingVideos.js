@@ -293,9 +293,15 @@ function normalizeTeachingVideoCatalog(rawCatalog) {
 
 export const teachingVideoCatalogSync = Object.freeze({
   intervalHours: 6,
+  overdueThresholdHours: 8,
+  staleThresholdHours: 48,
   intervalLabel: '每 6 小时',
   pillLabel: '每 6 小时自动同步',
   description: 'GitHub Actions 每 6 小时自动刷新一次目录数据',
+  delayedLabel: '同步延迟',
+  delayedDescription: '当前已超过 8 小时未刷新，这次自动同步可能延迟。',
+  staleLabel: '数据陈旧',
+  staleDescription: '当前已超过 48 小时未刷新，需要手动检查同步工作流。',
 });
 
 export const teachingVideoCatalog = defineTeachingVideoCatalog(

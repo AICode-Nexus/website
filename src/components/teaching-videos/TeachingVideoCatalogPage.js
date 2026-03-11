@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {useHistory, useLocation} from '@docusaurus/router';
 import {useWindowSize} from '@docusaurus/theme-common';
-import {teachingVideoCatalog, teachingVideoCatalogSync} from '@site/src/data/teachingVideos';
+import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
 import {
   formatTeachingVideoDuration,
   getTeachingVideoCatalogPermalink,
@@ -24,6 +24,7 @@ import {
   parseTeachingVideoCatalogSearch,
   TEACHING_VIDEO_PAGE_SIZE,
 } from '@site/src/utils/teachingVideoCatalogState.mjs';
+import TeachingVideoSyncSummary from './TeachingVideoSyncSummary';
 import styles from './styles.module.css';
 
 const COURSE_MAP = new Map(teachingVideoCatalog.courses.map((course) => [course.id, course]));
@@ -190,12 +191,6 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
     : '';
   const visibleResultIds = pageItems.map((item) => item.id).join('|');
   const paginationTokens = isMobileCatalog ? [] : buildTeachingVideoPaginationTokens(currentPage, totalPages);
-  const lastSyncedAt = new Intl.DateTimeFormat('zh-CN', {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-    timeZone: 'Asia/Shanghai',
-  }).format(new Date(teachingVideoCatalog.generatedAt));
-  const stale = teachingVideoCatalog.metrics.stale.isStale;
   const focusResults = searchFocusesTeachingVideoResults(location.search);
   const preserveTargetsOnPagination = resource.id === 'videos' && Boolean(catalogState.targetCourseId);
   const resultsMeta = resource.id === 'courses'
@@ -303,17 +298,19 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
       <section className={styles.hero}>
         <div className={styles.heroTitleRow}>
           <h2 className={styles.heroTitle}>{resource.heroTitle}</h2>
-          <span className={stale ? `${styles.statusPill} ${styles.statusPillCritical}` : styles.statusPill}>
-            {stale ? '数据陈旧' : teachingVideoCatalogSync.pillLabel}
-          </span>
+          <TeachingVideoSyncSummary
+            generatedAt={teachingVideoCatalog.generatedAt}
+            showMeta={false}
+            showNote={false}
+            showPill
+          />
         </div>
         <p className={styles.heroDescription}>
           当前目录只展示 {teachingVideoCatalog.windowStart} 到 {teachingVideoCatalog.windowEnd} 的公开教学内容。
           {resource.heroDescription}
         </p>
         <div className={styles.heroMetaRow}>
-          <p className={styles.heroMetaText}>最近同步：{lastSyncedAt}</p>
-          <p className={styles.heroMetaText}>自动同步周期：{teachingVideoCatalogSync.intervalLabel}</p>
+          <TeachingVideoSyncSummary generatedAt={teachingVideoCatalog.generatedAt} />
           <p className={styles.heroMetaText}>分页大小：{TEACHING_VIDEO_PAGE_SIZE} 条</p>
           <p className={styles.heroMetaText}>来源：{teachingVideoCatalog.sources.length} 个启用源</p>
         </div>
