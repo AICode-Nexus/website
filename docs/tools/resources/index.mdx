@@ -1,6 +1,6 @@
 ---
 title: 视频资源说明
-description: 视频资源 tab 现在默认直接打开全部视频列表；本文只保留“全部视频”和“课程目录”的分工说明。
+description: 视频资源 tab 现在默认直接打开全部视频列表；只有当前时间窗形成多集系列时才会额外开放课程目录。
 slug: /resources/guide
 sidebar_label: 视频资源说明
 tags: [ai-coding, resources, teaching-videos]
@@ -25,15 +25,15 @@ import {RelatedReadings} from '@site/src/components/docs';
 
 `视频资源` tab 现在默认直接进入 [全部视频](/docs/resources/videos)。这个页面不再作为主入口，只保留 `全部视频` 和 `课程目录` 的分工说明。
 
-这里默认拆成两类视图：
+这里默认以 `全部视频` 为主视图；只有当前时间窗形成了真实多集系列时，才会额外开放 `课程目录`：
 
 - [全部视频](/docs/resources/videos)：按可直接播放的视频条目筛选和浏览。
-- [课程目录](/docs/resources/courses)：把当前筛选命中的视频实时聚合成课程视图。
+- [课程目录](/docs/resources/courses)：当当前时间窗形成多集系列时，把当前筛选命中的视频实时聚合成课程视图。
 
 ## 两类视图怎么分
 
 - 如果你已经知道自己要找的是具体视频条目，先去 [全部视频](/docs/resources/videos)。
-- 如果你更想按系列内容、课程作者和连续学习路径浏览，先去 [课程目录](/docs/resources/courses)。
+- 如果页面已经开放课程目录，而且你更想按系列内容、课程作者和连续学习路径浏览，再去 [课程目录](/docs/resources/courses)。
 - 这两个页面都只承接学习材料，不负责替代 [AI 编程工具](/docs/tools) 或 [AI 工作流](/docs/workflows) 的长期知识结构。
 
 ## 使用原则
@@ -41,7 +41,7 @@ import {RelatedReadings} from '@site/src/components/docs';
 - 要找具体素材，先从这里进入。
 - 要找官网、官方文档和 GitHub 仓库目录，去 [AI 资源导航](/docs/ai-directory)。
 - 要理解工具定位、规则边界和治理方式，回到 [AI 编程工具](/docs/tools)。
-- 课程目录是视频结果的聚合视图，不再插在视频列表中间。
+- 课程目录只承接真实多集系列，不再把单条视频误判成课程聚合视图。
 
 ## 什么时候回长期知识方向
 
@@ -61,7 +61,7 @@ import {RelatedReadings} from '@site/src/components/docs';
     {
       title: '课程目录',
       href: '/docs/resources/courses',
-      description: '基于当前筛选命中的视频结果查看课程聚合视图。',
+      description: '当当前时间窗形成多集系列时，基于当前筛选命中的视频结果查看课程聚合视图。',
     },
     {
       title: 'AI 编程工具',

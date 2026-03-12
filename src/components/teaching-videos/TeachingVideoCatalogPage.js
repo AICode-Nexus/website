@@ -3,7 +3,11 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {useHistory, useLocation} from '@docusaurus/router';
 import {useWindowSize} from '@docusaurus/theme-common';
-import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
+import {
+  teachingVideoCatalog,
+  teachingVideoCourseCatalogAvailable,
+  teachingVideoMeaningfulCourseCount,
+} from '@site/src/data/teachingVideos';
 import {
   formatTeachingVideoDuration,
   getTeachingVideoCatalogPermalink,
@@ -34,7 +38,7 @@ const RESOURCE_COPY = {
     id: 'videos',
     heroTitle: 'AI Code 视频资源中心',
     heroDescription:
-      '当前视图只聚焦可直接播放的视频条目。课程聚合已经拆到独立资源页，避免筛选链路被中间层打断。',
+      '当前视图只聚焦可直接播放的视频条目。只有当前时间窗里确实形成多集系列时，才会额外开放课程目录。',
     sectionTitle: '视频结果',
     sectionLead: '按平台、语言、工具、主题、形式和难度过滤；结果页只显示当前命中的视频条目。',
     resultsLabel: '条视频',
@@ -45,12 +49,12 @@ const RESOURCE_COPY = {
     id: 'courses',
     heroTitle: 'AI Code 课程资源中心',
     heroDescription:
-      '课程视图基于当前筛选命中的视频结果实时聚合，不再展示与本次筛选无关的全量课程卡片。',
+      '当当前筛选命中的视频里存在多集系列时，课程视图会按系列聚合，不再展示与本次筛选无关的全量课程卡片。',
     sectionTitle: '课程结果',
-    sectionLead: '课程目录由当前命中的视频集合实时汇总，每门课程都能继续下钻到对应视频列表。',
+    sectionLead: '课程目录只在存在真实多集系列时开放；每门课程都能继续下钻到对应视频列表。',
     resultsLabel: '门课程',
     summaryLabel: '课程目录',
-    emptyState: '当前筛选没有聚合出课程，建议先放宽筛选条件或直接回到全部视频。',
+    emptyState: '当前筛选没有命中可聚合的多集系列，建议放宽筛选条件或直接回到全部视频。',
   },
 };
 
@@ -157,6 +161,9 @@ function buildCatalogPermalink(resourceType, catalogState, overrides = {}) {
 
 export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
   const resource = RESOURCE_COPY[resourceType] ?? RESOURCE_COPY.videos;
+  const courseCatalogAvailable = teachingVideoCourseCatalogAvailable;
+  const meaningfulCourseCount = teachingVideoMeaningfulCourseCount;
+  const isCourseResource = resource.id === 'courses';
   const history = useHistory();
   const location = useLocation();
   const windowSize = useWindowSize();
@@ -171,12 +178,12 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
     catalogState.query,
   );
   const scopedVideoItems =
-    resource.id === 'videos' && catalogState.targetCourseId
+    !isCourseResource && catalogState.targetCourseId
       ? filteredItems.filter((item) => item.courseId === catalogState.targetCourseId)
       : filteredItems;
   const filteredCourses = buildCourseResults(filteredItems);
-  const pagedItems = resource.id === 'courses' ? filteredCourses : scopedVideoItems;
-  const targetItemId = resource.id === 'courses' ? catalogState.targetCourseId : catalogState.targetVideoId;
+  const pagedItems = isCourseResource ? filteredCourses : scopedVideoItems;
+  const targetItemId = isCourseResource ? catalogState.targetCourseId : catalogState.targetVideoId;
   const {currentPage, totalPages, pageItems, rangeStart, rangeEnd, hasMore} = buildTeachingVideoPagination({
     items: pagedItems,
     requestedPage: catalogState.requestedPage,
@@ -185,19 +192,27 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
     mode: isMobileCatalog ? 'mobile' : 'desktop',
   });
   const targetAnchorId = targetItemId
-    ? resource.id === 'courses'
+    ? isCourseResource
       ? getTeachingVideoCourseAnchorId(targetItemId)
       : getTeachingVideoItemAnchorId(targetItemId)
     : '';
   const visibleResultIds = pageItems.map((item) => item.id).join('|');
   const paginationTokens = isMobileCatalog ? [] : buildTeachingVideoPaginationTokens(currentPage, totalPages);
   const focusResults = searchFocusesTeachingVideoResults(location.search);
-  const preserveTargetsOnPagination = resource.id === 'videos' && Boolean(catalogState.targetCourseId);
-  const resultsMeta = resource.id === 'courses'
+  const preserveTargetsOnPagination = !isCourseResource && Boolean(catalogState.targetCourseId);
+  const availableResources = courseCatalogAvailable
+    ? Object.values(RESOURCE_COPY)
+    : [RESOURCE_COPY.videos];
+  const resultsMeta = isCourseResource
     ? `当前筛选命中 ${filteredCourses.length} 门课程，对应 ${filteredItems.length} 条视频；当前显示 ${rangeStart}-${rangeEnd} 门课程。`
     : isMobileCatalog
       ? `当前筛选命中 ${scopedVideoItems.length} 条视频，已加载 ${rangeEnd} 条，共 ${totalPages} 批。`
       : `当前筛选命中 ${scopedVideoItems.length} 条视频，当前显示 ${rangeStart}-${rangeEnd} 条，第 ${currentPage}/${totalPages} 页。`;
+  const unavailableCourseResultsUrl = buildCatalogPermalink('videos', catalogState, {
+    courseId: '',
+    requestedPage: null,
+    focusResults: true,
+  });
 
   useEffect(() => {
     setCatalogState(parseTeachingVideoCatalogSearch(location.search));
@@ -293,6 +308,60 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
     return () => window.cancelAnimationFrame(frameId);
   }, [focusResults, visibleResultIds]);
 
+  if (isCourseResource && !courseCatalogAvailable) {
+    return (
+      <div className={styles.page}>
+        <section className={styles.hero}>
+          <div className={styles.heroTitleRow}>
+            <h2 className={styles.heroTitle}>{resource.heroTitle}</h2>
+            <TeachingVideoSyncSummary
+              generatedAt={teachingVideoCatalog.generatedAt}
+              showMeta={false}
+              showNote={false}
+              showPill
+            />
+          </div>
+          <p className={styles.heroDescription}>
+            当前目录只展示 {teachingVideoCatalog.windowStart} 到 {teachingVideoCatalog.windowEnd} 的公开教学内容。
+            这个时间窗里还没有形成可稳定展示的多集系列，课程目录暂时不会开放成正式聚合视图。
+          </p>
+          <div className={styles.heroMetaRow}>
+            <TeachingVideoSyncSummary generatedAt={teachingVideoCatalog.generatedAt} />
+            <p className={styles.heroMetaText}>分页大小：{TEACHING_VIDEO_PAGE_SIZE} 条</p>
+            <p className={styles.heroMetaText}>来源：{teachingVideoCatalog.sources.length} 个启用源</p>
+          </div>
+          <div className={styles.metricsGrid}>
+            <article className={styles.metricCard}>
+              <span className={styles.metricLabel}>近 7 天</span>
+              <strong className={styles.metricValue}>{teachingVideoCatalog.metrics.recentCounts.days7}</strong>
+            </article>
+            <article className={styles.metricCard}>
+              <span className={styles.metricLabel}>近 30 天</span>
+              <strong className={styles.metricValue}>{teachingVideoCatalog.metrics.recentCounts.days30}</strong>
+            </article>
+            <article className={styles.metricCard}>
+              <span className={styles.metricLabel}>近 90 天视频数</span>
+              <strong className={styles.metricValue}>{teachingVideoCatalog.metrics.videoCount}</strong>
+            </article>
+            <article className={styles.metricCard}>
+              <span className={styles.metricLabel}>近 90 天多集系列数</span>
+              <strong className={styles.metricValue}>{meaningfulCourseCount}</strong>
+            </article>
+          </div>
+        </section>
+
+        <section className={styles.emptyState}>
+          当前 90 天窗口里的内容更适合按单条视频筛选和下钻，而不是按课程系列浏览。
+          <div className={styles.cardActions}>
+            <Link className={styles.videoLink} to={unavailableCourseResultsUrl}>
+              返回全部视频
+            </Link>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
@@ -328,8 +397,8 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
             <strong className={styles.metricValue}>{teachingVideoCatalog.metrics.videoCount}</strong>
           </article>
           <article className={styles.metricCard}>
-            <span className={styles.metricLabel}>近 90 天课程数</span>
-            <strong className={styles.metricValue}>{teachingVideoCatalog.metrics.courseCount}</strong>
+            <span className={styles.metricLabel}>近 90 天多集系列数</span>
+            <strong className={styles.metricValue}>{meaningfulCourseCount}</strong>
           </article>
         </div>
         <div className={styles.quickFilters}>
@@ -359,7 +428,7 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
             <p className={styles.sectionLead}>{resource.sectionLead}</p>
           </div>
           <div className={styles.resourceSwitches}>
-            {Object.values(RESOURCE_COPY).map((entry) => (
+            {availableResources.map((entry) => (
               <Link
                 className={clsx(
                   styles.resourceSwitch,
@@ -502,7 +571,7 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
         </div>
         {pageItems.length ? (
           <>
-            {resource.id === 'courses' ? (
+            {isCourseResource ? (
               <div className={styles.courseGrid}>
                 {pageItems.map((course) => (
                   <article
@@ -589,16 +658,18 @@ export default function TeachingVideoCatalogPage({resourceType = 'videos'}) {
                       >
                         打开视频
                       </Link>
-                      <Link
-                        className={styles.secondaryLink}
-                        to={getTeachingVideoCoursePermalink(video.courseId, {
-                          filters: catalogState.filters,
-                          query: catalogState.query,
-                          focusResults: true,
-                        })}
-                      >
-                        所属课程
-                      </Link>
+                      {courseCatalogAvailable ? (
+                        <Link
+                          className={styles.secondaryLink}
+                          to={getTeachingVideoCoursePermalink(video.courseId, {
+                            filters: catalogState.filters,
+                            query: catalogState.query,
+                            focusResults: true,
+                          })}
+                        >
+                          所属课程
+                        </Link>
+                      ) : null}
                     </div>
                   </article>
                 ))}

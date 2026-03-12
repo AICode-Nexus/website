@@ -10,7 +10,7 @@ const OUTPUT_ROOT = path.join(workspaceRoot, 'output', 'playwright', 'browser-ac
 const SITE_PREFIX = '/website';
 const PLAYWRIGHT_PACKAGE = '@playwright/cli';
 const SESSION_NAME = `browser-acceptance-${Date.now()}`;
-const NAV_LABELS = ['开始上手', '工具教程', '工作流教程', '实战案例', '进阶专题', '动态', '视频资源'];
+const NAV_LABELS = ['开始上手', '工具教程', '工作流教程', '实战案例', '进阶专题', '动态', 'AI 资源导航', '视频资源'];
 const HERO_ACTIONS = [
   {label: '30 分钟上手', href: '/website/docs/start/30-minute-quick-start'},
   {label: '按任务找教程', href: '/website/docs/workflows/playbooks/workflow-playbook'},
@@ -43,7 +43,7 @@ function runCommand(command, args, options = {}) {
       cwd: workspaceRoot,
       env: {
         ...process.env,
-        PLAYWRIGHT_CLI_SESSION: SESSION_NAME,
+        PLAYWRIGHT_CLI_SESSION: options.sessionName ?? SESSION_NAME,
         ...options.env,
       },
       stdio: ['ignore', 'pipe', 'pipe'],
@@ -138,12 +138,16 @@ function parseJsonResult(output) {
   return parsed;
 }
 
-async function evaluateJson(expression) {
-  return parseJsonResult(await runPlaywright(['eval', `() => JSON.stringify(${expression})`]));
+async function evaluateJson(expression, options = {}) {
+  return parseJsonResult(await runPlaywright(['eval', `() => JSON.stringify(${expression})`], options));
 }
 
-async function getConsoleErrors() {
-  const output = await runPlaywright(['console', 'error']);
+async function evaluateJsonScript(script, options = {}) {
+  return parseJsonResult(await runPlaywright(['eval', script], options));
+}
+
+async function getConsoleErrors(options = {}) {
+  const output = await runPlaywright(['console', 'error'], options);
   const match = output.match(/\[Console\]\(([^)]+)\)/u);
 
   if (!match) {
@@ -280,22 +284,36 @@ function addCheck(report, name, details = {}) {
   report.checks.push({name, ...details});
 }
 
-async function captureScreenshot(fileName) {
+async function captureScreenshot(fileName, options = {}) {
   const screenshotPath = path.join(OUTPUT_ROOT, fileName);
-  await runPlaywright([
-    'run-code',
-    `await page.screenshot({ path: ${JSON.stringify(screenshotPath)}, fullPage: true });`,
-  ]);
+  await runPlaywright(['screenshot', '--filename', screenshotPath, '--full-page'], options);
   return screenshotPath;
 }
 
-async function gotoRoute(baseUrl, route) {
-  await runPlaywright(['goto', normalizeSiteRoute(baseUrl, route)]);
-  await runPlaywright(['run-code', 'await page.waitForSelector("main")']);
+async function setViewportSize(width, height, options = {}) {
+  await runPlaywright(['resize', String(width), String(height)], {...options, allowFailure: true});
+  const viewport = await evaluateJson(`({ width: window.innerWidth, height: window.innerHeight })`, options);
+  assertCondition(
+    viewport.width === width,
+    `Viewport width mismatch. Expected ${width}, received ${viewport.width}.`,
+  );
 }
 
-async function verifyConsole(report, pageName) {
-  const consoleResult = await getConsoleErrors();
+async function setDesktopViewport(options = {}) {
+  await setViewportSize(1280, 720, options);
+}
+
+async function setMobileViewport(options = {}) {
+  await setViewportSize(375, 812, options);
+}
+
+async function gotoRoute(baseUrl, route, options = {}) {
+  await runPlaywright(['goto', normalizeSiteRoute(baseUrl, route)], options);
+  await runPlaywright(['run-code', 'await page.waitForSelector("main")'], options);
+}
+
+async function verifyConsole(report, pageName, options = {}) {
+  const consoleResult = await getConsoleErrors(options);
 
   assertCondition(
     consoleResult.errorCount === 0,
@@ -409,7 +427,7 @@ async function verifyCaseStudiesHub(report, baseUrl) {
 
   const summary = await evaluateJson(`({
     h1: document.querySelector('main h1')?.textContent.trim() ?? '',
-    hasLeadQuestion: document.body.innerText.includes('先看什么案例'),
+    hasLeadQuestion: document.body.innerText.includes('先按任务形状进入'),
     caseLinks: Array.from(new Set(
       Array.from(document.querySelectorAll('main a[href*="/docs/case-studies/"]'))
         .map((element) => element.getAttribute('href'))
@@ -423,7 +441,7 @@ async function verifyCaseStudiesHub(report, baseUrl) {
   })`);
 
   assertCondition(summary.h1 === '实战案例', `Case-studies hub H1 changed: ${summary.h1}`);
-  assertCondition(summary.hasLeadQuestion, 'Case-studies hub no longer opens with "先看什么案例".');
+  assertCondition(summary.hasLeadQuestion, 'Case-studies hub no longer opens with "先按任务形状进入".');
   assertCondition(summary.caseLinks.length >= 4, `Case-studies hub should expose at least 4 case links, found ${summary.caseLinks.length}.`);
   assertCondition(summary.actionableReturns.length >= 3, `Case-studies hub should expose at least 3 actionable return links, found ${summary.actionableReturns.length}.`);
   addCheck(report, 'Case-studies hub: case and return links', {
@@ -457,27 +475,193 @@ async function verifyAdvancedTopicsEntry(report, baseUrl) {
 }
 
 async function verifyMobileNavigation(report, baseUrl) {
-  await gotoRoute(baseUrl, '/');
-  await runPlaywright(['run-code', 'await page.setViewportSize({ width: 375, height: 812 });']);
-  await verifyConsole(report, 'Homepage mobile');
+  const mobileSessionName = `${SESSION_NAME}-mobile`;
+  const mobileSession = {sessionName: mobileSessionName};
 
-  const hasToggle = await evaluateJson(`Boolean(document.querySelector('nav[aria-label="主导航"] button[aria-label="切换导航栏"]'))`);
-  assertCondition(hasToggle, 'Mobile navbar toggle is missing.');
+  try {
+    await runPlaywright(['open', `${baseUrl}/`], mobileSession);
+    await setMobileViewport(mobileSession);
+    await gotoRoute(baseUrl, '/', mobileSession);
+    await verifyConsole(report, 'Homepage mobile', mobileSession);
+    await runPlaywright([
+      'run-code',
+      `await page.waitForFunction(() => {
+  const mobileWidthReady = window.innerWidth <= 480;
+  const searchTrigger = document.querySelector('button[aria-label="打开全站搜索"]');
+  const navToggle = document.querySelector('nav[aria-label="主导航"] button[aria-label="切换导航栏"]');
+  return mobileWidthReady && Boolean(searchTrigger) && Boolean(navToggle);
+});`,
+    ], mobileSession);
 
-  await runPlaywright(['run-code', `await page.getByRole('button', { name: '切换导航栏' }).click();`]);
+    const hasToggle = await evaluateJson(
+      `({
+        width: window.innerWidth,
+        hasToggle: Boolean(document.querySelector('nav[aria-label="主导航"] button[aria-label="切换导航栏"]')),
+      })`,
+      mobileSession,
+    );
+    assertCondition(hasToggle.hasToggle, `Mobile navbar toggle is missing at width ${hasToggle.width}.`);
 
-  const mobileNavLabels = await evaluateJson(`Array.from(document.querySelectorAll('nav[aria-label="主导航"] a[href^="/website/"]'))
-    .map((element) => element.textContent.replace(/\\s+/gu, ' ').trim())
-    .filter((label) => label && label !== 'AICode-Nexus')`);
+    const hasSearchTrigger = await evaluateJson(
+      `({
+        width: window.innerWidth,
+        hasSearchTrigger: Boolean(document.querySelector('button[aria-label="打开全站搜索"]')),
+      })`,
+      mobileSession,
+    );
+    assertCondition(
+      hasSearchTrigger.hasSearchTrigger,
+      `Mobile navbar search trigger is missing at width ${hasSearchTrigger.width}.`,
+    );
 
-  assertDeepEqual(mobileNavLabels.slice(0, NAV_LABELS.length), NAV_LABELS, 'Mobile navbar labels changed.');
-  addCheck(report, 'Homepage mobile: nav toggle and labels', {
-    status: 'passed',
-    labels: mobileNavLabels.slice(0, NAV_LABELS.length),
-  });
+    const mobileSearchSummary = await evaluateJsonScript(
+      `async () => {
+        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        const inputSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+        const trigger = document.querySelector('button[aria-label="打开全站搜索"]');
 
-  report.artifacts.homeMobileMenuScreenshot = await captureScreenshot('home-mobile-menu.png');
-  await runPlaywright(['run-code', 'await page.setViewportSize({ width: 1280, height: 720 });']);
+        if (trigger instanceof HTMLButtonElement) {
+          trigger.click();
+        }
+
+        let searchInput = null;
+        for (let index = 0; index < 40; index += 1) {
+          searchInput = document.querySelector('input[aria-label="搜索全站内容"]');
+          if (searchInput instanceof HTMLInputElement) {
+            break;
+          }
+
+          await wait(50);
+        }
+
+        if (searchInput instanceof HTMLInputElement) {
+          const previousValue = searchInput.value;
+          if (inputSetter) {
+            inputSetter.call(searchInput, 'Codex');
+          } else {
+            searchInput.value = 'Codex';
+          }
+
+          const valueTracker = searchInput._valueTracker;
+          if (valueTracker && typeof valueTracker.setValue === 'function') {
+            valueTracker.setValue(previousValue);
+          }
+
+          searchInput.dispatchEvent(new InputEvent('input', {bubbles: true, data: 'Codex'}));
+          searchInput.dispatchEvent(new Event('change', {bubbles: true}));
+        }
+
+        for (let index = 0; index < 200; index += 1) {
+          const container = document.getElementById('global-site-mobile-search-results');
+          const text = container?.textContent?.replace(/\\s+/gu, ' ').trim() ?? '';
+
+          if (
+            container &&
+            !text.includes('正在加载搜索索引') &&
+            (container.querySelector('a') || text.includes('没有找到匹配内容'))
+          ) {
+            break;
+          }
+
+          await wait(50);
+        }
+
+        const dialog = document.getElementById('global-site-mobile-search');
+        const results = Array.from(document.querySelectorAll('#global-site-mobile-search-results a'))
+          .map((element) => element.textContent.replace(/\\s+/gu, ' ').trim())
+          .filter(Boolean);
+        const resultHeadings = Array.from(document.querySelectorAll('#global-site-mobile-search-results p'))
+          .map((element) => element.textContent.replace(/\\s+/gu, ' ').trim())
+          .filter(Boolean);
+
+        return JSON.stringify({
+          dialogVisible: Boolean(dialog),
+          currentPath: window.location.pathname,
+          hasSearchTrigger: Boolean(document.querySelector('button[aria-label="打开全站搜索"]')),
+          resultCount: results.length,
+          resultsText:
+            document.getElementById('global-site-mobile-search-results')?.textContent?.replace(/\\s+/gu, ' ').trim() ??
+            '',
+          topResults: results.slice(0, 3),
+          resultHeadings,
+          width: window.innerWidth,
+        });
+      }`,
+      mobileSession,
+    );
+
+    addCheck(report, 'Homepage mobile: search debug state', {
+      status: 'observed',
+      ...mobileSearchSummary,
+    });
+    report.artifacts.homeMobileSearchScreenshot = await captureScreenshot(
+      'home-mobile-search.png',
+      mobileSession,
+    );
+
+    assertCondition(mobileSearchSummary.dialogVisible, 'Mobile search dialog did not open.');
+    assertCondition(mobileSearchSummary.resultCount > 0, 'Mobile search did not return any results for "Codex".');
+    addCheck(report, 'Homepage mobile: search trigger and results', {
+      status: 'passed',
+      currentPath: mobileSearchSummary.currentPath,
+      resultCount: mobileSearchSummary.resultCount,
+      topResults: mobileSearchSummary.topResults,
+    });
+
+    const mobileNavLabels = await evaluateJsonScript(
+      `async () => {
+        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+        const closeButton = Array.from(document.querySelectorAll('button')).find(
+          (element) => element.textContent?.trim() === '关闭',
+        );
+
+        if (closeButton instanceof HTMLButtonElement) {
+          closeButton.click();
+        }
+
+        for (let index = 0; index < 40; index += 1) {
+          if (!document.getElementById('global-site-mobile-search')) {
+            break;
+          }
+
+          await wait(50);
+        }
+
+        const navToggle = document.querySelector('nav[aria-label="主导航"] button[aria-label="切换导航栏"]');
+        if (navToggle instanceof HTMLButtonElement) {
+          navToggle.click();
+        }
+
+        for (let index = 0; index < 40; index += 1) {
+          if (document.querySelectorAll('nav[aria-label="主导航"] a[href^="/website/"]').length >= ${NAV_LABELS.length}) {
+            break;
+          }
+
+          await wait(50);
+        }
+
+        return JSON.stringify(
+          Array.from(document.querySelectorAll('nav[aria-label="主导航"] a[href^="/website/"]'))
+            .map((element) => element.textContent.replace(/\\s+/gu, ' ').trim())
+            .filter((label) => label && label !== 'AICode-Nexus'),
+        );
+      }`,
+      mobileSession,
+    );
+
+    assertDeepEqual(mobileNavLabels.slice(0, NAV_LABELS.length), NAV_LABELS, 'Mobile navbar labels changed.');
+    addCheck(report, 'Homepage mobile: nav toggle and labels', {
+      status: 'passed',
+      labels: mobileNavLabels.slice(0, NAV_LABELS.length),
+    });
+
+    report.artifacts.homeMobileMenuScreenshot = await captureScreenshot(
+      'home-mobile-menu.png',
+      mobileSession,
+    );
+  } finally {
+    await runPlaywright(['close'], {allowFailure: true, sessionName: mobileSessionName});
+  }
 }
 
 async function main() {
@@ -502,7 +686,7 @@ async function main() {
     report.baseUrl = serverInfo.baseUrl;
 
     await runPlaywright(['open', `${serverInfo.baseUrl}/`]);
-    await runPlaywright(['run-code', 'await page.setViewportSize({ width: 1280, height: 720 });']);
+    await setDesktopViewport();
 
     await verifyHomepage(report, serverInfo.baseUrl);
     await verifyToolsHub(report, serverInfo.baseUrl);

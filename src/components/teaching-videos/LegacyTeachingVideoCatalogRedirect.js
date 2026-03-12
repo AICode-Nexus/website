@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useHistory, useLocation} from '@docusaurus/router';
+import {teachingVideoCourseCatalogAvailable} from '@site/src/data/teachingVideos';
 import {
   getTeachingVideoCatalogPermalink,
   searchFocusesTeachingVideoResults,
@@ -13,14 +14,19 @@ export default function LegacyTeachingVideoCatalogRedirect() {
 
   useEffect(() => {
     const legacyState = parseTeachingVideoCatalogSearch(location.search);
-    const nextResourceType = legacyState.targetCourseId && !legacyState.targetVideoId ? 'courses' : 'videos';
+    const nextResourceType =
+      teachingVideoCourseCatalogAvailable &&
+      legacyState.targetCourseId &&
+      !legacyState.targetVideoId
+        ? 'courses'
+        : 'videos';
     const nextUrl = getTeachingVideoCatalogPermalink({
       resourceType: nextResourceType,
       filters: legacyState.filters,
       query: legacyState.query,
       requestedPage: legacyState.hasRequestedPage ? legacyState.requestedPage : null,
       videoId: legacyState.targetVideoId,
-      courseId: legacyState.targetCourseId,
+      courseId: teachingVideoCourseCatalogAvailable ? legacyState.targetCourseId : '',
       focusResults: searchFocusesTeachingVideoResults(location.search),
     });
 

@@ -3,7 +3,6 @@ import Link from '@docusaurus/Link';
 import {usePluginData} from '@docusaurus/useGlobalData';
 import styles from './styles.module.css';
 import {portalContent} from '@site/src/data/portalContent';
-import {getLatestPublishedBlogUpdates} from '@site/src/data/publishedBlogUpdates';
 import ContentCard from './ContentCard';
 import SectionBlock from './SectionBlock';
 
@@ -11,8 +10,12 @@ const {featuredCaseStudies, latestUpdates} = portalContent;
 
 export default function CaseStudiesAndUpdates() {
   const portalData = usePluginData('aicode-portal-data', undefined, {failfast: true});
+  const searchData = usePluginData('aicode-search-index', undefined, {failfast: true});
   const caseStudies = portalData.featuredCaseStudies?.items ?? [];
-  const latestPublishedUpdates = getLatestPublishedBlogUpdates(latestUpdates.items.length);
+  const latestPublishedUpdates = (searchData.latestPublishedBlogUpdates ?? []).slice(
+    0,
+    latestUpdates.items.length,
+  );
   const updateItems = latestPublishedUpdates.length > 0 ? latestPublishedUpdates : latestUpdates.items;
 
   return (

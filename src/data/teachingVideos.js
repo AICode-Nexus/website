@@ -3,6 +3,10 @@ import {
   defineTeachingVideoCatalog,
   getTeachingVideoCatalogFilterPermalink,
 } from '@site/src/utils/teachingVideos';
+import {
+  getMeaningfulTeachingVideoCourseCount,
+  hasMeaningfulTeachingVideoCourseCatalog,
+} from '@site/src/utils/teachingVideoCatalogAvailability.mjs';
 
 function slugify(value) {
   return String(value ?? '')
@@ -307,3 +311,9 @@ export const teachingVideoCatalogSync = Object.freeze({
 export const teachingVideoCatalog = defineTeachingVideoCatalog(
   normalizeTeachingVideoCatalog(teachingVideoCatalogData),
 );
+
+export const teachingVideoMeaningfulCourseCount =
+  getMeaningfulTeachingVideoCourseCount(teachingVideoCatalog);
+
+export const teachingVideoCourseCatalogAvailable =
+  hasMeaningfulTeachingVideoCourseCatalog(teachingVideoCatalog);

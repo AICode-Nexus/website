@@ -6,6 +6,7 @@ import {
   getTeachingVideoItemPermalink,
   getTeachingVideoCoursePermalink,
 } from '@site/src/utils/teachingVideos';
+import {teachingVideoCourseCatalogAvailable} from '@site/src/data/teachingVideos';
 import toolDocNavigation from '@site/src/data/toolDocNavigation.json';
 import {getToolTeachingVideoResourceSet} from '@site/src/utils/toolLearningResources';
 import styles from './HandbookBlocks.module.css';
@@ -18,13 +19,14 @@ const TOOL_VIDEO_SOURCES = new Map(
 );
 
 export default function LearningResources({
-  title = '精选视频与课程',
+  title,
   tool,
   description,
   limit = 4,
 }) {
   const videoTools = TOOL_VIDEO_SOURCES.get(tool) ?? [tool];
   const {sourceTool, items: featuredItems} = getToolTeachingVideoResourceSet(videoTools, limit);
+  const sectionTitle = title ?? (teachingVideoCourseCatalogAvailable ? '精选视频与课程' : '精选视频');
 
   if (featuredItems.length === 0) {
     return null;
@@ -34,7 +36,7 @@ export default function LearningResources({
     <section className={styles.panel}>
       <div className={styles.resourceHeader}>
         <div>
-          <h2 className={styles.resourceTitle}>{title}</h2>
+          <h2 className={styles.resourceTitle}>{sectionTitle}</h2>
           {description ? <p className={styles.description}>{description}</p> : null}
         </div>
         <Link
@@ -55,9 +57,11 @@ export default function LearningResources({
               <Link to={getTeachingVideoItemPermalink(item.id)}>{item.title}</Link>
             </p>
             <p className={styles.resourceSummary}>{item.summary}</p>
-            <p className={styles.resourceMeta}>
-              <Link to={getTeachingVideoCoursePermalink(item.courseId)}>查看所属课程</Link>
-            </p>
+            {teachingVideoCourseCatalogAvailable ? (
+              <p className={styles.resourceMeta}>
+                <Link to={getTeachingVideoCoursePermalink(item.courseId)}>查看所属课程</Link>
+              </p>
+            ) : null}
           </article>
         ))}
       </div>

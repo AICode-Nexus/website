@@ -2,22 +2,12 @@ import React, {useEffect, useRef, useState} from 'react';
 import Link from '@docusaurus/Link';
 import {useHistory} from '@docusaurus/router';
 import {useWindowSize} from '@docusaurus/theme-common';
-import {teachingVideoCatalog} from '@site/src/data/teachingVideos';
-import {
-  getTeachingVideoCoursePermalink,
-  getTeachingVideoItemPermalink,
-  getTeachingVideoLanguageLabel,
-} from '@site/src/utils/teachingVideos';
 import styles from './styles.module.css';
 const {
   CONTENT_FORM_LABELS,
   ENTRY_ROLE_LABELS,
   getDomainLabel,
   getJourneyStageLabel,
-  resolveContentFormKey,
-  resolveDomainKey,
-  resolveEntryRoleKey,
-  resolveJourneyStageKey,
 } = require('@site/src/data/knowledgeModel');
 
 const RESULT_GROUPS = [
@@ -25,167 +15,36 @@ const RESULT_GROUPS = [
   {id: 'video', label: '视频', limit: 3},
   {id: 'course', label: '课程', limit: 3},
 ];
+const DESKTOP_RESULTS_ID = 'global-site-search-results';
+const MOBILE_RESULTS_ID = 'global-site-mobile-search-results';
+const MOBILE_DIALOG_ID = 'global-site-mobile-search';
 
-const docMetadataContext = require.context(
-  '@generated/docusaurus-plugin-content-docs/default',
-  false,
-  /^\.\/site-docs-.*\.json$/,
-);
-
-const blogMetadataContext = require.context(
-  '@generated/docusaurus-plugin-content-blog/default',
-  false,
-  /^\.\/site-blog-.*\.json$/,
-);
+let cachedSearchEntries = null;
+let searchEntriesPromise = null;
 
 function normalizeText(value) {
   return String(value ?? '').trim().toLowerCase();
 }
 
-function buildSearchEntry(sectionLabel, metadata, overrides = {}) {
-  if (!metadata?.title || !metadata?.permalink || metadata.unlisted || metadata.draft) {
-    return null;
+async function loadSearchEntries() {
+  if (cachedSearchEntries) {
+    return cachedSearchEntries;
   }
 
-  const frontMatter = metadata.frontMatter ?? {};
-  const domain = overrides.domain ?? resolveDomainKey(frontMatter);
-  const journeyStage = overrides.journeyStage ?? resolveJourneyStageKey(frontMatter);
-  const entryRole = overrides.entryRole ?? resolveEntryRoleKey(frontMatter);
-  const contentForm = resolveContentFormKey(frontMatter, overrides.contentForm);
+  if (!searchEntriesPromise) {
+    searchEntriesPromise = import(
+      '@generated/aicode-search-index/default/site-search-index.json'
+    ).then((module) => {
+      const entries = Array.isArray(module.default?.entries)
+        ? module.default.entries
+        : [];
+      cachedSearchEntries = entries;
+      return entries;
+    });
+  }
 
-  return {
-    id: metadata.id ?? metadata.permalink,
-    title: metadata.title,
-    description: metadata.description ?? '',
-    permalink: metadata.permalink,
-    sectionLabel,
-    tags: Array.isArray(metadata.tags)
-      ? metadata.tags
-          .map((tag) => tag?.label)
-          .filter(Boolean)
-      : [],
-    keywords:
-      overrides.keywords ??
-      [
-        metadata.id,
-        metadata.source,
-        metadata.sourceDirName,
-        frontMatter.sidebar_label,
-        frontMatter.track,
-        domain,
-        frontMatter.entry_role,
-        frontMatter.content_form,
-        frontMatter.journey_stage,
-        frontMatter.audience,
-        frontMatter.kind,
-        frontMatter.reviewed_at,
-        frontMatter.source_window_end,
-        frontMatter.market_status,
-      ]
-        .filter(Boolean)
-        .join(' '),
-    entityType: overrides.entityType ?? 'knowledge',
-    domain,
-    journeyStage,
-    entryRole,
-    contentForm,
-    resourceType: overrides.resourceType ?? '',
-  };
+  return searchEntriesPromise;
 }
-
-function loadEntries(context, sectionLabel, overrides = {}) {
-  return context
-    .keys()
-    .sort()
-    .map((key) => buildSearchEntry(sectionLabel, context(key), overrides))
-    .filter(Boolean);
-}
-
-function buildTeachingVideoEntries() {
-  const videoEntries = teachingVideoCatalog.items.map((video) =>
-    buildSearchEntry(
-      '全部视频',
-      {
-        id: `video-${video.id}`,
-        title: video.title,
-        description: `${video.creator} · ${video.publishedAt} · ${video.tool} · ${video.platform}`,
-        permalink: getTeachingVideoItemPermalink(video.id),
-        tags: [
-          {label: video.tool},
-          {label: video.platform},
-          {label: getTeachingVideoLanguageLabel(video.language)},
-          {label: video.format},
-          {label: video.level},
-        ],
-        frontMatter: {
-          domain: 'tools',
-          entry_role: 'resource',
-          content_form: 'resource',
-        },
-      },
-      {
-        entityType: 'video',
-        domain: 'tools',
-        entryRole: 'resource',
-        contentForm: 'resource',
-        resourceType: 'video',
-        keywords: [video.creator, video.summary, video.topics.join(' '), video.courseId].join(' '),
-      },
-    ),
-  );
-
-  const courseEntries = teachingVideoCatalog.courses.map((course) =>
-    buildSearchEntry(
-      '课程目录',
-      {
-        id: `course-${course.id}`,
-        title: course.title,
-        description: `${course.creator} · ${course.tool} · ${course.episodeCount} 个视频`,
-        permalink: getTeachingVideoCoursePermalink(course.id),
-        tags: [
-          {label: course.tool},
-          {label: getTeachingVideoLanguageLabel(course.language)},
-        ],
-        frontMatter: {
-          domain: 'tools',
-          entry_role: 'resource',
-          content_form: 'resource',
-        },
-      },
-      {
-        entityType: 'course',
-        domain: 'tools',
-        entryRole: 'resource',
-        contentForm: 'resource',
-        resourceType: 'course',
-        keywords: [course.creator, course.latestEpisodeAt, course.coverVideoId].join(' '),
-      },
-    ),
-  );
-
-  return [...videoEntries, ...courseEntries];
-}
-
-function dedupeEntries(entries) {
-  const uniqueEntries = new Map();
-
-  entries.forEach((entry) => {
-    if (!uniqueEntries.has(entry.permalink)) {
-      uniqueEntries.set(entry.permalink, entry);
-    }
-  });
-
-  return Array.from(uniqueEntries.values());
-}
-
-const searchEntries = dedupeEntries([
-  ...loadEntries(docMetadataContext, '知识文档'),
-  ...loadEntries(blogMetadataContext, 'Daily Brief', {
-    contentForm: 'brief',
-    entryRole: 'brief',
-  }),
-  ...buildTeachingVideoEntries(),
-]);
 
 function scoreEntry(entry, query) {
   const normalizedQuery = normalizeText(query);
@@ -197,7 +56,7 @@ function scoreEntry(entry, query) {
   const queryParts = normalizedQuery.split(/\s+/).filter(Boolean);
   const title = normalizeText(entry.title);
   const description = normalizeText(entry.description);
-  const tags = normalizeText(entry.tags.join(' '));
+  const tags = normalizeText((entry.tags ?? []).join(' '));
   const keywords = normalizeText(entry.keywords);
   const permalink = normalizeText(entry.permalink);
 
@@ -279,8 +138,8 @@ function formatResultMeta(entry) {
   return metaParts.join(' · ');
 }
 
-function findMatches(query) {
-  const scoredEntries = searchEntries
+function findMatches(entries, query) {
+  const scoredEntries = entries
     .map((entry) => ({
       ...entry,
       score: scoreEntry(entry, query),
@@ -296,46 +155,143 @@ function findMatches(query) {
   })).filter((group) => group.items.length > 0);
 }
 
+function SearchResults({groups, onResultClick}) {
+  return (
+    <div className={styles.resultGroups}>
+      {groups.map((group) => (
+        <section className={styles.resultGroup} key={group.id}>
+          <p className={styles.resultGroupTitle}>{group.label}</p>
+          <ul className={styles.resultsList}>
+            {group.items.map((match) => (
+              <li key={match.permalink}>
+                <Link
+                  className={styles.resultLink}
+                  onClick={onResultClick}
+                  to={match.permalink}
+                >
+                  <span className={styles.resultMeta}>{formatResultMeta(match)}</span>
+                  <strong className={styles.resultTitle}>{match.title}</strong>
+                  {match.description ? (
+                    <span className={styles.resultDescription}>{match.description}</span>
+                  ) : null}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+}
+
 export default function SearchBar() {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [searchEntries, setSearchEntries] = useState(cachedSearchEntries);
+  const [searchIndexStatus, setSearchIndexStatus] = useState(
+    cachedSearchEntries ? 'ready' : 'idle',
+  );
   const containerRef = useRef(null);
+  const inputRef = useRef(null);
   const history = useHistory();
   const windowSize = useWindowSize();
-
-  const groups = findMatches(query);
+  const isMobile = windowSize === 'mobile';
+  const hasQuery = query.trim().length > 0;
+  const showPanel = !isMobile && isOpen && hasQuery;
+  const showMobileOverlay = isMobile && isOpen;
+  const groups =
+    hasQuery && Array.isArray(searchEntries) ? findMatches(searchEntries, query) : [];
   const firstMatch =
     groups
       .flatMap((group) => group.items)
       .sort((left, right) => right.score - left.score)[0] ?? null;
-  const hasQuery = query.trim().length > 0;
-  const showPanel = isOpen && hasQuery;
+  const isSearchIndexPending =
+    searchIndexStatus === 'loading' || (searchIndexStatus === 'idle' && (isOpen || hasQuery));
 
   useEffect(() => {
+    if (!isOpen && !hasQuery) {
+      return undefined;
+    }
+
+    if (searchIndexStatus !== 'idle') {
+      return undefined;
+    }
+
+    let cancelled = false;
+    setSearchIndexStatus('loading');
+
+    loadSearchEntries()
+      .then((entries) => {
+        if (cancelled) {
+          return;
+        }
+
+        setSearchEntries(entries);
+        setSearchIndexStatus('ready');
+      })
+      .catch(() => {
+        if (cancelled) {
+          return;
+        }
+
+        setSearchEntries([]);
+        setSearchIndexStatus('error');
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [hasQuery, isOpen, searchIndexStatus]);
+
+  useEffect(() => {
+    if (isMobile) {
+      return undefined;
+    }
+
     function handlePointerDown(event) {
       if (!containerRef.current?.contains(event.target)) {
         setIsOpen(false);
       }
     }
 
+    document.addEventListener('mousedown', handlePointerDown);
+
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+    };
+  }, [isMobile]);
+
+  useEffect(() => {
     function handleKeyDown(event) {
       if (event.key === 'Escape') {
         setIsOpen(false);
       }
     }
 
-    document.addEventListener('mousedown', handlePointerDown);
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.removeEventListener('mousedown', handlePointerDown);
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
-  if (windowSize === 'mobile') {
-    return null;
-  }
+  useEffect(() => {
+    if (!showMobileOverlay) {
+      return undefined;
+    }
+
+    inputRef.current?.focus();
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousDocumentOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousDocumentOverflow;
+    };
+  }, [showMobileOverlay]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -359,12 +315,93 @@ export default function SearchBar() {
     setQuery('');
   }
 
+  function renderSearchBody() {
+    if (isSearchIndexPending) {
+      return <div className={styles.emptyState}>正在加载搜索索引...</div>;
+    }
+
+    if (searchIndexStatus === 'error') {
+      return <div className={styles.emptyState}>搜索索引加载失败，请刷新后重试。</div>;
+    }
+
+    if (!hasQuery) {
+      return (
+        <div className={styles.emptyState}>
+          输入关键词搜索知识文档、日报动态和视频资源。
+        </div>
+      );
+    }
+
+    if (groups.length) {
+      return <SearchResults groups={groups} onResultClick={handleResultClick} />;
+    }
+
+    return <div className={styles.emptyState}>没有找到匹配内容</div>;
+  }
+
+  if (isMobile) {
+    return (
+      <div className={styles.mobileSearch} ref={containerRef}>
+        <button
+          aria-controls={showMobileOverlay ? MOBILE_DIALOG_ID : undefined}
+          aria-expanded={showMobileOverlay}
+          aria-haspopup="dialog"
+          aria-label="打开全站搜索"
+          className={styles.mobileSearchButton}
+          onClick={() => setIsOpen(true)}
+          type="button"
+        >
+          <span aria-hidden="true" className={styles.mobileSearchIcon} />
+          <span className={styles.mobileSearchLabel}>搜索</span>
+        </button>
+        {showMobileOverlay ? (
+          <div
+            aria-label="搜索全站内容"
+            aria-modal="true"
+            className={styles.mobileOverlay}
+            id={MOBILE_DIALOG_ID}
+            role="dialog"
+          >
+            <div className={styles.mobileOverlayPanel}>
+              <div className={styles.mobileOverlayHeader}>
+                <form className={styles.searchForm} onSubmit={handleSubmit} role="search">
+                  <span aria-hidden="true" className={styles.searchIcon} />
+                  <input
+                    aria-controls={MOBILE_RESULTS_ID}
+                    aria-expanded={showMobileOverlay}
+                    aria-label="搜索全站内容"
+                    className={styles.searchInput}
+                    onChange={handleChange}
+                    placeholder="搜索知识文档、动态、视频..."
+                    ref={inputRef}
+                    type="search"
+                    value={query}
+                  />
+                </form>
+                <button
+                  className={styles.mobileCloseButton}
+                  onClick={() => setIsOpen(false)}
+                  type="button"
+                >
+                  关闭
+                </button>
+              </div>
+              <div className={styles.mobileResults} id={MOBILE_RESULTS_ID}>
+                {renderSearchBody()}
+              </div>
+            </div>
+          </div>
+        ) : null}
+      </div>
+    );
+  }
+
   return (
     <div className={styles.searchBar} ref={containerRef}>
       <form className={styles.searchForm} onSubmit={handleSubmit} role="search">
         <span aria-hidden="true" className={styles.searchIcon} />
         <input
-          aria-controls="global-site-search-results"
+          aria-controls={DESKTOP_RESULTS_ID}
           aria-expanded={showPanel}
           aria-label="搜索全站内容"
           className={styles.searchInput}
@@ -376,37 +413,8 @@ export default function SearchBar() {
         />
       </form>
       {showPanel && (
-        <div className={styles.resultsPanel} id="global-site-search-results">
-          {groups.length ? (
-            <div className={styles.resultGroups}>
-              {groups.map((group) => (
-                <section className={styles.resultGroup} key={group.id}>
-                  <p className={styles.resultGroupTitle}>{group.label}</p>
-                  <ul className={styles.resultsList}>
-                    {group.items.map((match) => (
-                      <li key={match.permalink}>
-                        <Link
-                          className={styles.resultLink}
-                          onClick={handleResultClick}
-                          to={match.permalink}
-                        >
-                          <span className={styles.resultMeta}>{formatResultMeta(match)}</span>
-                          <strong className={styles.resultTitle}>{match.title}</strong>
-                          {match.description ? (
-                            <span className={styles.resultDescription}>
-                              {match.description}
-                            </span>
-                          ) : null}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          ) : (
-            <div className={styles.emptyState}>没有找到匹配内容</div>
-          )}
+        <div className={styles.resultsPanel} id={DESKTOP_RESULTS_ID}>
+          {renderSearchBody()}
         </div>
       )}
     </div>

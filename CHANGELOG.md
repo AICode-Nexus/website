@@ -7,6 +7,13 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Fixed
+
+- Moved the navbar search index out of the main bundle into a generated async JSON chunk, and switched homepage latest updates to published-only plugin data so draft blog metadata no longer leaks through `require.context` imports.
+- Hid teaching-video course links and the course-directory switch whenever the current 90-day catalog does not contain any real multi-episode series, preventing the UI from presenting one-video-per-course data as a stable aggregation.
+- Added a mobile navbar search entry that opens a full-screen search layer backed by the same async site index, so mobile users can search docs, updates, and video resources without falling back to the menu tree.
+- Stabilized `npm run check:browser` by updating stale IA assertions and moving mobile search validation onto a dedicated mobile viewport flow with real screenshot artifacts, so browser acceptance now verifies the new mobile search entry end to end.
+
 ## [1.1.0] - 2026-03-11
 
 ### Fixed

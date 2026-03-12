@@ -61,6 +61,7 @@ const config = {
     locales: ['zh-CN'],
   },
   plugins: [
+    require.resolve('./plugins/search-index-plugin'),
     require.resolve('./plugins/portal-data-plugin'),
     [
       '@docusaurus/plugin-client-redirects',
