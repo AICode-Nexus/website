@@ -104,6 +104,11 @@ export const portalContent = definePortalContent({
       },
     ],
   },
+  roleBasedEntry: {
+    kicker: 'Role-Based Entry',
+    title: '按岗位进入 AI+ 知识库',
+    description: '根据你的岗位角色，快速找到最相关的 AI coding 场景、方法和可复用资产。',
+  },
   featuredToolTutorials: {
     kicker: 'Tool Tutorials',
     title: '工具教程精选',

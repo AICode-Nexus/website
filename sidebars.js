@@ -106,6 +106,17 @@ const sidebars = {
     },
   ],
 
+  rolesSidebar: [
+    'roles/index',
+    'roles/product',
+    'roles/design',
+    'roles/frontend',
+    'roles/backend',
+    'roles/qa',
+    'roles/devops',
+    'roles/data-analysis',
+  ],
+
   resourcesSidebar: [
     {
       type: 'doc',

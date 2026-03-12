@@ -270,6 +270,12 @@ const config = {
           position: 'left',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'rolesSidebar',
+          label: '按岗位进入',
+          position: 'left',
+        },
+        {
           to: '/blog',
           label: '动态',
           position: 'left',

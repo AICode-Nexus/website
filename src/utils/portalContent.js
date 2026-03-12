@@ -12,6 +12,8 @@ const ACTIONABLE_PORTAL_ROUTE_PATTERN =
 const HUB_PORTAL_ROUTE_PATTERN =
   /^\/docs\/(?:tools|workflows|case-studies|development-modes|standards|architecture|ecosystem)$/u;
 
+const ROLES_HUB_ROUTE_PATTERN = /^\/docs\/roles(?:\/[^/]+)?$/u;
+
 const BLOG_POST_ROUTE_PATTERN = /^\/blog\/[^/]+(?:\/[^/]+)*$/u;
 
 function ensureArray(value, fieldName) {
@@ -223,6 +225,8 @@ export function definePortalContent(content) {
       'point directly to an actionable tutorial, runbook, playbook, or case-study route',
     );
   });
+
+  validateSection(content.roleBasedEntry, 'roleBasedEntry');
 
   ['featuredToolTutorials', 'featuredWorkflowTutorials', 'featuredCaseStudies'].forEach((fieldName) => {
     validateSection(content[fieldName], fieldName);

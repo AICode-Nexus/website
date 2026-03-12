@@ -288,6 +288,10 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.roleGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .contentCard,
 .toolCard,
 .trackCard,
@@ -592,6 +596,7 @@
   .briefGrid,
   .featureGrid,
   .videoGrid,
+  .roleGrid,
   .usagePanel {
     grid-template-columns: 1fr;
   }

@@ -7,6 +7,13 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Added
+
+- A role-based entry system at `/docs/roles/` with 7 role-specific guides (产品、设计、前端、后端、测试、运维、数据分析), providing targeted AI coding scenarios, tool recommendations, reusable assets, and cross-team deliverables for each role.
+- Homepage role-based entry section using LinkTile components, placed between starter tracks and featured tool tutorials for natural navigation flow.
+- Role content validation in `src/data/rolesContent.js` with fail-fast checks for required fields and unique IDs.
+- New `rolesSidebar` navigation and navbar entry "按岗位进入" for role-based content discovery.
+
 ### Fixed
 
 - Moved the navbar search index out of the main bundle into a generated async JSON chunk, and switched homepage latest updates to published-only plugin data so draft blog metadata no longer leaks through `require.context` imports.
