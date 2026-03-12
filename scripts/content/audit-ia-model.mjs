@@ -25,6 +25,7 @@ const EXPECTED_SIDEBAR_ENTRY_DOCS = {
   workflowTutorialsSidebar: 'workflows/index',
   caseStudiesSidebar: 'case-studies/index',
   advancedTopicsSidebar: 'standards/index',
+  rolesSidebar: 'roles/index',
 };
 const EXPECTED_NAVBAR_LEFT_ITEMS = [
   {
@@ -51,6 +52,11 @@ const EXPECTED_NAVBAR_LEFT_ITEMS = [
     label: '进阶专题',
     type: 'docSidebar',
     sidebarId: 'advancedTopicsSidebar',
+  },
+  {
+    label: '按岗位进入',
+    type: 'docSidebar',
+    sidebarId: 'rolesSidebar',
   },
   {
     label: '动态',
