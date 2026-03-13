@@ -5,7 +5,7 @@ slug: /roles/data-analysis
 sidebar_label: 数据分析师
 tags: [ai-coding, data-analysis, role-based]
 track: cross-track
-kind: role-guide
+kind: guide
 content_form: guide
 audience: data-analyst
 stage: intermediate

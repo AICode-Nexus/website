@@ -5,7 +5,7 @@ slug: /roles/qa
 sidebar_label: 测试工程师
 tags: [ai-coding, qa, testing, role-based]
 track: cross-track
-kind: role-guide
+kind: guide
 content_form: guide
 audience: qa-engineer
 stage: intermediate

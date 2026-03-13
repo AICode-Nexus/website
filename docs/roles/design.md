@@ -5,7 +5,7 @@ slug: /roles/design
 sidebar_label: 设计师
 tags: [ai-coding, design, role-based]
 track: cross-track
-kind: role-guide
+kind: guide
 content_form: guide
 audience: designer
 stage: intermediate

@@ -5,7 +5,7 @@ slug: /roles/frontend
 sidebar_label: 前端工程师
 tags: [ai-coding, frontend, role-based]
 track: cross-track
-kind: role-guide
+kind: guide
 content_form: guide
 audience: frontend-engineer
 stage: intermediate

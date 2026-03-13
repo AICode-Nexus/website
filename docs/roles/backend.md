@@ -5,7 +5,7 @@ slug: /roles/backend
 sidebar_label: 后端工程师
 tags: [ai-coding, backend, role-based]
 track: cross-track
-kind: role-guide
+kind: guide
 content_form: guide
 audience: backend-engineer
 stage: intermediate

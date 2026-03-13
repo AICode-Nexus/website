@@ -5,7 +5,7 @@ slug: /roles/devops
 sidebar_label: 运维工程师
 tags: [ai-coding, devops, role-based]
 track: cross-track
-kind: role-guide
+kind: guide
 content_form: guide
 audience: devops-engineer
 stage: intermediate

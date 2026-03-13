@@ -5,7 +5,7 @@ slug: /roles/product
 sidebar_label: 产品经理
 tags: [ai-coding, product, role-based]
 track: cross-track
-kind: role-guide
+kind: guide
 content_form: guide
 audience: product-manager
 stage: intermediate
