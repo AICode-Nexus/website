@@ -1,6 +1,7 @@
 ---
 title: Code Inspector Learning Resource Implementation Plan
 description: 为 Code Inspector 学习资料条目与独立资料页记录实施步骤。
+slug: /site-admin/superpowers/plans/code-inspector-learning-resource
 tags: [site-admin, plan, superpowers]
 track: cross-track
 kind: guide

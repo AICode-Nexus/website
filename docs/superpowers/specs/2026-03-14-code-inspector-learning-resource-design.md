@@ -1,6 +1,7 @@
 ---
 title: Code Inspector Learning Resource Design
 description: 为 Code Inspector 学习资料条目与独立资料页记录设计决策。
+slug: /site-admin/superpowers/specs/code-inspector-learning-resource-design
 tags: [site-admin, spec, superpowers]
 track: cross-track
 kind: guide
