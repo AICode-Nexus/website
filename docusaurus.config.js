@@ -281,6 +281,12 @@ const config = {
           position: 'left',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'toolUpdatesSidebar',
+          label: '版本更新',
+          position: 'right',
+        },
+        {
           to: '/docs/ai-directory',
           label: 'AI 资源导航',
           activeBaseRegex: '^/docs/ai-directory(?:/|$)',

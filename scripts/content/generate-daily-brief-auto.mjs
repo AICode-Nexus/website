@@ -9,6 +9,7 @@ import {
   workspaceRoot,
   writeTextFile,
 } from './lib/content-utils.mjs';
+import {generateDailyBriefContent} from './llm-writer.mjs';
 
 const execFileAsync = promisify(execFile);
 const WATCHLIST_PATH = path.join(workspaceRoot, 'content-sources', 'source-watchlist.json');
@@ -588,6 +589,26 @@ async function main() {
       ...manifest.watchlist,
       `本次只有 ${selectedSignals.length} 条高信号更新进入正式日报，说明当天有效增量偏少，后续要确认是否需要在周报层补充上下文。`,
     ]).slice(0, 6);
+  }
+
+  // LLM enhancement: if API key is available and we have signals, enrich the manifest
+  if (selectedSignals.length > 0) {
+    try {
+      const llmContent = await generateDailyBriefContent(manifest);
+      if (llmContent) {
+        if (llmContent.title) manifest.title = llmContent.title;
+        if (llmContent.description) manifest.description = llmContent.description;
+        if (Array.isArray(llmContent.summaryBullets)) manifest.summaryBullets = llmContent.summaryBullets;
+        if (Array.isArray(llmContent.keyChanges)) manifest.keyChanges = llmContent.keyChanges;
+        if (Array.isArray(llmContent.whyItMatters)) manifest.whyItMatters = llmContent.whyItMatters;
+        if (Array.isArray(llmContent.whatToTest)) manifest.whatToTest = llmContent.whatToTest;
+        if (Array.isArray(llmContent.watchlist)) manifest.watchlist = llmContent.watchlist;
+        manifest.generatedBy = 'generate-daily-brief-auto+llm';
+        console.log('LLM enhancement applied to daily brief.');
+      }
+    } catch (error) {
+      console.warn(`LLM enhancement skipped: ${error instanceof Error ? error.message : error}`);
+    }
   }
 
   const manifestBaseName = `${date}-daily-brief`;

@@ -87,7 +87,7 @@ function ensureDocSummary(doc) {
 }
 
 function isKnowledgeDoc(doc) {
-  return !doc.id.startsWith('site-admin/');
+  return !doc.id.startsWith('site-admin/') && !doc.id.startsWith('tool-updates/');
 }
 
 function formatDateValue(value) {

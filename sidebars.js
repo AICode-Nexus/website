@@ -371,6 +371,25 @@ const sidebars = {
     },
   ],
 
+  toolUpdatesSidebar: [
+    'tool-updates/index',
+    {
+      type: 'category',
+      label: '按工具查看',
+      collapsed: false,
+      items: [
+        'tool-updates/claude-code',
+        'tool-updates/cursor',
+        'tool-updates/openai-codex',
+        'tool-updates/github-copilot',
+        'tool-updates/windsurf',
+        'tool-updates/cline',
+        'tool-updates/gemini-cli',
+        'tool-updates/vscode-agents',
+      ],
+    },
+  ],
+
   siteAdminSidebar: [
     'site-admin/editorial-workflow',
     'site-admin/ai-writing-workflow',

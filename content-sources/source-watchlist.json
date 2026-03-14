@@ -29,7 +29,7 @@
   "automation": {
     "timeZone": "Asia/Shanghai",
     "lookbackDays": 2,
-    "maxItems": 4,
+    "maxItems": 6,
     "minItemsForFullBrief": 3,
     "sources": [
       {
@@ -96,6 +96,102 @@
           "security",
           "computer use",
           "promptfoo"
+        ]
+      },
+      {
+        "id": "anthropic-news",
+        "title": "Anthropic News",
+        "siteUrl": "https://www.anthropic.com/news",
+        "feedUrl": "https://www.anthropic.com/news/rss",
+        "feedType": "rss",
+        "includeKeywords": [
+          "claude",
+          "sonnet",
+          "opus",
+          "haiku",
+          "agent",
+          "code",
+          "coding",
+          "developer",
+          "api",
+          "mcp",
+          "tool use",
+          "computer use",
+          "model"
+        ]
+      },
+      {
+        "id": "cursor-changelog",
+        "title": "Cursor Changelog",
+        "siteUrl": "https://changelog.cursor.com",
+        "feedUrl": "https://changelog.cursor.com/feed.xml",
+        "feedType": "atom",
+        "includeKeywords": [
+          "agent",
+          "model",
+          "tab",
+          "composer",
+          "chat",
+          "rules",
+          "mcp",
+          "background",
+          "terminal",
+          "apply",
+          "context"
+        ]
+      },
+      {
+        "id": "google-ai-blog",
+        "title": "Google AI Blog",
+        "siteUrl": "https://blog.google/technology/ai/",
+        "feedUrl": "https://blog.google/technology/ai/rss/",
+        "feedType": "rss",
+        "includeKeywords": [
+          "gemini",
+          "code",
+          "coding",
+          "agent",
+          "developer",
+          "studio",
+          "api",
+          "model",
+          "adk"
+        ]
+      },
+      {
+        "id": "jetbrains-ai",
+        "title": "JetBrains AI Blog",
+        "siteUrl": "https://blog.jetbrains.com/ai/",
+        "feedUrl": "https://blog.jetbrains.com/ai/feed/",
+        "feedType": "rss",
+        "includeKeywords": [
+          "agent",
+          "junie",
+          "ai assistant",
+          "code",
+          "coding",
+          "model",
+          "mcp",
+          "inline",
+          "completion"
+        ]
+      },
+      {
+        "id": "huggingface-blog",
+        "title": "Hugging Face Blog",
+        "siteUrl": "https://huggingface.co/blog",
+        "feedUrl": "https://huggingface.co/blog/feed.xml",
+        "feedType": "atom",
+        "includeKeywords": [
+          "agent",
+          "code",
+          "coding",
+          "model",
+          "open-source",
+          "transformers",
+          "inference",
+          "developer",
+          "tool"
         ]
       }
     ]

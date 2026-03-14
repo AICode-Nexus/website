@@ -14,8 +14,10 @@ import {
   workspaceRoot,
   writeTextFile,
 } from './lib/content-utils.mjs';
+import {generateWeeklyRoundupContent} from './llm-writer.mjs';
 
 const DAILY_ROOT = path.join(workspaceRoot, 'blog', 'daily');
+const DAILY_MANIFEST_ROOT = path.join(workspaceRoot, 'content-sources', 'daily');
 const WATCHLIST_PATH = path.join(workspaceRoot, 'content-sources', 'source-watchlist.json');
 
 function inRange(date, start, end) {
@@ -156,6 +158,48 @@ async function main() {
   }
 
   const posts = await collectDailyPosts(weekStart, addDays(weekEnding, 0));
+
+  // LLM enhancement: synthesize weekly trends from daily brief manifests
+  if (posts.length > 0) {
+    try {
+      const dailyBriefs = [];
+      const {readdir} = await import('node:fs/promises');
+      if (await fileExists(DAILY_MANIFEST_ROOT)) {
+        const files = await readdir(DAILY_MANIFEST_ROOT);
+        for (const file of files) {
+          if (!file.endsWith('.json')) continue;
+          const fileDate = file.slice(0, 10);
+          if (fileDate >= weekStart && fileDate <= weekEnding) {
+            try {
+              const m = await readJson(path.join(DAILY_MANIFEST_ROOT, file));
+              dailyBriefs.push({
+                date: m.date,
+                title: m.title,
+                description: m.description,
+                summaryBullets: m.summaryBullets,
+              });
+            } catch { /* skip */ }
+          }
+        }
+      }
+
+      if (dailyBriefs.length > 0) {
+        const llmContent = await generateWeeklyRoundupContent({weekStart, weekEnding, dailyBriefs});
+        if (llmContent) {
+          if (llmContent.title) manifest.title = llmContent.title;
+          if (llmContent.description) manifest.description = llmContent.description;
+          if (Array.isArray(llmContent.tlDr)) manifest.tlDr = llmContent.tlDr;
+          if (Array.isArray(llmContent.patterns)) manifest.patterns = llmContent.patterns;
+          if (Array.isArray(llmContent.whatToTest)) manifest.whatToTest = llmContent.whatToTest;
+          if (Array.isArray(llmContent.watchlist)) manifest.watchlist = llmContent.watchlist;
+          manifest.draft = false;
+          console.log('LLM enhancement applied to weekly roundup.');
+        }
+      }
+    } catch (error) {
+      console.warn(`LLM enhancement skipped: ${error instanceof Error ? error.message : error}`);
+    }
+  }
 
   await writeTextFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
   await writeTextFile(outputPath, buildMarkdown(manifest, posts, weekStart));
