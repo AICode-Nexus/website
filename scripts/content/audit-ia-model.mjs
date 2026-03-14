@@ -62,6 +62,11 @@ const EXPECTED_NAVBAR_LEFT_ITEMS = [
     label: '动态',
     to: '/blog',
   },
+  {
+    label: '版本更新',
+    type: 'docSidebar',
+    sidebarId: 'toolUpdatesSidebar',
+  },
 ];
 const EXPECTED_NAVBAR_RIGHT_ITEMS = [
   {

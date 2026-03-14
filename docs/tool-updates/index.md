@@ -3,6 +3,11 @@ title: "工具版本更新"
 description: "跟踪主流 AI coding 工具的版本更新、新功能和工程影响。"
 slug: "/tool-updates"
 tags: [ai-coding, tool-updates]
+kind: hub
+content_form: hub
+domain: tools
+journey_stage: tech-selection
+entry_role: index
 ---
 
 # 工具版本更新
@@ -27,3 +32,7 @@ tags: [ai-coding, tool-updates]
 - 重大版本发布后 1–2 天内更新
 - 只记录对工程实践有实际影响的变化
 - 每条更新标注版本号、日期和工程影响
+
+## 如何使用
+
+选择你正在使用的工具，查看最新版本变化和升级建议。每条更新都会标注对日常开发工作流的具体影响，帮助你决定是否需要立即升级。

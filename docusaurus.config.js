@@ -284,7 +284,7 @@ const config = {
           type: 'docSidebar',
           sidebarId: 'toolUpdatesSidebar',
           label: '版本更新',
-          position: 'right',
+          position: 'left',
         },
         {
           to: '/docs/ai-directory',
