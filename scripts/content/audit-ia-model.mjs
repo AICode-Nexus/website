@@ -34,14 +34,8 @@ const EXPECTED_NAVBAR_LEFT_ITEMS = [
     sidebarId: 'gettingStartedSidebar',
   },
   {
-    label: '工具教程',
-    type: 'docSidebar',
-    sidebarId: 'toolTutorialsSidebar',
-  },
-  {
-    label: '工作流教程',
-    type: 'docSidebar',
-    sidebarId: 'workflowTutorialsSidebar',
+    label: '教程',
+    type: 'dropdown',
   },
   {
     label: '实战案例',
@@ -60,12 +54,7 @@ const EXPECTED_NAVBAR_LEFT_ITEMS = [
   },
   {
     label: '动态',
-    to: '/blog',
-  },
-  {
-    label: '版本更新',
-    type: 'docSidebar',
-    sidebarId: 'toolUpdatesSidebar',
+    type: 'dropdown',
   },
 ];
 const EXPECTED_NAVBAR_RIGHT_ITEMS = [

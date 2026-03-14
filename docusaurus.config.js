@@ -246,16 +246,21 @@ const config = {
           position: 'left',
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'toolTutorialsSidebar',
-          label: '工具教程',
+          type: 'dropdown',
+          label: '教程',
           position: 'left',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'workflowTutorialsSidebar',
-          label: '工作流教程',
-          position: 'left',
+          items: [
+            {
+              type: 'docSidebar',
+              sidebarId: 'toolTutorialsSidebar',
+              label: '工具教程',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'workflowTutorialsSidebar',
+              label: '工作流教程',
+            },
+          ],
         },
         {
           type: 'docSidebar',
@@ -276,15 +281,20 @@ const config = {
           position: 'left',
         },
         {
-          to: '/blog',
+          type: 'dropdown',
           label: '动态',
           position: 'left',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'toolUpdatesSidebar',
-          label: '版本更新',
-          position: 'left',
+          items: [
+            {
+              to: '/blog',
+              label: '博客动态',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'toolUpdatesSidebar',
+              label: '版本更新',
+            },
+          ],
         },
         {
           to: '/docs/ai-directory',
