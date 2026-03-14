@@ -13,6 +13,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Homepage role-based entry section using LinkTile components, placed between starter tracks and featured tool tutorials for natural navigation flow.
 - Role content validation in `src/data/rolesContent.js` with fail-fast checks for required fields and unique IDs.
 - New `rolesSidebar` navigation and navbar entry "按岗位进入" for role-based content discovery.
+- `AI 资源导航` 的学习资料目录新增 `Code Inspector` 条目，并补了一篇独立资料页，说明它是什么、怎么试，以及它在前端调试工作流里的位置。
 
 ### Fixed
 

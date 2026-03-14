@@ -334,6 +334,7 @@ const sidebars = {
     'ai-directory/agent-frameworks-and-orchestration',
     'ai-directory/evals-observability-and-llmops',
     'ai-directory/learning-and-curated-collections',
+    'ai-directory/code-inspector',
     'ai-directory/model-platforms',
     'ai-directory/mcp-and-protocols',
     'ai-directory/chinese-community',
