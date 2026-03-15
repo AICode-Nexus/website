@@ -40,6 +40,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Hid teaching-video course links and the course-directory switch whenever the current 90-day catalog does not contain any real multi-episode series, preventing the UI from presenting one-video-per-course data as a stable aggregation.
 - Added a mobile navbar search entry that opens a full-screen search layer backed by the same async site index, so mobile users can search docs, updates, and video resources without falling back to the menu tree.
 - Stabilized `npm run check:browser` by updating stale IA assertions and moving mobile search validation onto a dedicated mobile viewport flow with real screenshot artifacts, so browser acceptance now verifies the new mobile search entry end to end.
+- Filled in short role-mechanism guides for 产品、设计、测试、运维、数据分析 so their `skills-and-mcp` and `tool-fit-and-selection` pages now satisfy the content-quality minimums required by CI, unblocking both `Content Quality` and GitHub Pages deploy workflows.
 
 ## [1.1.0] - 2026-03-11
 
