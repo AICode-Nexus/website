@@ -30,7 +30,7 @@ market_status: current
 - 代码如何过门禁：用 [质量门禁](/docs/roles/frontend/quality-gates) 把 `TypeScript / ESLint / Oxlint / build / review` 串起来。
 - 仓库结构如何避免 AI 误改：在 [仓库结构](/docs/roles/frontend/repo-architecture) 里判断单应用、workspace 和 monorepo 的边界。
 - 如何把结果交出去：去 [测试与交付](/docs/roles/frontend/testing-and-delivery) 补组件级验证、Playwright 冒烟和 PR 交付模板。
-- 如何把团队知识写回 repo：最后看 [上下文与规则](/docs/roles/frontend/context-and-rules)，明确 `AGENTS.md`、`CLAUDE.md`、工具 rules 和 skills 的分工。
+- 如何把团队知识写回 repo：最后看 [上下文与规则](/docs/roles/frontend/context-and-rules)，再分专题进入 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)。
 
 ## 模块地图
 
@@ -42,13 +42,56 @@ market_status: current
 - `开发到交付`：适合中后台功能、老页面重构、缺陷修复和 PR 收口。
 - `团队到机制`：适合组件库维护、monorepo 协作、规则文件治理和培训带教。
 
+## 建议训练节奏
+
+如果你的目标不是“看完这组页”，而是“把前端 AI 协作真正练成默认动作”，更有效的顺序是按训练节奏推进：
+
+| 阶段 | 先解决什么问题 | 对应模块 | 这一阶段最少要交什么 |
+| --- | --- | --- | --- |
+| 阶段 1：输入对齐 | 设计输入是否足够结构化 | [设计到代码](/docs/roles/frontend/design-to-code)、[样式与设计系统](/docs/roles/frontend/styling-and-design-systems) | 页面拆分表、token 清单、关键断点截图 |
+| 阶段 2：实现收口 | 组件、状态、目录是否边界清楚 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components)、[仓库结构](/docs/roles/frontend/repo-architecture) | 组件分层说明、目录合同、页面私有/共享划分 |
+| 阶段 3：验证交付 | 代码如何被证明可交付 | [质量门禁](/docs/roles/frontend/quality-gates)、[测试与交付](/docs/roles/frontend/testing-and-delivery) | lint/typecheck/build、冒烟脚本、PR 证据包 |
+| 阶段 4：团队机制 | 团队如何把经验沉淀回仓库 | [上下文与规则](/docs/roles/frontend/context-and-rules)、[规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | `AGENTS.md` 片段、任务 brief 模板、技能映射表 |
+
+这个顺序的核心不是“按目录阅读”，而是先收输入，再收实现，再收证据，最后再把经验固化成机制。很多团队之所以觉得 AI 前端“时好时坏”，本质上是因为四个阶段混成了一次对话。
+
+## 每个模块至少应该补到什么程度
+
+你提到希望每一块都尽可能详细，而且图片、视频、图表权重更高。对这套前端工作台来说，可以把“模块完成标准”先约束成下面这个最小集合：
+
+| 模块 | 文字层面最少应覆盖 | 图表/图片最少应覆盖 | 视频/录屏最少应覆盖 |
+| --- | --- | --- | --- |
+| 设计到代码 | 输入优先级、骨架拆分、状态补齐、响应式验收 | 输入流程图、交付物板、关键截图示例 | 1 条设计转页面演示、1 条响应式或交互录屏 |
+| 框架与组件生态 | 路线选择、组件分层、状态边界、反模式 | 技术路线图、选型决策板 | React/Vue 至少各 1 条案例视频 |
+| 样式与设计系统 | 品牌输入、token 分层、变体规则、视觉 review | 设计系统层级图、样式治理图、视觉对照图 | 1 条样式系统或 Tailwind 实战演示 |
+| 质量门禁 | 写码门禁、review 问题、发布前证据 | 门禁图、验证证据图、命令矩阵 | 1 条 bugfix 到验证的完整录像 |
+| 仓库结构 | 单仓到 monorepo 决策、目录合同、跨包验证 | 仓库演进图、合同分层图 | 1 条 workspace/monorepo 实操视频 |
+| 测试与交付 | 组件测试、预览验证、E2E、PR 收口 | 交付闭环图、证据包图 | 1 条 Playwright 或真实交付录屏 |
+| 上下文与规则 | 机制总览、专题拆分阅读、治理节奏 | 规则分层图、上下文包图 | 1 条 rules/agent/workflow 讲解视频 |
+| 规则与规范文档 | `AGENTS.md`、`CLAUDE.md`、brief、PR 模板 | 规则栈图、文档模板 | 1 条 instruction files 讲解视频 |
+| Skills 与 MCP | skills 组合、Figma / Context7 / 浏览器上下文 | 能力映射表、任务到能力矩阵 | 1 条 MCP 或技能编排演示 |
+| 工具匹配与选型 | 前端任务形状到入口工具的判断 | 任务到工具矩阵 | 1 条多入口协作演示 |
+
+这张表的作用不是限制篇幅，而是避免文档只在“讲道理”上变长，却没有把真正能拿来训练团队的图表、对照图、录屏和视频入口补上。
+
+## 媒体优先的学习法
+
+当一页内容越来越长时，最容易发生的问题是读者只看标题，不看关键差异。为了解决这个问题，这套前端工作台建议你用“媒体优先 + 文本下钻”的方式消化内容：
+
+1. 先看图表，建立这页的主框架。
+2. 再看表格，知道这一页的决策维度和交付物。
+3. 然后去看视频或录屏入口，观察真实操作顺序。
+4. 最后再读正文，把图表里的原则接回自己项目。
+
+如果你是带团队培训，可以把每页都拆成“10 分钟图表讲解 + 20 分钟视频观摩 + 30 分钟动手复现 + 10 分钟复盘提交”的节奏。这样这组文档就不只是知识库，而会变成可执行的训练课程。
+
 ## 三条推荐阅读路径
 
 | 路径 | 适合谁 | 先读什么 | 典型产出 |
 | --- | --- | --- | --- |
 | 设计到实现 | 正在从 Figma 落页面的前端 | [设计到代码](/docs/roles/frontend/design-to-code) -> [框架与组件生态](/docs/roles/frontend/frameworks-and-components) -> [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) | 页面骨架、组件拆分图、token 初稿 |
 | 开发到交付 | 正在做真实业务功能或重构 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components) -> [质量门禁](/docs/roles/frontend/quality-gates) -> [测试与交付](/docs/roles/frontend/testing-and-delivery) | 可 review 的代码、验证命令、PR 交付说明 |
-| 团队到机制 | 组件库维护者、前端负责人 | [仓库结构](/docs/roles/frontend/repo-architecture) -> [上下文与规则](/docs/roles/frontend/context-and-rules) -> [测试与交付](/docs/roles/frontend/testing-and-delivery) | repo 合同、skills 映射、团队质量护栏 |
+| 团队到机制 | 组件库维护者、前端负责人 | [仓库结构](/docs/roles/frontend/repo-architecture) -> [上下文与规则](/docs/roles/frontend/context-and-rules) -> [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) -> [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) -> [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | repo 合同、skills 映射、团队质量护栏 |
 
 ## AI 友好的前端栈快照
 
@@ -114,7 +157,10 @@ task:
 | 质量护栏 | lint、type-check、build、review 规则 | [质量门禁](/docs/roles/frontend/quality-gates) |
 | 工程骨架 | 单应用 / workspace / monorepo 判断与目录合同 | [仓库结构](/docs/roles/frontend/repo-architecture) |
 | 交付证据 | 组件测试、E2E 路径、PR 说明 | [测试与交付](/docs/roles/frontend/testing-and-delivery) |
-| 团队规则 | `AGENTS.md`、`CLAUDE.md`、skill 映射 | [上下文与规则](/docs/roles/frontend/context-and-rules) |
+| 团队规则 | 机制总览与专题地图 | [上下文与规则](/docs/roles/frontend/context-and-rules) |
+| 规范文档 | `AGENTS.md`、`CLAUDE.md`、任务 brief、PR 模板 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
+| 能力映射 | skill 组合、MCP 使用时机、Context7 / Figma / 浏览器 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) |
+| 工具选择 | 终端、执行栈、浏览器、平台入口的任务匹配 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) |
 
 ## 图片、图表与视频入口
 
@@ -143,5 +189,6 @@ task:
 - 你正拿着设计稿准备开工：先读 [设计到代码](/docs/roles/frontend/design-to-code)。
 - 你已经在做真实页面或组件：先读 [框架与组件生态](/docs/roles/frontend/frameworks-and-components)。
 - 你最大的问题是质量和返工：直接去 [质量门禁](/docs/roles/frontend/quality-gates)。
-- 你要把团队默认做法固化进仓库：直接看 [仓库结构](/docs/roles/frontend/repo-architecture) 和 [上下文与规则](/docs/roles/frontend/context-and-rules)。
+- 你要把团队默认做法固化进仓库：直接看 [仓库结构](/docs/roles/frontend/repo-architecture)、[上下文与规则](/docs/roles/frontend/context-and-rules)、[规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)。
+- 你要判断 skill、MCP 和工具怎么配：直接看 [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) 和 [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)。
 - 你想先补跨角色视角：同时看 [设计师](/docs/roles/design)、[后端工程师](/docs/roles/backend) 和 [测试工程师](/docs/roles/qa)。

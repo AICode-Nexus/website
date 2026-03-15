@@ -20,6 +20,14 @@ market_status: current
 
 # 设计师的 AI Coding 指南
 
+## 机制专题
+
+如果你要把设计类 AI 协作中的规则文件、Figma / MCP 能力和工具入口拆开看，继续进入这些子页：
+
+- [规则与规范文档](/docs/roles/design/rules-and-instruction-files)
+- [Skills 与 MCP](/docs/roles/design/skills-and-mcp)
+- [工具匹配与选型](/docs/roles/design/tool-fit-and-selection)
+
 ## 典型 AI Coding 场景
 
 ### 1. 设计稿到代码转换

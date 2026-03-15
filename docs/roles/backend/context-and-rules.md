@@ -22,6 +22,18 @@ market_status: current
 
 后端团队给 AI 的最大帮助，不是“写一个更长的 prompt”，而是把 repo contract、运行命令、架构边界和风险点做成稳定上下文。只要上下文包不稳定，AI 每次都会重新猜 controller 该不该改、migration 该不该写、测试要不要补。
 
+## 专题拆分阅读
+
+这一页现在作为“后端机制总览”保留；更细的内容已经拆到几个专门子页：
+
+| 方向 | 对应子页 |
+| --- | --- |
+| 规则与规范文档 | [规则与规范文档](/docs/roles/backend/rules-and-instruction-files) |
+| Skills 与 MCP | [Skills 与 MCP](/docs/roles/backend/skills-and-mcp) |
+| 工具匹配与选型 | [工具匹配与选型](/docs/roles/backend/tool-fit-and-selection) |
+
+如果你现在要治理仓库规则，优先看“规则与规范文档”；如果你正在组织真实任务输入，继续看 “Skills 与 MCP” 和 “工具匹配与选型” 会更直接。
+
 ## 让 agent 进入任务前先拿到什么
 
 一个够用的后端任务上下文包通常包括：
@@ -76,3 +88,4 @@ Cursor、Cline、Claude Code 等工具的 rules 更适合承接：
 - 准备开始一项新接口或跨边界改动：回到 [后端 AI 工作台](/docs/roles/backend) 选路径。
 - 想先固定接口输入输出和兼容策略：去 [API 与契约](/docs/roles/backend/api-and-contracts)。
 - 想先固定测试和发布证据：去 [质量门禁与测试](/docs/roles/backend/quality-and-testing)。
+- 想按机制专题继续下钻：去 [规则与规范文档](/docs/roles/backend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/backend/skills-and-mcp)、[工具匹配与选型](/docs/roles/backend/tool-fit-and-selection)。

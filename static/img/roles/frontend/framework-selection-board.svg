@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F7F8FC"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端选型决策板</text>
+  <text x="72" y="122" fill="#5C6673" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">先判断任务形状，再决定框架、组件基座和状态层，不要让技术偏好替代工程边界</text>
+
+  <rect x="72" y="176" width="300" height="420" rx="28" fill="#EAF2FF" stroke="#C9DDFB" stroke-width="2"/>
+  <text x="108" y="228" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">渲染与路由</text>
+  <text x="108" y="282" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">内容站 / SEO：Next.js、Nuxt</text>
+  <text x="108" y="322" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">中后台 / 控制台：React + Vite</text>
+  <text x="108" y="362" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">组件库 / 设计系统：Vite 优先</text>
+  <text x="108" y="426" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">判断标准：部署形态、</text>
+  <text x="108" y="458" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">SSR 需求、页面数量</text>
+
+  <rect x="450" y="176" width="300" height="420" rx="28" fill="#FFF3E1" stroke="#EDD1A8" stroke-width="2"/>
+  <text x="486" y="228" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">组件基座</text>
+  <text x="486" y="282" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">源码可控</text>
+  <text x="486" y="322" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">变体显式</text>
+  <text x="486" y="362" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">支持 token 注入</text>
+  <text x="486" y="426" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">判断标准：能否被</text>
+  <text x="486" y="458" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">AI 安全重构与复用</text>
+
+  <rect x="828" y="176" width="300" height="420" rx="28" fill="#EAF6EE" stroke="#CDE4D3" stroke-width="2"/>
+  <text x="864" y="228" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">状态与验证</text>
+  <text x="864" y="282" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">Query 管远程缓存</text>
+  <text x="864" y="322" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">Store 管局部共享状态</text>
+  <text x="864" y="362" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">测试只覆盖关键路径</text>
+  <text x="864" y="426" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">判断标准：数据边界、</text>
+  <text x="864" y="458" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">共享范围、发布风险</text>
+
+  <path d="M372 386H450" stroke="#6E96D5" stroke-width="4" stroke-linecap="round"/>
+  <path d="M750 386H828" stroke="#C58B4B" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="72" y="636" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="116" y="665" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">推荐顺序：先选页面边界，再选组件基座，最后才决定状态层与性能优化手段。</text>
+</svg>

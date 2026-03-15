@@ -20,6 +20,14 @@ market_status: current
 
 # 产品经理的 AI Coding 指南
 
+## 机制专题
+
+这一页保留产品角色总览；如果你要把 `rules / skills / MCP / 工具选择` 拆开看，继续进入这些子页：
+
+- [规则与规范文档](/docs/roles/product/rules-and-instruction-files)
+- [Skills 与 MCP](/docs/roles/product/skills-and-mcp)
+- [工具匹配与选型](/docs/roles/product/tool-fit-and-selection)
+
 ## 典型 AI Coding 场景
 
 ### 1. 需求分析与 PRD 编写

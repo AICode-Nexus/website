@@ -20,6 +20,14 @@ market_status: current
 
 # 数据分析师的 AI Coding 指南
 
+## 机制专题
+
+如果你要把数据分析角色中的规则文件、能力编排和入口选择拆开看，继续进入这些子页：
+
+- [规则与规范文档](/docs/roles/data-analysis/rules-and-instruction-files)
+- [Skills 与 MCP](/docs/roles/data-analysis/skills-and-mcp)
+- [工具匹配与选型](/docs/roles/data-analysis/tool-fit-and-selection)
+
 ## 典型 AI Coding 场景
 
 ### 1. 数据清洗与预处理

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F8FAFC"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端验证证据图</text>
+  <text x="72" y="122" fill="#5F6872" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">代码可运行只是起点，真正能交付的是“命令 + 截图 + 录屏 + 风险说明”的组合证据</text>
+
+  <rect x="72" y="176" width="240" height="400" rx="28" fill="#EAF2FF" stroke="#C9DBF9" stroke-width="2"/>
+  <text x="108" y="228" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">作者侧</text>
+  <text x="108" y="282" fill="#2B537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">lint</text>
+  <text x="108" y="322" fill="#2B537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">typecheck</text>
+  <text x="108" y="362" fill="#2B537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">unit / component test</text>
+  <text x="108" y="402" fill="#2B537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">build</text>
+
+  <rect x="348" y="176" width="240" height="400" rx="28" fill="#FFF3E1" stroke="#EDD1A8" stroke-width="2"/>
+  <text x="384" y="228" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">预览侧</text>
+  <text x="384" y="282" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">关键断点截图</text>
+  <text x="384" y="322" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">状态对照图</text>
+  <text x="384" y="362" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">视觉差异备注</text>
+  <text x="384" y="402" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">录屏或 GIF</text>
+
+  <rect x="624" y="176" width="240" height="400" rx="28" fill="#EAF6EE" stroke="#CDE4D3" stroke-width="2"/>
+  <text x="660" y="228" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">流程侧</text>
+  <text x="660" y="282" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">Playwright smoke</text>
+  <text x="660" y="322" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">手工补验证</text>
+  <text x="660" y="362" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">受影响路径</text>
+  <text x="660" y="402" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">未覆盖风险</text>
+
+  <rect x="900" y="176" width="228" height="400" rx="28" fill="#F6EDF9" stroke="#E3D1EC" stroke-width="2"/>
+  <text x="936" y="228" fill="#6D367D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">交付侧</text>
+  <text x="936" y="282" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">PR 描述</text>
+  <text x="936" y="322" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">变更摘要</text>
+  <text x="936" y="362" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">风险说明</text>
+  <text x="936" y="402" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">回滚提示</text>
+
+  <path d="M312 384H348" stroke="#7B9FD8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M588 384H624" stroke="#C58B4B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M864 384H900" stroke="#69A17A" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="72" y="620" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="116" y="649" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">没有证据包，AI 产出就只能停留在“看上去差不多”；有证据包，团队才能把验证复用成流程资产。</text>
+</svg>

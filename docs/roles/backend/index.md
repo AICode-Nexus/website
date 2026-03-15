@@ -28,6 +28,7 @@ market_status: current
 - 数据模型与迁移：去 [数据与存储](/docs/roles/backend/data-and-storage) 看 schema、迁移、回填、索引和缓存/队列的默认约束。
 - 外部服务和异步任务：去 [服务集成与异步任务](/docs/roles/backend/services-and-integrations) 处理 SDK 包装、Webhook、重试、幂等和失败恢复。
 - 验证与发布：把 [质量门禁与测试](/docs/roles/backend/quality-and-testing)、[观测性与运维协作](/docs/roles/backend/observability-and-operations) 和 [仓库结构与交付](/docs/roles/backend/architecture-and-delivery) 串起来，形成从改动到上线的闭环。
+- 团队机制与入口选择：去 [上下文与规则](/docs/roles/backend/context-and-rules)、[规则与规范文档](/docs/roles/backend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/backend/skills-and-mcp) 和 [工具匹配与选型](/docs/roles/backend/tool-fit-and-selection)。
 
 ## 两种阅读方式
 
@@ -53,6 +54,7 @@ market_status: current
 - 想判断团队到底有没有练到位：去 [能力评估矩阵](/docs/roles/backend/assessment-rubric)。
 - 想提前知道最容易翻车的地方：去 [失败模式与止损](/docs/roles/backend/failure-modes-and-recovery)。
 - 想先判断该用哪类 AI 入口：去 [工具匹配与选型](/docs/roles/backend/tool-fit-and-selection)。
+- 想先把规则文件、skills、MCP 和入口工具拆开看：继续读 [规则与规范文档](/docs/roles/backend/rules-and-instruction-files) 与 [Skills 与 MCP](/docs/roles/backend/skills-and-mcp)。
 - 想按主题拆开学：继续阅读下面各个后端子页。
 
 ## 推荐起步路径
@@ -74,6 +76,7 @@ market_status: current
 - 先读 [服务集成与异步任务](/docs/roles/backend/services-and-integrations)，把 SDK 包装、重试、幂等、限流和死信路径固定下来。
 - 再读 [观测性与运维协作](/docs/roles/backend/observability-and-operations)，定义应该监控哪些失败信号。
 - 最后用 [上下文与规则](/docs/roles/backend/context-and-rules) 整理 agent 能稳定消费的上下文包。
+- 如果你要把机制再拆细：继续到 [规则与规范文档](/docs/roles/backend/rules-and-instruction-files) 与 [Skills 与 MCP](/docs/roles/backend/skills-and-mcp)。
 
 ## AI 友好的后端栈快照
 
@@ -121,5 +124,6 @@ market_status: current
 - 想先设定讲师或学员的达标线：去 [能力评估矩阵](/docs/roles/backend/assessment-rubric)。
 - 想先看最常见的后端 AI 失控模式：去 [失败模式与止损](/docs/roles/backend/failure-modes-and-recovery)。
 - 想先确认任务该走终端、控制面、执行栈还是平台：去 [工具匹配与选型](/docs/roles/backend/tool-fit-and-selection)。
+- 想先拆清规则文档与能力编排：去 [规则与规范文档](/docs/roles/backend/rules-and-instruction-files) 与 [Skills 与 MCP](/docs/roles/backend/skills-and-mcp)。
 - 想先看真实终端验证闭环：去 [Codex Refactor with Verification](/docs/case-studies/codex-refactor-with-verification) 或 [Claude Code Bugfix Loop](/docs/case-studies/claude-code-bugfix-loop)。
 - 想把后端交付和前端、测试、运维接起来：继续看 [前端工程师](/docs/roles/frontend)、[测试工程师](/docs/roles/qa)、[运维工程师](/docs/roles/devops)。

@@ -20,6 +20,14 @@ market_status: current
 
 # 运维工程师的 AI Coding 指南
 
+## 机制专题
+
+如果你要把运维角色中的运行规则、MCP 与入口工具拆开看，继续进入这些子页：
+
+- [规则与规范文档](/docs/roles/devops/rules-and-instruction-files)
+- [Skills 与 MCP](/docs/roles/devops/skills-and-mcp)
+- [工具匹配与选型](/docs/roles/devops/tool-fit-and-selection)
+
 ## 典型 AI Coding 场景
 
 ### 1. 基础设施即代码（IaC）

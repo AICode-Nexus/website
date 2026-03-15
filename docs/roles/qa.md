@@ -20,6 +20,14 @@ market_status: current
 
 # 测试工程师的 AI Coding 指南
 
+## 机制专题
+
+如果你要把 QA 角色中的测试规则、技能能力、浏览器与终端入口拆开看，继续进入这些子页：
+
+- [规则与规范文档](/docs/roles/qa/rules-and-instruction-files)
+- [Skills 与 MCP](/docs/roles/qa/skills-and-mcp)
+- [工具匹配与选型](/docs/roles/qa/tool-fit-and-selection)
+
 ## 典型 AI Coding 场景
 
 ### 1. 测试用例生成

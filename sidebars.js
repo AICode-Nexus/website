@@ -108,8 +108,26 @@ const sidebars = {
 
   rolesSidebar: [
     'roles/index',
-    'roles/product',
-    'roles/design',
+    {
+      type: 'category',
+      label: '产品经理',
+      items: [
+        'roles/product',
+        'roles/product/rules-and-instruction-files',
+        'roles/product/skills-and-mcp',
+        'roles/product/tool-fit-and-selection',
+      ],
+    },
+    {
+      type: 'category',
+      label: '设计师',
+      items: [
+        'roles/design',
+        'roles/design/rules-and-instruction-files',
+        'roles/design/skills-and-mcp',
+        'roles/design/tool-fit-and-selection',
+      ],
+    },
     {
       type: 'category',
       label: '前端工程师',
@@ -122,6 +140,9 @@ const sidebars = {
         'roles/frontend/repo-architecture',
         'roles/frontend/testing-and-delivery',
         'roles/frontend/context-and-rules',
+        'roles/frontend/rules-and-instruction-files',
+        'roles/frontend/skills-and-mcp',
+        'roles/frontend/tool-fit-and-selection',
       ],
     },
     {
@@ -141,13 +162,42 @@ const sidebars = {
         'roles/backend/observability-and-operations',
         'roles/backend/architecture-and-delivery',
         'roles/backend/context-and-rules',
+        'roles/backend/rules-and-instruction-files',
+        'roles/backend/skills-and-mcp',
         'roles/backend/delivery-checklists',
         'roles/backend/templates-and-handoffs',
       ],
     },
-    'roles/qa',
-    'roles/devops',
-    'roles/data-analysis',
+    {
+      type: 'category',
+      label: '测试工程师',
+      items: [
+        'roles/qa',
+        'roles/qa/rules-and-instruction-files',
+        'roles/qa/skills-and-mcp',
+        'roles/qa/tool-fit-and-selection',
+      ],
+    },
+    {
+      type: 'category',
+      label: '运维工程师',
+      items: [
+        'roles/devops',
+        'roles/devops/rules-and-instruction-files',
+        'roles/devops/skills-and-mcp',
+        'roles/devops/tool-fit-and-selection',
+      ],
+    },
+    {
+      type: 'category',
+      label: '数据分析师',
+      items: [
+        'roles/data-analysis',
+        'roles/data-analysis/rules-and-instruction-files',
+        'roles/data-analysis/skills-and-mcp',
+        'roles/data-analysis/tool-fit-and-selection',
+      ],
+    },
   ],
 
   resourcesSidebar: [

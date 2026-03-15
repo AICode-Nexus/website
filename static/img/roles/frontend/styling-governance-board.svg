@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#FBF7F0"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">样式治理板</text>
+  <text x="72" y="122" fill="#5C6673" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">品牌语言、token、组件变体和页面节奏要分别治理，AI 才不会退化成模板风格</text>
+
+  <rect x="72" y="176" width="228" height="420" rx="28" fill="#FFF0E2" stroke="#E9C9A3" stroke-width="2"/>
+  <text x="108" y="228" fill="#8A4A1A" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Brand</text>
+  <text x="108" y="282" fill="#6C4B2A" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">视觉关键词</text>
+  <text x="108" y="322" fill="#6C4B2A" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">禁用风格</text>
+  <text x="108" y="362" fill="#6C4B2A" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">气质参考图</text>
+
+  <rect x="324" y="176" width="228" height="420" rx="28" fill="#EAF2FF" stroke="#C9DDFB" stroke-width="2"/>
+  <text x="360" y="228" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Token</text>
+  <text x="360" y="282" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">基础值</text>
+  <text x="360" y="322" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">语义值</text>
+  <text x="360" y="362" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">CSS variables</text>
+
+  <rect x="576" y="176" width="228" height="420" rx="28" fill="#ECF8EE" stroke="#CDE5D4" stroke-width="2"/>
+  <text x="612" y="228" fill="#275F3B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Component</text>
+  <text x="612" y="282" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">按钮变体</text>
+  <text x="612" y="322" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">表单态</text>
+  <text x="612" y="362" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">卡片体系</text>
+
+  <rect x="828" y="176" width="300" height="420" rx="28" fill="#F6EDF9" stroke="#E3D1EC" stroke-width="2"/>
+  <text x="864" y="228" fill="#6D367D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Screen / Review</text>
+  <text x="864" y="282" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">区块节奏与转场</text>
+  <text x="864" y="322" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">断点截图</text>
+  <text x="864" y="362" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">视觉回归问题单</text>
+
+  <path d="M300 386H324" stroke="#D49B51" stroke-width="4" stroke-linecap="round"/>
+  <path d="M552 386H576" stroke="#739BD7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M804 386H828" stroke="#5FA076" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="72" y="636" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="108" y="665" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">如果没有 Brand 与 Token 层约束，AI 生成的 Component 和 Screen 往往会回落到最常见的 SaaS 模板视觉。</text>
+</svg>
