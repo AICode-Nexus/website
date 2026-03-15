@@ -45,6 +45,15 @@ slug: /roles/frontend/context-and-rules
 2. 为团队写一份 `AGENTS.md` 里的前端协作规则
 3. 为一个真实任务整理“该调用哪些 skills / 工具 / 文档”的映射表
 
+## 典型交付物
+
+这一模块最典型的输出包括：
+
+- `CLAUDE.md` 大纲或初稿
+- `AGENTS.md` 前端协作规则
+- 工具内 rules 说明
+- skills 映射表
+
 ## Context7、Plan First、MCP
 
 这三类能力适合这样分工：
@@ -129,3 +138,10 @@ slug: /roles/frontend/context-and-rules
 - 一份 `CLAUDE.md` 或 `AGENTS.md` 初稿
 - 一份工具内 rules 说明
 - 一份前端任务到 skills 的映射清单
+
+## 常见误区
+
+- 把 repo 长期规则只写在聊天记录里
+- 用工具内 rules 代替仓库级契约
+- 复杂任务不做计划，直接让 AI 改跨目录代码
+- 明明需要最新文档，却只靠模型记忆回答

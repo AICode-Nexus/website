@@ -20,6 +20,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - 将前端总览页继续升级为“AI 前端培训首页”，补充训练目标、分阶段学习路径、模块训练地图、项目化训练入口、训练节奏与毕业标准，为后续 Ralph Loop 式培训化迭代打基础。
 - 为前端子页统一补上培训模块骨架，新增学习目标、建议先修、训练任务与训练验收，让 `design-to-code`、`frameworks-and-components`、`styling-and-design-systems`、`quality-gates`、`repo-architecture`、`testing-and-delivery`、`context-and-rules` 从知识页升级为课程模块。
 - 为前端培训总览页补上“阶段 0：工具与环境准备”和 `Capstone` 毕业实战路径，让整套内容形成从起步到交付的闭环训练路线。
+- 继续补强前端培训模块，统一新增“典型交付物”和“常见误区”，让每个主题页同时具备训练输出物和反模式提示，不再只是做法说明。
+- 为前端培训总览页新增 `Capstone` 评分 Rubric 和复盘问题，补齐自学验收、团队带训与导师评审所需的评估层。
 
 ### Fixed
 

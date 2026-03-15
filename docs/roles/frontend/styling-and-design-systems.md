@@ -46,6 +46,15 @@ slug: /roles/frontend/styling-and-design-systems
 2. 把一个“AI 默认审美”的页面重新约束成品牌化样式系统
 3. 为当前项目写一份“AI 样式生成约束”，说明哪些类名、变量和主题允许被使用
 
+## 典型交付物
+
+这一模块最典型的输出包括：
+
+- token 表
+- CSS 变量草案
+- 样式生成约束说明
+- 一个品牌化页面或组件示例
+
 ## Tailwind CSS 为什么对 AI 友好
 
 `Tailwind CSS` 常被拿来做前端 AI 协作，不是偶然：
@@ -116,6 +125,13 @@ slug: /roles/frontend/styling-and-design-systems
 - 一份 token 或 CSS 变量初稿
 - 一份避免默认 AI 味的样式约束
 - 一个按规则落地的页面或组件样式示例
+
+## 常见误区
+
+- 直接套用 Tailwind 默认色板当品牌主题
+- 页面能跑就算完成，不做样式系统约束
+- 把 token、组件变体和设计稿分别维护成三套真相
+- 一边想高保真设计还原，一边允许 AI 自由发挥视觉风格
 
 ## 这页后面接什么
 
