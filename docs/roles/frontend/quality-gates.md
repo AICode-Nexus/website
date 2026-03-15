@@ -22,6 +22,29 @@ slug: /roles/frontend/quality-gates
 
 如果你只让 AI 生成代码，而不把门禁接上去，前端质量不会变稳定，只会变快地积累问题。
 
+## 学习目标
+
+学完这一页后，你应该能：
+
+- 把 `TypeScript / ESLint / Oxlint` 变成 AI 开发的默认护栏
+- 区分写码时、review 时和发布前的门禁职责
+- 为项目写出最小可执行的验证链路
+
+## 建议先修
+
+建议先看：
+
+- [前端 AI 培训营：总览](/docs/roles/frontend)
+- [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
+
+## 训练任务
+
+至少完成 1 个最小练习：
+
+1. 为当前项目整理一份 `lint / type-check / build / test` 的验证顺序
+2. 找一段 AI 生成代码，手动补齐类型、lint 和 review 约束
+3. 给团队写一份“什么改动不允许直接跳过验证”的规则说明
+
 ## 写码时的护栏
 
 ### TypeScript
@@ -93,6 +116,14 @@ turbo run build test
 2. 改完先看 diff，再跑静态检查
 3. 关键页面补 Playwright 或组件测试
 4. 发布前再跑完整构建链路
+
+## 训练验收
+
+完成这一页训练后，至少要拿出这些结果：
+
+- 一套明确的门禁顺序
+- 一份项目验证命令清单
+- 一个经过类型、lint 和测试验证的真实改动
 
 ## 这页后面接什么
 

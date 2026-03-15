@@ -22,6 +22,29 @@ slug: /roles/frontend/repo-architecture
 
 前端 AI 的稳定性，很大程度上取决于 repo 骨架是否清晰。结构乱，AI 就会在错误的目录里改错的文件。
 
+## 学习目标
+
+学完这一页后，你应该能：
+
+- 判断项目还该停留在单应用、升级到 workspace，还是进入 monorepo
+- 为 `pnpm / Turborepo / Nx` 写出清晰的使用边界
+- 给 AI 讲清 app、package、命令和依赖边界
+
+## 建议先修
+
+建议先看：
+
+- [前端 AI 培训营：总览](/docs/roles/frontend)
+- [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
+
+## 训练任务
+
+至少完成 1 个最小练习：
+
+1. 为当前仓库写一份“为什么仍然保持单应用”或“为什么应该升级 workspace”的说明
+2. 为一个多包前端仓库设计 `apps/*` 和 `packages/*` 结构草图
+3. 为团队写一份“哪些跨包改动必须同步验证”的边界规则
+
 ## 先判断是不是该升级结构
 
 不要一开始就把 `monorepo` 当成熟标配。更稳的顺序是：
@@ -204,6 +227,14 @@ turbo run lint typecheck build test
 ```
 
 如果是单应用，也至少保留一条“根目录完整验证命令”，不要让 AI 每次都猜验证入口。
+
+## 训练验收
+
+完成这一页训练后，至少要拿出这些结果：
+
+- 一份仓库结构选型结论
+- 一份包边界或目录边界说明
+- 一份根命令与任务编排命令清单
 
 ## 这页后面接什么
 

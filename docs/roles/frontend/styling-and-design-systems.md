@@ -22,6 +22,30 @@ slug: /roles/frontend/styling-and-design-systems
 
 大部分 AI 生成的前端界面之所以看起来廉价，不是因为模型不够强，而是因为样式系统没有被约束。
 
+## 学习目标
+
+学完这一页后，你应该能：
+
+- 解释为什么 `Tailwind CSS`、token 和 CSS 变量更适合 AI 协作
+- 建立避免“默认 AI 味”的视觉约束
+- 为设计系统写出最少可执行的主题规则
+
+## 建议先修
+
+建议先看：
+
+- [前端 AI 培训营：总览](/docs/roles/frontend)
+- [设计到代码](/docs/roles/frontend/design-to-code)
+- [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
+
+## 训练任务
+
+至少完成 1 个最小练习：
+
+1. 为一个页面整理颜色、间距、字号、圆角和阴影 token
+2. 把一个“AI 默认审美”的页面重新约束成品牌化样式系统
+3. 为当前项目写一份“AI 样式生成约束”，说明哪些类名、变量和主题允许被使用
+
 ## Tailwind CSS 为什么对 AI 友好
 
 `Tailwind CSS` 常被拿来做前端 AI 协作，不是偶然：
@@ -84,6 +108,14 @@ slug: /roles/frontend/styling-and-design-systems
 - `Shadcraft`：用于围绕 shadcn 风格的设计库协作
 
 这些工具的价值不是“替你设计”，而是减少 token、主题和视觉产物之间的漂移。
+
+## 最少验证
+
+完成这一页训练后，至少要拿出这些结果：
+
+- 一份 token 或 CSS 变量初稿
+- 一份避免默认 AI 味的样式约束
+- 一个按规则落地的页面或组件样式示例
 
 ## 这页后面接什么
 

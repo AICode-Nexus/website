@@ -18,6 +18,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - 将 `/docs/roles/frontend` 进一步拆分为总览页加 7 个工程主题子页，并把 `rolesSidebar` 中的前端入口改成带子页的分类导航，方便按工作流或按工程主题阅读。
 - 继续补强前端工作台中的“框架与组件生态”和“仓库结构”两页，加入 `Next.js / Nuxt / Vite / TanStack Query / Zustand / Pinia / Headless UI / pnpm workspace / Turborepo / Nx` 等更细的 AI 选型与边界说明。
 - 将前端总览页继续升级为“AI 前端培训首页”，补充训练目标、分阶段学习路径、模块训练地图、项目化训练入口、训练节奏与毕业标准，为后续 Ralph Loop 式培训化迭代打基础。
+- 为前端子页统一补上培训模块骨架，新增学习目标、建议先修、训练任务与训练验收，让 `design-to-code`、`frameworks-and-components`、`styling-and-design-systems`、`quality-gates`、`repo-architecture`、`testing-and-delivery`、`context-and-rules` 从知识页升级为课程模块。
+- 为前端培训总览页补上“阶段 0：工具与环境准备”和 `Capstone` 毕业实战路径，让整套内容形成从起步到交付的闭环训练路线。
 
 ### Fixed
 

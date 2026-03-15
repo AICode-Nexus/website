@@ -22,6 +22,29 @@ slug: /roles/frontend/context-and-rules
 
 前端团队要把 AI 用稳，最终拼的不是 prompt，而是上下文和规则系统。
 
+## 学习目标
+
+学完这一页后，你应该能：
+
+- 区分 `Context7 / Plan First / MCP / rules files` 各自负责什么
+- 给团队写出 `AGENTS.md`、`CLAUDE.md` 和工具内 rules 的职责边界
+- 把常用 skills 映射到真实前端任务
+
+## 建议先修
+
+建议先看：
+
+- [前端 AI 培训营：总览](/docs/roles/frontend)
+- [仓库结构](/docs/roles/frontend/repo-architecture)
+
+## 训练任务
+
+至少完成 1 个最小练习：
+
+1. 为当前项目写一份 `CLAUDE.md` 大纲
+2. 为团队写一份 `AGENTS.md` 里的前端协作规则
+3. 为一个真实任务整理“该调用哪些 skills / 工具 / 文档”的映射表
+
 ## Context7、Plan First、MCP
 
 这三类能力适合这样分工：
@@ -98,3 +121,11 @@ slug: /roles/frontend/context-and-rules
 - 先想清技术边界：看 [仓库结构](/docs/roles/frontend/repo-architecture)
 - 再想清发布边界：看 [测试与交付](/docs/roles/frontend/testing-and-delivery)
 - 最后把规则文件写回 repo，而不是只留在对话里
+
+## 训练验收
+
+完成这一页训练后，至少要拿出这些结果：
+
+- 一份 `CLAUDE.md` 或 `AGENTS.md` 初稿
+- 一份工具内 rules 说明
+- 一份前端任务到 skills 的映射清单

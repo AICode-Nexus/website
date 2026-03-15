@@ -78,6 +78,22 @@ market_status: current
 
 ## 分阶段学习路径
 
+### 阶段 0：工具与环境准备
+
+目标：把 AI 前端训练需要的工具、规则文件和工作流入口准备好。
+
+推荐入口：
+
+1. [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start) 或 [Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)
+2. [Repo instruction files](/docs/repo-instruction-files)
+3. [Spec-First](/docs/workflows/patterns/spec-first/runbook)
+
+阶段产出：
+
+- 一个可用的 AI 工具入口
+- 一份最小 repo 规则文件认知
+- 一条知道何时先计划、何时直接实现的工作流心智
+
 ### 阶段 1：设计到实现
 
 目标：把设计稿和 token 稳定转成可维护的前端骨架。
@@ -173,6 +189,38 @@ market_status: current
 - 仓库结构
 - 上下文与规则
 - 团队级约束与验证链路
+
+## Capstone 毕业实战
+
+如果你想验证这套培训是否真的学会了，建议至少完成一次完整 capstone：
+
+### 题目
+
+从一份真实设计稿出发，完成一个可以交付的前端模块，要求覆盖：
+
+- 页面和组件实现
+- token / 样式系统
+- 类型与 lint 门禁
+- Playwright 或组件级验证
+- PR 交付说明
+- rules 文件或协作约束
+
+### 推荐路径
+
+1. 用 [设计到代码](/docs/roles/frontend/design-to-code) 先生成页面骨架
+2. 用 [框架与组件生态](/docs/roles/frontend/frameworks-and-components) 固定技术栈和状态层
+3. 用 [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) 补 token 与主题
+4. 用 [质量门禁](/docs/roles/frontend/quality-gates) 补 lint、类型和 review 护栏
+5. 用 [测试与交付](/docs/roles/frontend/testing-and-delivery) 补测试与 PR 交付
+6. 用 [仓库结构](/docs/roles/frontend/repo-architecture) 和 [上下文与规则](/docs/roles/frontend/context-and-rules) 补团队边界
+
+### Capstone 通过标准
+
+- 设计输入、实现、验证、交付形成完整链路
+- 有真实的页面、组件或模块产出
+- 有可复现的验证证据
+- 有明确的规则文件或协作说明
+- 其他前端成员能根据你的交付继续工作
 
 ## 建议的训练节奏
 
