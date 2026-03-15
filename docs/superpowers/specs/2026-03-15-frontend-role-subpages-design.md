@@ -40,6 +40,7 @@ Key user direction established during brainstorming:
 - organize child pages by engineering themes, not by one-off task flows
 - React and Vue must remain equal first-class ecosystems
 - topics such as Tailwind CSS, ESLint, Oxlint, pnpm, Turborepo, `CLAUDE.md`, `AGENTS.md`, and front-end-related skills should land in natural, stable sections
+- the split should be richer than a pure table-of-contents move, and should explicitly pull in more AI-suitable front-end choices across frameworks, architecture, tooling, and team conventions
 
 ## Decision
 
@@ -101,6 +102,21 @@ The overview page should stop acting like the full handbook. It should do only t
 4. Link to all themed child pages
 5. Briefly explain which reader type should start where
 6. Link to tool tutorials, workflows, and case studies as next steps
+7. Include at least one compact "AI-friendly stack snapshot" for React and one for Vue so the overview page immediately feels concrete rather than abstract
+
+## Content Depth Requirement
+
+This refactor should not merely move existing paragraphs into separate files. It should enrich the front-end role area so readers can understand not just "what topic exists", but also "which technical choices tend to work well with AI collaboration".
+
+That means the child pages should deliberately incorporate:
+
+- framework choices
+- architecture choices
+- toolchain choices
+- testing and quality tool choices
+- repo contract and collaboration choices
+
+The resulting cluster should feel like a front-end technical operating manual, not a lightly expanded role landing page.
 
 ## Child Page Responsibilities
 
@@ -114,6 +130,8 @@ Focus:
 - design tokens
 - page skeleton generation
 - first-pass responsive structure
+- design-to-code pathways such as design handoff, component extraction, and token mapping
+- when AI should work from structured design data versus screenshots or written specs
 
 Do not center framework-specific implementation details here.
 
@@ -123,20 +141,32 @@ Focus:
 
 - React / Next.js
 - Vue / Nuxt
+- Vite-class local development stacks where relevant
+- rendering and delivery modes such as SPA, SSR, SSG, and hybrid app choices
 - hooks / composables
 - component primitives and customizable component bases
+- state and data-layer choices that often show up in AI-assisted front-end work, such as TanStack Query, Zustand, Pinia, and similar patterns
 
 React and Vue should use mirrored structure and similar depth.
+
+This page should explicitly answer:
+
+- which framework stacks are easiest to constrain for AI
+- which component architectures make AI modifications safer
+- how React and Vue differ in AI collaboration patterns without implying one is the default winner
 
 ### `styling-and-design-systems`
 
 Focus:
 
 - Tailwind CSS
+- CSS variables and token systems
+- when utility-first styling helps AI and when it creates generic output
 - theme tokens
 - design system consistency
 - avoiding generic AI visual output
 - theme tooling such as TweakCN / Shadcraft when relevant
+- optional mention of adjacent styling approaches where useful for comparison, such as CSS Modules or UnoCSS, but without turning the page into a generic CSS survey
 
 ### `quality-gates`
 
@@ -145,8 +175,15 @@ Focus:
 - TypeScript
 - ESLint
 - Oxlint
+- optionally Biome or formatter-layer positioning if it helps explain a clearer gate model
 - naming and directory conventions
 - how AI-generated output passes engineering gates
+
+This page should clearly distinguish:
+
+- write-time guardrails
+- review-time guardrails
+- release-time guardrails
 
 ### `repo-architecture`
 
@@ -156,7 +193,14 @@ Focus:
 - workspace layout
 - monorepo boundaries
 - Turborepo task orchestration
+- comparable task-runner and repo-organization patterns when useful for contrast, such as Nx or app/lib package splits
 - package and dependency responsibilities
+
+This page should also cover architecture-level choices that affect AI productivity:
+
+- single app versus monorepo
+- shared UI package versus duplicated page-local components
+- strict package boundaries versus ad hoc imports
 
 ### `testing-and-delivery`
 
@@ -164,6 +208,8 @@ Focus:
 
 - Playwright
 - component/unit testing
+- Vitest and Testing Library class tooling where useful
+- Storybook or component preview workflows if they help explain AI-assisted UI verification
 - build, lint, type-check, smoke paths
 - PR and acceptance expectations
 
@@ -176,7 +222,25 @@ Focus:
 - MCP-assisted workflows
 - `CLAUDE.md`
 - `AGENTS.md`
+- tool-level rules files where relevant, such as Cursor or Windsurf rules, without letting them replace repo contracts
 - front-end-relevant skills
+
+This page should make room for:
+
+- front-end specific repo instruction patterns
+- how to divide responsibility between repo contracts and tool-local rules
+- which skills are useful for design, implementation, debugging, testing, and verification
+
+## Coverage Expectations By Theme
+
+The final child pages should collectively cover a broader AI-friendly front-end stack than the current role page. At minimum, the design should leave space for the following clusters:
+
+- `React / Next.js / TypeScript / Tailwind CSS / Radix UI / shadcn/ui / TanStack Query / Vitest / Playwright`
+- `Vue / Nuxt / TypeScript / Tailwind CSS or equivalent utility layer / Pinia / Vitest / Playwright`
+- `pnpm / workspace / monorepo / Turborepo`
+- `Figma / design tokens / repo contracts / AI rules files / skill-driven workflows`
+
+The docs do not need to prescribe one universal stack, but they should make clear which combinations are easier to keep deterministic, reviewable, and maintainable under AI collaboration.
 
 ## Sidebar Design
 
@@ -202,6 +266,7 @@ This should improve scanability without changing the top-level role navigation m
 - Preserve the public route `/docs/roles/frontend`
 - Rewrite the overview page as a router/entry page
 - Split detailed content across 7 themed child docs
+- Enrich the split pages with clearer front-end technical selection guidance, not just headings and link moves
 - Update the relevant sidebar entries
 - Update `CHANGELOG.md`
 
@@ -225,3 +290,4 @@ This should improve scanability without changing the top-level role navigation m
 - `npm run check:content`
 - Confirm `/docs/roles/frontend` remains the overview route
 - Confirm the front-end role renders as a sidebar category with child docs
+- Confirm the overview page offers both workflow reading paths and engineering-topic entry points
