@@ -15,6 +15,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - New `rolesSidebar` navigation and navbar entry "按岗位进入" for role-based content discovery.
 - `AI 资源导航` 的学习资料目录新增 `Code Inspector` 条目，并补了一篇独立资料页，说明它是什么、怎么试，以及它在前端调试工作流里的位置。
 - 重写 `/docs/roles/frontend`，将其从泛化岗位说明升级为“前端 AI 工作台”，补充设计到代码、React / Vue 生态、Tailwind 与主题系统、ESLint / Oxlint、pnpm / monorepo / Turborepo、Playwright、`CLAUDE.md` / `AGENTS.md` 以及前端常用 skills 的分类说明。
+- 将 `/docs/roles/frontend` 进一步拆分为总览页加 7 个工程主题子页，并把 `rolesSidebar` 中的前端入口改成带子页的分类导航，方便按工作流或按工程主题阅读。
 
 ### Fixed
 
