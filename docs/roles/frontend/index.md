@@ -1,6 +1,6 @@
 ---
-title: 前端 AI 工作台：总览
-description: 从设计稿到工程交付，按工作流和工程主题进入前端 AI 工作台。
+title: 前端 AI 培训营：总览
+description: 面向前端工程师的 AI 培训首页，覆盖学习路径、模块地图、训练节奏与项目化练习。
 slug: /roles/frontend
 sidebar_label: 总览
 tags: [ai-coding, frontend, role-based]
@@ -18,121 +18,180 @@ source_window_end: 2026-03-15
 market_status: current
 ---
 
-# 前端 AI 工作台：总览
+# 前端 AI 培训营：总览
 
-这组文档不是普通的“岗位介绍”，而是前端工程师在 AI 加持下的工作台入口。它覆盖的不是某一个工具，而是一整条链路：
+这组文档不再只是“岗位导航页”，而是一套给前端工程师使用的 AI 培训入口。它覆盖的不是某一个工具，而是一整条前端训练链路：
 
 `设计输入 -> 框架实现 -> 样式系统 -> 质量门禁 -> 仓库结构 -> 测试交付 -> 上下文与规则`
 
-如果你想把 AI 真正用进前端日常，而不是偶尔拿来写一个 demo，这里应该成为你的阅读入口。
+如果你的目标是把 AI 真正纳入前端日常，而不是偶尔拿来写一个 demo，这里应该成为你的训练首页。
 
-## 两种阅读方式
+## 训练目标
 
-你可以按两种方式进入这组文档：
+完成这一组文档训练后，你至少应该能做到：
 
-- `按工作流阅读`：适合想顺着任务推进的人
-- `按工程主题阅读`：适合已经知道自己要解决哪一类问题的人
+- 能把 `Figma / 设计 token / 页面结构` 转成前端实现骨架
+- 能在 `React / Vue` 生态里为 AI 设定清楚的组件、状态和渲染边界
+- 能约束 `Tailwind CSS`、组件基座和设计系统，避免产出“默认 AI 味”
+- 能把 `TypeScript / ESLint / Oxlint / Playwright` 变成默认质量门禁
+- 能在 `pnpm workspace / monorepo / Turborepo` 这类工程结构里稳定协作
+- 能通过 `Context7 / CLAUDE.md / AGENTS.md` 把 AI 从聊天工具变成工程助手
 
-## 按工作流阅读
+## 适合谁学
 
-### 1. 设计到实现
+这套培训内容主要服务 4 类读者：
 
-推荐顺序：
+- `前端新手或转岗工程师`：建立 AI 协作下的前端完整路径，而不是只学单个工具
+- `React / Vue 业务前端`：把 AI 纳入日常开发、调试、重构、测试和交付流程
+- `设计系统或组件库维护者`：让 AI 在组件源码、token、主题和规范约束里稳定工作
+- `前端工程化负责人`：把 repo 结构、规则文件、验证链路和团队约束沉淀成组织资产
+
+## 建议训练方式
+
+推荐不要把这组文档当百科全书看完，而是按训练节奏推进：
+
+### 7 天速训
+
+适合已有前端经验、想快速接入 AI 的人：
+
+1. 先读 [设计到代码](/docs/roles/frontend/design-to-code)
+2. 再读 [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
+3. 接着读 [样式与设计系统](/docs/roles/frontend/styling-and-design-systems)
+4. 最后补 [质量门禁](/docs/roles/frontend/quality-gates) 和 [测试与交付](/docs/roles/frontend/testing-and-delivery)
+
+### 14 天标准训练
+
+适合要把 AI 带进真实项目的人：
+
+1. 完整走一遍 `设计到实现`
+2. 再完整走一遍 `开发到交付`
+3. 最后补 `团队落地`
+
+### 28 天团队落地训练
+
+适合前端负责人、架构师或组件库维护者：
+
+1. 把 7 个模块全部过一遍
+2. 给团队补 `CLAUDE.md / AGENTS.md / repo rules`
+3. 补一套项目级验证链路
+4. 至少完成一个项目化训练任务
+
+## 分阶段学习路径
+
+### 阶段 1：设计到实现
+
+目标：把设计稿和 token 稳定转成可维护的前端骨架。
+
+推荐模块：
 
 1. [设计到代码](/docs/roles/frontend/design-to-code)
 2. [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
 3. [样式与设计系统](/docs/roles/frontend/styling-and-design-systems)
 
-适合：
+阶段产出：
 
-- 刚拿到 Figma 设计稿
-- 要快速搭出页面骨架
-- 正在把 token、组件和样式系统对齐
+- 一个从设计稿还原出的页面
+- 一组拆分清楚的组件
+- 一套初版 token / 主题约束
 
-### 2. 开发到交付
+### 阶段 2：开发到交付
 
-推荐顺序：
+目标：把“能跑”提升为“能交付、能验证、能 review”。
+
+推荐模块：
 
 1. [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
 2. [质量门禁](/docs/roles/frontend/quality-gates)
 3. [测试与交付](/docs/roles/frontend/testing-and-delivery)
 
-适合：
+阶段产出：
 
-- 已经有页面或组件代码
-- 正在补类型、lint、测试、验收和 PR 输出
+- 一套带类型、lint、测试、构建的前端改动
+- 一份带验证结果的 PR 交付说明
+- 至少一条关键路径的 Playwright 验证
 
-### 3. 团队落地
+### 阶段 3：团队落地
 
-推荐顺序：
+目标：让 AI 协作进入 repo、规范、任务链和团队约束。
+
+推荐模块：
 
 1. [仓库结构](/docs/roles/frontend/repo-architecture)
 2. [上下文与规则](/docs/roles/frontend/context-and-rules)
 3. [测试与交付](/docs/roles/frontend/testing-and-delivery)
 
-适合：
+阶段产出：
 
-- 团队准备长期引入 AI
-- 正在建设 `pnpm workspace`、`monorepo`、规则文件和验证链路
+- 一套能讲清边界的仓库结构
+- 一份 `CLAUDE.md / AGENTS.md / repo rules`
+- 一条可重复执行的团队验证链路
 
-## 按工程主题阅读
+## 模块训练地图
 
-| 主题 | 解决什么问题 | 入口 |
-| --- | --- | --- |
-| 设计到代码 | 如何把 Figma、token 和设计描述变成页面骨架 | [设计到代码](/docs/roles/frontend/design-to-code) |
-| 框架与组件生态 | React / Vue / Next.js / Nuxt / 组件基座怎么选 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components) |
-| 样式与设计系统 | Tailwind、主题 token、设计系统一致性如何落地 | [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) |
-| 质量门禁 | TypeScript、ESLint、Oxlint 和 review 门禁怎么接入 | [质量门禁](/docs/roles/frontend/quality-gates) |
-| 仓库结构 | pnpm、workspace、monorepo、Turborepo 怎么配合 AI | [仓库结构](/docs/roles/frontend/repo-architecture) |
-| 测试与交付 | Playwright、单测、PR 验收怎么进入默认流程 | [测试与交付](/docs/roles/frontend/testing-and-delivery) |
-| 上下文与规则 | Context7、Plan First、`CLAUDE.md`、`AGENTS.md` 怎么分工 | [上下文与规则](/docs/roles/frontend/context-and-rules) |
+| 模块 | 学完能解决什么 | 典型交付物 | 入口 |
+| --- | --- | --- | --- |
+| 设计到代码 | 把 Figma、token 和结构化设计输入转成页面骨架 | 页面原型、组件拆分草图 | [设计到代码](/docs/roles/frontend/design-to-code) |
+| 框架与组件生态 | 选清 React / Vue / Next.js / Nuxt / 状态层 / 组件基座 | 技术选型结论、默认组合 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components) |
+| 样式与设计系统 | 建立 token、主题和避免 AI 味的视觉约束 | 主题变量、设计系统规则 | [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) |
+| 质量门禁 | 把类型、lint 和 review 变成默认动作 | 质量门禁清单、验证命令 | [质量门禁](/docs/roles/frontend/quality-gates) |
+| 仓库结构 | 理解单应用、workspace、monorepo 与任务链如何协作 | repo 结构方案、边界说明 | [仓库结构](/docs/roles/frontend/repo-architecture) |
+| 测试与交付 | 把 Playwright、组件测试和 PR 验收接入流程 | 测试脚本、验收清单、PR 说明 | [测试与交付](/docs/roles/frontend/testing-and-delivery) |
+| 上下文与规则 | 把 AI 协作规则沉淀到项目文件里 | `CLAUDE.md`、`AGENTS.md`、skills 清单 | [上下文与规则](/docs/roles/frontend/context-and-rules) |
 
-## AI 友好的前端栈快照
+## 你该从哪开始
 
-### React / Next.js 路线
+- 如果你主要做 `React / Next.js`：从 [框架与组件生态](/docs/roles/frontend/frameworks-and-components) 开始
+- 如果你主要做 `Vue / Nuxt`：也从 [框架与组件生态](/docs/roles/frontend/frameworks-and-components) 开始
+- 如果你正在拿设计稿做页面：从 [设计到代码](/docs/roles/frontend/design-to-code) 开始
+- 如果你最缺的是工程纪律：从 [质量门禁](/docs/roles/frontend/quality-gates) 开始
+- 如果你要做团队级落地：从 [仓库结构](/docs/roles/frontend/repo-architecture) 和 [上下文与规则](/docs/roles/frontend/context-and-rules) 开始
 
-适合 AI 协作的常见组合：
+## 项目化训练入口
 
-- `React / Next.js`
-- `TypeScript`
-- `Tailwind CSS`
-- `Radix UI / shadcn/ui`
-- `TanStack Query / Zustand`
-- `Vitest / Testing Library / Playwright`
+建议至少做下面 3 个训练项目中的 1 个：
 
-这条路线的优点是：
+### 1. Figma 到营销页交付
 
-- 组件模式清晰
-- 类型边界容易固定
-- 样式与无障碍基座容易约束
-- AI 对这些工具链的训练覆盖度通常更高
+适合练：
 
-### Vue / Nuxt 路线
+- 设计到代码
+- 样式与设计系统
+- Playwright 冒烟验证
 
-适合 AI 协作的常见组合：
+### 2. 中后台模块重构
 
-- `Vue 3 / Nuxt`
-- `TypeScript`
-- `Tailwind CSS` 或同类 utility-first 方案
-- `Pinia`
-- `Vitest / Playwright`
+适合练：
 
-这条路线的优点是：
+- 框架与组件生态
+- 质量门禁
+- 测试与交付
 
-- `SFC` 结构天然适合页面级迭代
-- `Composition API` 便于拆逻辑
-- Nuxt 的 SSR / SSG / hybrid 路径清晰
-- 对内容站、后台页和中后台平台型产品很友好
+### 3. 共享组件与 token 包
 
-## 你该先看哪一页
+适合练：
 
-- 如果你是 `React` 业务前端：先看 [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
-- 如果你是 `Vue` 或 `Nuxt` 前端：先看 [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
-- 如果你正在做设计稿落地：先看 [设计到代码](/docs/roles/frontend/design-to-code)
-- 如果你在补工程纪律：先看 [质量门禁](/docs/roles/frontend/quality-gates)
-- 如果你在推进团队级接入：先看 [仓库结构](/docs/roles/frontend/repo-architecture) 和 [上下文与规则](/docs/roles/frontend/context-and-rules)
+- 仓库结构
+- 上下文与规则
+- 团队级约束与验证链路
 
-## 下一步
+## 建议的训练节奏
+
+- `每天 30 分钟`：看 1 个模块中的 1 个小节，做 1 个最小练习
+- `每周 2 到 3 次`：完成 1 个模块并留下真实交付物
+- `每两周`：做 1 次项目化训练，串联多个模块
+- `每月`：回头整理 `CLAUDE.md`、规则文件、命令清单和最佳实践
+
+## 毕业标准
+
+如果你已经能做到下面这些事情，这组培训内容才算真正学完：
+
+- 能从设计输入走到页面与组件实现
+- 能为 React 或 Vue 项目写清默认栈和边界
+- 能把样式、token、lint、测试和 PR 验证接起来
+- 能把项目规则写进文档和 repo 约束中
+- 能独立完成一个从设计到交付的前端 AI 项目
+
+## 工具与案例补充入口
 
 - 工具入口：[Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)、[Cursor 快速开始](/docs/tools/ide-first/cursor/quick-start)、[Windsurf 快速开始](/docs/tools/ide-first/windsurf/quick-start)
 - 工作流入口：[Spec-First](/docs/workflows/patterns/spec-first/runbook)、[Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test/runbook)、[Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing)
