@@ -14,6 +14,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Role content validation in `src/data/rolesContent.js` with fail-fast checks for required fields and unique IDs.
 - New `rolesSidebar` navigation and navbar entry "按岗位进入" for role-based content discovery.
 - `AI 资源导航` 的学习资料目录新增 `Code Inspector` 条目，并补了一篇独立资料页，说明它是什么、怎么试，以及它在前端调试工作流里的位置。
+- 重写 `/docs/roles/frontend`，将其从泛化岗位说明升级为“前端 AI 工作台”，补充设计到代码、React / Vue 生态、Tailwind 与主题系统、ESLint / Oxlint、pnpm / monorepo / Turborepo、Playwright、`CLAUDE.md` / `AGENTS.md` 以及前端常用 skills 的分类说明。
 
 ### Fixed
 
