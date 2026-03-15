@@ -1,6 +1,6 @@
 ---
-title: 前端 AI 工作台：框架与组件生态
-description: 在 React / Vue、渲染模式、组件基座和状态层之间做更适合 AI 协作的技术选择。
+title: 框架与组件生态
+description: 在 React、Vue、Next.js、Nuxt、Vite、状态层和组件基座之间做更适合 AI 协作的技术选择。
 sidebar_label: 框架与组件生态
 tags: [ai-coding, frontend, react, vue]
 track: cross-track
@@ -18,251 +18,152 @@ market_status: current
 slug: /roles/frontend/frameworks-and-components
 ---
 
-# 前端 AI 工作台：框架与组件生态
+# 框架与组件生态
 
-这页回答的不是“哪个框架最好”，而是“哪个组合更容易被 AI 稳定修改、审查和长期维护”。
+这一页回答的不是“哪个框架更流行”，而是“哪套组合在 AI 修改、人工 review 和长期维护时更稳”。前端 AI 的风险通常不在生成速度，而在边界混乱：页面逻辑、状态层、组件基座和数据流如果混在一起，任何一次自动重构都可能扩散成全项目返工。
 
-## 学习目标
+## 技术路线图
 
-学完这一页后，你应该能：
+![React 与 Vue 协作泳道图](/img/roles/frontend/frameworks-components-lanes.svg)
 
-- 区分 `React / Next.js / Vue / Nuxt / Vite` 在 AI 协作下的适用场景
-- 为项目选清状态层、组件基座和渲染模式
-- 写出一套默认组合，并明确哪些混搭应该避免
+## React、Vue、Next、Nuxt、Vite 怎么判断
 
-## 建议先修
+| 场景 | 更推荐的路线 | 原因 |
+| --- | --- | --- |
+| SEO、SSR、内容站、营销站 | `Next.js` 或 `Nuxt` | 路由与渲染边界清楚，AI 不容易把数据获取和页面渲染写散 |
+| 中后台、控制台、纯前端应用 | `React + Vite` 或 `Vue + Vite` | 心智更简单，AI 的上下文负担更低 |
+| 设计系统、组件库、内嵌组件场景 | `Vite` 优先 | 更适合聚焦组件边界和构建速度 |
+| 多团队共享一套 UI 规范 | React/Vue 都可，但要强约束组件基座和目录结构 | 真正决定可维护性的不是框架，而是抽象边界 |
 
-建议先看：
+## React 线：适合 AI 的默认做法
 
-- [前端 AI 培训营：总览](/docs/roles/frontend)
-- [设计到代码](/docs/roles/frontend/design-to-code)
-
-## 训练任务
-
-至少完成 1 个最小练习：
-
-1. 为一个真实项目写一份 `React / Vue` 二选一的技术选型说明
-2. 为当前项目写出“为什么是 Next.js 而不是 Vite”或“为什么是 Nuxt 而不是纯 Vue”的决策说明
-3. 把状态层、组件基座、渲染模式整理成一张默认组合清单
-
-## 典型交付物
-
-这一模块最典型的输出包括：
-
-- 技术选型说明
-- 默认组合清单
-- 状态层与组件基座决策表
-- 不建议混搭清单
-
-## React / Next.js
-
-### 默认适合 AI 协作的组合
+### 推荐组合
 
 - `React + TypeScript`
-- 需要 `SSR / SSG / hybrid` 时用 `Next.js`
-- 偏中后台、控制台、纯前端 SPA 时优先考虑 `Vite`
-- 数据获取和缓存层优先考虑 `TanStack Query`
-- 只在确实需要时再加客户端状态层，常见是 `Zustand`
-- 组件基座优先考虑 `Radix UI / shadcn/ui`
+- 有 SSR/SEO 需求时用 `Next.js`
+- 纯业务台前或中后台时优先 `Vite`
+- 异步数据优先 `TanStack Query`
+- 客户端共享状态只在确实需要时才引入 `Zustand`
+- 可控组件基座优先 `Radix UI / shadcn/ui`
 
-### React 这条线为什么适合 AI
+### 为什么这条线对 AI 友好
 
-- 组件边界和文件边界容易固定
-- `TypeScript`、hooks、组件 props 都容易加规则
-- `Radix UI / shadcn/ui` 让 AI 更容易在可预测源码上工作
-- Next.js 的 App Router、Server / Client 组件能把边界讲清楚
-- 生态里有大量可参考的实现模式，AI 更容易贴近主流写法
+- 文件和组件边界容易固定，便于明确“改哪里、不改哪里”。
+- TypeScript props、hooks、server/client boundary 都适合写规则。
+- 源码可控的 UI 基座比闭源组件或高度黑盒库更适合 AI 重构。
 
-### 什么时候优先用 Next.js，什么时候回到 Vite
+### 代码案例：把内容配置和组件显示层拆开
 
-优先用 `Next.js` 的场景：
-
-- 你要同时做首屏、SEO、SSR 或 SSG
-- 页面和路由边界已经比较清楚
-- 团队能接受 `Server / Client` 组件边界约束
-
-优先用 `React + Vite` 的场景：
-
-- 你做的是后台、控制台、内部平台或纯前端应用
-- 你不想把 AI 的注意力分散到服务端边界和框架约束上
-- 你更在意启动快、改动直观、目录心智简单
-
-### React 这条线要特别盯住什么
-
-- 不要为了“优化”无脑加入 `memo / useMemo`
-- 不要让 AI 擅自改 `Server / Client` 边界
-- 不要让 AI 在没有证据时随手把局部状态升级成全局 store
-- 不要让 AI 直接重构共享组件而不先读上下文
-
-## Vue / Nuxt
-
-### 默认适合 AI 协作的组合
-
-- `Vue 3 + TypeScript`
-- 需要 `SSR / SSG / hybrid` 时用 `Nuxt`
-- 偏前台站点、控制台或标准 SPA 时优先考虑 `Vite`
-- 状态层优先用 `Pinia`
-- 数据获取重的时候，可以补 `@tanstack/vue-query`
-- 组件方案优先选“源码可控、变体清晰、主题可控”的体系
-
-### Vue 这条线为什么适合 AI
-
-- `SFC` 对页面级迭代很友好
-- `Composition API` 便于把业务逻辑抽到 `composables`
-- `props / emits / slots` 结构对 AI 来说相对清晰
-- Nuxt 对路由和渲染模式的工程约束比较明确
-- Vue 文件天然把模板、逻辑、样式放在一个稳定上下文里
-
-### 什么时候优先用 Nuxt，什么时候回到 Vite
-
-优先用 `Nuxt` 的场景：
-
-- 你要做内容站、品牌站、SEO 依赖强的页面
-- 你希望路由、数据获取、部署和渲染模式被框架先收紧
-- 你需要更清楚的页面级约束来约束 AI
-
-优先用 `Vue + Vite` 的场景：
-
-- 你做的是中后台、运营台、内网平台
-- 你希望项目结构更轻，避免把问题扩散到全栈框架层
-- 你更重视前端本地开发速度和改动直接性
-
-### Vue 这条线要特别盯住什么
-
-- 不要把一个页面拆成过多碎片化 `composables`
-- `Pinia` store、路由守卫和页面生命周期要先划清职责
-- 不要让 AI 跨 SFC 和共享逻辑目录乱搬文件
-- 不要在没有明确边界时同时混用 `Pinia`、全局事件总线和零散工具状态
-
-## 状态层怎么选
-
-状态层一旦选乱，AI 很容易开始“到处补状态”。
-
-更稳的原则是：
-
-- 服务端数据和缓存优先交给 `TanStack Query` 或框架内建数据层
-- 客户端局部交互状态再考虑 `Zustand` 或 `Pinia`
-- 不要把表单状态、弹窗开关、筛选条件和接口缓存全塞进一个全局 store
-
-React 里更常见的稳定组合：
-
-- 接口数据和缓存交给 `TanStack Query`
-- 轻量全局交互状态交给 `Zustand`
-- 复杂、强约束、多人协作的业务流程才考虑更重的状态模型
-
-Vue 里更常见的稳定组合：
-
-- 页面或模块级业务状态交给 `Pinia`
-- Nuxt 项目优先用框架已有的数据获取和路由约束
-- 查询型场景明显时再引入 `@tanstack/vue-query`
-
-## 组件基座怎么选
-
-对 AI 来说，最友好的组件基座有几个共同点：
-
-- 源码可读，不是黑盒
-- 变体模式清晰
-- 主题和 token 容易接入
-- 无障碍和交互逻辑有可靠基座
-
-React 生态里，这通常意味着：
-
-- `Radix UI`
-- `shadcn/ui`
-- `Headless UI` 这类 headless 方案
-
-Vue 生态里，不一定非要追同名库，但原则一样：
-
-- 优先选可定制、可维护、可读源码的方案
-- 避免把样式覆盖战当作组件定制方案
-- 如果是中后台快速交付，也可以用成熟成套库，但要接受 AI 后续更多是在“约束使用方式”，不是在源码层精修组件
-
-## 成套组件库和 headless 方案怎么取舍
-
-更适合 headless 或源码可控方案的场景：
-
-- 你有明确设计稿和主题系统
-- 你需要贴近品牌而不是贴近默认组件库视觉
-- 你希望 AI 在 repo 里直接修改真实组件源码
-
-更适合成熟成套库的场景：
-
-- 你要快速搭后台、表单、表格和标准业务界面
-- 设计定制强度不高
-- 你更在意稳定交付速度，而不是长期视觉差异化
-
-成套库不是不能用，而是要先接受一件事：AI 对这类库更擅长“按规则消费”，不擅长“把黑盒库改成你想要的设计系统”。
-
-## 渲染模式怎么影响 AI 协作
-
-AI 最适合在边界清晰的渲染模式里工作：
-
-- `SPA`：最容易上手，但要自己守住数据获取和首屏策略
-- `SSR / SSG`：更利于页面级约束，但数据与渲染边界要讲清
-- `Hybrid`：适合真实业务，但更需要写清规则文件和目录职责
-
-如果你还没定栈，优先选：
-
-- 能让组件边界清晰的框架
-- 能让类型和 lint 约束自然落地的工具链
-- 能让共享组件源码真正留在 repo 里的方案
-
-## 推荐默认组合
-
-如果你还没有既定历史包袱，可以把下面这些当默认起点：
-
-- `产品站 / 营销站（React）`：`Next.js + TypeScript + Tailwind CSS + Radix UI / shadcn/ui + Playwright`
-- `中后台 / 控制台（React）`：`React + Vite + TypeScript + Tailwind CSS + shadcn/ui + TanStack Query + Zustand + Playwright`
-- `内容站 / SEO 站（Vue）`：`Nuxt + TypeScript + Tailwind CSS + Pinia + Playwright`
-- `中后台 / 平台页（Vue）`：`Vue 3 + Vite + TypeScript + Pinia + Tailwind CSS 或同类 utility-first 方案 + Playwright`
-
-这些组合的共同点是：
-
-- 路由和渲染边界清楚
-- 状态层不过度复杂
-- 组件和主题仍然留在 repo 里可控
-- AI 能通过类型、lint 和测试较快得到反馈
-
-## 不建议的混搭
-
-下面这些组合最容易把 AI 协作拖进混乱：
-
-- 同时混用太多状态层，例如 `TanStack Query + Zustand + Redux` 或 `Pinia + 事件总线 + 大量全局 utilities`
-- 既要高保真设计还原，又完全依赖黑盒成套组件库
-- 同一项目里同时堆 `CSS-in-JS`、utility-first、组件库覆盖和零散内联样式
-- 在没有规则文件的前提下，让 AI 随意改 `Server / Client`、路由守卫或跨目录共享组件
-
-## 最少验证清单
-
-无论你最后选哪一套，至少要让这组验证成为默认动作：
-
-```bash
-# 按项目实际脚本替换
-npm run lint
-npm run type-check
-npm run build
-npx playwright test
+```ts
+// src/data/featureCards.ts
+export const featureCards = [
+  {
+    id: 'diff-aware',
+    title: 'Diff-aware review',
+    summary: '在提交前先比较真实变更与设计目标。',
+    href: '/docs/standards/review-quality-gates',
+  },
+];
 ```
 
-如果项目有组件预览或 Storybook，再补一轮关键组件态检查会更稳。
+```tsx
+// src/components/FeatureCardGrid.tsx
+import {featureCards} from '../data/featureCards';
 
-## 训练验收
+export function FeatureCardGrid() {
+  return (
+    <section className="grid gap-6 md:grid-cols-3">
+      {featureCards.map((card) => (
+        <article key={card.id} className="rounded-3xl border p-6">
+          <h3 className="text-xl font-semibold">{card.title}</h3>
+          <p className="mt-2 text-sm text-slate-600">{card.summary}</p>
+          <a className="mt-4 inline-flex" href={card.href}>
+            继续阅读
+          </a>
+        </article>
+      ))}
+    </section>
+  );
+}
+```
 
-完成这一页训练后，至少要拿出这些结果：
+这类模式有两个明显好处：
 
-- 一份清晰的框架和组件生态选型结论
-- 一套默认技术组合
-- 一份“不建议混搭”的项目约束说明
+- 复用内容和链接不再散落在多个 JSX 文件中。
+- AI 重写 UI 时，不会顺手改坏内容源或路由常量。
 
-## 常见误区
+## Vue 线：适合 AI 的默认做法
 
-- 把框架选型当作个人偏好，而不是工程边界问题
-- 同时混入过多状态层和 UI 体系
-- 在没有设计系统约束时直接叠黑盒组件库
-- 没有规则文件就让 AI 改渲染边界和共享组件
+### 推荐组合
 
-## 这页后面接什么
+- `Vue 3 + TypeScript`
+- 有 SSR/SEO 时用 `Nuxt`
+- 标准 SPA 或组件库场景优先 `Vue + Vite`
+- 业务状态优先 `Pinia`
+- 远程缓存和异步协作可以补 `@tanstack/vue-query`
 
-- 要继续看 token、主题和 Tailwind：去 [样式与设计系统](/docs/roles/frontend/styling-and-design-systems)
-- 要继续看 TypeScript、ESLint、Oxlint：去 [质量门禁](/docs/roles/frontend/quality-gates)
-- 要继续看 pnpm、workspace、monorepo：去 [仓库结构](/docs/roles/frontend/repo-architecture)
+### 为什么这条线对 AI 友好
+
+- `SFC` 给了模型一个稳定上下文，模板、逻辑和样式不会拆得到处都是。
+- `Composition API` 让你能把副作用和业务规则收进 composables，而不是塞进页面。
+- `props / emits / slots` 对 review 很友好，组件职责更容易审查。
+
+### 代码案例：把逻辑从页面抽到 composable
+
+```vue
+<script setup lang="ts">
+import {useDashboardFilters} from '@/composables/useDashboardFilters';
+
+const {filters, resetFilters, activeCount} = useDashboardFilters();
+</script>
+
+<template>
+  <section class="space-y-4">
+    <FilterBar :model-value="filters" />
+    <button type="button" class="btn-secondary" @click="resetFilters">
+      重置筛选（{{ activeCount }}）
+    </button>
+  </section>
+</template>
+```
+
+```ts
+// composables/useDashboardFilters.ts
+import {computed, ref} from 'vue';
+
+export function useDashboardFilters() {
+  const filters = ref({status: 'all', owner: 'me'});
+  const activeCount = computed(() => Object.values(filters.value).filter((value) => value !== 'all').length);
+  const resetFilters = () => {
+    filters.value = {status: 'all', owner: 'me'};
+  };
+
+  return {filters, activeCount, resetFilters};
+}
+```
+
+## 组件基座与状态层怎么选
+
+| 决策点 | 更稳的做法 | 不推荐的做法 |
+| --- | --- | --- |
+| 组件基座 | 选源码可控、变体清楚的系统 | 依赖只能二次包裹、无法追踪样式来源的黑盒库 |
+| 远程数据 | 用 `TanStack Query` 或 `vue-query` 管缓存与异步状态 | 把请求结果塞进任意全局 store |
+| 本地共享状态 | 限定在少量 store/composable 中 | 看到多个组件共享就立刻全局化 |
+| 目录结构 | `page -> section -> component -> shared/ui` 分层 | 页面和共享组件混在同一层 |
+
+## 最常见的 6 个反模式
+
+- 用 `useMemo`、`memo` 或缓存抽象掩盖糟糕的组件边界。
+- 因为 AI 能写得快，就把页面专有组件过早抽到共享层。
+- 还没确认远程状态边界，就把所有数据塞进全局 store。
+- 在 Next.js 里随手改 `server`/`client` 边界，造成渲染模式混乱。
+- 在 Vue 页面里把全部逻辑塞进一个 `script setup`，不给 composables 留位置。
+- 同时混搭过多 UI 库和状态层，让 AI 每次改动都要重新判断约束。
+
+## 配套图片与视频
+
+- 图表已补在本页顶部，可直接用于对齐 React/Vue 协作边界。
+- 想找组件化和框架协作演示：去 [实战演示](/docs/resources/hands-on-demos) 搜 `react`、`vue`、`component`.
+- 想继续补组件规范：去 [样式与设计系统](/docs/roles/frontend/styling-and-design-systems)。
+- 想补复杂任务的计划先行流程：去 [Spec-First Runbook](/docs/workflows/patterns/spec-first/runbook)。
+- 想看真实终端协作案例：去 [Codex Refactor with Verification](/docs/case-studies/codex-refactor-with-verification) 和 [Windsurf 维护到 PR](/docs/case-studies/windsurf-maintenance-to-pr)。

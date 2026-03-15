@@ -1,6 +1,6 @@
 ---
-title: 前端 AI 工作台：测试与交付
-description: 把 Playwright、Vitest、组件预览和 PR 验收收进前端 AI 的默认交付链路。
+title: 测试与交付
+description: 把组件测试、Playwright、预览验证和 PR 说明串成前端 AI 的默认交付闭环。
 sidebar_label: 测试与交付
 tags: [ai-coding, frontend, testing, playwright]
 track: cross-track
@@ -18,141 +18,109 @@ market_status: current
 slug: /roles/frontend/testing-and-delivery
 ---
 
-# 前端 AI 工作台：测试与交付
+# 测试与交付
 
-前端 AI 的交付闭环，不是“代码写完了”，而是“可以验证、可以回归、可以交给别人接着用”。
+前端 AI 的闭环不是“代码可以运行”，而是“别人能接着看、接着测、接着交付”。所以测试与交付必须一起看：只写测试、不写交付说明，review 很难判断风险；只写 PR 描述、不补自动化证据，回归成本又会掉回人工。
 
-## 学习目标
+## 交付闭环图
 
-学完这一页后，你应该能：
+![测试与交付闭环图](/img/roles/frontend/testing-delivery-loop.svg)
 
-- 把 `Playwright`、组件测试和交付清单接到默认流程里
-- 为前端改动准备最少可接受的验证证据
-- 让 PR 交付物不只是代码 diff
+## 前端验证分层
 
-## 建议先修
+| 层级 | 解决什么问题 | 推荐工具 |
+| --- | --- | --- |
+| 组件/逻辑层 | props、交互、边界条件是否正确 | `Vitest`、`Testing Library`、`Vue Test Utils` |
+| 预览/视觉层 | 组件状态、变体和视觉回归 | `Storybook` 或内部组件预览页 |
+| 页面/流程层 | 关键用户路径是否可执行 | `Playwright` |
+| 交付层 | 风险、影响面、验收证据是否完整 | PR 模板、截图、验证记录 |
 
-建议先看：
+## 代码案例：组件级验证
 
-- [前端 AI 培训营：总览](/docs/roles/frontend)
-- [质量门禁](/docs/roles/frontend/quality-gates)
+```tsx
+import {render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {PlanSwitcher} from './PlanSwitcher';
 
-## 训练任务
+test('switches active plan when user clicks annual tab', async () => {
+  const user = userEvent.setup();
 
-至少完成 1 个最小练习：
+  render(<PlanSwitcher />);
+  await user.click(screen.getByRole('tab', {name: '年付'}));
 
-1. 为一个关键页面写一条 Playwright 冒烟路径
-2. 为一个组件补一条单测或组件级验证
-3. 按这一页的清单整理一份真实前端 PR 交付说明
-
-## 典型交付物
-
-这一模块最典型的输出包括：
-
-- 一条关键路径测试
-- 组件级测试或预览验证
-- PR 验收清单
-- 带验证结果的交付说明
-
-## Playwright
-
-`Playwright` 最适合在前端 AI 链路里承担这些任务：
-
-- 冒烟测试
-- 关键路径验证
-- 视觉回归
-- bug 重放
-
-AI 很适合帮你：
-
-- 生成首版 E2E 脚本
-- 补关键断言
-- 用最小脚本复现用户路径
-
-人工仍然要做的判断：
-
-- 哪些路径必须长期维护
-- 哪些页面只做 smoke，哪些需要深入回归
-- 截图基线和 flaky case 怎么处理
-
-## Vitest、Testing Library 与组件层验证
-
-并不是所有前端问题都该扔给端到端测试。
-
-更稳的组合通常是：
-
-- 页面关键路径：`Playwright`
-- 组件逻辑与交互：`Vitest / Testing Library`
-- 共享 UI 变体验证：组件级测试或预览
-
-AI 在这一层更适合写：
-
-- 简洁的行为测试
-- 表单交互与边界条件测试
-- 针对 bug 的最小回归用例
-
-## Storybook 或组件预览
-
-如果你的团队维护共享组件，预览层会让 AI 协作更稳：
-
-- 组件状态更容易被枚举
-- 视觉回归更容易有基线
-- 变体和 token 更容易统一
-
-它不一定非得是 `Storybook`，关键是你有一个可重复查看组件状态的地方。
-
-## 交付前清单
-
-至少要把这些变成默认动作：
-
-```bash
-# 按项目实际脚本替换
-npm run lint
-npm run type-check
-npm run build
-npx playwright test
+  expect(screen.getByRole('tabpanel', {name: '年付方案'})).toBeVisible();
+});
 ```
 
-如果是 workspace / monorepo 项目：
+## 代码案例：关键路径的 Playwright 冒烟
 
-```bash
-pnpm lint
-pnpm typecheck
-turbo run build test
+```ts
+import {test, expect} from '@playwright/test';
+
+test('pricing page allows user to switch billing cycle', async ({page}) => {
+  await page.goto('/pricing');
+  await page.getByRole('tab', {name: '年付'}).click();
+
+  await expect(page.getByText('每年节省 20%')).toBeVisible();
+  await expect(page.getByRole('button', {name: '立即开始'})).toBeVisible();
+});
 ```
 
-## PR 应该带什么
+## 交付时至少要补哪几类证据
 
-更成熟的前端 AI 交付，不只交代码，还应该交：
+- 运行过哪些命令，哪些命令没跑，原因是什么。
+- 关键截图或录屏覆盖了哪些断点、状态和模块。
+- 这次改动影响到哪些页面、共享组件、token 或包。
+- 还有哪些风险没有覆盖，需要谁继续跟进。
 
-- 变更说明
-- 影响范围
-- 验证结果
-- 是否涉及 token、组件或路由
-- 是否有设计差异、已知风险或待补测试
+## 代码案例：PR 交付说明模板
 
-## 训练验收
+```md
+## Summary
 
-完成这一页训练后，至少要拿出这些结果：
+- 新增 pricing 页面 Hero 与套餐切换
+- 抽取 `PlanCard` 页面私有组件
+- 对齐 pricing token 到语义变量
 
-- 一条关键路径测试
-- 一份 PR 验收清单
-- 一份带验证结果的交付说明
+## Verification
 
-## 常见误区
+- `npm run lint`
+- `npm run typecheck`
+- `npm run test:unit`
+- `npm run build`
+- `npx playwright test tests/pricing-smoke.spec.ts`
 
-- 认为“代码能跑”就已经完成交付
-- 所有问题都丢给 E2E，而不做组件层验证
-- PR 里只有 diff，没有验证结果和影响范围
-- 截图回归、关键路径和 smoke 混在一起，没有测试分层
+## Artifacts
 
-相关入口：
+- Desktop screenshot: `output/pricing-desktop.png`
+- Mobile screenshot: `output/pricing-mobile.png`
 
-- [`Issue -> Draft PR` runbook](/docs/workflows/patterns/issue-to-draft-pr/runbook)
-- [Claude Code bugfix 案例](/docs/case-studies/claude-code-bugfix-loop)
+## Risks
 
-## 这页后面接什么
+- 暂未覆盖真实支付回调路径
+- 未引入视觉回归基线
+```
 
-- 要继续看 lint、类型和发布前门禁：去 [质量门禁](/docs/roles/frontend/quality-gates)
-- 要继续看 repo 规则和 skills：去 [上下文与规则](/docs/roles/frontend/context-and-rules)
-- 要继续看工具入口：去 [Claude Code 快速开始](/docs/tools/terminal-agents/claude-code/quick-start)
+## 哪些改动一定要上 E2E
+
+| 改动类型 | 是否建议 Playwright |
+| --- | --- |
+| 纯静态文案或排版微调 | 通常不需要 |
+| 表单、筛选器、切换器、对话框 | 建议至少一条关键路径 |
+| 登录、注册、支付、结算、权限流 | 必须 |
+| 共享 UI 变更影响多个业务页面 | 建议补最短 smoke path |
+
+## 测试与交付常见误区
+
+- 只补单测，不补真实页面流程，导致回归依然靠手点。
+- 把所有事情都丢给 E2E，最后测试慢且维护成本高。
+- PR 里只贴命令，不说明影响范围和剩余风险。
+- 只给桌面截图，不给移动端或关键状态截图。
+
+## 配套图片与视频
+
+- 本页已补测试与交付闭环图，可直接用作新人培训材料。
+- 想找 Playwright、PR 验证或 bugfix 录像：去 [实战演示](/docs/resources/hands-on-demos)。
+- 想对齐终端优先的修复与验证流程：去 [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
+- 想看真实案例：去 [Claude Code Bugfix Loop](/docs/case-studies/claude-code-bugfix-loop) 与 [Codex Refactor with Verification](/docs/case-studies/codex-refactor-with-verification)。
+- 想把规则和工具上下文写回仓库：继续看 [上下文与规则](/docs/roles/frontend/context-and-rules)。

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F6F2EA"/>
+  <text x="72" y="88" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="42" font-weight="700">前端 AI 工作台</text>
+  <text x="72" y="126" fill="#5B6470" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">七个主题模块，三条训练主线，从设计输入一路收口到规则与交付</text>
+
+  <rect x="72" y="170" width="330" height="460" rx="28" fill="#FFF9F0" stroke="#E7D8BE" stroke-width="2"/>
+  <text x="104" y="220" fill="#8C4C2B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">设计到实现</text>
+  <rect x="104" y="252" width="266" height="84" rx="20" fill="#FCE3D3"/>
+  <text x="130" y="303" fill="#7B3F1E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">设计到代码</text>
+  <rect x="104" y="356" width="266" height="84" rx="20" fill="#E6EDF8"/>
+  <text x="130" y="407" fill="#1C4376" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">框架与组件生态</text>
+  <rect x="104" y="460" width="266" height="84" rx="20" fill="#E7F3E8"/>
+  <text x="130" y="511" fill="#255936" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">样式与设计系统</text>
+
+  <rect x="435" y="170" width="330" height="460" rx="28" fill="#F8FAFF" stroke="#D7E3FA" stroke-width="2"/>
+  <text x="467" y="220" fill="#1E4E88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">开发到交付</text>
+  <rect x="467" y="252" width="266" height="84" rx="20" fill="#E0ECFF"/>
+  <text x="515" y="303" fill="#224B85" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">质量门禁</text>
+  <rect x="467" y="356" width="266" height="84" rx="20" fill="#E9F6FF"/>
+  <text x="493" y="407" fill="#165674" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">测试与交付</text>
+  <rect x="467" y="460" width="266" height="84" rx="20" fill="#FFF1DB"/>
+  <text x="515" y="511" fill="#8A5A15" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">案例与证据</text>
+
+  <rect x="798" y="170" width="330" height="460" rx="28" fill="#F7F6FF" stroke="#DCD7FA" stroke-width="2"/>
+  <text x="830" y="220" fill="#5440A1" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">团队到机制</text>
+  <rect x="830" y="252" width="266" height="84" rx="20" fill="#ECE8FF"/>
+  <text x="878" y="303" fill="#52409D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">仓库结构</text>
+  <rect x="830" y="356" width="266" height="84" rx="20" fill="#F6EAF8"/>
+  <text x="854" y="407" fill="#6F347D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">上下文与规则</text>
+  <rect x="830" y="460" width="266" height="84" rx="20" fill="#E8F5F1"/>
+  <text x="878" y="511" fill="#24645C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="600">团队训练闭环</text>
+
+  <path d="M402 398H435" stroke="#C88455" stroke-width="4" stroke-linecap="round"/>
+  <path d="M765 398H798" stroke="#7396D6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="418" cy="398" r="6" fill="#C88455"/>
+  <circle cx="782" cy="398" r="6" fill="#7396D6"/>
+
+  <text x="72" y="678" fill="#5F6772" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="18">阅读建议：先从与你当前任务最接近的主线进入，再补相邻模块，避免只学工具不学边界。</text>
+</svg>

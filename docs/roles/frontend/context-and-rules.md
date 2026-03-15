@@ -1,6 +1,6 @@
 ---
-title: 前端 AI 工作台：上下文与规则
-description: 用 Context7、Plan First、MCP、CLAUDE.md、AGENTS.md 和 skills 把前端 AI 协作变成长期机制。
+title: 上下文与规则
+description: 用 AGENTS.md、CLAUDE.md、工具 rules、Context7、MCP 和技能映射，把前端 AI 协作沉淀成长期机制。
 sidebar_label: 上下文与规则
 tags: [ai-coding, frontend, context, rules]
 track: cross-track
@@ -18,130 +18,88 @@ market_status: current
 slug: /roles/frontend/context-and-rules
 ---
 
-# 前端 AI 工作台：上下文与规则
+# 上下文与规则
 
-前端团队要把 AI 用稳，最终拼的不是 prompt，而是上下文和规则系统。
+前端团队把 AI 用稳，最终比拼的不是 prompt 词藻，而是规则分层是否清楚。一个成熟团队会把 repo 真相、工具行为、任务上下文和验证命令拆成不同层，而不是把全部要求塞进一段临时聊天记录。
 
-## 学习目标
+## 规则分层图
 
-学完这一页后，你应该能：
+![前端上下文分层图](/img/roles/frontend/context-rules-stack.svg)
 
-- 区分 `Context7 / Plan First / MCP / rules files` 各自负责什么
-- 给团队写出 `AGENTS.md`、`CLAUDE.md` 和工具内 rules 的职责边界
-- 把常用 skills 映射到真实前端任务
+## `AGENTS.md`、`CLAUDE.md`、工具 rules 怎么分工
 
-## 建议先修
-
-建议先看：
-
-- [前端 AI 培训营：总览](/docs/roles/frontend)
-- [仓库结构](/docs/roles/frontend/repo-architecture)
-
-## 训练任务
-
-至少完成 1 个最小练习：
-
-1. 为当前项目写一份 `CLAUDE.md` 大纲
-2. 为团队写一份 `AGENTS.md` 里的前端协作规则
-3. 为一个真实任务整理“该调用哪些 skills / 工具 / 文档”的映射表
-
-## 典型交付物
-
-这一模块最典型的输出包括：
-
-- `CLAUDE.md` 大纲或初稿
-- `AGENTS.md` 前端协作规则
-- 工具内 rules 说明
-- skills 映射表
-
-## Context7、Plan First、MCP
-
-这三类能力适合这样分工：
-
-- `Context7`：需要最新官方文档时再拉取事实
-- `Plan First`：复杂页面、跨目录改动、组件重构先计划再执行
-- `MCP`：当你需要浏览器、设计稿、文件系统等真实上下文时再接入
-
-它们更适合这些任务：
-
-- 大型页面从 Figma 到实现
-- 设计系统调整
-- monorepo 跨包改动
-- 复杂 bug 的浏览器级排查
-
-## `AGENTS.md` 和 `CLAUDE.md` 怎么分工
-
-更稳的规则分层通常是：
-
-- `AGENTS.md`：仓库级公共合同
-- `CLAUDE.md`：工具如何读取前端项目上下文
-- 工具内 rules：入口局部行为，不替代 repo 契约
-
-`AGENTS.md` 更适合写：
-
-- 哪些目录能改
-- 哪些命令必须跑
-- 哪些任务先出计划
-- 提交和发布纪律
-
-`CLAUDE.md` 更适合写：
-
-- 技术栈
-- 目录边界
-- 默认验证命令
-- 组件、hooks、stores、composables 的职责
-
-进一步阅读：
-
-- [Repo instruction files](/docs/repo-instruction-files)
-- [Claude Code rules / memory / tools](/docs/tools/terminal-agents/claude-code/rules-memory-tools)
-
-## 工具内 rules 应该放什么
-
-像 Cursor、Windsurf 这类入口也有自己的规则层，但它们更适合承接：
-
-- 模型选择
-- 局部工作台行为
-- IDE 级交互习惯
-
-不适合承接：
-
-- repo 长期真相
-- 唯一业务知识源
-- 跨工具都应成立的强约束
-
-## 前端常用 Skills
-
-| 场景 | 推荐 skill | 作用 |
+| 层级 | 应该写什么 | 不应该写什么 |
 | --- | --- | --- |
-| 设计稿转实现 | `figma` | 读取设计节点、截图、变量和设计上下文 |
-| React 页面与组件重构 | `react-best-practices` | 约束结构和组件边界 |
-| TypeScript 组件模式 | `typescript-react-patterns` | 处理 props、事件、ref、泛型等问题 |
-| 状态与数据层 | `state-management` | 管理 TanStack Query、Zustand 等状态模式 |
-| 浏览器验证 | `playwright` | 跑真实页面流程、截图和断言 |
-| 持续前端调试 | `playwright-interactive` | 做浏览器级迭代排障 |
-| 系统排障 | `systematic-debugging` | 先定位问题，再修问题 |
-| 完成前验证 | `verification-before-completion` | 防止“看起来好了”却没跑验证 |
-| 复杂改动规划 | `writing-plans` | 把工作拆成可执行步骤 |
-| 创意型改动 | `brainstorming` | 先澄清结构和范围，再实现 |
+| `AGENTS.md` | 仓库长期合同、目录边界、必跑命令、发布纪律 | 临时任务细节 |
+| `CLAUDE.md` | 工具如何理解项目、技术栈、默认工作方式 | 团队唯一真相 |
+| 工具 rules | IDE 或代理的入口行为、交互偏好、本地快捷习惯 | 代替 repo 规则本身 |
+| 任务 brief | 这次改动的目标、约束、验收标准 | 项目的长期公共规范 |
 
-## 默认阅读顺序
+## 什么时候用 Context7、计划、MCP
 
-- 先想清技术边界：看 [仓库结构](/docs/roles/frontend/repo-architecture)
-- 再想清发布边界：看 [测试与交付](/docs/roles/frontend/testing-and-delivery)
-- 最后把规则文件写回 repo，而不是只留在对话里
+| 能力 | 适合什么时候用 | 前端典型场景 |
+| --- | --- | --- |
+| Context7 | 需要最新官方文档或库 API | 查 `Next.js`、`React`、`Playwright` 新接口 |
+| Plan First / Spec-First | 改动跨目录、跨包、跨角色 | 组件库重构、设计系统升级、页面大改版 |
+| MCP | 需要浏览器、设计稿、文件系统真实上下文 | Figma 节点抓取、页面录屏、浏览器重现 bug |
 
-## 训练验收
+## 代码案例：前端仓库里的规则片段
 
-完成这一页训练后，至少要拿出这些结果：
+```md
+## Frontend Contracts
 
-- 一份 `CLAUDE.md` 或 `AGENTS.md` 初稿
-- 一份工具内 rules 说明
-- 一份前端任务到 skills 的映射清单
+- Reusable copy, card metadata, and route maps live in `src/data/`.
+- Shared UI components must not import page-local business logic.
+- Every UI task must state affected breakpoints and required verification commands.
+- Do not add new color literals when semantic tokens already exist.
+```
 
-## 常见误区
+## 代码案例：复杂前端任务的 brief
 
-- 把 repo 长期规则只写在聊天记录里
-- 用工具内 rules 代替仓库级契约
-- 复杂任务不做计划，直接让 AI 改跨目录代码
-- 明明需要最新文档，却只靠模型记忆回答
+```yaml
+task:
+  change: "重构 dashboard 筛选条并补移动端抽屉"
+  boundaries:
+    - "只改 apps/admin-console/src/features/dashboard"
+    - "shared/ui 仅允许新增 Drawer 变体"
+  required_context:
+    - "现有 Figma 节点"
+    - "dashboard 现有 Playwright 冒烟脚本"
+    - "tokens/filter-panel.json"
+  verification:
+    - "pnpm lint"
+    - "pnpm typecheck"
+    - "pnpm test --filter dashboard"
+    - "pnpm --filter admin-console exec playwright test tests/dashboard-filter.spec.ts"
+```
+
+## 前端常用 skills 应该怎么映射
+
+| 场景 | 更适合的能力 | 作用 |
+| --- | --- | --- |
+| 设计稿转页面 | `figma`、MCP 浏览器能力 | 读取设计节点、截图、变量和布局上下文 |
+| 复杂页面改造 | `writing-plans`、`executing-plans` | 先把跨目录改动拆清楚 |
+| React 组件边界治理 | `react-best-practices`、`typescript-react-patterns` | 收紧组件职责、类型和事件模式 |
+| 状态层选择 | `state-management` | 说明 `TanStack Query / Zustand / Pinia` 的边界 |
+| 调试与修复 | `systematic-debugging` | 避免“看到报错就直接改” |
+| 发布前验证 | `verification-before-completion` | 强制把命令和结果补齐 |
+
+## 规则系统最常见的三种失败方式
+
+- repo 规则写得太空泛，AI 仍然不知道共享层和页面层怎么分。
+- 所有内容都写进工具 rules，导致换一个入口就失效。
+- 任务 brief 缺失验收条件，最后只能靠 review 人补救。
+
+## 如何让前端团队真正长期受益
+
+- 把高频错误写回 `AGENTS.md`，不要只留在群聊里。
+- 把复杂任务的计划过程沉淀到 [Spec-First](/docs/workflows/patterns/spec-first/runbook) 或项目规范中。
+- 把工具、工作流和验证动作写成可复用的默认路径，而不是靠个人熟练度。
+- 让交付物始终包括代码、截图、命令和风险说明，而不是只交 diff。
+
+## 配套图片与视频
+
+- 本页已补前端规则分层图，适合用来给团队讲清“规则写在哪一层”。
+- 想看 tools、rules、memory 一类的视频入口：去 [全部视频](/docs/resources/videos) 搜 `rules`、`workflow`、`agent`。
+- 想补站点级规则设计：去 [Repo Instruction Files](/docs/repo-instruction-files) 和 [Skills / Commands / Hooks](/docs/standards/skills-commands-hooks)。
+- 想继续把规则接回真实交付：回看 [质量门禁](/docs/roles/frontend/quality-gates) 和 [测试与交付](/docs/roles/frontend/testing-and-delivery)。

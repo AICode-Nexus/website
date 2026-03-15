@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <rect width="1200" height="700" fill="#F7F8FC"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">React / Vue 协作泳道</text>
+  <text x="72" y="120" fill="#5C6673" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">框架不同，真正决定 AI 稳定性的仍然是组件、状态、样式和验证边界</text>
+
+  <rect x="72" y="176" width="1056" height="190" rx="28" fill="#EAF2FF" stroke="#C9DDFB" stroke-width="2"/>
+  <text x="108" y="226" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">React / Next.js</text>
+  <rect x="108" y="256" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="144" y="302" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">页面与路由</text>
+  <rect x="326" y="256" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="374" y="302" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">组件基座</text>
+  <rect x="544" y="256" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="600" y="302" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">状态层</text>
+  <rect x="762" y="256" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="810" y="302" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">验证层</text>
+
+  <rect x="72" y="404" width="1056" height="190" rx="28" fill="#ECF8EE" stroke="#CDE5D4" stroke-width="2"/>
+  <text x="108" y="454" fill="#275F3B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Vue / Nuxt</text>
+  <rect x="108" y="484" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="144" y="530" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">页面与路由</text>
+  <rect x="326" y="484" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="374" y="530" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">组件组织</text>
+  <rect x="544" y="484" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="600" y="530" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">状态层</text>
+  <rect x="762" y="484" width="196" height="74" rx="18" fill="#FFFFFF"/>
+  <text x="810" y="530" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">验证层</text>
+
+  <path d="M304 293H326" stroke="#6E96D5" stroke-width="4" stroke-linecap="round"/>
+  <path d="M522 293H544" stroke="#6E96D5" stroke-width="4" stroke-linecap="round"/>
+  <path d="M740 293H762" stroke="#6E96D5" stroke-width="4" stroke-linecap="round"/>
+  <path d="M304 521H326" stroke="#6CAD7A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M522 521H544" stroke="#6CAD7A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M740 521H762" stroke="#6CAD7A" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="72" y="652" fill="#5C6673" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="18">真正要比较的不是“框架谁更强”，而是你的默认抽象是否足够清晰，让 AI 能安全地改局部而不污染全局。</text>
+</svg>

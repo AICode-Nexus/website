@@ -91,6 +91,7 @@ GitHub Actions 中还包含一个每 6 小时运行一次的 `Teaching Videos Sy
 - `docs/development-modes/`、`docs/workflows/`、`docs/tools/`、`docs/standards/`、`docs/architecture/`: 五大长期知识支柱
 - `docs/workflows/patterns/`、`docs/workflows/frameworks/`、`docs/workflows/community-frameworks/`: 工作流模式、主线框架与社区框架手册
 - `docs/tools/platforms/`、`docs/tools/control-planes/`、`docs/tools/execution-stacks/`、`docs/tools/terminal-agents/`、`docs/tools/ide-first/`: 按角色分层的工具手册
+- `docs/roles/backend/`: 后端 AI 工作台子目录，包含培训路线、工具匹配、演练与案例地图、能力评估矩阵、失败模式与止损、接口契约、数据迁移、服务集成、质量门禁、观测协作、交付检查表与模板资产
 - `docs/archive/tracks/`: 旧赛道 / 专题透镜
 - `docs/`: 知识库与站点维护文档
 - `blog/daily/`、`blog/weekly/`、`blog/monthly/`: 时效内容分层

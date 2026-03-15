@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" fill="none">
+  <rect width="1200" height="680" fill="#FBF8F1"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">设计到代码：输入优先级</text>
+  <text x="72" y="120" fill="#5E6671" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">结构化输入排在前，截图排在后，先骨架再抽组件</text>
+
+  <rect x="72" y="182" width="240" height="300" rx="28" fill="#FFF3E2" stroke="#E8CDA9" stroke-width="2"/>
+  <text x="108" y="236" fill="#8B4E1B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">1. 结构化输入</text>
+  <text x="108" y="288" fill="#6C4B2A" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">Figma 节点</text>
+  <text x="108" y="328" fill="#6C4B2A" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">尺寸与层级</text>
+  <text x="108" y="368" fill="#6C4B2A" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">页面信息架构</text>
+
+  <rect x="348" y="182" width="240" height="300" rx="28" fill="#EAF3FF" stroke="#C8DCF9" stroke-width="2"/>
+  <text x="384" y="236" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">2. Token 合同</text>
+  <text x="384" y="288" fill="#27507F" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">颜色语义</text>
+  <text x="384" y="328" fill="#27507F" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">间距尺度</text>
+  <text x="384" y="368" fill="#27507F" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">圆角与阴影</text>
+
+  <rect x="624" y="182" width="240" height="300" rx="28" fill="#ECF8EE" stroke="#CDE6D3" stroke-width="2"/>
+  <text x="660" y="236" fill="#24613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">3. 约束说明</text>
+  <text x="660" y="288" fill="#2F6040" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">断点</text>
+  <text x="660" y="328" fill="#2F6040" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">交互态</text>
+  <text x="660" y="368" fill="#2F6040" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">空态与错误态</text>
+
+  <rect x="900" y="182" width="228" height="300" rx="28" fill="#F6EDF9" stroke="#E3D1EC" stroke-width="2"/>
+  <text x="936" y="236" fill="#6D367D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">4. 截图补充</text>
+  <text x="936" y="288" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">视觉细节</text>
+  <text x="936" y="328" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">插图比例</text>
+  <text x="936" y="368" fill="#6D4A74" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">局部氛围</text>
+
+  <path d="M312 332H348" stroke="#D49B51" stroke-width="4" stroke-linecap="round"/>
+  <path d="M588 332H624" stroke="#739BD7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M864 332H900" stroke="#5FA076" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="72" y="540" width="1056" height="88" rx="24" fill="#17212B"/>
+  <text x="108" y="594" fill="#FFF9F2" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="24">输出顺序：页面骨架 -> 组件拆分 -> 状态补齐 -> 响应式修整，不要直接赌“最终代码一次成型”。</text>
+</svg>

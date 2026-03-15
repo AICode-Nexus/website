@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" fill="none">
+  <rect width="1200" height="680" fill="#F6F8FB"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端质量门禁</text>
+  <text x="72" y="120" fill="#5F6872" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">越靠后越昂贵，所以写码时、评审时、发布前都要有不同护栏</text>
+
+  <rect x="96" y="190" width="280" height="360" rx="28" fill="#EAF2FF" stroke="#C8DBFA" stroke-width="2"/>
+  <text x="136" y="244" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700">写码时</text>
+  <text x="136" y="298" fill="#2A537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">TypeScript</text>
+  <text x="136" y="338" fill="#2A537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">ESLint / Oxlint</text>
+  <text x="136" y="378" fill="#2A537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">目录与导入约束</text>
+  <text x="136" y="418" fill="#2A537D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">组件职责</text>
+
+  <rect x="460" y="150" width="280" height="400" rx="28" fill="#FFF3E0" stroke="#EDD1A7" stroke-width="2"/>
+  <text x="500" y="204" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700">评审时</text>
+  <text x="500" y="258" fill="#6C4C2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">抽象是否过早</text>
+  <text x="500" y="298" fill="#6C4C2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">共享层是否被污染</text>
+  <text x="500" y="338" fill="#6C4C2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">验证证据是否真实</text>
+  <text x="500" y="378" fill="#6C4C2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">影响面是否交代完整</text>
+
+  <rect x="824" y="110" width="280" height="440" rx="28" fill="#EAF6EE" stroke="#CDE5D4" stroke-width="2"/>
+  <text x="864" y="164" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="30" font-weight="700">发布前</text>
+  <text x="864" y="218" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">build / smoke</text>
+  <text x="864" y="258" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">组件测试 / E2E</text>
+  <text x="864" y="298" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">截图和录屏</text>
+  <text x="864" y="338" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="22">剩余风险说明</text>
+
+  <path d="M376 370H460" stroke="#7A9CD7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M740 350H824" stroke="#C89253" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="72" y="620" fill="#5F6872" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="18">前端 AI 的核心不是把报错修完，而是让每层都能阻止错误扩散到下一层。</text>
+</svg>

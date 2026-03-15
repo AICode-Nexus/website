@@ -14,13 +14,13 @@ export const roles = [
   {
     id: 'frontend',
     title: '前端工程师',
-    description: 'AI 辅助组件开发、样式调试和性能优化',
+    description: '从设计输入、组件实现、样式系统到验证交付的前端 AI 工作台',
     href: '/docs/roles/frontend',
   },
   {
     id: 'backend',
     title: '后端工程师',
-    description: 'AI 辅助 API 开发、数据库迁移和服务集成',
+    description: 'AI 辅助 API 契约、数据库迁移、服务集成和上线回归',
     href: '/docs/roles/backend',
   },
   {

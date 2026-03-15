@@ -13,6 +13,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Homepage role-based entry section using LinkTile components, placed between starter tracks and featured tool tutorials for natural navigation flow.
 - Role content validation in `src/data/rolesContent.js` with fail-fast checks for required fields and unique IDs.
 - New `rolesSidebar` navigation and navbar entry "按岗位进入" for role-based content discovery.
+- 前端岗位入口升级为目录化的“前端 AI 工作台”，新增 7 个主题子页，并为每页补齐专业说明、代码案例、本地 SVG 图表、图片入口和视频学习入口。
 - `AI 资源导航` 的学习资料目录新增 `Code Inspector` 条目，并补了一篇独立资料页，说明它是什么、怎么试，以及它在前端调试工作流里的位置。
 - 重写 `/docs/roles/frontend`，将其从泛化岗位说明升级为“前端 AI 工作台”，补充设计到代码、React / Vue 生态、Tailwind 与主题系统、ESLint / Oxlint、pnpm / monorepo / Turborepo、Playwright、`CLAUDE.md` / `AGENTS.md` 以及前端常用 skills 的分类说明。
 - 将 `/docs/roles/frontend` 进一步拆分为总览页加 7 个工程主题子页，并把 `rolesSidebar` 中的前端入口改成带子页的分类导航，方便按工作流或按工程主题阅读。
@@ -22,6 +23,13 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - 为前端培训总览页补上“阶段 0：工具与环境准备”和 `Capstone` 毕业实战路径，让整套内容形成从起步到交付的闭环训练路线。
 - 继续补强前端培训模块，统一新增“典型交付物”和“常见误区”，让每个主题页同时具备训练输出物和反模式提示，不再只是做法说明。
 - 为前端培训总览页新增 `Capstone` 评分 Rubric 和复盘问题，补齐自学验收、团队带训与导师评审所需的评估层。
+- 后端岗位入口升级为目录化的“后端 AI 工作台”，新增 API 与契约、数据与存储、服务集成与异步任务、质量门禁与测试、观测性与运维协作、仓库结构与交付、上下文与规则七个训练子页，并同步更新角色入口文案与侧边栏导航。
+- 后端培训区继续补齐可执行训练资产，新增“培训路线”和“交付检查表”两页，并把学习路径与 README 目录说明接到新的后端子目录结构上。
+- 后端培训区补回并扩展可复用模板资产，新增“模板与交付资产”页，集中沉淀规则模板、接口与 migration prompt、验证命令、PR 说明模板和跨团队 handoff 清单。
+- 后端培训区新增“演练与案例地图”，把四类典型后端演练题映射到推荐工作流、最低交付物和现有案例入口，方便按场景带练或自学。
+- 后端培训区新增“能力评估矩阵”，把契约表达、数据与集成边界、验证证据、运行协作和风险控制整理成可观察的训练等级与达标标准。
+- 后端培训区新增“失败模式与止损”，总结接口契约失真、migration 无上线策略、集成失败恢复缺失、验证证据断裂和生产不可观察等常见失控场景及其止损动作。
+- 后端培训区新增“工具匹配与选型”，按任务形状说明何时优先用终端入口、执行栈、控制面或平台型入口，并将工具选择与工作流选择绑定起来。
 
 ### Fixed
 

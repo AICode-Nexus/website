@@ -1,6 +1,6 @@
 ---
-title: 前端 AI 工作台：质量门禁
-description: 把 TypeScript、ESLint、Oxlint 和发布前验证变成 AI 协作的默认护栏。
+title: 质量门禁
+description: 把 TypeScript、ESLint、Oxlint、构建验证和 review 证据串成前端 AI 的默认质量护栏。
 sidebar_label: 质量门禁
 tags: [ai-coding, frontend, typescript, lint]
 track: cross-track
@@ -18,131 +18,99 @@ market_status: current
 slug: /roles/frontend/quality-gates
 ---
 
-# 前端 AI 工作台：质量门禁
+# 质量门禁
 
-如果你只让 AI 生成代码，而不把门禁接上去，前端质量不会变稳定，只会变快地积累问题。
+让 AI 参与前端开发，不是让它“先写出来再说”，而是让它在受控边界里写、在明确命令里验证、在有证据的 review 里交付。真正的质量门禁不是一个 lint 命令，而是一条分层责任链。
 
-## 学习目标
+## 三层门禁图
 
-学完这一页后，你应该能：
+![前端质量门禁图](/img/roles/frontend/quality-gates-ladder.svg)
 
-- 把 `TypeScript / ESLint / Oxlint` 变成 AI 开发的默认护栏
-- 区分写码时、review 时和发布前的门禁职责
-- 为项目写出最小可执行的验证链路
+## 写码时、评审时、发布前分别看什么
 
-## 建议先修
+| 阶段 | 核心问题 | 典型工具 |
+| --- | --- | --- |
+| 写码时 | 代码结构和类型是否在边界内 | `TypeScript`、`ESLint`、`Oxlint`、格式化层 |
+| 评审时 | 抽象是否合理，改动是否扩散 | PR review、架构检查、规则文件 |
+| 发布前 | 构建、回归、关键路径是否可复现 | `build`、组件测试、Playwright、截图比对 |
 
-建议先看：
+## TypeScript、ESLint、Oxlint 如何分工
 
-- [前端 AI 培训营：总览](/docs/roles/frontend)
-- [框架与组件生态](/docs/roles/frontend/frameworks-and-components)
+| 工具 | 主要职责 | 前端常见收益 |
+| --- | --- | --- |
+| TypeScript | 收紧 props、事件、数据模型和边界 | 减少组件重构时的隐性破坏 |
+| ESLint | 表达长期工程规则 | 组件职责、导入约束、hooks/composables 规范 |
+| Oxlint | 提供更快的静态检查反馈 | 批量扫描可疑模式、降低反馈等待时间 |
+| 格式化层 | 压平无价值样式争议 | 减少 review 把时间花在排版上 |
 
-## 训练任务
+如果只能保留一件事，那就先让 AI 不能随意引入 `any`、硬编码路径和未受控的共享抽象。
 
-至少完成 1 个最小练习：
+## 代码案例：前端项目的最小门禁脚本
 
-1. 为当前项目整理一份 `lint / type-check / build / test` 的验证顺序
-2. 找一段 AI 生成代码，手动补齐类型、lint 和 review 约束
-3. 给团队写一份“什么改动不允许直接跳过验证”的规则说明
-
-## 典型交付物
-
-这一模块最典型的输出包括：
-
-- 门禁顺序清单
-- 验证命令清单
-- lint / type-check / build 流程说明
-- 一份带验证记录的真实改动
-
-## 写码时的护栏
-
-### TypeScript
-
-AI 最适合用来：
-
-- 补 `props`、事件和返回值类型
-- 收紧接口模型
-- 帮你在重构时发现缺失的类型边界
-
-但你要防的事也很明确：
-
-- 它会倾向于用更宽松的类型先过编译
-- 它会为了省事引入 `any` 或不必要的联合类型
-
-### ESLint / Oxlint / 格式化
-
-这层的意义不是“事后补救”，而是让 AI 一开始就知道不能怎么写。
-
-- `ESLint`：负责长期约束和规则表达
-- `Oxlint`：适合更快的批量静态检查
-- `Biome` 或格式化层：适合压平低价值风格争议
-
-AI 在这一步最适合做：
-
-- 修自动可修的规则问题
-- 统一重复性的目录级问题
-- 根据报错快速定位风险点
-
-## Review 时的护栏
-
-代码能过 lint，不等于能过 review。
-
-review 阶段要额外盯住：
-
-- 组件边界是否变差
-- 是否重复造轮子
-- 是否把局部问题扩散成共享抽象
-- 是否引入没有必要的状态和复杂度
-
-如果任务复杂，优先走：
-
-- [`Spec-First` runbook](/docs/workflows/patterns/spec-first/runbook)
-- [`Bugfix / Refactor / Test` runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)
-
-## 发布前的护栏
-
-发布前至少要把这些门接上：
-
-```bash
-# 按项目实际脚本替换
-npm run lint
-npm run type-check
-npm run build
-npx playwright test
+```json
+{
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "lint:fast": "oxlint .",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "verify:frontend": "npm run lint && npm run lint:fast && npm run typecheck && npm run test:unit && npm run build"
+  }
+}
 ```
 
-如果你是 workspace / monorepo 项目，通常会换成：
-
-```bash
-pnpm lint
-pnpm typecheck
-turbo run build test
+```js
+export default [
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'error',
+      'no-restricted-imports': ['error', {patterns: ['../*../*']}],
+      'react/jsx-no-useless-fragment': 'error',
+    },
+  },
+];
 ```
 
-## 推荐的门禁顺序
+## 代码案例：PR 必须带上的验证说明
 
-1. 写码时就让 `TypeScript` 和 lint 报警
-2. 改完先看 diff，再跑静态检查
-3. 关键页面补 Playwright 或组件测试
-4. 发布前再跑完整构建链路
+```md
+## Verification
 
-## 训练验收
+- `npm run lint`
+- `npm run typecheck`
+- `npm run test:unit`
+- `npm run build`
+- `npx playwright test tests/pricing-smoke.spec.ts`
 
-完成这一页训练后，至少要拿出这些结果：
+## Risk
 
-- 一套明确的门禁顺序
-- 一份项目验证命令清单
-- 一个经过类型、lint 和测试验证的真实改动
+- 仅覆盖了 pricing 页面关键路径，尚未覆盖支付接入后的真实回调。
+- 已人工验证 360px / 768px / 1280px 三个断点。
+```
 
-## 常见误区
+## Review 时最该盯的不是格式，而是这 5 件事
 
-- 只跑 lint，不跑 build 和测试
-- 用更宽松的类型去掩盖真实边界问题
-- 把 review 当成 lint 的重复动作
-- 为了赶进度跳过“看 diff”这个最便宜的质量动作
+- 组件边界有没有变差，页面私有逻辑是不是被过早抽到共享层。
+- 内容配置、路由常量、卡片元数据是否散落在多个组件文件里。
+- 样式是否绕过 token、CSS variables 和设计系统变体直接硬写。
+- 数据获取和本地状态是否混在一起，导致后续调试困难。
+- 验证结果是否真实覆盖了这次改动的关键路径。
 
-## 这页后面接什么
+## 发布前至少要有这些证据
 
-- 要继续看 Playwright、Vitest、PR 交付：去 [测试与交付](/docs/roles/frontend/testing-and-delivery)
-- 要继续看 repo 级边界和 workspace 任务：去 [仓库结构](/docs/roles/frontend/repo-architecture)
-- 要继续看规则文件和 skills：去 [上下文与规则](/docs/roles/frontend/context-and-rules)
+| 改动类型 | 最少证据 |
+| --- | --- |
+| 纯展示层改动 | lint、typecheck、build、关键断点截图 |
+| 组件行为改动 | 上述全部 + 单测或组件测试 |
+| 页面交互/流程改动 | 上述全部 + Playwright 冒烟路径 |
+| 共享 UI 或 token 改动 | 上述全部 + 影响面说明 + 回归范围 |
+
+## 配套图片与视频
+
+- 本页顶部已经补齐质量门禁图，适合直接嵌入培训材料。
+- 想看 bugfix 到验证的操作录像：去 [实战演示](/docs/resources/hands-on-demos) 搜 `review`、`test`、`playwright`。
+- 想把门禁接回工作流：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
+- 想对齐站点级质量标准：去 [Review Quality Gates](/docs/standards/review-quality-gates)。
+- 想继续补交付收口：下一页看 [测试与交付](/docs/roles/frontend/testing-and-delivery)。

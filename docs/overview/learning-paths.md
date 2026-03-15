@@ -29,6 +29,7 @@ import {RelatedReadings} from '@site/src/components/docs';
 - 第一次上手：先看 [30 分钟上手](/docs/start/30-minute-quick-start)。
 - 第一周固定工作流：去 [7 天上手路线](/docs/workflows/playbooks/first-7-days-ai-coding)。
 - 已经知道任务类型：直接去 [AI 工作流实操手册](/docs/workflows/playbooks/workflow-playbook)。
+- 如果你已经明确自己是后端工程师：直接去 [后端 AI 工作台](/docs/roles/backend)。
 
 ## 默认三条路径
 
@@ -60,6 +61,12 @@ import {RelatedReadings} from '@site/src/components/docs';
 3. 第 4 到 5 天：固定一个默认入口，去 [AI 编程工具](/docs/tools) 找对应的 `quick-start`。
 4. 第 6 天：看一篇 [实战案例](/docs/case-studies)，把“工具 + 工作流 + 验证”串起来。
 5. 第 7 天：回 [生态与集成](/docs/ecosystem) 或 [规范评估与治理](/docs/standards)，把规则和工作系统补齐。
+
+## 按岗位补训练时怎么切
+
+- 如果你负责接口、schema、服务集成和上线回归，直接去 [后端 AI 工作台](/docs/roles/backend)。
+- 如果你已经在带后端团队培训，下一步看 [后端培训路线](/docs/roles/backend/training-roadmap)。
+- 如果你今天就要做一次真实接口或迁移交付，先用 [后端交付检查表](/docs/roles/backend/delivery-checklists) 收口。
 
 ## 什么时候回总览层
 

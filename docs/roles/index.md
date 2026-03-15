@@ -32,8 +32,8 @@ market_status: current
 
 - [产品经理](/docs/roles/product) - AI 辅助需求分析、原型验证和交付跟踪
 - [设计师](/docs/roles/design) - AI 辅助设计系统、组件生成和可访问性验证
-- [前端工程师](/docs/roles/frontend) - AI 辅助组件开发、样式调试和性能优化
-- [后端工程师](/docs/roles/backend) - AI 辅助 API 开发、数据库迁移和服务集成
+- [前端工程师](/docs/roles/frontend) - 从设计输入、组件实现、样式系统到验证交付的前端 AI 工作台
+- [后端工程师](/docs/roles/backend) - AI 辅助 API 契约、数据库迁移、服务集成和上线回归
 - [测试工程师](/docs/roles/qa) - AI 辅助测试用例生成、自动化脚本和缺陷分析
 - [运维工程师](/docs/roles/devops) - AI 辅助配置管理、监控告警和故障排查
 - [数据分析师](/docs/roles/data-analysis) - AI 辅助数据清洗、可视化和报表生成
