@@ -1,0 +1,30 @@
+{
+  "weekEnding": "2026-03-16",
+  "slug": "weekly-roundup",
+  "title": "待确认本周主题",
+  "description": "2026-03-16 周报草稿，待补充本周模式判断。",
+  "draft": true,
+  "tlDr": [
+    "待补充本周最重要的 3 条结论。"
+  ],
+  "patterns": [
+    "待补充本周最值得长期跟踪的模式。"
+  ],
+  "whatToTest": [
+    "待补充下周最值得验证的动作。"
+  ],
+  "watchlist": [
+    "待补充下周继续观察的事项。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "extraSources": []
+}
