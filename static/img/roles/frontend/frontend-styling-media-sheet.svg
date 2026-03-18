@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#FBF7F1"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端样式媒体资产板</text>
+  <text x="72" y="122" fill="#5F6671" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">把品牌板、token、状态截图和 before/after 放成一套，视觉 review 才不会只剩一句“感觉不对”</text>
+
+  <rect x="72" y="176" width="248" height="392" rx="28" fill="#FFF0E1" stroke="#E8CCA6" stroke-width="2"/>
+  <text x="108" y="226" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">品牌板</text>
+  <text x="108" y="276" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">3 到 5 个关键词</text>
+  <text x="108" y="312" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">2 到 3 张参考图</text>
+  <text x="108" y="348" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">明确禁用项</text>
+  <rect x="108" y="388" width="176" height="104" rx="20" fill="#F6D9B3"/>
+  <text x="130" y="446" fill="#7E4A1E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">目标：让 AI 不再</text>
+  <text x="130" y="476" fill="#7E4A1E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">回落到模板味</text>
+
+  <rect x="340" y="176" width="248" height="392" rx="28" fill="#EAF2FF" stroke="#CADCF8" stroke-width="2"/>
+  <text x="376" y="226" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Token 对照</text>
+  <text x="376" y="276" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">基础值 -> 语义值</text>
+  <text x="376" y="312" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">组件值 -> 页面值</text>
+  <text x="376" y="348" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">变体集中定义</text>
+  <rect x="376" y="388" width="176" height="104" rx="20" fill="#D8E7FF"/>
+  <text x="398" y="446" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">目标：把视觉语言</text>
+  <text x="398" y="476" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">变成可引用资产</text>
+
+  <rect x="608" y="176" width="248" height="392" rx="28" fill="#ECF8EE" stroke="#CEE5D4" stroke-width="2"/>
+  <text x="644" y="226" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">状态截图</text>
+  <text x="644" y="276" fill="#2E6240" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">desktop / mobile</text>
+  <text x="644" y="312" fill="#2E6240" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">hover / focus / error</text>
+  <text x="644" y="348" fill="#2E6240" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">关键断点对照</text>
+  <rect x="644" y="388" width="176" height="104" rx="20" fill="#D5EBD9"/>
+  <text x="666" y="446" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">目标：让视觉 review</text>
+  <text x="666" y="476" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">有真实观察面</text>
+
+  <rect x="876" y="176" width="252" height="392" rx="28" fill="#FDEBF1" stroke="#E5C7D2" stroke-width="2"/>
+  <text x="912" y="226" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Before / After</text>
+  <text x="912" y="276" fill="#7D4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">旧页面 vs 新页面</text>
+  <text x="912" y="312" fill="#7D4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">差异说明</text>
+  <text x="912" y="348" fill="#7D4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">受影响组件列表</text>
+  <rect x="912" y="388" width="180" height="104" rx="20" fill="#F4D8E1"/>
+  <text x="934" y="446" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">目标：让“去模板化”</text>
+  <text x="934" y="476" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">变成可复盘任务</text>
+
+  <rect x="72" y="620" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="108" y="649" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">一条默认规则：没有品牌板、状态截图和 before/after，对前端样式的 review 往往只剩主观评价。</text>
+</svg>

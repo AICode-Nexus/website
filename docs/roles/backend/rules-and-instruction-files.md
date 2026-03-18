@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -56,12 +56,23 @@ task:
     - "pnpm smoke:billing-webhook"
 ```
 
+想直接复制：去 [接口改动 Brief 模板](/docs/roles/backend/templates/api-change-brief)、[Migration 变更模板](/docs/roles/backend/templates/migration-change-brief) 和 [外部集成任务模板](/docs/roles/backend/templates/integration-task-brief)。
+
 ## 最常见的失败方式
 
 1. repo 真实约束只写在某个工具 rules 里。
 2. migration、contract、测试和发布门禁没有写进同一个长期合同。
 3. 任务 brief 没说明兼容性和回滚要求。
 4. PR 只写“测试通过”，没写哪些风险仍未覆盖。
+
+## 可直接复制的后端模板
+
+- [仓库合同模板](/docs/roles/backend/templates/repo-contract-template)
+- [接口改动 Brief 模板](/docs/roles/backend/templates/api-change-brief)
+- [Migration 变更模板](/docs/roles/backend/templates/migration-change-brief)
+- [外部集成任务模板](/docs/roles/backend/templates/integration-task-brief)
+- [命令与验证模板](/docs/roles/backend/templates/commands-and-validation)
+- [PR / Handoff / Rollback 模板](/docs/roles/backend/templates/pr-handoff-and-rollback)
 
 ## 下一步
 

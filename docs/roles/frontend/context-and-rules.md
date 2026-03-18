@@ -12,210 +12,120 @@ featured: false
 domain: workflows
 journey_stage: testing-validation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 slug: /roles/frontend/context-and-rules
 ---
 
 # 上下文与规则
 
-前端团队把 AI 用稳，最终比拼的不是 prompt 词藻，而是规则分层是否清楚。一个成熟团队会把 repo 真相、工具行为、任务上下文和验证命令拆成不同层，而不是把全部要求塞进一段临时聊天记录。
+前端团队把 AI 用稳，最终比拼的不是 prompt 词藻，而是机制分层是否清楚。这个专题现在只负责一件事：告诉你前端 AI 协作里的长期真相、任务上下文、能力编排和工具入口应该分别写在哪里，而不是继续把所有细节塞回一张总览页。
 
 ## 专题拆分阅读
 
-这一页现在作为“前端机制总览”保留，用来给你一张总地图；更细的内容已经拆成三个独立子页：
+这一页保留为“机制总览页”，更细的内容分别下沉到三个子页：
 
-| 方向 | 什么时候先看 | 对应子页 |
+| 方向 | 你现在最想解决什么 | 这一页应该给你什么 | 对应子页 |
 | --- | --- | --- |
-| 规则与规范文档 | 你要写 `AGENTS.md`、`CLAUDE.md`、任务 brief、PR 模板 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
-| Skills 与 MCP | 你要判断前端任务该配什么 skill、什么时候拿 Figma / Context7 / 浏览器上下文 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) |
-| 工具匹配与选型 | 你要判断该走终端、执行栈、浏览器还是平台入口 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) |
+| 规则与规范文档 | 规则文件、brief、PR 模板到底谁负责什么 | 拿到规则所有权、模板资产和证据合同 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
+| Skills 与 MCP | 前端任务该先启用什么能力组合 | 拿到 skill、MCP、任务包的默认编排方式 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) |
+| 工具匹配与选型 | 该走终端、执行栈、浏览器还是平台入口 | 拿到按任务形状选入口的具体决策表 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) |
 
-如果你正在做团队治理，建议先读“规则与规范文档”；如果你正在做真实页面任务，先读 “Skills 与 MCP” 和 “工具匹配与选型” 往往更直接。
+如果你要做团队治理，先去“规则与规范文档”；如果你要开真实前端任务，通常先读 “Skills 与 MCP” 和 “工具匹配与选型”。
 
 ## 规则分层图
 
 ![前端上下文分层图](/img/roles/frontend/context-rules-stack.svg)
 
-## `AGENTS.md`、`CLAUDE.md`、工具 rules 怎么分工
+## 前端机制不是一个文件，而是四层合同
 
-| 层级 | 应该写什么 | 不应该写什么 |
+| 层 | 要解决什么问题 | 常见载体 | 最常见的失控点 |
 | --- | --- | --- |
-| `AGENTS.md` | 仓库长期合同、目录边界、必跑命令、发布纪律 | 临时任务细节 |
-| `CLAUDE.md` | 工具如何理解项目、技术栈、默认工作方式 | 团队唯一真相 |
-| 工具 rules | IDE 或代理的入口行为、交互偏好、本地快捷习惯 | 代替 repo 规则本身 |
-| 任务 brief | 这次改动的目标、约束、验收标准 | 项目的长期公共规范 |
+| repo 合同 | 共享层边界、目录合同、长期验证纪律写在哪里 | `AGENTS.md`、项目规范、长期规则文件 | 所有边界都留在聊天里，换人就丢 |
+| 工具行为 | 某个入口默认怎么工作 | `CLAUDE.md`、IDE rules、工具本地 instructions | 把工具习惯误写成团队唯一真相 |
+| 任务包 | 本次页面、组件或重构任务需要什么上下文 | task brief、Figma 节点、截图、token、验收项 | 只写“帮我改这个页面”，没有输入和验收 |
+| 交付证据 | 怎么证明这次改动真的可交付 | PR 模板、handoff 文档、截图、录屏、命令结果 | 只有 diff，没有证据包，review 和接手人都要靠猜 |
 
-## 什么时候用 Context7、计划、MCP
+这四层写清以后，agent 才不会把“长期规则”“本次任务”“入口习惯”“交付证明”混成一坨。
 
-| 能力 | 适合什么时候用 | 前端典型场景 |
+## 遇到什么问题，先去哪个子页
+
+| 你卡住的问题 | 先看哪里 | 为什么 |
 | --- | --- | --- |
-| Context7 | 需要最新官方文档或库 API | 查 `Next.js`、`React`、`Playwright` 新接口 |
-| Plan First / Spec-First | 改动跨目录、跨包、跨角色 | 组件库重构、设计系统升级、页面大改版 |
-| MCP | 需要浏览器、设计稿、文件系统真实上下文 | Figma 节点抓取、页面录屏、浏览器重现 bug |
+| `AGENTS.md`、`CLAUDE.md`、brief、PR 模板怎么拆 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) | 这是规则所有权和模板资产问题 |
+| 设计稿任务该先拿什么上下文 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) | 这是能力编排问题，不是入口偏好问题 |
+| 这个任务到底该走终端、浏览器还是平台入口 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | 这是工具入口决策，不是规则问题 |
+| 共享组件改造为什么总返工 | 先看 [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)，再看 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) | 先判断入口，再补目录合同和验证要求 |
+| 页面任务证据老是补不齐 | 先看 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)，再看 [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) | 先把证据写进合同，再决定能力组合 |
 
-## 代码案例：前端仓库里的规则片段
+## 三个机制子页各自要交什么
 
-```md
-## Frontend Contracts
-
-- Reusable copy, card metadata, and route maps live in `src/data/`.
-- Shared UI components must not import page-local business logic.
-- Every UI task must state affected breakpoints and required verification commands.
-- Do not add new color literals when semantic tokens already exist.
-```
-
-## 代码案例：复杂前端任务的 brief
-
-```yaml
-task:
-  change: "重构 dashboard 筛选条并补移动端抽屉"
-  boundaries:
-    - "只改 apps/admin-console/src/features/dashboard"
-    - "shared/ui 仅允许新增 Drawer 变体"
-  required_context:
-    - "现有 Figma 节点"
-    - "dashboard 现有 Playwright 冒烟脚本"
-    - "tokens/filter-panel.json"
-  verification:
-    - "pnpm lint"
-    - "pnpm typecheck"
-    - "pnpm test --filter dashboard"
-    - "pnpm --filter admin-console exec playwright test tests/dashboard-filter.spec.ts"
-```
-
-## 前端常用 skills 应该怎么映射
-
-| 场景 | 更适合的能力 | 作用 |
+| 子页 | 你读完至少应该拿走什么 | 不应该在这里展开什么 |
 | --- | --- | --- |
-| 设计稿转页面 | `figma`、MCP 浏览器能力 | 读取设计节点、截图、变量和布局上下文 |
-| 复杂页面改造 | `writing-plans`、`executing-plans` | 先把跨目录改动拆清楚 |
-| React 组件边界治理 | `react-best-practices`、`typescript-react-patterns` | 收紧组件职责、类型和事件模式 |
-| 状态层选择 | `state-management` | 说明 `TanStack Query / Zustand / Pinia` 的边界 |
-| 调试与修复 | `systematic-debugging` | 避免“看到报错就直接改” |
-| 发布前验证 | `verification-before-completion` | 强制把命令和结果补齐 |
-
-## 规则系统最常见的三种失败方式
-
-- repo 规则写得太空泛，AI 仍然不知道共享层和页面层怎么分。
-- 所有内容都写进工具 rules，导致换一个入口就失效。
-- 任务 brief 缺失验收条件，最后只能靠 review 人补救。
+| 规则与规范文档 | `AGENTS.md` 片段、brief 模板、PR / handoff 模板、证据合同 | 不负责替你决定入口工具 |
+| Skills 与 MCP | 能力组合矩阵、默认编排顺序、失败信号与修正动作 | 不负责替你决定哪款产品最顺手 |
+| 工具匹配与选型 | 任务形状到工具入口的决策表、证据要求、配套 workflow | 不负责长期规则所有权 |
 
 ## 前端上下文包
 
 ![前端上下文包](/img/roles/frontend/frontend-context-packet.svg)
 
-这张图把长期真相、本次任务和最终证据拆开，是因为很多团队把三者混写在同一个地方。结果要么规则文件越来越长却越来越没法维护，要么任务 brief 只剩一句“帮我改一下页面”，最后产出完全靠模型猜。
+这张图的核心不是“材料越多越好”，而是把长期真相、本次任务和最终证据分开。很多前端团队之所以觉得 AI 协作忽好忽坏，本质上不是模型水平波动，而是三类信息在不同任务里不断串位。
 
-## 指令文件模板
+## 默认阅读顺序
 
-下面这类片段很适合写进前端仓库的 `AGENTS.md` 或等价规则文件：
-
-```md
-## Frontend Repo Contracts
-
-- Reusable copy, routes, and card metadata live in `src/data/`.
-- Shared UI must not import page-local business logic or route loaders.
-- Every visual task must state required breakpoints and screenshot artifacts.
-- New color values require a token discussion before landing in code.
-- Cross-package changes must list affected packages and verification commands.
-```
-
-这类模板的重点不是“写得多”，而是把高频错误写成 agent 能消费的硬边界。对于前端项目来说，目录边界、样式 token 和验证命令是最值得长期写进去的三类信息。
-
-## 任务 brief 模板
-
-规则文件写长期真相，任务 brief 写本次改动。一个更适合前端团队的 brief 至少应包含这些字段：
-
-```yaml
-task:
-  goal: "重构 dashboard 筛选条并补移动端抽屉"
-  scope:
-    - "只改 apps/admin-console/src/features/dashboard"
-    - "shared/ui 仅允许新增 Drawer 变体"
-  design_input:
-    - "Figma 节点"
-    - "关键断点截图"
-    - "tokens/filter-panel.json"
-  acceptance:
-    - "360 / 768 / 1280 断点可用"
-    - "键盘可达"
-    - "Playwright 冒烟通过"
-  artifacts:
-    - "桌面截图"
-    - "移动端截图"
-    - "风险说明"
-```
-
-如果这类 brief 写得足够稳定，图片、视频和图表就能自然占更大权重，因为它们已经被定义成正式制品，而不是靠“有空再补”。
-
-## 技能与工具选择顺序
-
-| 任务形状 | 优先能力 | 为什么 |
+| 任务类型 | 推荐阅读顺序 | 你最后应该拿到什么 |
 | --- | --- | --- |
-| 设计稿落地 | `figma`、浏览器 / 设计上下文 | 先把真实设计输入拿全 |
-| 跨目录重构 | `writing-plans`、`executing-plans` | 先控制改动边界和顺序 |
-| React / Vue 组件治理 | `react-best-practices`、`typescript-react-patterns` | 先收紧组件职责和类型 |
-| 调试与修复 | `systematic-debugging` | 先证明问题，再改实现 |
-| 交付前收口 | `verification-before-completion` | 先拿证据，再声称完成 |
-
-把技能映射写出来的好处是，团队不再需要每次从零判断“该用什么入口”。这会显著减少前端协作中的上下文切换成本。
+| 设计稿转页面 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) -> [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) -> [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) | 能力组合、入口选择、brief 与证据合同 |
+| 浏览器 bug 修复 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) -> [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) -> [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) | 复现入口、能力编排、交付证据 |
+| 共享层或设计系统治理 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) -> [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) -> [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) | 计划型入口、目录合同、默认能力链 |
+| 团队规则建设 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) -> [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) -> [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | 模板资产、能力地图、入口决策表 |
 
 ## 团队治理节奏
 
-前端团队真正要长期受益，建议把治理节奏也写进文档：
+前端机制专题真正有价值，不在于把术语讲得多，而在于能把返工点稳定回写为仓库资产。建议至少固定下面这条治理节奏：
 
 1. 每周回收一次高频返工点，把它们转成规则文件或任务模板。
-2. 每次出现典型页面任务，都补一次截图、录屏或对照图，不让媒体证据只留在 IM 里。
+2. 每次出现典型页面任务，都补一次截图、录屏或对照图，不让媒体证据只留在 IM 或口头 review 里。
 3. 每月整理一次“哪些验证在重复跑”，把它们上升为脚本、模板或 CI 门禁。
-4. 每个新成员入组时，先学如何读规则、如何写 brief、如何交证据，而不是先学 prompt 花样。
+4. 每个新成员入组时，先学“如何读规则、如何选能力、如何选入口、如何交证据”，而不是先学 prompt 花样。
 
-这套节奏的本质是把“高手经验”变成仓库资产。对 AI 协作来说，最有价值的从来不是某个模型的一次超常发挥，而是下一次任务还能不能稳定复现。
+## 机制专题的默认交付物
 
-## 训练任务与交付物
-
-| 训练任务 | 目标 | 交付物 |
+| 你正在收口什么 | 最少应交什么 | 主要归属页面 |
 | --- | --- | --- |
-| 任务 1：给一个前端 repo 写最小规则片段 | 练长期真相表达 | `AGENTS.md` 片段 |
-| 任务 2：给一个页面改造任务写完整 brief | 练本次任务收口 | YAML brief、截图清单 |
-| 任务 3：把一次改动经验沉淀成团队模板 | 练治理闭环 | 模板、规则 diff、培训说明 |
+| 仓库长期真相 | `AGENTS.md` 片段、目录合同、验证纪律 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
+| 本次任务上下文 | brief、设计输入、截图清单、验收项 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
+| 能力编排 | skill + MCP 组合表、失败信号、默认顺序 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) |
+| 工具入口选择 | 任务形状到入口工具矩阵、最小证据包 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) |
+| 最终交付证明 | 命令结果、截图、录屏、风险说明 | [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
 
-## 媒体资产如何进入规则系统
+## 机制专题的默认训练包
 
-如果你真的想提高图片、视频和图表在前端工作流中的权重，就不要只在内容页里贴链接，而要把它们写进规则合同：
+如果你要把这组机制页真正用起来，最稳的方式不是逐页背概念，而是直接复用下面这几套训练包：
 
-| 资产类型 | 应该写进哪里 | 作用 |
-| --- | --- | --- |
-| 关键截图 | 任务 brief / 验收条件 | 告诉 AI 和 reviewer 这次最重要的视觉证据是什么 |
-| 录屏 | PR 模板 / 交付清单 | 说明交互与状态变化，不让动态行为只靠文字描述 |
-| 图表 | 角色页 / 培训页 / onboarding 材料 | 帮新人快速建立心智模型 |
+| 训练包 | 主要解决什么 | 应该落到哪一层合同 | 先读哪里 |
+| --- | --- | --- | --- |
+| 页面输入包 | 让设计输入不再只剩整屏截图 | `任务包` | [页面输入包模板](/docs/roles/frontend/templates/page-input-pack)、[设计到代码](/docs/roles/frontend/design-to-code) |
+| 能力编排包 | 决定先启用什么 skill / MCP / 入口 | `工具行为` + `任务包` | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) |
+| 规则模板包 | 决定长期规则、brief 和 PR 模板各写在哪 | `repo 合同` + `工具行为` + `任务包` | [训练包模板](/docs/roles/frontend/templates)、[规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
+| 交付证据包 | 让 reviewer 能快速确认这次改动是否可推进 | `交付证据` | [命令与证据模板](/docs/roles/frontend/templates/commands-and-evidence)、[测试与交付](/docs/roles/frontend/testing-and-delivery) |
 
-一旦媒体资产进入规则系统，它们就会从“补充阅读”升级为“正式交付物”。这也是把文档长期做厚、做稳的关键前提。
+这张表的重点是：同样叫“前端任务”，真正需要的资产并不一样。页面首版最怕输入失真，交付收口最怕证据缺位，而机制专题的价值，就是帮你把这几套资产放回正确层级。
 
 ## 新人 onboarding 顺序
 
-新成员第一次接触前端 AI 工作台时，建议按这个顺序：
-
-1. 先看本页，理解规则、brief 和证据三层分工。
-2. 再看 [设计到代码](/docs/roles/frontend/design-to-code) 和 [框架与组件生态](/docs/roles/frontend/frameworks-and-components)，理解输入与实现边界。
-3. 最后看 [质量门禁](/docs/roles/frontend/quality-gates) 和 [测试与交付](/docs/roles/frontend/testing-and-delivery)，理解为什么“写完”不等于“交付完”。
-
-这样 onboarding 会从协作模型开始，而不是从碎片化技巧开始。
-
-同时建议给新人分配一套最小媒体作业：读完一页，就交一张结构图或一段 15 秒复盘录屏。这样规则学习不会停留在文本层。
-
-## 如何让前端团队真正长期受益
-
-- 把高频错误写回 `AGENTS.md`，不要只留在群聊里。
-- 把复杂任务的计划过程沉淀到 [Spec-First](/docs/workflows/patterns/spec-first/runbook) 或项目规范中。
-- 把工具、工作流和验证动作写成可复用的默认路径，而不是靠个人熟练度。
-- 让交付物始终包括代码、截图、命令和风险说明，而不是只交 diff。
+1. 先看本页，理解四层合同和三个专题页怎么分工。
+2. 再看 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)，理解长期规则和任务模板怎么写。
+3. 然后看 [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) 与 [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)，理解能力链和入口决策。
+4. 最后回到 [设计到代码](/docs/roles/frontend/design-to-code)、[质量门禁](/docs/roles/frontend/quality-gates) 和 [测试与交付](/docs/roles/frontend/testing-and-delivery)，把机制接回真实交付。
 
 ## 配套图片与视频
 
-- 本页已补前端规则分层图，适合用来给团队讲清“规则写在哪一层”。
-- 想看 tools、rules、memory 一类的视频入口：去 [全部视频](/docs/resources/videos) 搜 `rules`、`workflow`、`agent`。
-- 想补站点级规则设计：去 [Repo Instruction Files](/docs/repo-instruction-files) 和 [Skills / Commands / Hooks](/docs/standards/skills-commands-hooks)。
-- 想继续把规则接回真实交付：回看 [质量门禁](/docs/roles/frontend/quality-gates) 和 [测试与交付](/docs/roles/frontend/testing-and-delivery)。
-- 想继续分专题读：去 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)。
+- 本页保留两张总览图：规则分层图和前端上下文包，适合用来讲清“信息该写在哪一层”。
+- 想直接开始组装训练包：回到 [设计到代码](/docs/roles/frontend/design-to-code) 的输入资产板和 [测试与交付](/docs/roles/frontend/testing-and-delivery) 的交付证据包板。
+- 想直接复制模板文件：去 [训练包模板](/docs/roles/frontend/templates)。
+- 想看 rules、workflow、agent 类视频入口：去 [全部视频](/docs/resources/videos) 搜 `rules`、`workflow`、`agent`。
+- 想把机制接回真实页面任务：回到 [设计到代码](/docs/roles/frontend/design-to-code)、[质量门禁](/docs/roles/frontend/quality-gates)、[测试与交付](/docs/roles/frontend/testing-and-delivery)。
+- 想继续下钻机制专题：去 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)。

@@ -116,6 +116,21 @@ const sidebars = {
         'roles/product/rules-and-instruction-files',
         'roles/product/skills-and-mcp',
         'roles/product/tool-fit-and-selection',
+        {
+          type: 'category',
+          label: '训练包模板',
+          link: {
+            type: 'doc',
+            id: 'roles/product/templates/index',
+          },
+          items: [
+            'roles/product/templates/prd-outline',
+            'roles/product/templates/discovery-brief',
+            'roles/product/templates/prototype-validation',
+            'roles/product/templates/handoff-and-acceptance',
+            'roles/product/templates/example-referral-launch-pack',
+          ],
+        },
       ],
     },
     {
@@ -126,6 +141,38 @@ const sidebars = {
         'roles/design/rules-and-instruction-files',
         'roles/design/skills-and-mcp',
         'roles/design/tool-fit-and-selection',
+        {
+          type: 'category',
+          label: '训练包模板',
+          link: {
+            type: 'doc',
+            id: 'roles/design/templates/index',
+          },
+          items: [
+            'roles/design/templates/figma-handoff-pack',
+            'roles/design/templates/component-state-contract',
+            'roles/design/templates/tokens-and-constraints',
+            'roles/design/templates/prototype-proof-sheet',
+            'roles/design/templates/example-dashboard-card-pack',
+          ],
+        },
+        {
+          type: 'category',
+          label: '工具专题',
+          link: {
+            type: 'doc',
+            id: 'roles/design/tools/index',
+          },
+          items: [
+            'roles/design/tools/figma',
+            'roles/design/tools/mastergo',
+            'roles/design/tools/framer',
+            'roles/design/tools/relume',
+            'roles/design/tools/uizard',
+            'roles/design/tools/visily',
+            'roles/design/tools/webflow-ai',
+          ],
+        },
       ],
     },
     {
@@ -143,6 +190,22 @@ const sidebars = {
         'roles/frontend/rules-and-instruction-files',
         'roles/frontend/skills-and-mcp',
         'roles/frontend/tool-fit-and-selection',
+        {
+          type: 'category',
+          label: '训练包模板',
+          link: {
+            type: 'doc',
+            id: 'roles/frontend/templates/index',
+          },
+          items: [
+            'roles/frontend/templates/page-input-pack',
+            'roles/frontend/templates/task-brief',
+            'roles/frontend/templates/commands-and-evidence',
+            'roles/frontend/templates/pr-handoff',
+            'roles/frontend/templates/risks-and-next',
+            'roles/frontend/templates/example-marketing-page-pack',
+          ],
+        },
       ],
     },
     {
@@ -165,7 +228,23 @@ const sidebars = {
         'roles/backend/rules-and-instruction-files',
         'roles/backend/skills-and-mcp',
         'roles/backend/delivery-checklists',
-        'roles/backend/templates-and-handoffs',
+        {
+          type: 'category',
+          label: '模板与交付资产',
+          link: {
+            type: 'doc',
+            id: 'roles/backend/templates-and-handoffs',
+          },
+          items: [
+            'roles/backend/templates/repo-contract-template',
+            'roles/backend/templates/api-change-brief',
+            'roles/backend/templates/migration-change-brief',
+            'roles/backend/templates/integration-task-brief',
+            'roles/backend/templates/commands-and-validation',
+            'roles/backend/templates/pr-handoff-and-rollback',
+            'roles/backend/templates/example-webhook-hardening-pack',
+          ],
+        },
       ],
     },
     {
@@ -176,6 +255,21 @@ const sidebars = {
         'roles/qa/rules-and-instruction-files',
         'roles/qa/skills-and-mcp',
         'roles/qa/tool-fit-and-selection',
+        {
+          type: 'category',
+          label: '训练包模板',
+          link: {
+            type: 'doc',
+            id: 'roles/qa/templates/index',
+          },
+          items: [
+            'roles/qa/templates/test-plan-brief',
+            'roles/qa/templates/bug-repro-and-regression',
+            'roles/qa/templates/commands-and-evidence',
+            'roles/qa/templates/handoff-template',
+            'roles/qa/templates/example-checkout-regression-pack',
+          ],
+        },
       ],
     },
     {
@@ -186,6 +280,21 @@ const sidebars = {
         'roles/devops/rules-and-instruction-files',
         'roles/devops/skills-and-mcp',
         'roles/devops/tool-fit-and-selection',
+        {
+          type: 'category',
+          label: '训练包模板',
+          link: {
+            type: 'doc',
+            id: 'roles/devops/templates/index',
+          },
+          items: [
+            'roles/devops/templates/infra-change-brief',
+            'roles/devops/templates/runbook-and-rollback',
+            'roles/devops/templates/commands-and-evidence',
+            'roles/devops/templates/incident-handoff',
+            'roles/devops/templates/example-k8s-rollout-pack',
+          ],
+        },
       ],
     },
     {
@@ -196,6 +305,21 @@ const sidebars = {
         'roles/data-analysis/rules-and-instruction-files',
         'roles/data-analysis/skills-and-mcp',
         'roles/data-analysis/tool-fit-and-selection',
+        {
+          type: 'category',
+          label: '训练包模板',
+          link: {
+            type: 'doc',
+            id: 'roles/data-analysis/templates/index',
+          },
+          items: [
+            'roles/data-analysis/templates/analysis-brief',
+            'roles/data-analysis/templates/data-quality-checklist',
+            'roles/data-analysis/templates/commands-and-repro',
+            'roles/data-analysis/templates/report-handoff',
+            'roles/data-analysis/templates/example-retention-report-pack',
+          ],
+        },
       ],
     },
   ],

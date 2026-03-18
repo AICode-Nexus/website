@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -41,7 +41,17 @@ QA 任务更稳的顺序通常是：先用 `systematic-debugging` 把问题复�
 
 带测试同学练 AI 协作时，建议每次都要求提交复现步骤、证据截图或录屏、以及最终自动化用例。只交最后一份测试代码，很难判断团队是否真的理解了问题。
 
+## 默认能力组合对应的最小产物
+
+| 任务 | 默认能力组合 | 最少要落的模板 |
+| --- | --- | --- |
+| 缺陷定位 | `systematic-debugging` + 浏览器上下文 | [缺陷复现与回归模板](/docs/roles/qa/templates/bug-repro-and-regression) |
+| 测试计划设计 | `testing-best-practices` | [测试计划 Brief 模板](/docs/roles/qa/templates/test-plan-brief) |
+| 浏览器验证 | `playwright` 或浏览器上下文 | [命令与证据模板](/docs/roles/qa/templates/commands-and-evidence) |
+| 交付前收口 | `verification-before-completion` | [QA Handoff 模板](/docs/roles/qa/templates/handoff-template) |
+
 ## 下一步
 
 - 想补长期规则：去 [规则与规范文档](/docs/roles/qa/rules-and-instruction-files)。
 - 想继续判断入口：去 [工具匹配与选型](/docs/roles/qa/tool-fit-and-selection)。
+- 想直接复制模板：去 [QA 训练包模板](/docs/roles/qa/templates)。

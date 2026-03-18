@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -38,7 +38,19 @@ market_status: current
 - 生产变更必须说明验证点、告警和回退条件。
 - IaC 与实际运行状态差异必须可追踪。
 
+## 可直接复制的 DevOps 模板
+
+| 模板 | 什么时候先用 |
+| --- | --- |
+| [基础设施变更 Brief 模板](/docs/roles/devops/templates/infra-change-brief) | 还在界定变更边界、环境和 owner 时 |
+| [Runbook 与回滚模板](/docs/roles/devops/templates/runbook-and-rollback) | 需要执行 staging / production 变更时 |
+| [命令与证据模板](/docs/roles/devops/templates/commands-and-evidence) | 需要固定验证顺序、日志和截图证据时 |
+| [Incident / Handoff 模板](/docs/roles/devops/templates/incident-handoff) | 需要交班、值班或跨团队 handoff 时 |
+
+这几份模板的汇总入口在 [DevOps 训练包模板](/docs/roles/devops/templates)。
+
 ## 下一步
 
 - 想继续看 DevOps 任务该配什么能力：去 [Skills 与 MCP](/docs/roles/devops/skills-and-mcp)。
 - 想判断任务该走哪个入口：去 [工具匹配与选型](/docs/roles/devops/tool-fit-and-selection)。
+- 想直接复制模板资产：去 [DevOps 训练包模板](/docs/roles/devops/templates)。

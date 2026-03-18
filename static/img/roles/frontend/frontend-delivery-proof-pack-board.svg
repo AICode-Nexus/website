@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F7F8FC"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端交付证据包板</text>
+  <text x="72" y="122" fill="#5D6673" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">把命令、截图、录屏和风险说明放成同一包，review 才能在几分钟内判断这次改动能不能继续推进</text>
+
+  <rect x="84" y="176" width="228" height="404" rx="28" fill="#EAF2FF" stroke="#CADCF8" stroke-width="2"/>
+  <text x="118" y="226" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Commands</text>
+  <text x="118" y="278" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">lint</text>
+  <text x="118" y="314" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">typecheck</text>
+  <text x="118" y="350" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">build</text>
+  <text x="118" y="386" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">test / Playwright</text>
+  <rect x="118" y="428" width="158" height="96" rx="20" fill="#D8E7FF"/>
+  <text x="138" y="482" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">commands.md</text>
+
+  <rect x="336" y="176" width="228" height="404" rx="28" fill="#FFF3E1" stroke="#EDD0A8" stroke-width="2"/>
+  <text x="370" y="226" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Screenshots</text>
+  <text x="370" y="278" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">desktop</text>
+  <text x="370" y="314" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">mobile</text>
+  <text x="370" y="350" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">状态图</text>
+  <text x="370" y="386" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">前后对照</text>
+  <rect x="370" y="428" width="158" height="96" rx="20" fill="#F6DFC1"/>
+  <text x="390" y="482" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">artifacts/</text>
+
+  <rect x="588" y="176" width="228" height="404" rx="28" fill="#ECF8EE" stroke="#CEE5D4" stroke-width="2"/>
+  <text x="622" y="226" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Recording</text>
+  <text x="622" y="278" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">起始态</text>
+  <text x="622" y="314" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">关键交互</text>
+  <text x="622" y="350" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">结果态</text>
+  <text x="622" y="386" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">失败回退态</text>
+  <rect x="622" y="428" width="158" height="96" rx="20" fill="#D8EAD8"/>
+  <text x="642" y="482" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">flow.mp4</text>
+
+  <rect x="840" y="176" width="276" height="404" rx="28" fill="#FDEBF1" stroke="#E5C7D2" stroke-width="2"/>
+  <text x="874" y="226" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Risks / Next</text>
+  <text x="874" y="278" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">未覆盖路径</text>
+  <text x="874" y="314" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">影响范围</text>
+  <text x="874" y="350" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">回滚入口</text>
+  <text x="874" y="386" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">继续接手建议</text>
+  <rect x="874" y="428" width="196" height="96" rx="20" fill="#F5D9E3"/>
+  <text x="896" y="482" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">risks-and-next.md</text>
+
+  <rect x="72" y="620" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="98" y="649" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">一个快速检查法：如果 reviewer 无法在 3 到 5 分钟内找到命令、截图、录屏和风险，证据包就还不够好。</text>
+</svg>

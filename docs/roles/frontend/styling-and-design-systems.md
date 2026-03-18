@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 slug: /roles/frontend/styling-and-design-systems
 ---
@@ -166,6 +166,35 @@ visual_rules:
 
 如果你要把这一页用作培训材料，建议每次作业都要求交一张视觉对照图。图上至少包含“参考输入”“实现输出”“差异说明”三栏。这样图片就不是装饰，而是 review 的核心证据。
 
+## 样式与设计系统案例地图
+
+样式页最容易被读成“讲审美偏好”，但真正有训练价值的，是看视觉输入、token、组件变体和交付证据如何在真实任务里一起出现：
+
+| 现在最像哪种任务 | 先看哪篇案例 | 为什么值得搭配本页 |
+| --- | --- | --- |
+| 设计输入很多，但还没把视觉语言翻成 token 和页面节奏 | [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff) | 适合观察设计输入、brief 和长执行段如何串起来，不让视觉约束只停在截图层 |
+| 现有页面能跑，但风格模板化严重，需要局部去模板化 | [Windsurf 维护到 PR 案例](/docs/case-studies/windsurf-maintenance-to-pr) | 适合对照“最小改动也要回到 token、变体和截图证据”，而不是只换几组颜色 |
+| 设计系统或共享组件风格要做中等规模重构 | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | 适合看多阶段推进时，如何保留样式边界、验证截图和风险说明 |
+
+读这些案例时，建议重点观察四件事：
+
+1. 品牌关键词、禁用项和 token 有没有进入正式任务包。
+2. 页面私有视觉处理和共享变体有没有一开始就分层。
+3. 截图、录屏和断点对照是否真的能支撑视觉 review。
+4. 改动说明里有没有说清楚哪些页面或组件会被样式变化影响。
+
+## 样式页的媒体联动表
+
+如果你准备把这页用于带练，建议不要只给学员一张图或一篇案例，而是直接给一组“视频 + 案例 + 产物”：
+
+![前端样式媒体资产板](/img/roles/frontend/frontend-styling-media-sheet.svg)
+
+| 训练主题 | 先看哪个视频 | 再看哪篇案例 | 最少要补哪些媒体产物 |
+| --- | --- | --- | --- |
+| 从设计输入提炼视觉语言 | [Claude Code + Figma 工作流](/docs/resources/videos?video=bilibili-bv1f5cyz1eov-青柠智信) | [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff) | 品牌关键词板、token 对照表、关键断点截图 |
+| 去模板化页面改造 | [使用 OpenAI Codex 构建精美前端界面](/docs/resources/videos?video=bilibili-bv1w5p9z7en5-豚工智能) | [Windsurf 维护到 PR 案例](/docs/case-studies/windsurf-maintenance-to-pr) | before/after 对照图、组件状态图、差异说明 |
+| 共享样式或变体重构 | [实战演示视频列表](/docs/resources/videos?format=实战演示&section=results) | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | 受影响页面清单、断点截图、风险说明 |
+
 ## 视频学习路径
 
 | 想练什么 | 先看什么 |
@@ -197,3 +226,4 @@ visual_rules:
 - 想看样式实战演示：去 [实战演示](/docs/resources/hands-on-demos) 搜 `tailwind`、`design system`。
 - 想继续把视觉约束接入代码审核：去 [质量门禁](/docs/roles/frontend/quality-gates)。
 - 想看整个站点对质量和规范的要求：去 [AI 开发规范](/docs/ai-development-standards) 与 [Review Quality Gates](/docs/standards/review-quality-gates)。
+- 想看真实视觉交接和收口案例：去 [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff)、[Windsurf 维护到 PR 案例](/docs/case-studies/windsurf-maintenance-to-pr)、[OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification)。

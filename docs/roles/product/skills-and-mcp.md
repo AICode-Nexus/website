@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -37,7 +37,17 @@ market_status: current
 - 不查最新官方文档，就把技术约束写进需求。
 - 原型讨论不看真实界面，只在文本层抽象。
 
+## 默认能力组合对应的最小产物
+
+| 任务 | 默认能力组合 | 最少要落的模板 |
+| --- | --- | --- |
+| 需求澄清 | `brainstorming` + `writing-plans` | [发现与调研 Brief 模板](/docs/roles/product/templates/discovery-brief) |
+| 正式 PRD 产出 | `bmad` / `adr-writer` | [PRD 大纲模板](/docs/roles/product/templates/prd-outline) |
+| 原型或方案验证 | 浏览器 / 设计上下文能力 | [原型验证模板](/docs/roles/product/templates/prototype-validation) |
+| 跨团队推进 | 文档能力 + 平台协作入口 | [Handoff 与验收模板](/docs/roles/product/templates/handoff-and-acceptance) |
+
 ## 下一步
 
 - 想把这些能力沉淀成长期规则：去 [规则与规范文档](/docs/roles/product/rules-and-instruction-files)。
 - 想把能力选择映射到具体入口：去 [工具匹配与选型](/docs/roles/product/tool-fit-and-selection)。
+- 想直接复制配套模板：去 [产品训练包模板](/docs/roles/product/templates)。

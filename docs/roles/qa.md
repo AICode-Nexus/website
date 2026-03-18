@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-12
-source_window_end: 2026-03-12
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -27,6 +27,7 @@ market_status: current
 - [规则与规范文档](/docs/roles/qa/rules-and-instruction-files)
 - [Skills 与 MCP](/docs/roles/qa/skills-and-mcp)
 - [工具匹配与选型](/docs/roles/qa/tool-fit-and-selection)
+- [QA 训练包模板](/docs/roles/qa/templates)
 
 ## 典型 AI Coding 场景
 
@@ -71,6 +72,18 @@ market_status: current
 1. [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test/runbook) - 测试驱动
 2. [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing/runbook) - 终端测试
 3. [Workflow Playbook](/docs/workflows/playbooks/workflow-playbook) - 测试任务手册
+
+## 默认训练包
+
+| 当前阶段 | 建议先复制什么 | 目的 |
+| --- | --- | --- |
+| 测试任务 kickoff | [测试计划 Brief 模板](/docs/roles/qa/templates/test-plan-brief) | 锁定范围、环境和高优场景 |
+| bug 已经出现 | [缺陷复现与回归模板](/docs/roles/qa/templates/bug-repro-and-regression) | 固定复现路径和回归边界 |
+| 自动化与人工验证收口 | [命令与证据模板](/docs/roles/qa/templates/commands-and-evidence) | 让命令、截图和录屏成组出现 |
+| 交接给开发或发布 owner | [QA Handoff 模板](/docs/roles/qa/templates/handoff-template) | 把状态、风险和待办收紧 |
+
+想直接复制更稳的模板：去 [QA 训练包模板](/docs/roles/qa/templates)。
+想直接看一份填好的成品：去 [示例：结算链路回归训练包](/docs/roles/qa/templates/example-checkout-regression-pack)。
 
 ## 可复用资产
 

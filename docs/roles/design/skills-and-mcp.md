@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -43,7 +43,17 @@ market_status: current
 
 带设计团队时，建议把每次作业都拆成三份资产：节点链接、状态说明、最终对照图。这样大家练的就不是“会不会让 AI 出图”，而是会不会把设计上下文表达完整。
 
+## 默认能力组合对应的最小产物
+
+| 任务 | 默认能力组合 | 最少要落的模板 |
+| --- | --- | --- |
+| 设计稿到代码 | `figma` + 前端最佳实践类能力 | [Figma Handoff 包模板](/docs/roles/design/templates/figma-handoff-pack) |
+| 组件治理 | `figma` + 规则文档能力 | [组件状态合同模板](/docs/roles/design/templates/component-state-contract) |
+| token / 规范沉淀 | `figma` + 文档能力 | [Token 与约束模板](/docs/roles/design/templates/tokens-and-constraints) |
+| 原型或还原验证 | 浏览器 / 截图能力 | [原型验证与证据模板](/docs/roles/design/templates/prototype-proof-sheet) |
+
 ## 下一步
 
 - 想把能力回写到规则：去 [规则与规范文档](/docs/roles/design/rules-and-instruction-files)。
 - 想把能力再映射到工具入口：去 [工具匹配与选型](/docs/roles/design/tool-fit-and-selection)。
+- 想直接复制模板：去 [设计训练包模板](/docs/roles/design/templates)。

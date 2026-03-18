@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F7F8FC"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端工具入口决策图</text>
+  <text x="72" y="122" fill="#5C6673" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">先判断任务形状，再决定入口工具和证据包，不要让“顺手”替代“合适”</text>
+
+  <rect x="72" y="176" width="246" height="420" rx="28" fill="#EAF2FF" stroke="#C9DDFB" stroke-width="2"/>
+  <text x="104" y="226" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">设计稿任务</text>
+  <text x="104" y="278" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">入口：Figma + 终端 / 执行栈</text>
+  <text x="104" y="314" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">代表：Claude Code / Codex</text>
+  <text x="104" y="350" fill="#274D7D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">证据：节点说明、断点截图</text>
+  <text x="104" y="398" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">信号：多页共骨架或</text>
+  <text x="104" y="430" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">组件抽取时先升级到计划</text>
+
+  <rect x="342" y="176" width="246" height="420" rx="28" fill="#FFF3E1" stroke="#EDD1A8" stroke-width="2"/>
+  <text x="374" y="226" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">浏览器 Bug</text>
+  <text x="374" y="278" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">入口：浏览器 + 终端</text>
+  <text x="374" y="314" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">代表：Cursor / Claude Code</text>
+  <text x="374" y="350" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">证据：录屏、复现步骤、</text>
+  <text x="374" y="382" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">修复后 smoke path</text>
+  <text x="374" y="430" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">先证明真实页面问题，</text>
+  <text x="374" y="462" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">再回源码修复</text>
+
+  <rect x="612" y="176" width="246" height="420" rx="28" fill="#EAF6EE" stroke="#CDE4D3" stroke-width="2"/>
+  <text x="644" y="226" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">共享层治理</text>
+  <text x="644" y="278" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">入口：计划化入口 + 终端</text>
+  <text x="644" y="314" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">代表：Codex / VS Code Agents</text>
+  <text x="644" y="350" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">证据：计划、影响面、</text>
+  <text x="644" y="382" fill="#316042" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">断点截图、风险说明</text>
+  <text x="644" y="430" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">跨目录、跨包、跨页面</text>
+  <text x="644" y="462" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">时不要直接开改</text>
+
+  <rect x="882" y="176" width="246" height="420" rx="28" fill="#FDEBF1" stroke="#E5C7D3" stroke-width="2"/>
+  <text x="914" y="226" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">文档补强</text>
+  <text x="914" y="278" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">入口：终端 + build 验证</text>
+  <text x="914" y="314" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">代表：Claude Code / Gemini CLI</text>
+  <text x="914" y="350" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">证据：相关页联动、</text>
+  <text x="914" y="382" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">build 结果、变更摘要</text>
+  <text x="914" y="430" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">先治理结构和链接，</text>
+  <text x="914" y="462" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">再拉长正文</text>
+
+  <rect x="72" y="636" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="118" y="665" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">一条默认规则：任务越依赖真实设计、真实页面、跨目录边界和证据包，就越不应该只靠单一入口硬做到底。</text>
+</svg>

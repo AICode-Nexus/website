@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-16
+source_window_end: 2026-03-16
 market_status: current
 slug: /roles/frontend/repo-architecture
 ---
@@ -175,6 +175,22 @@ tooling/
 
 这份检查表能显著提高仓库结构页的实操价值，因为它把“结构合理”变成了真实交付中的复盘问题，而不是只停留在目录美观层面。
 
+## 仓库结构相关案例地图
+
+仓库结构这页最容易被误读成“讲目录树”，但真正难的是：当改动跨目录、跨包、跨 worktree 时，谁来控边界、谁来收口。下面这些案例更适合配合本页一起看：
+
+| 场景 | 先看哪篇案例 | 为什么值得搭配本页 |
+| --- | --- | --- |
+| 多条 lane 并行推进，最后由 owner 收口 | [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop) | 这篇最能说明 lane map、worktree 和合流纪律为什么重要 |
+| 跨模块重构，但仍要保留阶段边界 | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | 适合观察“目录结构清楚”如何降低长任务扩散风险 |
+| 先做仓库巡检，再做最小修复和 PR 说明 | [Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr) | 适合看根命令、验证命令和交付说明如何串起来 |
+
+读案例时最该对照本页的不是工具，而是这三件事：
+
+1. 目录边界是否在任务开始前就写清楚。
+2. 根命令和包内命令有没有明确分工。
+3. 受影响 app/package 和最终验证结果有没有一起交付。
+
 ## 视频化学习路径
 
 如果你想把仓库结构这页讲给新人或团队看，建议按照这个顺序：
@@ -209,4 +225,5 @@ tooling/
 - 本页顶部已补仓库演进图，适合用来给团队解释为什么不能盲目上 monorepo。
 - 想看多仓/多代理协作演示：去 [实战演示](/docs/resources/hands-on-demos) 搜 `worktree`、`monorepo`。
 - 想看并行协作工作流：去 [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook)。
+- 想看真实案例：去 [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop)、[OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification)、[Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr)。
 - 想继续把仓库结构和规则落到工具里：下一页看 [上下文与规则](/docs/roles/frontend/context-and-rules)。

@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -38,7 +38,19 @@ market_status: current
 - 可访问性要求必须显式写在组件或页面规范里。
 - handoff 不能只给截图，必须给节点、标注和限制说明。
 
+## 可直接复制的设计模板
+
+| 模板 | 什么时候先用 |
+| --- | --- |
+| [Figma Handoff 包模板](/docs/roles/design/templates/figma-handoff-pack) | 需要把节点、资产和限制交给前端或 QA 时 |
+| [组件状态合同模板](/docs/roles/design/templates/component-state-contract) | 需要固定状态、变体和异常路径时 |
+| [Token 与约束模板](/docs/roles/design/templates/tokens-and-constraints) | 需要沉淀 token、命名和可访问性约束时 |
+| [原型验证与证据模板](/docs/roles/design/templates/prototype-proof-sheet) | 需要记录交互验证、截图和录屏时 |
+
+这几份模板的入口在 [设计训练包模板](/docs/roles/design/templates)。
+
 ## 下一步
 
 - 想继续看设计任务该配什么能力：去 [Skills 与 MCP](/docs/roles/design/skills-and-mcp)。
 - 想判断设计任务用什么入口最稳：去 [工具匹配与选型](/docs/roles/design/tool-fit-and-selection)。
+- 想直接复制模板资产：去 [设计训练包模板](/docs/roles/design/templates)。

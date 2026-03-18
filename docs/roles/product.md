@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-12
-source_window_end: 2026-03-12
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -27,6 +27,9 @@ market_status: current
 - [规则与规范文档](/docs/roles/product/rules-and-instruction-files)
 - [Skills 与 MCP](/docs/roles/product/skills-and-mcp)
 - [工具匹配与选型](/docs/roles/product/tool-fit-and-selection)
+- [产品训练包模板](/docs/roles/product/templates)
+
+想直接复制更稳的结构，再回头读原理：去 [产品训练包模板](/docs/roles/product/templates)。
 
 ## 典型 AI Coding 场景
 
@@ -71,6 +74,17 @@ market_status: current
 1. [Spec-First](/docs/workflows/patterns/spec-first/runbook) - 需求驱动开发
 2. [Issue to Draft PR](/docs/workflows/patterns/issue-to-draft-pr/runbook) - 需求到实现
 3. [Workflow Playbook](/docs/workflows/playbooks/workflow-playbook) - 按任务找流程
+
+## 默认训练包
+
+| 当前阶段 | 建议先复制什么 | 目的 |
+| --- | --- | --- |
+| 需求刚启动 | [发现与调研 Brief 模板](/docs/roles/product/templates/discovery-brief) | 先把问题、假设和证据来源锁住 |
+| 准备形成正式需求 | [PRD 大纲模板](/docs/roles/product/templates/prd-outline) | 先把范围、验收和依赖写清 |
+| 方案或原型要验证 | [原型验证模板](/docs/roles/product/templates/prototype-validation) | 先把验证目标和成功判定写清 |
+| 要跨团队推进或上线 | [Handoff 与验收模板](/docs/roles/product/templates/handoff-and-acceptance) | 先把交接链接、风险和验收整理好 |
+
+想直接看一份填好的成品：去 [示例：会员推荐计划训练包](/docs/roles/product/templates/example-referral-launch-pack)。
 
 ## 可复用资产
 

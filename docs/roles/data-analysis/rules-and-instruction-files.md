@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -38,7 +38,19 @@ market_status: current
 - 所有结论必须附带限制条件和质量检查结果。
 - 交付物必须包含脚本、输出和说明，而不只是截图。
 
+## 可直接复制的数据分析模板
+
+| 模板 | 什么时候先用 |
+| --- | --- |
+| [分析 Brief 模板](/docs/roles/data-analysis/templates/analysis-brief) | 刚开始定义问题、指标和数据源时 |
+| [数据质量检查模板](/docs/roles/data-analysis/templates/data-quality-checklist) | 需要先检查空值、异常、口径一致性时 |
+| [命令与复现模板](/docs/roles/data-analysis/templates/commands-and-repro) | 需要记录 SQL、脚本、notebook 和导出步骤时 |
+| [报告 Handoff 模板](/docs/roles/data-analysis/templates/report-handoff) | 要把图表、结论和限制条件交给业务方时 |
+
+这几份模板的入口在 [数据分析训练包模板](/docs/roles/data-analysis/templates)。
+
 ## 下一步
 
 - 想继续看数据分析任务该配什么能力：去 [Skills 与 MCP](/docs/roles/data-analysis/skills-and-mcp)。
 - 想判断任务该用哪个入口：去 [工具匹配与选型](/docs/roles/data-analysis/tool-fit-and-selection)。
+- 想直接复制模板资产：去 [数据分析训练包模板](/docs/roles/data-analysis/templates)。

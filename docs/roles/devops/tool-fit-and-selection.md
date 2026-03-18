@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: tech-selection
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -41,7 +41,17 @@ market_status: current
 - 需要看真实指标时却只在本地读 IaC。
 - 需要审批和交接时却没有切到平台型入口。
 
+## 入口选完后马上要落的模板
+
+| 任务形状 | 入口定完后先补什么 |
+| --- | --- |
+| CLI 验证、最小修复、脚本巡检 | [基础设施变更 Brief 模板](/docs/roles/devops/templates/infra-change-brief) |
+| 需要真实控制台或仪表盘 | [命令与证据模板](/docs/roles/devops/templates/commands-and-evidence) |
+| 长链路部署、并行 lane | [Runbook 与回滚模板](/docs/roles/devops/templates/runbook-and-rollback) |
+| 平台内审批、发布跟踪 | [Incident / Handoff 模板](/docs/roles/devops/templates/incident-handoff) |
+
 ## 下一步
 
 - 想补长期规则：去 [规则与规范文档](/docs/roles/devops/rules-and-instruction-files)。
 - 想补能力编排：去 [Skills 与 MCP](/docs/roles/devops/skills-and-mcp)。
+- 想直接复制模板：去 [DevOps 训练包模板](/docs/roles/devops/templates)。

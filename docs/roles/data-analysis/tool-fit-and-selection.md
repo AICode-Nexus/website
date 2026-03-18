@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: tech-selection
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -41,7 +41,17 @@ market_status: current
 - 本来需要严格质量校验，却直接跳到图表层。
 - 本来需要多人协作审阅，却把结果留在本地脚本或截图里。
 
+## 入口选完后马上要落的模板
+
+| 任务形状 | 入口定完后先补什么 |
+| --- | --- |
+| SQL、脚本和数据校验 | [数据质量检查模板](/docs/roles/data-analysis/templates/data-quality-checklist) |
+| notebook、可视化和探索式分析 | [分析 Brief 模板](/docs/roles/data-analysis/templates/analysis-brief) |
+| 表格与报表输出 | [报告 Handoff 模板](/docs/roles/data-analysis/templates/report-handoff) |
+| 指标协作和平台跟踪 | [命令与复现模板](/docs/roles/data-analysis/templates/commands-and-repro) |
+
 ## 下一步
 
 - 想补长期规则：去 [规则与规范文档](/docs/roles/data-analysis/rules-and-instruction-files)。
 - 想补能力编排：去 [Skills 与 MCP](/docs/roles/data-analysis/skills-and-mcp)。
+- 想直接复制模板：去 [数据分析训练包模板](/docs/roles/data-analysis/templates)。

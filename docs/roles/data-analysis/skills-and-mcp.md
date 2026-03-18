@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -41,7 +41,17 @@ market_status: current
 
 如果你在带新人，最值得练的不是“再多写几个 SQL”，而是让他们每次都提交三样东西：原始问题、质量检查结果、最终输出解释。把这三步练熟后，再让 AI 介入生成脚本或图表，返工会明显减少。
 
+## 默认能力组合对应的最小产物
+
+| 任务 | 默认能力组合 | 最少要落的模板 |
+| --- | --- | --- |
+| 分析问题定义 | 文档能力 + 调研能力 | [分析 Brief 模板](/docs/roles/data-analysis/templates/analysis-brief) |
+| 数据质量排查 | `spreadsheet` 或脚本能力 + `systematic-debugging` | [数据质量检查模板](/docs/roles/data-analysis/templates/data-quality-checklist) |
+| SQL / 脚本 / notebook 执行 | 终端或 IDE 分析环境 | [命令与复现模板](/docs/roles/data-analysis/templates/commands-and-repro) |
+| 对外汇报 | 文档能力 + 表格 / 报告能力 | [报告 Handoff 模板](/docs/roles/data-analysis/templates/report-handoff) |
+
 ## 下一步
 
 - 想补长期规则：去 [规则与规范文档](/docs/roles/data-analysis/rules-and-instruction-files)。
 - 想继续判断入口：去 [工具匹配与选型](/docs/roles/data-analysis/tool-fit-and-selection)。
+- 想直接复制模板：去 [数据分析训练包模板](/docs/roles/data-analysis/templates)。

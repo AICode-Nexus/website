@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#EEF0F5"/>
+  <rect x="48" y="48" width="1104" height="624" rx="28" fill="#FCFDFF" stroke="#C4CBDC" stroke-width="2"/>
+  <text x="80" y="110" fill="#202735" font-family="Arial, sans-serif" font-size="34" font-weight="700">后端训练包图板</text>
+  <text x="80" y="148" fill="#565E72" font-family="Arial, sans-serif" font-size="18">把 contract、集成边界、验证和 rollback 说明放到同一个交付包</text>
+  <rect x="80" y="200" width="220" height="148" rx="20" fill="#E7F0E2" stroke="#90B67A"/>
+  <text x="108" y="248" fill="#28401F" font-family="Arial, sans-serif" font-size="24" font-weight="700">Repo Contract</text>
+  <text x="108" y="286" fill="#28401F" font-family="Arial, sans-serif" font-size="18">边界</text>
+  <text x="108" y="314" fill="#28401F" font-family="Arial, sans-serif" font-size="18">迁移纪律</text>
+  <text x="108" y="342" fill="#28401F" font-family="Arial, sans-serif" font-size="18">日志要求</text>
+  <rect x="340" y="200" width="220" height="148" rx="20" fill="#F5EADB" stroke="#D6A86E"/>
+  <text x="368" y="248" fill="#6B421A" font-family="Arial, sans-serif" font-size="24" font-weight="700">API / Integration</text>
+  <text x="368" y="286" fill="#6B421A" font-family="Arial, sans-serif" font-size="18">schema</text>
+  <text x="368" y="314" fill="#6B421A" font-family="Arial, sans-serif" font-size="18">幂等 / 重试</text>
+  <text x="368" y="342" fill="#6B421A" font-family="Arial, sans-serif" font-size="18">兼容边界</text>
+  <rect x="600" y="200" width="220" height="148" rx="20" fill="#E8EEFB" stroke="#84A0D9"/>
+  <text x="628" y="248" fill="#1E3C67" font-family="Arial, sans-serif" font-size="24" font-weight="700">Validation</text>
+  <text x="628" y="286" fill="#1E3C67" font-family="Arial, sans-serif" font-size="18">contract test</text>
+  <text x="628" y="314" fill="#1E3C67" font-family="Arial, sans-serif" font-size="18">integration test</text>
+  <text x="628" y="342" fill="#1E3C67" font-family="Arial, sans-serif" font-size="18">smoke</text>
+  <rect x="860" y="200" width="220" height="148" rx="20" fill="#F7E6EE" stroke="#CF89AA"/>
+  <text x="888" y="248" fill="#692748" font-family="Arial, sans-serif" font-size="24" font-weight="700">Rollback</text>
+  <text x="888" y="286" fill="#692748" font-family="Arial, sans-serif" font-size="18">风险边界</text>
+  <text x="888" y="314" fill="#692748" font-family="Arial, sans-serif" font-size="18">回滚步骤</text>
+  <text x="888" y="342" fill="#692748" font-family="Arial, sans-serif" font-size="18">人工接管点</text>
+  <path d="M300 274H340" stroke="#959DB1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 274H600" stroke="#959DB1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M820 274H860" stroke="#959DB1" stroke-width="4" stroke-linecap="round"/>
+  <rect x="80" y="414" width="1000" height="176" rx="24" fill="#202735"/>
+  <text x="116" y="462" fill="#F8FAFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">示例任务</text>
+  <text x="116" y="504" fill="#F8FAFF" font-family="Arial, sans-serif" font-size="20">Webhook 加固：先把长期规则写稳，再补 schema、幂等、重试和日志要求，最后用 contract / integration / smoke 收口并保留 rollback。</text>
+  <text x="116" y="544" fill="#C4CBDC" font-family="Arial, sans-serif" font-size="18">配套入口：Spec-First / Terminal-First Repo Pairing / Codex Refactor with Verification</text>
+</svg>

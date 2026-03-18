@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F6F2EA"/>
+  <rect x="48" y="48" width="1104" height="624" rx="28" fill="#FFFDF9" stroke="#D9C7AB" stroke-width="2"/>
+  <text x="80" y="110" fill="#2F2419" font-family="Arial, sans-serif" font-size="34" font-weight="700">产品训练包图板</text>
+  <text x="80" y="148" fill="#6B5A46" font-family="Arial, sans-serif" font-size="18">把 discovery、PRD、验证和 handoff 串成一个需求推进包</text>
+  <rect x="80" y="200" width="220" height="148" rx="20" fill="#FDF1D8" stroke="#E9B96E"/>
+  <text x="106" y="248" fill="#5C3B16" font-family="Arial, sans-serif" font-size="24" font-weight="700">Discovery</text>
+  <text x="106" y="286" fill="#5C3B16" font-family="Arial, sans-serif" font-size="18">问题</text>
+  <text x="106" y="314" fill="#5C3B16" font-family="Arial, sans-serif" font-size="18">假设</text>
+  <text x="106" y="342" fill="#5C3B16" font-family="Arial, sans-serif" font-size="18">证据来源</text>
+  <rect x="340" y="200" width="220" height="148" rx="20" fill="#EAF4E2" stroke="#93BF76"/>
+  <text x="366" y="248" fill="#23411B" font-family="Arial, sans-serif" font-size="24" font-weight="700">PRD</text>
+  <text x="366" y="286" fill="#23411B" font-family="Arial, sans-serif" font-size="18">范围内 / 外</text>
+  <text x="366" y="314" fill="#23411B" font-family="Arial, sans-serif" font-size="18">验收标准</text>
+  <text x="366" y="342" fill="#23411B" font-family="Arial, sans-serif" font-size="18">依赖与风险</text>
+  <rect x="600" y="200" width="220" height="148" rx="20" fill="#E8F1FB" stroke="#7AA6D8"/>
+  <text x="626" y="248" fill="#193A63" font-family="Arial, sans-serif" font-size="24" font-weight="700">Validation</text>
+  <text x="626" y="286" fill="#193A63" font-family="Arial, sans-serif" font-size="18">原型</text>
+  <text x="626" y="314" fill="#193A63" font-family="Arial, sans-serif" font-size="18">成功判定</text>
+  <text x="626" y="342" fill="#193A63" font-family="Arial, sans-serif" font-size="18">观察记录</text>
+  <rect x="860" y="200" width="220" height="148" rx="20" fill="#F7E7EE" stroke="#D18AA9"/>
+  <text x="886" y="248" fill="#6A294A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Handoff</text>
+  <text x="886" y="286" fill="#6A294A" font-family="Arial, sans-serif" font-size="18">交付摘要</text>
+  <text x="886" y="314" fill="#6A294A" font-family="Arial, sans-serif" font-size="18">验收清单</text>
+  <text x="886" y="342" fill="#6A294A" font-family="Arial, sans-serif" font-size="18">上线回看</text>
+  <path d="M300 274H340" stroke="#9F8A70" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 274H600" stroke="#9F8A70" stroke-width="4" stroke-linecap="round"/>
+  <path d="M820 274H860" stroke="#9F8A70" stroke-width="4" stroke-linecap="round"/>
+  <rect x="80" y="414" width="1000" height="176" rx="24" fill="#2F2419"/>
+  <text x="116" y="462" fill="#FFF9F0" font-family="Arial, sans-serif" font-size="24" font-weight="700">示例任务</text>
+  <text x="116" y="504" fill="#FFF9F0" font-family="Arial, sans-serif" font-size="20">新用户邀请好友得权益：先确认奖励规则，再补 PRD，再走原型验证，最后把上线指标交给设计 / 前端 / QA。</text>
+  <text x="116" y="544" fill="#D9C7AB" font-family="Arial, sans-serif" font-size="18">配套入口：Spec-First / Issue -&gt; Draft PR / GitHub Copilot Draft PR Handoff</text>
+</svg>

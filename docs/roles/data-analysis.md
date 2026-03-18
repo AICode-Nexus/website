@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-12
-source_window_end: 2026-03-12
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -27,6 +27,9 @@ market_status: current
 - [规则与规范文档](/docs/roles/data-analysis/rules-and-instruction-files)
 - [Skills 与 MCP](/docs/roles/data-analysis/skills-and-mcp)
 - [工具匹配与选型](/docs/roles/data-analysis/tool-fit-and-selection)
+- [数据分析训练包模板](/docs/roles/data-analysis/templates)
+
+想直接复制更稳的分析结构，再回头读原理：去 [数据分析训练包模板](/docs/roles/data-analysis/templates)。
 
 ## 典型 AI Coding 场景
 
@@ -70,6 +73,17 @@ market_status: current
 1. [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing/runbook) - 终端数据分析
 2. [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test/runbook) - 脚本优化
 3. [Workflow Playbook](/docs/workflows/playbooks/workflow-playbook) - 按任务找流程
+
+## 默认训练包
+
+| 当前阶段 | 建议先复制什么 | 目的 |
+| --- | --- | --- |
+| 分析刚启动 | [分析 Brief 模板](/docs/roles/data-analysis/templates/analysis-brief) | 先把问题、口径和输出要求锁住 |
+| 还没写脚本 | [数据质量检查模板](/docs/roles/data-analysis/templates/data-quality-checklist) | 先把质量风险和限制条件写清 |
+| 进入脚本 / notebook 阶段 | [命令与复现模板](/docs/roles/data-analysis/templates/commands-and-repro) | 保证查询、脚本和导出可复现 |
+| 要交结果 | [报告 Handoff 模板](/docs/roles/data-analysis/templates/report-handoff) | 把结论、图表和限制条件一起交付 |
+
+想直接看一份填好的成品：去 [示例：次周留存分析训练包](/docs/roles/data-analysis/templates/example-retention-report-pack)。
 
 ## 可复用资产
 

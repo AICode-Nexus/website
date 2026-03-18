@@ -9,11 +9,29 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- Local `technical-docs-editor` skill under `skills/`, with a hybrid review-and-expand workflow for role pages, tool guides, workflow docs, playbooks, and standards pages, plus a reusable playbook for audit layers, output templates, and repo-specific documentation heuristics.
 - A role-based entry system at `/docs/roles/` with 7 role-specific guides (产品、设计、前端、后端、测试、运维、数据分析), providing targeted AI coding scenarios, tool recommendations, reusable assets, and cross-team deliverables for each role.
 - Homepage role-based entry section using LinkTile components, placed between starter tracks and featured tool tutorials for natural navigation flow.
 - Role content validation in `src/data/rolesContent.js` with fail-fast checks for required fields and unique IDs.
 - New `rolesSidebar` navigation and navbar entry "按岗位进入" for role-based content discovery.
 - 前端岗位入口升级为目录化的“前端 AI 工作台”，新增 7 个主题子页，并为每页补齐专业说明、代码案例、本地 SVG 图表、图片入口和视频学习入口。
+- 继续补强前端机制专题，收紧“上下文与规则”总览页边界，并显著扩写 `规则与规范文档`、`Skills 与 MCP`、`工具匹配与选型` 三页的决策表、模板资产、能力编排、证据要求、案例入口和本地 SVG 图表。
+- 继续补强前端角色专题的案例层，为总览页新增“模块到案例地图”和“按产物反查”，并为 `设计到代码`、`仓库结构` 两页补上更贴近真实交接链的案例入口，方便从概念页直接跳到 workflow 与实战案例。
+- 继续补齐前端工程页的案例层，为 `框架与组件生态`、`质量门禁`、`测试与交付` 三页新增案例地图与交付观察点，让框架决策、验证门禁和 PR 收口都能直接映射到现有 case studies 与 workflow runbooks。
+- 继续补齐前端剩余机制页的案例层，为 `样式与设计系统`、`规则与规范文档`、`Skills 与 MCP`、`工具匹配与选型` 四页新增“任务形状 -> 案例 -> 观察点”地图，并把前端专题相关页的 `reviewed_at` 更新到 `2026-03-18`。
+- 继续把前端专题的媒体入口从“关键词搜索”改成可执行联动，为总览页和 `样式与设计系统`、`规则与规范文档`、`Skills 与 MCP`、`工具匹配与选型` 补齐“视频 + 案例 + workflow + 交付物”组合表，并新增 4 张本地 SVG 媒体资产板，方便直接拿去带练或自学。
+- 继续补前端专题的输入包与证据包模板，为 `设计到代码` 和 `测试与交付` 新增 2 张本地 SVG 图板，并把截图模板、状态清单、命令记录、录屏与风险说明收成可复用的最小文件组合。
+- 继续收口前端总览与机制总览，为 `前端 AI 工作台` 和 `上下文与规则` 新增“默认训练包”视角，把页面输入包、能力与入口决策包、交付证据包和规则模板包明确回链到对应模块。
+- 为前端角色新增 `训练包模板` 子目录和 5 份可直接复制的模板页，覆盖页面输入包、任务 brief、命令与证据、PR handoff、Risks / Next，并把这些模板接回前端总览、机制总览、设计到代码、测试与交付和规则模板页。
+- 为后端角色新增 6 份可直接复制的模板页，覆盖仓库合同、接口改动 brief、migration 变更、外部集成任务、命令与验证、PR / handoff / rollback，并把它们接入 `模板与交付资产`、后端机制页与侧边栏导航。
+- 为测试工程师角色新增 `QA 训练包模板` 子目录和 4 份模板页，覆盖测试计划 brief、缺陷复现与回归、命令与证据、QA handoff，并把它们接回 QA 总览、规则页与侧边栏导航。
+- 为产品经理角色新增 `产品训练包模板` 子目录和 4 份模板页，覆盖 PRD 大纲、发现与调研 brief、原型验证、handoff 与验收，并把它们接回产品总览、机制页与侧边栏导航。
+- 为运维工程师角色新增 `DevOps 训练包模板` 子目录和 4 份模板页，覆盖基础设施变更 brief、runbook 与回滚、命令与证据、incident handoff，并把它们接回运维总览、机制页与侧边栏导航。
+- 为数据分析师角色新增 `数据分析训练包模板` 子目录和 4 份模板页，覆盖分析 brief、数据质量检查、命令与复现、报告 handoff，并把它们接回数据分析总览、机制页与侧边栏导航。
+- 为设计师角色新增 `设计训练包模板` 子目录和 4 份模板页，覆盖 Figma handoff、组件状态合同、token 约束、原型验证，并把它们接回设计总览、机制页与侧边栏导航。
+- 继续补强 QA 与设计机制页正文，把 `skills` 和 `tool-fit` 页面补成“能力 / 入口 -> 模板产物”映射，并把相关页的 `reviewed_at` 更新到 `2026-03-18`。
+- 为 `产品 / 设计 / 前端 / 后端 / QA / DevOps / 数据分析` 七个角色模板区新增已填写示例包页，把空模板进一步补成“真实任务链成品”示例，并把这些示例接回模板首页、角色总览与侧边栏导航。
+- 为 `产品 / 设计 / QA / DevOps / 数据分析 / 后端` 六个非前端角色新增本地 SVG 训练包图板，把模板顺序、证据层和案例入口补成更可展示的媒体资产。
 - `AI 资源导航` 的学习资料目录新增 `Code Inspector` 条目，并补了一篇独立资料页，说明它是什么、怎么试，以及它在前端调试工作流里的位置。
 - 重写 `/docs/roles/frontend`，将其从泛化岗位说明升级为“前端 AI 工作台”，补充设计到代码、React / Vue 生态、Tailwind 与主题系统、ESLint / Oxlint、pnpm / monorepo / Turborepo、Playwright、`CLAUDE.md` / `AGENTS.md` 以及前端常用 skills 的分类说明。
 - 将 `/docs/roles/frontend` 进一步拆分为总览页加 7 个工程主题子页，并把 `rolesSidebar` 中的前端入口改成带子页的分类导航，方便按工作流或按工程主题阅读。
@@ -33,6 +51,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - 后端培训区新增“能力评估矩阵”，把契约表达、数据与集成边界、验证证据、运行协作和风险控制整理成可观察的训练等级与达标标准。
 - 后端培训区新增“失败模式与止损”，总结接口契约失真、migration 无上线策略、集成失败恢复缺失、验证证据断裂和生产不可观察等常见失控场景及其止损动作。
 - 后端培训区新增“工具匹配与选型”，按任务形状说明何时优先用终端入口、执行栈、控制面或平台型入口，并将工具选择与工作流选择绑定起来。
+- 为设计师角色新增 `工具专题` 分组和 7 篇独立工具页，分别覆盖 `Figma / MasterGo / Framer / Relume / Uizard / Visily / Webflow AI`，补齐工具定位、适配任务、实战案例、协作 handoff 和官方入口，并同步更新设计师总览页与侧边栏导航。
 
 ### Fixed
 

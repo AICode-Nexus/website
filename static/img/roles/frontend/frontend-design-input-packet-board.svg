@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#FBF8F1"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端设计输入资产板</text>
+  <text x="72" y="122" fill="#5E6671" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">把 Figma、token、状态说明和截图模板拆开交付，页面首版才不会只靠整屏截图硬猜</text>
+
+  <rect x="72" y="176" width="252" height="412" rx="28" fill="#EAF2FF" stroke="#CADCF8" stroke-width="2"/>
+  <text x="108" y="226" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Figma 节点</text>
+  <text x="108" y="278" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">页面层级</text>
+  <text x="108" y="314" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">区块命名</text>
+  <text x="108" y="350" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">关键尺寸</text>
+  <text x="108" y="386" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">布局关系</text>
+  <rect x="108" y="430" width="180" height="98" rx="20" fill="#D8E7FF"/>
+  <text x="130" y="486" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">文件建议：</text>
+  <text x="130" y="516" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">figma-node.md</text>
+
+  <rect x="348" y="176" width="252" height="412" rx="28" fill="#FFF3E1" stroke="#EDD0A8" stroke-width="2"/>
+  <text x="384" y="226" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">Token 对照</text>
+  <text x="384" y="278" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">颜色</text>
+  <text x="384" y="314" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">字号与间距</text>
+  <text x="384" y="350" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">圆角与阴影</text>
+  <text x="384" y="386" fill="#6C4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">组件变体</text>
+  <rect x="384" y="430" width="180" height="98" rx="20" fill="#F5DEC1"/>
+  <text x="406" y="486" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">文件建议：</text>
+  <text x="406" y="516" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">tokens-map.md</text>
+
+  <rect x="624" y="176" width="252" height="412" rx="28" fill="#ECF8EE" stroke="#CEE5D4" stroke-width="2"/>
+  <text x="660" y="226" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">状态说明</text>
+  <text x="660" y="278" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">hover / focus</text>
+  <text x="660" y="314" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">loading / empty</text>
+  <text x="660" y="350" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">error / success</text>
+  <text x="660" y="386" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">回退态</text>
+  <rect x="660" y="430" width="180" height="98" rx="20" fill="#D8EAD8"/>
+  <text x="682" y="486" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">文件建议：</text>
+  <text x="682" y="516" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">states-checklist.md</text>
+
+  <rect x="900" y="176" width="228" height="412" rx="28" fill="#FDEBF1" stroke="#E5C7D2" stroke-width="2"/>
+  <text x="934" y="226" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">截图模板</text>
+  <text x="934" y="278" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">360 / 768 / 1280</text>
+  <text x="934" y="314" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">hero / content / CTA</text>
+  <text x="934" y="350" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">关键组件局部图</text>
+  <text x="934" y="386" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">差异标注</text>
+  <rect x="934" y="430" width="160" height="98" rx="20" fill="#F5D9E3"/>
+  <text x="956" y="486" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">文件建议：</text>
+  <text x="956" y="516" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">shots/</text>
+
+  <rect x="72" y="628" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="108" y="657" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">默认顺序：Figma 节点 -> token 对照 -> 状态说明 -> 截图模板；不要反过来让截图替代前三项。</text>
+</svg>

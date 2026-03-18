@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 slug: /roles/frontend/design-to-code
 ---
@@ -152,6 +152,8 @@ task:
 
 如果你希望图片、视频、图表在这类文档中占比更高，最实用的做法不是“多贴几张大图”，而是给每个页面任务固定一套媒体采集清单，让图像和视频直接服务于实现决策：
 
+![前端设计输入资产板](/img/roles/frontend/frontend-design-input-packet-board.svg)
+
 | 媒体制品 | 在什么阶段采集 | 解决什么问题 | 交给 AI 时怎么描述 |
 | --- | --- | --- | --- |
 | 设计节点截图 | 拆骨架之前 | 让模型看清区块结构和层级 | “只用于理解布局，不作为唯一真相” |
@@ -160,6 +162,17 @@ task:
 | 交互录屏或视频 | 精修与验收时 | 解释抽屉、切换、滚动和悬浮态 | “指出触发条件、起始态、结束态和回退态” |
 
 一旦你把媒体制品变成显式清单，图片和视频就不再是“可有可无的参考”，而会成为设计到代码过程中的正式输入。对团队培训来说，这也意味着你可以把每一次录屏和截图都沉淀成下次任务的对照样本。
+
+如果你要把这套输入包直接落到仓库里，更推荐下面这种最小文件组合：
+
+| 文件 | 作用 | 最少要写什么 |
+| --- | --- | --- |
+| `figma-node.md` | 记录设计节点和页面层级 | 链接、区块命名、关键尺寸 |
+| `tokens-map.md` | 记录视觉值怎么映射到语义 token | 颜色、间距、圆角、阴影、变体 |
+| `states-checklist.md` | 记录边界态和回退态 | hover / focus / loading / empty / error |
+| `shots/` | 存关键截图和局部对照图 | `360`、`768`、`1280` 与高风险组件局部图 |
+
+想直接复制这套文件骨架：去 [页面输入包模板](/docs/roles/frontend/templates/page-input-pack)。
 
 ## 更适合前端团队的默认实现顺序
 
@@ -193,6 +206,22 @@ task:
 
 这类交付物会显著提升前端文档的可用性，因为它们把“实现过程”显式化了。对于后续维护者来说，看一张拆分表和一段录屏，往往比直接读 400 行页面代码更快理解设计意图。
 
+## 相关案例怎么接进这一页
+
+设计到代码这页最容易读完后停在“知道该怎么做”，却还不知道真实任务里如何交接。更稳的做法是把它和下面几类案例一起看：
+
+| 你现在是什么任务 | 先看哪篇案例 | 为什么值得搭配这页 |
+| --- | --- | --- |
+| 先在本地读设计输入，再交给后台执行 | [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff) | 这条链路最接近“设计 discovery -> brief -> 长执行段 -> review 收口” |
+| 页面首版范围已经很清楚，但需要阶段验证 | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | 能帮你看清“页面骨架完成后，如何继续保留计划和验证” |
+| 任务已经清楚，重点是快速推进到 draft PR | [GitHub Copilot Draft PR 交接案例](/docs/case-studies/github-copilot-draft-pr-handoff) | 适合已经有明确页面任务和验收条件的交接场景 |
+
+读这些案例时，不要只看工具名。真正要观察的是：
+
+1. discovery brief 里有没有把设计输入、断点和边界写清楚。
+2. 执行段有没有把页面骨架、状态补齐和验证拆成阶段。
+3. 最后交付时，截图、录屏和命令结果有没有回到同一份说明里。
+
 ## 视频驱动复盘法
 
 | 复盘目标 | 先看什么 | 再回到本文哪一段 |
@@ -206,5 +235,6 @@ task:
 - 图表已在本页补齐，可直接用来向设计师或新成员解释输入顺序。
 - 想看公开视频演示：去 [实战演示](/docs/resources/hands-on-demos) 搜 `figma`、`frontend`、`design-to-code`。
 - 想按最近素材筛前端视频：去 [全部视频](/docs/resources/videos)。
+- 想看更接近真实交接链的案例：去 [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff) 和 [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification)。
 - 想把设计协作视角补完整：再读 [设计师岗位页](/docs/roles/design)。
 - 想继续进入具体技术栈实现：下一页看 [框架与组件生态](/docs/roles/frontend/frameworks-and-components)。

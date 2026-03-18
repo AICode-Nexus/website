@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: tech-selection
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -41,7 +41,17 @@ market_status: current
 - 本来只是最小复现，却过度引入复杂流程。
 - 本来要做交付跟踪，却没有切到平台入口沉淀结论。
 
+## 入口选完后马上要落的模板
+
+| 任务形状 | 入口定完后先补什么 |
+| --- | --- |
+| 小步缺陷复现与最小修复验证 | [缺陷复现与回归模板](/docs/roles/qa/templates/bug-repro-and-regression) |
+| 页面交互和 E2E 验证 | [命令与证据模板](/docs/roles/qa/templates/commands-and-evidence) |
+| 长链路回归或多阶段测试 | [测试计划 Brief 模板](/docs/roles/qa/templates/test-plan-brief) |
+| 平台内质量跟踪与 review | [QA Handoff 模板](/docs/roles/qa/templates/handoff-template) |
+
 ## 下一步
 
 - 想补规则文件：去 [规则与规范文档](/docs/roles/qa/rules-and-instruction-files)。
 - 想补能力编排：去 [Skills 与 MCP](/docs/roles/qa/skills-and-mcp)。
+- 想直接复制模板：去 [QA 训练包模板](/docs/roles/qa/templates)。

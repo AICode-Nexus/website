@@ -13,14 +13,33 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
 # 模板与交付资产
 
 训练后端团队时，最值得复用的不是“某次聊得很顺的 prompt”，而是能跨任务重复使用的结构化资产。这页把最常用的四类资产放在一起：规则模板、任务 prompt、验证命令和跨团队交付物。
+
+![后端训练包图板](/img/roles/backend/backend-training-pack-board.svg)
+
+## 可直接复制的模板目录
+
+如果你不想先读整页说明，下面这几份可以直接复制后改字段：
+
+| 模板 | 适合什么时候用 |
+| --- | --- |
+| [仓库合同模板](/docs/roles/backend/templates/repo-contract-template) | 刚开始沉淀 repo contract 时 |
+| [接口改动 Brief 模板](/docs/roles/backend/templates/api-change-brief) | contract 已明确，准备实现接口改动 |
+| [Migration 变更模板](/docs/roles/backend/templates/migration-change-brief) | schema、索引、回填、回滚任务 |
+| [外部集成任务模板](/docs/roles/backend/templates/integration-task-brief) | Webhook、队列、第三方 API、后台 job |
+| [命令与验证模板](/docs/roles/backend/templates/commands-and-validation) | 固定 lint、test、smoke 和 release evidence |
+| [PR / Handoff / Rollback 模板](/docs/roles/backend/templates/pr-handoff-and-rollback) | review、handoff、发布与回滚说明 |
+
+## 已填写示例
+
+- 想直接看一份 contract、集成、验证和 rollback 都填过的成品：去 [示例：Webhook 加固训练包](/docs/roles/backend/templates/example-webhook-hardening-pack)。
 
 ## 仓库级规则模板
 
@@ -38,6 +57,8 @@ market_status: current
 ```
 
 如果你还没有稳定的规则文件边界，先回 [上下文与规则](/docs/roles/backend/context-and-rules) 和 [仓库 instruction files 规范](/docs/repo-instruction-files)。
+
+想直接复制：去 [仓库合同模板](/docs/roles/backend/templates/repo-contract-template)。
 
 ## 接口实现 prompt 模板
 
@@ -68,6 +89,8 @@ HTTP 方法：
 
 如果你连 contract 都还没定清，先回 [API 与契约](/docs/roles/backend/api-and-contracts)。
 
+想直接复制：去 [接口改动 Brief 模板](/docs/roles/backend/templates/api-change-brief)。
+
 ## migration 与数据变更 prompt 模板
 
 适合 schema、索引、回填或缓存一致性相关任务：
@@ -94,6 +117,8 @@ HTTP 方法：
 
 这类任务的真正边界在 [数据与存储](/docs/roles/backend/data-and-storage)，不要只把它当成“生成一段 SQL”。
 
+想直接复制：去 [Migration 变更模板](/docs/roles/backend/templates/migration-change-brief)。
+
 ## 外部集成与异步任务 prompt 模板
 
 适合第三方 API、Webhook、队列和后台 job：
@@ -118,6 +143,8 @@ HTTP 方法：
 ```
 
 和这份模板配套的是 [服务集成与异步任务](/docs/roles/backend/services-and-integrations)。
+
+想直接复制：去 [外部集成任务模板](/docs/roles/backend/templates/integration-task-brief)。
 
 ## 默认验证命令模板
 
@@ -151,6 +178,8 @@ alembic upgrade head --sql
 
 关键不是命令字面量，而是每条命令都和某个风险面绑定。更多说明见 [质量门禁与测试](/docs/roles/backend/quality-and-testing)。
 
+想直接复制：去 [命令与验证模板](/docs/roles/backend/templates/commands-and-validation)。
+
 ## PR / 变更说明模板
 
 后端 PR 最值得训练的是“风险导向说明”，不是文件清单：
@@ -174,6 +203,8 @@ alembic upgrade head --sql
 ```
 
 这份说明最好和 [交付检查表](/docs/roles/backend/delivery-checklists) 一起用。
+
+想直接复制：去 [PR / Handoff / Rollback 模板](/docs/roles/backend/templates/pr-handoff-and-rollback)。
 
 ## 跨团队 handoff 资产
 

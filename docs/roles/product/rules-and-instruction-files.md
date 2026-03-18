@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -55,6 +55,17 @@ task:
     - "风险与待确认问题"
 ```
 
+## 可直接复制的产品模板
+
+| 模板 | 什么时候先用 |
+| --- | --- |
+| [PRD 大纲模板](/docs/roles/product/templates/prd-outline) | 需要把背景、目标、范围外和验收固定下来时 |
+| [发现与调研 Brief 模板](/docs/roles/product/templates/discovery-brief) | 还在做需求澄清、竞品或技术调研时 |
+| [原型验证模板](/docs/roles/product/templates/prototype-validation) | 需要验证原型、交互或关键假设时 |
+| [Handoff 与验收模板](/docs/roles/product/templates/handoff-and-acceptance) | 要把需求交给设计、研发、测试或上线 owner 时 |
+
+如果团队还没有固定模板首页，先从 [产品训练包模板](/docs/roles/product/templates) 建目录，再决定哪些要沉到 repo 级合同里。
+
 ## 常见失败方式
 
 1. PRD 只有功能列表，没有范围外与验收标准。
@@ -66,3 +77,4 @@ task:
 
 - 想继续看产品角色该怎么选 skills 与 MCP：去 [Skills 与 MCP](/docs/roles/product/skills-and-mcp)。
 - 想判断需求、原型、交付跟踪分别该用什么入口：去 [工具匹配与选型](/docs/roles/product/tool-fit-and-selection)。
+- 想直接复制可复用产物：去 [产品训练包模板](/docs/roles/product/templates)。

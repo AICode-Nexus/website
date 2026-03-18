@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-12
-source_window_end: 2026-03-12
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -27,6 +27,9 @@ market_status: current
 - [规则与规范文档](/docs/roles/devops/rules-and-instruction-files)
 - [Skills 与 MCP](/docs/roles/devops/skills-and-mcp)
 - [工具匹配与选型](/docs/roles/devops/tool-fit-and-selection)
+- [DevOps 训练包模板](/docs/roles/devops/templates)
+
+想直接复制可执行资产，再回头读原则：去 [DevOps 训练包模板](/docs/roles/devops/templates)。
 
 ## 典型 AI Coding 场景
 
@@ -71,6 +74,17 @@ market_status: current
 1. [Local to Background to Cloud](/docs/workflows/patterns/local-to-background-to-cloud/runbook) - 云端执行
 2. [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook) - 并行部署
 3. [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing/runbook) - 终端优先
+
+## 默认训练包
+
+| 当前阶段 | 建议先复制什么 | 目的 |
+| --- | --- | --- |
+| 变更刚启动 | [基础设施变更 Brief 模板](/docs/roles/devops/templates/infra-change-brief) | 先把环境、影响范围和风险边界锁住 |
+| 准备执行变更 | [Runbook 与回滚模板](/docs/roles/devops/templates/runbook-and-rollback) | 先把步骤、检查点和回滚条件写清 |
+| 收集验证证据 | [命令与证据模板](/docs/roles/devops/templates/commands-and-evidence) | 让命令、日志和监控证据成组出现 |
+| 值班或跨团队交接 | [Incident / Handoff 模板](/docs/roles/devops/templates/incident-handoff) | 让接手人拿到状态、链接和升级条件 |
+
+想直接看一份填好的成品：去 [示例：Kubernetes 发布窗口训练包](/docs/roles/devops/templates/example-k8s-rollout-pack)。
 
 ## 可复用资产
 

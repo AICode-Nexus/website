@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F4F0EE"/>
+  <rect x="48" y="48" width="1104" height="624" rx="28" fill="#FFFCFB" stroke="#D5C2B9" stroke-width="2"/>
+  <text x="80" y="110" fill="#2B2320" font-family="Arial, sans-serif" font-size="34" font-weight="700">设计训练包图板</text>
+  <text x="80" y="148" fill="#655650" font-family="Arial, sans-serif" font-size="18">把节点、状态、token 和原型验证收成可交付输入</text>
+  <rect x="80" y="200" width="220" height="148" rx="20" fill="#F6E7D8" stroke="#D7A56A"/>
+  <text x="104" y="248" fill="#5B3716" font-family="Arial, sans-serif" font-size="24" font-weight="700">Figma Handoff</text>
+  <text x="104" y="286" fill="#5B3716" font-family="Arial, sans-serif" font-size="18">node 链接</text>
+  <text x="104" y="314" fill="#5B3716" font-family="Arial, sans-serif" font-size="18">资产清单</text>
+  <text x="104" y="342" fill="#5B3716" font-family="Arial, sans-serif" font-size="18">限制条件</text>
+  <rect x="340" y="200" width="220" height="148" rx="20" fill="#E9F2EA" stroke="#7AB07E"/>
+  <text x="364" y="248" fill="#1E4720" font-family="Arial, sans-serif" font-size="24" font-weight="700">State Contract</text>
+  <text x="364" y="286" fill="#1E4720" font-family="Arial, sans-serif" font-size="18">状态与变体</text>
+  <text x="364" y="314" fill="#1E4720" font-family="Arial, sans-serif" font-size="18">交互规则</text>
+  <text x="364" y="342" fill="#1E4720" font-family="Arial, sans-serif" font-size="18">验收方式</text>
+  <rect x="600" y="200" width="220" height="148" rx="20" fill="#E8EEF9" stroke="#7A96D7"/>
+  <text x="624" y="248" fill="#1A3969" font-family="Arial, sans-serif" font-size="24" font-weight="700">Tokens</text>
+  <text x="624" y="286" fill="#1A3969" font-family="Arial, sans-serif" font-size="18">命名</text>
+  <text x="624" y="314" fill="#1A3969" font-family="Arial, sans-serif" font-size="18">约束</text>
+  <text x="624" y="342" fill="#1A3969" font-family="Arial, sans-serif" font-size="18">输出位置</text>
+  <rect x="860" y="200" width="220" height="148" rx="20" fill="#F6E6EF" stroke="#CC89B4"/>
+  <text x="884" y="248" fill="#6A2748" font-family="Arial, sans-serif" font-size="24" font-weight="700">Prototype Proof</text>
+  <text x="884" y="286" fill="#6A2748" font-family="Arial, sans-serif" font-size="18">录屏</text>
+  <text x="884" y="314" fill="#6A2748" font-family="Arial, sans-serif" font-size="18">截图</text>
+  <text x="884" y="342" fill="#6A2748" font-family="Arial, sans-serif" font-size="18">观察结果</text>
+  <path d="M300 274H340" stroke="#9C8A84" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 274H600" stroke="#9C8A84" stroke-width="4" stroke-linecap="round"/>
+  <path d="M820 274H860" stroke="#9C8A84" stroke-width="4" stroke-linecap="round"/>
+  <rect x="80" y="414" width="1000" height="176" rx="24" fill="#2B2320"/>
+  <text x="116" y="462" fill="#FFF9F5" font-family="Arial, sans-serif" font-size="24" font-weight="700">示例任务</text>
+  <text x="116" y="504" fill="#FFF9F5" font-family="Arial, sans-serif" font-size="20">订阅看板卡片：把默认态、warning、overdue、断点与 token 一次性交清，再进入前端联调与原型走查。</text>
+  <text x="116" y="544" fill="#D5C2B9" font-family="Arial, sans-serif" font-size="18">配套入口：Figma / Framer / VS Code Agents 本地到后台交接案例</text>
+</svg>

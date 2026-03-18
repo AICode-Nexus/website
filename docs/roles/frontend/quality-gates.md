@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: testing-validation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-16
+source_window_end: 2026-03-16
 market_status: current
 slug: /roles/frontend/quality-gates
 ---
@@ -160,6 +160,23 @@ quality_contract:
 
 这些问题比“代码风格是否统一”更能决定最终质量，因为 AI 最容易在架构边界和验证完整性上犯大错，而不是缩进。
 
+## 质量门禁案例地图
+
+质量门禁页不该只停在“跑哪些命令”。更关键的是看真实任务里，验证证据、风险说明和 review 问题是怎么一起出现的：
+
+| 现在的任务形状 | 先看哪篇案例 | 为什么值得搭配本页 |
+| --- | --- | --- |
+| 高风险 bug 或交互回归，需要最小修复和最短验证闭环 | [Claude Code Bugfix 闭环案例](/docs/case-studies/claude-code-bugfix-loop) | 最适合看“修复范围控制 + 命令结果 + 关键路径验证” |
+| 跨模块重构，但仍要按阶段给出验证证据 | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | 适合看长链路改动如何保留计划、验证和风险说明 |
+| 先做仓库巡检，再写 reviewer 可读的交付摘要 | [Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr) | 适合对照命令、影响面、风险和 PR 说明怎么串起来 |
+
+看这些案例时，建议只盯四类证据：
+
+1. 哪些命令必须跑，哪些命令没跑但被明确说明。
+2. 截图或录屏有没有覆盖真正高风险的断点和状态。
+3. review 问题是否直接指向边界、共享层和风险，而不是只看格式。
+4. 交付摘要里有没有清楚说明未覆盖项。
+
 ## 团队训练任务
 
 | 训练任务 | 练什么 | 输出物 |
@@ -225,4 +242,5 @@ verification/
 - 想看 bugfix 到验证的操作录像：去 [实战演示](/docs/resources/hands-on-demos) 搜 `review`、`test`、`playwright`。
 - 想把门禁接回工作流：去 [Bugfix / Refactor / Test Runbook](/docs/workflows/patterns/bugfix-refactor-test/runbook)。
 - 想对齐站点级质量标准：去 [Review Quality Gates](/docs/standards/review-quality-gates)。
+- 想看真实验证闭环：去 [Claude Code Bugfix 闭环案例](/docs/case-studies/claude-code-bugfix-loop)、[OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification)、[Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr)。
 - 想继续补交付收口：下一页看 [测试与交付](/docs/roles/frontend/testing-and-delivery)。

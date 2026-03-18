@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F1F2ED"/>
+  <rect x="48" y="48" width="1104" height="624" rx="28" fill="#FFFFFC" stroke="#C9CCBB" stroke-width="2"/>
+  <text x="80" y="110" fill="#272A20" font-family="Arial, sans-serif" font-size="34" font-weight="700">数据分析训练包图板</text>
+  <text x="80" y="148" fill="#606452" font-family="Arial, sans-serif" font-size="18">把口径、质量检查、复现链和报告交付绑到同一个分析包里</text>
+  <rect x="80" y="200" width="220" height="148" rx="20" fill="#F1EBD9" stroke="#D7B06F"/>
+  <text x="108" y="248" fill="#66481B" font-family="Arial, sans-serif" font-size="24" font-weight="700">Analysis Brief</text>
+  <text x="108" y="286" fill="#66481B" font-family="Arial, sans-serif" font-size="18">问题</text>
+  <text x="108" y="314" fill="#66481B" font-family="Arial, sans-serif" font-size="18">口径</text>
+  <text x="108" y="342" fill="#66481B" font-family="Arial, sans-serif" font-size="18">数据源</text>
+  <rect x="340" y="200" width="220" height="148" rx="20" fill="#E6F0E2" stroke="#8DB57B"/>
+  <text x="368" y="248" fill="#29441D" font-family="Arial, sans-serif" font-size="24" font-weight="700">Quality Check</text>
+  <text x="368" y="286" fill="#29441D" font-family="Arial, sans-serif" font-size="18">空值 / 异常</text>
+  <text x="368" y="314" fill="#29441D" font-family="Arial, sans-serif" font-size="18">口径一致</text>
+  <text x="368" y="342" fill="#29441D" font-family="Arial, sans-serif" font-size="18">限制条件</text>
+  <rect x="600" y="200" width="220" height="148" rx="20" fill="#E7EEF9" stroke="#7E9FD8"/>
+  <text x="628" y="248" fill="#1C3D67" font-family="Arial, sans-serif" font-size="24" font-weight="700">Repro</text>
+  <text x="628" y="286" fill="#1C3D67" font-family="Arial, sans-serif" font-size="18">命令</text>
+  <text x="628" y="314" fill="#1C3D67" font-family="Arial, sans-serif" font-size="18">SQL</text>
+  <text x="628" y="342" fill="#1C3D67" font-family="Arial, sans-serif" font-size="18">输出位置</text>
+  <rect x="860" y="200" width="220" height="148" rx="20" fill="#F8E7EF" stroke="#D18EB2"/>
+  <text x="888" y="248" fill="#692949" font-family="Arial, sans-serif" font-size="24" font-weight="700">Report</text>
+  <text x="888" y="286" fill="#692949" font-family="Arial, sans-serif" font-size="18">一句话结论</text>
+  <text x="888" y="314" fill="#692949" font-family="Arial, sans-serif" font-size="18">关键图表</text>
+  <text x="888" y="342" fill="#692949" font-family="Arial, sans-serif" font-size="18">限制条件</text>
+  <path d="M300 274H340" stroke="#969A88" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 274H600" stroke="#969A88" stroke-width="4" stroke-linecap="round"/>
+  <path d="M820 274H860" stroke="#969A88" stroke-width="4" stroke-linecap="round"/>
+  <rect x="80" y="414" width="1000" height="176" rx="24" fill="#272A20"/>
+  <text x="116" y="462" fill="#FDFFF8" font-family="Arial, sans-serif" font-size="24" font-weight="700">示例任务</text>
+  <text x="116" y="504" fill="#FDFFF8" font-family="Arial, sans-serif" font-size="20">次周留存分析：先锁口径，再过质量检查，保留 SQL 和脚本复现链，最后把结论和限制一起交给产品与管理层。</text>
+  <text x="116" y="544" fill="#C9CCBB" font-family="Arial, sans-serif" font-size="18">配套入口：Terminal-First Repo Pairing / Gemini CLI Terminal Audit to Draft PR</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#EEF2F4"/>
+  <rect x="48" y="48" width="1104" height="624" rx="28" fill="#FCFEFF" stroke="#BDD0D7" stroke-width="2"/>
+  <text x="80" y="110" fill="#1F2A30" font-family="Arial, sans-serif" font-size="34" font-weight="700">QA 训练包图板</text>
+  <text x="80" y="148" fill="#53656D" font-family="Arial, sans-serif" font-size="18">把计划、复现、证据和 handoff 收成一套可回放的质量包</text>
+  <rect x="80" y="200" width="220" height="148" rx="20" fill="#E9F2DD" stroke="#9CBE70"/>
+  <text x="108" y="248" fill="#2E4A17" font-family="Arial, sans-serif" font-size="24" font-weight="700">Test Plan</text>
+  <text x="108" y="286" fill="#2E4A17" font-family="Arial, sans-serif" font-size="18">范围</text>
+  <text x="108" y="314" fill="#2E4A17" font-family="Arial, sans-serif" font-size="18">高优场景</text>
+  <text x="108" y="342" fill="#2E4A17" font-family="Arial, sans-serif" font-size="18">环境</text>
+  <rect x="340" y="200" width="220" height="148" rx="20" fill="#FBE9DE" stroke="#DBA16D"/>
+  <text x="368" y="248" fill="#6B3F17" font-family="Arial, sans-serif" font-size="24" font-weight="700">Bug Repro</text>
+  <text x="368" y="286" fill="#6B3F17" font-family="Arial, sans-serif" font-size="18">复现步骤</text>
+  <text x="368" y="314" fill="#6B3F17" font-family="Arial, sans-serif" font-size="18">预期 / 实际</text>
+  <text x="368" y="342" fill="#6B3F17" font-family="Arial, sans-serif" font-size="18">回归范围</text>
+  <rect x="600" y="200" width="220" height="148" rx="20" fill="#E6EEFA" stroke="#86A3D9"/>
+  <text x="628" y="248" fill="#1E3D69" font-family="Arial, sans-serif" font-size="24" font-weight="700">Evidence</text>
+  <text x="628" y="286" fill="#1E3D69" font-family="Arial, sans-serif" font-size="18">命令</text>
+  <text x="628" y="314" fill="#1E3D69" font-family="Arial, sans-serif" font-size="18">截图 / 录屏</text>
+  <text x="628" y="342" fill="#1E3D69" font-family="Arial, sans-serif" font-size="18">环境信息</text>
+  <rect x="860" y="200" width="220" height="148" rx="20" fill="#F7E7EF" stroke="#D28CAF"/>
+  <text x="888" y="248" fill="#6A294A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Handoff</text>
+  <text x="888" y="286" fill="#6A294A" font-family="Arial, sans-serif" font-size="18">当前状态</text>
+  <text x="888" y="314" fill="#6A294A" font-family="Arial, sans-serif" font-size="18">待继续项</text>
+  <text x="888" y="342" fill="#6A294A" font-family="Arial, sans-serif" font-size="18">发布建议</text>
+  <path d="M300 274H340" stroke="#8E9DA4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 274H600" stroke="#8E9DA4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M820 274H860" stroke="#8E9DA4" stroke-width="4" stroke-linecap="round"/>
+  <rect x="80" y="414" width="1000" height="176" rx="24" fill="#1F2A30"/>
+  <text x="116" y="462" fill="#F7FCFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">示例任务</text>
+  <text x="116" y="504" fill="#F7FCFF" font-family="Arial, sans-serif" font-size="20">结算链路回归：先锁定高优场景，再复现 Safari 失败回路，收口命令、截图、录屏，最后给开发与发布 owner 交接。</text>
+  <text x="116" y="544" fill="#BDD0D7" font-family="Arial, sans-serif" font-size="18">配套入口：Bugfix / Refactor / Test / Claude Code Bugfix Loop</text>
+</svg>

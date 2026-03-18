@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -120,6 +120,7 @@ market_status: current
 - 想直接按阶段推进训练：去 [培训路线](/docs/roles/backend/training-roadmap)。
 - 想把接口、迁移、集成和发布统一成 checklist：去 [交付检查表](/docs/roles/backend/delivery-checklists)。
 - 想先拿可复用模板直接落地：去 [模板与交付资产](/docs/roles/backend/templates-and-handoffs)。
+- 想直接看一份填好的成品：去 [示例：Webhook 加固训练包](/docs/roles/backend/templates/example-webhook-hardening-pack)。
 - 想直接按场景开练并找对应案例：去 [演练与案例地图](/docs/roles/backend/labs-and-case-maps)。
 - 想先设定讲师或学员的达标线：去 [能力评估矩阵](/docs/roles/backend/assessment-rubric)。
 - 想先看最常见的后端 AI 失控模式：去 [失败模式与止损](/docs/roles/backend/failure-modes-and-recovery)。

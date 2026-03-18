@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: tech-selection
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -41,7 +41,18 @@ market_status: current
 - 需要规范沉淀时，只保留口头说明。
 - 需要和开发对齐时，不给真实节点、状态和限制说明。
 
+## 入口选完后马上要落的模板
+
+| 任务形状 | 入口定完后先补什么 |
+| --- | --- |
+| 设计稿还原与组件生成 | [Figma Handoff 包模板](/docs/roles/design/templates/figma-handoff-pack) |
+| 原型或交互验证 | [原型验证与证据模板](/docs/roles/design/templates/prototype-proof-sheet) |
+| 设计系统文档化 | [Token 与约束模板](/docs/roles/design/templates/tokens-and-constraints) |
+| 与开发协作跟踪 | [组件状态合同模板](/docs/roles/design/templates/component-state-contract) |
+
 ## 下一步
 
+- 想逐个看具体产品介绍和案例：去 [工具专题](/docs/roles/design/tools)。
 - 想补规则文件：去 [规则与规范文档](/docs/roles/design/rules-and-instruction-files)。
 - 想补能力编排：去 [Skills 与 MCP](/docs/roles/design/skills-and-mcp)。
+- 想直接复制模板：去 [设计训练包模板](/docs/roles/design/templates)。

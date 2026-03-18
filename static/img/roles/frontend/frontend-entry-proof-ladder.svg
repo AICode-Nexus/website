@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#FBF8F2"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端入口证据梯</text>
+  <text x="72" y="122" fill="#5E6671" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">入口越靠近真实设计、真实页面或跨目录执行，就越要把证据包一起升级，而不是只换工具名</text>
+
+  <rect x="96" y="194" width="228" height="360" rx="28" fill="#EAF2FF" stroke="#C9DCF9" stroke-width="2"/>
+  <text x="130" y="244" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">设计入口</text>
+  <text x="130" y="296" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">Figma 节点</text>
+  <text x="130" y="332" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">token 清单</text>
+  <text x="130" y="368" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">关键断点截图</text>
+  <text x="130" y="404" fill="#2A507D" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">brief</text>
+
+  <rect x="354" y="164" width="228" height="390" rx="28" fill="#FFF3E1" stroke="#EDD0A8" stroke-width="2"/>
+  <text x="388" y="214" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">浏览器入口</text>
+  <text x="388" y="266" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">复现步骤</text>
+  <text x="388" y="302" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">录屏</text>
+  <text x="388" y="338" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">修复后 smoke path</text>
+  <text x="388" y="374" fill="#6D4D2C" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">前后截图</text>
+
+  <rect x="612" y="134" width="228" height="420" rx="28" fill="#ECF8EE" stroke="#CDE5D3" stroke-width="2"/>
+  <text x="646" y="184" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">执行栈</text>
+  <text x="646" y="236" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">计划</text>
+  <text x="646" y="272" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">阶段产物</text>
+  <text x="646" y="308" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">影响面清单</text>
+  <text x="646" y="344" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">风险说明</text>
+  <text x="646" y="380" fill="#2E6140" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">统一验证</text>
+
+  <rect x="870" y="104" width="234" height="450" rx="28" fill="#FDEBF1" stroke="#E5C7D2" stroke-width="2"/>
+  <text x="904" y="154" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">文档入口</text>
+  <text x="904" y="206" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">相关页联动</text>
+  <text x="904" y="242" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">build 结果</text>
+  <text x="904" y="278" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">变更摘要</text>
+  <text x="904" y="314" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">案例 / workflow 入口</text>
+  <text x="904" y="350" fill="#7C4358" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="21">训练产物表</text>
+
+  <rect x="72" y="620" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="104" y="649" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">一个信号：如果入口升级了，但证据包还停在上一层，review 和 handoff 很快就会失真。</text>
+</svg>

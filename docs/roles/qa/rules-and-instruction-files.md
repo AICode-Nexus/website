@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -38,7 +38,15 @@ market_status: current
 - 不稳定测试必须标记 flake 原因和处理计划。
 - 自动化脚本必须说明数据依赖和 mock 策略。
 
+## 可直接复制的 QA 模板
+
+- [测试计划 Brief 模板](/docs/roles/qa/templates/test-plan-brief)
+- [缺陷复现与回归模板](/docs/roles/qa/templates/bug-repro-and-regression)
+- [命令与证据模板](/docs/roles/qa/templates/commands-and-evidence)
+- [QA Handoff 模板](/docs/roles/qa/templates/handoff-template)
+
 ## 下一步
 
 - 想继续看 QA 任务该配什么能力：去 [Skills 与 MCP](/docs/roles/qa/skills-and-mcp)。
 - 想判断测试任务该用哪个入口：去 [工具匹配与选型](/docs/roles/qa/tool-fit-and-selection)。
+- 想直接复制模板：去 [QA 训练包模板](/docs/roles/qa/templates)。

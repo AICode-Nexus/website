@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#EDF3F0"/>
+  <rect x="48" y="48" width="1104" height="624" rx="28" fill="#FBFFFD" stroke="#BED2C7" stroke-width="2"/>
+  <text x="80" y="110" fill="#213129" font-family="Arial, sans-serif" font-size="34" font-weight="700">DevOps 训练包图板</text>
+  <text x="80" y="148" fill="#55665E" font-family="Arial, sans-serif" font-size="18">把变更边界、执行步骤、证据和交班条件放进同一条发布链</text>
+  <rect x="80" y="200" width="220" height="148" rx="20" fill="#EFF4DA" stroke="#A6C26E"/>
+  <text x="108" y="248" fill="#33481A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Change Brief</text>
+  <text x="108" y="286" fill="#33481A" font-family="Arial, sans-serif" font-size="18">环境</text>
+  <text x="108" y="314" fill="#33481A" font-family="Arial, sans-serif" font-size="18">影响范围</text>
+  <text x="108" y="342" fill="#33481A" font-family="Arial, sans-serif" font-size="18">风险边界</text>
+  <rect x="340" y="200" width="220" height="148" rx="20" fill="#F9EADA" stroke="#D7A56E"/>
+  <text x="368" y="248" fill="#6B4118" font-family="Arial, sans-serif" font-size="24" font-weight="700">Runbook</text>
+  <text x="368" y="286" fill="#6B4118" font-family="Arial, sans-serif" font-size="18">执行步骤</text>
+  <text x="368" y="314" fill="#6B4118" font-family="Arial, sans-serif" font-size="18">检查点</text>
+  <text x="368" y="342" fill="#6B4118" font-family="Arial, sans-serif" font-size="18">回滚条件</text>
+  <rect x="600" y="200" width="220" height="148" rx="20" fill="#E7EFFB" stroke="#84A6DF"/>
+  <text x="628" y="248" fill="#1C3C68" font-family="Arial, sans-serif" font-size="24" font-weight="700">Proof Pack</text>
+  <text x="628" y="286" fill="#1C3C68" font-family="Arial, sans-serif" font-size="18">命令</text>
+  <text x="628" y="314" fill="#1C3C68" font-family="Arial, sans-serif" font-size="18">日志 / 指标</text>
+  <text x="628" y="342" fill="#1C3C68" font-family="Arial, sans-serif" font-size="18">截图</text>
+  <rect x="860" y="200" width="220" height="148" rx="20" fill="#F6E6EE" stroke="#CF89AA"/>
+  <text x="888" y="248" fill="#662646" font-family="Arial, sans-serif" font-size="24" font-weight="700">Incident Handoff</text>
+  <text x="888" y="286" fill="#662646" font-family="Arial, sans-serif" font-size="18">当前状态</text>
+  <text x="888" y="314" fill="#662646" font-family="Arial, sans-serif" font-size="18">待继续事项</text>
+  <text x="888" y="342" fill="#662646" font-family="Arial, sans-serif" font-size="18">升级条件</text>
+  <path d="M300 274H340" stroke="#8EA39A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M560 274H600" stroke="#8EA39A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M820 274H860" stroke="#8EA39A" stroke-width="4" stroke-linecap="round"/>
+  <rect x="80" y="414" width="1000" height="176" rx="24" fill="#213129"/>
+  <text x="116" y="462" fill="#F8FFFC" font-family="Arial, sans-serif" font-size="24" font-weight="700">示例任务</text>
+  <text x="116" y="504" fill="#F8FFFC" font-family="Arial, sans-serif" font-size="20">billing-worker 升级到 HPA：先定义边界，再写 rollout / rollback，收口 lag、error log、dashboard 证据，最后交给 oncall。</text>
+  <text x="116" y="544" fill="#BED2C7" font-family="Arial, sans-serif" font-size="18">配套入口：Local -&gt; Background -&gt; Cloud / VS Code Agents 本地到后台交接案例</text>
+</svg>

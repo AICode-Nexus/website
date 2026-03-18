@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-16
+source_window_end: 2026-03-16
 market_status: current
 slug: /roles/frontend/frameworks-and-components
 ---
@@ -210,6 +210,22 @@ export function useDashboardFilters() {
 | 任务 3：重构一段混杂的 store | 练远程状态、本地状态和衍生状态的拆分 | 拆分前后对照、类型定义、关键测试 |
 
 验收时不要只问“功能能不能跑”，更要问“如果下周再来一个新页面，今天这套边界还站得住吗”。这才是 AI 协作时代真正影响成本的地方。
+
+## 框架与组件案例地图
+
+框架页最大的风险，是读者把它理解成“React 和 Vue 的概念对比”。真正更值得看的，是任务落地时如何把组件边界、状态层和交付节奏一起收住：
+
+| 你现在遇到的情况 | 先看哪篇案例 | 为什么值得搭配本页 |
+| --- | --- | --- |
+| 现有页面已经能跑，但组件边界和状态层开始失控 | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | 最适合观察“先锁边界，再逐步推进组件与状态重构” |
+| 维护已有页面，重点是最小改动和局部收口 | [Windsurf 维护到 PR 案例](/docs/case-studies/windsurf-maintenance-to-pr) | 适合对照“不要为了复用而过早抽共享层” |
+| 任务已经拆清楚，需要把页面骨架快速推进到可 review 的 PR | [GitHub Copilot Draft PR 交接案例](/docs/case-studies/github-copilot-draft-pr-handoff) | 有助于理解组件拆分、验证命令和 PR 摘要如何同步收口 |
+
+读这些案例时，最值得对照本页的不是工具偏好，而是三件事：
+
+1. 页面私有组件和共享层有没有一开始就分清楚。
+2. 远程状态、本地状态和衍生状态有没有被放到不同层里。
+3. 交付时有没有把组件边界变化和验证证据一起说清楚。
 
 ## 视频学习路径
 

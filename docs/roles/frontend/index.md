@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -93,6 +93,19 @@ market_status: current
 | 开发到交付 | 正在做真实业务功能或重构 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components) -> [质量门禁](/docs/roles/frontend/quality-gates) -> [测试与交付](/docs/roles/frontend/testing-and-delivery) | 可 review 的代码、验证命令、PR 交付说明 |
 | 团队到机制 | 组件库维护者、前端负责人 | [仓库结构](/docs/roles/frontend/repo-architecture) -> [上下文与规则](/docs/roles/frontend/context-and-rules) -> [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) -> [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) -> [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | repo 合同、skills 映射、团队质量护栏 |
 
+## 模块到案例地图
+
+如果你已经知道自己想补哪一类能力，但不想只读概念页，可以直接从模块跳到更接近真实交付的案例：
+
+| 模块 | 最值得先看的案例 | 搭配哪个 workflow 看更完整 | 读案例时重点看什么 |
+| --- | --- | --- | --- |
+| [设计到代码](/docs/roles/frontend/design-to-code) | [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff) | [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud/runbook) | discovery brief、设计输入 handoff、执行与验证怎么分段 |
+| [框架与组件生态](/docs/roles/frontend/frameworks-and-components) | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | [Spec-First](/docs/workflows/patterns/spec-first/runbook) | 长链路改动如何先锁边界，再推进组件和状态重构 |
+| [质量门禁](/docs/roles/frontend/quality-gates) | [Claude Code Bugfix 闭环案例](/docs/case-studies/claude-code-bugfix-loop) | [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test/runbook) | 最小修复、验证证据和范围控制 |
+| [仓库结构](/docs/roles/frontend/repo-architecture) | [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop) | [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook) | lane map、owner 收口、跨目录影响面 |
+| [测试与交付](/docs/roles/frontend/testing-and-delivery) | [Claude Code Bugfix 闭环案例](/docs/case-studies/claude-code-bugfix-loop)、[OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test/runbook) | 命令结果、录屏、风险说明如何一起交付 |
+| [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | [实战案例首页](/docs/case-studies) | [工作流教程首页](/docs/workflows) | 先按任务形状找入口，不要只按工具偏好找案例 |
+
 ## AI 友好的前端栈快照
 
 ### React / Next.js 线
@@ -162,6 +175,34 @@ task:
 | 能力映射 | skill 组合、MCP 使用时机、Context7 / Figma / 浏览器 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) |
 | 工具选择 | 终端、执行栈、浏览器、平台入口的任务匹配 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) |
 
+## 前端默认训练包
+
+如果你要把这组文档拿去做 onboarding、带练或真实项目 kickoff，最省力的做法不是每次重新拼素材，而是直接复用下面这几套默认训练包：
+
+| 训练包 | 什么时候启用 | 至少要包含什么 | 去哪里拿模板 |
+| --- | --- | --- | --- |
+| 页面输入包 | 首次从设计稿落页面时 | `figma-node.md`、`tokens-map.md`、`states-checklist.md`、`shots/` | [页面输入包模板](/docs/roles/frontend/templates/page-input-pack)、[设计到代码](/docs/roles/frontend/design-to-code) |
+| 视觉收口包 | 页面能跑，但风格和状态还不稳时 | 品牌关键词板、before/after、组件状态图、断点截图 | [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) |
+| 能力与入口决策包 | 任务启动前，不确定 skill / MCP / 入口怎么配时 | skill 组合表、工具入口判断、workflow 对照、最小证据要求 | [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) |
+| 交付证据包 | 进入 review、handoff 或上线前收口时 | `commands.md`、截图、`flow.mp4`、`risks-and-next.md` | [命令与证据模板](/docs/roles/frontend/templates/commands-and-evidence)、[测试与交付](/docs/roles/frontend/testing-and-delivery) |
+| 规则模板包 | 想把经验固化回仓库时 | `AGENTS.md` 片段、brief 模板、PR / handoff 模板、证据合同 | [训练包模板](/docs/roles/frontend/templates)、[规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) |
+
+这张表的作用，是把“读文档”进一步推进成“拿一套现成资产开工”。如果你带团队，最值得做的不是要求大家看完所有页面，而是要求每次任务至少复用其中一套训练包。
+
+想直接复制现成模板：去 [训练包模板](/docs/roles/frontend/templates)。
+
+## 按你想拿到的产物反查
+
+如果你不是按主题学习，而是按“这周必须交什么”倒推，更适合从产物反查：
+
+| 你现在最缺什么 | 先读哪里 | 再去看哪个案例 |
+| --- | --- | --- |
+| 页面骨架、token 清单、断点截图 | [设计到代码](/docs/roles/frontend/design-to-code) | [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff) |
+| 组件边界、状态收口、共享层判断 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components)、[仓库结构](/docs/roles/frontend/repo-architecture) | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) |
+| lint/typecheck/build/PR 证据包 | [质量门禁](/docs/roles/frontend/quality-gates)、[测试与交付](/docs/roles/frontend/testing-and-delivery) | [Claude Code Bugfix 闭环案例](/docs/case-studies/claude-code-bugfix-loop) |
+| repo 合同、brief 模板、PR 模板 | [上下文与规则](/docs/roles/frontend/context-and-rules)、[规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) | [Gemini CLI 终端巡检到 Draft PR 案例](/docs/case-studies/gemini-cli-terminal-audit-to-draft-pr) |
+| 入口工具选择和 lane 收口 | [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop) |
+
 ## 图片、图表与视频入口
 
 这一组页已经补上图表和本地 SVG 配图。想继续用视频补训练，可以从这些入口下钻：
@@ -183,6 +224,20 @@ task:
 | Vue 工程化 | [Claude Code 实战：搭建 Vue3 工程级项目脚手架](/docs/resources/videos?video=bilibili-bv1lbakzme1a-极简前端) | [仓库结构](/docs/roles/frontend/repo-architecture) |
 
 这几条链接都走站内视频目录，后续目录同步后仍然可以继续按筛选条件回到完整资源页。
+
+## 前端专题媒体联动表
+
+如果你不是想“找一个视频看看”，而是想直接开始带练，最稳的做法是把视频、案例、workflow 和交付物绑成一组：
+
+| 你要带的主题 | 先看哪个视频 | 再看哪篇案例 | 最后接回哪个 workflow | 带练时至少要收什么产物 |
+| --- | --- | --- | --- | --- |
+| 设计输入到页面骨架 | [Claude Code + Figma 工作流](/docs/resources/videos?video=bilibili-bv1f5cyz1eov-青柠智信) | [VS Code Agents 本地到后台交接案例](/docs/case-studies/vscode-agents-local-to-background-handoff) | [Local -> Background -> Cloud](/docs/workflows/patterns/local-to-background-to-cloud/runbook) | 节点说明、页面拆分表、关键断点截图、brief |
+| 组件边界与状态收口 | [使用 OpenAI Codex 构建精美前端界面](/docs/resources/videos?video=bilibili-bv1w5p9z7en5-豚工智能) | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | [Spec-First](/docs/workflows/patterns/spec-first/runbook) | 组件分层说明、状态边界、阶段验证结果 |
+| 浏览器验证与交付证据 | [Claude Code + Playwright 浏览器自动化](/docs/resources/videos?video=bilibili-bv1vgpaz6ehu-云桥网络) | [Claude Code Bugfix 闭环案例](/docs/case-studies/claude-code-bugfix-loop) | [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test/runbook) | smoke path、录屏、截图、Verification / Risks |
+| 仓库结构与并行收口 | [Claude Code 实战：搭建 Vue3 工程级项目脚手架](/docs/resources/videos?video=bilibili-bv1lbakzme1a-极简前端) | [Cline 并行 Worktree 收口案例](/docs/case-studies/cline-parallel-worktree-owner-loop) | [Parallel Worktrees / Multi-Agent](/docs/workflows/patterns/parallel-worktrees-multi-agent/runbook) | lane map、owner 说明、统一验证结果 |
+| 规则模板与 reviewer handoff | [实战演示视频列表](/docs/resources/videos?format=实战演示&section=results) | [GitHub Copilot Draft PR 交接案例](/docs/case-studies/github-copilot-draft-pr-handoff) | [Issue -> Draft PR](/docs/workflows/patterns/issue-to-draft-pr/runbook) | Summary、Artifacts、Risks、回滚入口 |
+
+这张表的作用，是让你把前端培训从“推荐资料列表”推进到“可直接带练的一组动作”。只要视频、案例、workflow 和产物一起出现，团队更容易形成稳定节奏。
 
 ## 下一步
 

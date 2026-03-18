@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: testing-validation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 slug: /roles/frontend/testing-and-delivery
 ---
@@ -127,6 +127,8 @@ test('pricing page allows user to switch billing cycle', async ({page}) => {
 
 推荐把测试与交付制品组织成可追踪的资产包，而不是临时散落在聊天记录里：
 
+![前端交付证据包板](/img/roles/frontend/frontend-delivery-proof-pack-board.svg)
+
 ```text
 artifacts/
   pricing/
@@ -141,6 +143,17 @@ docs/
 ```
 
 其中最关键的不是目录名，而是“每个交付任务都有固定位置存放命令、截图和录屏”。这样 AI 参与时才能明确知道哪些东西需要一起更新，而不是只修改测试代码忘了补证据。
+
+如果你要把这套证据包直接做成团队默认模板，最小组合可以是：
+
+| 文件 | 作用 | reviewer 最先看什么 |
+| --- | --- | --- |
+| `commands.md` | 记录本次真实跑过的命令 | 有没有说明哪些命令没跑及原因 |
+| `artifacts/desktop.png` 与 `artifacts/mobile.png` | 证明关键断点没坏 | 是不是覆盖了高风险模块，不只是首页 Hero |
+| `artifacts/flow.mp4` | 证明交互路径真的可走 | 是否包含起始态、关键交互和结果态 |
+| `risks-and-next.md` | 记录未覆盖项、回滚入口和接手建议 | reviewer 是否能据此继续推进或止损 |
+
+想直接复制这套文件骨架：去 [命令与证据模板](/docs/roles/frontend/templates/commands-and-evidence)、[PR / Handoff 模板](/docs/roles/frontend/templates/pr-handoff) 和 [Risks / Next 模板](/docs/roles/frontend/templates/risks-and-next)。
 
 ## 从组件预览到关键路径冒烟的分工
 
@@ -171,6 +184,22 @@ docs/
 | 任务 1：给一个组件补状态测试与截图 | 学会把组件验证和视觉证据一起交付 | [全部视频](/docs/resources/videos) |
 | 任务 2：给一个真实页面补最短 Playwright 冒烟路径 | 学会只覆盖高风险流程 | [Claude Code + Playwright 浏览器自动化](/docs/resources/videos?video=bilibili-bv1vgpaz6ehu-云桥网络) |
 | 任务 3：写完整 PR 交付说明 | 学会把风险与未覆盖内容说清楚 | [实战演示视频列表](/docs/resources/videos?format=实战演示&section=results) |
+
+## 测试与交付案例地图
+
+这一页最适合和真实 handoff 案例一起读。否则很容易理解成“补几条测试就算交付完成”，而忽略了 PR 摘要、证据包和剩余风险：
+
+| 你现在最像哪种任务 | 先看哪篇案例 | 为什么值得搭配本页 |
+| --- | --- | --- |
+| 交互改动已经确定，重点是最短 smoke path 和证据收口 | [Claude Code Bugfix 闭环案例](/docs/case-studies/claude-code-bugfix-loop) | 适合看关键路径验证、命令结果和收口节奏 |
+| 长链路改动已经展开，需要阶段性测试和完整验证摘要 | [OpenAI Codex 重构与验证案例](/docs/case-studies/codex-refactor-with-verification) | 适合看“测试不是一次性跑完，而是分阶段回写交付物” |
+| 任务已经清楚，重点是让 reviewer 快速接手和继续推进 | [GitHub Copilot Draft PR 交接案例](/docs/case-studies/github-copilot-draft-pr-handoff) | 最适合观察 PR 摘要、Artifacts、Risks 怎么组织 |
+
+读案例时，重点不要只看测试框架，而要看这三件事：
+
+1. 自动化命令、截图和录屏有没有落在同一份交付说明里。
+2. PR 是否清楚说了“已覆盖什么”和“尚未覆盖什么”。
+3. reviewer 是否能在几分钟内判断这次改动能不能继续往下推进。
 
 ## PR handoff 检查表
 
@@ -223,4 +252,5 @@ docs/
 - 想找 Playwright、PR 验证或 bugfix 录像：去 [实战演示](/docs/resources/hands-on-demos)。
 - 想对齐终端优先的修复与验证流程：去 [Terminal-First Repo Pairing](/docs/workflows/patterns/terminal-first-repo-pairing/runbook)。
 - 想看真实案例：去 [Claude Code Bugfix Loop](/docs/case-studies/claude-code-bugfix-loop) 与 [Codex Refactor with Verification](/docs/case-studies/codex-refactor-with-verification)。
+- 想看更贴近 reviewer handoff 的案例：去 [GitHub Copilot Draft PR 交接案例](/docs/case-studies/github-copilot-draft-pr-handoff)。
 - 想把规则和工具上下文写回仓库：继续看 [上下文与规则](/docs/roles/frontend/context-and-rules)。

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#FBF8F1"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端能力编排板</text>
+  <text x="72" y="122" fill="#5E6671" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">先选方法，再拿真实上下文，最后把任务包和证据收完整，避免只有工具名没有执行链</text>
+
+  <rect x="72" y="176" width="320" height="420" rx="28" fill="#EAF2FF" stroke="#C9DDFB" stroke-width="2"/>
+  <text x="106" y="226" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">设计稿到页面</text>
+  <rect x="106" y="258" width="252" height="44" rx="14" fill="#194C86"/>
+  <text x="124" y="287" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Skill: figma + react-best-practices</text>
+  <rect x="106" y="320" width="252" height="44" rx="14" fill="#6B96D9"/>
+  <text x="124" y="349" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">MCP: 节点、变量、截图、浏览器</text>
+  <rect x="106" y="382" width="252" height="44" rx="14" fill="#A7C0EE"/>
+  <text x="124" y="411" fill="#17375E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Packet: 路由、断点、token、边界</text>
+  <text x="106" y="470" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Evidence: 页面骨架、</text>
+  <text x="106" y="502" fill="#194C86" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">关键截图、token 对照</text>
+
+  <rect x="440" y="176" width="320" height="420" rx="28" fill="#FFF3E1" stroke="#EDD1A8" stroke-width="2"/>
+  <text x="474" y="226" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">浏览器问题</text>
+  <rect x="474" y="258" width="252" height="44" rx="14" fill="#8B531E"/>
+  <text x="492" y="287" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Skill: systematic-debugging</text>
+  <rect x="474" y="320" width="252" height="44" rx="14" fill="#C58B4B"/>
+  <text x="492" y="349" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">MCP: 浏览器、录屏、控制台</text>
+  <rect x="474" y="382" width="252" height="44" rx="14" fill="#E8C6A0"/>
+  <text x="492" y="411" fill="#5E3E1F" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Packet: 复现步骤、断点、验收</text>
+  <text x="474" y="470" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Evidence: 复现说明、</text>
+  <text x="474" y="502" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">修复后截图、smoke path</text>
+
+  <rect x="808" y="176" width="320" height="420" rx="28" fill="#ECF8EE" stroke="#CDE6D3" stroke-width="2"/>
+  <text x="842" y="226" fill="#24613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="28" font-weight="700">文档与规范</text>
+  <rect x="842" y="258" width="252" height="44" rx="14" fill="#24613B"/>
+  <text x="860" y="287" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Skill: technical-docs-editor</text>
+  <rect x="842" y="320" width="252" height="44" rx="14" fill="#6FA67D"/>
+  <text x="860" y="349" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Context: 目标页、索引页、相邻页</text>
+  <rect x="842" y="382" width="252" height="44" rx="14" fill="#B9DBC2"/>
+  <text x="860" y="411" fill="#1F5230" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Packet: 主题边界、联动页、build</text>
+  <text x="842" y="470" fill="#24613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Evidence: 体检结论、</text>
+  <text x="842" y="502" fill="#24613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">扩写计划或改稿摘要</text>
+
+  <rect x="72" y="636" width="1056" height="44" rx="16" fill="#17212B"/>
+  <text x="106" y="665" fill="#FFF9F2" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">默认顺序：Skill 决定做法，MCP 决定真实上下文，Task Packet 决定范围，Evidence 决定是否能交付。</text>
+</svg>

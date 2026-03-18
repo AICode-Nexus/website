@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-15
-source_window_end: 2026-03-15
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -82,6 +82,17 @@ Cursor、Cline、Claude Code 等工具的 rules 更适合承接：
 - [Review 质量门禁](/docs/standards/review-quality-gates)：定义 reviewer 该卡什么问题。
 - [Skills / Commands / Hooks](/docs/standards/skills-commands-hooks)：整理工具化与命令自动化思路。
 - [AI Native Engineering Architecture](/docs/ai-native-engineering-architecture)：把 agent、context、tooling 放到更大的工程架构里看。
+
+## 后端机制区的默认模板入口
+
+如果你已经知道当前最缺的是“可复制模板”，最值得先去的是 [模板与交付资产](/docs/roles/backend/templates-and-handoffs) 以及下面几份子模板：
+
+- [仓库合同模板](/docs/roles/backend/templates/repo-contract-template)
+- [接口改动 Brief 模板](/docs/roles/backend/templates/api-change-brief)
+- [Migration 变更模板](/docs/roles/backend/templates/migration-change-brief)
+- [外部集成任务模板](/docs/roles/backend/templates/integration-task-brief)
+- [命令与验证模板](/docs/roles/backend/templates/commands-and-validation)
+- [PR / Handoff / Rollback 模板](/docs/roles/backend/templates/pr-handoff-and-rollback)
 
 ## 下一步
 

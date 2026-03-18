@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#F8F7FC"/>
+  <text x="72" y="84" fill="#17212B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" font-weight="700">前端文档资产栈</text>
+  <text x="72" y="122" fill="#5E6672" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">把规则所有权、任务包和交付证据拆开写，模板才会越用越稳，而不是越写越乱</text>
+
+  <rect x="180" y="176" width="840" height="72" rx="24" fill="#EAF6EE" stroke="#CDE4D3" stroke-width="2"/>
+  <text x="222" y="220" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">AGENTS.md</text>
+  <text x="430" y="220" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Owner: 仓库 owner</text>
+  <text x="670" y="220" fill="#25613B" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">更新信号：边界、发布纪律变化</text>
+
+  <rect x="210" y="270" width="780" height="72" rx="24" fill="#FFF2E1" stroke="#EED0A8" stroke-width="2"/>
+  <text x="248" y="314" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">CLAUDE.md / 工具规则</text>
+  <text x="544" y="314" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Owner: 入口 owner</text>
+  <text x="760" y="314" fill="#8B531E" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">更新信号：工作方式变化</text>
+
+  <rect x="240" y="364" width="720" height="82" rx="24" fill="#EAF2FF" stroke="#C9DBF9" stroke-width="2"/>
+  <text x="278" y="414" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">Task Brief</text>
+  <text x="472" y="414" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Owner: 任务 owner</text>
+  <text x="678" y="414" fill="#1E4D88" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">目标、设计输入、验收、证据</text>
+
+  <rect x="270" y="472" width="660" height="82" rx="24" fill="#FDEBF1" stroke="#E5C7D3" stroke-width="2"/>
+  <text x="308" y="522" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">PR / Handoff</text>
+  <text x="520" y="522" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Owner: 实施者 + reviewer</text>
+  <text x="770" y="522" fill="#8D3C58" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">Summary、Artifacts、Risks</text>
+
+  <rect x="300" y="578" width="600" height="76" rx="24" fill="#17212B"/>
+  <text x="340" y="626" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="26" font-weight="700">Evidence Pack</text>
+  <text x="542" y="626" fill="#FFF8EF" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">截图、录屏、命令结果、风险说明</text>
+
+  <path d="M600 248V270" stroke="#69A17A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M600 342V364" stroke="#C58E50" stroke-width="4" stroke-linecap="round"/>
+  <path d="M600 446V472" stroke="#7A9FD8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M600 554V578" stroke="#C76A92" stroke-width="4" stroke-linecap="round"/>
+</svg>

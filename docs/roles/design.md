@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-12
-source_window_end: 2026-03-12
+reviewed_at: 2026-03-18
+source_window_end: 2026-03-18
 market_status: current
 ---
 
@@ -27,6 +27,11 @@ market_status: current
 - [规则与规范文档](/docs/roles/design/rules-and-instruction-files)
 - [Skills 与 MCP](/docs/roles/design/skills-and-mcp)
 - [工具匹配与选型](/docs/roles/design/tool-fit-and-selection)
+- [设计训练包模板](/docs/roles/design/templates)
+- [工具专题](/docs/roles/design/tools)
+
+其中 `工具匹配与选型` 解决“先判任务再选入口”，`工具专题` 解决“某个具体工具到底适不适合这类任务”。前者偏方法，后者偏产品参考和实战场景。
+想直接复制更稳的输入和验证结构：去 [设计训练包模板](/docs/roles/design/templates)。
 
 ## 典型 AI Coding 场景
 
@@ -65,11 +70,23 @@ market_status: current
 ### 主入口选择
 - IDE-first：[Cursor](/docs/tools/ide-first/cursor/quick-start) 或 [Windsurf](/docs/tools/ide-first/windsurf/quick-start)
 - 平台入口：[GitHub Copilot](/docs/tools/platforms/github-copilot/quick-start)
+- 设计工具入口：[工具专题](/docs/roles/design/tools)
 
 ### 推荐工作流
 1. [Spec-First](/docs/workflows/patterns/spec-first/runbook) - 设计规范驱动
 2. [Bugfix / Refactor / Test](/docs/workflows/patterns/bugfix-refactor-test/runbook) - 组件优化
 3. [Windsurf 维护到 PR 案例](/docs/case-studies/windsurf-maintenance-to-pr) - 实战参考
+
+## 默认训练包
+
+| 当前阶段 | 建议先复制什么 | 目的 |
+| --- | --- | --- |
+| 设计稿准备交付 | [Figma Handoff 包模板](/docs/roles/design/templates/figma-handoff-pack) | 锁定节点、资产和限制条件 |
+| 组件状态还没讲清 | [组件状态合同模板](/docs/roles/design/templates/component-state-contract) | 防止只交默认态 |
+| 设计系统或 token 在整理中 | [Token 与约束模板](/docs/roles/design/templates/tokens-and-constraints) | 固定命名、约束和输出位置 |
+| 原型或还原要走查 | [原型验证与证据模板](/docs/roles/design/templates/prototype-proof-sheet) | 把录屏、截图和结论收口 |
+
+想直接看一份填好的成品：去 [示例：订阅看板卡片训练包](/docs/roles/design/templates/example-dashboard-card-pack)。
 
 ## 可复用资产
 
@@ -130,5 +147,6 @@ market_status: current
 
 - 先跑一条主线：[30 分钟上手](/docs/start/30-minute-quick-start)
 - 选择主工具：[工具教程首页](/docs/tools)
+- 按设计工具逐个展开：[工具专题](/docs/roles/design/tools)
 - 固定工作流：[工作流教程首页](/docs/workflows)
 - 看真实案例：[实战案例首页](/docs/case-studies)
