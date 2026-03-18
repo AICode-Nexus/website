@@ -38,6 +38,7 @@ const DOMAIN_DIRS = new Map([
 const KIND_RULES = {
   hub: {minChars: 260, minHeadings: 3},
   guide: {minChars: 260, minHeadings: 3},
+  template: {minChars: 24, minHeadings: 2},
   tutorial: {minChars: 320, minHeadings: 4},
   'case-study': {minChars: 360, minHeadings: 5},
   comparison: {minChars: 420, minHeadings: 4, requiresTable: true},

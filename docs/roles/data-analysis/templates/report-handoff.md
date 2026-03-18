@@ -5,8 +5,8 @@ slug: /roles/data-analysis/templates/report-handoff
 sidebar_label: 报告 Handoff 模板
 tags: [ai-coding, data-analysis, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: data-analyst
 stage: intermediate
 featured: false

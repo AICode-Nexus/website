@@ -5,8 +5,8 @@ slug: /roles/backend/templates/commands-and-validation
 sidebar_label: 命令与验证
 tags: [ai-coding, backend, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: backend-engineer
 stage: intermediate
 featured: false

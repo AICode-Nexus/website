@@ -5,8 +5,8 @@ slug: /roles/data-analysis/templates/analysis-brief
 sidebar_label: 分析 Brief 模板
 tags: [ai-coding, data-analysis, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: data-analyst
 stage: intermediate
 featured: false

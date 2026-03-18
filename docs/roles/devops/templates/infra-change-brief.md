@@ -5,8 +5,8 @@ slug: /roles/devops/templates/infra-change-brief
 sidebar_label: 基础设施变更 Brief 模板
 tags: [ai-coding, devops, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: devops-engineer
 stage: intermediate
 featured: false

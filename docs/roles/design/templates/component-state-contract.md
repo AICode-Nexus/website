@@ -5,8 +5,8 @@ slug: /roles/design/templates/component-state-contract
 sidebar_label: 组件状态合同模板
 tags: [ai-coding, design, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: designer
 stage: intermediate
 featured: false

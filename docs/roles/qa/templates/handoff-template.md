@@ -5,8 +5,8 @@ slug: /roles/qa/templates/handoff-template
 sidebar_label: QA Handoff
 tags: [ai-coding, qa, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: qa-engineer
 stage: intermediate
 featured: false

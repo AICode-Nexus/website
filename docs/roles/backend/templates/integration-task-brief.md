@@ -5,8 +5,8 @@ slug: /roles/backend/templates/integration-task-brief
 sidebar_label: 外部集成任务
 tags: [ai-coding, backend, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: backend-engineer
 stage: intermediate
 featured: false

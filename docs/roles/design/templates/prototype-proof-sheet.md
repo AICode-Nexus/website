@@ -5,8 +5,8 @@ slug: /roles/design/templates/prototype-proof-sheet
 sidebar_label: 原型验证与证据模板
 tags: [ai-coding, design, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: designer
 stage: intermediate
 featured: false

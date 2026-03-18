@@ -112,6 +112,8 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Reclassified role template leaf docs under a dedicated `template` content form with lighter content-quality thresholds, so reusable fill-in assets no longer have to masquerade as full-length guides just to pass CI.
+
 - Finished the remaining thin framework and discovery hubs by expanding the `Superpowers` community-framework set, deepening the workflow-framework overview, and rewriting the `实战案例 / 对比与选型 / 趋势观察` index pages into decision-first hubs that route readers back into executable tutorials instead of acting as shallow link lists.
 - Reworked the `先跑 Quick Start` tools sidebar so single-tool families now link straight to named tool entries instead of nesting repetitive one-item `快速开始` groups, expanded the eight tool quick-start docs into fuller first-run guides with task-fit advice, copyable templates, acceptance checklists, and common failure modes, and upgraded all eight tool `常见任务 / 排错 / 最佳实践` pages into denser operational docs with reusable task templates, explicit diagnosis paths, switch criteria, and long-term usage rules.
 - Expanded the eight tool `工作流适配 / 规则与边界 / 优点与替代` pages from thin decision-aid stubs into fuller selection and governance guides with task-fit signals, rule-placement guidance, anti-patterns, migration order, and explicit switch/exit criteria.

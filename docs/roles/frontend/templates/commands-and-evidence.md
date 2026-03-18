@@ -5,8 +5,8 @@ slug: /roles/frontend/templates/commands-and-evidence
 sidebar_label: 命令与证据
 tags: [ai-coding, frontend, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: frontend-engineer
 stage: intermediate
 featured: false

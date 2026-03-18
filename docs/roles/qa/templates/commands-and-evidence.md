@@ -5,8 +5,8 @@ slug: /roles/qa/templates/commands-and-evidence
 sidebar_label: 命令与证据
 tags: [ai-coding, qa, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: qa-engineer
 stage: intermediate
 featured: false

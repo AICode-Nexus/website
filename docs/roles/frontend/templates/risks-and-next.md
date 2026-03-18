@@ -5,8 +5,8 @@ slug: /roles/frontend/templates/risks-and-next
 sidebar_label: Risks / Next
 tags: [ai-coding, frontend, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: frontend-engineer
 stage: intermediate
 featured: false

@@ -126,6 +126,7 @@ const VALID_ENTRY_ROLES = new Set(ENTRY_ROLE_ORDER);
 const CONTENT_FORM_ORDER = [
   'hub',
   'guide',
+  'template',
   'tutorial',
   'case-study',
   'comparison',
@@ -137,6 +138,7 @@ const CONTENT_FORM_ORDER = [
 const CONTENT_FORM_LABELS = {
   hub: '总览',
   guide: '指南',
+  template: '模板',
   tutorial: '教程',
   'case-study': '案例',
   comparison: '对比',

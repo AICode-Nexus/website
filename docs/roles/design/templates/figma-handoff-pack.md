@@ -5,8 +5,8 @@ slug: /roles/design/templates/figma-handoff-pack
 sidebar_label: Figma Handoff 包模板
 tags: [ai-coding, design, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: designer
 stage: intermediate
 featured: false

@@ -5,8 +5,8 @@ slug: /roles/backend/templates/migration-change-brief
 sidebar_label: Migration 变更
 tags: [ai-coding, backend, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: backend-engineer
 stage: intermediate
 featured: false

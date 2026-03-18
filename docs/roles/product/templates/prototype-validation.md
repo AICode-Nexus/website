@@ -5,8 +5,8 @@ slug: /roles/product/templates/prototype-validation
 sidebar_label: 原型验证模板
 tags: [ai-coding, product, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: product-manager
 stage: intermediate
 featured: false

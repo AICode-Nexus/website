@@ -5,8 +5,8 @@ slug: /roles/frontend/templates/page-input-pack
 sidebar_label: 页面输入包
 tags: [ai-coding, frontend, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: frontend-engineer
 stage: intermediate
 featured: false

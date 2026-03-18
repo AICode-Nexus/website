@@ -5,8 +5,8 @@ slug: /roles/qa/templates/bug-repro-and-regression
 sidebar_label: 缺陷复现与回归
 tags: [ai-coding, qa, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: qa-engineer
 stage: intermediate
 featured: false

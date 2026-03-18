@@ -5,8 +5,8 @@ slug: /roles/data-analysis/templates/data-quality-checklist
 sidebar_label: 数据质量检查模板
 tags: [ai-coding, data-analysis, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: data-analyst
 stage: intermediate
 featured: false

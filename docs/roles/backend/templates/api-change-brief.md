@@ -5,8 +5,8 @@ slug: /roles/backend/templates/api-change-brief
 sidebar_label: 接口改动 Brief
 tags: [ai-coding, backend, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: backend-engineer
 stage: intermediate
 featured: false

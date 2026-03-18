@@ -5,8 +5,8 @@ slug: /roles/product/templates/handoff-and-acceptance
 sidebar_label: Handoff 与验收模板
 tags: [ai-coding, product, templates]
 track: cross-track
-kind: guide
-content_form: guide
+kind: template
+content_form: template
 audience: product-manager
 stage: intermediate
 featured: false
