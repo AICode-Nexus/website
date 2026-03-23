@@ -185,6 +185,7 @@ const sidebars = {
         'roles/frontend/styling-and-design-systems',
         'roles/frontend/quality-gates',
         'roles/frontend/repo-architecture',
+        'roles/frontend/playwright-automation-plan',
         'roles/frontend/testing-and-delivery',
         'roles/frontend/context-and-rules',
         'roles/frontend/rules-and-instruction-files',
@@ -527,6 +528,7 @@ const sidebars = {
             'comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
             'comparisons/cursor-vs-windsurf-vs-cline',
             'insights/index',
+            'insights/repo-issue-signals',
             'insights/agent-model-plus-harness',
             'insights/agentic-coding-patterns',
             'insights/monthly-brief-2026-03',
@@ -601,6 +603,7 @@ const sidebars = {
 
   siteAdminSidebar: [
     'site-admin/editorial-workflow',
+    'site-admin/github-issue-monitoring',
     'site-admin/ai-writing-workflow',
     'site-admin/publish-github',
     'site-admin/site-roadmap',

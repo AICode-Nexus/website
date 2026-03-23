@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-18
-source_window_end: 2026-03-18
+reviewed_at: 2026-03-23
+source_window_end: 2026-03-23
 market_status: current
 ---
 
@@ -29,6 +29,7 @@ market_status: current
 - 样式如何避免“默认 AI 味”：用 [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) 固定 token、CSS 变量、Tailwind 规则和品牌语言。
 - 代码如何过门禁：用 [质量门禁](/docs/roles/frontend/quality-gates) 把 `TypeScript / ESLint / Oxlint / build / review` 串起来。
 - 仓库结构如何避免 AI 误改：在 [仓库结构](/docs/roles/frontend/repo-architecture) 里判断单应用、workspace 和 monorepo 的边界。
+- 想先拿到一份可执行的 E2E 落地路径：去 [Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan)。
 - 如何把结果交出去：去 [测试与交付](/docs/roles/frontend/testing-and-delivery) 补组件级验证、Playwright 冒烟和 PR 交付模板。
 - 如何把团队知识写回 repo：最后看 [上下文与规则](/docs/roles/frontend/context-and-rules)，再分专题进入 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)。
 
@@ -50,7 +51,7 @@ market_status: current
 | --- | --- | --- | --- |
 | 阶段 1：输入对齐 | 设计输入是否足够结构化 | [设计到代码](/docs/roles/frontend/design-to-code)、[样式与设计系统](/docs/roles/frontend/styling-and-design-systems) | 页面拆分表、token 清单、关键断点截图 |
 | 阶段 2：实现收口 | 组件、状态、目录是否边界清楚 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components)、[仓库结构](/docs/roles/frontend/repo-architecture) | 组件分层说明、目录合同、页面私有/共享划分 |
-| 阶段 3：验证交付 | 代码如何被证明可交付 | [质量门禁](/docs/roles/frontend/quality-gates)、[测试与交付](/docs/roles/frontend/testing-and-delivery) | lint/typecheck/build、冒烟脚本、PR 证据包 |
+| 阶段 3：验证交付 | 代码如何被证明可交付 | [质量门禁](/docs/roles/frontend/quality-gates)、[Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan)、[测试与交付](/docs/roles/frontend/testing-and-delivery) | lint/typecheck/build、冒烟脚本、PR 证据包 |
 | 阶段 4：团队机制 | 团队如何把经验沉淀回仓库 | [上下文与规则](/docs/roles/frontend/context-and-rules)、[规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)、[Skills 与 MCP](/docs/roles/frontend/skills-and-mcp)、[工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | `AGENTS.md` 片段、任务 brief 模板、技能映射表 |
 
 这个顺序的核心不是“按目录阅读”，而是先收输入，再收实现，再收证据，最后再把经验固化成机制。很多团队之所以觉得 AI 前端“时好时坏”，本质上是因为四个阶段混成了一次对话。
@@ -66,6 +67,7 @@ market_status: current
 | 样式与设计系统 | 品牌输入、token 分层、变体规则、视觉 review | 设计系统层级图、样式治理图、视觉对照图 | 1 条样式系统或 Tailwind 实战演示 |
 | 质量门禁 | 写码门禁、review 问题、发布前证据 | 门禁图、验证证据图、命令矩阵 | 1 条 bugfix 到验证的完整录像 |
 | 仓库结构 | 单仓到 monorepo 决策、目录合同、跨包验证 | 仓库演进图、合同分层图 | 1 条 workspace/monorepo 实操视频 |
+| Playwright 自动化测试方案 | 什么时候上 E2E、第一条 smoke 怎么选、脚本与证据如何配套 | 决策表、目录骨架、最小脚本、交付模板 | 1 条最短 smoke + 截图/录屏 |
 | 测试与交付 | 组件测试、预览验证、E2E、PR 收口 | 交付闭环图、证据包图 | 1 条 Playwright 或真实交付录屏 |
 | 上下文与规则 | 机制总览、专题拆分阅读、治理节奏 | 规则分层图、上下文包图 | 1 条 rules/agent/workflow 讲解视频 |
 | 规则与规范文档 | `AGENTS.md`、`CLAUDE.md`、brief、PR 模板 | 规则栈图、文档模板 | 1 条 instruction files 讲解视频 |
@@ -90,7 +92,7 @@ market_status: current
 | 路径 | 适合谁 | 先读什么 | 典型产出 |
 | --- | --- | --- | --- |
 | 设计到实现 | 正在从 Figma 落页面的前端 | [设计到代码](/docs/roles/frontend/design-to-code) -> [框架与组件生态](/docs/roles/frontend/frameworks-and-components) -> [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) | 页面骨架、组件拆分图、token 初稿 |
-| 开发到交付 | 正在做真实业务功能或重构 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components) -> [质量门禁](/docs/roles/frontend/quality-gates) -> [测试与交付](/docs/roles/frontend/testing-and-delivery) | 可 review 的代码、验证命令、PR 交付说明 |
+| 开发到交付 | 正在做真实业务功能或重构 | [框架与组件生态](/docs/roles/frontend/frameworks-and-components) -> [质量门禁](/docs/roles/frontend/quality-gates) -> [Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan) -> [测试与交付](/docs/roles/frontend/testing-and-delivery) | 可 review 的代码、验证命令、PR 交付说明 |
 | 团队到机制 | 组件库维护者、前端负责人 | [仓库结构](/docs/roles/frontend/repo-architecture) -> [上下文与规则](/docs/roles/frontend/context-and-rules) -> [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files) -> [Skills 与 MCP](/docs/roles/frontend/skills-and-mcp) -> [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection) | repo 合同、skills 映射、团队质量护栏 |
 
 ## 模块到案例地图

@@ -22,6 +22,8 @@ slug: /roles/frontend/testing-and-delivery
 
 前端 AI 的闭环不是“代码可以运行”，而是“别人能接着看、接着测、接着交付”。所以测试与交付必须一起看：只写测试、不写交付说明，review 很难判断风险；只写 PR 描述、不补自动化证据，回归成本又会掉回人工。
 
+如果你现在要的不是“验证闭环”，而是更任务导向的 E2E 落地路径，先去看 [Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan)。那一页专门回答什么时候上 Playwright、第一条 smoke 怎么选、目录怎么组织、证据怎么交。
+
 ## 交付闭环图
 
 ![测试与交付闭环图](/img/roles/frontend/testing-delivery-loop.svg)
@@ -110,30 +112,12 @@ test('pricing page allows user to switch billing cycle', async ({page}) => {
 | 登录、注册、支付、结算、权限流 | 必须 |
 | 共享 UI 变更影响多个业务页面 | 建议补最短 smoke path |
 
-## 如果你要的是“Playwright 自动化测试方案”，最小落地应该怎么做
+## 如果你要的是更完整的 Playwright 落地路径
 
-`2026-03-23` 的仓库 issue [#1 `plawright`](https://github.com/AICode-Nexus/website/issues/1) 直接提出了这个需求。对大多数前端页面来说，最小可执行方案不是“先铺很多 E2E”，而是先把一条最短关键路径跑通：
+`2026-03-23` 的仓库 issue [#1 `plawright`](https://github.com/AICode-Nexus/website/issues/1) 说明读者要的不只是“这页里提一句 Playwright”，而是一套可照着执行的方案。所以这部分不再展开成长文，而是直接分流到独立页面：
 
-1. 先选一条最短但高风险的真实路径，例如登录、价格切换、表单提交、筛选器切换。
-2. 只写一条 smoke case，优先证明“页面可打开、关键交互可执行、结果态能出现”。
-3. 跑完后必须一起交付命令结果、桌面/移动端截图，以及 15 到 30 秒关键录屏。
-4. 如果这条路径稳定，再决定要不要继续补权限流、错误态、回归矩阵，而不是一开始就把所有情况塞进 Playwright。
-
-可以直接照下面这个骨架起步：
-
-```ts
-import {test, expect} from '@playwright/test';
-
-test('pricing smoke path works end to end', async ({page}) => {
-  await page.goto('/pricing');
-  await page.getByRole('tab', {name: '年付'}).click();
-
-  await expect(page.getByText('每年节省 20%')).toBeVisible();
-  await expect(page.getByRole('button', {name: '立即开始'})).toBeVisible();
-});
-```
-
-这段脚本的重点不是覆盖所有情况，而是先建立“真实页面可走通”的最小证据。之后再决定是否往视觉回归、多角色、多浏览器扩。
+- [Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan)：什么时候上 E2E、第一条 smoke 怎么选、目录怎么放、证据怎么交。
+- 当前页继续负责更大的闭环：组件测试、预览验证、Playwright、PR 收口和交付证据如何一起工作。
 
 ## 测试与交付常见误区
 
