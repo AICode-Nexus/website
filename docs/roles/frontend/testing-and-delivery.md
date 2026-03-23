@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: testing-validation
 entry_role: domain
-reviewed_at: 2026-03-18
-source_window_end: 2026-03-18
+reviewed_at: 2026-03-23
+source_window_end: 2026-03-23
 market_status: current
 slug: /roles/frontend/testing-and-delivery
 ---
@@ -109,6 +109,31 @@ test('pricing page allows user to switch billing cycle', async ({page}) => {
 | 表单、筛选器、切换器、对话框 | 建议至少一条关键路径 |
 | 登录、注册、支付、结算、权限流 | 必须 |
 | 共享 UI 变更影响多个业务页面 | 建议补最短 smoke path |
+
+## 如果你要的是“Playwright 自动化测试方案”，最小落地应该怎么做
+
+`2026-03-23` 的仓库 issue [#1 `plawright`](https://github.com/AICode-Nexus/website/issues/1) 直接提出了这个需求。对大多数前端页面来说，最小可执行方案不是“先铺很多 E2E”，而是先把一条最短关键路径跑通：
+
+1. 先选一条最短但高风险的真实路径，例如登录、价格切换、表单提交、筛选器切换。
+2. 只写一条 smoke case，优先证明“页面可打开、关键交互可执行、结果态能出现”。
+3. 跑完后必须一起交付命令结果、桌面/移动端截图，以及 15 到 30 秒关键录屏。
+4. 如果这条路径稳定，再决定要不要继续补权限流、错误态、回归矩阵，而不是一开始就把所有情况塞进 Playwright。
+
+可以直接照下面这个骨架起步：
+
+```ts
+import {test, expect} from '@playwright/test';
+
+test('pricing smoke path works end to end', async ({page}) => {
+  await page.goto('/pricing');
+  await page.getByRole('tab', {name: '年付'}).click();
+
+  await expect(page.getByText('每年节省 20%')).toBeVisible();
+  await expect(page.getByRole('button', {name: '立即开始'})).toBeVisible();
+});
+```
+
+这段脚本的重点不是覆盖所有情况，而是先建立“真实页面可走通”的最小证据。之后再决定是否往视觉回归、多角色、多浏览器扩。
 
 ## 测试与交付常见误区
 

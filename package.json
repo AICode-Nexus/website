@@ -20,6 +20,7 @@
     "generate:daily-brief:auto": "node scripts/content/generate-daily-brief-auto.mjs",
     "generate:weekly-roundup": "node scripts/content/generate-weekly-roundup.mjs",
     "generate:article": "node scripts/content/generate-article.mjs",
+    "monitor:repo-issues": "node scripts/content/monitor-repo-issues.mjs",
     "monitor:tool-releases": "node scripts/content/monitor-tool-releases.mjs",
     "detect:stale-docs": "node scripts/content/detect-stale-docs.mjs",
     "update:stale-doc": "node scripts/content/update-stale-doc.mjs",
