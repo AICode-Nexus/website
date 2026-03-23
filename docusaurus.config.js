@@ -108,6 +108,10 @@ const config = {
             from: ['/insights/agentic-coding-patterns'],
           },
           {
+            to: '/docs/tools/insights/agent-model-plus-harness',
+            from: ['/insights/agent-model-plus-harness'],
+          },
+          {
             to: '/docs/tools/compare/ai-coding-platform-comparison-framework',
             from: ['/insights/ai-coding-platform-comparison-framework'],
           },
@@ -142,6 +146,10 @@ const config = {
           {
             to: '/docs/tools/insights/agentic-coding-patterns',
             from: ['/docs/insights/agentic-coding-patterns'],
+          },
+          {
+            to: '/docs/tools/insights/agent-model-plus-harness',
+            from: ['/docs/insights/agent-model-plus-harness'],
           },
           {
             to: '/docs/tools/insights/monthly-brief-2026-03',

@@ -527,6 +527,7 @@ const sidebars = {
             'comparisons/github-copilot-vs-vscode-agent-vs-openai-codex',
             'comparisons/cursor-vs-windsurf-vs-cline',
             'insights/index',
+            'insights/agent-model-plus-harness',
             'insights/agentic-coding-patterns',
             'insights/monthly-brief-2026-03',
           ],

@@ -9,6 +9,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- A new long-form insight article, `Agent = Model + Harness：AI 智能体时代的软件工程重心转移`, under `docs/insights/`, with three local SVG diagrams covering the overall architecture, harness capability stack, and plan-act-verify-correct delivery loop.
 - Local `technical-docs-editor` skill under `skills/`, with a hybrid review-and-expand workflow for role pages, tool guides, workflow docs, playbooks, and standards pages, plus a reusable playbook for audit layers, output templates, and repo-specific documentation heuristics.
 - A role-based entry system at `/docs/roles/` with 7 role-specific guides (产品、设计、前端、后端、测试、运维、数据分析), providing targeted AI coding scenarios, tool recommendations, reusable assets, and cross-team deliverables for each role.
 - Homepage role-based entry section using LinkTile components, placed between starter tracks and featured tool tutorials for natural navigation flow.

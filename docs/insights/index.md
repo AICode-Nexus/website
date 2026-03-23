@@ -34,6 +34,7 @@ market_status: watch
 | --- | --- | --- |
 | 今天有什么值得知道的变化 | [Daily Brief](/blog) | 不要把日报当长期结论。 |
 | 这个月最值得跟踪的主线是什么 | [2026 年 3 月月度简报](/docs/tools/insights/monthly-brief-2026-03) | 不要在单条快讯里找策略。 |
+| 想先建立对 Agent 工程结构的基础认知 | [Agent = Model + Harness](/docs/tools/insights/agent-model-plus-harness) | 不要把 Agent 只理解成“更强的聊天框”。 |
 | 哪些变化已经足够写进长期知识 | [2026 年 3 月 AI Coding 的四个主线变化](/docs/tools/insights/agentic-coding-patterns) | 不要把长期洞察写成当天资讯流。 |
 
 ## 趋势页到底负责什么
