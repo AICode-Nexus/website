@@ -4,6 +4,7 @@ import {
   detectChangeTypes,
   extractIssuesFromGitHubIssuesHtml,
   filterIssuesInWindow,
+  stripLoopbackProxyEnv,
 } from '../content/lib/repo-issue-monitor.mjs';
 
 test('extractIssuesFromGitHubIssuesHtml parses embedded issue JSON from public GitHub HTML', () => {
@@ -69,4 +70,23 @@ test('filterIssuesInWindow excludes issues outside the observation window', () =
   );
 
   assert.deepEqual(filtered.map((issue) => issue.number), [1]);
+});
+
+test('stripLoopbackProxyEnv clears localhost proxy variables but keeps unrelated env', () => {
+  const env = {
+    http_proxy: 'http://127.0.0.1:7897',
+    https_proxy: 'http://localhost:7897',
+    ALL_PROXY: 'socks5://[::1]:7897',
+    NO_PROXY: 'example.com',
+    PATH: '/usr/bin:/bin',
+  };
+
+  const {env: sanitizedEnv, clearedKeys} = stripLoopbackProxyEnv(env);
+
+  assert.equal(sanitizedEnv.http_proxy, undefined);
+  assert.equal(sanitizedEnv.https_proxy, undefined);
+  assert.equal(sanitizedEnv.ALL_PROXY, undefined);
+  assert.equal(sanitizedEnv.NO_PROXY, 'example.com');
+  assert.equal(sanitizedEnv.PATH, '/usr/bin:/bin');
+  assert.deepEqual(clearedKeys.sort(), ['ALL_PROXY', 'http_proxy', 'https_proxy']);
 });

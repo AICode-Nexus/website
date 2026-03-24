@@ -7,6 +7,45 @@ function decodeHtmlEntities(value) {
     .replace(/&gt;/gu, '>');
 }
 
+export const PROXY_ENV_KEYS = [
+  'http_proxy',
+  'https_proxy',
+  'all_proxy',
+  'HTTP_PROXY',
+  'HTTPS_PROXY',
+  'ALL_PROXY',
+];
+
+function isLoopbackProxyUrl(value) {
+  if (!value) {
+    return false;
+  }
+
+  try {
+    const url = new URL(String(value));
+    return ['127.0.0.1', 'localhost', '::1', '[::1]'].includes(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
+export function stripLoopbackProxyEnv(env = process.env) {
+  const nextEnv = {...env};
+  const clearedKeys = [];
+
+  for (const key of PROXY_ENV_KEYS) {
+    if (isLoopbackProxyUrl(nextEnv[key])) {
+      delete nextEnv[key];
+      clearedKeys.push(key);
+    }
+  }
+
+  return {
+    env: nextEnv,
+    clearedKeys,
+  };
+}
+
 function stripHtml(value) {
   return decodeHtmlEntities(String(value ?? ''))
     .replace(/<[^>]+>/gu, ' ')
@@ -115,4 +154,3 @@ export function parseGhIssueList(stdout) {
   const records = JSON.parse(stdout);
   return records.map((record) => normalizeIssue(record, 'gh'));
 }
-

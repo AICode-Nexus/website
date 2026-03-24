@@ -1,10 +1,10 @@
 {
   "date": "2026-03-24",
   "repo": "AICode-Nexus/website",
-  "generatedAt": "2026-03-24T16:02:21+08:00",
+  "generatedAt": "2026-03-24T16:23:44+08:00",
   "window": {
-    "start": "2026-03-23T16:02:18+08:00",
-    "end": "2026-03-24T16:02:18+08:00"
+    "start": "2026-03-23T16:23:42+08:00",
+    "end": "2026-03-24T16:23:42+08:00"
   },
   "language": "zh-CN",
   "status": "ok",
@@ -51,7 +51,7 @@
       {
         "method": "gh issue list",
         "result": "success",
-        "observedAt": "2026-03-24T16:02:21+08:00",
+        "observedAt": "2026-03-24T16:23:44+08:00",
         "details": "直接调用 `gh issue list` 成功返回 issue 列表，未把 `gh auth status` 作为前置门槛。"
       }
     ],

@@ -12,6 +12,8 @@ import {
   extractIssuesFromGitHubIssuesHtml,
   filterIssuesInWindow,
   parseGhIssueList,
+  PROXY_ENV_KEYS,
+  stripLoopbackProxyEnv,
 } from './lib/repo-issue-monitor.mjs';
 
 const execFileAsync = promisify(execFile);
@@ -30,7 +32,7 @@ function toShanghaiIso(value) {
   return formatter.format(value).replace(' ', 'T') + '+08:00';
 }
 
-async function fetchIssuesViaGh(repo, startDateIso) {
+async function fetchIssuesViaGh(repo, startDateIso, env = process.env) {
   const fields = [
     'number',
     'title',
@@ -43,35 +45,65 @@ async function fetchIssuesViaGh(repo, startDateIso) {
     'author',
     'labels',
   ];
-  const {stdout} = await execFileAsync('gh', [
-    'issue',
-    'list',
-    '--repo',
-    repo,
-    '--state',
-    'all',
-    '--limit',
-    '100',
-    '--search',
-    buildIssueSearchQuery(startDateIso),
-    '--json',
-    fields.join(','),
-  ]);
+  const {stdout} = await execFileAsync(
+    'gh',
+    [
+      'issue',
+      'list',
+      '--repo',
+      repo,
+      '--state',
+      'all',
+      '--limit',
+      '100',
+      '--search',
+      buildIssueSearchQuery(startDateIso),
+      '--json',
+      fields.join(','),
+    ],
+    {env},
+  );
 
   return parseGhIssueList(stdout);
 }
 
-async function fetchIssuesViaPublicHtml(repo, startDateIso) {
+async function withScopedProxyEnv(env, callback) {
+  const previousValues = new Map(PROXY_ENV_KEYS.map((key) => [key, process.env[key]]));
+
+  for (const key of PROXY_ENV_KEYS) {
+    if (env[key] === undefined) {
+      delete process.env[key];
+    } else {
+      process.env[key] = env[key];
+    }
+  }
+
+  try {
+    return await callback();
+  } finally {
+    for (const [key, value] of previousValues.entries()) {
+      if (value === undefined) {
+        delete process.env[key];
+      } else {
+        process.env[key] = value;
+      }
+    }
+  }
+}
+
+async function fetchIssuesViaPublicHtml(repo, startDateIso, env = process.env) {
   const searchParams = new URLSearchParams({
     q: buildIssueSearchQuery(startDateIso),
   });
   const url = `https://github.com/${repo}/issues?${searchParams.toString()}`;
-  const response = await fetch(url, {
-    headers: {
-      'user-agent': 'AICode-Nexus-RepoIssueMonitor/1.0',
-      accept: 'text/html,application/xhtml+xml',
-    },
-  });
+  const response = await withScopedProxyEnv(env, () =>
+    fetch(url, {
+      headers: {
+        'user-agent': 'AICode-Nexus-RepoIssueMonitor/1.0',
+        accept: 'text/html,application/xhtml+xml',
+      },
+    }),
+  );
 
   if (!response.ok) {
     throw new Error(`GitHub issues HTML 返回 ${response.status}`);
@@ -118,6 +150,8 @@ async function main() {
   let issues = [];
   const sourceUrls = [];
   let status = 'ok';
+  const sanitizedProxy = stripLoopbackProxyEnv(process.env);
+  const canRetryWithoutLoopbackProxy = sanitizedProxy.clearedKeys.length > 0;
 
   try {
     issues = await fetchIssuesViaGh(repo, formatIsoDate(start));
@@ -135,16 +169,55 @@ async function main() {
       details: error instanceof Error ? error.message : String(error),
     });
 
-    const htmlResult = await fetchIssuesViaPublicHtml(repo, formatIsoDate(start));
-    issues = htmlResult.issues;
-    sourceUrls.push(htmlResult.url);
-    accessAttempts.push({
-      method: 'GitHub public issues HTML',
-      result: 'success',
-      observedAt: toShanghaiIso(new Date()),
-      details: '公开 issues 搜索页成功返回，并从内嵌结构化 JSON 中解析出 issue 列表。',
-    });
-    status = 'html-fallback';
+    if (canRetryWithoutLoopbackProxy) {
+      try {
+        issues = await fetchIssuesViaGh(repo, formatIsoDate(start), sanitizedProxy.env);
+        accessAttempts.push({
+          method: 'gh issue list',
+          result: 'success',
+          observedAt: toShanghaiIso(new Date()),
+          details: `检测到本地回环代理配置，已清除 ${sanitizedProxy.clearedKeys.join(', ')} 后重试成功。`,
+        });
+      } catch (retryError) {
+        accessAttempts.push({
+          method: 'gh issue list',
+          result: 'failed',
+          observedAt: toShanghaiIso(new Date()),
+          details: `检测到本地回环代理配置，已清除 ${sanitizedProxy.clearedKeys.join(', ')} 后重试，但仍失败：${
+            retryError instanceof Error ? retryError.message : String(retryError)
+          }`,
+        });
+      }
+    }
+
+    if (!issues.length) {
+      try {
+        const htmlResult = await fetchIssuesViaPublicHtml(
+          repo,
+          formatIsoDate(start),
+          canRetryWithoutLoopbackProxy ? sanitizedProxy.env : process.env,
+        );
+        issues = htmlResult.issues;
+        sourceUrls.push(htmlResult.url);
+        accessAttempts.push({
+          method: 'GitHub public issues HTML',
+          result: 'success',
+          observedAt: toShanghaiIso(new Date()),
+          details: canRetryWithoutLoopbackProxy
+            ? `公开 issues 搜索页在清除本地回环代理 ${sanitizedProxy.clearedKeys.join(', ')} 后返回成功，并从内嵌结构化 JSON 中解析出 issue 列表。`
+            : '公开 issues 搜索页成功返回，并从内嵌结构化 JSON 中解析出 issue 列表。',
+        });
+        status = 'html-fallback';
+      } catch (htmlError) {
+        accessAttempts.push({
+          method: 'GitHub public issues HTML',
+          result: 'failed',
+          observedAt: toShanghaiIso(new Date()),
+          details: htmlError instanceof Error ? htmlError.message : String(htmlError),
+        });
+        status = 'capture-failed';
+      }
+    }
   }
 
   const windowedIssues = filterIssuesInWindow(issues, start.toISOString(), end.toISOString());
@@ -167,7 +240,9 @@ async function main() {
     language: 'zh-CN',
     status,
     summary:
-      windowedIssues.length > 0
+      status === 'capture-failed'
+        ? '本轮未能完成 GitHub issue 采集校验，因此无法确认过去 24 小时内是否存在新建、关闭、重开或实质更新的 issue；这不等于没有变化。'
+        : windowedIssues.length > 0
         ? `在观察窗口内验证到 ${windowedIssues.length} 条 issue 变化。`
         : '在观察窗口内未验证到符合条件的 issue 变化。',
     observations: {
@@ -187,4 +262,3 @@ main().catch((error) => {
   console.error(error instanceof Error ? error.message : error);
   process.exitCode = 1;
 });
-

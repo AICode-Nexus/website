@@ -12,10 +12,12 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Fixed the navbar search loader getting stuck on `正在加载搜索索引...` by keeping the async index load tied to open/query state instead of cancelling it during the intermediate `loading` render.
 - Fixed Mermaid diagram pages rendering raw ` ```mermaid ` source blocks by enabling Docusaurus Mermaid markdown support and registering the Mermaid theme package for docs/blog content.
 - Fixed Mermaid node, edge, and cluster labels getting clipped on docs pages by resetting paragraph line-height inside the Docusaurus Mermaid container instead of inheriting the global docs paragraph rhythm.
+- Fixed repo issue monitoring in local automation runs so the monitor now strips broken loopback proxy variables before retrying `gh issue list`, and still writes a diagnostic `capture-failed` snapshot when both the GitHub CLI and public HTML fallback fail.
 
 ### Added
 
 - A Codex-driven GitHub issue monitoring content path, including a new site-admin guide for the issue-to-content automation flow, a long-lived insights page for repo issue signals, and a documented `content-sources/issues/` snapshot contract for dated source traces.
+- A repo-issue reply helper script, `npm run reply:repo-issue`, that posts a deduplicated Chinese follow-up comment back to the originating GitHub issue with the generated article or docs URL after content has been handled.
 - A stable repo-issue monitor script at `scripts/content/monitor-repo-issues.mjs`, plus parser tests and an `npm run monitor:repo-issues` entry, so issue monitoring now probes `gh issue list` directly and falls back to public GitHub issues HTML instead of blocking on `gh auth status`.
 - A standalone frontend guide, `Playwright 自动化测试方案`, that turns the new repo issue signal into a concrete reader-facing rollout plan covering when to use Playwright, how to choose the first smoke path, recommended project layout, and delivery evidence.
 - A standalone `OpenRouter 接入与路由方案` guide under `docs/tools/`, triggered by repo issue #2, plus related updates to the model-platform entry page and long-term issue signal tracking so OpenRouter now has a direct Chinese task-oriented landing page instead of only a directory mention.
