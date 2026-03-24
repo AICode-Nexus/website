@@ -52,10 +52,12 @@ const config = {
   projectName,
   onBrokenLinks: 'throw',
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+  themes: ['@docusaurus/theme-mermaid'],
   i18n: {
     defaultLocale: 'zh-CN',
     locales: ['zh-CN'],

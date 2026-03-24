@@ -7,6 +7,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed the navbar search loader getting stuck on `正在加载搜索索引...` by keeping the async index load tied to open/query state instead of cancelling it during the intermediate `loading` render.
+- Fixed Mermaid diagram pages rendering raw ` ```mermaid ` source blocks by enabling Docusaurus Mermaid markdown support and registering the Mermaid theme package for docs/blog content.
+
 ### Added
 
 - A Codex-driven GitHub issue monitoring content path, including a new site-admin guide for the issue-to-content automation flow, a long-lived insights page for repo issue signals, and a documented `content-sources/issues/` snapshot contract for dated source traces.
