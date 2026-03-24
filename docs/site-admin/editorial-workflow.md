@@ -25,6 +25,7 @@ Daily Brief 是站点的时效层，负责发现变化、给出初步判断，�
 
 - 生成每日 AI coding 观察日报
 - 自动从官方来源生成并发布每日 AI coding 简报
+- 把仓库 issue 的高信号变化转成 blog 更新与长期 docs 判断
 - 把快讯内容与长期知识库分层管理
 - 为周报、月报和专题改写提供稳定选题源
 
@@ -35,6 +36,18 @@ Daily Brief 是站点的时效层，负责发现变化、给出初步判断，�
 3. 自动写入 Daily Brief 正式文章并直接发布
 4. 如果当天没有足够信号，自动发布短版 no-signal brief
 5. 周度 / 月度复盘时决定哪些内容要回流 docs
+
+## Issue 监控补充流
+
+除了官方 feed，这个站点还可以用 Codex automation 每天补一条 repo issue 观察流：
+
+1. 检查过去 24 小时的 issue 变化，只保留对内容系统有复用价值的信号
+2. 把原始 issue 输入写入 `content-sources/issues/`，保留 dated trace
+3. 如有必要，生成当天的 issue-based blog，并更新长期 docs 页
+4. 运行内容校验与构建，通过后自动 commit / push
+5. 把结果回写到 inbox item
+
+这条补充流的职责不是替代 Daily Brief，而是把“仓库内部真实维护压力”转成内容判断。更具体的规则见 [GitHub Issue 内容自动化](/docs/site-admin/github-issue-monitoring)。
 
 ## Daily Brief 固定结构
 
@@ -85,5 +98,6 @@ Daily Brief 是站点的时效层，负责发现变化、给出初步判断，�
 ## 相关文档
 
 - [AI 写作流程](/docs/site-admin/ai-writing-workflow)
+- [GitHub Issue 内容自动化](/docs/site-admin/github-issue-monitoring)
 - [网站实施计划](/docs/site-admin/site-roadmap)
 - [Daily Brief](/blog)

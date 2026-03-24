@@ -30,6 +30,7 @@
     "analytics:content-gaps": "node scripts/analytics/content-gap-analysis.mjs",
     "sync:teaching-videos": "node scripts/sync-teaching-videos.mjs",
     "check:teaching-videos": "node scripts/sync-teaching-videos.mjs --check",
+    "check:teaching-videos:integrity": "node scripts/sync-teaching-videos.mjs --check --allow-stale",
     "test:teaching-videos": "node --test scripts/__tests__/*.test.mjs"
   },
   "dependencies": {

@@ -57,6 +57,14 @@ export function addDays(dateString, days) {
   return date.toISOString().slice(0, 10);
 }
 
+export function selectActiveSources(sources) {
+  const enabledSources = sources.filter((source) => source.enabled);
+  const domesticSources = enabledSources.filter((source) => source.platform === 'Bilibili');
+  const otherSources = enabledSources.filter((source) => source.platform !== 'Bilibili');
+
+  return [...domesticSources, ...otherSources];
+}
+
 export function slugify(value) {
   const normalized = normalizeWhitespace(value)
     .normalize('NFKD')
@@ -340,6 +348,10 @@ function scoreFreshness(publishedAt, windowEnd) {
 }
 
 function buildMirrorKey(record) {
+  if (typeof record.canonicalUrl === 'string' && record.canonicalUrl.trim() !== '') {
+    return normalizeWhitespace(record.canonicalUrl).replace(/\/$/u, '').toLowerCase();
+  }
+
   return [
     record.language,
     normalizeCreatorName(record.creator),
@@ -516,7 +528,13 @@ function mergeMirrorRecords(records) {
     const winner = nextPrimary > currentPrimary ? record : current;
     const loser = winner === record ? current : record;
 
-    winner.alternateUrls = Array.from(new Set([...winner.alternateUrls, loser.canonicalUrl, ...loser.alternateUrls]));
+    winner.alternateUrls = Array.from(
+      new Set(
+        [...winner.alternateUrls, loser.canonicalUrl, ...loser.alternateUrls].filter(
+          (value) => value && value !== winner.canonicalUrl,
+        ),
+      ),
+    );
     grouped.set(key, winner);
   });
 
@@ -889,7 +907,9 @@ function ensureDateString(value, fieldName) {
   }
 }
 
-export function validateCatalogContract(catalog, now = new Date()) {
+export function validateCatalogContract(catalog, now = new Date(), options = {}) {
+  const allowStale = options?.allowStale === true;
+
   if (!catalog || typeof catalog !== 'object') {
     throw new Error('Teaching video catalog must be an object.');
   }
@@ -971,7 +991,7 @@ export function validateCatalogContract(catalog, now = new Date()) {
   }
 
   const staleStatus = computeStaleStatus(catalog.generatedAt, now);
-  if (staleStatus.isStale) {
+  if (staleStatus.isStale && !allowStale) {
     throw new Error('Teaching video catalog is stale. Run the sync workflow to refresh it.');
   }
 

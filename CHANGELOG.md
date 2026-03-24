@@ -64,6 +64,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Added a mobile navbar search entry that opens a full-screen search layer backed by the same async site index, so mobile users can search docs, updates, and video resources without falling back to the menu tree.
 - Stabilized `npm run check:browser` by updating stale IA assertions and moving mobile search validation onto a dedicated mobile viewport flow with real screenshot artifacts, so browser acceptance now verifies the new mobile search entry end to end.
 - Filled in short role-mechanism guides for 产品、设计、测试、运维、数据分析 so their `skills-and-mcp` and `tool-fit-and-selection` pages now satisfy the content-quality minimums required by CI, unblocking both `Content Quality` and GitHub Pages deploy workflows.
+- Restored teaching-video sync stability by keeping all enabled discovery sources active while still prioritizing Bilibili, allowing the catalog refresh job to combine Bilibili and YouTube results instead of dropping overseas sources and falling below the 200-video contract.
 
 ## [1.1.0] - 2026-03-11
 
@@ -117,6 +118,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 ### Changed
 
 - Reclassified role template leaf docs under a dedicated `template` content form with lighter content-quality thresholds, so reusable fill-in assets no longer have to masquerade as full-length guides just to pass CI.
+- Split teaching-video catalog validation into strict freshness checks and relaxed structural checks, so ordinary docs/content workflows no longer fail deployments just because the scheduled video sync has gone stale.
 
 - Finished the remaining thin framework and discovery hubs by expanding the `Superpowers` community-framework set, deepening the workflow-framework overview, and rewriting the `实战案例 / 对比与选型 / 趋势观察` index pages into decision-first hubs that route readers back into executable tutorials instead of acting as shallow link lists.
 - Reworked the `先跑 Quick Start` tools sidebar so single-tool families now link straight to named tool entries instead of nesting repetitive one-item `快速开始` groups, expanded the eight tool quick-start docs into fuller first-run guides with task-fit advice, copyable templates, acceptance checklists, and common failure modes, and upgraded all eight tool `常见任务 / 排错 / 最佳实践` pages into denser operational docs with reusable task templates, explicit diagnosis paths, switch criteria, and long-term usage rules.

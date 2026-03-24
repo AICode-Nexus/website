@@ -4,6 +4,7 @@ import {
   addDays,
   buildCatalog,
   normalizeDetailedRecord,
+  selectActiveSources,
   validateCatalogContract,
 } from '../lib/teaching-video-pipeline.mjs';
 
@@ -198,10 +199,119 @@ test('validateCatalogContract rejects underfilled catalogs and stale outputs', (
   );
 });
 
+test('validateCatalogContract can skip freshness checks while keeping the structural contract', () => {
+  const catalog = buildCatalogFixture();
+
+  assert.doesNotThrow(() =>
+    validateCatalogContract(catalog, new Date('2026-03-10T10:30:00.000Z'), {allowStale: true}),
+  );
+});
+
 test('validateCatalogContract accepts a fresh 300-video catalog (above 200-video minimum)', () => {
   const catalog = buildCatalogFixture();
 
   assert.doesNotThrow(() =>
     validateCatalogContract(catalog, new Date('2026-03-07T09:00:00.000Z')),
   );
+});
+
+test('selectActiveSources keeps all enabled sources while prioritizing Bilibili', () => {
+  const selected = selectActiveSources([
+    {
+      id: 'yt-claude-code',
+      platform: 'YouTube',
+      enabled: true,
+    },
+    {
+      id: 'bili-claude-code',
+      platform: 'Bilibili',
+      enabled: true,
+    },
+    {
+      id: 'yt-cursor',
+      platform: 'YouTube',
+      enabled: true,
+    },
+    {
+      id: 'bili-cursor',
+      platform: 'Bilibili',
+      enabled: true,
+    },
+    {
+      id: 'disabled-youtube',
+      platform: 'YouTube',
+      enabled: false,
+    },
+  ]);
+
+  assert.deepEqual(
+    selected.map((source) => source.id),
+    ['bili-claude-code', 'bili-cursor', 'yt-claude-code', 'yt-cursor'],
+  );
+});
+
+test('buildCatalog merges duplicate videos that share the same canonical URL across sources', () => {
+  const windowEnd = '2026-03-23';
+  const windowStart = addDays(windowEnd, -89);
+  const generatedAt = '2026-03-23T09:52:30.365Z';
+  const englishSource = {
+    id: 'yt-roo-code-tutorial-en',
+    platform: 'YouTube',
+    kind: 'query',
+    language: 'en',
+    tier: 'watch',
+    tools: ['Roo Code'],
+    discoveryUrl: 'ytsearchdate20:Roo Code tutorial',
+    enabled: true,
+  };
+  const chineseSource = {
+    ...englishSource,
+    id: 'yt-roo-code-tutorial-zh',
+    language: 'zh',
+    discoveryUrl: 'ytsearchdate20:Roo Code 教程',
+  };
+  const sharedEntry = {
+    id: 'RktyZGHzLgE',
+    title: 'What is Roo Code?',
+    creator: 'Roo Code',
+    uploadDate: '20260104',
+    description: 'A practical Roo Code tutorial that covers workflow, rules, MCP, review, CI, and building projects.',
+    url: 'https://www.youtube.com/watch?v=RktyZGHzLgE',
+  };
+
+  const englishRecord = normalizeDetailedRecord(
+    buildDetailEntry({
+      ...sharedEntry,
+      source: englishSource,
+      duration: 900,
+    }),
+    taxonomy,
+    windowStart,
+    windowEnd,
+    generatedAt,
+  );
+  const chineseRecord = normalizeDetailedRecord(
+    buildDetailEntry({
+      ...sharedEntry,
+      source: chineseSource,
+      duration: 900,
+    }),
+    taxonomy,
+    windowStart,
+    windowEnd,
+    generatedAt,
+  );
+  const catalog = buildCatalog({
+    title: 'AI Code 教学视频库',
+    description: 'Test fixture',
+    sources: [englishSource, chineseSource],
+    items: [englishRecord, chineseRecord].filter(Boolean),
+    generatedAt,
+    windowStart,
+    windowEnd,
+  });
+
+  assert.equal(catalog.items.length, 1);
+  assert.equal(catalog.metrics.videoCount, 1);
+  assert.deepEqual(catalog.items[0].alternateUrls, []);
 });

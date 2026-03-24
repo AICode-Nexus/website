@@ -8,6 +8,7 @@ import {
   fetchDetailedEntries,
   getShanghaiDateString,
   normalizeDetailedRecord,
+  selectActiveSources,
   validateCatalogContract,
 } from './lib/teaching-video-pipeline.mjs';
 
@@ -18,6 +19,7 @@ const sourceRegistryPath = path.join(workspaceRoot, 'src/data/teachingVideoSourc
 const taxonomyPath = path.join(workspaceRoot, 'src/data/teachingVideoTaxonomy.json');
 const generatedPath = path.join(workspaceRoot, 'src/data/teachingVideos.generated.json');
 const checkMode = process.argv.includes('--check');
+const allowStale = process.argv.includes('--allow-stale');
 
 function ensureString(value, fieldName) {
   if (typeof value !== 'string' || value.trim() === '') {
@@ -105,14 +107,6 @@ async function loadTaxonomy() {
   return taxonomy;
 }
 
-function selectActiveSources(sources) {
-  const enabledSources = sources.filter((source) => source.enabled);
-  const domesticSources = enabledSources.filter((source) => source.platform === 'Bilibili');
-
-  // Prefer Chinese public sources when overseas platforms are unstable.
-  return domesticSources.length > 0 ? domesticSources : enabledSources;
-}
-
 function dedupeCandidates(candidates) {
   const unique = new Map();
 
@@ -180,8 +174,12 @@ async function generateCatalog() {
 async function checkCatalog() {
   const currentContent = await readFile(generatedPath, 'utf8');
   const currentCatalog = JSON.parse(currentContent);
-  validateCatalogContract(currentCatalog);
-  console.log('Teaching video catalog passed freshness and contract checks.');
+  validateCatalogContract(currentCatalog, new Date(), {allowStale});
+  console.log(
+    allowStale
+      ? 'Teaching video catalog passed structural checks (freshness check skipped).'
+      : 'Teaching video catalog passed freshness and contract checks.',
+  );
 }
 
 async function writeCatalog() {

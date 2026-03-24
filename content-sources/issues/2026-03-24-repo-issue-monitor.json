@@ -1,0 +1,49 @@
+{
+  "date": "2026-03-24",
+  "repo": "AICode-Nexus/website",
+  "generatedAt": "2026-03-24T09:12:32+08:00",
+  "window": {
+    "start": "2026-03-23T09:12:32+08:00",
+    "end": "2026-03-24T09:12:32+08:00"
+  },
+  "language": "zh-CN",
+  "status": "capture-failed",
+  "summary": "本轮未能完成 GitHub issue 采集校验，因此无法确认过去 24 小时内是否存在新建、关闭、重开或实质更新的 issue；这不等于没有变化。",
+  "observations": {
+    "verifiedIssueChanges": [],
+    "accessAttempts": [
+      {
+        "method": "gh issue list",
+        "result": "failed",
+        "observedAt": "2026-03-24T09:12:32+08:00",
+        "details": "默认环境变量包含 http_proxy / https_proxy / all_proxy，均指向 127.0.0.1:7897；`gh issue list` 因代理不可达而失败。"
+      },
+      {
+        "method": "gh issue list",
+        "result": "failed",
+        "observedAt": "2026-03-24T09:12:32+08:00",
+        "details": "在取消代理环境变量后再次执行 `gh issue list`，仍返回 `error connecting to api.github.com`。"
+      },
+      {
+        "method": "GitHub public issues HTML",
+        "result": "failed",
+        "observedAt": "2026-03-24T09:12:32+08:00",
+        "details": "监控脚本在 HTML fallback 路径返回 `fetch failed`，未能拿到公开 issues 搜索页。"
+      }
+    ],
+    "sourceUrls": [
+      "https://github.com/AICode-Nexus/website/issues?q=is%3Aissue%20sort%3Aupdated-desc%20updated%3A%3E%3D2026-03-23"
+    ],
+    "lastVerifiedSnapshot": {
+      "date": "2026-03-23",
+      "generatedAt": "2026-03-23T17:03:35+08:00",
+      "summary": "上一轮已验证到 1 条 issue 变化，即 issue #1 在 2026-03-23 16:40:57 +08:00 前后创建并更新。该事实来自 2026-03-23 的成功采集，不代表本轮窗口也已被重新验证。"
+    }
+  },
+  "materialChanges": [],
+  "editorialDecision": {
+    "createOrUpdateBrief": false,
+    "updateLongTermDocs": false,
+    "reason": "本轮没有新近验证成功的 issue 变化；为避免把采集失败误写成内容判断，不生成新的 blog 或 docs 结论。"
+  }
+}

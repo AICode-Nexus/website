@@ -9,3 +9,4 @@ build/
 output/playwright/
 /.codex/ralph-loop.local.md
 /tmp/
+/.baoyu-skills/.env
