@@ -10,7 +10,7 @@ const OUTPUT_ROOT = path.join(workspaceRoot, 'output', 'playwright', 'browser-ac
 const SITE_PREFIX = '/website';
 const PLAYWRIGHT_PACKAGE = '@playwright/cli';
 const SESSION_NAME = `browser-acceptance-${Date.now()}`;
-const NAV_LABELS = ['开始上手', '工具教程', '工作流教程', '实战案例', '进阶专题', '动态', 'AI 资源导航', '视频资源'];
+const NAV_LABELS = ['开始上手', '工具教程', '工作流教程', '实战案例', '进阶专题', '按岗位进入', '博客动态', '版本更新'];
 const HERO_ACTIONS = [
   {label: '30 分钟上手', href: '/website/docs/start/30-minute-quick-start'},
   {label: '按任务找教程', href: '/website/docs/workflows/playbooks/workflow-playbook'},

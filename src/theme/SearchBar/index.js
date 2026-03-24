@@ -218,6 +218,8 @@ export default function SearchBar() {
     }
 
     let cancelled = false;
+    // Keep the load effect keyed to open/query state so the in-flight request
+    // can settle instead of being cancelled by the intermediate "loading" render.
     setSearchIndexStatus('loading');
 
     loadSearchEntries()
@@ -241,7 +243,7 @@ export default function SearchBar() {
     return () => {
       cancelled = true;
     };
-  }, [hasQuery, isOpen, searchIndexStatus]);
+  }, [hasQuery, isOpen]);
 
   useEffect(() => {
     if (isMobile) {
