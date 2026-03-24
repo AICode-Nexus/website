@@ -286,6 +286,13 @@ html.docs-wrapper .theme-doc-sidebar-container {
   color: var(--ifm-font-color-base);
 }
 
+.docusaurus-mermaid-container .nodeLabel p,
+.docusaurus-mermaid-container .edgeLabel p,
+.docusaurus-mermaid-container .cluster-label p {
+  margin: 0;
+  line-height: 1.5;
+}
+
 .theme-doc-markdown table {
   display: table;
   width: 100%;
