@@ -1,49 +1,83 @@
 {
   "date": "2026-03-24",
   "repo": "AICode-Nexus/website",
-  "generatedAt": "2026-03-24T09:12:32+08:00",
+  "generatedAt": "2026-03-24T16:02:21+08:00",
   "window": {
-    "start": "2026-03-23T09:12:32+08:00",
-    "end": "2026-03-24T09:12:32+08:00"
+    "start": "2026-03-23T16:02:18+08:00",
+    "end": "2026-03-24T16:02:18+08:00"
   },
   "language": "zh-CN",
-  "status": "capture-failed",
-  "summary": "本轮未能完成 GitHub issue 采集校验，因此无法确认过去 24 小时内是否存在新建、关闭、重开或实质更新的 issue；这不等于没有变化。",
+  "status": "ok",
+  "summary": "在观察窗口内验证到 2 条 issue 变化。",
   "observations": {
-    "verifiedIssueChanges": [],
+    "verifiedIssueChanges": [
+      {
+        "number": 2,
+        "title": "openRouter",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/2",
+        "createdAt": "2026-03-24T07:57:14Z",
+        "updatedAt": "2026-03-24T07:57:14Z",
+        "closedAt": null,
+        "body": "写一个关于openRouter的文章",
+        "author": "trsoliu",
+        "labels": [],
+        "issueType": null,
+        "source": "gh",
+        "changeTypes": [
+          "created"
+        ]
+      },
+      {
+        "number": 1,
+        "title": "plawright",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/1",
+        "createdAt": "2026-03-23T08:40:40Z",
+        "updatedAt": "2026-03-23T08:40:57Z",
+        "closedAt": null,
+        "body": "我希望看到关于playwright 相关的自动化测试方案",
+        "author": "trsoliu",
+        "labels": [],
+        "issueType": null,
+        "source": "gh",
+        "changeTypes": [
+          "created",
+          "updated"
+        ]
+      }
+    ],
     "accessAttempts": [
       {
         "method": "gh issue list",
-        "result": "failed",
-        "observedAt": "2026-03-24T09:12:32+08:00",
-        "details": "默认环境变量包含 http_proxy / https_proxy / all_proxy，均指向 127.0.0.1:7897；`gh issue list` 因代理不可达而失败。"
-      },
-      {
-        "method": "gh issue list",
-        "result": "failed",
-        "observedAt": "2026-03-24T09:12:32+08:00",
-        "details": "在取消代理环境变量后再次执行 `gh issue list`，仍返回 `error connecting to api.github.com`。"
-      },
-      {
-        "method": "GitHub public issues HTML",
-        "result": "failed",
-        "observedAt": "2026-03-24T09:12:32+08:00",
-        "details": "监控脚本在 HTML fallback 路径返回 `fetch failed`，未能拿到公开 issues 搜索页。"
+        "result": "success",
+        "observedAt": "2026-03-24T16:02:21+08:00",
+        "details": "直接调用 `gh issue list` 成功返回 issue 列表，未把 `gh auth status` 作为前置门槛。"
       }
     ],
     "sourceUrls": [
       "https://github.com/AICode-Nexus/website/issues?q=is%3Aissue%20sort%3Aupdated-desc%20updated%3A%3E%3D2026-03-23"
-    ],
-    "lastVerifiedSnapshot": {
-      "date": "2026-03-23",
-      "generatedAt": "2026-03-23T17:03:35+08:00",
-      "summary": "上一轮已验证到 1 条 issue 变化，即 issue #1 在 2026-03-23 16:40:57 +08:00 前后创建并更新。该事实来自 2026-03-23 的成功采集，不代表本轮窗口也已被重新验证。"
-    }
+    ]
   },
-  "materialChanges": [],
-  "editorialDecision": {
-    "createOrUpdateBrief": false,
-    "updateLongTermDocs": false,
-    "reason": "本轮没有新近验证成功的 issue 变化；为避免把采集失败误写成内容判断，不生成新的 blog 或 docs 结论。"
-  }
+  "materialChanges": [
+    {
+      "number": 2,
+      "title": "openRouter",
+      "url": "https://github.com/AICode-Nexus/website/issues/2",
+      "changeTypes": [
+        "created"
+      ],
+      "whyItMatters": "这条 issue 在观察窗口内发生了可见变化，需要人工判断是否值得沉淀为内容。"
+    },
+    {
+      "number": 1,
+      "title": "plawright",
+      "url": "https://github.com/AICode-Nexus/website/issues/1",
+      "changeTypes": [
+        "created",
+        "updated"
+      ],
+      "whyItMatters": "这条 issue 直接提出了 Playwright 自动化测试方案需求，属于可回流为测试/交付内容入口的高信号。"
+    }
+  ]
 }

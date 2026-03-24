@@ -13,8 +13,8 @@ entry_role: admin
 audience: mixed
 stage: intermediate
 featured: false
-reviewed_at: 2026-03-23
-source_window_end: 2026-03-23
+reviewed_at: 2026-03-24
+source_window_end: 2026-03-24
 market_status: current
 ---
 
@@ -62,6 +62,19 @@ market_status: current
 - `2026-03-23`：确定长期 docs 的默认落点为当前页面，用来沉淀“哪些 issue 信号值得改长期知识”。
 
 ## 最新信号
+
+### 2026-03-24：OpenRouter 主题已经出现明确“想看一篇文章”的需求
+
+- 事实：[`AICode-Nexus/website` 的 issue #2 `openRouter`](https://github.com/AICode-Nexus/website/issues/2) 于 `2026-03-24 07:57:14 UTC` 创建，正文是“写一个关于openRouter的文章”。
+- 事实：截至 `2026-03-24 16:02:21 +08:00` 的监控快照，这条 issue 当前状态为 Open，且已被验证进入 `2026-03-23 16:02:18 +08:00` 到 `2026-03-24 16:02:18 +08:00` 的观察窗口。
+- 推断：这条信号不是泛泛的“想补一个平台目录项”，而是读者已经在用“写一篇文章”来表达内容入口缺失，说明现有目录页对 OpenRouter 的任务导向还不够直接。
+- 推断：相比再写一篇时效性 brief，这类需求更适合直接沉淀为独立方案页，因为它能立即回答“什么时候用、怎么接、什么时候别把它当默认基线”。
+
+### 这条信号应该怎么回流
+
+- docs 层：新增 [`OpenRouter 接入与路由方案`](/docs/tools/openrouter-routing-playbook)，直接回答接入方式、路由边界、Auto Router 与 BYOK 的取舍。
+- docs 层：同步补强 [`模型 API 与平台`](/docs/ai-directory/model-platforms) 的入口说明，让读者在目录页就能跳到更具体的 OpenRouter 方案页。
+- watchlist：如果接下来继续出现“多模型统一入口”“OpenRouter 怎么接”“能不能把它当生产默认层”之类 issue，就要再把它升级成更明确的团队规则与 provider 治理文档。
 
 ### 2026-03-23：Playwright 自动化测试方案需求已经出现明确 issue
 
@@ -112,6 +125,7 @@ market_status: current
 ## Sources
 
 - [AICode-Nexus/website Issues](https://github.com/AICode-Nexus/website/issues)
+- [Issue #2: `openRouter`](https://github.com/AICode-Nexus/website/issues/2)
 - [Issue #1: `plawright`](https://github.com/AICode-Nexus/website/issues/1)
 - [GitHub Issue 内容自动化](/docs/site-admin/github-issue-monitoring)
 
