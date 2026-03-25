@@ -63,6 +63,32 @@ market_status: current
 
 ## 最新信号
 
+### 2026-03-25：`统一 Agent 平台 + 自研 Frontier` 已经是明确的企业级读者需求
+
+- 事实：[`AICode-Nexus/website` 的 issue #5 `统一 Agent 平台 + 自研 Frontier 能力`](https://github.com/AICode-Nexus/website/issues/5) 于 `2026-03-25 03:23:58 UTC` 创建。
+- 事实：截至 `2026-03-25 14:26:00 +08:00` 的全量 issue 快照，这条 issue 当前状态为 Open，且仓库此前没有明确对应该主题的中文独立页面。
+- 推断：这条反馈不是单纯想看“模型更强了什么”，而是在问企业为什么最终会同时建设平台层和模型能力层，说明读者已经从工具选择进入组织级架构判断。
+- 推断：这类需求更适合直接沉淀成独立 insight / 方案页，而不是只写一篇日报，因为它会持续影响企业读者对平台、模型和治理分工的理解。
+
+### 这条信号应该怎么回流
+
+- docs 层：新增 [`统一 Agent 平台 + 自研 Frontier：企业级 AI 交付为什么要双线建设`](/docs/tools/insights/unified-agent-platform-frontier)，把平台层、能力层、推进顺序和组织误区拆开讲清。
+- docs 层：继续把这条判断回链到 [`Agent = Model + Harness`](/docs/tools/insights/agent-model-plus-harness)，避免把平台问题误理解为“多接几个模型”。
+- watchlist：如果后续继续出现“企业级 agent 平台怎么做”“什么时候要自研模型能力”“平台团队和模型团队怎么分工”之类 issue，就要把这类主题再升级成更明确的平台治理专题。
+
+### 2026-03-25：`Vibe Working` 说明读者已经在追问“怎么把 AI coding 变成团队交付”
+
+- 事实：[`AICode-Nexus/website` 的 issue #4 `聊一聊vibe working`](https://github.com/AICode-Nexus/website/issues/4) 于 `2026-03-25 02:41:23 UTC` 创建，正文是“从 vibe coding 到聊一聊 vibe working”。
+- 事实：截至 `2026-03-25 14:26:00 +08:00` 的全量 issue 快照，这条 issue 当前状态为 Open，且仓库此前没有明确对应该主题的中文工作流页。
+- 推断：这条 issue 不是在要一个新名词解释，而是在问团队如何把灵感驱动的 AI coding 节奏升级成可委派、可验证、可 handoff 的工作方式。
+- 推断：相比写当天 brief，这类需求更适合直接补成工作流页，因为它能直接回流到任务合同、验证证据和协作接口这些长期结构。
+
+### 这条信号应该怎么回流
+
+- docs 层：新增 [`Vibe Working：从 Vibe Coding 到可交付团队工作流`](/docs/workflows/vibe-working)，直接回答任务合同、执行模式、验证证据和复盘资产怎么固定。
+- docs 层：把它与 [`主流 AI Coding 工作流`](/docs/workflows/mainstream-ai-coding-workflows) 和 [`提示词合同`](/docs/workflows/prompt-contracts) 连接起来，避免读者把 `vibe working` 理解成更松散的“继续凭感觉做事”。
+- watchlist：如果后续继续出现“团队怎么协同 agent”“如何收口验证与 handoff”“个人快感怎样升级成团队稳定交付”之类 issue，就要把这条线继续升级成团队 operating model 专题。
+
 ### 2026-03-25：`Skills 与 MCP` 页面已经暴露“看完还要自己搜官网”的入口缺口
 
 - 事实：[`AICode-Nexus/website` 的 issue #3 `一些skills和mcp可以附上对应的GitHub地址或者是对应的网址就更好了 方便点击就能看到 就不用自己去搜索了`](https://github.com/AICode-Nexus/website/issues/3) 于 `2026-03-24 09:54:05 UTC` 创建。
@@ -138,6 +164,8 @@ market_status: current
 ## Sources
 
 - [AICode-Nexus/website Issues](https://github.com/AICode-Nexus/website/issues)
+- [Issue #5: `统一 Agent 平台 + 自研 Frontier 能力`](https://github.com/AICode-Nexus/website/issues/5)
+- [Issue #4: `聊一聊vibe working`](https://github.com/AICode-Nexus/website/issues/4)
 - [Issue #2: `openRouter`](https://github.com/AICode-Nexus/website/issues/2)
 - [Issue #1: `plawright`](https://github.com/AICode-Nexus/website/issues/1)
 - [GitHub Issue 内容自动化](/docs/site-admin/github-issue-monitoring)
