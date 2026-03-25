@@ -7,6 +7,10 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Changed
+
+- Reworked the new issue-driven pages `Vibe Working` and `统一 Agent 平台 + 自研 Frontier` into stronger long-form articles grounded in official Anthropic, OpenAI, GitHub, and VS Code sources, replacing the earlier outline-heavy drafts with clearer narrative structure and dated evidence.
+
 ### Fixed
 
 - Fixed a mobile search race where opening the search overlay and then typing immediately could cancel the in-flight search-index load, leaving the UI stuck on `正在加载搜索索引...` and returning no results.
