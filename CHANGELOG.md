@@ -9,7 +9,9 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Reworked the issue-driven pages for Playwright, OpenRouter, and `Skills 与 MCP` into article-style longform docs with dated official sources and clearer argument flow, replacing the earlier list-heavy versions tied to issues #1, #2, and #3.
 - Reworked the new issue-driven pages `Vibe Working` and `统一 Agent 平台 + 自研 Frontier` into stronger long-form articles grounded in official Anthropic, OpenAI, GitHub, and VS Code sources, replacing the earlier outline-heavy drafts with clearer narrative structure and dated evidence.
+- Reworked the local `ai-coding-daily-writer` skill from a thin daily template into a repo-native content orchestration workflow, with a tested initializer for `daily`, `weekly`, and `insight` outputs, a legacy-compatible daily entrypoint, and documented `EXTEND.md` preferences aligned with the existing `scripts/content/*.mjs` pipeline.
 
 ### Fixed
 

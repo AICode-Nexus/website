@@ -20,7 +20,41 @@ slug: /roles/frontend/skills-and-mcp
 
 # Skills 与 MCP
 
-前端任务最容易出现的一种低效，是知道很多工具名，但不知道应该先启用什么能力。结果就是：设计稿任务没先拿 Figma 上下文，React 重构没先收紧组件边界，浏览器问题没先进真实页面，最后所有上下文都堆到同一段对话里。
+## TL;DR
+
+前端团队在 AI 协作里最常见的低效，不是“工具太少”，而是“能力顺序错了”。  
+设计稿任务没先拿 Figma 上下文，React 重构没先收紧组件边界，浏览器问题没先进真实页面，最后所有上下文都堆进同一段对话里，返工自然会高。
+
+这页真正想回答的不是“有哪些 skill”和“有哪些 MCP”，而是三件更实际的事：
+
+1. 什么时候该先用方法类 skill 收紧工作方式。
+2. 什么时候必须先用 MCP 拿真实世界上下文。
+3. 当你已经知道主题页在哪时，下一步应该去哪个官方入口，而不是再自己搜一轮。
+
+## 为什么这页需要重写
+
+- 事实：GitHub issue [#3 `一些skills和mcp可以附上对应的GitHub地址或者是对应的网址就更好了 方便点击就能看到 就不用自己去搜索了`](https://github.com/AICode-Nexus/website/issues/3) 于 `2026-03-24 09:54:05 UTC` 创建。
+- 事实：截至 `2026-03-25 14:20:42 +08:00` 的全量 issue 快照，这条 issue 当前状态为 Open，且 issue 下已有中文回帖与站内内容更新。
+- 推断：读者的问题并不是“听不懂 skill 或 MCP 是什么”，而是页面已经把主题说对了，但还没有把下一步动作做得足够直接。
+
+## 先把三个对象分开，不然前端任务很容易一开始就走歪
+
+当前主流 agent 产品和工具，其实已经把这三层分得很清楚：
+
+- 事实：OpenAI 在 [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/) 中，把 `skills` 描述为可打包 instructions、resources 和 scripts 的方式，用来让 agent 按稳定偏好连接工具并执行工作流。
+- 事实：Figma 在官方 [Guide to the Figma MCP server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server) 中，把 Figma MCP 定义为把设计上下文、组件、变量和 Code Connect 带进开发环境的方式。
+- 事实：Context7 在官方 [Intro](https://context7.com/docs) 中，把自己的作用写得非常直接：给 AI coding assistant 提供最新、版本化的文档与代码示例，减少过时知识和幻觉 API。
+- 事实：Model Context Protocol 官方 [Core architecture](https://modelcontextprotocol.io/legacy/concepts/architecture) 文档说明，MCP 的核心是 host、client、server 的 client-server 架构，让 LLM 应用能够以标准接口接入外部上下文、工具与 prompt。
+
+把这些官方表述放到一起看，前端任务里最稳的三层其实是：
+
+| 层级 | 它真正负责什么 | 前端语境里的典型问题 |
+| --- | --- | --- |
+| Skill | 固定方法、边界和做事顺序 | React 重构先收紧组件职责，bug 排查先证明问题 |
+| MCP | 提供真实世界上下文与外部能力 | 设计稿节点、浏览器页面、官方文档、文件资源 |
+| Task brief | 定义本轮目标与验收 | 这次到底要改哪页、交什么证据、哪些不做 |
+
+真正的问题从来不是“我会不会用很多工具”，而是“我有没有先拿到当前任务最关键的那层能力”。
 
 ## 能力编排板
 
@@ -76,10 +110,17 @@ slug: /roles/frontend/skills-and-mcp
 
 ## 官方入口速查
 
-- 事实：GitHub issue [#3](https://github.com/AICode-Nexus/website/issues/3) 在 `2026-03-24 09:54:05 UTC` 创建，直接提出“有些 skills 和 MCP 页面最好附 GitHub 地址或网址，方便点击查看”。
-- 推断：对读者来说，`Skills 与 MCP` 页不只要回答“什么时候用”，还应该回答“下一步去哪里看官方入口”。
+issue `#3` 暴露出的真正问题，其实很典型：  
+读者已经进到了正确主题页，但页面还没有把“下一步去哪里看官方入口”做成显性动作。
 
-先说明一个边界：本仓库里的 `skill` 多数是本地方法模板，不一定都有独立官网或 GitHub 仓库。真正需要点出去的时候，优先看它依赖的外部工具、协议或官方文档，而不是强行为每个 skill 名称找一个并不存在的公共主页。
+这里先说明一个边界：本仓库里的 `skill` 多数是本地方法模板，不一定一一对应某个独立产品官网。  
+所以真正值得点出去的，通常不是 skill 名称本身，而是它依赖的外部协议、平台或官方文档。
+
+更稳的理解方式是：
+
+- 当你需要“方法”，先留在站内看 skill 和 workflow。
+- 当你需要“真实上下文”或“最新接口”，再点去外部官方入口。
+- 当你只是模糊觉得“我听过这个名字”，不要一开始就开十几个标签页。
 
 | 能力 / 主题 | 站内入口 | 官方或参考入口 | 什么时候值得点出去 |
 | --- | --- | --- | --- |
@@ -204,3 +245,11 @@ slug: /roles/frontend/skills-and-mcp
 - 想把这些能力接回规则文件：去 [规则与规范文档](/docs/roles/frontend/rules-and-instruction-files)。
 - 想把能力选择再收敛到入口工具：去 [工具匹配与选型](/docs/roles/frontend/tool-fit-and-selection)。
 - 想回到前端机制总览：去 [上下文与规则](/docs/roles/frontend/context-and-rules)。
+
+## Sources
+
+- [GitHub Issue #3](https://github.com/AICode-Nexus/website/issues/3)
+- [OpenAI: Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/)
+- [Figma Help: Guide to the Figma MCP server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server)
+- [Context7 Docs: Intro](https://context7.com/docs)
+- [Model Context Protocol: Core architecture](https://modelcontextprotocol.io/legacy/concepts/architecture)
