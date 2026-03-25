@@ -9,6 +9,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Fixed
 
+- Fixed a mobile search race where opening the search overlay and then typing immediately could cancel the in-flight search-index load, leaving the UI stuck on `正在加载搜索索引...` and returning no results.
 - Fixed the navbar search loader getting stuck on `正在加载搜索索引...` by keeping the async index load tied to open/query state instead of cancelling it during the intermediate `loading` render.
 - Fixed Mermaid diagram pages rendering raw ` ```mermaid ` source blocks by enabling Docusaurus Mermaid markdown support and registering the Mermaid theme package for docs/blog content.
 - Fixed Mermaid node, edge, and cluster labels getting clipped on docs pages by resetting paragraph line-height inside the Docusaurus Mermaid container instead of inheriting the global docs paragraph rhythm.

@@ -193,6 +193,7 @@ export default function SearchBar() {
   );
   const containerRef = useRef(null);
   const inputRef = useRef(null);
+  const isMountedRef = useRef(true);
   const history = useHistory();
   const windowSize = useWindowSize();
   const isMobile = windowSize === 'mobile';
@@ -209,6 +210,12 @@ export default function SearchBar() {
     searchIndexStatus === 'loading' || (searchIndexStatus === 'idle' && (isOpen || hasQuery));
 
   useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
     if (!isOpen && !hasQuery) {
       return undefined;
     }
@@ -217,14 +224,13 @@ export default function SearchBar() {
       return undefined;
     }
 
-    let cancelled = false;
-    // Keep the load effect keyed to open/query state so the in-flight request
-    // can settle instead of being cancelled by the intermediate "loading" render.
     setSearchIndexStatus('loading');
 
+    // Do not cancel this in-flight load on open->type transitions, or mobile
+    // search can get stuck in the loading state forever.
     loadSearchEntries()
       .then((entries) => {
-        if (cancelled) {
+        if (!isMountedRef.current) {
           return;
         }
 
@@ -232,17 +238,13 @@ export default function SearchBar() {
         setSearchIndexStatus('ready');
       })
       .catch(() => {
-        if (cancelled) {
+        if (!isMountedRef.current) {
           return;
         }
 
         setSearchEntries([]);
         setSearchIndexStatus('error');
       });
-
-    return () => {
-      cancelled = true;
-    };
   }, [hasQuery, isOpen]);
 
   useEffect(() => {
