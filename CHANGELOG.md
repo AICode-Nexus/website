@@ -16,6 +16,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- Added a direct outbound-link layer to `前端 / Skills 与 MCP`, including an official-entry quick-reference table for Figma MCP, Context7, Playwright, and the MCP protocol, plus new long-term issue-signal tracking for repo issue #3 so readers no longer need to search for core external docs by hand after landing on the capability page.
 - A Codex-driven GitHub issue monitoring content path, including a new site-admin guide for the issue-to-content automation flow, a long-lived insights page for repo issue signals, and a documented `content-sources/issues/` snapshot contract for dated source traces.
 - A repo-issue reply helper script, `npm run reply:repo-issue`, that posts a deduplicated Chinese follow-up comment back to the originating GitHub issue with the generated article or docs URL after content has been handled.
 - A stable repo-issue monitor script at `scripts/content/monitor-repo-issues.mjs`, plus parser tests and an `npm run monitor:repo-issues` entry, so issue monitoring now probes `gh issue list` directly and falls back to public GitHub issues HTML instead of blocking on `gh auth status`.

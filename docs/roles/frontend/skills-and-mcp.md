@@ -12,8 +12,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-18
-source_window_end: 2026-03-18
+reviewed_at: 2026-03-25
+source_window_end: 2026-03-25
 market_status: current
 slug: /roles/frontend/skills-and-mcp
 ---
@@ -73,6 +73,22 @@ slug: /roles/frontend/skills-and-mcp
 | 文件与资源读取 | 需要理解 repo 中的 token、配置、素材文件时 | 设计 token、内容配置、静态资源目录 |
 
 一个常见错误是：前端任务明明依赖 Figma 和浏览器，却只给文本说明。这样模型只能猜视觉、猜交互、猜断点，返工自然会高。
+
+## 官方入口速查
+
+- 事实：GitHub issue [#3](https://github.com/AICode-Nexus/website/issues/3) 在 `2026-03-24 09:54:05 UTC` 创建，直接提出“有些 skills 和 MCP 页面最好附 GitHub 地址或网址，方便点击查看”。
+- 推断：对读者来说，`Skills 与 MCP` 页不只要回答“什么时候用”，还应该回答“下一步去哪里看官方入口”。
+
+先说明一个边界：本仓库里的 `skill` 多数是本地方法模板，不一定都有独立官网或 GitHub 仓库。真正需要点出去的时候，优先看它依赖的外部工具、协议或官方文档，而不是强行为每个 skill 名称找一个并不存在的公共主页。
+
+| 能力 / 主题 | 站内入口 | 官方或参考入口 | 什么时候值得点出去 |
+| --- | --- | --- | --- |
+| Figma MCP | [设计 / Figma](/docs/roles/design/tools/figma) | [Figma MCP Catalog](https://www.figma.com/mcp-catalog/)<br />[Figma Dev Mode MCP server 介绍](https://www.figma.com/blog/introducing-figmas-dev-mode-mcp-server/) | 你需要确认 Figma MCP 支持范围、接入方式或产品定位时 |
+| Context7 | 当前页 | [Context7](https://context7.com/) | 你已经知道要查最新官方文档，但还没进入对应库的检索入口时 |
+| Playwright | [Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan) | [Playwright Docs](https://playwright.dev/docs/intro) | 你已经决定要做浏览器自动化，需要对照 API、配置或 runner 细节时 |
+| MCP 协议本身 | [MCP 与协议生态](/docs/ai-directory/mcp-and-protocols) | [Model Context Protocol: Introduction](https://modelcontextprotocol.io/introduction)<br />[Model Context Protocol: Architecture overview](https://modelcontextprotocol.io/docs/architecture) | 你需要先理解协议层，而不是直接挑某个 server 时 |
+
+如果你在站内页面已经能明确任务形状，就先用站内页缩小范围；只有当你需要核对产品能力、最新接口或官方接入细节时，再点出去看官方入口。这样更不容易在一开始就掉进“开十几个标签页，但还没开始做事”的低效模式。
 
 ## 默认能力组合
 

@@ -13,8 +13,8 @@ entry_role: admin
 audience: mixed
 stage: intermediate
 featured: false
-reviewed_at: 2026-03-24
-source_window_end: 2026-03-24
+reviewed_at: 2026-03-25
+source_window_end: 2026-03-25
 market_status: current
 ---
 
@@ -62,6 +62,19 @@ market_status: current
 - `2026-03-23`：确定长期 docs 的默认落点为当前页面，用来沉淀“哪些 issue 信号值得改长期知识”。
 
 ## 最新信号
+
+### 2026-03-25：`Skills 与 MCP` 页面已经暴露“看完还要自己搜官网”的入口缺口
+
+- 事实：[`AICode-Nexus/website` 的 issue #3 `一些skills和mcp可以附上对应的GitHub地址或者是对应的网址就更好了 方便点击就能看到 就不用自己去搜索了`](https://github.com/AICode-Nexus/website/issues/3) 于 `2026-03-24 09:54:05 UTC` 创建。
+- 事实：截至 `2026-03-25 10:16:55 +08:00` 的监控快照，这条 issue 当前状态为 Open，且已被验证进入 `2026-03-24 10:16:54 +08:00` 到 `2026-03-25 10:16:54 +08:00` 的观察窗口。
+- 推断：这条反馈不是要求再加一层概念介绍，而是在说读者已经找到了正确主题页，却还需要离开站点自己补搜官方入口，说明当前 `Skills 与 MCP` 页的“下一步动作”不够直接。
+- 推断：这类问题更适合直接补 docs，而不是先写一篇日报，因为它能立刻转化成更短的点击路径和更少的检索摩擦。
+
+### 这条信号应该怎么回流
+
+- docs 层：补强 [`前端 / Skills 与 MCP`](/docs/roles/frontend/skills-and-mcp)，新增“官方入口速查”，把 Figma、MCP 协议、Context7、Playwright 这类高频入口放到同一页里。
+- docs 层：明确说明“skill 名称”和“外部工具官网”不是一一对应关系，避免把本地方法模板误理解成独立产品目录。
+- watchlist：如果后续 1 到 2 周继续出现“页面有概念但没外链”“知道名字但不知道去哪看官方文档”的 issue，就要把这类问题升级为统一的外链补强规则，而不是只在单页手工修补。
 
 ### 2026-03-24：OpenRouter 主题已经出现明确“想看一篇文章”的需求
 
