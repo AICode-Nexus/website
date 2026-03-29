@@ -13,8 +13,8 @@ entry_role: admin
 audience: mixed
 stage: intermediate
 featured: false
-reviewed_at: 2026-03-25
-source_window_end: 2026-03-25
+reviewed_at: 2026-03-26
+source_window_end: 2026-03-26
 market_status: current
 ---
 
@@ -62,6 +62,20 @@ market_status: current
 - `2026-03-23`：确定长期 docs 的默认落点为当前页面，用来沉淀“哪些 issue 信号值得改长期知识”。
 
 ## 最新信号
+
+### 2026-03-26：`Happy` 说明“离开桌面后怎么继续控制 agent”已经成了新的工具入口缺口
+
+- 事实：[`AICode-Nexus/website` 的 issue #6 `sad`](https://github.com/AICode-Nexus/website/issues/6) 于 `2026-03-26 10:27:20 UTC` 创建，正文只有 `happy`，原始文本本身不足以独立判断具体指向。
+- 事实：在 `2026-03-26` 的人工复核中，已经确认这条 issue 指的是 Happy 这一款远程控制 Codex / Claude Code 的工具，而不是情绪词。
+- 事实：Happy 官方 GitHub README 把它描述为 “Mobile and Web client for Claude Code & Codex”；官方最佳实践页则明确写到可以用 `happy` 和 `happy codex` 从终端启动会话，再在手机与 Web 之间无缝接管。
+- 推断：这条 issue 暴露的不是“模型缺口”，也不是“传统远程桌面需求”，而是站内还没有明确解释“如何把本机 agent 会话安全地延伸到手机和 Web”的工具入口缺口。
+- 推断：这类需求更适合直接沉淀成独立工具页，而不是先写日报，因为它对应的是一个稳定的工具定位问题，会反复影响用户对 Codex、Claude Code、控制面和远程接管边界的判断。
+
+### 这条信号应该怎么回流
+
+- docs 层：新增 [`Happy：把 Codex / Claude Code 会话带到手机和 Web 的远程控制层`](/docs/tools/happy-remote-control)，明确它是远程控制层，不是新的执行栈、模型平台或传统远程桌面。
+- docs 层：在 [`AI 编程工具`](/docs/tools) 入口页补一条直达链接，让读者能在工具总入口直接判断它和 Codex / Claude Code / VS Code Agents 的分工。
+- watchlist：如果后续继续出现“手机上接管 agent”“离开电脑后继续审批或跟进”“远程控制 Claude Code / Codex”之类 issue，就要把这类主题升级成更明确的远程控制层与移动协作专题，而不是只把它埋在单工具页里。
 
 ### 2026-03-25：`统一 Agent 平台 + 自研 Frontier` 已经是明确的企业级读者需求
 
@@ -166,6 +180,9 @@ market_status: current
 - [AICode-Nexus/website Issues](https://github.com/AICode-Nexus/website/issues)
 - [Issue #5: `统一 Agent 平台 + 自研 Frontier 能力`](https://github.com/AICode-Nexus/website/issues/5)
 - [Issue #4: `聊一聊vibe working`](https://github.com/AICode-Nexus/website/issues/4)
+- [Issue #6: `sad`](https://github.com/AICode-Nexus/website/issues/6)
+- [slopus/happy README](https://github.com/slopus/happy)
+- [Happy Docs: Best Practices](https://happy.engineering/docs/guides/happy-coder-best-practices/)
 - [Issue #2: `openRouter`](https://github.com/AICode-Nexus/website/issues/2)
 - [Issue #1: `plawright`](https://github.com/AICode-Nexus/website/issues/1)
 - [GitHub Issue 内容自动化](/docs/site-admin/github-issue-monitoring)

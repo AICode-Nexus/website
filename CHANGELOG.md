@@ -23,6 +23,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- Added a standalone `Happy` guide plus new repo-issue signal tracking for issue #6 so the site now has a direct Chinese entry explaining how Happy extends local Codex / Claude Code sessions to mobile and Web, instead of misclassifying it as noise or a generic remote desktop request.
 - Added a standalone workflow guide, `Vibe Working：从 Vibe Coding 到可交付团队工作流`, plus new repo-issue signal tracking for issue #4 so the site now has a direct Chinese page for turning fast AI coding into team-grade delivery, verification, and handoff.
 - Added a standalone insight page, `统一 Agent 平台 + 自研 Frontier：企业级 AI 交付为什么要双线建设`, plus new repo-issue signal tracking for issue #5 so enterprise readers now have a direct Chinese entry for the platform-vs-frontier split instead of only scattered mentions inside longer talks.
 - Added a direct outbound-link layer to `前端 / Skills 与 MCP`, including an official-entry quick-reference table for Figma MCP, Context7, Playwright, and the MCP protocol, plus new long-term issue-signal tracking for repo issue #3 so readers no longer need to search for core external docs by hand after landing on the capability page.
