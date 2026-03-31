@@ -1,0 +1,57 @@
+{
+  "date": "2026-03-31",
+  "slug": "daily-brief-2026-03-31",
+  "title": "工作流与Copilot的最新工程信号",
+  "description": "2026-03-31 AI coding 日报：GitHub Changelog 的 Create issues from Slack with Copilot。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "copilot",
+    "workflow"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-03-29 到 2026-03-31 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-03-30，GitHub Changelog 发布《Create issues from Slack with Copilot》，这会改变规则、验证和交接是如何串进日常交付流程的。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-03-30，GitHub Changelog：Create issues from Slack with Copilot",
+      "details": [
+        "事实：GitHub Changelog 在 2026-03-30 发布了这条更新。",
+        "官方摘要：You can now create GitHub Issues directly from Slack using natural language with the GitHub app for Slack. Mention @GitHub in any channel, describe the work you need to track,… The post Create issues from Slack with Copilot appeared first on The GitHub Blog . ",
+        "工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。"
+  ],
+  "watchlist": [
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。",
+    "本次只有 1 条高信号更新进入正式日报，说明当天有效增量偏少，后续要确认是否需要在周报层补充上下文。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-03-30: Create issues from Slack with Copilot",
+      "url": "https://github.blog/changelog/2026-03-30-create-issues-from-slack-with-copilot"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 1
+}
