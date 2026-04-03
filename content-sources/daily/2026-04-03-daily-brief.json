@@ -1,0 +1,131 @@
+{
+  "date": "2026-04-03",
+  "slug": "daily-brief-2026-04-03",
+  "title": "Copilot、Agent与工作流的最新工程信号",
+  "description": "2026-04-03 AI coding 日报：GitHub Changelog 的 Copilot SDK in public preview；GitHub Changelog 的 Copilot usage metrics now includes per-user GitHub Copilot CLI activity in organization reports；GitHub Changelog 的 GitHub Actions: Early April 2026 updates。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "copilot",
+    "workflow",
+    "agent",
+    "security"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-04-01 到 2026-04-03 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-04-03，GitHub Changelog 发布《Copilot SDK in public preview》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-04-03，GitHub Changelog 发布《Copilot usage metrics now includes per-user GitHub Copilot CLI activity in organization reports》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-04-03，GitHub Changelog 发布《GitHub Actions: Early April 2026 updates》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-04-03，Google AI Blog 发布《New ways to balance cost and reliability in the Gemini API》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-04-02，GitHub Changelog 发布《Research, plan, and code with Copilot cloud agent》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-04-02，GitHub Changelog 发布《GPT-5.4 mini is now available in Copilot Student auto model selection》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-04-03，GitHub Changelog：Copilot SDK in public preview",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-03 发布了这条更新。",
+        "官方摘要：The GitHub Copilot SDK is now available in public preview. This gives you the building blocks to embed Copilot’s agentic capabilities directly into your own applications, workflows, and platform services.… The post Copilot SDK in public preview appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "2. 2026-04-03，GitHub Changelog：Copilot usage metrics now includes per-user GitHub Copilot CLI activity in organization reports",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-03 发布了这条更新。",
+        "官方摘要：Following our enterprise-level, user-level, and organization-level CLI metrics releases, we’re completing coverage with per-user CLI breakdowns in organization reports. Organization admins can now see which individual users are active on… The post Copilot usage metrics now includes per-user GitHub Copilot CLI activity in organization reports appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "3. 2026-04-03，GitHub Changelog：GitHub Actions: Early April 2026 updates",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-03 发布了这条更新。",
+        "官方摘要：This month, GitHub Actions adds entrypoint and command overrides for service containers and new security features including OIDC custom properties and VNET failover. Customizing entrypoints for service containers Many GitHub… The post GitHub Actions: Early April 2026 updates appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "4. 2026-04-03，Google AI Blog：New ways to balance cost and reliability in the Gemini API",
+      "details": [
+        "事实：Google AI Blog 在 2026-04-03 发布了这条更新。",
+        "官方摘要：Google is introducing two new inference tiers to the Gemini API, Flex and Priority, to balance cost and latency. ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "5. 2026-04-02，GitHub Changelog：Research, plan, and code with Copilot cloud agent",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-02 发布了这条更新。",
+        "官方摘要：Copilot cloud agent (formerly known as Copilot coding agent) is no longer limited to pull-request workflows, unlocking a broader range of ways to put Copilot to work. More control over… The post Research, plan, and code with Copilot cloud agent appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "6. 2026-04-02，GitHub Changelog：GPT-5.4 mini is now available in Copilot Student auto model selection",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-02 发布了这条更新。",
+        "官方摘要：GPT-5.4 mini is now generally available to Copilot Student plan via Copilot auto model selection. This model is part of Auto in GitHub Copilot Chat on Visual Studio Code, Visual… The post GPT-5.4 mini is now available in Copilot Student auto model selection appeared first on The GitHub Blog . ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。",
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。",
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。",
+    "拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-04-03: Copilot SDK in public preview",
+      "url": "https://github.blog/changelog/2026-04-02-copilot-sdk-in-public-preview"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-03: Copilot usage metrics now includes per-user GitHub Copilot CLI activity in organization reports",
+      "url": "https://github.blog/changelog/2026-04-02-copilot-usage-metrics-now-includes-per-user-github-copilot-cli-activity-in-organization-reports"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-03: GitHub Actions: Early April 2026 updates",
+      "url": "https://github.blog/changelog/2026-04-02-github-actions-early-april-2026-updates"
+    },
+    {
+      "title": "Google AI Blog, 2026-04-03: New ways to balance cost and reliability in the Gemini API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-flex-and-priority-inference/"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-02: Research, plan, and code with Copilot cloud agent",
+      "url": "https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-02: GPT-5.4 mini is now available in Copilot Student auto model selection",
+      "url": "https://github.blog/changelog/2026-04-01-gpt-5-4-mini-is-now-available-in-copilot-student-auto-model-selection"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
