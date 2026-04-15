@@ -1,0 +1,128 @@
+{
+  "date": "2026-04-15",
+  "slug": "daily-brief-2026-04-15",
+  "title": "安全、工作流与Agent的最新工程信号",
+  "description": "2026-04-15 AI coding 日报：GitHub Changelog 的 Link code scanning alerts to GitHub Issues；GitHub Changelog 的 Secret scanning pattern updates and product improvements；OpenAI News 的 Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "security",
+    "workflow",
+    "agent",
+    "codex"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-04-13 到 2026-04-15 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-04-15，GitHub Changelog 发布《Link code scanning alerts to GitHub Issues》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-04-15，GitHub Changelog 发布《Secret scanning pattern updates and product improvements》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-04-13，OpenAI News 发布《Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-04-15，GitHub Changelog 发布《OIDC support for Dependabot and code scanning》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-04-15，GitHub Changelog 发布《Deployment context in repository properties and alerts》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-04-15，GitHub Changelog 发布《SBOM exports are now computed asynchronously》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-04-15，GitHub Changelog：Link code scanning alerts to GitHub Issues",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-15 发布了这条更新。",
+        "官方摘要：You can now link code scanning alerts to GitHub Issues, bringing security remediation into your existing planning and tracking workflows. This functionality is in public preview. With this update, you… The post Link code scanning alerts to GitHub Issues appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "2. 2026-04-15，GitHub Changelog：Secret scanning pattern updates and product improvements",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-15 发布了这条更新。",
+        "官方摘要：This week, we’re rolling out several improvements to our detection coverage, APIs, and workflows. These improvements strengthen our continued investment in the developer experience of our secret scanning features. Built… The post Secret scanning pattern updates and product improvements appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "3. 2026-04-13，OpenAI News：Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+      "details": [
+        "事实：OpenAI News 在 2026-04-13 发布了这条更新。",
+        "官方摘要：Cloudflare brings OpenAI’s GPT-5.4 and Codex to Agent Cloud, enabling enterprises to build, deploy, and scale AI agents for real-world tasks with speed and security. ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "4. 2026-04-15，GitHub Changelog：OIDC support for Dependabot and code scanning",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-15 发布了这条更新。",
+        "官方摘要：Dependabot and code scanning now support OpenID Connect (OIDC) authentication for private registries configured at the organization level, eliminating the need to store long-lived credentials as repository secrets. What’s new… The post OIDC support for Dependabot and code scanning appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "5. 2026-04-15，GitHub Changelog：Deployment context in repository properties and alerts",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-15 发布了这条更新。",
+        "官方摘要：Artifact and deployment context now appears in two new places: repository properties and security alert pages. Repository properties: deployable and deployed Two new built-in repository properties—deployable and deployed—are now available.… The post Deployment context in repository properties and alerts appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "6. 2026-04-15，GitHub Changelog：SBOM exports are now computed asynchronously",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-15 发布了这条更新。",
+        "官方摘要：Software Bill of Materials (SBOM) exports from repository pages and new API endpoints are now asynchronous operations. Previously, navigating to a repository’s dependency graph page and clicking the Export SBOM… The post SBOM exports are now computed asynchronously appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-04-15: Link code scanning alerts to GitHub Issues",
+      "url": "https://github.blog/changelog/2026-04-14-link-code-scanning-alerts-to-github-issues"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-15: Secret scanning pattern updates and product improvements",
+      "url": "https://github.blog/changelog/2026-04-14-secret-scanning-pattern-updates-and-product-improvements"
+    },
+    {
+      "title": "OpenAI News, 2026-04-13: Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI",
+      "url": "https://openai.com/index/cloudflare-openai-agent-cloud"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-15: OIDC support for Dependabot and code scanning",
+      "url": "https://github.blog/changelog/2026-04-14-oidc-support-for-dependabot-and-code-scanning"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-15: Deployment context in repository properties and alerts",
+      "url": "https://github.blog/changelog/2026-04-14-deployment-context-in-repository-properties-and-alerts"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-15: SBOM exports are now computed asynchronously",
+      "url": "https://github.blog/changelog/2026-04-14-sbom-exports-are-now-computed-asynchronously"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
