@@ -1,0 +1,72 @@
+{
+  "date": "2026-04-21",
+  "slug": "daily-brief-2026-04-21",
+  "title": "模型、Copilot与Codex的最新工程信号",
+  "description": "2026-04-21 AI coding 日报：GitHub Changelog 的 Changes to GitHub Copilot plans for individuals；OpenAI News 的 OpenAI helps Hyatt advance AI among colleagues。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "copilot",
+    "codex"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-04-19 到 2026-04-21 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-04-21，GitHub Changelog 发布《Changes to GitHub Copilot plans for individuals》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-04-20，OpenAI News 发布《OpenAI helps Hyatt advance AI among colleagues》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-04-21，GitHub Changelog：Changes to GitHub Copilot plans for individuals",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-21 发布了这条更新。",
+        "官方摘要：As shared in our recent blog post, we’re making the following changes to Copilot plans for individuals as part of our ongoing efforts to ensure service reliability and a sustainable… The post Changes to GitHub Copilot plans for individuals appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "2. 2026-04-20，OpenAI News：OpenAI helps Hyatt advance AI among colleagues",
+      "details": [
+        "事实：OpenAI News 在 2026-04-20 发布了这条更新。",
+        "官方摘要：Hyatt deploys ChatGPT Enterprise across its global workforce, using GPT-5.4 and Codex to improve productivity, operations, and guest experiences. ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。",
+    "拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。",
+    "本次只有 2 条高信号更新进入正式日报，说明当天有效增量偏少，后续要确认是否需要在周报层补充上下文。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-04-21: Changes to GitHub Copilot plans for individuals",
+      "url": "https://github.blog/changelog/2026-04-20-changes-to-github-copilot-plans-for-individuals"
+    },
+    {
+      "title": "OpenAI News, 2026-04-20: OpenAI helps Hyatt advance AI among colleagues",
+      "url": "https://openai.com/index/hyatt-advances-ai-with-chatgpt-enterprise"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 2
+}
