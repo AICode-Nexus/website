@@ -1,0 +1,131 @@
+{
+  "date": "2026-04-25",
+  "slug": "daily-brief-2026-04-25",
+  "title": "Copilot、Agent与模型的最新工程信号",
+  "description": "2026-04-25 AI coding 日报：GitHub Changelog 的 GPT-5.5 is generally available for GitHub Copilot；GitHub Changelog 的 Notice about upcoming new format for GitHub App installation tokens；Google AI Blog 的 8 Gemini tips for organizing your space (and life)。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "copilot",
+    "agent",
+    "security",
+    "workflow"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-04-23 到 2026-04-25 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-04-25，GitHub Changelog 发布《GPT-5.5 is generally available for GitHub Copilot》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-04-25，GitHub Changelog 发布《Notice about upcoming new format for GitHub App installation tokens》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-04-25，Google AI Blog 发布《8 Gemini tips for organizing your space (and life)》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-04-24，GitHub Changelog 发布《Inline agent mode in preview and more in GitHub Copilot for JetBrains IDEs》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-04-24，GitHub Changelog 发布《Copilot cloud agent fields added to usage metrics》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-04-23，OpenAI News 发布《Introducing GPT-5.5》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-04-25，GitHub Changelog：GPT-5.5 is generally available for GitHub Copilot",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-25 发布了这条更新。",
+        "官方摘要：GPT-5.5, OpenAI’s latest GPT model, is now rolling out on GitHub Copilot. In our early testing, GPT-5.5 delivers its strongest performance on complex, multi-step agentic coding task and resolves real-world… The post GPT-5.5 is generally available for GitHub Copilot appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "2. 2026-04-25，GitHub Changelog：Notice about upcoming new format for GitHub App installation tokens",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-25 发布了这条更新。",
+        "官方摘要：Starting April 27th 2026 and over the coming weeks, we will begin a staged rollout that updates the format of newly minted GitHub App installation tokens, making them more performant… The post Notice about upcoming new format for GitHub App installation tokens appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "3. 2026-04-25，Google AI Blog：8 Gemini tips for organizing your space (and life)",
+      "details": [
+        "事实：Google AI Blog 在 2026-04-25 发布了这条更新。",
+        "官方摘要：Organize your home and digital space with Gemini. Use AI-powered tips for cleaning schedules, inbox decluttering, seasonal chores. ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "4. 2026-04-24，GitHub Changelog：Inline agent mode in preview and more in GitHub Copilot for JetBrains IDEs",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-24 发布了这条更新。",
+        "官方摘要：This update introduces inline agent mode in preview, enhancements to Next Edit Suggestions, global auto approve, and more flexible controls for terminal commands and file edits. It also includes several… The post Inline agent mode in preview and more in GitHub Copilot for JetBrains IDEs appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "5. 2026-04-24，GitHub Changelog：Copilot cloud agent fields added to usage metrics",
+      "details": [
+        "事实：GitHub Changelog 在 2026-04-24 发布了这条更新。",
+        "官方摘要：Following the Copilot coding agent to Copilot cloud agent rename, the Copilot usage metrics API now includes a new used_copilot_cloud_agent field in user-level reports. This boolean field mirrors the existing… The post Copilot cloud agent fields added to usage metrics appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "6. 2026-04-23，OpenAI News：Introducing GPT-5.5",
+      "details": [
+        "事实：OpenAI News 在 2026-04-23 发布了这条更新。",
+        "官方摘要：Introducing GPT-5.5, our smartest model yet—faster, more capable, and built for complex tasks like coding, research, and data analysis across tools. ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。",
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。",
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。",
+    "拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-04-25: GPT-5.5 is generally available for GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-04-24-gpt-5-5-is-generally-available-for-github-copilot"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-25: Notice about upcoming new format for GitHub App installation tokens",
+      "url": "https://github.blog/changelog/2026-04-24-notice-about-upcoming-new-format-for-github-app-installation-tokens"
+    },
+    {
+      "title": "Google AI Blog, 2026-04-25: 8 Gemini tips for organizing your space (and life)",
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-24: Inline agent mode in preview and more in GitHub Copilot for JetBrains IDEs",
+      "url": "https://github.blog/changelog/2026-04-24-inline-agent-mode-in-preview-and-more-in-github-copilot-for-jetbrains-ides"
+    },
+    {
+      "title": "GitHub Changelog, 2026-04-24: Copilot cloud agent fields added to usage metrics",
+      "url": "https://github.blog/changelog/2026-04-23-copilot-cloud-agent-fields-added-to-usage-metrics"
+    },
+    {
+      "title": "OpenAI News, 2026-04-23: Introducing GPT-5.5",
+      "url": "https://openai.com/index/introducing-gpt-5-5"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
