@@ -1,0 +1,73 @@
+{
+  "date": "2026-05-12",
+  "slug": "daily-brief-2026-05-12",
+  "title": "工作流与Agent的最新工程信号",
+  "description": "2026-05-12 AI coding 日报：JetBrains AI Blog 的 The ReSharper 2026.2 Early Access Program Begins: Bringing More AI Agents into Visual Studio；JetBrains AI Blog 的 Our 2026 Direction: AI and Classic Workflows in JetBrains IDEs。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "workflow",
+    "agent"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-05-10 到 2026-05-12 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-05-11，JetBrains AI Blog 发布《The ReSharper 2026.2 Early Access Program Begins: Bringing More AI Agents into Visual Studio》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-05-11，JetBrains AI Blog 发布《Our 2026 Direction: AI and Classic Workflows in JetBrains IDEs》，这会改变规则、验证和交接是如何串进日常交付流程的。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-05-11，JetBrains AI Blog：The ReSharper 2026.2 Early Access Program Begins: Bringing More AI Agents into Visual Studio",
+      "details": [
+        "事实：JetBrains AI Blog 在 2026-05-11 发布了这条更新。",
+        "官方摘要：We’re excited to announce that the Early Access Program (EAP) for ReSharper and .NET Tools 2026.2 is now underway! While our EAP announcements usually cover a wide range of new features, performance updates, and bug fixes, this release is different. We are dedicating this first preview entirely to a singular, game-changing initiative: bringing true AI […] ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "2. 2026-05-11，JetBrains AI Blog：Our 2026 Direction: AI and Classic Workflows in JetBrains IDEs",
+      "details": [
+        "事实：JetBrains AI Blog 在 2026-05-11 发布了这条更新。",
+        "官方摘要：Two valid ways of writing code. One place to own it. Quick version for AI-news-tired readers: press here There are two ways developers create code now: We don’t think one is better than the other. Our goal is to ensure both workflows can coexist inside JetBrains IDEs without hindering each other. In practice, this means […] ",
+        "工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。",
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。"
+  ],
+  "watchlist": [
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。",
+    "本次只有 2 条高信号更新进入正式日报，说明当天有效增量偏少，后续要确认是否需要在周报层补充上下文。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "JetBrains AI Blog, 2026-05-11: The ReSharper 2026.2 Early Access Program Begins: Bringing More AI Agents into Visual Studio",
+      "url": "https://blog.jetbrains.com/dotnet/2026/05/11/the-resharper-2026-2-eap-any-ai-agent-in-visual-studio/"
+    },
+    {
+      "title": "JetBrains AI Blog, 2026-05-11: Our 2026 Direction: AI and Classic Workflows in JetBrains IDEs",
+      "url": "https://blog.jetbrains.com/ai/2026/05/our-2026-direction-ai-and-classic-workflows-in-jetbrains-ides-2/"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 2
+}
