@@ -1,0 +1,86 @@
+---
+slug: daily-brief-2026-05-17
+title: "AI Coding Daily Brief | 2026-05-17 | Agent、Copilot与模型的最新工程信号"
+description: "2026-05-17 AI coding 日报：VS Code 的 The Coding Harness Behind GitHub Copilot in VS Code；GitHub Changelog 的 Grok Code Fast 1 deprecated；OpenAI News 的 Sea's View on the Future of Agentic Software Development with Codex。"
+tags: [ai-coding, daily-brief, copilot, vscode, agent, codex]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-05-15 到 2026-05-17 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-05-15，VS Code 发布《The Coding Harness Behind GitHub Copilot in VS Code》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-05-16，GitHub Changelog 发布《Grok Code Fast 1 deprecated》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-05-15，OpenAI News 发布《Sea's View on the Future of Agentic Software Development with Codex》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-05-15，OpenAI News 发布《Databricks brings GPT-5.5 to enterprise agent workflows》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-05-15，GitHub Changelog 发布《GitHub Copilot app is now available in technical preview》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-05-16，GitHub Changelog 发布《Copilot Memory supports user preferences for Pro, Pro+ users》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+
+## What changed today
+
+### 1. 2026-05-15，VS Code：The Coding Harness Behind GitHub Copilot in VS Code
+
+- 事实：VS Code 在 2026-05-15 发布了这条更新。
+- 官方摘要：Learn why the coding harness around GitHub Copilot in VS Code matters as models, tools, agents, and providers evolve. 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 2. 2026-05-16，GitHub Changelog：Grok Code Fast 1 deprecated
+
+- 事实：GitHub Changelog 在 2026-05-16 发布了这条更新。
+- 官方摘要：We have deprecated Grok Code Fast 1 across all GitHub Copilot experiences (including Copilot Chat, inline edits, ask and agent modes, and code completions) today, May 15, 2026. Model Deprecation… The post Grok Code Fast 1 deprecated appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 3. 2026-05-15，OpenAI News：Sea's View on the Future of Agentic Software Development with Codex
+
+- 事实：OpenAI News 在 2026-05-15 发布了这条更新。
+- 官方摘要：Sea Limited's CPO explains why the company is deploying Codex across engineering teams to accelerate AI-native software development in Asia. 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 4. 2026-05-15，OpenAI News：Databricks brings GPT-5.5 to enterprise agent workflows
+
+- 事实：OpenAI News 在 2026-05-15 发布了这条更新。
+- 官方摘要：Databricks uses GPT-5.5 for enterprise agent workflows after the model set a new state of the art on the OfficeQA Pro benchmark. 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 5. 2026-05-15，GitHub Changelog：GitHub Copilot app is now available in technical preview
+
+- 事实：GitHub Changelog 在 2026-05-15 发布了这条更新。
+- 官方摘要：The GitHub Copilot app is now in technical preview. It’s a GitHub-native desktop experience to start agentic development from the work in front of you, keep it isolated, steer it… The post GitHub Copilot app is now available in technical preview appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 6. 2026-05-16，GitHub Changelog：Copilot Memory supports user preferences for Pro, Pro+ users
+
+- 事实：GitHub Changelog 在 2026-05-16 发布了这条更新。
+- 官方摘要：Copilot Memory now supports user-level preferences in early access for Copilot Pro and Copilot Pro+ users. Copilot can now store stated or inferred personal preferences about how you like to… The post Copilot Memory supports user preferences for Pro, Pro+ users appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [VS Code, 2026-05-15: The Coding Harness Behind GitHub Copilot in VS Code](https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode)
+- [GitHub Changelog, 2026-05-16: Grok Code Fast 1 deprecated](https://github.blog/changelog/2026-05-15-grok-code-fast-1-deprecated)
+- [OpenAI News, 2026-05-15: Sea's View on the Future of Agentic Software Development with Codex](https://openai.com/index/sea-david-chen)
+- [OpenAI News, 2026-05-15: Databricks brings GPT-5.5 to enterprise agent workflows](https://openai.com/index/databricks)
+- [GitHub Changelog, 2026-05-15: GitHub Copilot app is now available in technical preview](https://github.blog/changelog/2026-05-14-github-copilot-app-is-now-available-in-technical-preview)
+- [GitHub Changelog, 2026-05-16: Copilot Memory supports user preferences for Pro, Pro+ users](https://github.blog/changelog/2026-05-15-copilot-memory-supports-user-preferences-for-pro-pro-users)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
