@@ -1,0 +1,88 @@
+---
+slug: daily-brief-2026-05-22
+title: "AI Coding Daily Brief | 2026-05-22 | Copilot、模型与工作流的最新工程信号"
+description: "2026-05-22 AI coding 日报：GitHub Changelog 的 GitHub Copilot for Eclipse is open source；GitHub Changelog 的 Auto model selection now routes based on your task in VS Code；OpenAI News 的 How Ramp engineers accelerate code review with Codex。"
+tags: [ai-coding, daily-brief, copilot, vscode, codex, workflow]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-05-20 到 2026-05-22 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-05-22，GitHub Changelog 发布《GitHub Copilot for Eclipse is open source》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+- 2026-05-20，GitHub Changelog 发布《Auto model selection now routes based on your task in VS Code》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-05-20，OpenAI News 发布《How Ramp engineers accelerate code review with Codex》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-05-20，GitHub Changelog 发布《Easily apply Copilot code review feedback with Copilot cloud agent》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-05-21，GitHub Changelog 发布《Updates to available models in Copilot on web》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-05-20，GitHub Changelog 发布《Gemini 3.5 Flash is generally available for GitHub Copilot》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+
+## What changed today
+
+### 1. 2026-05-22，GitHub Changelog：GitHub Copilot for Eclipse is open source
+
+- 事实：GitHub Changelog 在 2026-05-22 发布了这条更新。
+- 官方摘要：Following our previous updates, GitHub Copilot for Eclipse is open source, with the code available on GitHub under the MIT license. This marks an important milestone for GitHub Copilot in… The post GitHub Copilot for Eclipse is open source appeared first on The GitHub Blog . 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+### 2. 2026-05-20，GitHub Changelog：Auto model selection now routes based on your task in VS Code
+
+- 事实：GitHub Changelog 在 2026-05-20 发布了这条更新。
+- 官方摘要：GitHub Copilot auto model selection now routes to the best model for your task, using utilization and model health metrics for a high quality, reliable, and token-efficient experience. How it… The post Auto model selection now routes based on your task in VS Code appeared first on The GitHub Blog . 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 3. 2026-05-20，OpenAI News：How Ramp engineers accelerate code review with Codex
+
+- 事实：OpenAI News 在 2026-05-20 发布了这条更新。
+- 官方摘要：How Ramp engineers use Codex with GPT-5.5 to review code and ship improvements, allowing them to get substantive feedback in minutes instead of hours. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 4. 2026-05-20，GitHub Changelog：Easily apply Copilot code review feedback with Copilot cloud agent
+
+- 事实：GitHub Changelog 在 2026-05-20 发布了这条更新。
+- 官方摘要：Copilot code review’s previous Implement suggestion button has now been renamed to Fix with Copilot and updated to support a UI dialog for more control over how suggestions are applied.… The post Easily apply Copilot code review feedback with Copilot cloud agent appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 5. 2026-05-21，GitHub Changelog：Updates to available models in Copilot on web
+
+- 事实：GitHub Changelog 在 2026-05-21 发布了这条更新。
+- 官方摘要：We have updated our available model selection for Copilot Chat on the web to deliver more consistent, high-quality responses. What’s changed While model choice is valuable, we are limiting the… The post Updates to available models in Copilot on web appeared first on The GitHub Blog . 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 6. 2026-05-20，GitHub Changelog：Gemini 3.5 Flash is generally available for GitHub Copilot
+
+- 事实：GitHub Changelog 在 2026-05-20 发布了这条更新。
+- 官方摘要：Gemini 3.5 Flash, Google’s latest Flash-tier model, is now rolling out on GitHub Copilot. In our early testing, Gemini 3.5 Flash delivers near-Pro coding quality at Flash-tier speed and cost… The post Gemini 3.5 Flash is generally available for GitHub Copilot appeared first on The GitHub Blog . 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+2. 拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。
+3. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-05-22: GitHub Copilot for Eclipse is open source](https://github.blog/changelog/2026-05-21-github-copilot-for-eclipse-is-open-source)
+- [GitHub Changelog, 2026-05-20: Auto model selection now routes based on your task in VS Code](https://github.blog/changelog/2026-05-20-auto-model-selection-now-routes-based-on-your-task-in-vs-code)
+- [OpenAI News, 2026-05-20: How Ramp engineers accelerate code review with Codex](https://openai.com/index/ramp)
+- [GitHub Changelog, 2026-05-20: Easily apply Copilot code review feedback with Copilot cloud agent](https://github.blog/changelog/2026-05-19-easily-apply-copilot-code-review-feedback-with-copilot-cloud-agent)
+- [GitHub Changelog, 2026-05-21: Updates to available models in Copilot on web](https://github.blog/changelog/2026-05-20-updates-to-available-models-in-copilot-on-web)
+- [GitHub Changelog, 2026-05-20: Gemini 3.5 Flash is generally available for GitHub Copilot](https://github.blog/changelog/2026-05-19-gemini-3-5-flash-is-generally-available-for-github-copilot)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
