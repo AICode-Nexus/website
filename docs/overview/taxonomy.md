@@ -107,7 +107,7 @@ market_status: current
 这些层是入口或载体，不是长期知识方向：
 
 - [`视频资源`](/docs/resources/videos)：放视频和课程这类可直接消费的材料。
-- [`AI 资源导航`](/docs/ai-directory)：放官网、官方文档、开源仓库和课程入口这类目录型资源。
+- [`AI 资源导航`](/docs/ai-directory)：放国内外优秀 AI 官网、官方文档、开源仓库、课程、Cookbook、行业资源和岗位工作入口这类目录型资源。
 - `内容索引`：放对比、Playbook 和 Insight 这类内容形态入口。
 - `Daily Brief`：放高时效观察。
 - `旧赛道归档`：保留历史链接和旧透镜。

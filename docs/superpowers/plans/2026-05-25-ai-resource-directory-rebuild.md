@@ -22,7 +22,7 @@ unlisted: true
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Rebuild `AI 资源导航` into a broad, foreign-source-first, cross-industry AI resource directory with validated metadata, category pages, and 100-200 reviewed resources.
+**Goal:** Rebuild `AI 资源导航` into a broad, foreign-source-first, cross-industry AI resource directory with validated metadata, category pages, hot/rising resource markers, and 100-200 reviewed resources.
 
 **Architecture:** Keep `src/data/aiDirectory.js` as the canonical static data source and expand `src/utils/aiDirectory.js` as the validation boundary. Category pages in `docs/ai-directory/` should remain lightweight MDX shells that render validated entries through shared components, while collection evidence lives under `content-sources/ai-directory/`.
 
@@ -33,7 +33,7 @@ unlisted: true
 ## File Structure
 
 - Modify: `src/utils/aiDirectory.js`
-  - Responsibility: resource type labels, metadata enum validation, URL/date/id checks, sorting helpers.
+  - Responsibility: resource type labels, metadata enum validation, hot/rising status validation, URL/date/id checks, sorting helpers.
 - Modify: `src/data/aiDirectory.js`
   - Responsibility: top-level categories and canonical resource entries.
 - Modify: `src/components/docs/AiDirectoryTable.js`
@@ -123,6 +123,13 @@ export const AI_DIRECTORY_MARKET_STATUS_LABELS = {
   watch: '观察中',
   legacy: '历史保留',
 };
+
+export const AI_DIRECTORY_TREND_STATUS_LABELS = {
+  hot: '最新热门',
+  rising: '快速上升',
+  watch: '值得关注',
+  evergreen: '长期核心',
+};
 ```
 
 - [ ] **Step 3: Add optional enum validation helper**
@@ -166,6 +173,11 @@ const collectionPriority = ensureOptionalEnumValue(
   `${fieldName}.collectionPriority`,
   Object.keys(AI_DIRECTORY_COLLECTION_PRIORITY_LABELS),
 );
+const trendStatus = ensureOptionalEnumValue(
+  entry.trendStatus,
+  `${fieldName}.trendStatus`,
+  Object.keys(AI_DIRECTORY_TREND_STATUS_LABELS),
+);
 ```
 
 Return these fields with defaults that preserve old entries:
@@ -177,14 +189,15 @@ region: region ?? 'global',
 trustLevel: trustLevel ?? 'official',
 marketStatus: marketStatus ?? 'current',
 collectionPriority: collectionPriority ?? 'important',
+trendStatus: trendStatus ?? 'evergreen',
 ...(entry.updateTrigger === undefined
   ? {}
   : {updateTrigger: ensureString(entry.updateTrigger, `${fieldName}.updateTrigger`)}),
 ```
 
-- [ ] **Step 5: Sort by featured, priority, then name**
+- [ ] **Step 5: Sort by trend, featured, priority, then name**
 
-In `getAiDirectoryEntriesByCategory`, replace the final sort callback with priority-aware sorting:
+In `getAiDirectoryEntriesByCategory`, replace the final sort callback with trend-aware sorting:
 
 ```js
 const priorityRank = {
@@ -192,10 +205,21 @@ const priorityRank = {
   important: 1,
   supplemental: 2,
 };
+const trendRank = {
+  hot: 0,
+  rising: 1,
+  watch: 2,
+  evergreen: 3,
+};
 
 return frozenEntries
   .filter((entry) => entry.categoryId === categoryId)
   .sort((left, right) => {
+    const trendDelta = trendRank[left.trendStatus] - trendRank[right.trendStatus];
+    if (trendDelta !== 0) {
+      return trendDelta;
+    }
+
     if (Boolean(left.featured) !== Boolean(right.featured)) {
       return left.featured ? -1 : 1;
     }
@@ -1059,4 +1083,3 @@ git commit -m "docs(ai-directory): update resource navigation"
 - If a resource cannot be verified on 2026-05-25, put it in `Deferred Sources` instead of adding it to `src/data/aiDirectory.js`.
 - If the first pass grows beyond 200 entries, stop at the highest-trust resources and put the rest in the manifest backlog.
 - For medical, legal, and financial resources, write cautious summaries and do not imply professional advice.
-

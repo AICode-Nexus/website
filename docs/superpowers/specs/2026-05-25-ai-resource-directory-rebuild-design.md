@@ -34,6 +34,7 @@ Additional requirement:
 
 - Foreign high-quality AI websites should be collected as broadly as practical.
 - Chinese resources should remain useful, but they should be a complementary layer, not the main worldview.
+- Latest and hot resources should carry an explicit marker and sort ahead of ordinary entries.
 
 ## Context
 
@@ -268,6 +269,9 @@ Recommended new fields:
 - `trustLevel`: `official`, `institutional`, `established-community`, `emerging-community`, `watch`
 - `marketStatus`: `current`, `watch`, or `legacy`
 - `collectionPriority`: `core`, `important`, or `supplemental`
+- `trendStatus`: `hot`, `rising`, `watch`, or `evergreen`
+- `trendWindowEnd`: exact date for non-evergreen trend markers
+- `trendReason`: short source-window note explaining why the resource is marked hot or rising
 - `updateTrigger`: short note describing what should cause re-review
 
 ## Collection Rules
@@ -351,4 +355,3 @@ The first implementation plan should focus on:
 4. Collecting the first 100-200 foreign-first, high-quality AI resources.
 5. Adding or updating category docs.
 6. Running the site checks and build.
-

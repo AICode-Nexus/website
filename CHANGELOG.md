@@ -23,6 +23,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- Rebuilt `AI 资源导航` into a cross-industry AI resource directory with 10 top-level categories, 119 reviewed entries, a foreign-source-first collection manifest, and `最新热门` / `快速上升` metadata that sorts current high-attention resources ahead of ordinary entries.
 - Added a standalone `Happy` guide plus new repo-issue signal tracking for issue #6 so the site now has a direct Chinese entry explaining how Happy extends local Codex / Claude Code sessions to mobile and Web, instead of misclassifying it as noise or a generic remote desktop request.
 - Added a standalone workflow guide, `Vibe Working：从 Vibe Coding 到可交付团队工作流`, plus new repo-issue signal tracking for issue #4 so the site now has a direct Chinese page for turning fast AI coding into team-grade delivery, verification, and handoff.
 - Added a standalone insight page, `统一 Agent 平台 + 自研 Frontier：企业级 AI 交付为什么要双线建设`, plus new repo-issue signal tracking for issue #5 so enterprise readers now have a direct Chinese entry for the platform-vs-frontier split instead of only scattered mentions inside longer talks.
