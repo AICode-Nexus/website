@@ -6,7 +6,7 @@ displayed_sidebar: aiDirectorySidebar
 sidebar_label: 产品与设计
 tags: [product, design, ai, directory]
 track: cross-track
-kind: guide
+kind: resource
 content_form: resource
 audience: mixed
 stage: starter
@@ -17,40 +17,11 @@ entry_role: resource
 reviewed_at: 2026-05-25
 source_window_end: 2026-05-25
 market_status: current
+hide_freshness_banner: true
 ---
 
-import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+import {AiDirectoryCategoryView} from '@site/src/components/docs';
 
 # 产品与设计
 
-这一类资源面向产品经理、设计师、用户研究和设计系统维护者，重点收能产出真实工作物的 AI 资源：调研摘要、需求材料、原型、界面、设计规范和反馈分析。
-
-## 这类资源怎么用
-
-- 先判断资源最终能产出什么交付物。
-- 不把 prompt 小技巧当成产品或设计体系。
-- 涉及研发交接时，优先选择能导出结构化规格、组件状态或验收材料的入口。
-
-## 首批精选入口
-
 <AiDirectoryCategoryView categoryId="product-design" />
-
-## 继续阅读
-
-<RelatedReadings
-  title="继续阅读"
-  description="产品与设计资源最终要回到角色工作台和交付资产。"
-  items={[
-    {
-      title: '产品经理',
-      href: '/docs/roles/product',
-      description: '把资源转成需求分析、原型验证和交付跟踪工作流。',
-    },
-    {
-      title: '设计师',
-      href: '/docs/roles/design',
-      description: '把资源转成设计系统、组件状态和研发 handoff。',
-    },
-  ]}
-/>
-

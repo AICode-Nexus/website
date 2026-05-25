@@ -44,6 +44,7 @@ const KIND_RULES = {
   comparison: {minChars: 420, minHeadings: 4, requiresTable: true},
   playbook: {minChars: 420, minHeadings: 4},
   insight: {minChars: 420, minHeadings: 4},
+  resource: {minChars: 24, minHeadings: 0},
 };
 
 const FAMILY_RULES = {

@@ -6,7 +6,7 @@ displayed_sidebar: aiDirectorySidebar
 sidebar_label: 数据与分析
 tags: [data, analytics, ai, directory]
 track: cross-track
-kind: guide
+kind: resource
 content_form: resource
 audience: mixed
 stage: starter
@@ -17,40 +17,11 @@ entry_role: resource
 reviewed_at: 2026-05-25
 source_window_end: 2026-05-25
 market_status: current
+hide_freshness_banner: true
 ---
 
-import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+import {AiDirectoryCategoryView} from '@site/src/components/docs';
 
 # 数据与分析
 
-这一类资源面向数据分析师、数据科学家、BI 用户和运营分析人员，重点收 Notebook、BI、数据清洗、可视化、实验分析和报告生成相关 AI 资源。
-
-## 这类资源怎么用
-
-- 优先选择能保留数据来源、分析步骤和复现记录的资源。
-- 对自动洞察保持验证意识，不把生成结论直接当作事实。
-- 与业务报告相关的资源，要能明确输入数据、分析逻辑和输出格式。
-
-## 首批精选入口
-
 <AiDirectoryCategoryView categoryId="data-analysis" />
-
-## 继续阅读
-
-<RelatedReadings
-  title="继续阅读"
-  description="数据资源最终要回到可复现分析和报告交付。"
-  items={[
-    {
-      title: '数据分析师',
-      href: '/docs/roles/data-analysis',
-      description: '把资源转成分析 brief、数据质量检查和报告 handoff。',
-    },
-    {
-      title: '规范评估与治理',
-      href: '/docs/standards',
-      description: '补齐验证、评估和风险指标。',
-    },
-  ]}
-/>
-

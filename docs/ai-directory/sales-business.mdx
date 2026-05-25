@@ -6,7 +6,7 @@ displayed_sidebar: aiDirectorySidebar
 sidebar_label: 销售与商务
 tags: [sales, business, ai, directory]
 track: cross-track
-kind: guide
+kind: resource
 content_form: resource
 audience: mixed
 stage: starter
@@ -17,40 +17,11 @@ entry_role: resource
 reviewed_at: 2026-05-25
 source_window_end: 2026-05-25
 market_status: current
+hide_freshness_banner: true
 ---
 
-import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+import {AiDirectoryCategoryView} from '@site/src/components/docs';
 
 # 销售与商务
 
-这一类资源面向销售、商务拓展、客户成功和解决方案团队，重点收账号研究、CRM 更新、会议摘要、跟进邮件、销售预测和方案生成相关 AI 入口。
-
-## 这类资源怎么用
-
-- 先判断资源连接的是 CRM、会议、客户研究还是 proposal。
-- 不把自动写邮件当成完整销售流程，重点看它是否能沉淀客户上下文和下一步行动。
-- 涉及客户数据时，优先看官方安全、隐私和权限说明。
-
-## 首批精选入口
-
 <AiDirectoryCategoryView categoryId="sales-business" />
-
-## 继续阅读
-
-<RelatedReadings
-  title="继续阅读"
-  description="销售资源要和组织工作流、客户数据边界一起判断。"
-  items={[
-    {
-      title: '生态与集成',
-      href: '/docs/ecosystem',
-      description: '理解工具如何接入 GitHub、Jira、CRM、CI 和组织流程。',
-    },
-    {
-      title: '规范评估与治理',
-      href: '/docs/standards',
-      description: '补充权限、验证、review 和风险控制。',
-    },
-  ]}
-/>
-

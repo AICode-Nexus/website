@@ -1,4 +1,6 @@
+export {default as AiDirectoryCatalogView} from './AiDirectoryCatalogView';
 export {default as AiDirectoryCategoryView} from './AiDirectoryCategoryView';
+export {default as AiDirectoryGrid} from './AiDirectoryGrid';
 export {default as AiDirectoryTable} from './AiDirectoryTable';
 export {default as ChecklistPanel} from './ChecklistPanel';
 export {default as DecisionMatrix} from './DecisionMatrix';
