@@ -540,16 +540,56 @@ const sidebars = {
 
   aiDirectorySidebar: [
     'ai-directory/index',
-    'ai-directory/foundational-platforms',
-    'ai-directory/ai-coding',
-    'ai-directory/agent-app-development',
-    'ai-directory/product-design',
-    'ai-directory/operations-marketing',
-    'ai-directory/sales-business',
-    'ai-directory/data-analysis',
-    'ai-directory/productivity-office',
-    'ai-directory/industry-topics',
-    'ai-directory/chinese-community',
+    {
+      type: 'link',
+      label: '基础与官方平台',
+      href: '/docs/ai-directory#foundational-platforms',
+    },
+    {
+      type: 'link',
+      label: '研发与 AI Coding',
+      href: '/docs/ai-directory#ai-coding',
+    },
+    {
+      type: 'link',
+      label: 'Agent 与应用开发',
+      href: '/docs/ai-directory#agent-app-development',
+    },
+    {
+      type: 'link',
+      label: '产品与设计',
+      href: '/docs/ai-directory#product-design',
+    },
+    {
+      type: 'link',
+      label: '运营与市场',
+      href: '/docs/ai-directory#operations-marketing',
+    },
+    {
+      type: 'link',
+      label: '销售与商务',
+      href: '/docs/ai-directory#sales-business',
+    },
+    {
+      type: 'link',
+      label: '数据与分析',
+      href: '/docs/ai-directory#data-analysis',
+    },
+    {
+      type: 'link',
+      label: '企业效率与办公',
+      href: '/docs/ai-directory#productivity-office',
+    },
+    {
+      type: 'link',
+      label: '行业专题',
+      href: '/docs/ai-directory#industry-topics',
+    },
+    {
+      type: 'link',
+      label: '中文社区与精选导航',
+      href: '/docs/ai-directory#chinese-community',
+    },
   ],
 
   archiveSidebar: [

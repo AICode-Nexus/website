@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from '@docusaurus/Link';
+import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import {aiDirectoryCategories, aiDirectoryEntries, getAiDirectoryEntriesByCategory} from '@site/src/data/aiDirectory';
 import AiDirectoryGrid from './AiDirectoryGrid';
 import styles from './AiDirectoryGrid.module.css';
@@ -8,9 +9,50 @@ function countEntries(predicate) {
   return aiDirectoryEntries.filter(predicate).length;
 }
 
+function getEntrySearchText(entry, category) {
+  return [
+    entry.name,
+    entry.summary,
+    entry.bestFor,
+    entry.whyListed,
+    entry.officialUrl,
+    entry.docsUrl,
+    entry.resourceType,
+    entry.collectionPriority,
+    entry.trendStatus,
+    category.title,
+    category.sidebarLabel,
+    category.description,
+    ...(entry.tags || []),
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+}
+
 export default function AiDirectoryCatalogView() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const brokenLinks = useBrokenLinks();
   const hotCount = countEntries((entry) => entry.trendStatus === 'hot');
   const risingCount = countEntries((entry) => entry.trendStatus === 'rising');
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const categoryGroups = aiDirectoryCategories.map((category) => {
+    const allEntries = getAiDirectoryEntriesByCategory(category.id);
+    const entries = normalizedQuery
+      ? allEntries.filter((entry) => getEntrySearchText(entry, category).includes(normalizedQuery))
+      : allEntries;
+
+    return {
+      allEntries,
+      category,
+      entries,
+    };
+  });
+  const visibleCount = categoryGroups.reduce((count, group) => count + group.entries.length, 0);
+
+  aiDirectoryCategories.forEach((category) => {
+    brokenLinks.collectAnchor(category.id);
+  });
 
   return (
     <>
@@ -20,26 +62,50 @@ export default function AiDirectoryCatalogView() {
         <span className={styles.summaryPill}>热门 {hotCount}</span>
         <span className={styles.summaryPill}>上升 {risingCount}</span>
       </div>
-      <nav className={styles.categoryNav} aria-label="AI 资源分类">
-        {aiDirectoryCategories.map((category) => (
-          <Link className={styles.categoryPill} to={category.slug} key={category.id}>
-            {category.sidebarLabel}
-          </Link>
-        ))}
-      </nav>
-      {aiDirectoryCategories.map((category) => {
-        const entries = getAiDirectoryEntriesByCategory(category.id);
-
+      <div className={styles.directoryControls}>
+        <label className={styles.searchLabel} htmlFor="ai-directory-search">
+          搜索资源
+        </label>
+        <input
+          className={styles.searchInput}
+          id="ai-directory-search"
+          type="search"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+          placeholder="搜索名称、官网、标签、适用场景"
+        />
+        {normalizedQuery ? <p className={styles.searchResultMeta}>命中 {visibleCount} 个入口</p> : null}
+        <nav className={styles.categoryNav} aria-label="AI 资源分类锚点">
+          {aiDirectoryCategories.map((category) => (
+            <Link className={styles.categoryPill} to={`#${category.id}`} key={category.id}>
+              {category.sidebarLabel}
+            </Link>
+          ))}
+        </nav>
+      </div>
+      {categoryGroups.map(({allEntries, category, entries}) => {
         return (
           <section className={styles.categorySection} id={category.id} key={category.id}>
             <div className={styles.categoryHeader}>
-              <h2 className={styles.categoryTitle}>{category.title}</h2>
-              <p className={styles.categoryMeta}>{entries.length} 个入口</p>
+              <div className={styles.categoryIntro}>
+                <h2 className={styles.categoryTitle}>{category.title}</h2>
+                <p className={styles.categoryDescription}>{category.description}</p>
+              </div>
+              <p className={styles.categoryMeta}>
+                {normalizedQuery ? `${entries.length} / ${allEntries.length}` : allEntries.length} 个入口
+              </p>
             </div>
-            <AiDirectoryGrid entries={entries} />
+            {entries.length > 0 ? (
+              <AiDirectoryGrid entries={entries} />
+            ) : (
+              <p className={styles.emptyState}>当前搜索没有命中这个分类。</p>
+            )}
           </section>
         );
       })}
+      {normalizedQuery && visibleCount === 0 ? (
+        <p className={styles.emptyState}>没有找到匹配资源，可以换一个工具名、官网域名或中文场景词。</p>
+      ) : null}
     </>
   );
 }
