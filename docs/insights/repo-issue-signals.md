@@ -126,7 +126,7 @@ market_status: current
 ### 这条信号应该怎么回流
 
 - docs 层：新增 [`OpenRouter 接入与路由方案`](/docs/tools/openrouter-routing-playbook)，直接回答接入方式、路由边界、Auto Router 与 BYOK 的取舍。
-- docs 层：同步补强 [`模型 API 与平台`](/docs/ai-directory/model-platforms) 的入口说明，让读者在目录页就能跳到更具体的 OpenRouter 方案页。
+- docs 层：同步补强 [`模型 API 与平台`](/docs/ai-directory/foundational-platforms) 的入口说明，让读者在目录页就能跳到更具体的 OpenRouter 方案页。
 - watchlist：如果接下来继续出现“多模型统一入口”“OpenRouter 怎么接”“能不能把它当生产默认层”之类 issue，就要再把它升级成更明确的团队规则与 provider 治理文档。
 
 ### 2026-03-23：Playwright 自动化测试方案需求已经出现明确 issue

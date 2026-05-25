@@ -127,7 +127,7 @@ issue `#3` 暴露出的真正问题，其实很典型：
 | Figma MCP | [设计 / Figma](/docs/roles/design/tools/figma) | [Figma MCP Catalog](https://www.figma.com/mcp-catalog/)<br />[Figma Dev Mode MCP server 介绍](https://www.figma.com/blog/introducing-figmas-dev-mode-mcp-server/) | 你需要确认 Figma MCP 支持范围、接入方式或产品定位时 |
 | Context7 | 当前页 | [Context7](https://context7.com/) | 你已经知道要查最新官方文档，但还没进入对应库的检索入口时 |
 | Playwright | [Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan) | [Playwright Docs](https://playwright.dev/docs/intro) | 你已经决定要做浏览器自动化，需要对照 API、配置或 runner 细节时 |
-| MCP 协议本身 | [MCP 与协议生态](/docs/ai-directory/mcp-and-protocols) | [Model Context Protocol: Introduction](https://modelcontextprotocol.io/introduction)<br />[Model Context Protocol: Architecture overview](https://modelcontextprotocol.io/docs/architecture) | 你需要先理解协议层，而不是直接挑某个 server 时 |
+| MCP 协议本身 | [MCP 与协议生态](/docs/ai-directory/agent-app-development) | [Model Context Protocol: Introduction](https://modelcontextprotocol.io/introduction)<br />[Model Context Protocol: Architecture overview](https://modelcontextprotocol.io/docs/architecture) | 你需要先理解协议层，而不是直接挑某个 server 时 |
 
 如果你在站内页面已经能明确任务形状，就先用站内页缩小范围；只有当你需要核对产品能力、最新接口或官方接入细节时，再点出去看官方入口。这样更不容易在一开始就掉进“开十几个标签页，但还没开始做事”的低效模式。
 

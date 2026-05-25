@@ -1,6 +1,12 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import {AI_DIRECTORY_RESOURCE_TYPE_LABELS} from '@site/src/utils/aiDirectory';
+import {
+  AI_DIRECTORY_AUDIENCE_LABELS,
+  AI_DIRECTORY_COLLECTION_PRIORITY_LABELS,
+  AI_DIRECTORY_RESOURCE_TYPE_LABELS,
+  AI_DIRECTORY_TREND_STATUS_LABELS,
+  AI_DIRECTORY_TRUST_LEVEL_LABELS,
+} from '@site/src/utils/aiDirectory';
 import styles from './HandbookBlocks.module.css';
 
 function getEntryLinks(entry) {
@@ -52,8 +58,21 @@ export default function AiDirectoryTable({entries}) {
               <tr key={entry.id}>
                 <td>
                   {entry.featured ? <span className={styles.meta}>精选</span> : null}
+                  {entry.trendStatus !== 'evergreen' ? (
+                    <span className={styles.meta}>{AI_DIRECTORY_TREND_STATUS_LABELS[entry.trendStatus]}</span>
+                  ) : null}
                   <strong className={styles.entryName}>{entry.name}</strong>
+                  <div className={styles.tagGroup}>
+                    <span className={styles.meta}>{AI_DIRECTORY_AUDIENCE_LABELS[entry.audience] ?? entry.audience}</span>
+                    <span className={styles.meta}>
+                      {AI_DIRECTORY_TRUST_LEVEL_LABELS[entry.trustLevel] ?? entry.trustLevel}
+                    </span>
+                    <span className={styles.meta}>
+                      {AI_DIRECTORY_COLLECTION_PRIORITY_LABELS[entry.collectionPriority] ?? entry.collectionPriority}
+                    </span>
+                  </div>
                   <p className={styles.resourceSummary}>{entry.summary}</p>
+                  {entry.trendReason ? <p className={styles.resourceSummary}>{entry.trendReason}</p> : null}
                   <div className={styles.tagGroup}>
                     {entry.tags.map((tag) => (
                       <span className={styles.tagPill} key={`${entry.id}-${tag}`}>

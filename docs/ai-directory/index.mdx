@@ -1,6 +1,6 @@
 ---
 title: AI 资源导航
-description: 把优秀的 AI 官网、官方文档、开源仓库和课程入口按使用场景收成一个可持续扩展的目录。
+description: 把国内外优秀 AI 官网、官方文档、开源仓库、课程、行业资源和岗位工作入口按场景收成一个可持续扩展的目录。
 slug: /ai-directory
 displayed_sidebar: aiDirectorySidebar
 sidebar_label: AI 资源导航
@@ -14,8 +14,8 @@ featured: true
 domain: tools
 journey_stage: tech-selection
 entry_role: resource
-reviewed_at: 2026-03-11
-source_window_end: 2026-03-11
+reviewed_at: 2026-05-25
+source_window_end: 2026-05-25
 market_status: current
 ---
 
@@ -33,20 +33,21 @@ export const directoryCards = aiDirectoryCategories.map((category, index) => ({
 
 # AI 资源导航
 
-这不是“AI 全网大全”，而是一个面向 `AI coding / agents / LLM application` 的精选目录。目标是把优秀官网、官方文档、开源仓库和课程入口放到一个可维护的结构里，减少你每次都从搜索引擎重新找入口的成本。
+这不是“AI 全网大全”，而是一个面向全行业 AI 学习与工作的精选目录。目标是把国外优秀官网、官方文档、开源仓库、课程、Cookbook、行业资源和岗位工作入口放到一个可维护的结构里，减少你每次都从搜索引擎重新找入口的成本。
 
 ## 这页怎么用
 
-- 先按你当前缺的入口形状分，再进入具体分类页，而不是先刷热门榜单。
-- 如果你在找产品、IDE、CLI 或执行型 agent，先去 `AI 编码工具与执行型 Agent`。
-- 如果你在找 framework、RAG/agent runtime、LLMOps 或模型平台，直接切到对应分类，不要和学习资源混看。
-- 如果你更需要中文入口和长期收藏站，再去 `中文社区与精选导航`。
+- 先按岗位、行业或技术任务分，再进入具体分类页，而不是先刷热门榜单。
+- 如果你在找模型平台、官方文档、Cookbook 或 API，先去 `基础与官方平台`。
+- 如果你在找 AI coding、agent、MCP 或 LLM 应用开发，直接切到对应技术分类。
+- 如果你在找产品、设计、运营、销售、数据、办公或行业资源，按工作场景进入。
+- 如果你更需要中文入口和长期收藏站，再去 `中文社区与导航`。
 
 ## 目录结构
 
 <ScenarioCards
   title="先按资源形状分，再往下扩"
-  description="这轮把 AI 资源导航正式改成数据驱动目录，分类卡片和分类页都从统一数据源读取。"
+  description="这轮把 AI 资源导航升级为全行业数据驱动目录，分类卡片和分类页都从统一数据源读取。最新热门资源会被标识并排序靠前。"
   items={directoryCards}
 />
 
@@ -58,8 +59,8 @@ export const directoryCards = aiDirectoryCategories.map((category, index) => ({
   items={[
     {
       id: 'official-first',
-      label: '官方优先',
-      description: '优先官网、官方 docs、官方 GitHub 仓库或官方课程页。',
+      label: '国外官方优先',
+      description: '优先国外优秀官网、官方 docs、官方 GitHub 仓库、官方课程和 Cookbook。',
     },
     {
       id: 'repo-reality',
@@ -68,27 +69,27 @@ export const directoryCards = aiDirectoryCategories.map((category, index) => ({
     },
     {
       id: 'ai-coding-scope',
-      label: '范围收敛',
-      description: '先围绕 AI coding、agents、LLM application 和相关工程工具，不把泛 AI 新闻站混进来。',
+      label: '全行业但不泛化',
+      description: '覆盖研发、产品、设计、运营、市场、销售、数据、办公和行业专题，但不把泛 AI 新闻站混进来。',
     },
     {
       id: 'category-by-job',
       label: '按工作任务分层',
-      description: '分类以“我要做什么”为主，不按营销话术或投资热度排目录。',
+      description: '分类以“我要做什么”为主，最新热门可以靠前，但不能替代收录质量。',
     },
     {
       id: 'date-rigor',
       label: '带日期复核',
-      description: '当前目录按 2026-03-11 复核首批官方或社区精选入口，后续扩容沿用同一节奏。',
+      description: '当前目录按 2026-05-25 复核首批官方或社区精选入口，后续扩容沿用同一节奏。',
     },
   ]}
 />
 
 ## 这轮补了什么
 
-- 把原来 4 个手写表格页升级成统一数据源驱动的目录。
-- 在原有 `编码工具 / Agent`、`框架 / 编排`、`Eval / LLMOps`、`课程 / Cookbook` 之外，新增了 `模型 API 与平台`、`MCP 与协议生态`、`中文社区与精选导航` 三类。
-- 继续保留 [Microsoft AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) 作为学习资源类的官方课程仓库样板。
+- 把原来的 AI coding / agents 目录升级为全行业 AI 资源库。
+- 分类扩展为 `基础与官方平台`、`研发与 AI Coding`、`Agent 与应用开发`、`产品与设计`、`运营与市场`、`销售与商务`、`数据与分析`、`企业效率与办公`、`行业专题`、`中文社区与导航`。
+- 资源条目开始支持 `最新热门`、`快速上升`、可信度、受众和优先级等元数据，热门资源会在分类页中排序靠前。
 
 ## 继续阅读
 

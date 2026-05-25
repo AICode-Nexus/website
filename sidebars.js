@@ -540,13 +540,15 @@ const sidebars = {
 
   aiDirectorySidebar: [
     'ai-directory/index',
-    'ai-directory/coding-agents-and-products',
-    'ai-directory/agent-frameworks-and-orchestration',
-    'ai-directory/evals-observability-and-llmops',
-    'ai-directory/learning-and-curated-collections',
-    'ai-directory/code-inspector',
-    'ai-directory/model-platforms',
-    'ai-directory/mcp-and-protocols',
+    'ai-directory/foundational-platforms',
+    'ai-directory/ai-coding',
+    'ai-directory/agent-app-development',
+    'ai-directory/product-design',
+    'ai-directory/operations-marketing',
+    'ai-directory/sales-business',
+    'ai-directory/data-analysis',
+    'ai-directory/productivity-office',
+    'ai-directory/industry-topics',
     'ai-directory/chinese-community',
   ],
 

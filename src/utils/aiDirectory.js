@@ -72,6 +72,14 @@ function ensureEnumValue(value, fieldName, allowedValues) {
   return normalizedValue;
 }
 
+function ensureOptionalEnumValue(value, fieldName, allowedValues) {
+  if (value === undefined) {
+    return undefined;
+  }
+
+  return ensureEnumValue(value, fieldName, allowedValues);
+}
+
 function ensureStringArray(value, fieldName) {
   return ensureArray(value, fieldName).map((item, index) => ensureString(item, `${fieldName}[${index}]`));
 }
@@ -94,15 +102,84 @@ export const AI_DIRECTORY_RESOURCE_TYPE_LABELS = {
   'official-platform': '官方平台',
   'official-docs': '官方文档',
   'official-course': '官方课程',
+  'official-cookbook': '官方 Cookbook',
   'official-repo': '官方仓库',
+  'research-lab': '研究机构',
   'open-source-project': '开源项目',
   'community-curation': '社区精选',
   'community-course': '社区课程',
   'community-repo': '社区仓库',
+  'industry-resource': '行业资源',
+  'tool-directory': '工具目录',
+  'media-library': '媒体资料库',
+};
+
+export const AI_DIRECTORY_AUDIENCE_LABELS = {
+  developer: '研发',
+  product: '产品',
+  design: '设计',
+  operations: '运营',
+  marketing: '市场',
+  sales: '销售',
+  data: '数据',
+  productivity: '办公效率',
+  management: '管理',
+  industry: '行业专题',
+  general: '通用',
+};
+
+export const AI_DIRECTORY_TRUST_LEVEL_LABELS = {
+  official: '官方',
+  institutional: '机构可信',
+  'established-community': '成熟社区',
+  'emerging-community': '观察社区',
+  watch: '待观察',
+};
+
+export const AI_DIRECTORY_COLLECTION_PRIORITY_LABELS = {
+  core: '核心',
+  important: '重要',
+  supplemental: '补充',
+};
+
+export const AI_DIRECTORY_MARKET_STATUS_LABELS = {
+  current: '当前可用',
+  watch: '观察中',
+  legacy: '历史保留',
+};
+
+export const AI_DIRECTORY_TREND_STATUS_LABELS = {
+  hot: '最新热门',
+  rising: '快速上升',
+  watch: '值得关注',
+  evergreen: '长期核心',
 };
 
 const VALID_RESOURCE_TYPES = Object.keys(AI_DIRECTORY_RESOURCE_TYPE_LABELS);
 const AI_DIRECTORY_ROUTE_PATTERN = /^\/docs\/ai-directory(?:\/[^/]+)?$/u;
+const PRIORITY_RANK = {
+  core: 0,
+  important: 1,
+  supplemental: 2,
+};
+const TREND_RANK = {
+  hot: 0,
+  rising: 1,
+  watch: 2,
+  evergreen: 3,
+};
+
+function getDefaultTrustLevel(resourceType) {
+  if (resourceType.startsWith('official-')) {
+    return 'official';
+  }
+
+  if (resourceType === 'research-lab' || resourceType === 'industry-resource') {
+    return 'institutional';
+  }
+
+  return 'established-community';
+}
 
 export function defineAiDirectoryCatalog(catalog) {
   const input = ensureObject(catalog, 'aiDirectoryCatalog');
@@ -138,11 +215,49 @@ export function defineAiDirectoryCatalog(catalog) {
     const officialUrl = ensureOptionalHttpUrl(entry.officialUrl, `${fieldName}.officialUrl`);
     const docsUrl = ensureOptionalHttpUrl(entry.docsUrl, `${fieldName}.docsUrl`);
     const repoUrl = ensureOptionalHttpUrl(entry.repoUrl, `${fieldName}.repoUrl`);
+    const audience = ensureOptionalEnumValue(
+      entry.audience,
+      `${fieldName}.audience`,
+      Object.keys(AI_DIRECTORY_AUDIENCE_LABELS),
+    );
+    const language = ensureOptionalEnumValue(entry.language, `${fieldName}.language`, ['en', 'zh', 'multi']);
+    const region = ensureOptionalEnumValue(entry.region, `${fieldName}.region`, [
+      'global',
+      'china',
+      'us',
+      'europe',
+      'other',
+    ]);
+    const trustLevel = ensureOptionalEnumValue(
+      entry.trustLevel,
+      `${fieldName}.trustLevel`,
+      Object.keys(AI_DIRECTORY_TRUST_LEVEL_LABELS),
+    );
+    const marketStatus = ensureOptionalEnumValue(
+      entry.marketStatus,
+      `${fieldName}.marketStatus`,
+      Object.keys(AI_DIRECTORY_MARKET_STATUS_LABELS),
+    );
+    const collectionPriority = ensureOptionalEnumValue(
+      entry.collectionPriority,
+      `${fieldName}.collectionPriority`,
+      Object.keys(AI_DIRECTORY_COLLECTION_PRIORITY_LABELS),
+    );
+    const trendStatus = ensureOptionalEnumValue(
+      entry.trendStatus,
+      `${fieldName}.trendStatus`,
+      Object.keys(AI_DIRECTORY_TREND_STATUS_LABELS),
+    );
+    const normalizedTrendStatus = trendStatus ?? 'evergreen';
 
     if (!officialUrl && !docsUrl && !repoUrl) {
       throw new Error(
         `AI directory field "${fieldName}" must provide at least one accessible URL among officialUrl, docsUrl, or repoUrl.`,
       );
+    }
+
+    if (normalizedTrendStatus !== 'evergreen' && entry.trendWindowEnd === undefined) {
+      throw new Error(`AI directory field "${fieldName}.trendWindowEnd" is required for non-evergreen trendStatus.`);
     }
 
     return {
@@ -159,7 +274,23 @@ export function defineAiDirectoryCatalog(catalog) {
       tags: ensureStringArray(entry.tags, `${fieldName}.tags`),
       reviewedAt: ensureIsoDate(entry.reviewedAt, `${fieldName}.reviewedAt`),
       sourceWindowEnd: ensureIsoDate(entry.sourceWindowEnd, `${fieldName}.sourceWindowEnd`),
+      audience: audience ?? 'developer',
+      language: language ?? 'en',
+      region: region ?? 'global',
+      trustLevel: trustLevel ?? getDefaultTrustLevel(entry.resourceType),
+      marketStatus: marketStatus ?? 'current',
+      collectionPriority: collectionPriority ?? (entry.featured ? 'core' : 'important'),
+      trendStatus: normalizedTrendStatus,
       ...(entry.featured === undefined ? {} : {featured: Boolean(entry.featured)}),
+      ...(entry.updateTrigger === undefined
+        ? {}
+        : {updateTrigger: ensureString(entry.updateTrigger, `${fieldName}.updateTrigger`)}),
+      ...(entry.trendReason === undefined
+        ? {}
+        : {trendReason: ensureString(entry.trendReason, `${fieldName}.trendReason`)}),
+      ...(entry.trendWindowEnd === undefined
+        ? {}
+        : {trendWindowEnd: ensureIsoDate(entry.trendWindowEnd, `${fieldName}.trendWindowEnd`)}),
     };
   });
   ensureUniqueIds(entries, 'aiDirectoryCatalog.entries');
@@ -182,8 +313,18 @@ export function defineAiDirectoryCatalog(catalog) {
       return frozenEntries
         .filter((entry) => entry.categoryId === categoryId)
         .sort((left, right) => {
+          const trendDelta = TREND_RANK[left.trendStatus] - TREND_RANK[right.trendStatus];
+          if (trendDelta !== 0) {
+            return trendDelta;
+          }
+
           if (Boolean(left.featured) !== Boolean(right.featured)) {
             return left.featured ? -1 : 1;
+          }
+
+          const priorityDelta = PRIORITY_RANK[left.collectionPriority] - PRIORITY_RANK[right.collectionPriority];
+          if (priorityDelta !== 0) {
+            return priorityDelta;
           }
 
           return left.name.localeCompare(right.name, 'en');

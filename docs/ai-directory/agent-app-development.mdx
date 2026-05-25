@@ -1,0 +1,56 @@
+---
+title: Agent、MCP 与 LLM 应用开发
+description: 收 agent SDK、MCP、RAG、workflow 编排、tool use 和 LLM 应用开发资源。
+slug: /ai-directory/agent-app-development
+displayed_sidebar: aiDirectorySidebar
+sidebar_label: Agent 与应用开发
+tags: [agents, mcp, llm-apps, directory]
+track: cross-track
+kind: guide
+content_form: resource
+audience: mixed
+stage: starter
+featured: false
+domain: architecture
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-05-25
+source_window_end: 2026-05-25
+market_status: current
+---
+
+import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+
+# Agent、MCP 与 LLM 应用开发
+
+这一类资源收构建 AI 应用所需的框架、协议、SDK、RAG、tool use、guardrails、评估和观测入口。它更适合工程实现者，而不是只想试用成品工具的读者。
+
+## 这类资源怎么用
+
+- 先区分应用 SDK、agent 编排框架、MCP 协议和观测评估工具。
+- 优先看官方文档、官方仓库和高维护开源项目。
+- 当资源影响线上系统时，同时查看安全、恢复、评估和成本边界。
+
+## 首批精选入口
+
+<AiDirectoryCategoryView categoryId="agent-app-development" />
+
+## 继续阅读
+
+<RelatedReadings
+  title="继续阅读"
+  description="应用开发资源需要和架构、工作流、规范一起读。"
+  items={[
+    {
+      title: '架构与上下文系统',
+      href: '/docs/architecture',
+      description: '理解 MCP、上下文切片、agent 拓扑和工程边界。',
+    },
+    {
+      title: '规范评估与治理',
+      href: '/docs/standards',
+      description: '补齐评估、review、风险和 freshness 规则。',
+    },
+  ]}
+/>
+
