@@ -1,7 +1,7 @@
 import {defineAiDirectoryCatalog} from '@site/src/utils/aiDirectory';
 
-const reviewedAt = '2026-03-11';
-const sourceWindowEnd = '2026-03-11';
+const reviewedAt = '2026-05-25';
+const sourceWindowEnd = '2026-05-25';
 
 function entry(record) {
   return {
@@ -15,46 +15,67 @@ function entry(record) {
 const catalog = defineAiDirectoryCatalog({
   categories: [
     {
-      id: 'coding-agents',
-      title: 'AI 编码工具与执行型 Agent',
-      description: '收官网入口、开源仓库和代表性的执行型 agent，方便快速判断应该先试哪条工具线。',
-      slug: '/docs/ai-directory/coding-agents',
-      sidebarLabel: '编码工具与 Agent',
+      id: 'foundational-platforms',
+      title: '基础与官方平台',
+      description: '收模型厂商、云平台、官方 API 文档、官方 Cookbook 和模型能力入口。',
+      slug: '/docs/ai-directory/foundational-platforms',
+      sidebarLabel: '基础与官方平台',
     },
     {
-      id: 'agent-frameworks',
-      title: 'Agent 框架与编排',
-      description: '收 OpenAI Agents SDK、AutoGen、LangGraph、CrewAI 等常见 agent framework 和 orchestration 入口。',
-      slug: '/docs/ai-directory/agent-frameworks',
-      sidebarLabel: 'Agent 框架与编排',
+      id: 'ai-coding',
+      title: '研发与 AI Coding',
+      description: '收 AI 编码工具、AI IDE、终端 agent、代码评审与软件工程资源。',
+      slug: '/docs/ai-directory/ai-coding',
+      sidebarLabel: '研发与 AI Coding',
     },
     {
-      id: 'evals-and-llmops',
-      title: 'Eval、观测与 LLMOps',
-      description: '收 tracing、prompt regression、应用观测和实验管理相关的网站与仓库。',
-      slug: '/docs/ai-directory/evals-and-llmops',
-      sidebarLabel: 'Eval、观测与 LLMOps',
+      id: 'agent-app-development',
+      title: 'Agent、MCP 与 LLM 应用开发',
+      description: '收 agent SDK、MCP、RAG、workflow 编排、tool use 和 LLM 应用开发资源。',
+      slug: '/docs/ai-directory/agent-app-development',
+      sidebarLabel: 'Agent 与应用开发',
     },
     {
-      id: 'learning-and-collections',
-      title: '课程、Cookbook 与精选合集',
-      description: '收官方课程、cookbook、微软入门仓库和长期值得关注的精选资源集合。',
-      slug: '/docs/ai-directory/learning-and-collections',
-      sidebarLabel: '课程、Cookbook 与合集',
+      id: 'product-design',
+      title: '产品与设计',
+      description: '收产品研究、原型、设计生成、用户研究、设计系统和产品反馈分析资源。',
+      slug: '/docs/ai-directory/product-design',
+      sidebarLabel: '产品与设计',
     },
     {
-      id: 'model-platforms',
-      title: '模型 API 与平台',
-      description: '收主流模型 API、推理平台和多模型接入入口，便于快速确定默认 provider 策略。',
-      slug: '/docs/ai-directory/model-platforms',
-      sidebarLabel: '模型 API 与平台',
+      id: 'operations-marketing',
+      title: '运营与市场',
+      description: '收内容运营、SEO、增长、广告、社媒、活动运营和趋势研究资源。',
+      slug: '/docs/ai-directory/operations-marketing',
+      sidebarLabel: '运营与市场',
     },
     {
-      id: 'mcp-and-protocols',
-      title: 'MCP 与协议生态',
-      description: '收 Model Context Protocol 官方入口、SDK、注册表和协议生态里的高频资源。',
-      slug: '/docs/ai-directory/mcp-and-protocols',
-      sidebarLabel: 'MCP 与协议生态',
+      id: 'sales-business',
+      title: '销售与商务',
+      description: '收销售研究、CRM AI、会议准备、方案生成、客户跟进和商务开发资源。',
+      slug: '/docs/ai-directory/sales-business',
+      sidebarLabel: '销售与商务',
+    },
+    {
+      id: 'data-analysis',
+      title: '数据与分析',
+      description: '收 AI 辅助数据分析、BI、Notebook、数据清洗、可视化和报告生成资源。',
+      slug: '/docs/ai-directory/data-analysis',
+      sidebarLabel: '数据与分析',
+    },
+    {
+      id: 'productivity-office',
+      title: '企业效率与办公',
+      description: '收文档、表格、会议、知识库、搜索、自动化和内部协作类 AI 资源。',
+      slug: '/docs/ai-directory/productivity-office',
+      sidebarLabel: '企业效率与办公',
+    },
+    {
+      id: 'industry-topics',
+      title: '行业专题',
+      description: '收教育、法律、金融、医疗、电商、媒体、制造、客服等行业 AI 资源。',
+      slug: '/docs/ai-directory/industry-topics',
+      sidebarLabel: '行业专题',
     },
     {
       id: 'chinese-community',
@@ -67,7 +88,7 @@ const catalog = defineAiDirectoryCatalog({
   entries: [
     entry({
       id: 'github-copilot',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'GitHub Copilot',
       resourceType: 'official-product',
       officialUrl: 'https://github.com/features/copilot',
@@ -80,7 +101,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'cursor',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'Cursor',
       resourceType: 'official-product',
       officialUrl: 'https://cursor.com/',
@@ -93,7 +114,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'windsurf',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'Windsurf',
       resourceType: 'official-product',
       officialUrl: 'https://windsurf.com/',
@@ -105,7 +126,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'claude-code',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'Claude Code',
       resourceType: 'official-product',
       officialUrl: 'https://www.anthropic.com/claude-code',
@@ -118,7 +139,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'openai-codex',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'OpenAI Codex',
       resourceType: 'official-repo',
       repoUrl: 'https://github.com/openai/codex',
@@ -130,7 +151,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'openhands',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'OpenHands',
       resourceType: 'open-source-project',
       officialUrl: 'https://www.all-hands.dev/',
@@ -142,7 +163,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'cline',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'Cline',
       resourceType: 'open-source-project',
       officialUrl: 'https://cline.bot/',
@@ -154,7 +175,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'gemini-cli',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'Gemini CLI',
       resourceType: 'official-repo',
       repoUrl: 'https://github.com/google-gemini/gemini-cli',
@@ -165,7 +186,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'aider',
-      categoryId: 'coding-agents',
+      categoryId: 'ai-coding',
       name: 'Aider',
       resourceType: 'open-source-project',
       officialUrl: 'https://aider.chat/',
@@ -178,7 +199,7 @@ const catalog = defineAiDirectoryCatalog({
 
     entry({
       id: 'openai-agents-sdk',
-      categoryId: 'agent-frameworks',
+      categoryId: 'agent-app-development',
       name: 'OpenAI Agents SDK',
       resourceType: 'official-docs',
       docsUrl: 'https://openai.github.io/openai-agents-python/',
@@ -191,7 +212,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'autogen',
-      categoryId: 'agent-frameworks',
+      categoryId: 'agent-app-development',
       name: 'AutoGen',
       resourceType: 'official-docs',
       docsUrl: 'https://microsoft.github.io/autogen/stable/',
@@ -204,7 +225,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'langgraph',
-      categoryId: 'agent-frameworks',
+      categoryId: 'agent-app-development',
       name: 'LangGraph',
       resourceType: 'official-docs',
       docsUrl: 'https://langchain-ai.github.io/langgraph/',
@@ -217,7 +238,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'crewai',
-      categoryId: 'agent-frameworks',
+      categoryId: 'agent-app-development',
       name: 'CrewAI',
       resourceType: 'official-docs',
       docsUrl: 'https://docs.crewai.com/',
@@ -229,7 +250,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'llamaindex',
-      categoryId: 'agent-frameworks',
+      categoryId: 'agent-app-development',
       name: 'LlamaIndex',
       resourceType: 'official-docs',
       docsUrl: 'https://docs.llamaindex.ai/',
@@ -241,7 +262,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'pydantic-ai',
-      categoryId: 'agent-frameworks',
+      categoryId: 'agent-app-development',
       name: 'PydanticAI',
       resourceType: 'official-docs',
       docsUrl: 'https://ai.pydantic.dev/',
@@ -253,7 +274,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'mastra',
-      categoryId: 'agent-frameworks',
+      categoryId: 'agent-app-development',
       name: 'Mastra',
       resourceType: 'official-repo',
       officialUrl: 'https://mastra.ai/',
@@ -266,7 +287,7 @@ const catalog = defineAiDirectoryCatalog({
 
     entry({
       id: 'langfuse',
-      categoryId: 'evals-and-llmops',
+      categoryId: 'agent-app-development',
       name: 'Langfuse',
       resourceType: 'open-source-project',
       officialUrl: 'https://langfuse.com/',
@@ -279,7 +300,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'phoenix',
-      categoryId: 'evals-and-llmops',
+      categoryId: 'agent-app-development',
       name: 'Phoenix',
       resourceType: 'open-source-project',
       officialUrl: 'https://phoenix.arize.com/',
@@ -292,7 +313,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'helicone',
-      categoryId: 'evals-and-llmops',
+      categoryId: 'agent-app-development',
       name: 'Helicone',
       resourceType: 'open-source-project',
       officialUrl: 'https://www.helicone.ai/',
@@ -304,7 +325,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'langsmith',
-      categoryId: 'evals-and-llmops',
+      categoryId: 'agent-app-development',
       name: 'LangSmith',
       resourceType: 'official-product',
       officialUrl: 'https://www.langchain.com/langsmith',
@@ -315,7 +336,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'promptfoo',
-      categoryId: 'evals-and-llmops',
+      categoryId: 'agent-app-development',
       name: 'Promptfoo',
       resourceType: 'open-source-project',
       officialUrl: 'https://www.promptfoo.dev/',
@@ -328,7 +349,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'openai-evals',
-      categoryId: 'evals-and-llmops',
+      categoryId: 'agent-app-development',
       name: 'OpenAI Evals',
       resourceType: 'official-repo',
       repoUrl: 'https://github.com/openai/evals',
@@ -339,7 +360,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'mlflow',
-      categoryId: 'evals-and-llmops',
+      categoryId: 'agent-app-development',
       name: 'MLflow',
       resourceType: 'open-source-project',
       officialUrl: 'https://mlflow.org/',
@@ -352,7 +373,7 @@ const catalog = defineAiDirectoryCatalog({
 
     entry({
       id: 'ai-agents-for-beginners',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'AI Agents for Beginners',
       resourceType: 'official-course',
       repoUrl: 'https://github.com/microsoft/ai-agents-for-beginners',
@@ -364,7 +385,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'generative-ai-for-beginners',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'Generative AI for Beginners',
       resourceType: 'official-course',
       repoUrl: 'https://github.com/microsoft/generative-ai-for-beginners',
@@ -375,7 +396,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'openai-cookbook',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'OpenAI Cookbook',
       resourceType: 'official-course',
       officialUrl: 'https://cookbook.openai.com/',
@@ -388,7 +409,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'anthropic-cookbook',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'Anthropic Cookbook',
       resourceType: 'official-course',
       repoUrl: 'https://github.com/anthropics/anthropic-cookbook',
@@ -399,7 +420,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'hf-agents-course',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'Hugging Face Agents Course',
       resourceType: 'official-course',
       officialUrl: 'https://huggingface.co/learn/agents-course/',
@@ -410,7 +431,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'full-stack-llm-bootcamp',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'Full Stack LLM Bootcamp',
       resourceType: 'community-course',
       officialUrl: 'https://fullstackdeeplearning.com/llm-bootcamp/',
@@ -422,7 +443,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'code-inspector',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'Code Inspector',
       resourceType: 'community-repo',
       officialUrl: 'https://inspector.fe-dev.cn/en/',
@@ -437,7 +458,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'awesome-ai-agents',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'awesome-ai-agents',
       resourceType: 'community-curation',
       repoUrl: 'https://github.com/e2b-dev/awesome-ai-agents',
@@ -448,7 +469,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'awesome-llm-apps',
-      categoryId: 'learning-and-collections',
+      categoryId: 'foundational-platforms',
       name: 'awesome-llm-apps',
       resourceType: 'community-curation',
       repoUrl: 'https://github.com/Shubhamsaboo/awesome-llm-apps',
@@ -460,7 +481,7 @@ const catalog = defineAiDirectoryCatalog({
 
     entry({
       id: 'openai-platform',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'OpenAI Platform',
       resourceType: 'official-platform',
       officialUrl: 'https://platform.openai.com/docs/overview',
@@ -472,7 +493,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'anthropic-api',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'Anthropic API',
       resourceType: 'official-platform',
       docsUrl: 'https://docs.anthropic.com/en/home',
@@ -484,7 +505,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'gemini-api',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'Gemini API',
       resourceType: 'official-platform',
       officialUrl: 'https://ai.google.dev/docs',
@@ -496,7 +517,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'hugging-face',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'Hugging Face',
       resourceType: 'official-platform',
       officialUrl: 'https://huggingface.co/',
@@ -508,7 +529,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'together-ai',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'Together AI',
       resourceType: 'official-platform',
       officialUrl: 'https://www.together.ai/',
@@ -520,7 +541,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'replicate',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'Replicate',
       resourceType: 'official-platform',
       officialUrl: 'https://replicate.com/',
@@ -532,7 +553,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'fireworks-ai',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'Fireworks AI',
       resourceType: 'official-platform',
       officialUrl: 'https://fireworks.ai/',
@@ -544,7 +565,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'openrouter',
-      categoryId: 'model-platforms',
+      categoryId: 'foundational-platforms',
       name: 'OpenRouter',
       resourceType: 'community-curation',
       officialUrl: 'https://openrouter.ai/',
@@ -557,7 +578,7 @@ const catalog = defineAiDirectoryCatalog({
 
     entry({
       id: 'mcp-official',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'Model Context Protocol',
       resourceType: 'official-docs',
       officialUrl: 'https://modelcontextprotocol.io/introduction',
@@ -570,7 +591,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'mcp-servers',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'MCP Servers',
       resourceType: 'official-repo',
       repoUrl: 'https://github.com/modelcontextprotocol/servers',
@@ -582,7 +603,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'mcp-typescript-sdk',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'MCP TypeScript SDK',
       resourceType: 'official-repo',
       repoUrl: 'https://github.com/modelcontextprotocol/typescript-sdk',
@@ -593,7 +614,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'mcp-python-sdk',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'MCP Python SDK',
       resourceType: 'official-repo',
       repoUrl: 'https://github.com/modelcontextprotocol/python-sdk',
@@ -604,7 +625,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'fastmcp',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'FastMCP',
       resourceType: 'open-source-project',
       officialUrl: 'https://gofastmcp.com/',
@@ -616,7 +637,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'smithery',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'Smithery',
       resourceType: 'community-curation',
       officialUrl: 'https://smithery.ai/',
@@ -627,7 +648,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'mcp-so',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'MCP.so',
       resourceType: 'community-curation',
       officialUrl: 'https://mcp.so/',
@@ -638,7 +659,7 @@ const catalog = defineAiDirectoryCatalog({
     }),
     entry({
       id: 'openai-apps-sdk',
-      categoryId: 'mcp-and-protocols',
+      categoryId: 'agent-app-development',
       name: 'OpenAI Apps SDK',
       resourceType: 'official-docs',
       docsUrl: 'https://developers.openai.com/apps-sdk/',
