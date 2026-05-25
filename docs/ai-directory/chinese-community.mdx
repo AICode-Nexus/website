@@ -6,7 +6,7 @@ displayed_sidebar: aiDirectorySidebar
 sidebar_label: 中文社区与精选导航
 tags: [ai-coding, chinese-community, directory]
 track: cross-track
-kind: guide
+kind: resource
 content_form: resource
 audience: mixed
 stage: starter
@@ -17,50 +17,11 @@ entry_role: resource
 reviewed_at: 2026-03-11
 source_window_end: 2026-03-11
 market_status: current
+hide_freshness_banner: true
 ---
 
-import {AiDirectoryCategoryView, RelatedReadings} from '@site/src/components/docs';
+import {AiDirectoryCategoryView} from '@site/src/components/docs';
 
 # 中文社区与精选导航
 
-这一类不是官方产品文档，而是“中文世界里值得长期收藏的社区入口”。它的目标是补充中文导航、中文 prompt 方法资源和社区精选仓库，减少你每次都从社交媒体碎片里重新找线索。
-
-## 这类资源适合什么时候看
-
-- 你已经有官方 Docs 基线，但需要中文入口、中文方法资源或导航站辅助。
-- 你想快速扫一遍中文圈正在讨论什么，再决定要不要回官方资料深挖。
-- 你需要给团队整理一份更适合中文读者的入口集合。
-
-## 首批精选入口
-
 <AiDirectoryCategoryView categoryId="chinese-community" />
-
-## 使用原则
-
-1. 中文社区入口更适合做发现层和学习层，不替代官方事实来源。
-2. 如果某个结论会影响选型、采购或系统设计，最后仍要回官方 Docs 校验。
-3. 这类资源最适合做“第二层补充”，不是第一入口。
-
-## 继续阅读
-
-<RelatedReadings
-  title="继续阅读"
-  description="中文社区适合做发现和补课，正式决策仍要回官方入口和本仓库教程。"
-  items={[
-    {
-      title: 'AI 资源导航首页',
-      href: '/docs/ai-directory',
-      description: '回到目录首页，切换到官方工具、模型平台和 MCP 生态。',
-    },
-    {
-      title: 'AI 编程工具',
-      href: '/docs/tools',
-      description: '把社区里看到的工具拉回到正式教程和 quick start。',
-    },
-    {
-      title: '视频资源',
-      href: '/docs/resources/videos',
-      description: '如果你更需要可直接观看的中文素材，回到视频资源中心。',
-    },
-  ]}
-/>

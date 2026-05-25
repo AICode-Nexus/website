@@ -21,6 +21,10 @@ function formatDateValue(value) {
 }
 
 export default function DocFreshnessBanner({frontMatter}) {
+  if (frontMatter?.hide_freshness_banner) {
+    return null;
+  }
+
   const domain = resolveDomainKey(frontMatter);
   const journeyStage = resolveJourneyStageKey(frontMatter);
   const reviewedAt = formatDateValue(frontMatter?.reviewed_at);
