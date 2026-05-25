@@ -165,7 +165,7 @@
   overflow: hidden;
   border: 1px solid var(--ifm-toc-border-color);
   border-radius: 8px;
-  background: var(--ifm-color-emphasis-100);
+  background: var(--ifm-background-surface-color);
 }
 
 .logoMark {
@@ -178,6 +178,13 @@
   font-size: 0.82rem;
   font-weight: 800;
   line-height: 1;
+}
+
+.logoImage {
+  display: block;
+  width: 1.9rem;
+  height: 1.9rem;
+  object-fit: contain;
 }
 
 .resourceName {

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import aiDirectoryLogoPaths from '@site/src/data/aiDirectoryLogoPaths.json';
 import {
   AI_DIRECTORY_AUDIENCE_LABELS,
   AI_DIRECTORY_TREND_STATUS_LABELS,
@@ -71,9 +73,12 @@ function getLogoText(name) {
 }
 
 function ResourceCard({entry}) {
+  const [logoFailed, setLogoFailed] = useState(false);
   const primaryLink = getPrimaryLink(entry);
   const href = primaryLink?.href ?? '#';
   const host = getHostname(href);
+  const logoPath = aiDirectoryLogoPaths[entry.id];
+  const logoSource = useBaseUrl(logoPath ?? '');
   const logoTone = getLogoTone(entry.id);
   const trendLabel = getShortTrendLabel(entry.trendStatus);
   const fullTrendLabel = AI_DIRECTORY_TREND_STATUS_LABELS[entry.trendStatus];
@@ -83,14 +88,26 @@ function ResourceCard({entry}) {
   return (
     <Link className={styles.resourceCard} to={href} title={entry.summary} aria-label={`${entry.name}: ${entry.summary}`}>
       <span className={styles.logoWrap} aria-hidden="true">
-        <span
-          className={styles.logoMark}
-          style={{
-            '--directory-logo-bg': logoTone.background,
-            '--directory-logo-color': logoTone.color,
-          }}>
-          {getLogoText(entry.name)}
-        </span>
+        {logoPath && !logoFailed ? (
+          <img
+            className={styles.logoImage}
+            src={logoSource}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            referrerPolicy="no-referrer"
+            onError={() => setLogoFailed(true)}
+          />
+        ) : (
+          <span
+            className={styles.logoMark}
+            style={{
+              '--directory-logo-bg': logoTone.background,
+              '--directory-logo-color': logoTone.color,
+            }}>
+            {getLogoText(entry.name)}
+          </span>
+        )}
       </span>
       <span className={styles.resourceName}>{entry.name}</span>
       <span className={styles.resourceHost}>{host}</span>
