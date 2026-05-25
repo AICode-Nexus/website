@@ -164,7 +164,7 @@ BYOK 当然能让你把部分成本与配额控制拉回到自己的 provider �
 
 ## 相关阅读
 
-- [模型 API 与平台](/docs/ai-directory/model-platforms)
+- [模型 API 与平台](/docs/ai-directory/foundational-platforms)
 - [仓库 Issue 信号追踪](/docs/tools/insights/repo-issue-signals)
 - [统一 Agent 平台 + 自研 Frontier：企业为什么最后都会走向双线建设](/docs/tools/insights/unified-agent-platform-frontier)
 

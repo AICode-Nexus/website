@@ -169,6 +169,18 @@ const TREND_RANK = {
   evergreen: 3,
 };
 
+function getDefaultTrustLevel(resourceType) {
+  if (resourceType.startsWith('official-')) {
+    return 'official';
+  }
+
+  if (resourceType === 'research-lab' || resourceType === 'industry-resource') {
+    return 'institutional';
+  }
+
+  return 'established-community';
+}
+
 export function defineAiDirectoryCatalog(catalog) {
   const input = ensureObject(catalog, 'aiDirectoryCatalog');
   const categories = ensureArray(input.categories, 'aiDirectoryCatalog.categories').map((item, index) => {
@@ -265,9 +277,9 @@ export function defineAiDirectoryCatalog(catalog) {
       audience: audience ?? 'developer',
       language: language ?? 'en',
       region: region ?? 'global',
-      trustLevel: trustLevel ?? 'official',
+      trustLevel: trustLevel ?? getDefaultTrustLevel(entry.resourceType),
       marketStatus: marketStatus ?? 'current',
-      collectionPriority: collectionPriority ?? 'important',
+      collectionPriority: collectionPriority ?? (entry.featured ? 'core' : 'important'),
       trendStatus: normalizedTrendStatus,
       ...(entry.featured === undefined ? {} : {featured: Boolean(entry.featured)}),
       ...(entry.updateTrigger === undefined
