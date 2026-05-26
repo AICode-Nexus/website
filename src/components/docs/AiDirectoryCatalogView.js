@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from '@docusaurus/Link';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import {aiDirectoryCategories, aiDirectoryEntries, getAiDirectoryEntriesByCategory} from '@site/src/data/aiDirectory';
@@ -32,6 +32,7 @@ function getEntrySearchText(entry, category) {
 
 export default function AiDirectoryCatalogView() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategoryId, setActiveCategoryId] = useState(aiDirectoryCategories[0]?.id ?? '');
   const brokenLinks = useBrokenLinks();
   const hotCount = countEntries((entry) => entry.trendStatus === 'hot');
   const risingCount = countEntries((entry) => entry.trendStatus === 'rising');
@@ -53,6 +54,81 @@ export default function AiDirectoryCatalogView() {
   aiDirectoryCategories.forEach((category) => {
     brokenLinks.collectAnchor(category.id);
   });
+
+  useEffect(() => {
+    const categoryIds = aiDirectoryCategories.map((category) => category.id);
+    let animationFrameId = 0;
+
+    function getAnchorOffset() {
+      return (document.querySelector('.navbar')?.getBoundingClientRect().height ?? 0) + 24;
+    }
+
+    function updateActiveCategory() {
+      const sections = categoryIds
+        .map((categoryId) => document.getElementById(categoryId))
+        .filter(Boolean);
+
+      if (sections.length === 0) {
+        return;
+      }
+
+      const markerY = getAnchorOffset();
+      const isNearPageEnd =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+      let nextActiveCategoryId = sections[0].id;
+
+      if (isNearPageEnd) {
+        nextActiveCategoryId = sections[sections.length - 1].id;
+      } else {
+        sections.forEach((section) => {
+          if (section.getBoundingClientRect().top <= markerY) {
+            nextActiveCategoryId = section.id;
+          }
+        });
+      }
+
+      setActiveCategoryId((previousCategoryId) =>
+        previousCategoryId === nextActiveCategoryId ? previousCategoryId : nextActiveCategoryId,
+      );
+    }
+
+    function requestActiveCategoryUpdate() {
+      window.cancelAnimationFrame(animationFrameId);
+      animationFrameId = window.requestAnimationFrame(updateActiveCategory);
+    }
+
+    updateActiveCategory();
+    window.addEventListener('scroll', requestActiveCategoryUpdate, {passive: true});
+    window.addEventListener('resize', requestActiveCategoryUpdate);
+    window.addEventListener('hashchange', requestActiveCategoryUpdate);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('scroll', requestActiveCategoryUpdate);
+      window.removeEventListener('resize', requestActiveCategoryUpdate);
+      window.removeEventListener('hashchange', requestActiveCategoryUpdate);
+    };
+  }, []);
+
+  useEffect(() => {
+    const sidebarLinks = document.querySelectorAll('.theme-doc-sidebar-menu .menu__link[href*="/docs/ai-directory"]');
+
+    sidebarLinks.forEach((link) => {
+      link.classList.remove('menu__link--active');
+      link.removeAttribute('aria-current');
+    });
+
+    if (!activeCategoryId) {
+      return;
+    }
+
+    document
+      .querySelectorAll(`.theme-doc-sidebar-menu .menu__link[href$="#${activeCategoryId}"]`)
+      .forEach((link) => {
+        link.classList.add('menu__link--active');
+        link.setAttribute('aria-current', 'page');
+      });
+  }, [activeCategoryId]);
 
   return (
     <>
@@ -77,7 +153,12 @@ export default function AiDirectoryCatalogView() {
         {normalizedQuery ? <p className={styles.searchResultMeta}>命中 {visibleCount} 个入口</p> : null}
         <nav className={styles.categoryNav} aria-label="AI 资源分类锚点">
           {aiDirectoryCategories.map((category) => (
-            <Link className={styles.categoryPill} to={`#${category.id}`} key={category.id}>
+            <Link
+              className={[styles.categoryPill, activeCategoryId === category.id ? styles.categoryPillActive : '']
+                .filter(Boolean)
+                .join(' ')}
+              to={`#${category.id}`}
+              key={category.id}>
               {category.sidebarLabel}
             </Link>
           ))}
