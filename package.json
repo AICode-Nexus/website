@@ -23,6 +23,7 @@
     "monitor:repo-issues": "node scripts/content/monitor-repo-issues.mjs",
     "reply:repo-issue": "node scripts/content/reply-repo-issue.mjs",
     "monitor:tool-releases": "node scripts/content/monitor-tool-releases.mjs",
+    "sync:ai-directory-logos": "node scripts/content/sync-ai-directory-logos.mjs",
     "detect:stale-docs": "node scripts/content/detect-stale-docs.mjs",
     "update:stale-doc": "node scripts/content/update-stale-doc.mjs",
     "analytics:fetch": "node scripts/analytics/fetch-ga4-metrics.mjs",
