@@ -70,6 +70,18 @@ status: active-collection
 - CodeRabbit: https://www.coderabbit.ai/ and https://docs.coderabbit.ai/
 - Qodo: https://www.qodo.ai/
 - Sourcegraph Amp: https://sourcegraph.com/amp
+- Qoder: https://qoder.com/ and https://docs.qoder.com/
+- Qoder CLI: https://qoder.com/cli and https://docs.qoder.com/en/cli/model
+- Trae: https://www.trae.ai/ and https://docs.trae.ai/
+- TRAE SOLO: https://www.trae.cn/solo and https://docs.trae.ai/ide/trae-solo-is-now-available?_lang=en
+- Kiro: https://kiro.dev/ and https://kiro.dev/docs/
+- Augment Code: https://www.augmentcode.com/ and https://docs.augmentcode.com/
+- Factory Droid: https://www.factory.ai/ and https://docs.factory.ai/cli
+- Zencoder: https://zencoder.ai/ and https://docs.zencoder.ai/welcome
+- Kilo Code: https://kilo.ai/, https://kilo.ai/docs/getting-started, and https://github.com/Kilo-Org/kilocode
+- Roo Code: https://roocode.com/, https://docs.roocode.com/, and https://github.com/RooCodeInc/Roo-Code
+- OpenCode: https://github.com/opencode-ai/opencode
+- Crush: https://github.com/charmbracelet/crush
 
 ### Agent App Development
 
@@ -87,6 +99,12 @@ status: active-collection
 - Browser Use: https://browser-use.com/ and https://docs.browser-use.com/
 - Ragas: https://docs.ragas.io/
 - LiteLLM: https://docs.litellm.ai/
+- Hermes Agent: https://github.com/nousresearch/hermes-agent and https://hermes-agent.nousresearch.com/
+- Hermes Agent Self Evolution: https://github.com/nousresearch/hermes-agent-self-evolution
+- OpenClaw: https://openclaw.ai/ and https://github.com/openclaw/openclaw
+- NemoClaw: https://github.com/NVIDIA/NemoClaw and https://docs.nvidia.com/nemoclaw/latest/
+- OpenShell: https://github.com/NousResearch/OpenShell and https://docs.nvidia.com/openshell/latest/
+- KiloClaw: https://kilo.ai/
 
 ### Product And Design
 
@@ -178,6 +196,7 @@ status: active-collection
 - Otter.ai: https://otter.ai/
 - Grammarly AI: https://www.grammarly.com/ai
 - Zapier AI: https://zapier.com/ai
+- QoderWork: https://docs.qoder.com/qoderwork/introduction
 - Make AI: https://www.make.com/en/ai
 - Atlassian Intelligence: https://www.atlassian.com/software/artificial-intelligence
 - Dropbox Dash: https://www.dropbox.com/dash
