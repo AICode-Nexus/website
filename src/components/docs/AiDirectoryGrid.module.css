@@ -77,10 +77,15 @@
 }
 
 .categoryPill:hover,
-.categoryPill:focus {
+.categoryPill:focus,
+.categoryPillActive {
   border-color: var(--ifm-color-primary);
   color: var(--ifm-color-primary);
   text-decoration: none;
+}
+
+.categoryPillActive {
+  background: rgba(15, 118, 110, 0.1);
 }
 
 .categorySection {
