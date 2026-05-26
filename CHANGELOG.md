@@ -13,6 +13,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - Reworked `AI 资源导航` sidebar and category tabs into one anchor-scrolling catalog page, adding local search and short category descriptions for each resource block.
 - Reworked `AI 资源导航` cards to load official site favicons/logos from each resource URL, while keeping initials only as a fallback.
 - Reworked `AI 资源导航` category navigation so the left sidebar and in-page category chips track the section currently visible while scrolling.
+- Refreshed the `AI 资源导航` with a 2026-05-26 hot-product audit across all 10 categories, adding current official entries for model platforms, AI coding agents, app builders, agent infrastructure, design tools, creative marketing tools, sales AI, data analysis, productivity assistants, industry products, and Chinese AI products.
 - Reworked the issue-driven pages for Playwright, OpenRouter, and `Skills 与 MCP` into article-style longform docs with dated official sources and clearer argument flow, replacing the earlier list-heavy versions tied to issues #1, #2, and #3.
 - Reworked the new issue-driven pages `Vibe Working` and `统一 Agent 平台 + 自研 Frontier` into stronger long-form articles grounded in official Anthropic, OpenAI, GitHub, and VS Code sources, replacing the earlier outline-heavy drafts with clearer narrative structure and dated evidence.
 - Reworked the local `ai-coding-daily-writer` skill from a thin daily template into a repo-native content orchestration workflow, with a tested initializer for `daily`, `weekly`, and `insight` outputs, a legacy-compatible daily entrypoint, and documented `EXTEND.md` preferences aligned with the existing `scripts/content/*.mjs` pipeline.
@@ -27,7 +28,11 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
-- Rebuilt `AI 资源导航` into a cross-industry AI resource directory with 10 top-level categories, 119 reviewed entries, a foreign-source-first collection manifest, and `最新热门` / `快速上升` metadata that sorts current high-attention resources ahead of ordinary entries.
+- Rebuilt `AI 资源导航` into a cross-industry AI resource directory with 10 top-level categories, 194 reviewed entries, a foreign-source-first collection manifest, and `最新热门` / `快速上升` metadata that sorts current high-attention resources ahead of ordinary entries.
+- Added a local `ai-knowledge-curriculum-builder` skill to keep the site's R&D-first AI learning system, case labs, media hooks, and future non-R&D expansion aligned around a durable curriculum contract.
+- Added a public `研发人员 AI 学习体系` entry page that turns the site's first-batch R&D curriculum into a task-first learning route with workflow, role, case, media, and freshness rules.
+- Added six R&D case-lab pages for API contracts, schema migration, design-to-page delivery, bug regression evidence, issue-to-PR handoff, and release smoke/rollback training.
+- Added a local `site-article-writer` skill for repo-native longform article drafting, with content-form routing, draft-note staging, frontmatter/freshness rules, and clear hand-offs to `ai-coding-daily-writer` for briefs and `technical-docs-editor` for existing-page reinforcement.
 - Added a standalone `Happy` guide plus new repo-issue signal tracking for issue #6 so the site now has a direct Chinese entry explaining how Happy extends local Codex / Claude Code sessions to mobile and Web, instead of misclassifying it as noise or a generic remote desktop request.
 - Added a standalone workflow guide, `Vibe Working：从 Vibe Coding 到可交付团队工作流`, plus new repo-issue signal tracking for issue #4 so the site now has a direct Chinese page for turning fast AI coding into team-grade delivery, verification, and handoff.
 - Added a standalone insight page, `统一 Agent 平台 + 自研 Frontier：企业级 AI 交付为什么要双线建设`, plus new repo-issue signal tracking for issue #5 so enterprise readers now have a direct Chinese entry for the platform-vs-frontier split instead of only scattered mentions inside longer talks.
