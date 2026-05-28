@@ -13,8 +13,8 @@ featured: false
 domain: workflows
 journey_stage: implementation
 entry_role: domain
-reviewed_at: 2026-03-23
-source_window_end: 2026-03-23
+reviewed_at: 2026-05-28
+source_window_end: 2026-05-28
 market_status: current
 ---
 
@@ -27,6 +27,7 @@ market_status: current
 - 设计输入怎么变成稳定骨架：从 [设计到代码](/docs/roles/frontend/design-to-code) 开始，先管好 Figma、token、交互说明和截图补充的顺序。
 - 框架与组件怎么选：去 [框架与组件生态](/docs/roles/frontend/frameworks-and-components) 对齐 `React / Next.js / Vue / Nuxt / Vite`、状态层和组件基座。
 - 样式如何避免“默认 AI 味”：用 [样式与设计系统](/docs/roles/frontend/styling-and-design-systems) 固定 token、CSS 变量、Tailwind 规则和品牌语言。
+- 页面正文、标题和 `pre/code` 片段怎么先守住可读性：用 [前端页面字体与文字排版](/docs/roles/frontend/page-typography-and-text-layout) 固定字号层级、CJK 行宽、中英混排与预格式化文本边界。
 - 代码如何过门禁：用 [质量门禁](/docs/roles/frontend/quality-gates) 把 `TypeScript / ESLint / Oxlint / build / review` 串起来。
 - 仓库结构如何避免 AI 误改：在 [仓库结构](/docs/roles/frontend/repo-architecture) 里判断单应用、workspace 和 monorepo 的边界。
 - 想先拿到一份可执行的 E2E 落地路径：去 [Playwright 自动化测试方案](/docs/roles/frontend/playwright-automation-plan)。

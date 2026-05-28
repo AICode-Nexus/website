@@ -13,8 +13,8 @@ entry_role: admin
 audience: mixed
 stage: intermediate
 featured: false
-reviewed_at: 2026-03-26
-source_window_end: 2026-03-26
+reviewed_at: 2026-05-28
+source_window_end: 2026-05-28
 market_status: current
 ---
 
@@ -62,6 +62,20 @@ market_status: current
 - `2026-03-23`：确定长期 docs 的默认落点为当前页面，用来沉淀“哪些 issue 信号值得改长期知识”。
 
 ## 最新信号
+
+### 2026-05-28：`pretext 文字排版` 说明站内还缺“页面可读性与 `pre/code` 边界”的独立入口
+
+- 事实：[`AICode-Nexus/website` 的 issue #7 `pretext 文字排版`](https://github.com/AICode-Nexus/website/issues/7) 于 `2026-03-30 15:12:06 UTC` 创建，正文是“前端页面字体pretext 文字排版”。
+- 事实：截至 `2026-05-28` 的当前全量 issue 复核，issue #1 到 #6 都已经有明确中文内容页或中文回帖，issue #7 是唯一仍未被内容化处理的候选。
+- 事实：仓库现有的 [`样式与设计系统`](/docs/roles/frontend/styling-and-design-systems) 已经讲了 token、品牌语言和组件变体，但此前没有单独处理页面正文层级、CJK 行宽、中英混排和 `pre/code` 片段的独立页面。
+- 推断：这条 issue 暴露的不是某个 CSS 技巧缺失，而是“前端页面可读性约束”还没有被沉淀成一个可直接复用的工程入口。
+- 推断：因为原文里同时出现了“字体”和 `pretext`，所以这类需求更适合直接补一篇前端方案页，把普通正文与 `pre/code` 预格式化文本一起讲清，而不是只写时效型日报。
+
+### 这条信号应该怎么回流
+
+- docs 层：新增 [`前端页面字体与文字排版`](/docs/roles/frontend/page-typography-and-text-layout)，把字号层级、正文宽度、段间距、CJK 行宽和 `pre/code` 溢出策略收成独立中文入口。
+- docs 层：在 [`前端 AI 工作台`](/docs/roles/frontend) 总览页补一条直达链接，让读者在进入 `样式与设计系统` 之前，先把“可读性合同”这件事单独看清。
+- watchlist：如果后续继续出现“长文难读”“中英混排难看”“代码块排版混乱”“移动端正文一缩就崩”这类 issue，就要把这条线继续升级成统一的前端排版验收清单，而不是只在单页里解释。
 
 ### 2026-03-26：`Happy` 说明“离开桌面后怎么继续控制 agent”已经成了新的工具入口缺口
 
@@ -178,6 +192,7 @@ market_status: current
 ## Sources
 
 - [AICode-Nexus/website Issues](https://github.com/AICode-Nexus/website/issues)
+- [Issue #7: `pretext 文字排版`](https://github.com/AICode-Nexus/website/issues/7)
 - [Issue #5: `统一 Agent 平台 + 自研 Frontier 能力`](https://github.com/AICode-Nexus/website/issues/5)
 - [Issue #4: `聊一聊vibe working`](https://github.com/AICode-Nexus/website/issues/4)
 - [Issue #6: `sad`](https://github.com/AICode-Nexus/website/issues/6)

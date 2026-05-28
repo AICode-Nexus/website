@@ -1,0 +1,286 @@
+{
+  "date": "2026-05-28",
+  "repo": "AICode-Nexus/website",
+  "generatedAt": "2026-05-28T10:10:52+08:00",
+  "scope": "current-unprocessed-issue-assessment",
+  "language": "zh-CN",
+  "status": "ok",
+  "summary": "本轮在 2026-05-28 10:10:52 +08:00 成功通过 gh issue list 与 gh issue view 复核 AICode-Nexus/website 当前全部 7 条 issue。#1 到 #6 仍可在线证明已处理；#7 在评估时是唯一未处理候选，本轮已被沉淀为独立前端方案页，并同步写入长期信号页。",
+  "window": {
+    "mode": "full-inventory",
+    "note": "本轮不按过去 24 小时变化筛选，而是核对仓库当前全部 issue 的内容化处理状态。",
+    "initiatedAt": "2026-05-28T10:01:00+08:00",
+    "finalizedAt": "2026-05-28T10:10:52+08:00",
+    "crossedMidnight": false
+  },
+  "currentIssueAssessment": {
+    "assessmentTime": "2026-05-28T10:10:52+08:00",
+    "handlingRule": "只有当 issue 已有带 `<!-- codex-issue-reply ... -->` 去重标记的中文回帖并指向有效站点路由，或仓库里已有明确对应的中文方案页 / docs 更新且能在长期信号页或 automation memory 中追溯到该 issue，才算已处理；否则视为待处理。",
+    "knownIssueInventory": [
+      {
+        "number": 1,
+        "title": "plawright",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/1",
+        "createdAt": "2026-03-23T08:40:40Z",
+        "updatedAt": "2026-03-24T08:41:17Z",
+        "lastVerifiedAt": "2026-05-28T10:10:52+08:00",
+        "inventoryEvidence": "本轮成功执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，返回 issue #1 到 #7 的全量列表。"
+      },
+      {
+        "number": 2,
+        "title": "openRouter",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/2",
+        "createdAt": "2026-03-24T07:57:14Z",
+        "updatedAt": "2026-03-24T08:41:28Z",
+        "lastVerifiedAt": "2026-05-28T10:10:52+08:00",
+        "inventoryEvidence": "本轮成功执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，返回 issue #1 到 #7 的全量列表。"
+      },
+      {
+        "number": 3,
+        "title": "一些skills和mcp可以附上对应的GitHub地址或者是对应的网址就更好了 方便点击就能看到 就不用自己去搜索了",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/3",
+        "createdAt": "2026-03-24T09:54:05Z",
+        "updatedAt": "2026-03-25T02:39:29Z",
+        "lastVerifiedAt": "2026-05-28T10:10:52+08:00",
+        "inventoryEvidence": "本轮成功执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，返回 issue #1 到 #7 的全量列表。"
+      },
+      {
+        "number": 4,
+        "title": "聊一聊vibe working",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/4",
+        "createdAt": "2026-03-25T02:41:23Z",
+        "updatedAt": "2026-03-25T06:37:24Z",
+        "lastVerifiedAt": "2026-05-28T10:10:52+08:00",
+        "inventoryEvidence": "本轮成功执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，返回 issue #1 到 #7 的全量列表。"
+      },
+      {
+        "number": 5,
+        "title": "统一 Agent 平台 + 自研 Frontier 能力",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/5",
+        "createdAt": "2026-03-25T03:23:58Z",
+        "updatedAt": "2026-03-25T06:37:23Z",
+        "lastVerifiedAt": "2026-05-28T10:10:52+08:00",
+        "inventoryEvidence": "本轮成功执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，返回 issue #1 到 #7 的全量列表。"
+      },
+      {
+        "number": 6,
+        "title": "sad",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/6",
+        "createdAt": "2026-03-26T10:27:20Z",
+        "updatedAt": "2026-03-30T01:06:17Z",
+        "lastVerifiedAt": "2026-05-28T10:10:52+08:00",
+        "inventoryEvidence": "本轮成功执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，返回 issue #1 到 #7 的全量列表。"
+      },
+      {
+        "number": 7,
+        "title": "pretext 文字排版",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/7",
+        "createdAt": "2026-03-30T15:12:06Z",
+        "updatedAt": "2026-03-30T15:12:06Z",
+        "lastVerifiedAt": "2026-05-28T10:10:52+08:00",
+        "inventoryEvidence": "本轮成功执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，返回 issue #1 到 #7 的全量列表。"
+      }
+    ],
+    "processedAssessments": [
+      {
+        "number": 1,
+        "status": "processed",
+        "reason": "仓库中已有明确对应的中文方案页、分流页和长期信号页，且本轮在线复核到了带去重标记的中文回帖。",
+        "routeEvidence": [
+          "/docs/roles/frontend/playwright-automation-plan",
+          "/docs/roles/frontend/testing-and-delivery",
+          "/blog/daily/2026-03-23-repo-issue-brief",
+          "/tools/insights/repo-issue-signals"
+        ],
+        "repoEvidence": [
+          "docs/roles/frontend/playwright-automation-plan.md",
+          "docs/roles/frontend/testing-and-delivery.md",
+          "blog/daily/2026-03-23-repo-issue-brief.md",
+          "docs/insights/repo-issue-signals.md"
+        ],
+        "commentMarkerVerification": "已复核。本轮 `gh issue view 1 --comments` 返回的评论中包含 `<!-- codex-issue-reply issue=1 target=https://AICode-Nexus.github.io/website/docs/roles/frontend/playwright-automation-plan -->`。"
+      },
+      {
+        "number": 2,
+        "status": "processed",
+        "reason": "仓库中已有明确对应的中文方案页、入口页补链与长期信号页，且本轮在线复核到了带去重标记的中文回帖。",
+        "routeEvidence": [
+          "/docs/tools/openrouter-routing-playbook",
+          "/docs/ai-directory/model-platforms",
+          "/tools/insights/repo-issue-signals"
+        ],
+        "repoEvidence": [
+          "docs/tools/openrouter-routing-playbook.md",
+          "docs/ai-directory/model-platforms.mdx",
+          "docs/insights/repo-issue-signals.md"
+        ],
+        "commentMarkerVerification": "已复核。本轮 `gh issue view 2 --comments` 返回的评论中包含 `<!-- codex-issue-reply issue=2 target=https://AICode-Nexus.github.io/website/docs/tools/openrouter-routing-playbook -->`。"
+      },
+      {
+        "number": 3,
+        "status": "processed",
+        "reason": "仓库中已有明确对应的中文 docs 更新与长期信号页记录，虽然现有中文回帖未带去重标记，但仍满足“仓库里已有明确对应中文 docs 更新且能追溯”的已处理标准。",
+        "routeEvidence": [
+          "/docs/roles/frontend/skills-and-mcp",
+          "/tools/insights/repo-issue-signals"
+        ],
+        "repoEvidence": [
+          "docs/roles/frontend/skills-and-mcp.md",
+          "docs/insights/repo-issue-signals.md"
+        ],
+        "commentMarkerVerification": "已复核。本轮 `gh issue view 3 --comments` 返回了中文回帖，但该评论未包含 `codex-issue-reply` 去重标记，因此本条仍主要依赖 repo 内容证据判定已处理。"
+      },
+      {
+        "number": 4,
+        "status": "processed",
+        "reason": "仓库中已有明确对应的中文工作流页与长期信号页，且本轮在线复核到了带去重标记的中文回帖。",
+        "routeEvidence": [
+          "/docs/workflows/vibe-working",
+          "/tools/insights/repo-issue-signals"
+        ],
+        "repoEvidence": [
+          "docs/workflows/vibe-working.md",
+          "docs/insights/repo-issue-signals.md"
+        ],
+        "commentMarkerVerification": "已复核。本轮 `gh issue view 4 --comments` 返回的评论中包含 `<!-- codex-issue-reply issue=4 target=https://AICode-Nexus.github.io/website/docs/workflows/vibe-working -->`。"
+      },
+      {
+        "number": 5,
+        "status": "processed",
+        "reason": "仓库中已有明确对应的中文 insight 页与长期信号页，且本轮在线复核到了带去重标记的中文回帖。",
+        "routeEvidence": [
+          "/tools/insights/unified-agent-platform-frontier",
+          "/tools/insights/repo-issue-signals"
+        ],
+        "repoEvidence": [
+          "docs/insights/unified-agent-platform-frontier.md",
+          "docs/insights/repo-issue-signals.md"
+        ],
+        "commentMarkerVerification": "已复核。本轮 `gh issue view 5 --comments` 返回的评论中包含 `<!-- codex-issue-reply issue=5 target=https://AICode-Nexus.github.io/website/docs/tools/insights/unified-agent-platform-frontier -->`。"
+      },
+      {
+        "number": 6,
+        "status": "processed",
+        "reason": "仓库中已有明确对应的中文工具页与长期信号页，且本轮在线复核到了带去重标记的中文回帖。",
+        "routeEvidence": [
+          "/docs/tools/happy-remote-control",
+          "/tools/insights/repo-issue-signals"
+        ],
+        "repoEvidence": [
+          "docs/tools/happy-remote-control.md",
+          "docs/insights/repo-issue-signals.md"
+        ],
+        "commentMarkerVerification": "已复核。本轮 `gh issue view 6 --comments` 返回的评论中包含 `<!-- codex-issue-reply issue=6 target=https://AICode-Nexus.github.io/website/docs/tools/happy-remote-control -->`。"
+      }
+    ],
+    "unprocessedCandidates": [
+      {
+        "number": 7,
+        "title": "pretext 文字排版",
+        "state": "OPEN",
+        "url": "https://github.com/AICode-Nexus/website/issues/7",
+        "status": "unprocessed-at-assessment-time",
+        "reason": "本轮在线复核时，issue #7 还没有带 `codex-issue-reply` 去重标记的中文回帖，仓库里也还没有明确对应的中文独立页面或长期信号记录。",
+        "missingEvidence": [
+          "没有 issue 评论",
+          "没有对应的中文方案页",
+          "长期信号页此前没有记录 issue #7"
+        ],
+        "plannedContentTarget": {
+          "contentType": "独立前端方案页",
+          "route": "/docs/roles/frontend/page-typography-and-text-layout"
+        }
+      }
+    ],
+    "remainingUnknowns": [
+      "issue #3 目前已有中文回帖，但没有 `codex-issue-reply` 去重标记；如果后续要统一评论去重规范，可补一次标准化回帖。"
+    ]
+  },
+  "observations": {
+    "verifiedIssueChanges": [
+      {
+        "number": 7,
+        "title": "pretext 文字排版",
+        "state": "OPEN",
+        "changeTypes": [
+          "still-open",
+          "unprocessed-at-assessment-time"
+        ],
+        "url": "https://github.com/AICode-Nexus/website/issues/7"
+      }
+    ],
+    "accessAttempts": [
+      {
+        "method": "gh issue list",
+        "result": "success",
+        "observedAt": "2026-05-28T10:02:00+08:00",
+        "details": "直接执行 `gh issue list --repo AICode-Nexus/website --state all --limit 200 --json number,title,state,createdAt,updatedAt,url,labels,author`，成功拿到当前全部 issue inventory。"
+      },
+      {
+        "method": "gh issue view",
+        "result": "success",
+        "observedAt": "2026-05-28T10:05:30+08:00",
+        "details": "逐条执行 `gh issue view <number> --repo AICode-Nexus/website --comments --json number,title,state,createdAt,updatedAt,url,body,comments`，成功复核 issue #1 到 #7 的正文与评论。"
+      }
+    ],
+    "sourceUrls": [
+      "https://github.com/AICode-Nexus/website/issues",
+      "https://github.com/AICode-Nexus/website/issues/7"
+    ],
+    "localTraceabilitySources": [
+      "docs/roles/frontend/page-typography-and-text-layout.md",
+      "docs/roles/frontend/index.md",
+      "docs/insights/repo-issue-signals.md"
+    ]
+  },
+  "materialChanges": [
+    {
+      "number": 7,
+      "title": "pretext 文字排版",
+      "url": "https://github.com/AICode-Nexus/website/issues/7",
+      "changeTypes": [
+        "still-open",
+        "unprocessed-at-assessment-time"
+      ],
+      "whyItMatters": "这条 issue 直接暴露了前端页面字体、正文宽度、中英混排与 `pre/code` 片段处理边界的长期内容缺口，适合沉淀为独立中文方案页，而不是只记一条日报。"
+    }
+  ],
+  "actualProcessingResult": {
+    "contentDecision": "created-standalone-docs",
+    "reason": "issue #7 是明确的读者需求和缺失的长期入口，因此优先创建独立前端方案页，并同步更新前端总览与长期信号页，而不是写 dated brief。",
+    "filesChangedThisRun": [
+      "docs/roles/frontend/page-typography-and-text-layout.md",
+      "docs/roles/frontend/index.md",
+      "docs/insights/repo-issue-signals.md",
+      "content-sources/issues/2026-05-28-repo-issue-monitor.json",
+      "CHANGELOG.md"
+    ],
+    "newlyHandledIssues": [
+      {
+        "number": 7,
+        "contentType": "独立前端方案页",
+        "route": "/docs/roles/frontend/page-typography-and-text-layout"
+      }
+    ],
+    "stillUnprocessedIssues": [],
+    "issueReplyPlan": [
+      {
+        "number": 7,
+        "status": "pending-after-push",
+        "targetUrl": "https://AICode-Nexus.github.io/website/docs/roles/frontend/page-typography-and-text-layout"
+      }
+    ],
+    "validation": {
+      "checkContent": "passed",
+      "build": "passed"
+    },
+    "commitEligible": true
+  }
+}
