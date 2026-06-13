@@ -1,0 +1,89 @@
+---
+slug: daily-brief-2026-06-13
+title: "AI Coding Daily Brief | 2026-06-13 | 工作流、Agent与Copilot的最新工程信号"
+description: "2026-06-13 AI coding 日报：GitHub Changelog 的 Copilot code review: New configurations and controls；GitHub Changelog 的 GitHub Agentic Workflows is now in public preview；GitHub Changelog 的 Agentic workflows no longer need a personal access token。"
+tags: [ai-coding, daily-brief, copilot, workflow, agent, codex]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-06-11 到 2026-06-13 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-06-13，GitHub Changelog 发布《Copilot code review: New configurations and controls》，这会改变规则、验证和交接是如何串进日常交付流程的。
+- 2026-06-12，GitHub Changelog 发布《GitHub Agentic Workflows is now in public preview》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-06-11，GitHub Changelog 发布《Agentic workflows no longer need a personal access token》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-06-11，OpenAI News 发布《Access OpenAI models and Codex through your Oracle cloud commitment》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+- 2026-06-11，OpenAI News 发布《OpenAI to acquire Ona》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-06-12，GitHub Changelog 发布《Bot-created pull requests can run workflows if approved》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+
+## What changed today
+
+### 1. 2026-06-13，GitHub Changelog：Copilot code review: New configurations and controls
+
+- 事实：GitHub Changelog 在 2026-06-13 发布了这条更新。
+- 官方摘要：With new organization runner controls, Copilot content exclusion support, and the removal of the character limit on repository custom instructions, Copilot code review is now easier to tailor to your… The post Copilot code review: New configurations and controls appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+### 2. 2026-06-12，GitHub Changelog：GitHub Agentic Workflows is now in public preview
+
+- 事实：GitHub Changelog 在 2026-06-12 发布了这条更新。
+- 官方摘要：GitHub Agentic Workflows is now in public preview. With agentic workflows, you can automate reasoning-based tasks like issue triage, CI failure analysis, and documentation updates by leveraging coding agents inside… The post GitHub Agentic Workflows is now in public preview appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 3. 2026-06-11，GitHub Changelog：Agentic workflows no longer need a personal access token
+
+- 事实：GitHub Changelog 在 2026-06-11 发布了这条更新。
+- 官方摘要：You can now use GitHub Agentic Workflows with GitHub Actions’s built-in GITHUB_TOKEN. This means that you no longer need to create and store a personal access token (PAT), eliminating the… The post Agentic workflows no longer need a personal access token appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 4. 2026-06-11，OpenAI News：Access OpenAI models and Codex through your Oracle cloud commitment
+
+- 事实：OpenAI News 在 2026-06-11 发布了这条更新。
+- 官方摘要：Access OpenAI models and Codex through Oracle Cloud, using existing commitments to build and deploy AI with enterprise security and governance. 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+### 5. 2026-06-11，OpenAI News：OpenAI to acquire Ona
+
+- 事实：OpenAI News 在 2026-06-11 发布了这条更新。
+- 官方摘要：OpenAI plans to acquire Ona to expand Codex with secure, persistent cloud environments, enabling long-running AI agents across enterprise workflows. 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 6. 2026-06-12，GitHub Changelog：Bot-created pull requests can run workflows if approved
+
+- 事实：GitHub Changelog 在 2026-06-12 发布了这条更新。
+- 官方摘要：Pull requests created by the github-actions[bot] are now able to run your CI/CD workflows with user approval. Requiring approval is a security measure to ensure generated code does not automatically… The post Bot-created pull requests can run workflows if approved appeared first on The GitHub Blog . 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+2. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+3. 用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-06-13: Copilot code review: New configurations and controls](https://github.blog/changelog/2026-06-12-copilot-code-review-new-configurations-and-controls)
+- [GitHub Changelog, 2026-06-12: GitHub Agentic Workflows is now in public preview](https://github.blog/changelog/2026-06-11-github-agentic-workflows-is-now-in-public-preview)
+- [GitHub Changelog, 2026-06-11: Agentic workflows no longer need a personal access token](https://github.blog/changelog/2026-06-11-agentic-workflows-no-longer-need-a-personal-access-token)
+- [OpenAI News, 2026-06-11: Access OpenAI models and Codex through your Oracle cloud commitment](https://openai.com/index/openai-on-oracle-cloud)
+- [OpenAI News, 2026-06-11: OpenAI to acquire Ona](https://openai.com/index/openai-to-acquire-ona)
+- [GitHub Changelog, 2026-06-12: Bot-created pull requests can run workflows if approved](https://github.blog/changelog/2026-06-11-bot-created-pull-requests-can-run-workflows-if-approved)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
