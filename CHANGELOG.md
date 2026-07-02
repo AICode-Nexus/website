@@ -9,6 +9,7 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Changed
 
+- Clarified the `Skills 与插件` directory as a child capability layer under `研发与 AI Coding`, and renamed public skill implementation tags from vendor ownership language to runtime implementation language.
 - Reworked `AI 资源导航` from long table-style directory pages into a medium-density logo card grid, with all categories visible on the hub page, hover summaries, and direct outbound clicks.
 - Reworked `AI 资源导航` sidebar and category tabs into one anchor-scrolling catalog page, adding local search and short category descriptions for each resource block.
 - Reworked `AI 资源导航` cards to load official site favicons/logos from each resource URL, while keeping initials only as a fallback.

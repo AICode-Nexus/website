@@ -1,6 +1,6 @@
 ---
 title: Agent Skills 与插件生态
-description: 收 Agent Skills 标准、厂商 skill 文档、插件市场、方法论型 skill pack 和可安装能力包。
+description: 收面向 AI agent / harness 的 skill 标准、实现文档、插件市场、方法论型 skill pack 和可安装能力包。
 slug: /ai-directory/agent-skills-and-plugins
 displayed_sidebar: aiDirectorySidebar
 sidebar_label: Skills 与插件
@@ -23,14 +23,16 @@ import {AiDirectoryCategoryView, ChecklistPanel, RelatedReadings} from '@site/sr
 
 # Agent Skills 与插件生态
 
-这一页收的是公开可访问的 Agent Skills 标准、厂商 skill 文档、插件市场和方法论型 skill pack。它不是本机已安装 skill 清单，也不发布本地缓存路径；目录只保留读者能自己打开、验证和收藏的公开入口。
+这一页收的是公开可访问的 Agent Skills 标准、运行入口实现文档、插件市场和方法论型 skill pack。它不是本机已安装 skill 清单，也不发布本地缓存路径；目录只保留读者能自己打开、验证和收藏的公开入口。
+
+这里的 `skill` 不是 Claude、Codex 或 VS Code 下面的子功能分类，而是面向 AI agent / harness 的能力单元。Codex、Claude Code、VS Code 这些条目只说明“这个运行入口如何读取、调用、共享或分发 skills”，不是把 skill 归属到某一个 AI 服务名下。
 
 ## 类型速览
 
 | 类型 | 解决什么问题 | 先看什么 |
 | --- | --- | --- |
 | `skill-standard` | 理解 `SKILL.md`、脚本、参考资料和资源如何组成可移植能力包 | Agent Skills standard |
-| `vendor-skill-docs` | 看某个产品如何发现、加载、共享和执行 skills | Codex Skills、Claude Code Skills、VS Code Agent Skills |
+| `skill-runtime-docs` | 看不同 AI 运行入口如何发现、加载、共享和执行同一种 skill 能力单元 | Codex Skills、Claude Code Skills、VS Code Agent Skills |
 | `plugin-marketplace` | 找可安装的能力包、插件目录或团队分发方式 | Codex Plugins、Superpowers Marketplace |
 | `methodology-pack` | 把一组 skills 组合成稳定工作方法 | Superpowers |
 | `mcp-bundle` | 把 MCP server、app connector 和 skill 放进同一个安装单元 | Codex Plugins、社区 marketplace |
@@ -39,17 +41,17 @@ import {AiDirectoryCategoryView, ChecklistPanel, RelatedReadings} from '@site/sr
 
 <ChecklistPanel
   title="先判断你缺的是哪一层"
-  description="不要一上来就装很多插件。先判断问题属于格式、厂商用法、分发方式还是团队方法论。"
+  description="不要一上来就装很多插件。先判断问题属于能力格式、运行入口接入、分发方式还是团队方法论。"
   items={[
     {
       id: 'format-first',
-      label: '先看标准',
-      description: '如果你还不确定 skill 与 prompt、rules、commands 的边界，先看 Agent Skills standard。',
+      label: '先看能力标准',
+      description: '如果你还不确定 skill 与 prompt、rules、commands 的边界，先看 Agent Skills standard，而不是先按产品名分组。',
     },
     {
-      id: 'vendor-first',
-      label: '再看厂商文档',
-      description: '如果你已经确定主入口是 Codex、Claude Code 或 VS Code，再进入对应官方文档。',
+      id: 'runtime-first',
+      label: '再看运行入口',
+      description: '如果你已经确定主入口是 Codex、Claude Code 或 VS Code，再看它如何消费同一类 skill 能力包。',
     },
     {
       id: 'marketplace-last',
@@ -65,6 +67,8 @@ import {AiDirectoryCategoryView, ChecklistPanel, RelatedReadings} from '@site/sr
 />
 
 ## 首批精选入口
+
+下面的 Codex、Claude、VS Code 条目是实现文档入口；它们不是 skill 的上级分类。真正的组织方式仍然是 skill 标准、运行入口实现、插件市场、方法包和 MCP bundle 这些能力类型。
 
 <AiDirectoryCategoryView categoryId="agent-skills-and-plugins" />
 

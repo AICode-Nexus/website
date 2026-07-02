@@ -18,7 +18,7 @@ const FETCH_LIMIT_CHARS = 24000;
 
 export const CANDIDATE_TYPES = [
   'skill-standard',
-  'vendor-skill-docs',
+  'skill-runtime-docs',
   'plugin-marketplace',
   'methodology-pack',
   'authoring-tool',
@@ -127,7 +127,7 @@ export function normalizeCandidateType(record) {
     return 'authoring-tool';
   }
 
-  return 'vendor-skill-docs';
+  return 'skill-runtime-docs';
 }
 
 export function validateWatchlist(watchlist) {

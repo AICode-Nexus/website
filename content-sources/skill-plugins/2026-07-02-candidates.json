@@ -1,6 +1,6 @@
 {
   "date": "2026-07-02",
-  "checkedAt": "2026-07-02T03:09:31.414Z",
+  "checkedAt": "2026-07-02T05:59:29.123Z",
   "sourceCount": 8,
   "candidates": [
     {
@@ -23,13 +23,13 @@
     {
       "id": "openai-codex-skills",
       "name": "OpenAI Codex Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://developers.openai.com/codex/skills",
       "repoUrl": "",
       "reason": "Official Codex docs for reusable workflow authoring with skills.",
       "evidenceDate": "2026-07-02",
       "suggestedTags": [
-        "vendor-skill-docs",
+        "skill-runtime-docs",
         "skill-standard",
         "authoring-tool"
       ],
@@ -50,7 +50,7 @@
       "suggestedTags": [
         "plugin-marketplace",
         "mcp-bundle",
-        "vendor-skill-docs"
+        "skill-runtime-docs"
       ],
       "confidence": "high",
       "status": "new",
@@ -61,13 +61,13 @@
     {
       "id": "anthropic-agent-skills",
       "name": "Claude Agent Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
       "repoUrl": "",
       "reason": "Official Anthropic platform docs for pre-built and custom Agent Skills.",
       "evidenceDate": "2026-07-02",
       "suggestedTags": [
-        "vendor-skill-docs",
+        "skill-runtime-docs",
         "skill-standard",
         "authoring-tool"
       ],
@@ -78,13 +78,13 @@
     {
       "id": "claude-code-skills",
       "name": "Claude Code Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://code.claude.com/docs/en/skills",
       "repoUrl": "",
       "reason": "Official Claude Code docs for creating, sharing, invoking, and troubleshooting skills.",
       "evidenceDate": "2026-07-02",
       "suggestedTags": [
-        "vendor-skill-docs",
+        "skill-runtime-docs",
         "authoring-tool",
         "plugin-marketplace"
       ],
@@ -95,19 +95,21 @@
     {
       "id": "vscode-agent-skills",
       "name": "VS Code Agent Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://code.visualstudio.com/docs/agent-customization/agent-skills",
       "repoUrl": "",
       "reason": "Official VS Code docs showing Agent Skills support across Copilot surfaces.",
       "evidenceDate": "2026-07-02",
       "suggestedTags": [
-        "vendor-skill-docs",
+        "skill-runtime-docs",
         "skill-standard",
         "authoring-tool"
       ],
       "confidence": "high",
       "status": "new",
-      "errors": []
+      "errors": [
+        "https://code.visualstudio.com/docs/agent-customization/agent-skills: fetch failed"
+      ]
     },
     {
       "id": "superpowers",
@@ -124,7 +126,9 @@
       ],
       "confidence": "high",
       "status": "new",
-      "errors": []
+      "errors": [
+        "https://github.com/obra/Superpowers: fetch failed"
+      ]
     },
     {
       "id": "superpowers-marketplace",
@@ -141,17 +145,19 @@
       ],
       "confidence": "medium",
       "status": "new",
-      "errors": []
+      "errors": [
+        "https://github.com/obra/superpowers-marketplace: fetch failed"
+      ]
     }
   ],
   "fingerprints": {
     "agent-skills-standard": "acfd2fb7f4d9fa437b0b18ef381845f64bf1eaec5b7fcb9f79a0a5ad8024dc15",
     "openai-codex-skills": "4bcaa161efb2c4bace6cc27a31773a48f71e98a9a54454f34e87d9b0bf424897",
     "openai-codex-plugins": "27f199d25f90a25b413b72918fc6899e7320e62d75ec324206863f7e05645de2",
-    "anthropic-agent-skills": "4869f22b8d11cc19125b1aade76a7787ab2fea3c31986d16686fedd155f37d7d",
+    "anthropic-agent-skills": "72ae86b929f2aaffd622dbdb699ce0380c69fcbad6ca0ed13460842c44e55735",
     "claude-code-skills": "2c4951b46327d8491a088fd3c809f237fb81058bf28ff61a038a80dbf5fb5bff",
-    "vscode-agent-skills": "73e38bacb8821eaf815dbf931a9a57eeee948a96f6e542f5ba8d6e07bf8bea81",
-    "superpowers": "c7c53da500b14b312bec288c47f315f78ec4c6392d1929e96893d151a6cff0f2",
-    "superpowers-marketplace": "c0eed979469bf22d773d2feb784e2535f3c2c5c57e6c6824a3b75a57c7d18853"
+    "vscode-agent-skills": "18afb960198dc1c27cabda8cf00f0bf75aecd0c7fa041827ee913b0de1543751",
+    "superpowers": "60d03de4d6f019244bde059e0d93d4848ba4c9db8748e17a46d8a6274f7bd56f",
+    "superpowers-marketplace": "910f6d4d82532f7429b1d6e548932ea4f2a86f072844333768529018a98e044b"
   }
 }

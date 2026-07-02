@@ -13,10 +13,10 @@
     {
       "id": "openai-codex-skills",
       "name": "OpenAI Codex Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://developers.openai.com/codex/skills",
       "reason": "Official Codex docs for reusable workflow authoring with skills.",
-      "suggestedTags": ["vendor-skill-docs", "skill-standard", "authoring-tool"],
+      "suggestedTags": ["skill-runtime-docs", "skill-standard", "authoring-tool"],
       "confidence": "high"
     },
     {
@@ -25,34 +25,34 @@
       "candidateType": "plugin-marketplace",
       "sourceUrl": "https://developers.openai.com/codex/plugins",
       "reason": "Official Codex docs for installable plugin bundles containing skills, apps, and MCP servers.",
-      "suggestedTags": ["plugin-marketplace", "mcp-bundle", "vendor-skill-docs"],
+      "suggestedTags": ["plugin-marketplace", "mcp-bundle", "skill-runtime-docs"],
       "confidence": "high"
     },
     {
       "id": "anthropic-agent-skills",
       "name": "Claude Agent Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
       "reason": "Official Anthropic platform docs for pre-built and custom Agent Skills.",
-      "suggestedTags": ["vendor-skill-docs", "skill-standard", "authoring-tool"],
+      "suggestedTags": ["skill-runtime-docs", "skill-standard", "authoring-tool"],
       "confidence": "high"
     },
     {
       "id": "claude-code-skills",
       "name": "Claude Code Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://code.claude.com/docs/en/skills",
       "reason": "Official Claude Code docs for creating, sharing, invoking, and troubleshooting skills.",
-      "suggestedTags": ["vendor-skill-docs", "authoring-tool", "plugin-marketplace"],
+      "suggestedTags": ["skill-runtime-docs", "authoring-tool", "plugin-marketplace"],
       "confidence": "high"
     },
     {
       "id": "vscode-agent-skills",
       "name": "VS Code Agent Skills",
-      "candidateType": "vendor-skill-docs",
+      "candidateType": "skill-runtime-docs",
       "sourceUrl": "https://code.visualstudio.com/docs/agent-customization/agent-skills",
       "reason": "Official VS Code docs showing Agent Skills support across Copilot surfaces.",
-      "suggestedTags": ["vendor-skill-docs", "skill-standard", "authoring-tool"],
+      "suggestedTags": ["skill-runtime-docs", "skill-standard", "authoring-tool"],
       "confidence": "high"
     },
     {

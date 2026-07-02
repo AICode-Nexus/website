@@ -546,11 +546,15 @@ const sidebars = {
       href: '/docs/ai-directory#foundational-platforms',
     },
     {
-      type: 'link',
+      type: 'category',
       label: '研发与 AI Coding',
-      href: '/docs/ai-directory#ai-coding',
+      link: {
+        type: 'doc',
+        id: 'ai-directory/ai-coding',
+      },
+      collapsed: false,
+      items: ['ai-directory/agent-skills-and-plugins'],
     },
-    'ai-directory/agent-skills-and-plugins',
     {
       type: 'link',
       label: 'Agent 与应用开发',

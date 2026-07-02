@@ -90,6 +90,16 @@ test('normalizeCandidateType infers type from tags, source, and marketplace name
     }),
     'methodology-pack',
   );
+
+  assert.equal(
+    normalizeCandidateType({
+      id: 'runtime-docs',
+      name: 'Example Skills Docs',
+      sourceUrl: 'https://example.com/skills',
+      suggestedTags: [],
+    }),
+    'skill-runtime-docs',
+  );
 });
 
 test('createCandidateReport dedupes duplicate watchlist ids and marks changed sources', async () => {

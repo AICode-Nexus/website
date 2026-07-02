@@ -76,6 +76,7 @@ market_status: current
 1. 先把高频、低歧义任务做成 commands
 2. 再把需要模板和知识沉淀的任务做成 skills
 3. 最后把验证、提醒和拦截做成 hooks
+4. 按能力类型和运行入口说明 skills，不把 skill 归为某个模型或产品服务的下级分类
 
 ## 常见错误
 
