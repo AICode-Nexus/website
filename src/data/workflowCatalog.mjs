@@ -1068,6 +1068,7 @@ export const workflowCatalog = defineWorkflowCatalog([
       docLink('OpenSpec', '/docs/workflows/frameworks/openspec', '如果你主要是 brownfield 小改动管理，OpenSpec 更轻。'),
     ],
     comboPatterns: [
+      docLink('Agent Skills 与插件生态', '/docs/ai-directory/agent-skills-and-plugins', '把 Superpowers 放到 skills、插件市场与方法包的公共目录里一起比较。'),
       docLink('Terminal-First Repo Pairing', '/docs/workflows/patterns/terminal-first-repo-pairing', 'Superpowers 很适合叠加在终端式 repo pairing 上。'),
       docLink('Parallel Worktrees / Multi-Agent', '/docs/workflows/patterns/parallel-worktrees-multi-agent', '它把 worktree 和 subagent 使用方式标准化。'),
       docLink('Spec-First', '/docs/workflows/patterns/spec-first', '复杂任务可先 spec-first，再交给 Superpowers 组织日常执行。'),

@@ -34,6 +34,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run monitor:tool-releases
 
+      - name: Monitor skill and plugin sources
+        run: npm run monitor:skill-plugins
+
       - name: Detect stale docs
         run: npm run detect:stale-docs
 

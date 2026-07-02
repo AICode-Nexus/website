@@ -29,8 +29,9 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ### Added
 
+- Added an `Agent Skills 与插件生态` directory section with official Agent Skills standards/docs, Codex and Claude skill/plugin references, VS Code Agent Skills, Superpowers, and a semi-automated `monitor:skill-plugins` candidate-report pipeline for human-reviewed updates.
 - 新增独立前端指南《前端页面字体与文字排版》，并把 repo issue #7 沉淀为长期信号，补清标题/正文层级、CJK 行宽、中英混排约束与 `pre/code` 片段处理边界。
-- Rebuilt `AI 资源导航` into a cross-industry AI resource directory with 10 top-level categories, 194 reviewed entries, a foreign-source-first collection manifest, and `最新热门` / `快速上升` metadata that sorts current high-attention resources ahead of ordinary entries.
+- Rebuilt `AI 资源导航` into a cross-industry AI resource directory with 11 top-level categories, 202 reviewed entries, a foreign-source-first collection manifest, and `最新热门` / `快速上升` metadata that sorts current high-attention resources ahead of ordinary entries.
 - Added a local `ai-knowledge-curriculum-builder` skill to keep the site's R&D-first AI learning system, case labs, media hooks, and future non-R&D expansion aligned around a durable curriculum contract.
 - Added a public `研发人员 AI 学习体系` entry page that turns the site's first-batch R&D curriculum into a task-first learning route with workflow, role, case, media, and freshness rules.
 - Added six R&D case-lab pages for API contracts, schema migration, design-to-page delivery, bug regression evidence, issue-to-PR handoff, and release smoke/rollback training.

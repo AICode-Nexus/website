@@ -90,8 +90,11 @@ market_status: current
 - commands 越多，越需要统一命名和文档
 - skills 如果不版本化，很快会变成过期模板仓库
 
+如果你要找公开标准、厂商文档或可安装插件目录，先去 [Agent Skills 与插件生态](/docs/ai-directory/agent-skills-and-plugins)；这页只解释机制分工，不维护公开资源清单。
+
 ## 延伸阅读
 
+- [Agent Skills 与插件生态](/docs/ai-directory/agent-skills-and-plugins)
 - [仓库规则文件体系](/docs/repo-instruction-files)
 - [Prompt Contracts](/docs/workflows/prompt-contracts)
 - [质量门禁与 Review](/docs/standards/review-quality-gates)

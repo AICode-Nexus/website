@@ -1,0 +1,79 @@
+{
+  "updatedAt": "2026-07-02",
+  "sources": [
+    {
+      "id": "agent-skills-standard",
+      "name": "Agent Skills standard",
+      "candidateType": "skill-standard",
+      "sourceUrl": "https://agentskills.io/home",
+      "reason": "Agent Skills open format baseline for portable SKILL.md workflows.",
+      "suggestedTags": ["skill-standard", "authoring-tool", "portable-workflow"],
+      "confidence": "high"
+    },
+    {
+      "id": "openai-codex-skills",
+      "name": "OpenAI Codex Skills",
+      "candidateType": "vendor-skill-docs",
+      "sourceUrl": "https://developers.openai.com/codex/skills",
+      "reason": "Official Codex docs for reusable workflow authoring with skills.",
+      "suggestedTags": ["vendor-skill-docs", "skill-standard", "authoring-tool"],
+      "confidence": "high"
+    },
+    {
+      "id": "openai-codex-plugins",
+      "name": "OpenAI Codex Plugins",
+      "candidateType": "plugin-marketplace",
+      "sourceUrl": "https://developers.openai.com/codex/plugins",
+      "reason": "Official Codex docs for installable plugin bundles containing skills, apps, and MCP servers.",
+      "suggestedTags": ["plugin-marketplace", "mcp-bundle", "vendor-skill-docs"],
+      "confidence": "high"
+    },
+    {
+      "id": "anthropic-agent-skills",
+      "name": "Claude Agent Skills",
+      "candidateType": "vendor-skill-docs",
+      "sourceUrl": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "reason": "Official Anthropic platform docs for pre-built and custom Agent Skills.",
+      "suggestedTags": ["vendor-skill-docs", "skill-standard", "authoring-tool"],
+      "confidence": "high"
+    },
+    {
+      "id": "claude-code-skills",
+      "name": "Claude Code Skills",
+      "candidateType": "vendor-skill-docs",
+      "sourceUrl": "https://code.claude.com/docs/en/skills",
+      "reason": "Official Claude Code docs for creating, sharing, invoking, and troubleshooting skills.",
+      "suggestedTags": ["vendor-skill-docs", "authoring-tool", "plugin-marketplace"],
+      "confidence": "high"
+    },
+    {
+      "id": "vscode-agent-skills",
+      "name": "VS Code Agent Skills",
+      "candidateType": "vendor-skill-docs",
+      "sourceUrl": "https://code.visualstudio.com/docs/agent-customization/agent-skills",
+      "reason": "Official VS Code docs showing Agent Skills support across Copilot surfaces.",
+      "suggestedTags": ["vendor-skill-docs", "skill-standard", "authoring-tool"],
+      "confidence": "high"
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers",
+      "candidateType": "methodology-pack",
+      "sourceUrl": "https://github.com/obra/Superpowers",
+      "repoUrl": "https://github.com/obra/Superpowers",
+      "reason": "Community skill framework and methodology pack for coding agents.",
+      "suggestedTags": ["methodology-pack", "plugin-marketplace", "skill-standard"],
+      "confidence": "high"
+    },
+    {
+      "id": "superpowers-marketplace",
+      "name": "Superpowers Marketplace",
+      "candidateType": "plugin-marketplace",
+      "sourceUrl": "https://github.com/obra/superpowers-marketplace",
+      "repoUrl": "https://github.com/obra/superpowers-marketplace",
+      "reason": "Community plugin marketplace metadata for Superpowers-related installable packages.",
+      "suggestedTags": ["plugin-marketplace", "methodology-pack", "mcp-bundle"],
+      "confidence": "medium"
+    }
+  ]
+}

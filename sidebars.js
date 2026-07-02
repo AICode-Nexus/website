@@ -550,6 +550,7 @@ const sidebars = {
       label: '研发与 AI Coding',
       href: '/docs/ai-directory#ai-coding',
     },
+    'ai-directory/agent-skills-and-plugins',
     {
       type: 'link',
       label: 'Agent 与应用开发',

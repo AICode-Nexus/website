@@ -124,5 +124,13 @@
   "waytoagi": "img/ai-directory/logos/waytoagi.png",
   "langgpt": "img/ai-directory/logos/langgpt.png",
   "aishort": "img/ai-directory/logos/aishort.png",
-  "awesome-chatgpt-prompts-zh": "img/ai-directory/logos/awesome-chatgpt-prompts-zh.png"
+  "awesome-chatgpt-prompts-zh": "img/ai-directory/logos/awesome-chatgpt-prompts-zh.png",
+  "agent-skills-standard": "img/ai-directory/logos/agent-skills-standard.png",
+  "openai-codex-skills": "img/ai-directory/logos/openai-codex-skills.png",
+  "openai-codex-plugins": "img/ai-directory/logos/openai-codex-plugins.png",
+  "anthropic-agent-skills": "img/ai-directory/logos/anthropic-agent-skills.png",
+  "claude-code-skills": "img/ai-directory/logos/claude-code-skills.png",
+  "vscode-agent-skills": "img/ai-directory/logos/vscode-agent-skills.png",
+  "superpowers": "img/ai-directory/logos/superpowers.png",
+  "superpowers-marketplace": "img/ai-directory/logos/superpowers-marketplace.png"
 }

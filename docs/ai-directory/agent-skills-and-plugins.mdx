@@ -1,0 +1,107 @@
+---
+title: Agent Skills 与插件生态
+description: 收 Agent Skills 标准、厂商 skill 文档、插件市场、方法论型 skill pack 和可安装能力包。
+slug: /ai-directory/agent-skills-and-plugins
+displayed_sidebar: aiDirectorySidebar
+sidebar_label: Skills 与插件
+tags: [ai-coding, agent-skills, plugins, directory]
+track: cross-track
+kind: guide
+content_form: resource
+audience: mixed
+stage: intermediate
+featured: false
+domain: tools
+journey_stage: tech-selection
+entry_role: resource
+reviewed_at: 2026-07-02
+source_window_end: 2026-07-02
+market_status: current
+---
+
+import {AiDirectoryCategoryView, ChecklistPanel, RelatedReadings} from '@site/src/components/docs';
+
+# Agent Skills 与插件生态
+
+这一页收的是公开可访问的 Agent Skills 标准、厂商 skill 文档、插件市场和方法论型 skill pack。它不是本机已安装 skill 清单，也不发布本地缓存路径；目录只保留读者能自己打开、验证和收藏的公开入口。
+
+## 类型速览
+
+| 类型 | 解决什么问题 | 先看什么 |
+| --- | --- | --- |
+| `skill-standard` | 理解 `SKILL.md`、脚本、参考资料和资源如何组成可移植能力包 | Agent Skills standard |
+| `vendor-skill-docs` | 看某个产品如何发现、加载、共享和执行 skills | Codex Skills、Claude Code Skills、VS Code Agent Skills |
+| `plugin-marketplace` | 找可安装的能力包、插件目录或团队分发方式 | Codex Plugins、Superpowers Marketplace |
+| `methodology-pack` | 把一组 skills 组合成稳定工作方法 | Superpowers |
+| `mcp-bundle` | 把 MCP server、app connector 和 skill 放进同一个安装单元 | Codex Plugins、社区 marketplace |
+
+## 怎么选择
+
+<ChecklistPanel
+  title="先判断你缺的是哪一层"
+  description="不要一上来就装很多插件。先判断问题属于格式、厂商用法、分发方式还是团队方法论。"
+  items={[
+    {
+      id: 'format-first',
+      label: '先看标准',
+      description: '如果你还不确定 skill 与 prompt、rules、commands 的边界，先看 Agent Skills standard。',
+    },
+    {
+      id: 'vendor-first',
+      label: '再看厂商文档',
+      description: '如果你已经确定主入口是 Codex、Claude Code 或 VS Code，再进入对应官方文档。',
+    },
+    {
+      id: 'marketplace-last',
+      label: '最后看 marketplace',
+      description: '插件市场适合发现候选项，但公开推荐必须回到官方文档、仓库和真实维护信号。',
+    },
+    {
+      id: 'manual-review',
+      label: '人工筛选入库',
+      description: '本目录的自动化只产出候选报告，不把未知第三方插件直接写入公开推荐。',
+    },
+  ]}
+/>
+
+## 首批精选入口
+
+<AiDirectoryCategoryView categoryId="agent-skills-and-plugins" />
+
+## 更新规则
+
+这个目录采用“半自动候选 + 人工入库”：
+
+- `content-sources/skill-plugins/watchlist.json` 记录公开来源、候选类型、仓库入口和推荐理由。
+- `npm run monitor:skill-plugins` 定期生成 dated candidate report，只标记 `new`、`changed`、`watch`。
+- 候选报告不会自动改 `src/data/aiDirectory.js`；只有确认来源可信、适用场景清楚、维护信号稳定后，才进入公开目录。
+- 普通博客榜单、社媒热帖或无法追溯到官方文档 / GitHub 仓库 / 可信 marketplace 的条目，只能进入观察，不作为推荐。
+
+## 继续阅读
+
+<RelatedReadings
+  title="继续阅读"
+  description="Skills 与插件目录解决发现问题，真正落地还要回到规范、工作流和工具教程。"
+  items={[
+    {
+      title: 'Skills、Commands 与 Hooks',
+      href: '/docs/standards/skills-commands-hooks',
+      description: '先理解 skills、commands、hooks 和 rules 分别该管什么。',
+    },
+    {
+      title: 'Superpowers',
+      href: '/docs/workflows/community-frameworks/superpowers',
+      description: '看一个方法论型 skill pack 如何组织 brainstorming、plan、TDD、review 和 worktree。',
+    },
+    {
+      title: 'MCP 与工具拓扑',
+      href: '/docs/mcp-tool-topology',
+      description: '如果插件开始打包 MCP server 或 connector，需要回到拓扑层判断权限和边界。',
+    },
+    {
+      title: 'AI 编程工具',
+      href: '/docs/tools',
+      description: '把 skill / plugin 选择放回具体工具和执行工作流中判断。',
+    },
+  ]}
+/>
