@@ -1,0 +1,129 @@
+{
+  "date": "2026-07-09",
+  "slug": "daily-brief-2026-07-09",
+  "title": "VS Code、Copilot与Agent的最新工程信号",
+  "description": "2026-07-09 AI coding 日报：GitHub Changelog 的 Codex as agent provider and agentic enhancements in JetBrains IDEs；GitHub Changelog 的 Enterprise-managed OpenTelemetry export for VS Code and CLI；GitHub Changelog 的 Deploy managed Copilot settings via MDM in VS Code and CLI。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "agent",
+    "copilot",
+    "codex",
+    "mcp"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-07-07 到 2026-07-09 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-07-08，GitHub Changelog 发布《Codex as agent provider and agentic enhancements in JetBrains IDEs》，这说明工具上下文和外部系统接入还在继续标准化，适合评估是否纳入现有开发工作台。",
+    "2026-07-09，GitHub Changelog 发布《Enterprise-managed OpenTelemetry export for VS Code and CLI》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-07-09，GitHub Changelog 发布《Deploy managed Copilot settings via MDM in VS Code and CLI》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-07-09，GitHub Changelog 发布《GitHub Copilot in Visual Studio Code, June 2026 releases》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-07-09，VS Code 发布《Visual Studio Code 1.128》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-07-09，VS Code 发布《Visual Studio Code 1.129 (Insiders)》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-07-08，GitHub Changelog：Codex as agent provider and agentic enhancements in JetBrains IDEs",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-08 发布了这条更新。",
+        "官方摘要：This update brings Codex as a new agent provider in public preview, expands the Customizations editor with Hooks support and richer MCP server management, and introduces custom model support configured… The post Codex as agent provider and agentic enhancements in JetBrains IDEs appeared first on The GitHub Blog . ",
+        "工程影响：这说明工具上下文和外部系统接入还在继续标准化，适合评估是否纳入现有开发工作台。"
+      ]
+    },
+    {
+      "title": "2. 2026-07-09，GitHub Changelog：Enterprise-managed OpenTelemetry export for VS Code and CLI",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-09 发布了这条更新。",
+        "官方摘要：Organizations can now mandate where GitHub Copilot sends OpenTelemetry (OTel) data, so telemetry flows to an approved collector without each developer setting OTEL_* environment variables. The configuration is delivered through… The post Enterprise-managed OpenTelemetry export for VS Code and CLI appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "3. 2026-07-09，GitHub Changelog：Deploy managed Copilot settings via MDM in VS Code and CLI",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-09 发布了这条更新。",
+        "官方摘要：Enterprise administrators can now deliver managed GitHub Copilot settings directly to devices through native mobile device management (MDM) and file-based configuration, in addition to the existing server-managed channel. This is… The post Deploy managed Copilot settings via MDM in VS Code and CLI appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "4. 2026-07-09，GitHub Changelog：GitHub Copilot in Visual Studio Code, June 2026 releases",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-09 发布了这条更新。",
+        "官方摘要：This changelog covers VS Code v1.123 through v1.127, shipped throughout June and early July 2026. The latest VS Code releases build on the Copilot experience developers use every day, making… The post GitHub Copilot in Visual Studio Code, June 2026 releases appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "5. 2026-07-09，VS Code：Visual Studio Code 1.128",
+      "details": [
+        "事实：VS Code 在 2026-07-09 发布了这条更新。",
+        "官方摘要：Learn what's new in Visual Studio Code 1.128 ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "6. 2026-07-09，VS Code：Visual Studio Code 1.129 (Insiders)",
+      "details": [
+        "事实：VS Code 在 2026-07-09 发布了这条更新。",
+        "官方摘要：Learn what's new in Visual Studio Code 1.129 (Insiders) ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "在隔离仓库里接入对应 MCP server，验证上下文注入、权限边界和回滚路径是否满足团队要求。",
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "MCP 或工具接入能力是否会在更多主流工作台里收敛成默认标准。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-07-08: Codex as agent provider and agentic enhancements in JetBrains IDEs",
+      "url": "https://github.blog/changelog/2026-07-07-codex-as-agent-provider-and-agentic-enhancements-in-jetbrains-ides"
+    },
+    {
+      "title": "GitHub Changelog, 2026-07-09: Enterprise-managed OpenTelemetry export for VS Code and CLI",
+      "url": "https://github.blog/changelog/2026-07-08-enterprise-managed-opentelemetry-export-for-vs-code-and-cli"
+    },
+    {
+      "title": "GitHub Changelog, 2026-07-09: Deploy managed Copilot settings via MDM in VS Code and CLI",
+      "url": "https://github.blog/changelog/2026-07-08-deploy-managed-copilot-settings-via-mdm-in-vs-code-and-cli"
+    },
+    {
+      "title": "GitHub Changelog, 2026-07-09: GitHub Copilot in Visual Studio Code, June 2026 releases",
+      "url": "https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases"
+    },
+    {
+      "title": "VS Code, 2026-07-09: Visual Studio Code 1.128",
+      "url": "https://code.visualstudio.com/updates/v1_128"
+    },
+    {
+      "title": "VS Code, 2026-07-09: Visual Studio Code 1.129 (Insiders)",
+      "url": "https://code.visualstudio.com/updates/v1_129"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
