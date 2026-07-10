@@ -1,0 +1,129 @@
+{
+  "date": "2026-07-10",
+  "slug": "daily-brief-2026-07-10",
+  "title": "Copilot、VS Code与模型的最新工程信号",
+  "description": "2026-07-10 AI coding 日报：GitHub Changelog 的 OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot；GitHub Changelog 的 GitHub Mobile: Fix merge conflicts with Copilot cloud agent；OpenAI News 的 GPT-5.6 is now the preferred model in Microsoft 365 Copilot。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "copilot",
+    "agent",
+    "workflow",
+    "vscode"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-07-08 到 2026-07-10 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-07-10，GitHub Changelog 发布《OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。",
+    "2026-07-08，GitHub Changelog 发布《GitHub Mobile: Fix merge conflicts with Copilot cloud agent》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-07-09，OpenAI News 发布《GPT-5.6 is now the preferred model in Microsoft 365 Copilot》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。",
+    "2026-07-09，GitHub Changelog 发布《Enterprise-managed OpenTelemetry export for VS Code and CLI》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-07-09，GitHub Changelog 发布《Deploy managed Copilot settings via MDM in VS Code and CLI》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-07-09，GitHub Changelog 发布《GitHub Copilot in Visual Studio Code, June 2026 releases》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-07-10，GitHub Changelog：OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-10 发布了这条更新。",
+        "官方摘要：OpenAI’s GPT-5.6 family is now rolling out in GitHub Copilot. GPT-5.6 comes in three variants, Sol, Terra, and Luna, so you can match the model to the job, whether that’s… The post OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot appeared first on The GitHub Blog . ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    },
+    {
+      "title": "2. 2026-07-08，GitHub Changelog：GitHub Mobile: Fix merge conflicts with Copilot cloud agent",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-08 发布了这条更新。",
+        "官方摘要：GitHub Mobile now supports fixing pull request merge conflicts with Copilot cloud agent, making it easier to unblock pull requests while you’re on the go. When a pull request has… The post GitHub Mobile: Fix merge conflicts with Copilot cloud agent appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "3. 2026-07-09，OpenAI News：GPT-5.6 is now the preferred model in Microsoft 365 Copilot",
+      "details": [
+        "事实：OpenAI News 在 2026-07-09 发布了这条更新。",
+        "官方摘要：Learn how GPT-5.6 powers Microsoft 365 Copilot with stronger AI capabilities across Word, Excel, PowerPoint, Chat, and Cowork for faster, higher-quality work. ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    },
+    {
+      "title": "4. 2026-07-09，GitHub Changelog：Enterprise-managed OpenTelemetry export for VS Code and CLI",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-09 发布了这条更新。",
+        "官方摘要：Organizations can now mandate where GitHub Copilot sends OpenTelemetry (OTel) data, so telemetry flows to an approved collector without each developer setting OTEL_* environment variables. The configuration is delivered through… The post Enterprise-managed OpenTelemetry export for VS Code and CLI appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "5. 2026-07-09，GitHub Changelog：Deploy managed Copilot settings via MDM in VS Code and CLI",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-09 发布了这条更新。",
+        "官方摘要：Enterprise administrators can now deliver managed GitHub Copilot settings directly to devices through native mobile device management (MDM) and file-based configuration, in addition to the existing server-managed channel. This is… The post Deploy managed Copilot settings via MDM in VS Code and CLI appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "6. 2026-07-09，GitHub Changelog：GitHub Copilot in Visual Studio Code, June 2026 releases",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-09 发布了这条更新。",
+        "官方摘要：This changelog covers VS Code v1.123 through v1.127, shipped throughout June and early July 2026. The latest VS Code releases build on the Copilot experience developers use every day, making… The post GitHub Copilot in Visual Studio Code, June 2026 releases appeared first on The GitHub Blog . ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。",
+    "挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。",
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-07-10: OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-07-09-openais-gpt-5-6-sol-terra-and-luna-are-now-available-in-github-copilot"
+    },
+    {
+      "title": "GitHub Changelog, 2026-07-08: GitHub Mobile: Fix merge conflicts with Copilot cloud agent",
+      "url": "https://github.blog/changelog/2026-07-08-github-mobile-fix-merge-conflicts-with-copilot-cloud-agent"
+    },
+    {
+      "title": "OpenAI News, 2026-07-09: GPT-5.6 is now the preferred model in Microsoft 365 Copilot",
+      "url": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot"
+    },
+    {
+      "title": "GitHub Changelog, 2026-07-09: Enterprise-managed OpenTelemetry export for VS Code and CLI",
+      "url": "https://github.blog/changelog/2026-07-08-enterprise-managed-opentelemetry-export-for-vs-code-and-cli"
+    },
+    {
+      "title": "GitHub Changelog, 2026-07-09: Deploy managed Copilot settings via MDM in VS Code and CLI",
+      "url": "https://github.blog/changelog/2026-07-08-deploy-managed-copilot-settings-via-mdm-in-vs-code-and-cli"
+    },
+    {
+      "title": "GitHub Changelog, 2026-07-09: GitHub Copilot in Visual Studio Code, June 2026 releases",
+      "url": "https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
