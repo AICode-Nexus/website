@@ -1,0 +1,58 @@
+{
+  "date": "2026-07-14",
+  "slug": "daily-brief-2026-07-14",
+  "title": "工作流与安全的最新工程信号",
+  "description": "2026-07-14 AI coding 日报：GitHub Changelog 的 GitHub Code Quality license estimate in public preview。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "security",
+    "workflow"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-07-12 到 2026-07-14 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-07-14，GitHub Changelog 发布《GitHub Code Quality license estimate in public preview》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-07-14，GitHub Changelog：GitHub Code Quality license estimate in public preview",
+      "details": [
+        "事实：GitHub Changelog 在 2026-07-14 发布了这条更新。",
+        "官方摘要：You can now see the number of active committers on repositories using GitHub Code Quality across your enterprise, giving you an estimate of your Code Quality license cost before it… The post GitHub Code Quality license estimate in public preview appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。"
+  ],
+  "watchlist": [
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。",
+    "本次只有 1 条高信号更新进入正式日报，说明当天有效增量偏少，后续要确认是否需要在周报层补充上下文。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-07-14: GitHub Code Quality license estimate in public preview",
+      "url": "https://github.blog/changelog/2026-07-13-github-code-quality-license-estimate-in-public-preview"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 1
+}
