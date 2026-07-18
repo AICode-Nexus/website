@@ -1,0 +1,87 @@
+---
+slug: daily-brief-2026-07-18
+title: "AI Coding Daily Brief | 2026-07-18 | Copilot、工作流与Agent的最新工程信号"
+description: "2026-07-18 AI coding 日报：GitHub Changelog 的 Repository-level GitHub Copilot usage metrics generally available；GitHub Changelog 的 GitHub Mobile: Fix pull request comments with Copilot cloud agent；GitHub Changelog 的 Copilot code review: Customization and configurability improvements。"
+tags: [ai-coding, daily-brief, agent, copilot, workflow, vscode]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-07-16 到 2026-07-18 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-07-18，GitHub Changelog 发布《Repository-level GitHub Copilot usage metrics generally available》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-07-18，GitHub Changelog 发布《GitHub Mobile: Fix pull request comments with Copilot cloud agent》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-07-18，GitHub Changelog 发布《Copilot code review: Customization and configurability improvements》，这会改变规则、验证和交接是如何串进日常交付流程的。
+- 2026-07-18，GitHub Changelog 发布《GitHub Copilot app now available in the usage metrics API》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+- 2026-07-16，VS Code 发布《Visual Studio Code 1.129》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+- 2026-07-16，GitHub Changelog 发布《Improvements to secret scanning and public monitoring》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+
+## What changed today
+
+### 1. 2026-07-18，GitHub Changelog：Repository-level GitHub Copilot usage metrics generally available
+
+- 事实：GitHub Changelog 在 2026-07-18 发布了这条更新。
+- 官方摘要：The Copilot usage metrics REST API now reports repository-level activity. Two new endpoints return a daily, per-repository breakdown of pull request activity for Copilot coding agent and Copilot code review.… The post Repository-level GitHub Copilot usage metrics generally available appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 2. 2026-07-18，GitHub Changelog：GitHub Mobile: Fix pull request comments with Copilot cloud agent
+
+- 事实：GitHub Changelog 在 2026-07-18 发布了这条更新。
+- 官方摘要：You can now select Fix with Copilot directly from Copilot code review pull request comments in GitHub Mobile. The button is available both on the pull request’s main view and… The post GitHub Mobile: Fix pull request comments with Copilot cloud agent appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 3. 2026-07-18，GitHub Changelog：Copilot code review: Customization and configurability improvements
+
+- 事实：GitHub Changelog 在 2026-07-18 发布了这条更新。
+- 官方摘要：Copilot code review now utilizes a firewall, custom setup steps, and independent runner configurations. It now reads custom instructions from the head branch to allow for easy testing and validation… The post Copilot code review: Customization and configurability improvements appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+### 4. 2026-07-18，GitHub Changelog：GitHub Copilot app now available in the usage metrics API
+
+- 事实：GitHub Changelog 在 2026-07-18 发布了这条更新。
+- 官方摘要：The Copilot usage metrics API now reports the GitHub Copilot app usage in the enterprise and organization 1-day and 28-day reports. This gives enterprise and organization admins visibility into the… The post GitHub Copilot app now available in the usage metrics API appeared first on The GitHub Blog . 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+### 5. 2026-07-16，VS Code：Visual Studio Code 1.129
+
+- 事实：VS Code 在 2026-07-16 发布了这条更新。
+- 官方摘要：Learn what is new in Visual Studio Code 1.129. 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+### 6. 2026-07-16，GitHub Changelog：Improvements to secret scanning and public monitoring
+
+- 事实：GitHub Changelog 在 2026-07-16 发布了这条更新。
+- 官方摘要：This week, we’re rolling out several improvements to secret scanning and public monitoring: Resend is now a GitHub secret scanning partner. Secret scanning now detects new secret types from APIclub… The post Improvements to secret scanning and public monitoring appeared first on The GitHub Blog . 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+
+## Why it matters
+
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+2. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+3. 用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。
+
+## Watchlist
+
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-07-18: Repository-level GitHub Copilot usage metrics generally available](https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available)
+- [GitHub Changelog, 2026-07-18: GitHub Mobile: Fix pull request comments with Copilot cloud agent](https://github.blog/changelog/2026-07-17-github-mobile-fix-pull-request-comments-with-copilot-cloud-agent)
+- [GitHub Changelog, 2026-07-18: Copilot code review: Customization and configurability improvements](https://github.blog/changelog/2026-07-17-copilot-code-review-customization-and-configurability-improvements)
+- [GitHub Changelog, 2026-07-18: GitHub Copilot app now available in the usage metrics API](https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api)
+- [VS Code, 2026-07-16: Visual Studio Code 1.129](https://code.visualstudio.com/updates/v1_129)
+- [GitHub Changelog, 2026-07-16: Improvements to secret scanning and public monitoring](https://github.blog/changelog/2026-07-15-improvements-to-secret-scanning-and-public-monitoring)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
