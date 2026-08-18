@@ -1,0 +1,70 @@
+{
+  "date": "2026-08-18",
+  "slug": "daily-brief-2026-08-18",
+  "title": "安全的最新工程信号",
+  "description": "2026-08-18 AI coding 日报：OpenAI News 的 The Defender’s Window；Google AI Blog 的 Get closer to the game with Gemini and Pixel。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "security"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-08-16 到 2026-08-18 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-08-17，OpenAI News 发布《The Defender’s Window》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-08-17，Google AI Blog 发布《Get closer to the game with Gemini and Pixel》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-08-17，OpenAI News：The Defender’s Window",
+      "details": [
+        "事实：OpenAI News 在 2026-08-17 发布了这条更新。",
+        "官方摘要：AI is reshaping cybersecurity for attackers and defenders alike. Learn how OpenAI is strengthening its defenses and what security teams can do now. ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "2. 2026-08-17，Google AI Blog：Get closer to the game with Gemini and Pixel",
+      "details": [
+        "事实：Google AI Blog 在 2026-08-17 发布了这条更新。",
+        "官方摘要：Google Gemini and Pixel partner with five global football clubs to elevate the fan matchday experience through AI and Smartphone Technology. ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。",
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。"
+  ],
+  "watchlist": [
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。",
+    "本次只有 2 条高信号更新进入正式日报，说明当天有效增量偏少，后续要确认是否需要在周报层补充上下文。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "OpenAI News, 2026-08-17: The Defender’s Window",
+      "url": "https://openai.com/index/the-defenders-window"
+    },
+    {
+      "title": "Google AI Blog, 2026-08-17: Get closer to the game with Gemini and Pixel",
+      "url": "https://blog.google/products-and-platforms/products/gemini/google-gemini-pixel-football-club-partnerships/"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 2
+}
