@@ -1,0 +1,89 @@
+---
+slug: daily-brief-2026-08-26
+title: "AI Coding Daily Brief | 2026-08-26 | 模型、工作流与MCP的最新工程信号"
+description: "2026-08-26 AI coding 日报：GitHub Changelog 的 GitHub Copilot app Customize tab is generally available；VS Code 的 Visual Studio Code 1.135 (Insiders)；GitHub Changelog 的 Block users directly from security advisories。"
+tags: [ai-coding, daily-brief, copilot, mcp, workflow, vscode]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-08-24 到 2026-08-26 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-08-26，GitHub Changelog 发布《GitHub Copilot app Customize tab is generally available》，这说明工具上下文和外部系统接入还在继续标准化，适合评估是否纳入现有开发工作台。
+- 2026-08-26，VS Code 发布《Visual Studio Code 1.135 (Insiders)》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+- 2026-08-26，GitHub Changelog 发布《Block users directly from security advisories》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+- 2026-08-25，OpenAI News 发布《Introducing the Admin plugin for ChatGPT Work and Codex》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-08-24，OpenAI News 发布《Advancing price-performance for developers with GPT‑5.6 in Kiro》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-08-25，OpenAI News 发布《The full stack behind abundant intelligence》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+
+## What changed today
+
+### 1. 2026-08-26，GitHub Changelog：GitHub Copilot app Customize tab is generally available
+
+- 事实：GitHub Changelog 在 2026-08-26 发布了这条更新。
+- 官方摘要：GitHub Copilot is more useful when it works with the tools, knowledge, and workflows your team already relies on. The new Customize tab in the GitHub Copilot app brings MCP… The post GitHub Copilot app Customize tab is generally available appeared first on The GitHub Blog . 
+- 工程影响：这说明工具上下文和外部系统接入还在继续标准化，适合评估是否纳入现有开发工作台。
+### 2. 2026-08-26，VS Code：Visual Studio Code 1.135 (Insiders)
+
+- 事实：VS Code 在 2026-08-26 发布了这条更新。
+- 官方摘要：Learn what's new in Visual Studio Code 1.135 (Insiders) 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+### 3. 2026-08-26，GitHub Changelog：Block users directly from security advisories
+
+- 事实：GitHub Changelog 在 2026-08-26 发布了这条更新。
+- 官方摘要：You can now block a user directly from a security advisory page in public repositories owned by either an organization or a personal account. This brings the streamlined moderation experience… The post Block users directly from security advisories appeared first on The GitHub Blog . 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+### 4. 2026-08-25，OpenAI News：Introducing the Admin plugin for ChatGPT Work and Codex
+
+- 事实：OpenAI News 在 2026-08-25 发布了这条更新。
+- 官方摘要：Use the Admin plugin for ChatGPT Work and Codex to analyze workspace usage, manage members and permissions, adjust limits, and act on admin requests. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 5. 2026-08-24，OpenAI News：Advancing price-performance for developers with GPT‑5.6 in Kiro
+
+- 事实：OpenAI News 在 2026-08-24 发布了这条更新。
+- 官方摘要：GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 6. 2026-08-25，OpenAI News：The full stack behind abundant intelligence
+
+- 事实：OpenAI News 在 2026-08-25 发布了这条更新。
+- 官方摘要：OpenAI CFO Sarah Friar explains how advances across chips, compute, models, and products compound to deliver more useful intelligence at greater scale and lower cost. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 在隔离仓库里接入对应 MCP server，验证上下文注入、权限边界和回滚路径是否满足团队要求。
+2. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+3. 用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。
+4. 拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- MCP 或工具接入能力是否会在更多主流工作台里收敛成默认标准。
+- AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-08-26: GitHub Copilot app Customize tab is generally available](https://github.blog/changelog/2026-08-25-github-copilot-app-customize-tab-is-generally-available)
+- [VS Code, 2026-08-26: Visual Studio Code 1.135 (Insiders)](https://code.visualstudio.com/updates/v1_135)
+- [GitHub Changelog, 2026-08-26: Block users directly from security advisories](https://github.blog/changelog/2026-08-25-block-users-directly-from-security-advisories)
+- [OpenAI News, 2026-08-25: Introducing the Admin plugin for ChatGPT Work and Codex](https://openai.com/index/introducing-admin-plugin)
+- [OpenAI News, 2026-08-24: Advancing price-performance for developers with GPT‑5.6 in Kiro](https://openai.com/index/gpt-5-6-in-kiro)
+- [OpenAI News, 2026-08-25: The full stack behind abundant intelligence](https://openai.com/index/the-full-stack-behind-abundant-intelligence)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
