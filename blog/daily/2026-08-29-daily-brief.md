@@ -1,0 +1,88 @@
+---
+slug: daily-brief-2026-08-29
+title: "AI Coding Daily Brief | 2026-08-29 | Copilot、工作流与Agent的最新工程信号"
+description: "2026-08-29 AI coding 日报：GitHub Changelog 的 GitHub Copilot in Visual Studio — August update；GitHub Changelog 的 GitHub Copilot weekly releases — August 24；GitHub Changelog 的 Copilot code review: Resolution reasons and expanded capabilities。"
+tags: [ai-coding, daily-brief, copilot, workflow, agent, vscode]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-08-27 到 2026-08-29 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-08-29，GitHub Changelog 发布《GitHub Copilot in Visual Studio — August update》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-08-29，GitHub Changelog 发布《GitHub Copilot weekly releases — August 24》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+- 2026-08-28，GitHub Changelog 发布《Copilot code review: Resolution reasons and expanded capabilities》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-08-27，GitHub Changelog 发布《Global model policy generally available》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-08-28，GitHub Changelog 发布《Upcoming changes to GitHub Copilot policies and billing》，这会改变规则、验证和交接是如何串进日常交付流程的。
+- 2026-08-27，VS Code 发布《Visual Studio Code 1.135》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+
+## What changed today
+
+### 1. 2026-08-29，GitHub Changelog：GitHub Copilot in Visual Studio — August update
+
+- 事实：GitHub Changelog 在 2026-08-29 发布了这条更新。
+- 官方摘要：August 2026 brought more control over how GitHub Copilot reasons, which models you use, how teams share specialized agents, and when you ask for a code review. Highlights Here’s what’s… The post GitHub Copilot in Visual Studio — August update appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 2. 2026-08-29，GitHub Changelog：GitHub Copilot weekly releases — August 24
+
+- 事实：GitHub Changelog 在 2026-08-29 发布了这条更新。
+- 官方摘要：This week’s updates give you more control over how Copilot runs, from team sessions in Slack and Teams to customization across the app, CLI, and your IDE. GitHub Copilot in… The post GitHub Copilot weekly releases — August 24 appeared first on The GitHub Blog . 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+### 3. 2026-08-28，GitHub Changelog：Copilot code review: Resolution reasons and expanded capabilities
+
+- 事实：GitHub Changelog 在 2026-08-28 发布了这条更新。
+- 官方摘要：Copilot code review can now review two types of pull requests it didn’t cover before: Reviews requested automatically on pull requests authored by bots, including Copilot cloud agent Very large… The post Copilot code review: Resolution reasons and expanded capabilities appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 4. 2026-08-27，GitHub Changelog：Global model policy generally available
+
+- 事实：GitHub Changelog 在 2026-08-27 发布了这条更新。
+- 官方摘要：In July, we announced a default model policy for generally available GitHub Copilot models on Copilot Business and Copilot Enterprise plans. Starting today, we’re gradually rolling out enforcement of the… The post Global model policy generally available appeared first on The GitHub Blog . 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 5. 2026-08-28，GitHub Changelog：Upcoming changes to GitHub Copilot policies and billing
+
+- 事实：GitHub Changelog 在 2026-08-28 发布了这条更新。
+- 官方摘要：To provide a strong, consistent Copilot experience, we’re making three separate, upcoming changes to Copilot policies and billing. Please review the upcoming updates to understand what may impact you. Reopening… The post Upcoming changes to GitHub Copilot policies and billing appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+### 6. 2026-08-27，VS Code：Visual Studio Code 1.135
+
+- 事实：VS Code 在 2026-08-27 发布了这条更新。
+- 官方摘要：Learn what's new in Visual Studio Code 1.135 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+2. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+3. 拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-08-29: GitHub Copilot in Visual Studio — August update](https://github.blog/changelog/2026-08-28-github-copilot-in-visual-studio-august-update-2)
+- [GitHub Changelog, 2026-08-29: GitHub Copilot weekly releases — August 24](https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24)
+- [GitHub Changelog, 2026-08-28: Copilot code review: Resolution reasons and expanded capabilities](https://github.blog/changelog/2026-08-27-copilot-code-review-resolution-reasons-and-expanded-capabilities)
+- [GitHub Changelog, 2026-08-27: Global model policy generally available](https://github.blog/changelog/2026-08-26-global-model-policy-generally-available)
+- [GitHub Changelog, 2026-08-28: Upcoming changes to GitHub Copilot policies and billing](https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing)
+- [VS Code, 2026-08-27: Visual Studio Code 1.135](https://code.visualstudio.com/updates/v1_135)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
