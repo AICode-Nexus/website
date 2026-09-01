@@ -1,4 +1,5 @@
 import {defineAiDirectoryCatalog} from '@site/src/utils/aiDirectory';
+import {AI_DIRECTORY_LOGO_SRC_BY_ID} from '@site/src/data/aiDirectoryLogos';
 
 const reviewedAt = '2026-05-25';
 const sourceWindowEnd = '2026-05-25';
@@ -8,6 +9,7 @@ function entry(record) {
     reviewedAt,
     sourceWindowEnd,
     featured: false,
+    logoSrc: AI_DIRECTORY_LOGO_SRC_BY_ID[record.id],
     ...record,
   };
 }
