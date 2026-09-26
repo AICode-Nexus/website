@@ -1,0 +1,89 @@
+---
+slug: daily-brief-2026-09-26
+title: "AI Coding Daily Brief | 2026-09-26 | Copilot、工作流与模型的最新工程信号"
+description: "2026-09-26 AI coding 日报：GitHub Changelog 的 Agentic autofix now uses Copilot Memory；GitHub Changelog 的 GitHub Copilot weekly releases — September 21；GitHub Changelog 的 Usage metrics API adds pull request review stages。"
+tags: [ai-coding, daily-brief, agent, copilot, security, workflow]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-09-24 到 2026-09-26 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-09-26，GitHub Changelog 发布《Agentic autofix now uses Copilot Memory》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+- 2026-09-26，GitHub Changelog 发布《GitHub Copilot weekly releases — September 21》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-09-26，GitHub Changelog 发布《Usage metrics API adds pull request review stages》，这会改变规则、验证和交接是如何串进日常交付流程的。
+- 2026-09-26，OpenAI News 发布《Proaction boosts sales 60% and saves 75+ hours with Codex》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-09-26，GitHub Changelog 发布《Enterprise managed settings in-product validator》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+- 2026-09-26，GitHub Changelog 发布《Changes to query results in the GitHub Actions API and UI》，这会改变规则、验证和交接是如何串进日常交付流程的。
+
+## What changed today
+
+### 1. 2026-09-26，GitHub Changelog：Agentic autofix now uses Copilot Memory
+
+- 事实：GitHub Changelog 在 2026-09-26 发布了这条更新。
+- 官方摘要：Agentic autofix now uses Copilot Memory for customers who’ve enabled it. When you use agentic autofix, it reviews existing memories for context that can help resolve security alerts. When it… The post Agentic autofix now uses Copilot Memory appeared first on The GitHub Blog . 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+### 2. 2026-09-26，GitHub Changelog：GitHub Copilot weekly releases — September 21
+
+- 事实：GitHub Changelog 在 2026-09-26 发布了这条更新。
+- 官方摘要：This week’s releases add new models to Copilot, local sandboxing in the Copilot app, and updates to Copilot in Slack, Microsoft Teams, JetBrains, and VS Code. GitHub Copilot Claude Opus… The post GitHub Copilot weekly releases — September 21 appeared first on The GitHub Blog . 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 3. 2026-09-26，GitHub Changelog：Usage metrics API adds pull request review stages
+
+- 事实：GitHub Changelog 在 2026-09-26 发布了这条更新。
+- 官方摘要：The enterprise and organization repository-level Copilot usage metrics reports now break down how long pull requests spend in each stage of review. A new pull_request_review_times array on each repos-1-day row… The post Usage metrics API adds pull request review stages appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+### 4. 2026-09-26，OpenAI News：Proaction boosts sales 60% and saves 75+ hours with Codex
+
+- 事实：OpenAI News 在 2026-09-26 发布了这条更新。
+- 官方摘要：With Codex, GPT-Live-1, and GPT-6 Astra, Proaction builds, operates, and sells modern fleet management faster. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 5. 2026-09-26，GitHub Changelog：Enterprise managed settings in-product validator
+
+- 事实：GitHub Changelog 在 2026-09-26 发布了这条更新。
+- 官方摘要：You can now use an in-product validator for enterprise managed settings for GitHub Copilot. The validator detects malformed JSON, unsupported configurations, invalid team mappings, and other errors that can prevent… The post Enterprise managed settings in-product validator appeared first on The GitHub Blog . 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+### 6. 2026-09-26，GitHub Changelog：Changes to query results in the GitHub Actions API and UI
+
+- 事实：GitHub Changelog 在 2026-09-26 发布了这条更新。
+- 官方摘要：Queries for workflow runs in the GitHub Actions API and UI now return a less precise but more accurate count of records when you search by workflow, event, status, branch,… The post Changes to query results in the GitHub Actions API and UI appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。
+2. 拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。
+3. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-09-26: Agentic autofix now uses Copilot Memory](https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory)
+- [GitHub Changelog, 2026-09-26: GitHub Copilot weekly releases — September 21](https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21)
+- [GitHub Changelog, 2026-09-26: Usage metrics API adds pull request review stages](https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages)
+- [OpenAI News, 2026-09-26: Proaction boosts sales 60% and saves 75+ hours with Codex](https://openai.com/index/proaction)
+- [GitHub Changelog, 2026-09-26: Enterprise managed settings in-product validator](https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator)
+- [GitHub Changelog, 2026-09-26: Changes to query results in the GitHub Actions API and UI](https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
