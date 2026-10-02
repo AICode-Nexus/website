@@ -1,0 +1,87 @@
+---
+slug: daily-brief-2026-10-02
+title: "AI Coding Daily Brief | 2026-10-02 | 工作流、安全与Copilot的最新工程信号"
+description: "2026-10-02 AI coding 日报：GitHub Changelog 的 GitHub Copilot in VS Code, September 2026 releases；GitHub Changelog 的 Dynamic workflows in Copilot CLI and the Copilot app；GitHub Changelog 的 GitHub Copilot can now interact with desktop apps with computer use。"
+tags: [ai-coding, daily-brief, agent, copilot, vscode, workflow]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-09-30 到 2026-10-02 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-10-02，GitHub Changelog 发布《GitHub Copilot in VS Code, September 2026 releases》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-10-02，GitHub Changelog 发布《Dynamic workflows in Copilot CLI and the Copilot app》，这会改变规则、验证和交接是如何串进日常交付流程的。
+- 2026-10-02，GitHub Changelog 发布《GitHub Copilot can now interact with desktop apps with computer use》，这会改变规则、验证和交接是如何串进日常交付流程的。
+- 2026-10-02，GitHub Changelog 发布《Scheduled code scanning skips inactive repositories》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+- 2026-10-02，GitHub Changelog 发布《Code coverage uploads no longer fail CI for new branches》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+- 2026-10-02，GitHub Changelog 发布《Rate limits for private vulnerability reports》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+
+## What changed today
+
+### 1. 2026-10-02，GitHub Changelog：GitHub Copilot in VS Code, September 2026 releases
+
+- 事实：GitHub Changelog 在 2026-10-02 发布了这条更新。
+- 官方摘要：This changelog covers VS Code v1.136 through v1.140, shipped throughout September 2026. September’s releases streamline agent-driven development from implementation through pull request merge. Automations handle repeatable tasks, agent merge helps… The post GitHub Copilot in VS Code, September 2026 releases appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 2. 2026-10-02，GitHub Changelog：Dynamic workflows in Copilot CLI and the Copilot app
+
+- 事实：GitHub Changelog 在 2026-10-02 发布了这条更新。
+- 官方摘要：Dynamic workflows are now available in Copilot CLI, the GitHub Copilot app, and the GitHub Copilot SDK. These let you define an orchestration in code to get the reliability and… The post Dynamic workflows in Copilot CLI and the Copilot app appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+### 3. 2026-10-02，GitHub Changelog：GitHub Copilot can now interact with desktop apps with computer use
+
+- 事实：GitHub Changelog 在 2026-10-02 发布了这条更新。
+- 官方摘要：Computer use is now available in public preview in GitHub Copilot CLI and the GitHub Copilot app on macOS and Windows. Copilot can interact with desktop applications on your behalf… The post GitHub Copilot can now interact with desktop apps with computer use appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+### 4. 2026-10-02，GitHub Changelog：Scheduled code scanning skips inactive repositories
+
+- 事实：GitHub Changelog 在 2026-10-02 发布了这条更新。
+- 官方摘要：Weekly scheduled scans for code scanning default setup and GitHub Code Quality now start only after a push or pull request triggers an analysis, rather than counting every kind of… The post Scheduled code scanning skips inactive repositories appeared first on The GitHub Blog . 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+### 5. 2026-10-02，GitHub Changelog：Code coverage uploads no longer fail CI for new branches
+
+- 事实：GitHub Changelog 在 2026-10-02 发布了这条更新。
+- 官方摘要：Code coverage uploads from the GitHub Code Quality upload-code-coverage action no longer fail CI when you push a branch that doesn’t yet have an open pull request. Previously, the coverage… The post Code coverage uploads no longer fail CI for new branches appeared first on The GitHub Blog . 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+### 6. 2026-10-02，GitHub Changelog：Rate limits for private vulnerability reports
+
+- 事实：GitHub Changelog 在 2026-10-02 发布了这条更新。
+- 官方摘要：Open source maintainers are receiving more low-quality and automated vulnerability reports, which can bury the reports that matter. Rate limits cap how many new reports a single account can submit… The post Rate limits for private vulnerability reports appeared first on The GitHub Blog . 
+- 工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。
+
+## Why it matters
+
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+2. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+3. 用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。
+
+## Watchlist
+
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-10-02: GitHub Copilot in VS Code, September 2026 releases](https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases)
+- [GitHub Changelog, 2026-10-02: Dynamic workflows in Copilot CLI and the Copilot app](https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app)
+- [GitHub Changelog, 2026-10-02: GitHub Copilot can now interact with desktop apps with computer use](https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps)
+- [GitHub Changelog, 2026-10-02: Scheduled code scanning skips inactive repositories](https://github.blog/changelog/2026-10-01-scheduled-code-scanning-skips-inactive-repositories)
+- [GitHub Changelog, 2026-10-02: Code coverage uploads no longer fail CI for new branches](https://github.blog/changelog/2026-10-01-code-coverage-uploads-no-longer-fail-ci-for-new-branches)
+- [GitHub Changelog, 2026-10-02: Rate limits for private vulnerability reports](https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
