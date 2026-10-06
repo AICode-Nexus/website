@@ -46,6 +46,18 @@ function ensureOptionalHttpUrl(value, fieldName) {
   return url;
 }
 
+function ensureStaticImagePath(value, fieldName) {
+  const pathValue = ensureString(value, fieldName);
+
+  if (!/^\/img\/ai-directory\/logos\/[^/]+\.(?:svg|png|webp|jpe?g|ico|avif)$/u.test(pathValue)) {
+    throw new Error(
+      `AI directory field "${fieldName}" must point to a local /img/ai-directory/logos image asset.`,
+    );
+  }
+
+  return pathValue;
+}
+
 function ensureUniqueIds(items, fieldName) {
   const ids = new Set();
 
@@ -265,6 +277,7 @@ export function defineAiDirectoryCatalog(catalog) {
       categoryId,
       name: ensureString(entry.name, `${fieldName}.name`),
       resourceType: ensureEnumValue(entry.resourceType, `${fieldName}.resourceType`, VALID_RESOURCE_TYPES),
+      logoSrc: ensureStaticImagePath(entry.logoSrc, `${fieldName}.logoSrc`),
       officialUrl,
       docsUrl,
       repoUrl,

@@ -77,7 +77,7 @@ function ResourceCard({entry}) {
   const primaryLink = getPrimaryLink(entry);
   const href = primaryLink?.href ?? '#';
   const host = getHostname(href);
-  const logoPath = aiDirectoryLogoPaths[entry.id];
+  const logoPath = entry.logoSrc ?? aiDirectoryLogoPaths[entry.id];
   const logoSource = useBaseUrl(logoPath ?? '');
   const logoTone = getLogoTone(entry.id);
   const trendLabel = getShortTrendLabel(entry.trendStatus);
