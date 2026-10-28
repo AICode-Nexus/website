@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-28",
+  "slug": "daily-brief-2026-10-28",
+  "title": "工作流、Agent与模型的最新工程信号",
+  "description": "2026-10-28 AI coding 日报：GitHub Changelog 的 GitHub Copilot supports server-to-server authentication；GitHub Changelog 的 GPT-6.1 Terra in GitHub Copilot；OpenAI News 的 GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "copilot",
+    "workflow",
+    "agent",
+    "security"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-10-26 到 2026-10-28 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-10-28，GitHub Changelog 发布《GitHub Copilot supports server-to-server authentication》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-10-27，GitHub Changelog 发布《GPT-6.1 Terra in GitHub Copilot》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-10-26，OpenAI News 发布《GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-10-27，OpenAI News 发布《Retell uses OpenAI models to help power 100M monthly calls》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-10-27，OpenAI News 发布《Greptile takes bug detection beyond code review with GPT-6 Astra》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-10-26，OpenAI News 发布《How Ultrafast cut incident investigation from hours to minutes at OpenAI》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-10-28，GitHub Changelog：GitHub Copilot supports server-to-server authentication",
+      "details": [
+        "事实：GitHub Changelog 在 2026-10-28 发布了这条更新。",
+        "官方摘要：GitHub Copilot now supports server-to-server authentication for GitHub Apps installed on organizations, available in public preview. Services and agents built with the GitHub Copilot SDK can now make requests on… The post GitHub Copilot supports server-to-server authentication appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "2. 2026-10-27，GitHub Changelog：GPT-6.1 Terra in GitHub Copilot",
+      "details": [
+        "事实：GitHub Changelog 在 2026-10-27 发布了这条更新。",
+        "官方摘要：GPT-6.1 Terra, OpenAI’s newest model, is now generally available in GitHub Copilot. It is designed for everyday agentic coding and terminal work at a lower cost than GPT-6.1 Sol. In… The post GPT-6.1 Terra in GitHub Copilot appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "3. 2026-10-26，OpenAI News：GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+      "details": [
+        "事实：OpenAI News 在 2026-10-26 发布了这条更新。",
+        "官方摘要：CodeRabbit uses GPT-6.1 Sol to investigate security risks across complex codebases. Its security agent helps developers review findings and proposed fixes. ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "4. 2026-10-27，OpenAI News：Retell uses OpenAI models to help power 100M monthly calls",
+      "details": [
+        "事实：OpenAI News 在 2026-10-27 发布了这条更新。",
+        "官方摘要：GPT-6 Astra tops Retell’s voice agent benchmark, while Codex helps it reach a $1.6M annual revenue run rate per employee. ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "5. 2026-10-27，OpenAI News：Greptile takes bug detection beyond code review with GPT-6 Astra",
+      "details": [
+        "事实：OpenAI News 在 2026-10-27 发布了这条更新。",
+        "官方摘要：How Greptile uses GPT-6 Astra to test user workflows, Daybreak to strengthen security, and Codex to reduce rework. ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "6. 2026-10-26，OpenAI News：How Ultrafast cut incident investigation from hours to minutes at OpenAI",
+      "details": [
+        "事实：OpenAI News 在 2026-10-26 发布了这条更新。",
+        "官方摘要：See how OpenAI engineers use Codex Ultrafast to investigate incidents in minutes. Explore faster security analysis, code refactoring, and daily workflows. ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。",
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-10-28: GitHub Copilot supports server-to-server authentication",
+      "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication"
+    },
+    {
+      "title": "GitHub Changelog, 2026-10-27: GPT-6.1 Terra in GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot"
+    },
+    {
+      "title": "OpenAI News, 2026-10-26: GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security"
+    },
+    {
+      "title": "OpenAI News, 2026-10-27: Retell uses OpenAI models to help power 100M monthly calls",
+      "url": "https://openai.com/index/retell-ai"
+    },
+    {
+      "title": "OpenAI News, 2026-10-27: Greptile takes bug detection beyond code review with GPT-6 Astra",
+      "url": "https://openai.com/index/greptile-code-review-codex-astra"
+    },
+    {
+      "title": "OpenAI News, 2026-10-26: How Ultrafast cut incident investigation from hours to minutes at OpenAI",
+      "url": "https://openai.com/index/openai-cut-incident-investigation"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
