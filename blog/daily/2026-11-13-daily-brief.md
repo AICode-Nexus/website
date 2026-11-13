@@ -1,0 +1,86 @@
+---
+slug: daily-brief-2026-11-13
+title: "AI Coding Daily Brief | 2026-11-13 | 模型、Agent与Copilot的最新工程信号"
+description: "2026-11-13 AI coding 日报：OpenAI News 的 How Amplitude ships product improvements in 1–2 days with OpenAI；Google AI Blog 的 Google Search gets a major upgrade with Gemini 4 Hydrogen；GitHub Changelog 的 Gemini 4 Carbon in GitHub Copilot。"
+tags: [ai-coding, daily-brief, agent, copilot, codex]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-11-11 到 2026-11-13 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-11-13，OpenAI News 发布《How Amplitude ships product improvements in 1–2 days with OpenAI》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-11-13，Google AI Blog 发布《Google Search gets a major upgrade with Gemini 4 Hydrogen》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-11-11，GitHub Changelog 发布《Gemini 4 Carbon in GitHub Copilot》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-11-11，GitHub Changelog 发布《C++ language server now auto-configures MSBuild builds》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-11-12，OpenAI News 发布《Gondola doubles revenue as its team builds more with Codex》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+- 2026-11-12，Google AI Blog 发布《Gemini Decisions API: Fast, calibrated multimodal decisions》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+
+## What changed today
+
+### 1. 2026-11-13，OpenAI News：How Amplitude ships product improvements in 1–2 days with OpenAI
+
+- 事实：OpenAI News 在 2026-11-13 发布了这条更新。
+- 官方摘要：Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measures the impact. 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 2. 2026-11-13，Google AI Blog：Google Search gets a major upgrade with Gemini 4 Hydrogen
+
+- 事实：Google AI Blog 在 2026-11-13 发布了这条更新。
+- 官方摘要：We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 3. 2026-11-11，GitHub Changelog：Gemini 4 Carbon in GitHub Copilot
+
+- 事实：GitHub Changelog 在 2026-11-11 发布了这条更新。
+- 官方摘要：Gemini 4 Carbon, Google’s latest model, is now generally available in GitHub Copilot. It is designed for complex coding, agentic, and reasoning tasks, with a focus on secure code generation… The post Gemini 4 Carbon in GitHub Copilot appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 4. 2026-11-11，GitHub Changelog：C++ language server now auto-configures MSBuild builds
+
+- 事实：GitHub Changelog 在 2026-11-11 发布了这条更新。
+- 官方摘要：The Microsoft C++ Language Server for GitHub Copilot CLI now bundles its MSBuild compile commands extractor and invokes it automatically. An agent no longer needs to discover and run a… The post C++ language server now auto-configures MSBuild builds appeared first on The GitHub Blog . 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 5. 2026-11-12，OpenAI News：Gondola doubles revenue as its team builds more with Codex
+
+- 事实：OpenAI News 在 2026-11-12 发布了这条更新。
+- 官方摘要：Gondola helps creatives get credit and get hired, with Codex raising its lead engineer’s output by 50% and ChatGPT simplifying daily work. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+### 6. 2026-11-12，Google AI Blog：Gemini Decisions API: Fast, calibrated multimodal decisions
+
+- 事实：Google AI Blog 在 2026-11-12 发布了这条更新。
+- 官方摘要：Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions. 
+- 工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+2. 拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [OpenAI News, 2026-11-13: How Amplitude ships product improvements in 1–2 days with OpenAI](https://openai.com/business/customer-stories/amplitude)
+- [Google AI Blog, 2026-11-13: Google Search gets a major upgrade with Gemini 4 Hydrogen](https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/)
+- [GitHub Changelog, 2026-11-11: Gemini 4 Carbon in GitHub Copilot](https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot)
+- [GitHub Changelog, 2026-11-11: C++ language server now auto-configures MSBuild builds](https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds)
+- [OpenAI News, 2026-11-12: Gondola doubles revenue as its team builds more with Codex](https://openai.com/business/customer-stories/gondola)
+- [Google AI Blog, 2026-11-12: Gemini Decisions API: Fast, calibrated multimodal decisions](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
