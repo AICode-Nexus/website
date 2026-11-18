@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-18",
+  "slug": "daily-brief-2026-11-18",
+  "title": "模型、Copilot与Agent的最新工程信号",
+  "description": "2026-11-18 AI coding 日报：GitHub Changelog 的 OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available；GitHub Changelog 的 GitHub Copilot Evals is now in public preview；OpenAI News 的 Introducing GPT-6.2 Astra and Sol。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "copilot",
+    "workflow",
+    "agent",
+    "codex"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-11-16 到 2026-11-18 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-11-18，GitHub Changelog 发布《OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-11-18，GitHub Changelog 发布《GitHub Copilot Evals is now in public preview》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-11-18，OpenAI News 发布《Introducing GPT-6.2 Astra and Sol》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。",
+    "2026-11-18，GitHub Changelog 发布《GitHub Copilot Fusion updates: more availability, benchmarks, and models》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。",
+    "2026-11-18，GitHub Changelog 发布《Monitor GitHub Copilot activity through Microsoft Agent 365》，这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。",
+    "2026-11-18，GitHub Changelog 发布《MAI Code 2 and MAI Code 2 Flash in GitHub Copilot》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-11-18，GitHub Changelog：OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available",
+      "details": [
+        "事实：GitHub Changelog 在 2026-11-18 发布了这条更新。",
+        "官方摘要：OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol are now generally available in GitHub Copilot. Both models are designed for agentic coding and code review, with stronger coding judgment than earlier GPT-6… The post OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "2. 2026-11-18，GitHub Changelog：GitHub Copilot Evals is now in public preview",
+      "details": [
+        "事实：GitHub Changelog 在 2026-11-18 发布了这条更新。",
+        "官方摘要：You can now use GitHub Copilot Evals to optimize GitHub Copilot for yourself. As your prompts, models, skills, and tools change, are you still getting the most out of Copilot?… The post GitHub Copilot Evals is now in public preview appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "3. 2026-11-18，OpenAI News：Introducing GPT-6.2 Astra and Sol",
+      "details": [
+        "事实：OpenAI News 在 2026-11-18 发布了这条更新。",
+        "官方摘要：Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API. ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    },
+    {
+      "title": "4. 2026-11-18，GitHub Changelog：GitHub Copilot Fusion updates: more availability, benchmarks, and models",
+      "details": [
+        "事实：GitHub Changelog 在 2026-11-18 发布了这条更新。",
+        "官方摘要：Today, we’re expanding GitHub Copilot Fusion with new models, available on more Copilot surfaces, and results on two public Terminal-Bench leaderboards, giving you more ways to use Fusion and compare… The post GitHub Copilot Fusion updates: more availability, benchmarks, and models appeared first on The GitHub Blog . ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    },
+    {
+      "title": "5. 2026-11-18，GitHub Changelog：Monitor GitHub Copilot activity through Microsoft Agent 365",
+      "details": [
+        "事实：GitHub Changelog 在 2026-11-18 发布了这条更新。",
+        "官方摘要：Enterprises can now stream GitHub Copilot agent activity directly into Microsoft Agent 365. This lets you bring audit data from across GitHub Copilot clients into Microsoft’s agent control plane, where… The post Monitor GitHub Copilot activity through Microsoft Agent 365 appeared first on The GitHub Blog . ",
+        "工程影响：这类更新值得放进安全验证清单，重点看误报率、补丁质量和是否能进入现有评审流程。"
+      ]
+    },
+    {
+      "title": "6. 2026-11-18，GitHub Changelog：MAI Code 2 and MAI Code 2 Flash in GitHub Copilot",
+      "details": [
+        "事实：GitHub Changelog 在 2026-11-18 发布了这条更新。",
+        "官方摘要：The next generation of Microsoft AI (MAI) coding models has arrived in GitHub Copilot. Introducing MAI Code 2 and MAI Code 2 Flash, two new models that represent a major… The post MAI Code 2 and MAI Code 2 Flash in GitHub Copilot appeared first on The GitHub Blog . ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。",
+    "拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。",
+    "用一组已知漏洞或安全回归样本验证这类安全 Agent 的误报率、补丁质量和 review 成本。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "AI 安全修复能力是否能在真实项目里保持低误报和高可验证性。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog, 2026-11-18: OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available",
+      "url": "https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available"
+    },
+    {
+      "title": "GitHub Changelog, 2026-11-18: GitHub Copilot Evals is now in public preview",
+      "url": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview"
+    },
+    {
+      "title": "OpenAI News, 2026-11-18: Introducing GPT-6.2 Astra and Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+    },
+    {
+      "title": "GitHub Changelog, 2026-11-18: GitHub Copilot Fusion updates: more availability, benchmarks, and models",
+      "url": "https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models"
+    },
+    {
+      "title": "GitHub Changelog, 2026-11-18: Monitor GitHub Copilot activity through Microsoft Agent 365",
+      "url": "https://github.blog/changelog/2026-11-17-monitor-github-copilot-activity-through-microsoft-agent-365"
+    },
+    {
+      "title": "GitHub Changelog, 2026-11-18: MAI Code 2 and MAI Code 2 Flash in GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
