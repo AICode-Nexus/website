@@ -1,0 +1,128 @@
+{
+  "date": "2026-11-25",
+  "slug": "daily-brief-2026-11-25",
+  "title": "Agent、模型与Codex的最新工程信号",
+  "description": "2026-11-25 AI coding 日报：Google AI Blog 的 How Gemini is changing the game for Golden State's organization and fans.；OpenAI News 的 Clay helps sales teams win with Codex and ChatGPT；GitHub Changelog 的 Issue statuses and repository boards are in public preview。",
+  "tags": [
+    "ai-coding",
+    "daily-brief",
+    "codex",
+    "workflow",
+    "agent"
+  ],
+  "draft": false,
+  "intro": "这篇 Daily Brief 覆盖 2026-11-23 到 2026-11-25 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。",
+  "summaryBullets": [
+    "2026-11-25，Google AI Blog 发布《How Gemini is changing the game for Golden State's organization and fans.》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-11-24，OpenAI News 发布《Clay helps sales teams win with Codex and ChatGPT》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。",
+    "2026-11-24，GitHub Changelog 发布《Issue statuses and repository boards are in public preview》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。",
+    "2026-11-24，OpenAI News 发布《GPT-6 models demonstrate intrinsic protein-design capabilities》，这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。",
+    "2026-11-24，OpenAI News 发布《Searching for distant planets with Astra》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。",
+    "2026-11-24，OpenAI News 发布《How iFood scales coding agents across 15,000 repositories》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+  ],
+  "keyChanges": [
+    {
+      "title": "1. 2026-11-25，Google AI Blog：How Gemini is changing the game for Golden State's organization and fans.",
+      "details": [
+        "事实：Google AI Blog 在 2026-11-25 发布了这条更新。",
+        "官方摘要：Google Gemini partners with Golden State to power fan experiences and business operations for the Warriors, Valkyries, and Chase Center. See the news. ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "2. 2026-11-24，OpenAI News：Clay helps sales teams win with Codex and ChatGPT",
+      "details": [
+        "事实：OpenAI News 在 2026-11-24 发布了这条更新。",
+        "官方摘要：ChatGPT and Codex integrations help Clay’s users research deals and turn data into go-to-market plays, with GPT-6 models handling the reasoning. ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    },
+    {
+      "title": "3. 2026-11-24，GitHub Changelog：Issue statuses and repository boards are in public preview",
+      "details": [
+        "事实：GitHub Changelog 在 2026-11-24 发布了这条更新。",
+        "官方摘要：Open or closed doesn’t always tell you where an issue stands. You can now use more specific statuses to give your team and agents shared context about what’s in flight… The post Issue statuses and repository boards are in public preview appeared first on The GitHub Blog . ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    },
+    {
+      "title": "4. 2026-11-24，OpenAI News：GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "details": [
+        "事实：OpenAI News 在 2026-11-24 发布了这条更新。",
+        "官方摘要：GPT-6 models design protein structures and sequences using reasoning and code. Lab tests found evidence of binding across five targets. ",
+        "工程影响：这会直接影响默认编码模型上限，值得拿现有高价值任务做并排测试。"
+      ]
+    },
+    {
+      "title": "5. 2026-11-24，OpenAI News：Searching for distant planets with Astra",
+      "details": [
+        "事实：OpenAI News 在 2026-11-24 发布了这条更新。",
+        "官方摘要：See how two amateur astronomers used Codex and Astra to find potential exoplanets in public data from NASA’s Kepler and TESS space telescopes. ",
+        "工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。"
+      ]
+    },
+    {
+      "title": "6. 2026-11-24，OpenAI News：How iFood scales coding agents across 15,000 repositories",
+      "details": [
+        "事实：OpenAI News 在 2026-11-24 发布了这条更新。",
+        "官方摘要：官方 feed 已收录该条目，完整内容可通过原文进一步核查。 ",
+        "工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。"
+      ]
+    }
+  ],
+  "whyItMatters": [
+    "主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。",
+    "Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。",
+    "工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。",
+    "对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。"
+  ],
+  "whatToTest": [
+    "把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。",
+    "拿现有仓库里的重构、多文件修改或审查任务，与当前默认模型做并排测试，记录返工率与稳定性。",
+    "挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。"
+  ],
+  "watchlist": [
+    "更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。",
+    "Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。",
+    "如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。",
+    "自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。"
+  ],
+  "relatedDocs": [
+    {
+      "label": "AI 工作流",
+      "href": "/docs/workflows"
+    },
+    {
+      "label": "AI 规范",
+      "href": "/docs/standards"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Google AI Blog, 2026-11-25: How Gemini is changing the game for Golden State's organization and fans.",
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/"
+    },
+    {
+      "title": "OpenAI News, 2026-11-24: Clay helps sales teams win with Codex and ChatGPT",
+      "url": "https://openai.com/business/customer-stories/clay-plugins-openai"
+    },
+    {
+      "title": "GitHub Changelog, 2026-11-24: Issue statuses and repository boards are in public preview",
+      "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview"
+    },
+    {
+      "title": "OpenAI News, 2026-11-24: GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
+    },
+    {
+      "title": "OpenAI News, 2026-11-24: Searching for distant planets with Astra",
+      "url": "https://openai.com/index/searching-for-distant-planets-with-astra"
+    },
+    {
+      "title": "OpenAI News, 2026-11-24: How iFood scales coding agents across 15,000 repositories",
+      "url": "https://openai.com/business/customer-stories/ifood"
+    }
+  ],
+  "generatedBy": "generate-daily-brief-auto",
+  "signalCount": 6
+}
