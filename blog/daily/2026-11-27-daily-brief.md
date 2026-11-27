@@ -1,0 +1,73 @@
+---
+slug: daily-brief-2026-11-27
+title: "AI Coding Daily Brief | 2026-11-27 | Agent、模型与工作流的最新工程信号"
+description: "2026-11-27 AI coding 日报：GitHub Changelog 的 Copilot code review billing will default to the organization；VS Code 的 Visual Studio Code 1.148；JetBrains AI Blog 的 Mellum2.1 Instruct Is Out, Bringing Faster Answers for Coding Agents。"
+tags: [ai-coding, daily-brief, copilot, workflow, vscode, agent]
+draft: false
+---
+
+这篇 Daily Brief 覆盖 2026-11-25 到 2026-11-27 的官方观察窗口，只保留会改变工程实践的 AI coding 信号。
+
+<!-- truncate -->
+
+## TL;DR
+
+- 2026-11-26，GitHub Changelog 发布《Copilot code review billing will default to the organization》，这会改变规则、验证和交接是如何串进日常交付流程的。
+- 2026-11-26，VS Code 发布《Visual Studio Code 1.148》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+- 2026-11-25，JetBrains AI Blog 发布《Mellum2.1 Instruct Is Out, Bringing Faster Answers for Coding Agents》，这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+- 2026-11-25，Google AI Blog 发布《How Gemini is changing the game for Golden State's organization and fans.》，这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+
+## What changed today
+
+### 1. 2026-11-26，GitHub Changelog：Copilot code review billing will default to the organization
+
+- 事实：GitHub Changelog 在 2026-11-26 发布了这条更新。
+- 官方摘要：If you haven’t chosen how to bill Copilot code review for members with a Copilot license, those reviews will be billed to your organization starting December 30, 2026. To keep… The post Copilot code review billing will default to the organization appeared first on The GitHub Blog . 
+- 工程影响：这会改变规则、验证和交接是如何串进日常交付流程的。
+### 2. 2026-11-26，VS Code：Visual Studio Code 1.148
+
+- 事实：VS Code 在 2026-11-26 发布了这条更新。
+- 官方摘要：Learn what's new in Visual Studio Code 1.148 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+### 3. 2026-11-25，JetBrains AI Blog：Mellum2.1 Instruct Is Out, Bringing Faster Answers for Coding Agents
+
+- 事实：JetBrains AI Blog 在 2026-11-25 发布了这条更新。
+- 官方摘要：The faster sibling of Mellum2.1 Thinking, built for sub-agents, tool loops, and chat. In October, we released Mellum2.1 Thinking, an open 12B mixture-of-experts model with 2.5B active parameters, trained to work as a coding agent. Today, we are releasing its sibling, Mellum2.1 Instruct. It is built on the same architecture and trained identically, but it […] 
+- 工程影响：这说明 Agent 能力继续从单轮对话转向可委派、可持续执行的工作流组件。
+### 4. 2026-11-25，Google AI Blog：How Gemini is changing the game for Golden State's organization and fans.
+
+- 事实：Google AI Blog 在 2026-11-25 发布了这条更新。
+- 官方摘要：Google Gemini partners with Golden State to power fan experiences and business operations for the Warriors, Valkyries, and Chase Center. See the news. 
+- 工程影响：这类入口层变化值得用真实仓库任务验证，而不是只看发布标题。
+
+## Why it matters
+
+- 主流产品仍在持续抬高编码模型上限，模型切换已经直接影响日常交付质量。
+- Agent 正在继续从聊天入口走向可持续执行、可连接流程系统的工程组件。
+- 工具接入、hooks、browser、MCP 与工作流控制面正在变成 AI coding 落地的关键差异点。
+- 对工程团队来说，更有价值的动作是把这些变化放进固定验证清单，而不是只看发布标题。
+
+## What to test
+
+1. 把这条更新放进日常主工作台里试跑一次真实任务，而不是只看演示页面。
+2. 挑一个边界清晰的任务，实际跑一次 Agent 执行链路，记录交接成本、失败模式和人工收口时间。
+
+## Watchlist
+
+- 更强编码模型进入主流入口后，速度、配额和稳定性是否足以支撑高频使用。
+- Agent 新能力是否真的降低了 issue 到 PR 的人工交接成本，而不是把压力后移到 review。
+- 如果接下来两三天同一主题持续重复出现，就值得回流到长期 docs，而不只停留在日报层。
+- 自动化注意：本次有官方源抓取失败（Anthropic News: 404 Not Found），明天需要确认这些源是否恢复。
+
+## Sources
+
+- [GitHub Changelog, 2026-11-26: Copilot code review billing will default to the organization](https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization)
+- [VS Code, 2026-11-26: Visual Studio Code 1.148](https://code.visualstudio.com/updates/v1_148)
+- [JetBrains AI Blog, 2026-11-25: Mellum2.1 Instruct Is Out, Bringing Faster Answers for Coding Agents](https://blog.jetbrains.com/ai/2026/11/mellum2-1-instruct-is-out-bringing-faster-answers-for-coding-agents/)
+- [Google AI Blog, 2026-11-25: How Gemini is changing the game for Golden State's organization and fans.](https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/)
+
+## Related docs
+
+- [AI 工作流](/docs/workflows)
+- [AI 规范](/docs/standards)
+
